@@ -190,6 +190,14 @@ a:hover {
 	padding: 5px 18px;
 }
 
+.topcontent h3 {
+	font-size: 150%;
+	color: #538d4c;
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
 .topcontent .box3 {
 	float: left;
 	width: 280px;
@@ -199,21 +207,33 @@ a:hover {
 	margin-top: 5px;
 }
 
-.topcontent .box2 {
-	float: left;
+.topcontent .box2r,
+.topcontent .box2l {
 	width: 430px;
 	height: 13em;
 	margin-left: 18px;
 	margin-right: 18px;
-	margin-top: 5px;
+	margin-top: 0;
+	margin-bottom: 2em;
+	text-align: justify;
 }
 
-.topcontent h3 {
-	font-size: 150%;
-	color: #538d4c;
+.topcontent .box2l {
+	float: left;
+}
+
+.topcontent .box2r {
+	float: right;
+}
+
+.topcontent .box2l h3,
+.topcontent .box2r h3 {
+	color: #222222;
+	font-size: 1.4em;
 	font-weight: normal;
-	margin-top: 0;
-	margin-bottom: 8px;
+	border-bottom: 1px solid #999;
+	margin-bottom: 0.3em;
+	padding-bottom: 0.2em;
 }
 
 .topcontent pre {
@@ -225,8 +245,10 @@ a:hover {
 	margin-bottom: 10px;
 }
 
-.topcontent ul, .topcontent ol {
+.topcontent ul,
+.topcontent ol {
 	margin-left: 2.5em;
+	margin-top: 0.8em;
 }
 
 .topcontent li {

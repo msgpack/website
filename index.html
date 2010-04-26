@@ -124,18 +124,35 @@
 
 	<div id="more" class="container topcontent">
 		<h2 id="LearnMore">Learn More</h2>
-		<ul>
-			<li><a href="/spec">MessagePack format specification</a></li>
-			<li><a href="http://github.com/msgpack/msgpack">Repository at github</a></li>
-			<li><a href="/start">Wiki</a></li>
-			<li><a href="http://github.com/msgpack/msgpack-rpc">MessagePack-RPC</a></li>
-		</ul>
+
+		<div class="box2r" style="height:16em;">
+			<h3>MessagePack-RPC</h3>
+			<p><a href="http://github.com/msgpack/msgpack-rpc">MessagePack-RPC</a> is an inter-process messaging library that uses MessagePack for object serialization.
+			The goal of the project is providing fast and scalable messaging system for server, client and cluster applications.<br />
+			Currently, C++ and Ruby implementations are available. Both of them are built on the top of scalable event-driven architecture and support synchronous,
+			asynchronous and callback interfaces.<br />
+			C++ implementation is fully multithreaded with <a href="http://github.com/frsyuki/mpio">mpio</a>, a multipurpose parallel I/O library.</p>
+		</div>
+
+		<div class="box2l" style="height:7em;">
+			<h3>Mailing List</h3>
+			<p><a href="https://lists.sourceforge.net/lists/listinfo/msgpack-list">msgpack-list</a> is for anyone who is interested in using, developing and porting the MessagePack.</p>
+		</div>
+
+		<div class="box2l" style="height:7em;">
+			<h3>Documents and sources</h3>
+			<ul>
+				<li><a href="/spec">MessagePack format specification</a></li>
+				<li><a href="http://github.com/msgpack/msgpack">Repository at github</a></li>
+				<li><a href="/start">Wiki</a></li>
+			</ul>
+		</div>
 	</div>
 
 	<div id="cases" class="container topcontent">
 		<h2 id="ActualCases">Actual cases</h2>
 
-		<div class="box2">
+		<div class="box2l">
 			<h3>kumofs</h3>
 			<p>
 			<a href="http://github.com/etolabo/kumofs">kumofs</a> is a scalable and highly available distributed key-value store.
