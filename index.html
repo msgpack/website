@@ -40,7 +40,26 @@
 		<a class="DiggThisButton DiggCompact" style="margin-top: 7px;"></a><br />
 
 		<!-- facebook -->
+		<!--
 		<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmsgpack.sourceforge.net%2F&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=like&amp;font=verdana&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:100px; height:20px; margin-top: 7px; margin-bottom: 2px;"></iframe><br />
+		-->
+
+		<iframe src="http://www.facebook.com/plugins/likebox.php?id=119810658044417&width=292&height=60&stream=false&header=true"
+		scrolling="no" frameborder="0" allowTransparency="true"
+		style="border:none; overflow:hidden; width:292px; height:60px"
+		id="likebox" onload="likebox_onload();"></iframe>
+		<!--
+		<script type="text/javascript">
+		function likebox_onload() {
+			var doc = document.all ? frames["likebox"].document : document.getElementById("likebox").contentDocument;
+			var a = doc.getElementsByTagName("a")[0];
+			var top = a.parentNode;
+			top.removeChild(a);
+			top.style.paddingLeft = 0;
+			top.childNodes[0].style.paddingLeft = 0;
+		}
+		</script>
+		-->
 
 		<!-- reddit -->
 		<script type="text/javascript" src="http://reddit.com/static/button/button1.js"></script><br />
