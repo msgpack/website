@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: MessagePack</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./pack_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="pack.c">pack.c</a></li>
+					
+						<li><a href="./unpack_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="unpack.c">unpack.c</a></li>
+					
+						<li><a href="./rbinit_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="rbinit.c">rbinit.c</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">CLASS</span> <a href="MessagePack/UnpackError.html">MessagePack::UnpackError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="MessagePack/Unpacker.html">MessagePack::Unpacker</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-pack">::pack</a></li>
+					
+					<li><a href="#method-c-unpack">::unpack</a></li>
+					
+					<li><a href="#method-c-unpack_limit">::unpack_limit</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./MessagePack.html">MessagePack</a></li>
+				
+					<li><a href="./MessagePack/UnpackError.html">MessagePack::UnpackError</a></li>
+				
+					<li><a href="./MessagePack/Unpacker.html">MessagePack::Unpacker</a></li>
+				
+					<li><a href="./Array.html">Array</a></li>
+				
+					<li><a href="./Bignum.html">Bignum</a></li>
+				
+					<li><a href="./FalseClass.html">FalseClass</a></li>
+				
+					<li><a href="./Fixnum.html">Fixnum</a></li>
+				
+					<li><a href="./Float.html">Float</a></li>
+				
+					<li><a href="./Hash.html">Hash</a></li>
+				
+					<li><a href="./NilClass.html">NilClass</a></li>
+				
+					<li><a href="./String.html">String</a></li>
+				
+					<li><a href="./Symbol.html">Symbol</a></li>
+				
+					<li><a href="./TrueClass.html">TrueClass</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">MessagePack</h1>
+
+		<div id="description">
+			<p>
+<a href="MessagePack.html">MessagePack</a> is a binary-based efficient
+object serialization library. It enables to exchange structured objects
+between many languages like JSON. But unlike JSON, it is very fast and
+small.
+</p>
+<p>
+You can install <a href="MessagePack.html">MessagePack</a> with rubygems.
+</p>
+<pre>
+  gem install msgpack
+</pre>
+<p>
+Simple usage is as follows.
+</p>
+<pre>
+  require 'msgpack'
+  msg = [1,2,3].to_msgpack  #=&gt; &quot;\x93\x01\x02\x03&quot;
+  MessagePack.unpack(msg)   #=&gt; [1,2,3]
+</pre>
+<p>
+Use <a href="MessagePack/Unpacker.html">Unpacker</a> class for streaming
+deserialization.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="pack-method" class="method-detail ">
+				<a name="method-c-pack"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">pack(object, out = '') &rarr; String</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Serializes the object into raw bytes. The encoding of the string is
+ASCII-8BIT on Ruby 1.9. This method is same as object.to_msgpack(out =
+&#8217;&#8217;).
+</p>
+<p>
+<em>out</em> is an object that implements *<<* method like <a
+href="String.html">String</a> or IO.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="pack-source">
+<pre>
+static VALUE MessagePack_pack(int argc, VALUE* argv, VALUE self)
+{
+        VALUE out;
+        if(argc == 1) {
+                out = rb_str_buf_new(0);
+        } else if(argc == 2) {
+                out = argv[1];
+        } else {
+                rb_raise(rb_eArgError, &quot;wrong number of arguments (%d for 1)&quot;, argc);
+        }
+        return rb_funcall(argv[0], s_to_msgpack, 1, out);
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="unpack-method" class="method-detail ">
+				<a name="method-c-unpack"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">unpack(data) &rarr; object</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Deserializes one object over the specified buffer.
+</p>
+<p>
+<a href="MessagePack/UnpackError.html">UnpackError</a> is throw when parse
+error is occured, the buffer is insufficient to deserialize one object or
+there are extra bytes.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="unpack-source">
+<pre>
+static VALUE MessagePack_unpack(VALUE self, VALUE data)
+{
+        CHECK_STRING_TYPE(data);
+        return MessagePack_unpack_impl(self, data, RSTRING_LEN(data));
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="unpack-limit-method" class="method-detail ">
+				<a name="method-c-unpack_limit"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">unpack_limit(data, limit) &rarr; object</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Deserializes one object over the specified buffer upto <em>limit</em>
+bytes.
+</p>
+<p>
+<a href="MessagePack/UnpackError.html">UnpackError</a> is throw when parse
+error is occured, the buffer is insufficient to deserialize one object or
+there are extra bytes.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="unpack-limit-source">
+<pre>
+static VALUE MessagePack_unpack_limit(VALUE self, VALUE data, VALUE limit)
+{
+        CHECK_STRING_TYPE(data);
+        return MessagePack_unpack_impl(self, data, NUM2ULONG(limit));
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

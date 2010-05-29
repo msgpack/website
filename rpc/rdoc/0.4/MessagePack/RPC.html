@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: MessagePack::RPC</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/msgpack/rpc/address_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/address.rb">lib/msgpack/rpc/address.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/client_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/client.rb">lib/msgpack/rpc/client.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/dispatcher_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/dispatcher.rb">lib/msgpack/rpc/dispatcher.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/exception_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/exception.rb">lib/msgpack/rpc/exception.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/future_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/future.rb">lib/msgpack/rpc/future.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/loop_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/loop.rb">lib/msgpack/rpc/loop.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/message_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/message.rb">lib/msgpack/rpc/message.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/server_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/server.rb">lib/msgpack/rpc/server.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/session_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/session.rb">lib/msgpack/rpc/session.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/session_pool_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/session_pool.rb">lib/msgpack/rpc/session_pool.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/transport/base_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/transport/base.rb">lib/msgpack/rpc/transport/base.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/transport/tcp_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/transport/tcp.rb">lib/msgpack/rpc/transport/tcp.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/transport/udp_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/transport/udp.rb">lib/msgpack/rpc/transport/udp.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/transport/unix_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/transport/unix.rb">lib/msgpack/rpc/transport/unix.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc.rb">lib/msgpack/rpc.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">MODULE</span> <a href="RPC/LoopUtil.html">MessagePack::RPC::LoopUtil</a></li>
+					
+					<li><span class="type">MODULE</span> <a href="RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/Address.html">MessagePack::RPC::Address</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/Client.html">MessagePack::RPC::Client</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/Error.html">MessagePack::RPC::Error</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/Future.html">MessagePack::RPC::Future</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/RPCError.html">MessagePack::RPC::RPCError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/RemoteError.html">MessagePack::RPC::RemoteError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/Responder.html">MessagePack::RPC::Responder</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/Server.html">MessagePack::RPC::Server</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/Session.html">MessagePack::RPC::Session</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/TCPServerTransport.html">MessagePack::RPC::TCPServerTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/TCPTransport.html">MessagePack::RPC::TCPTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/UDPServerTransport.html">MessagePack::RPC::UDPServerTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/UNIXClientTransport.html">MessagePack::RPC::UNIXClientTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../MessagePack/RPC.html">MessagePack::RPC</a></li>
+				
+					<li><a href="../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
+				
+					<li><a href="../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
+				
+					<li><a href="../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
+				
+					<li><a href="../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+				
+					<li><a href="../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
+				
+					<li><a href="../MessagePack/RPC/Future.html">MessagePack::RPC::Future</a></li>
+				
+					<li><a href="../MessagePack/RPC/LoopUtil.html">MessagePack::RPC::LoopUtil</a></li>
+				
+					<li><a href="../MessagePack/RPC/LoopUtil/TaskQueue.html">MessagePack::RPC::LoopUtil::TaskQueue</a></li>
+				
+					<li><a href="../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
+				
+					<li><a href="../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
+				
+					<li><a href="../MessagePack/RPC/RPCError.html">MessagePack::RPC::RPCError</a></li>
+				
+					<li><a href="../MessagePack/RPC/RemoteError.html">MessagePack::RPC::RemoteError</a></li>
+				
+					<li><a href="../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
+				
+					<li><a href="../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
+				
+					<li><a href="../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
+				
+					<li><a href="../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
+				
+					<li><a href="../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/TCPClientTransport/ClientSocket.html">MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/TCPServerTransport.html">MessagePack::RPC::TCPServerTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/TCPServerTransport/ServerSocket.html">MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/TCPTransport.html">MessagePack::RPC::TCPTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/UDPClientTransport/ClientSocket.html">MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/UDPServerTransport.html">MessagePack::RPC::UDPServerTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/UDPServerTransport/ResponseSender.html">MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
+				
+					<li><a href="../MessagePack/RPC/UDPServerTransport/ServerSocket.html">MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/UDPTransport/BasicSocket.html">MessagePack::RPC::UDPTransport::BasicSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/UNIXClientTransport.html">MessagePack::RPC::UNIXClientTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/UNIXClientTransport/ClientSocket.html">MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/UNIXServerTransport/ServerSocket.html">MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../MessagePack/RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a></li>
+				
+					<li><a href="../MessagePack/RPC/UNIXTransport/BasicSocket.html">MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">MessagePack::RPC</h1>
+
+		<div id="description">
+			<p>
+MessagePack-<a href="RPC.html">RPC</a> is an inter-process messaging
+library that uses <a href="http://msgpack.sourceforge.net/">MessagePack</a> for object serialization. The goal of the
+project is providing fast and scalable messaging system for server, client
+and cluster applications.
+</p>
+<h2><a href="RPC/Client.html">Client</a> API</h2>
+<p>
+<a href="RPC/Client.html">MessagePack::RPC::Client</a> and <a
+href="RPC/SessionPool.html">MessagePack::RPC::SessionPool</a> are for <a
+href="RPC.html">RPC</a> clients.
+</p>
+<h3>Simple usage</h3>
+<p>
+<a href="RPC/Client.html">Client</a> is subclass of <a
+href="RPC/Session.html">Session</a>. Use <a
+href="RPC/Session.html#method-i-call">Session#call</a> method to call
+remote methods.
+</p>
+<pre>
+  require 'msgpack/rpc'  # gem install msgpack-rpc
+  
+  client = MessagePack::RPC::Client.new('127.0.0.1', 18800)
+  
+  result = client.call(:methodName, arg1, arg2, arg3)
+</pre>
+<h3>Asynchronous call</h3>
+<p>
+Use <a href="RPC/Session.html#method-i-call_async">Session#call_async</a>
+method to call remote methods asynchronously. It returns a <a
+href="RPC/Future.html">Future</a>. Use <a
+href="RPC/Future.html#method-i-get">Future#get</a> or <a
+href="RPC/Future.html#method-i-attach_callback">Future#attach_callback</a>
+to get actual result.
+</p>
+<pre>
+  require 'msgpack/rpc'  # gem install msgpack-rpc
+  
+  client = MessagePack::RPC::Client.new('127.0.0.1', 18800)
+  
+  future1 = client.call(:method1, arg1)  # call two methods concurrently
+  future2 = client.call(:method2, arg1)
+  
+  result1 = future1.get
+  result2 = future2.get
+</pre>
+<h3>Connection pooling</h3>
+<p>
+<a
+href="RPC/SessionPool.html#method-i-get_session">SessionPool#get_session</a>
+returns a <a href="RPC/Session.html">Session</a>. It pools created session
+and enables you to reuse established connections.
+</p>
+<h2><a href="RPC/Server.html">Server</a> API</h2>
+<p>
+<a href="RPC/Server.html">MessagePack::RPC::Server</a> is for <a
+href="RPC.html">RPC</a> servers.
+</p>
+<h3>Simple usage</h3>
+<p>
+The public methods of handler class becomes callbale.
+</p>
+<pre>
+  require 'msgpack/rpc'  # gem install msgpack-rpc
+
+  class MyHandler
+    def methodName(arg1, arg2, arg3)
+      puts &quot;received&quot;
+      return &quot;return result.&quot;
+    end
+  end
+
+  server = MessagePack::RPC::Server.new
+  server.listen('0.0.0.0', 18800, MyHandler.new)
+  server.run
+</pre>
+<h3>Advance return</h3>
+<p>
+In the handler method, you can use <b>yield</b> to send the result without
+returning.
+</p>
+<pre>
+  class MyHandler
+    def method1(arg1)
+      yield(&quot;return result.&quot;)
+      puts &quot;you can do something after returning the result&quot;
+    end
+  end
+</pre>
+<h3>Delayed return</h3>
+<p>
+You can use <a href="RPC/AsyncResult.html">AsyncResult</a> to return
+results later.
+</p>
+<pre>
+  class MyHandler
+    def method2(arg1)
+      as = MessagePack::RPC::AsyncResult.new
+      Thread.new do
+        sleep 10   # return result 10 seconds later.
+        as.result(&quot;return result.&quot;)
+      end
+      return as
+    end
+  end
+</pre>
+<p>
+You can receive and send any objects that can be serialized by MessagePack.
+This means that the objects required to implement *to_msgpack(out =
+&#8217;&#8217;)* method.
+</p>
+<h2>Transports</h2>
+<p>
+You can use UDP and UNIX domain sockets instead of TCP.
+</p>
+<h3>For clients</h3>
+<p>
+For clients, use <a
+href="RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a> or <a
+href="RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a>.
+</p>
+<pre>
+  require 'msgpack/rpc'  # gem install msgpack-rpc
+  require 'msgpack/rpc/transport/udp'
+  
+  transport = MessagePack::RPC::UDPTransport.new
+  address = MessagePack::RPC::Address.new('127.0.0.1', 18800)
+  client = MessagePack::RPC::Client.new(transport, address)
+  
+  result = client.call(:methodName, arg1, arg2, arg3)
+</pre>
+<h3>For servers</h3>
+<p>
+For servers, use <a
+href="RPC/UDPServerTransport.html">MessagePack::RPC::UDPServerTransport</a>
+or <a
+href="RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a>.
+</p>
+<pre>
+  require 'msgpack/rpc'  # gem install msgpack-rpc
+  require 'msgpack/rpc/transport/udp'
+  
+  class MyHandler
+    def methodName(arg1, arg2, arg3)
+      puts &quot;received&quot;
+      return &quot;return result.&quot;
+    end
+  end
+  
+  address = MessagePack::RPC::Address.new('0.0.0.0', 18800)
+  listener = MessagePack::RPC::UDPServerTransport.new(address)
+  server = MessagePack::RPC::Server.new
+  server.listen(listener, MyHandler.new)
+  server.run</pre>
+
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="Loop">Loop</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+				<dt><a name="REQUEST">REQUEST</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+				<dt><a name="RESPONSE">RESPONSE</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+				<dt><a name="NOTIFY">NOTIFY</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+				<dt><a name="NO_METHOD_ERROR">NO_METHOD_ERROR</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+				<dt><a name="ARGUMENT_ERROR">ARGUMENT_ERROR</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: MessagePack::RPC::Address</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/msgpack/rpc/address_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/address.rb">lib/msgpack/rpc/address.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-load">::load</a></li>
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-c-parse">::parse</a></li>
+					
+					<li><a href="#method-c-parse_sockaddr">::parse_sockaddr</a></li>
+					
+					<li><a href="#method-i-%3C%3D%3E">#<=></a></li>
+					
+					<li><a href="#method-i-%3D%3D">#==</a></li>
+					
+					<li><a href="#method-i-connectable%3F">#connectable?</a></li>
+					
+					<li><a href="#method-i-dump">#dump</a></li>
+					
+					<li><a href="#method-i-eql%3F">#eql?</a></li>
+					
+					<li><a href="#method-i-hash">#hash</a></li>
+					
+					<li><a href="#method-i-host">#host</a></li>
+					
+					<li><a href="#method-i-inspect">#inspect</a></li>
+					
+					<li><a href="#method-i-port">#port</a></li>
+					
+					<li><a href="#method-i-sockaddr">#sockaddr</a></li>
+					
+					<li><a href="#method-i-to_a">#to_a</a></li>
+					
+					<li><a href="#method-i-to_msgpack">#to_msgpack</a></li>
+					
+					<li><a href="#method-i-to_s">#to_s</a></li>
+					
+					<li><a href="#method-i-unpack">#unpack</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../MessagePack/RPC.html">MessagePack::RPC</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
+				
+					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Future.html">MessagePack::RPC::Future</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil.html">MessagePack::RPC::LoopUtil</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil/TaskQueue.html">MessagePack::RPC::LoopUtil::TaskQueue</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
+				
+					<li><a href="../../MessagePack/RPC/RPCError.html">MessagePack::RPC::RPCError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/RemoteError.html">MessagePack::RPC::RemoteError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
+				
+					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPClientTransport/ClientSocket.html">MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPServerTransport.html">MessagePack::RPC::TCPServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPServerTransport/ServerSocket.html">MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPTransport.html">MessagePack::RPC::TCPTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPClientTransport/ClientSocket.html">MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport.html">MessagePack::RPC::UDPServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport/ResponseSender.html">MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport/ServerSocket.html">MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPTransport/BasicSocket.html">MessagePack::RPC::UDPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXClientTransport.html">MessagePack::RPC::UNIXClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXClientTransport/ClientSocket.html">MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXServerTransport/ServerSocket.html">MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXTransport/BasicSocket.html">MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">MessagePack::RPC::Address</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="load-method" class="method-detail ">
+				<a name="method-c-load"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">load</span><span
+						class="method-args">(raw)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="load-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 101</span>
+101:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">raw</span>)
+102:                 <span class="ruby-constant">Address</span>.<span class="ruby-identifier">new</span> *<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">raw</span>)
+103:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(host, port)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Linux
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 39</span>
+39:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>)
+40:                         <span class="ruby-identifier">raw</span> = <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">pack_sockaddr_in</span>(<span class="ruby-identifier">port</span>, <span class="ruby-identifier">host</span>)
+41:                         <span class="ruby-identifier">family</span> = <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">'S'</span>)[<span class="ruby-value">0</span>]
+42:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+43:                                 <span class="ruby-ivar">@serial</span> = <span class="ruby-identifier">raw</span>[<span class="ruby-value">2</span>,<span class="ruby-value">6</span>]
+44:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+45:                                 <span class="ruby-ivar">@serial</span> = <span class="ruby-identifier">raw</span>[<span class="ruby-value">2</span>,<span class="ruby-value">2</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">raw</span>[<span class="ruby-value">8</span>,<span class="ruby-value">16</span>]
+46:                         <span class="ruby-keyword kw">else</span>
+47:                                 <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unknown address family: #{family}&quot;</span>
+48:                         <span class="ruby-keyword kw">end</span>
+49:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(host, port)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+BSD
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 52</span>
+52:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>)
+53:                         <span class="ruby-identifier">raw</span> = <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">pack_sockaddr_in</span>(<span class="ruby-identifier">port</span>, <span class="ruby-identifier">host</span>)
+54:                         <span class="ruby-identifier">family</span> = <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">'CC'</span>)[<span class="ruby-value">1</span>]
+55:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>
+56:                                 <span class="ruby-ivar">@serial</span> = <span class="ruby-identifier">raw</span>[<span class="ruby-value">2</span>,<span class="ruby-value">6</span>]
+57:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">family</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET6</span>
+58:                                 <span class="ruby-ivar">@serial</span> = <span class="ruby-identifier">raw</span>[<span class="ruby-value">2</span>,<span class="ruby-value">2</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">raw</span>[<span class="ruby-value">8</span>,<span class="ruby-value">16</span>]
+59:                         <span class="ruby-keyword kw">else</span>
+60:                                 <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unknown address family: #{family}&quot;</span>
+61:                         <span class="ruby-keyword kw">end</span>
+62:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="parse-method" class="method-detail ">
+				<a name="method-c-parse"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">parse</span><span
+						class="method-args">(raw)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="parse-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 97</span>
+97:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">raw</span>)
+98:                 <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">unpack_sockaddr_in</span>(<span class="ruby-identifier">parse_sockaddr</span>(<span class="ruby-identifier">raw</span>)).<span class="ruby-identifier">reverse</span>
+99:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="parse-sockaddr-method" class="method-detail ">
+				<a name="method-c-parse_sockaddr"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">parse_sockaddr</span><span
+						class="method-args">(raw)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="parse-sockaddr-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 85</span>
+85:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse_sockaddr</span>(<span class="ruby-identifier">raw</span>)
+86:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">6</span>
+87:                         <span class="ruby-identifier">addr</span> = <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">pack_sockaddr_in</span>(<span class="ruby-value">0</span>, <span class="ruby-value str">'0.0.0.0'</span>)
+88:                         <span class="ruby-identifier">addr</span>[<span class="ruby-value">2</span>,<span class="ruby-value">6</span>] = <span class="ruby-identifier">raw</span>[<span class="ruby-value">0</span>,<span class="ruby-value">6</span>]
+89:                 <span class="ruby-keyword kw">else</span>
+90:                         <span class="ruby-identifier">addr</span> = <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">pack_sockaddr_in</span>(<span class="ruby-value">0</span>, <span class="ruby-value str">'::'</span>)
+91:                         <span class="ruby-identifier">addr</span>[<span class="ruby-value">2</span>,<span class="ruby-value">2</span>]  = <span class="ruby-identifier">raw</span>[<span class="ruby-value">0</span>,<span class="ruby-value">2</span>]
+92:                         <span class="ruby-identifier">addr</span>[<span class="ruby-value">8</span>,<span class="ruby-value">16</span>] = <span class="ruby-identifier">raw</span>[<span class="ruby-value">2</span>,<span class="ruby-value">16</span>]
+93:                 <span class="ruby-keyword kw">end</span>
+94:                 <span class="ruby-identifier">addr</span>
+95:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="method-i-%3C%3D%3E"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">&lt;=&gt;</span><span
+						class="method-args">(o)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 121</span>
+121:         <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">o</span>)
+122:                 <span class="ruby-identifier">dump</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">dump</span>
+123:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="--method" class="method-detail ">
+				<a name="method-i-%3D%3D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">==</span><span
+						class="method-args">(o)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 137</span>
+137:         <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">o</span>)
+138:                 <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">o</span>)
+139:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="connectable--method" class="method-detail ">
+				<a name="method-i-connectable%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">connectable?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="connectable--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 73</span>
+73:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">connectable?</span>
+74:                 <span class="ruby-identifier">port</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+75:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="dump-method" class="method-detail ">
+				<a name="method-i-dump"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">dump</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="dump-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 105</span>
+105:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dump</span>
+106:                 <span class="ruby-ivar">@serial</span>
+107:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="eql--method" class="method-detail ">
+				<a name="method-i-eql%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">eql?</span><span
+						class="method-args">(o)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="eql--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 129</span>
+129:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">o</span>)
+130:                 <span class="ruby-identifier">o</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Address</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">dump</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">o</span>.<span class="ruby-identifier">dump</span>)
+131:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="hash-method" class="method-detail ">
+				<a name="method-i-hash"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">hash</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="hash-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 133</span>
+133:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hash</span>
+134:                 <span class="ruby-identifier">dump</span>.<span class="ruby-identifier">hash</span>
+135:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="host-method" class="method-detail ">
+				<a name="method-i-host"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">host</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="host-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 65</span>
+65:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">host</span>
+66:                 <span class="ruby-identifier">unpack</span>[<span class="ruby-value">0</span>]
+67:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="inspect-method" class="method-detail ">
+				<a name="method-i-inspect"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">inspect</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="inspect-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 125</span>
+125:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+126:                 <span class="ruby-node">&quot;#&lt;#{self.class} #{to_s} @serial=#{@serial.inspect}&gt;&quot;</span>
+127:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="port-method" class="method-detail ">
+				<a name="method-i-port"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">port</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="port-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 69</span>
+69:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">port</span>
+70:                 <span class="ruby-identifier">unpack</span>[<span class="ruby-value">1</span>]
+71:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="sockaddr-method" class="method-detail ">
+				<a name="method-i-sockaddr"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sockaddr</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="sockaddr-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 77</span>
+77:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sockaddr</span>
+78:                 <span class="ruby-constant">Address</span>.<span class="ruby-identifier">parse_sockaddr</span>(<span class="ruby-ivar">@serial</span>)
+79:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-a-method" class="method-detail ">
+				<a name="method-i-to_a"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_a</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="to-a-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 117</span>
+117:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_a</span>
+118:                 <span class="ruby-identifier">unpack</span>
+119:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-msgpack-method" class="method-detail ">
+				<a name="method-i-to_msgpack"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_msgpack</span><span
+						class="method-args">(out = '')</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="to-msgpack-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 109</span>
+109:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_msgpack</span>(<span class="ruby-identifier">out</span> = <span class="ruby-value str">''</span>)
+110:                 <span class="ruby-ivar">@serial</span>.<span class="ruby-identifier">to_msgpack</span>(<span class="ruby-identifier">out</span>)
+111:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-s-method" class="method-detail ">
+				<a name="method-i-to_s"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_s</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="to-s-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 113</span>
+113:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+114:                 <span class="ruby-identifier">unpack</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">':'</span>)
+115:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="unpack-method" class="method-detail ">
+				<a name="method-i-unpack"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">unpack</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="unpack-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/address.rb, line 81</span>
+81:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unpack</span>
+82:                 <span class="ruby-constant">Address</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@serial</span>)
+83:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

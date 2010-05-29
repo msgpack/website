@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: MessagePack::RPC::TCPServerTransport</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/msgpack/rpc/transport/tcp_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/transport/tcp.rb">lib/msgpack/rpc/transport/tcp.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">CLASS</span> <a href="TCPServerTransport/ServerSocket.html">MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-close">#close</a></li>
+					
+					<li><a href="#method-i-listen">#listen</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../MessagePack/RPC.html">MessagePack::RPC</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
+				
+					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Future.html">MessagePack::RPC::Future</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil.html">MessagePack::RPC::LoopUtil</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil/TaskQueue.html">MessagePack::RPC::LoopUtil::TaskQueue</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
+				
+					<li><a href="../../MessagePack/RPC/RPCError.html">MessagePack::RPC::RPCError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/RemoteError.html">MessagePack::RPC::RemoteError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
+				
+					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPClientTransport/ClientSocket.html">MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPServerTransport.html">MessagePack::RPC::TCPServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPServerTransport/ServerSocket.html">MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPTransport.html">MessagePack::RPC::TCPTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPClientTransport/ClientSocket.html">MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport.html">MessagePack::RPC::UDPServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport/ResponseSender.html">MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport/ServerSocket.html">MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPTransport/BasicSocket.html">MessagePack::RPC::UDPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXClientTransport.html">MessagePack::RPC::UNIXClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXClientTransport/ClientSocket.html">MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXServerTransport/ServerSocket.html">MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXTransport/BasicSocket.html">MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">MessagePack::RPC::TCPServerTransport</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(address)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 186</span>
+186:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">address</span>)
+187:                 <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
+188:                 <span class="ruby-ivar">@lsock</span> = <span class="ruby-keyword kw">nil</span>
+189:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="close-method" class="method-detail ">
+				<a name="method-i-close"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">close</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+ServerTransport interface
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="close-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 205</span>
+205:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+206:                 <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@lsock</span>
+207:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">attached?</span>
+208:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">close</span>
+209:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="listen-method" class="method-detail ">
+				<a name="method-i-listen"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">listen</span><span
+						class="method-args">(server)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+ServerTransport interface
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="listen-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 192</span>
+192:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">listen</span>(<span class="ruby-identifier">server</span>)
+193:                 <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
+194:                 <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span> = *<span class="ruby-ivar">@address</span>.<span class="ruby-identifier">unpack</span>
+195:                 <span class="ruby-ivar">@lsock</span>  = <span class="ruby-constant">Rev</span><span class="ruby-operator">::</span><span class="ruby-constant">TCPServer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-constant">ServerSocket</span>, <span class="ruby-ivar">@server</span>)
+196:                 <span class="ruby-keyword kw">begin</span>
+197:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@lsock</span>)
+198:                 <span class="ruby-keyword kw">rescue</span>
+199:                         <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">close</span>
+200:                         <span class="ruby-identifier">raise</span>
+201:                 <span class="ruby-keyword kw">end</span>
+202:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

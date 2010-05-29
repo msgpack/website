@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: MessagePack::RPC::UDPClientTransport::ClientSocket</title>
+
+	<link rel="stylesheet" href="../../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../../index.html">Home</a>
+          <a href="../../../index.html#classes">Classes</a>
+          <a href="../../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../../lib/msgpack/rpc/transport/udp_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/transport/udp.rb">lib/msgpack/rpc/transport/udp.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">UDPTransport::BasicSocket</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-on_notify">#on_notify</a></li>
+					
+					<li><a href="#method-i-on_request">#on_request</a></li>
+					
+					<li><a href="#method-i-on_response">#on_response</a></li>
+					
+					<li><a href="#method-i-send_data">#send_data</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../../MessagePack/RPC.html">MessagePack::RPC</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Future.html">MessagePack::RPC::Future</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/LoopUtil.html">MessagePack::RPC::LoopUtil</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/LoopUtil/TaskQueue.html">MessagePack::RPC::LoopUtil::TaskQueue</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/RPCError.html">MessagePack::RPC::RPCError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/RemoteError.html">MessagePack::RPC::RemoteError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TCPClientTransport/ClientSocket.html">MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TCPServerTransport.html">MessagePack::RPC::TCPServerTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TCPServerTransport/ServerSocket.html">MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TCPTransport.html">MessagePack::RPC::TCPTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UDPClientTransport/ClientSocket.html">MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UDPServerTransport.html">MessagePack::RPC::UDPServerTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UDPServerTransport/ResponseSender.html">MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UDPServerTransport/ServerSocket.html">MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UDPTransport/BasicSocket.html">MessagePack::RPC::UDPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UNIXClientTransport.html">MessagePack::RPC::UNIXClientTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UNIXClientTransport/ClientSocket.html">MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UNIXServerTransport/ServerSocket.html">MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/UNIXTransport/BasicSocket.html">MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">MessagePack::RPC::UDPClientTransport::ClientSocket</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(io, session)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 89</span>
+89:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">session</span>)
+90:                         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">io</span>)
+91:                         <span class="ruby-ivar">@s</span> = <span class="ruby-identifier">session</span>
+92:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="on-notify-method" class="method-detail ">
+				<a name="method-i-on_notify"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_notify</span><span
+						class="method-args">(method, param, addr)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+<a href="../MessageReceiver.html">MessageReceiver</a> interface
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-notify-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 105</span>
+105:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">addr</span>)
+106:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">RPCError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;notify message on client session&quot;</span>)
+107:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="on-request-method" class="method-detail ">
+				<a name="method-i-on_request"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_request</span><span
+						class="method-args">(msgid, method, param, addr)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+<a href="../MessageReceiver.html">MessageReceiver</a> interface
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-request-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 100</span>
+100:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">addr</span>)
+101:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">RPCError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;request message on client session&quot;</span>)
+102:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="on-response-method" class="method-detail ">
+				<a name="method-i-on_response"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_response</span><span
+						class="method-args">(msgid, error, result, addr)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+<a href="../MessageReceiver.html">MessageReceiver</a> interface
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-response-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 110</span>
+110:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_response</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>, <span class="ruby-identifier">addr</span>)
+111:                         <span class="ruby-ivar">@s</span>.<span class="ruby-identifier">on_response</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>)
+112:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="send-data-method" class="method-detail ">
+				<a name="method-i-send_data"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">send_data</span><span
+						class="method-args">(data)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+MessageSendable interface
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="send-data-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 95</span>
+95:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+96:                         <span class="ruby-ivar">@io</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">data</span>, <span class="ruby-value">0</span>)
+97:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

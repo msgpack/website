@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: MessagePack::Unpacker</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../unpack_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="unpack.c">unpack.c</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-data">#data</a></li>
+					
+					<li><a href="#method-i-each">#each</a></li>
+					
+					<li><a href="#method-i-execute">#execute</a></li>
+					
+					<li><a href="#method-i-execute_limit">#execute_limit</a></li>
+					
+					<li><a href="#method-i-feed">#feed</a></li>
+					
+					<li><a href="#method-i-fill">#fill</a></li>
+					
+					<li><a href="#method-i-finished%3F">#finished?</a></li>
+					
+					<li><a href="#method-i-reset">#reset</a></li>
+					
+					<li><a href="#method-i-stream">#stream</a></li>
+					
+					<li><a href="#method-i-stream%3D">#stream=</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../MessagePack.html">MessagePack</a></li>
+				
+					<li><a href="../MessagePack/UnpackError.html">MessagePack::UnpackError</a></li>
+				
+					<li><a href="../MessagePack/Unpacker.html">MessagePack::Unpacker</a></li>
+				
+					<li><a href="../Array.html">Array</a></li>
+				
+					<li><a href="../Bignum.html">Bignum</a></li>
+				
+					<li><a href="../FalseClass.html">FalseClass</a></li>
+				
+					<li><a href="../Fixnum.html">Fixnum</a></li>
+				
+					<li><a href="../Float.html">Float</a></li>
+				
+					<li><a href="../Hash.html">Hash</a></li>
+				
+					<li><a href="../NilClass.html">NilClass</a></li>
+				
+					<li><a href="../String.html">String</a></li>
+				
+					<li><a href="../Symbol.html">Symbol</a></li>
+				
+					<li><a href="../TrueClass.html">TrueClass</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">MessagePack::Unpacker</h1>
+
+		<div id="description">
+			<p>
+Deserializer class that includes Buffered API and Unbuffered API.
+</p>
+<p>
+Buffered API uses the internal buffer of the <a
+href="Unpacker.html">Unpacker</a>. Following code uses Buffered API with an
+input stream:
+</p>
+<pre>
+  # create an unpacker with input stream.
+  pac = MessagePack::Unpacker.new(STDIN)
+  
+  # deserialize object one after another.
+  pac.each {|obj|
+    # ...
+  }
+</pre>
+<p>
+Following code doesn&#8217;t use the input stream and feeds buffer
+manually. This is useful to use special stream or with event-driven I/O
+library.
+</p>
+<pre>
+  # create an unpacker without input stream.
+  pac = MessagePack::Unpacker.new()
+  
+  # feed buffer to the internal buffer.
+  pac.feed(input_bytes)
+  
+  # deserialize object one after another.
+  pac.each {|obj|
+    # ...
+  }
+</pre>
+<p>
+You can manage the buffer manually with the combination of <b>execute</b>,
+<b>finished?</b>, <b>data</b> and <b>reset</b> method.
+</p>
+<pre>
+  # create an unpacker.
+  pac = MessagePack::Unpacker.new()
+  
+  # manage buffer and offset manually.
+  offset = 0
+  buffer = ''
+  
+  # read some data into the buffer.
+  buffer &lt;&lt; [1,2,3].to_msgpack
+  buffer &lt;&lt; [4,5,6].to_msgpack
+  
+  while true
+    offset = pac.execute(buffer, offset)
+  
+    if pac.finished?
+      obj = pac.data
+  
+      buffer.slice!(0, offset)
+      offset = 0
+      pac.reset
+  
+      # do something with the object
+      # ...
+
+      # repeat execution if there are more data.
+      next unless buffer.empty?
+    end
+
+    break
+  end</pre>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">new(stream = nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Creates instance of <a href="Unpacker.html">MessagePack::Unpacker</a>.
+</p>
+<p>
+You can specify a <em>stream</em> for input stream. It is required to
+implement <b>sysread</b> or <b>readpartial</b> method.
+</p>
+<p>
+With the input stream, buffers will be feeded into the deserializer
+automatically.
+</p>
+<p>
+Without the input stream, use <b>feed</b> method manually. Or you can
+manage the buffer manually with <b>execute</b>, <b>finished?</b>,
+<b>data</b> and <b>reset</b> methods.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+static VALUE MessagePack_Unpacker_initialize(int argc, VALUE *argv, VALUE self)
+{
+        VALUE stream;
+        switch(argc) {
+        case 0:
+                stream = Qnil;
+                break;
+        case 1:
+                stream = argv[0];
+                break;
+        default:
+                rb_raise(rb_eArgError, &quot;wrong number of arguments (%d for 0)&quot;, argc);
+        }
+
+        UNPACKER(self, mp);
+        template_init(mp);
+        mp-&gt;user.finished = 0;
+        mp-&gt;user.offset = 0;
+        mp-&gt;user.buffer = rb_str_new(&quot;&quot;,0);
+        mp-&gt;user.stream = stream;
+        mp-&gt;user.streambuf = rb_str_new(&quot;&quot;,0);
+        mp-&gt;user.stream_append_method = append_method_of(stream);
+        return self;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="data-method" class="method-detail ">
+				<a name="method-i-data"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">data</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Gets the object deserialized by execute method.
+</p>
+<p>
+Use this method with execute method.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="data-source">
+<pre>
+static VALUE MessagePack_Unpacker_data(VALUE self)
+{
+        UNPACKER(self, mp);
+        return template_data(mp);
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="each-method" class="method-detail ">
+				<a name="method-i-each"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">each {|object| }</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Deserializes objects repeatedly. This calls <b>fill</b> method
+automatically.
+</p>
+<p>
+<a href="UnpackError.html">UnpackError</a> is throw when parse error is
+occured. This method raises exceptions that <b>fill</b> method raises.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="each-source">
+<pre>
+static VALUE MessagePack_Unpacker_each(VALUE self)
+{
+        UNPACKER(self, mp);
+        int ret;
+
+#ifdef RETURN_ENUMERATOR
+        RETURN_ENUMERATOR(self, 0, 0);
+#endif
+
+        while(1) {
+                if(RSTRING_LEN(mp-&gt;user.buffer) &lt;= mp-&gt;user.offset) {
+                        do_fill:
+                        {
+                                VALUE len = MessagePack_Unpacker_fill(self);
+                                if(len == Qnil || FIX2LONG(len) == 0) {
+                                        break;
+                                }
+                        }
+                }
+
+                ret = template_execute_wrap(mp, mp-&gt;user.buffer,
+                                RSTRING_LEN(mp-&gt;user.buffer), &amp;mp-&gt;user.offset);
+
+                if(ret &lt; 0) {
+                        rb_raise(eUnpackError, &quot;parse error.&quot;);
+
+                } else if(ret &gt; 0) {
+                        VALUE data = template_data(mp);
+                        template_init(mp);
+                        rb_yield(data);
+
+                } else {
+                        goto do_fill;
+                }
+        }
+
+        return Qnil;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="execute-method" class="method-detail ">
+				<a name="method-i-execute"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">unpack(data, offset) &rarr; next offset</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Deserializes one object over the specified buffer from <em>offset</em>
+bytes.
+</p>
+<p>
+This method doesn&#8217;t use the internal buffer.
+</p>
+<p>
+Call *reset()* method before calling this method again.
+</p>
+<p>
+This returns offset that was parsed to. Use <b>finished?</b> method to
+check an object is deserialized and call <b>data</b> method if it returns
+true.
+</p>
+<p>
+<a href="UnpackError.html">UnpackError</a> is throw when parse error is
+occured.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="execute-source">
+<pre>
+static VALUE MessagePack_Unpacker_execute(VALUE self, VALUE data, VALUE off)
+{
+        CHECK_STRING_TYPE(data);
+        return MessagePack_Unpacker_execute_impl(self, data,
+                        (size_t)NUM2ULONG(off), (size_t)RSTRING_LEN(data));
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="execute-limit-method" class="method-detail ">
+				<a name="method-i-execute_limit"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">unpack_limit(data, offset, limit) &rarr; next offset</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Deserializes one object over the specified buffer from <em>offset</em>
+bytes upto <em>limit</em> bytes.
+</p>
+<p>
+This method doesn&#8217;t use the internal buffer.
+</p>
+<p>
+Call *reset()* method before calling this method again.
+</p>
+<p>
+<a href="UnpackError.html">UnpackError</a> is throw when parse error is
+occured.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="execute-limit-source">
+<pre>
+static VALUE MessagePack_Unpacker_execute_limit(VALUE self, VALUE data,
+                VALUE off, VALUE limit)
+{
+        CHECK_STRING_TYPE(data);
+        return MessagePack_Unpacker_execute_impl(self, data,
+                        (size_t)NUM2ULONG(off), (size_t)NUM2ULONG(limit));
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="feed-method" class="method-detail ">
+				<a name="method-i-feed"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">feed(data)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Fills the internal buffer with the specified buffer.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="feed-source">
+<pre>
+static VALUE MessagePack_Unpacker_feed(VALUE self, VALUE data)
+{
+        UNPACKER(self, mp);
+        StringValue(data);
+        rb_str_cat(mp-&gt;user.buffer, RSTRING_PTR(data), RSTRING_LEN(data));
+        return Qnil;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="fill-method" class="method-detail ">
+				<a name="method-i-fill"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">fill &rarr; length of read data</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Fills the internal buffer using the input stream.
+</p>
+<p>
+If the input stream is not specified, it returns nil. You can set it on
+<b>initialize</b> or <b>stream=</b> methods.
+</p>
+<p>
+This methods raises exceptions that <em>stream.sysread</em> or
+<em>stream.readpartial</em> method raises.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="fill-source">
+<pre>
+static VALUE MessagePack_Unpacker_fill(VALUE self)
+{
+        UNPACKER(self, mp);
+
+        if(mp-&gt;user.stream == Qnil) {
+                return Qnil;
+        }
+
+        long len;
+        if(RSTRING_LEN(mp-&gt;user.buffer) == 0) {
+                rb_funcall(mp-&gt;user.stream, mp-&gt;user.stream_append_method, 2,
+                                LONG2FIX(64*1024), mp-&gt;user.buffer);
+                len = RSTRING_LEN(mp-&gt;user.buffer);
+        } else {
+                rb_funcall(mp-&gt;user.stream, mp-&gt;user.stream_append_method, 2,
+                                LONG2FIX(64*1024), mp-&gt;user.streambuf);
+                len = RSTRING_LEN(mp-&gt;user.streambuf);
+                rb_str_cat(mp-&gt;user.buffer, RSTRING_PTR(mp-&gt;user.streambuf), RSTRING_LEN(mp-&gt;user.streambuf));
+        }
+
+        return LONG2FIX(len);
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="finished--method" class="method-detail ">
+				<a name="method-i-finished%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">finished?</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns true if an object is ready to get with data method.
+</p>
+<p>
+Use this method with execute method.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="finished--source">
+<pre>
+static VALUE MessagePack_Unpacker_finished_p(VALUE self)
+{
+        UNPACKER(self, mp);
+        if(mp-&gt;user.finished) {
+                return Qtrue;
+        }
+        return Qfalse;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="reset-method" class="method-detail ">
+				<a name="method-i-reset"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">reset</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Resets the internal state of the unpacker.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="reset-source">
+<pre>
+static VALUE MessagePack_Unpacker_reset(VALUE self)
+{
+        UNPACKER(self, mp);
+        template_init(mp);
+        mp-&gt;user.finished = 0;
+        return self;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="stream-method" class="method-detail ">
+				<a name="method-i-stream"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">stream</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Gets the input stream.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="stream-source">
+<pre>
+static VALUE MessagePack_Unpacker_stream_get(VALUE self)
+{
+        UNPACKER(self, mp);
+        return mp-&gt;user.stream;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="stream--method" class="method-detail ">
+				<a name="method-i-stream%3D"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">stream = stream</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Resets the input stream. You can set nil not to use input stream.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="stream--source">
+<pre>
+static VALUE MessagePack_Unpacker_stream_set(VALUE self, VALUE val)
+{
+        UNPACKER(self, mp);
+        mp-&gt;user.stream = val;
+        mp-&gt;user.stream_append_method = append_method_of(val);
+        return val;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
