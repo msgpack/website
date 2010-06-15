@@ -275,10 +275,17 @@
 		<div id="description">
 			<p>
 MessagePack-<a href="RPC.html">RPC</a> is an inter-process messaging
-library that uses <a href="http://msgpack.sourceforge.net/">MessagePack</a> for object serialization. The goal of the
-project is providing fast and scalable messaging system for server, client
-and cluster applications.
+library that uses <a href="http://msgpack.sourceforge.net/">MessagePack</a>
+for object serialization. The goal of the project is providing fast and
+scalable messaging system for server, client and cluster applications.
 </p>
+<p>
+You can install MessagePack-<a href="RPC.html">RPC</a> for Ruby using
+RubyGems.
+</p>
+<pre>
+  gem install msgpack-rpc
+</pre>
 <h2><a href="RPC/Client.html">Client</a> API</h2>
 <p>
 <a href="RPC/Client.html">MessagePack::RPC::Client</a> and <a
@@ -293,11 +300,17 @@ href="RPC/Session.html#method-i-call">Session#call</a> method to call
 remote methods.
 </p>
 <pre>
-  require 'msgpack/rpc'  # gem install msgpack-rpc
+  require 'msgpack/rpc'
   
   client = MessagePack::RPC::Client.new('127.0.0.1', 18800)
   
   result = client.call(:methodName, arg1, arg2, arg3)
+
+  #     ---------- server
+  #    ^         |
+  #    |         |
+  # ---+         +----- client
+  #    call      join
 </pre>
 <h3>Asynchronous call</h3>
 <p>
@@ -309,15 +322,57 @@ href="RPC/Future.html#method-i-attach_callback">Future#attach_callback</a>
 to get actual result.
 </p>
 <pre>
-  require 'msgpack/rpc'  # gem install msgpack-rpc
+  require 'msgpack/rpc'
   
   client = MessagePack::RPC::Client.new('127.0.0.1', 18800)
   
-  future1 = client.call(:method1, arg1)  # call two methods concurrently
-  future2 = client.call(:method2, arg1)
+  # call two methods concurrently
+  future1 = client.call_async(:method1, arg1)
+  future2 = client.call_async(:method2, arg1)
   
+  # join the results
   result1 = future1.get
   result2 = future2.get
+
+  #     ------------------ server
+  #    ^                 |
+  #    |        ---------|-------- server
+  #    |       ^         |       |
+  #    |       |         |       |
+  # ---+-------+-----    +-------+----- client
+  #    call    call      join    join
+</pre>
+<h3>Asynchronous call with multiple servers</h3>
+<p>
+<a href="RPC.html#Loop">Loop</a> enables you to invoke multiple
+asynchronous calls for multiple servers concurrently. This is good for
+advanced network applications.
+</p>
+<pre>
+  require 'msgpack/rpc'
+  
+  # create a event loop
+  loop = MessagePack::RPC::Loop.new
+
+  # connect to multiple servers
+  client1 = MessagePack::RPC::Client.new('127.0.0.1', 18801, loop)
+  client2 = MessagePack::RPC::Client.new('127.0.0.1', 18802, loop)
+  
+  # call two methods concurrently
+  future1 = client1.call_async(:method1, arg1)
+  future2 = client2.call_async(:method2, arg1)
+  
+  # join the results
+  result1 = future1.get
+  result2 = future2.get
+
+  #     ------------------ server-1  --- different servers
+  #    ^                 |             /
+  #    |        ---------|-------- server-2
+  #    |       ^         |       |
+  #    |       |         |       |
+  # ---+-------+-----    +-------+----- client
+  #    call    call      join    join
 </pre>
 <h3>Connection pooling</h3>
 <p>
@@ -326,6 +381,15 @@ href="RPC/SessionPool.html#method-i-get_session">SessionPool#get_session</a>
 returns a <a href="RPC/Session.html">Session</a>. It pools created session
 and enables you to reuse established connections.
 </p>
+<pre>
+  require 'msgpack/rpc'
+  
+  sp = MessagePack::RPC::SessionPool.new
+  
+  client = sp.get_session('127.0.0.1', 18800)
+  
+  result = client.call(:methodName, arg1, arg2, arg3)
+</pre>
 <h2><a href="RPC/Server.html">Server</a> API</h2>
 <p>
 <a href="RPC/Server.html">MessagePack::RPC::Server</a> is for <a
@@ -333,10 +397,10 @@ href="RPC.html">RPC</a> servers.
 </p>
 <h3>Simple usage</h3>
 <p>
-The public methods of handler class becomes callbale.
+The public methods of the handler class becomes callbale.
 </p>
 <pre>
-  require 'msgpack/rpc'  # gem install msgpack-rpc
+  require 'msgpack/rpc'
 
   class MyHandler
     def methodName(arg1, arg2, arg3)
@@ -351,8 +415,7 @@ The public methods of handler class becomes callbale.
 </pre>
 <h3>Advance return</h3>
 <p>
-In the handler method, you can use <b>yield</b> to send the result without
-returning.
+You can use <b>yield</b> to send the result without returning.
 </p>
 <pre>
   class MyHandler
@@ -395,12 +458,28 @@ href="RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a> or <a
 href="RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a>.
 </p>
 <pre>
-  require 'msgpack/rpc'  # gem install msgpack-rpc
+  require 'msgpack/rpc'
   require 'msgpack/rpc/transport/udp'
   
   transport = MessagePack::RPC::UDPTransport.new
   address = MessagePack::RPC::Address.new('127.0.0.1', 18800)
+  
   client = MessagePack::RPC::Client.new(transport, address)
+  
+  result = client.call(:methodName, arg1, arg2, arg3)
+</pre>
+<p>
+You can use transports for <a href="RPC/SessionPool.html">SessionPool</a>.
+</p>
+<pre>
+  require 'msgpack/rpc'
+  require 'msgpack/rpc/transport/udp'
+  
+  transport = MessagePack::RPC::UDPTransport.new
+  
+  sp = MessagePack::RPC::SessionPool.new(transport)
+  
+  client = sp.get_session('127.0.0.1', 18800)
   
   result = client.call(:methodName, arg1, arg2, arg3)
 </pre>
@@ -412,7 +491,7 @@ or <a
 href="RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a>.
 </p>
 <pre>
-  require 'msgpack/rpc'  # gem install msgpack-rpc
+  require 'msgpack/rpc'
   require 'msgpack/rpc/transport/udp'
   
   class MyHandler
@@ -424,6 +503,7 @@ href="RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a>.
   
   address = MessagePack::RPC::Address.new('0.0.0.0', 18800)
   listener = MessagePack::RPC::UDPServerTransport.new(address)
+
   server = MessagePack::RPC::Server.new
   server.listen(listener, MyHandler.new)
   server.run</pre>

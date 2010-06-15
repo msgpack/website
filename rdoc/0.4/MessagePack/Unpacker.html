@@ -292,9 +292,11 @@ static VALUE MessagePack_Unpacker_initialize(int argc, VALUE *argv, VALUE self)
         template_init(mp);
         mp-&gt;user.finished = 0;
         mp-&gt;user.offset = 0;
-        mp-&gt;user.buffer = rb_str_new(&quot;&quot;,0);
+        mp-&gt;user.buffer.size = 0;
+        mp-&gt;user.buffer.free = 0;
+        mp-&gt;user.buffer.ptr = NULL;
         mp-&gt;user.stream = stream;
-        mp-&gt;user.streambuf = rb_str_new(&quot;&quot;,0);
+        mp-&gt;user.streambuf = rb_str_buf_new(MSGPACK_UNPACKER_BUFFER_RESERVE_SIZE);
         mp-&gt;user.stream_append_method = append_method_of(stream);
         return self;
 }</pre>
@@ -389,7 +391,7 @@ static VALUE MessagePack_Unpacker_each(VALUE self)
 #endif
 
         while(1) {
-                if(RSTRING_LEN(mp-&gt;user.buffer) &lt;= mp-&gt;user.offset) {
+                if(mp-&gt;user.buffer.size &lt;= mp-&gt;user.offset) {
                         do_fill:
                         {
                                 VALUE len = MessagePack_Unpacker_fill(self);
@@ -399,8 +401,9 @@ static VALUE MessagePack_Unpacker_each(VALUE self)
                         }
                 }
 
-                ret = template_execute_wrap(mp, mp-&gt;user.buffer,
-                                RSTRING_LEN(mp-&gt;user.buffer), &amp;mp-&gt;user.offset);
+                ret = template_execute_wrap_each(mp,
+                                mp-&gt;user.buffer.ptr, mp-&gt;user.buffer.size,
+                                &amp;mp-&gt;user.offset);
 
                 if(ret &lt; 0) {
                         rb_raise(eUnpackError, &quot;parse error.&quot;);
@@ -554,7 +557,7 @@ static VALUE MessagePack_Unpacker_feed(VALUE self, VALUE data)
 {
         UNPACKER(self, mp);
         StringValue(data);
-        rb_str_cat(mp-&gt;user.buffer, RSTRING_PTR(data), RSTRING_LEN(data));
+        feed_buffer(mp, RSTRING_PTR(data), RSTRING_LEN(data));
         return Qnil;
 }</pre>
 					</div>
@@ -604,17 +607,12 @@ static VALUE MessagePack_Unpacker_fill(VALUE self)
                 return Qnil;
         }
 
-        long len;
-        if(RSTRING_LEN(mp-&gt;user.buffer) == 0) {
-                rb_funcall(mp-&gt;user.stream, mp-&gt;user.stream_append_method, 2,
-                                LONG2FIX(64*1024), mp-&gt;user.buffer);
-                len = RSTRING_LEN(mp-&gt;user.buffer);
-        } else {
-                rb_funcall(mp-&gt;user.stream, mp-&gt;user.stream_append_method, 2,
-                                LONG2FIX(64*1024), mp-&gt;user.streambuf);
-                len = RSTRING_LEN(mp-&gt;user.streambuf);
-                rb_str_cat(mp-&gt;user.buffer, RSTRING_PTR(mp-&gt;user.streambuf), RSTRING_LEN(mp-&gt;user.streambuf));
-        }
+        rb_funcall(mp-&gt;user.stream, mp-&gt;user.stream_append_method, 2,
+                        LONG2FIX(MSGPACK_UNPACKER_BUFFER_RESERVE_SIZE),
+                        mp-&gt;user.streambuf);
+
+        size_t len = RSTRING_LEN(mp-&gt;user.streambuf);
+        feed_buffer(mp, RSTRING_PTR(mp-&gt;user.streambuf), len);
 
         return LONG2FIX(len);
 }</pre>

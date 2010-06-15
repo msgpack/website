@@ -269,8 +269,8 @@ Creates a client.
 <pre>
     <span class="ruby-comment cmt"># File lib/msgpack/rpc/client.rb, line 29</span>
 29:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">arg1</span>, <span class="ruby-identifier">arg2</span>, <span class="ruby-identifier">arg3</span>=<span class="ruby-keyword kw">nil</span>)
-30:                         <span class="ruby-comment cmt"># 1.</span>
-31:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">arg1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:build_transport</span>)
+30:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">arg1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:build_transport</span>)
+31:                         <span class="ruby-comment cmt"># 1.</span>
 32:                         <span class="ruby-identifier">builder</span> = <span class="ruby-identifier">arg1</span>
 33:                         <span class="ruby-identifier">address</span> = <span class="ruby-identifier">arg2</span>
 34:                         <span class="ruby-identifier">loop</span>    = <span class="ruby-identifier">arg3</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Loop</span>.<span class="ruby-identifier">new</span>

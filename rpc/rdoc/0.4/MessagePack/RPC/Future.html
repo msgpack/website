@@ -296,7 +296,7 @@ is received.
 75:                 <span class="ruby-ivar">@callback_handler</span> = <span class="ruby-identifier">proc</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>
 76:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@callback_handler</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
 77:                         <span class="ruby-comment cmt"># FIXME backward compatibility</span>
-78:                         <span class="ruby-identifier">handler</span> = <span class="ruby-identifier">callback_handler</span>
+78:                         <span class="ruby-identifier">handler</span> = <span class="ruby-ivar">@callback_handler</span>
 79:                         <span class="ruby-ivar">@callback_handler</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">future</span><span class="ruby-operator">|</span>
 80:                                 <span class="ruby-identifier">handler</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">future</span>.<span class="ruby-identifier">error</span>, <span class="ruby-identifier">future</span>.<span class="ruby-identifier">result</span>)
 81:                         }

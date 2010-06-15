@@ -11,168 +11,270 @@
 	<script src="index/prettify.js" type="text/javascript"></script>
 	<link href="index/prettify.css" rel="stylesheet" type="text/css"/>
 
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssreset/reset-min.css">
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssfonts/fonts-min.css">
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.0.0/build/cssbase/base-min.css">
+	<script src="index/jquery.js" type="text/javascript"></script>
+
+	<link rel="stylesheet" type="text/css" href="index/yui/cssreset/reset-min.css">
+	<link rel="stylesheet" type="text/css" href="index/yui/cssfonts/fonts-min.css">
+	<link rel="stylesheet" type="text/css" href="index/yui/cssbase/base-min.css">
 	<link rel="stylesheet" type="text/css" href="index/msgpack.css">
 </head>
 <body onload="prettyPrint()">
 	<div id="header" class="container">
-
-	<h1>MessagePack</h1>
-
-	<div id="social">
-		<!-- tweetmeme -->
-		<script type="text/javascript">
-		tweetmeme_style = 'compact';
-		</script>
-		<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-
-		<!-- digg -->
-		<script type="text/javascript">
-		(function() {
-		var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
-		s.type = 'text/javascript';
-		s.src = 'http://widgets.digg.com/buttons.js';
-		s1.parentNode.insertBefore(s, s1);
-		})();
-		</script>
-		<a class="DiggThisButton DiggCompact" style="margin-top: 7px;"></a><br />
-
-		<!-- facebook -->
-		<!--
-		<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmsgpack.org%2F&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=like&amp;font=verdana&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:100px; height:20px; margin-top: 7px; margin-bottom: 2px;"></iframe><br />
-		-->
-
-		<iframe src="http://www.facebook.com/plugins/likebox.php?id=119810658044417&width=292&height=60&stream=false&header=true"
-		scrolling="no" frameborder="0" allowTransparency="true"
-		style="border:none; overflow:hidden; width:292px; height:60px; margin-left:-10px;"
-		id="likebox" onload="likebox_onload();"></iframe>
-
-		<!-- reddit -->
-		<!--<script type="text/javascript" src="http://reddit.com/static/button/button1.js"></script><br />-->
-
-		<!-- hatena -->
-		<!--<a href="http://b.hatena.ne.jp/entrylist?url=http://msgpack.org/"><img src="http://b.hatena.ne.jp/bc/http://msgpack.org/" style="margin-top: 0px;" /></a>-->
+		<h1>MessagePack</h1>
+		<p id="summary">Extremely efficient object serialization library for cross-language communication.<br />It's like JSON, but very fast and small.</p>
 	</div>
 
-	<p class="summary">Extremely efficient object serialization library.<!--for inter-language object exchange.</p>-->
-	It's like JSON, but very fast and small.</p>
+	<ul id="navi" class="container">
+		<li>
+			<a href="#GettingStarted">
+			<span class="navi_title">Getting Started</span>
+			<span class="navi_desc">Install and Try it Now</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://redmine.msgpack.org/projects/msgpack/wiki">
+			<span class="navi_title">Wiki</span>
+			<span class="navi_desc">Learn more</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://msgpack.wordpress.com/">
+			<span class="navi_title">Blog</span>
+			<span class="navi_desc">News and Tips</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://github.org/msgpack">
+			<span class="navi_title">Source</span>
+			<span class="navi_desc">Repository at Github</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://twitter.com/search?q=%23msgpack">
+			<span class="navi_title">#msgpack</span>
+			<span class="navi_desc">Find on Twitter</span>
+			</a>
+		</li>
+	</ul>
 
-	</div>
+	<h2 id="Abstruct">What's MessagePack?</h2>
 
-	<div id="navi" class="container">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="#GettingStarted">Getting Started</a></li>
-			<li><a href="http://redmine.msgpack.org/projects/msgpack/wiki">Wiki</a></li>
-			<li><a href="http://github.com/msgpack/msgpack">Source</a></li>
-			<li><a href="http://msgpack.wordpress.com/">Blog</a></li>
-			<li><a href="http://twitter.com/search?q=%23msgpack">#msgpack</a></li>
-		</ul>
-	</div>
+	<div id="welcome" class="container">
 
-	<div id="content" class="container">
-		<div id="welcome">
-			<h2>What's MessagePack?</h2>
+		<div id="welcome_description">
+			<h3>Fast and Compact Serialization</h3>
 			<p>MessagePack is a binary-based efficient object serialization library. It enables to exchange structured objects between many languages like JSON. But unlike JSON, it is very fast and small.</p>
 			<p>Typical small integer (like flags or error code) is saved only in 1 byte, and typical short string only needs 1 byte except the length of the string itself. [1,2,3] (3 elements array) is serialized in 4 bytes using MessagePack as follows:</p>
 			<pre class="prettyprint">&gt; require 'msgpack'
 &gt; msg = [1,2,3].to_msgpack  #=&gt; "\x93\x01\x02\x03"
 &gt; MessagePack.unpack(msg)   #=&gt; [1,2,3]</pre>
+
+			<h3>Scalable RPC</h3>
+			<p>MessagePack-RPC is cross-language RPC library for client, server and cluster applications. Because it hides complicated network behavior behind well-designed API, you can easily implement advanced network applications with MessagePack-RPC.</p>
+			<p>It is built on top of event-driven I/O architecture, and supports synchronous, asynchronous and callback-style RPC with multiple servers. Connection pooling is also supported. C++ and Java implementations are fully multithreaded, so the servers implemented on top of MessagePack-RPC automatically becomes scalable enough to serve thousands of clients.</p>
+			<pre class="prettyprint">&gt; require 'msgpack-rpc'
+&gt; c = MessagePack::RPC::Client.new(’127.0.0.1’,18800)
+&gt; future = c.call(:echo, “Hello”, “MessagePack”)
+&gt; future.get  #=&gt; [”Hello”, “MessagePack”]</pre>
 		</div>
 
-		<div id="benchmark">
-			<img src="index/speedtest.png" width="460" height="279" alt="MessagePack Serialization + Desrialization Speed Test" />
-			<p>
-			In this test (<a href="http://downloads.sourceforge.net/project/msgpack/benchmark/msgpack-protobuf-json-speed-test.tar.gz">source code</a>), it measured the elapsed time of serializing and deserializing 200,000 target objects.
-			The target object consists of the three integers and 512 bytes string.
+		<div id="welcome_figure">
+			<h3>Serialization + Desrialization Speed Test</h3>
+			<img id="speedtest" src="index/speedtest.png" width="440" height="225" alt="MessagePack Serialization + Desrialization Speed Test" />
+			<p class="caption">In this test (<a href="http://downloads.sourceforge.net/project/msgpack/benchmark/msgpack-protobuf-json-speed-test.tar.gz">source code</a>), it measured the elapsed time of serializing and deserializing 200,000 target objects.
+			The target object consists of the three integers and 512 bytes string.</p>
+
+			<h3>RPC Feature Comparision</h3>
+			<table id="compare">
+				<colgroup>
+					<col class="header">
+					<col span="1" class="main">
+					<col span="2" class="sub">
+				</colgroup>
+				<thead>
+					<tr>
+						<th></th>
+						<th>MessagePack-RPC</th>
+						<th>Thrift</th>
+						<th>Avro</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#async">Asynchronous RPC</a></th>
+					<td>check</td>
+					<td>check</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#parallel">Parallel Pipelining</a></th>
+					<td>check</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#idl">Thrift IDL</a></th>
+					<td>check</td>
+					<td>check</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#dynamic-typing">Dynamic Typing</a></th>
+					<td>check</td>
+					<td>-</td>
+					<td>check</td>
+				</tr>
+				<tr>
+					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#connection-pooling">Connection pooling</a></th>
+					<td>check</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#delayed-return">Delayed return</a></th>
+					<td>check</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#event-driven-io">Event-driven I/O</a></th>
+					<td>check</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				</tbody>
+			</table>
+			<p class="caption">
+			Information of these related projects are available from: <a href="http://www.json.org/">JSON</a>, <a href="http://code.google.com/p/protobuf/">Protocol Buffers</a>, <a href="http://incubator.apache.org/thrift/">Thrift</a>, <a href="http://avro.apache.org/">Avro</a>.
 			</p>
 		</div>
 	</div>
 
-	<div id="getstart" class="container topcontent">
+	<div id="getstart" class="container">
 		<h2 id="GettingStarted">Getting Started</h2>
 
 		<div class="box3">
 			<h3>Ruby</h3>
+			<p class="getstart_links">
+				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartRuby">Quick Start</a>
+				<span>Reference:</span>
+				<a href="http://msgpack.org/rpc/rdoc/current">RPC</a>
+				<a href="http://msgpack.org/rdoc/current">Serialization</a>
+			</p>
 			<pre>&gt; gem install msgpack
 &gt; gem install msgpack-rpc</pre>
-			<p>
-			See <a href="/rdoc/current/MessagePack.html">document</a> for details.
-			Ruby implementation supports <!--<a href="/doc:zerocopy">--><a href="/doc:introduction">zero-copy</a> facility.
-			RPC documentation is <a href="/rpc/rdoc/current/MessagePack/RPC.html">here</a>.
-			</p>
+			<p>Ruby implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>
 		</div>
 
 		<div class="box3">
 			<h3>Python</h3>
-			<pre>&gt; easy_install msgpack-python</pre>
-			<p>
-			See <a href="http://pypi.python.org/pypi/msgpack-python/">PyPI page</a> for details.
+			<p class="getstart_links">
+				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartPython">Quick Start</a>
+				<!--
+				<span class="getstart_links_tag">Reference:</span>
+				<a href="">RPC</a>
+				<a href="">Serialization</a>
+				-->
 			</p>
+			<pre>&gt; easy_install msgpack-python</pre>
+			<p>More details for the package is available at the <a href="http://pypi.python.org/pypi/msgpack-python/">PyPI page</a>.</p>
 		</div>
 
 		<div class="box3">
 			<h3>Perl</h3>
-			<pre>&gt; cpan Data::MessagePack</pre>
-			See <a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/">CPAN page</a> for details. Documents are available at <a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/lib/Data/MessagePack.pm">Data::MessagePack</a> for basic usage and <a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/lib/Data/MessagePack/Unpacker.pod">Data::MessagePack::Unpacker</a> for streaming deserializer.
+			<p class="getstart_links">
+				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartPerl">Quick Start</a>
+				<span>Reference:</span>
+				<a href="http://search.cpan.org/~tokuhirom/AnyEvent-MPRPC/">RPC</a>
+				<a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/">Serialization</a>
+			</p>
+			<pre>&gt; cpan Data::MessagePack
+&gt; cpan AnyEvent::MPRPC</pre>
 			</p>
 		</div>
 
 		<div class="box3">
 			<h3>C/C++</h3>
+			<p class="getstart_links">
+				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartC++">Quick Start</a>
+				<!--
+				<span>Reference:</span>
+				<a href="">RPC</a>
+				<a href="">Serialization</a>
+				-->
 			<p>
+			<pre>port install msgpack  (<a href="http://www.macports.org/">MacPorts</a>)</pre>
 			Download <a href="http://downloads.sourceforge.net/project/msgpack/msgpack/cpp/msgpack-0.5.0.tar.gz">msgpack-0.5.0.tar.gz</a> and build it.
-			See <a href="/cpp:install">tutorial</a>, <a href="/cpp:doc">C++ reference</a> and <a href="/c:doc">C reference</a> for details.
-			C/C++ implementation supports <!--<a href="/doc:zerocopy">--><a href="/doc:introduction">zero-copy</a> facility.
+			C/C++ implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>
 			</p>
 		</div>
 
 		<div class="box3">
 			<h3>Java</h3>
+			<p class="getstart_links">
+				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartJava">Quick Start</a>
+				<span>Reference:</span>
+				<!--<a href="">RPC</a>-->
+				<a href="http://msgpack.org/javadoc/current">Serialization</a>
+			<p>
 			<p>Maven2 repository is located <a href="http://msgpack.org/maven2/">here</a>. See <a href="/javadoc/current/">javadoc</a> for actual APIs. Source code is available from <a href="http://github.com/msgpack/msgpack/tree/master/java/">here</a>, and <a href="http://github.com/msgpack/msgpack/tree/master/java/test/org/msgpack/">test cases</a> will give you a sample usage.</p>
 		</div>
 
 		<div class="box3">
-			<h3>PHP</h3>
-			<p>Source code is available from <a href="http://github.com/msgpack/msgpack/tree/master/php/">here</a>.</p>
-		</div>
-
-		<div class="box3">
 			<h3>Haskell</h3>
-			<pre>&gt; cabal install msgpack</pre>
+			<p class="getstart_links">
+				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartHaskell">Quick Start</a>
+				<!--
+				<span>Reference:</span>
+				<a href="">RPC</a>
+				<a href="">Serialization</a>
+				-->
 			<p>
-			See <a href="http://hackage.haskell.org/package/msgpack">hackageDB page</a> for details.
+			<pre>&gt; cabal install msgpack
+&gt; cabal install msgpack-rpc</pre>
+			<p>
+			See hackageDB page (<a href="http://hackage.haskell.org/package/msgpack">msgpack</a>, <a href="http://hackage.haskell.org/package/msgpack-rpc">msgpack-rpc</a>) for details.
 			</p>
 		</div>
 
-		<div class="box3">
-			<h3>Lua</h3>
-			<p>
-			See <a href="http://github.com/nobu-k/mplua">project page at github</a> for details.
-			</p>
-		</div>
-
-		<div class="box3">
-			<h3>D</h3>
-			<p>
-			See <a href="http://www.bitbucket.org/repeatedly/msgpack4d/src">project page at bitbucket</a> for details.
-			</p>
-		</div>
-
+		<p id="getstart_more_link"><a href="http://redmine.msgpack.org/projects/msgpack/wiki">And more...</a></p>
+		<!--
+		<p id="getstart_more_link"><a href="javascript:void(0)" onclick="$('#getstart_more_link').slideUp(300); $('#getstart_more').slideDown(300); return false;">And more...</a></p>
+		-->
 	</div>
 
-	<div id="more" class="container topcontent">
+	<div id="more" class="container">
 		<h2 id="LearnMore">Learn More</h2>
+		<div id="doctoc" class="clearfix">
+			<div class="box3">
+				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">Serialize Design</a></h3>
+				<p>More details about design of MessagePack-RPC.</p>
+			</div>
 
-		<div class="box2r" style="height:16em;">
-			<h3>MessagePack-RPC</h3>
-			<p><a href="http://github.com/msgpack/msgpack-rpc">MessagePack-RPC</a> is an inter-process messaging library that uses MessagePack for object serialization.
-			The goal of the project is providing fast and scalable messaging system for server, client and cluster applications.<br />
-			Currently, Java, C++ and Ruby implementations are available. Both of them are built on the top of scalable event-driven architecture and support synchronous,
-			asynchronous and callback interfaces.<br />
-			C++ implementation is fully multithreaded with <a href="http://github.com/frsyuki/mpio">mpio</a>, a multipurpose parallel I/O library.</p>
+			<div class="box3">
+				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign">RPC Design</a></h3>
+				<p>More details about design of MessagePack.</p>
+			</div>
+
+			<div class="box3">
+				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/Benchmark">Benchmark tests</a></h3>
+				<p>Benchmark tests of serialization and RPC.</p>
+			</div>
+
+			<div class="box3">
+				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatSpec">Serialize Spec</a></h3>
+				<p>MessagePack format specification.</p>
+			</div>
+
+			<div class="box3">
+				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCProtocolSpec">RPC Spec</a></h3>
+				<p>MessagePack-RPC protocol specification.</p>
+			</div>
+
+			<div class="box3">
+				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartIDL">IDL Quick Start</a></h3>
+				<p>Start MessagePack-RPC Interface Definition Language.</p>
+			</div>
 		</div>
 
 		<div class="box2l" style="height:5em;">
@@ -184,30 +286,6 @@
 			<h3>Chat</h3>
 			<p>Many of the MessagePack developers and community members hang out in the <b>#msgpack</b> channel on <a href="http://freenode.net/">irc.freenode.net</a>. If you are new to IRC and don't have a client, you can use a <a href="http://webchat.freenode.net/?channels=#msgpack">web-based client</a>.
 		</div>
-
-		<div class="box2l" style="height:6em;">
-			<h3>Documents and sources</h3>
-			<ul>
-				<li><a href="http://redmine.msgpack.org/projects/msgpack/wiki/Spec">MessagePack format specification</a></li>
-				<li><a href="http://github.com/msgpack/msgpack">Repository at github</a></li>
-				<li><a href="http://redmine.msgpack.org/projects/msgpack/wiki">Wiki</a></li>
-			</ul>
-		</div>
-	</div>
-
-	<div id="cases" class="container topcontent">
-		<h2 id="ActualCases">Actual cases</h2>
-
-		<div class="box2l">
-			<h3>kumofs</h3>
-			<p>
-			<a href="http://kumofs.sourceforge.net/">kumofs</a> is a highly available and scalable distributed key-value store.
-			Its performance is comparable to memcached and scales out linearly.<br />
-			MessagePack is used for the implementation of the asynchronous, multi-threaded and event-driven inter-node communication.
-			It utilizes MessagePack's <!--<a href="/doc:streaming">--><a href="/doc:introduction">streaming deserialization</a> feature and <!--<a href="/doc:zerocopy">--><a href="/doc:introduction">zero-copy</a> feature.
-			</p>
-		</div>
-
 	</div>
 
 	<div id="footer">
