@@ -71,12 +71,19 @@
 &gt; MessagePack.unpack(msg)   #=&gt; [1,2,3]</pre>
 
 			<h3>Scalable RPC</h3>
-			<p>MessagePack-RPC is cross-language RPC library for client, server and cluster applications. Because it hides complicated network behavior behind well-designed API, you can easily implement advanced network applications with MessagePack-RPC.</p>
-			<p>It is built on top of event-driven I/O architecture, and supports synchronous, asynchronous and callback-style RPC with multiple servers. Connection pooling is also supported. C++ and Java implementations are fully multithreaded, so the servers implemented on top of MessagePack-RPC automatically becomes scalable enough to serve thousands of clients.</p>
-			<pre class="prettyprint">&gt; require 'msgpack-rpc'
-&gt; c = MessagePack::RPC::Client.new(’127.0.0.1’,18800)
-&gt; future = c.call(:echo, “Hello”, “MessagePack”)
-&gt; future.get  #=&gt; [”Hello”, “MessagePack”]</pre>
+			<p>MessagePack-RPC is cross-language RPC library for client, server and cluster applications. Because it releases you from complicated network programming completely and provides well-designed API, you can easily implement advanced network applications with MessagePack-RPC.</p>
+			<!--<p>It is built on top of event-driven I/O architecture, and supports synchronous, asynchronous and callback-style RPC with multiple servers. Connection pooling is also supported. C++ and Java implementations are fully multithreaded, so the servers implemented on top of MessagePack-RPC automatically becomes scalable enough to serve thousands of clients.</p>-->
+			<pre class="prettyprint">require 'msgpack/rpc'
+class MyHandler
+  def add(x,y) return x+y end
+end
+svr = MessagePack::RPC::Server.new
+svr.listen('0.0.0.0', 18800, MyHandler.new)
+svr.run
+</pre>
+			<pre class="prettyprint">require 'msgpack/rpc'
+c = MessagePack::RPC::Client.new('127.0.0.1',18800)
+result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 		</div>
 
 		<div id="welcome_figure">
