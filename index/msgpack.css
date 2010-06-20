@@ -106,12 +106,25 @@ a:hover {
 }
 
 #navi {
-	font-family: sans-serif;
 	margin: 10px auto 0 auto;
 	width: 1024px;
+	padding: 0;
 }
 
-#navi li {
+#social {
+	float: right;
+	width: 120px;
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+
+#navi_links {
+	float: left;
+	width: 890px;
+	margin: 0;
+}
+
+#navi_links li {
 	list-style-type: none;
 	float: left;
 	font-size: 100%;
@@ -119,19 +132,19 @@ a:hover {
 	text-align: right;
 }
 
-#navi li a {
+#navi_links li a {
 	border: 2px solid #ffffff;
 	display: block;
 	padding: 10px;
 	text-decoration: none;
 }
 
-#navi li a:hover {
+#navi_links li a:hover {
 	border: 2px solid #5c5cff;
 	background-color: #ededff;
 }
 
-#navi .navi_title {
+#navi_links .navi_title {
 	color: #000c59;
 	font-size: 170%;
 	font-weight: bold;
@@ -139,13 +152,13 @@ a:hover {
 	margin-bottom: 0.2em;
 }
 
-#navi .navi_desc {
+#navi_links .navi_desc {
 	color: #000000;
 	display: block;
 	font-size: 13px;
 }
 
-#navi .navi_desc:after {
+#navi_links .navi_desc:after {
 	/*content: "\226b";*/
 	content: url(arrow.png);
 	width: 8px;
