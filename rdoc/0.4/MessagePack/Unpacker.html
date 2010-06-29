@@ -290,14 +290,10 @@ static VALUE MessagePack_Unpacker_initialize(int argc, VALUE *argv, VALUE self)
 
         UNPACKER(self, mp);
         template_init(mp);
-        mp-&gt;user.finished = 0;
-        mp-&gt;user.offset = 0;
-        mp-&gt;user.buffer.size = 0;
-        mp-&gt;user.buffer.free = 0;
-        mp-&gt;user.buffer.ptr = NULL;
         mp-&gt;user.stream = stream;
         mp-&gt;user.streambuf = rb_str_buf_new(MSGPACK_UNPACKER_BUFFER_RESERVE_SIZE);
         mp-&gt;user.stream_append_method = append_method_of(stream);
+
         return self;
 }</pre>
 					</div>
@@ -435,7 +431,7 @@ static VALUE MessagePack_Unpacker_each(VALUE self)
 
 				<div class="method-heading">
 				
-					<span class="method-callseq">unpack(data, offset) &rarr; next offset</span>
+					<span class="method-callseq">execute(data, offset) &rarr; next offset</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
@@ -488,7 +484,7 @@ static VALUE MessagePack_Unpacker_execute(VALUE self, VALUE data, VALUE off)
 
 				<div class="method-heading">
 				
-					<span class="method-callseq">unpack_limit(data, offset, limit) &rarr; next offset</span>
+					<span class="method-callseq">execute_limit(data, offset, limit) &rarr; next offset</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
