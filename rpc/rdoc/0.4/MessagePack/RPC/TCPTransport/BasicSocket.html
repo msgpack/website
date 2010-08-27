@@ -73,6 +73,8 @@
 					
 					<li><a href="#method-i-on_read">#on_read</a></li>
 					
+					<li><a href="#method-i-on_readable">#on_readable</a></li>
+					
 				</ul>
 			</div>
 			
@@ -115,13 +117,21 @@
 				
 					<li><a href="../../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -133,7 +143,19 @@
 				
 					<li><a href="../../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -143,13 +165,21 @@
 				
 					<li><a href="../../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -164,6 +194,8 @@
 					<li><a href="../../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -281,13 +313,53 @@ from Rev::TCPSocket
 					<div class="method-source-code"
 						id="on-read-source">
 <pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 50</span>
+50:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_read</span>(<span class="ruby-identifier">data</span>)
+51:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">feed</span>(<span class="ruby-identifier">data</span>)
+52:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+53:                                 <span class="ruby-identifier">on_message</span>(<span class="ruby-identifier">obj</span>)
+54:                         }
+55:                 <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="on-readable-method" class="method-detail ">
+				<a name="method-i-on_readable"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_readable</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+from Rev::TCPSocket
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-readable-source">
+<pre>
     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 41</span>
-41:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_read</span>(<span class="ruby-identifier">data</span>)
-42:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">feed</span>(<span class="ruby-identifier">data</span>)
-43:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
-44:                                 <span class="ruby-identifier">on_message</span>(<span class="ruby-identifier">obj</span>)
-45:                         }
-46:                 <span class="ruby-keyword kw">end</span></pre>
+41:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_readable</span>
+42:                         <span class="ruby-keyword kw">super</span>
+43:                 <span class="ruby-keyword kw">rescue</span>
+44:                         <span class="ruby-comment cmt"># FIXME send Connection Close message</span>
+45:                         <span class="ruby-comment cmt"># FIXME log</span>
+46:                         <span class="ruby-identifier">close</span>
+47:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

@@ -75,6 +75,8 @@
 					
 					<li><a href="#method-i-result">#result</a></li>
 					
+					<li><a href="#method-i-sent%3F">#sent?</a></li>
+					
 				</ul>
 			</div>
 			
@@ -106,13 +108,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -124,7 +134,19 @@
 				
 					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -134,13 +156,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -155,6 +185,8 @@
 					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -229,11 +261,12 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 84</span>
-84:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">sendable</span>, <span class="ruby-identifier">msgid</span>)
-85:                 <span class="ruby-ivar">@sendable</span> = <span class="ruby-identifier">sendable</span>  <span class="ruby-comment cmt"># send_message method is required</span>
-86:                 <span class="ruby-ivar">@msgid</span> = <span class="ruby-identifier">msgid</span>
-87:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 161</span>
+161:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">sendable</span>, <span class="ruby-identifier">msgid</span>)
+162:                 <span class="ruby-ivar">@sendable</span> = <span class="ruby-identifier">sendable</span>  <span class="ruby-comment cmt"># send_message method is required</span>
+163:                 <span class="ruby-ivar">@msgid</span> = <span class="ruby-identifier">msgid</span>
+164:                 <span class="ruby-ivar">@sent</span> = <span class="ruby-keyword kw">false</span>
+165:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -270,10 +303,10 @@
 					<div class="method-source-code"
 						id="error-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 94</span>
-94:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">err</span>, <span class="ruby-identifier">retval</span> = <span class="ruby-keyword kw">nil</span>)
-95:                 <span class="ruby-identifier">result</span>(<span class="ruby-identifier">retval</span>, <span class="ruby-identifier">err</span>)
-96:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 180</span>
+180:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">err</span>, <span class="ruby-identifier">retval</span> = <span class="ruby-keyword kw">nil</span>)
+181:                 <span class="ruby-identifier">result</span>(<span class="ruby-identifier">retval</span>, <span class="ruby-identifier">err</span>)
+182:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -304,11 +337,49 @@
 					<div class="method-source-code"
 						id="result-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 89</span>
-89:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">result</span>(<span class="ruby-identifier">retval</span>, <span class="ruby-identifier">err</span> = <span class="ruby-keyword kw">nil</span>)
-90:                 <span class="ruby-identifier">data</span> = [<span class="ruby-constant">RESPONSE</span>, <span class="ruby-ivar">@msgid</span>, <span class="ruby-identifier">err</span>, <span class="ruby-identifier">retval</span>].<span class="ruby-identifier">to_msgpack</span>
-91:                 <span class="ruby-ivar">@sendable</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-92:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 171</span>
+171:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">result</span>(<span class="ruby-identifier">retval</span>, <span class="ruby-identifier">err</span> = <span class="ruby-keyword kw">nil</span>)
+172:                 <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@sent</span>
+173:                         <span class="ruby-identifier">data</span> = [<span class="ruby-constant">RESPONSE</span>, <span class="ruby-ivar">@msgid</span>, <span class="ruby-identifier">err</span>, <span class="ruby-identifier">retval</span>].<span class="ruby-identifier">to_msgpack</span>
+174:                         <span class="ruby-ivar">@sendable</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+175:                         <span class="ruby-ivar">@sent</span> = <span class="ruby-keyword kw">true</span>
+176:                 <span class="ruby-keyword kw">end</span>
+177:                 <span class="ruby-keyword kw">nil</span>
+178:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="sent--method" class="method-detail ">
+				<a name="method-i-sent%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sent?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="sent--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 167</span>
+167:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sent?</span>
+168:                 <span class="ruby-ivar">@sent</span>
+169:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

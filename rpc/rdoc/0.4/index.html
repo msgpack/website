@@ -35,13 +35,21 @@
 		
 		<li class="class"><a href="MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 		
+		<li class="class"><a href="MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+		
 		<li class="class"><a href="MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 		
-		<li class="class"><a href="MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+		<li class="class"><a href="MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+		
+		<li class="module"><a href="MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 		
@@ -53,7 +61,19 @@
 		
 		<li class="class"><a href="MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 		
+		<li class="class"><a href="MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+		
 		<li class="module"><a href="MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 		
@@ -63,13 +83,21 @@
 		
 		<li class="class"><a href="MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 		
+		<li class="class"><a href="MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+		
 		<li class="class"><a href="MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 		
+		<li class="class"><a href="MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+		
 		<li class="class"><a href="MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 		
@@ -84,6 +112,8 @@
 		<li class="class"><a href="MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+		
+		<li class="class"><a href="MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 		
 		<li class="class"><a href="MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 		
@@ -116,59 +146,51 @@
 	<h2 id="methods">Methods</h2>
 	<ul>
 		
+			<li><a href="MessagePack/RPC/RPCError.html#method-c-create">::create &mdash; MessagePack::RPC::RPCError</a></li>
+		
 			<li><a href="MessagePack/RPC/Address.html#method-c-load">::load &mdash; MessagePack::RPC::Address</a></li>
 		
-			<li><a href="MessagePack/RPC/UDPServerTransport/ResponseSender.html#method-c-new">::new &mdash; MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
-		
-			<li><a href="MessagePack/RPC/TCPTransport/BasicSocket.html#method-c-new">::new &mdash; MessagePack::RPC::TCPTransport::BasicSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/Client.html#method-c-new">::new &mdash; MessagePack::RPC::Client</a></li>
-		
-			<li><a href="MessagePack/RPC/AsyncResult.html#method-c-new">::new &mdash; MessagePack::RPC::AsyncResult</a></li>
-		
-			<li><a href="MessagePack/RPC/RemoteError.html#method-c-new">::new &mdash; MessagePack::RPC::RemoteError</a></li>
-		
-			<li><a href="MessagePack/RPC/Responder.html#method-c-new">::new &mdash; MessagePack::RPC::Responder</a></li>
-		
-			<li><a href="MessagePack/RPC/UDPServerTransport.html#method-c-new">::new &mdash; MessagePack::RPC::UDPServerTransport</a></li>
-		
-			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/Session.html#method-c-new">::new &mdash; MessagePack::RPC::Session</a></li>
-		
-			<li><a href="MessagePack/RPC/Server.html#method-c-new">::new &mdash; MessagePack::RPC::Server</a></li>
+			<li><a href="MessagePack/RPC/UNIXTransport/BasicSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXTransport.html#method-c-new">::new &mdash; MessagePack::RPC::UNIXTransport</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXClientTransport.html#method-c-new">::new &mdash; MessagePack::RPC::UNIXClientTransport</a></li>
 		
+			<li><a href="MessagePack/RPC/AsyncResult.html#method-c-new">::new &mdash; MessagePack::RPC::AsyncResult</a></li>
+		
 			<li><a href="MessagePack/RPC/UNIXClientTransport/ClientSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/TimeoutError.html#method-c-new">::new &mdash; MessagePack::RPC::TimeoutError</a></li>
-		
-			<li><a href="MessagePack/RPC/RPCError.html#method-c-new">::new &mdash; MessagePack::RPC::RPCError</a></li>
-		
-			<li><a href="MessagePack/RPC/UDPServerTransport/ServerSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXServerTransport/ServerSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPServerTransport.html#method-c-new">::new &mdash; MessagePack::RPC::TCPServerTransport</a></li>
+			<li><a href="MessagePack/RPC/ServerError.html#method-c-new">::new &mdash; MessagePack::RPC::ServerError</a></li>
 		
-			<li><a href="MessagePack/RPC/Address.html#method-c-new">::new &mdash; MessagePack::RPC::Address</a></li>
+			<li><a href="MessagePack/RPC/UDPServerTransport.html#method-c-new">::new &mdash; MessagePack::RPC::UDPServerTransport</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-c-new">::new &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/Address.html#method-c-new">::new &mdash; MessagePack::RPC::Address</a></li>
-		
-			<li><a href="MessagePack/RPC/LoopUtil/Timer.html#method-c-new">::new &mdash; MessagePack::RPC::LoopUtil::Timer</a></li>
-		
-			<li><a href="MessagePack/RPC/Server/Base.html#method-c-new">::new &mdash; MessagePack::RPC::Server::Base</a></li>
-		
-			<li><a href="MessagePack/RPC/UNIXTransport/BasicSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
+			<li><a href="MessagePack/RPC/UDPServerTransport/ResponseSender.html#method-c-new">::new &mdash; MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-c-new">::new &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
 		
+			<li><a href="MessagePack/RPC/Server.html#method-c-new">::new &mdash; MessagePack::RPC::Server</a></li>
+		
+			<li><a href="MessagePack/RPC/Address.html#method-c-new">::new &mdash; MessagePack::RPC::Address</a></li>
+		
+			<li><a href="MessagePack/RPC/Address.html#method-c-new">::new &mdash; MessagePack::RPC::Address</a></li>
+		
+			<li><a href="MessagePack/RPC/TransportError.html#method-c-new">::new &mdash; MessagePack::RPC::TransportError</a></li>
+		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-c-new">::new &mdash; MessagePack::RPC::MultiFuture</a></li>
+		
+			<li><a href="MessagePack/RPC/LoopUtil/Timer.html#method-c-new">::new &mdash; MessagePack::RPC::LoopUtil::Timer</a></li>
+		
+			<li><a href="MessagePack/RPC/CallError.html#method-c-new">::new &mdash; MessagePack::RPC::CallError</a></li>
+		
+			<li><a href="MessagePack/RPC/Server/Base.html#method-c-new">::new &mdash; MessagePack::RPC::Server::Base</a></li>
+		
+			<li><a href="MessagePack/RPC/TCPTransport/BasicSocket.html#method-c-new">::new &mdash; MessagePack::RPC::TCPTransport::BasicSocket</a></li>
+		
 			<li><a href="MessagePack/RPC/UNIXServerTransport.html#method-c-new">::new &mdash; MessagePack::RPC::UNIXServerTransport</a></li>
+		
+			<li><a href="MessagePack/RPC/Responder.html#method-c-new">::new &mdash; MessagePack::RPC::Responder</a></li>
 		
 			<li><a href="MessagePack/RPC/SessionPool.html#method-c-new">::new &mdash; MessagePack::RPC::SessionPool</a></li>
 		
@@ -180,15 +202,33 @@
 		
 			<li><a href="MessagePack/RPC/Client/Base.html#method-c-new">::new &mdash; MessagePack::RPC::Client::Base</a></li>
 		
-			<li><a href="MessagePack/RPC/ConnectError.html#method-c-new">::new &mdash; MessagePack::RPC::ConnectError</a></li>
+			<li><a href="MessagePack/RPC/RuntimeError.html#method-c-new">::new &mdash; MessagePack::RPC::RuntimeError</a></li>
+		
+			<li><a href="MessagePack/RPC/TimeoutError.html#method-c-new">::new &mdash; MessagePack::RPC::TimeoutError</a></li>
+		
+			<li><a href="MessagePack/RPC/RPCError.html#method-c-new">::new &mdash; MessagePack::RPC::RPCError</a></li>
+		
+			<li><a href="MessagePack/RPC/RemoteError.html#method-c-new">::new &mdash; MessagePack::RPC::RemoteError</a></li>
+		
+			<li><a href="MessagePack/RPC/Session.html#method-c-new">::new &mdash; MessagePack::RPC::Session</a></li>
+		
+			<li><a href="MessagePack/RPC/UDPServerTransport/ServerSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/Client.html#method-c-new">::new &mdash; MessagePack::RPC::Client</a></li>
 		
 			<li><a href="MessagePack/RPC/LoopUtil/TaskQueue.html#method-c-new">::new &mdash; MessagePack::RPC::LoopUtil::TaskQueue</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPTransport.html#method-c-new">::new &mdash; MessagePack::RPC::TCPTransport</a></li>
-		
 			<li><a href="MessagePack/RPC/ObjectDispatcher.html#method-c-new">::new &mdash; MessagePack::RPC::ObjectDispatcher</a></li>
 		
+			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-c-new">::new &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/TCPTransport.html#method-c-new">::new &mdash; MessagePack::RPC::TCPTransport</a></li>
+		
 			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-c-new">::new &mdash; MessagePack::RPC::TCPClientTransport</a></li>
+		
+			<li><a href="MessagePack/RPC/TCPServerTransport.html#method-c-new">::new &mdash; MessagePack::RPC::TCPServerTransport</a></li>
+		
+			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-c-new">::new &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/Client.html#method-c-open">::open &mdash; MessagePack::RPC::Client</a></li>
 		
@@ -200,55 +240,67 @@
 		
 			<li><a href="MessagePack/RPC/Address.html#method-i-%3D%3D">#== &mdash; MessagePack::RPC::Address</a></li>
 		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-add">#add &mdash; MessagePack::RPC::MultiFuture</a></li>
+		
 			<li><a href="MessagePack/RPC/Future.html#method-i-attach_callback">#attach_callback &mdash; MessagePack::RPC::Future</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPTransport.html#method-i-build_transport">#build_transport &mdash; MessagePack::RPC::TCPTransport</a></li>
 		
-			<li><a href="MessagePack/RPC/UDPTransport.html#method-i-build_transport">#build_transport &mdash; MessagePack::RPC::UDPTransport</a></li>
-		
 			<li><a href="MessagePack/RPC/UNIXTransport.html#method-i-build_transport">#build_transport &mdash; MessagePack::RPC::UNIXTransport</a></li>
+		
+			<li><a href="MessagePack/RPC/UDPTransport.html#method-i-build_transport">#build_transport &mdash; MessagePack::RPC::UDPTransport</a></li>
 		
 			<li><a href="MessagePack/RPC/Session.html#method-i-call">#call &mdash; MessagePack::RPC::Session</a></li>
 		
+			<li><a href="MessagePack/RPC/Session.html#method-i-call_apply">#call_apply &mdash; MessagePack::RPC::Session</a></li>
+		
 			<li><a href="MessagePack/RPC/Session.html#method-i-call_async">#call_async &mdash; MessagePack::RPC::Session</a></li>
+		
+			<li><a href="MessagePack/RPC/Session.html#method-i-call_async_apply">#call_async_apply &mdash; MessagePack::RPC::Session</a></li>
 		
 			<li><a href="MessagePack/RPC/Session.html#method-i-callback">#callback &mdash; MessagePack::RPC::Session</a></li>
 		
-			<li><a href="MessagePack/RPC/SessionPool.html#method-i-close">#close &mdash; MessagePack::RPC::SessionPool</a></li>
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-callback">#callback &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
-			<li><a href="MessagePack/RPC/Client.html#method-i-close">#close &mdash; MessagePack::RPC::Client</a></li>
+			<li><a href="MessagePack/RPC/Session.html#method-i-callback_apply">#callback_apply &mdash; MessagePack::RPC::Session</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPServerTransport.html#method-i-close">#close &mdash; MessagePack::RPC::TCPServerTransport</a></li>
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-clear">#clear &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-close">#close &mdash; MessagePack::RPC::TCPClientTransport</a></li>
-		
-			<li><a href="MessagePack/RPC/Server.html#method-i-close">#close &mdash; MessagePack::RPC::Server</a></li>
-		
-			<li><a href="MessagePack/RPC/UDPClientTransport.html#method-i-close">#close &mdash; MessagePack::RPC::UDPClientTransport</a></li>
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-clear_callback">#clear_callback &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
 			<li><a href="MessagePack/RPC/UDPServerTransport.html#method-i-close">#close &mdash; MessagePack::RPC::UDPServerTransport</a></li>
 		
+			<li><a href="MessagePack/RPC/TCPServerTransport.html#method-i-close">#close &mdash; MessagePack::RPC::TCPServerTransport</a></li>
+		
+			<li><a href="MessagePack/RPC/Client.html#method-i-close">#close &mdash; MessagePack::RPC::Client</a></li>
+		
 			<li><a href="MessagePack/RPC/UNIXServerTransport.html#method-i-close">#close &mdash; MessagePack::RPC::UNIXServerTransport</a></li>
+		
+			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-close">#close &mdash; MessagePack::RPC::TCPClientTransport</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXClientTransport.html#method-i-close">#close &mdash; MessagePack::RPC::UNIXClientTransport</a></li>
 		
+			<li><a href="MessagePack/RPC/Server.html#method-i-close">#close &mdash; MessagePack::RPC::Server</a></li>
+		
+			<li><a href="MessagePack/RPC/SessionPool.html#method-i-close">#close &mdash; MessagePack::RPC::SessionPool</a></li>
+		
 			<li><a href="MessagePack/RPC/Session.html#method-i-close">#close &mdash; MessagePack::RPC::Session</a></li>
+		
+			<li><a href="MessagePack/RPC/UDPClientTransport.html#method-i-close">#close &mdash; MessagePack::RPC::UDPClientTransport</a></li>
 		
 			<li><a href="MessagePack/RPC/Address.html#method-i-connectable%3F">#connectable? &mdash; MessagePack::RPC::Address</a></li>
 		
-			<li><a href="MessagePack/RPC/ObjectDispatcher.html#method-i-dispatch_notify">#dispatch_notify &mdash; MessagePack::RPC::ObjectDispatcher</a></li>
-		
-			<li><a href="MessagePack/RPC/ObjectDispatcher.html#method-i-dispatch_request">#dispatch_request &mdash; MessagePack::RPC::ObjectDispatcher</a></li>
+			<li><a href="MessagePack/RPC/ObjectDispatcher.html#method-i-dispatch">#dispatch &mdash; MessagePack::RPC::ObjectDispatcher</a></li>
 		
 			<li><a href="MessagePack/RPC/Address.html#method-i-dump">#dump &mdash; MessagePack::RPC::Address</a></li>
 		
 			<li><a href="MessagePack/RPC/Address.html#method-i-eql%3F">#eql? &mdash; MessagePack::RPC::Address</a></li>
 		
+			<li><a href="MessagePack/RPC/NullResponder.html#method-i-error">#error &mdash; MessagePack::RPC::NullResponder</a></li>
+		
 			<li><a href="MessagePack/RPC/AsyncResult.html#method-i-error">#error &mdash; MessagePack::RPC::AsyncResult</a></li>
 		
 			<li><a href="MessagePack/RPC/Responder.html#method-i-error">#error &mdash; MessagePack::RPC::Responder</a></li>
-		
-			<li><a href="MessagePack/RPC/ObjectDispatcher.html#method-i-forward_method">#forward_method &mdash; MessagePack::RPC::ObjectDispatcher</a></li>
 		
 			<li><a href="MessagePack/RPC/Future.html#method-i-get">#get &mdash; MessagePack::RPC::Future</a></li>
 		
@@ -262,43 +314,61 @@
 		
 			<li><a href="MessagePack/RPC/Address.html#method-i-inspect">#inspect &mdash; MessagePack::RPC::Address</a></li>
 		
+			<li><a href="MessagePack/RPC/RPCError.html#method-i-is%3F">#is? &mdash; MessagePack::RPC::RPCError</a></li>
+		
 			<li><a href="MessagePack/RPC/Future.html#method-i-join">#join &mdash; MessagePack::RPC::Future</a></li>
 		
-			<li><a href="MessagePack/RPC/UNIXServerTransport.html#method-i-listen">#listen &mdash; MessagePack::RPC::UNIXServerTransport</a></li>
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-join_all">#join_all &mdash; MessagePack::RPC::MultiFuture</a></li>
+		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-join_error">#join_error &mdash; MessagePack::RPC::MultiFuture</a></li>
+		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-join_num">#join_num &mdash; MessagePack::RPC::MultiFuture</a></li>
+		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-join_success">#join_success &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
 			<li><a href="MessagePack/RPC/Server.html#method-i-listen">#listen &mdash; MessagePack::RPC::Server</a></li>
 		
+			<li><a href="MessagePack/RPC/UDPServerTransport.html#method-i-listen">#listen &mdash; MessagePack::RPC::UDPServerTransport</a></li>
+		
 			<li><a href="MessagePack/RPC/TCPServerTransport.html#method-i-listen">#listen &mdash; MessagePack::RPC::TCPServerTransport</a></li>
 		
-			<li><a href="MessagePack/RPC/UDPServerTransport.html#method-i-listen">#listen &mdash; MessagePack::RPC::UDPServerTransport</a></li>
+			<li><a href="MessagePack/RPC/UNIXServerTransport.html#method-i-listen">#listen &mdash; MessagePack::RPC::UNIXServerTransport</a></li>
 		
 			<li><a href="MessagePack/RPC/Session.html#method-i-notify">#notify &mdash; MessagePack::RPC::Session</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-on_close">#on_close &mdash; MessagePack::RPC::TCPClientTransport</a></li>
+			<li><a href="MessagePack/RPC/Session.html#method-i-notify_apply">#notify_apply &mdash; MessagePack::RPC::Session</a></li>
+		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-on_all">#on_all &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_close">#on_close &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-on_close">#on_close &mdash; MessagePack::RPC::TCPClientTransport</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-on_connect">#on_connect &mdash; MessagePack::RPC::TCPClientTransport</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_connect">#on_connect &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
 		
+			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_connect_failed">#on_connect_failed &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+		
 			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-on_connect_failed">#on_connect_failed &mdash; MessagePack::RPC::TCPClientTransport</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_connect_failed">#on_connect_failed &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-on_error">#on_error &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
 			<li><a href="MessagePack/RPC/MessageReceiver.html#method-i-on_message">#on_message &mdash; MessagePack::RPC::MessageReceiver</a></li>
 		
-			<li><a href="MessagePack/RPC/UNIXClientTransport/ClientSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UDPServerTransport/ServerSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/UNIXClientTransport/ClientSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXServerTransport/ServerSocket.html#method-i-on_notify">#on_notify &mdash; MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-on_num">#on_num &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXTransport/BasicSocket.html#method-i-on_read">#on_read &mdash; MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
 		
@@ -306,37 +376,45 @@
 		
 			<li><a href="MessagePack/RPC/UDPTransport/BasicSocket.html#method-i-on_readable">#on_readable &mdash; MessagePack::RPC::UDPTransport::BasicSocket</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+			<li><a href="MessagePack/RPC/TCPTransport/BasicSocket.html#method-i-on_readable">#on_readable &mdash; MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+			<li><a href="MessagePack/RPC/UNIXTransport/BasicSocket.html#method-i-on_readable">#on_readable &mdash; MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXServerTransport/ServerSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
 		
-			<li><a href="MessagePack/RPC/UDPServerTransport/ServerSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXClientTransport/ClientSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
 		
+			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/UDPServerTransport/ServerSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-on_request">#on_request &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+		
 			<li><a href="MessagePack/RPC/UNIXClientTransport/ClientSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/UNIXServerTransport/ServerSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UDPServerTransport/ServerSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
 		
+			<li><a href="MessagePack/RPC/UNIXServerTransport/ServerSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-i-on_response">#on_response &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+		
 			<li><a href="MessagePack/RPC/LoopUtil/TaskQueue.html#method-i-on_signal">#on_signal &mdash; MessagePack::RPC::LoopUtil::TaskQueue</a></li>
+		
+			<li><a href="MessagePack/RPC/MultiFuture.html#method-i-on_success">#on_success &mdash; MessagePack::RPC::MultiFuture</a></li>
 		
 			<li><a href="MessagePack/RPC/LoopUtil/Timer.html#method-i-on_timer">#on_timer &mdash; MessagePack::RPC::LoopUtil::Timer</a></li>
 		
 			<li><a href="MessagePack/RPC/Address.html#method-i-port">#port &mdash; MessagePack::RPC::Address</a></li>
 		
 			<li><a href="MessagePack/RPC/LoopUtil/TaskQueue.html#method-i-push">#push &mdash; MessagePack::RPC::LoopUtil::TaskQueue</a></li>
+		
+			<li><a href="MessagePack/RPC/NullResponder.html#method-i-result">#result &mdash; MessagePack::RPC::NullResponder</a></li>
 		
 			<li><a href="MessagePack/RPC/AsyncResult.html#method-i-result">#result &mdash; MessagePack::RPC::AsyncResult</a></li>
 		
@@ -348,27 +426,31 @@
 		
 			<li><a href="MessagePack/RPC/UNIXClientTransport.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UNIXClientTransport</a></li>
 		
-			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::TCPClientTransport</a></li>
 		
-			<li><a href="MessagePack/RPC/UDPServerTransport/ResponseSender.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
+			<li><a href="MessagePack/RPC/UDPClientTransport/ClientSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UNIXClientTransport/ClientSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
 		
+			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+		
 			<li><a href="MessagePack/RPC/UNIXServerTransport/ServerSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+		
+			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/UDPClientTransport.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UDPClientTransport</a></li>
 		
-			<li><a href="MessagePack/RPC/TCPServerTransport/ServerSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
-		
-			<li><a href="MessagePack/RPC/TCPClientTransport.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::TCPClientTransport</a></li>
-		
-			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+			<li><a href="MessagePack/RPC/UDPServerTransport/ResponseSender.html#method-i-send_data">#send_data &mdash; MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
 		
 			<li><a href="MessagePack/RPC/Session.html#method-i-send_notify">#send_notify &mdash; MessagePack::RPC::Session</a></li>
 		
 			<li><a href="MessagePack/RPC/TCPClientTransport/ClientSocket.html#method-i-send_pending">#send_pending &mdash; MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
 		
 			<li><a href="MessagePack/RPC/Session.html#method-i-send_request">#send_request &mdash; MessagePack::RPC::Session</a></li>
+		
+			<li><a href="MessagePack/RPC/NullResponder.html#method-i-sent%3F">#sent? &mdash; MessagePack::RPC::NullResponder</a></li>
+		
+			<li><a href="MessagePack/RPC/Responder.html#method-i-sent%3F">#sent? &mdash; MessagePack::RPC::Responder</a></li>
 		
 			<li><a href="MessagePack/RPC/Server.html#method-i-serve">#serve &mdash; MessagePack::RPC::Server</a></li>
 		

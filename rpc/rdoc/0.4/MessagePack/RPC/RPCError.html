@@ -69,7 +69,11 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
+					<li><a href="#method-c-create">::create</a></li>
+					
 					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-is%3F">#is?</a></li>
 					
 				</ul>
 			</div>
@@ -102,13 +106,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -120,7 +132,19 @@
 				
 					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -130,13 +154,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -151,6 +183,8 @@
 					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -190,13 +224,86 @@
 		<h1 class="class">MessagePack::RPC::RPCError</h1>
 
 		<div id="description">
-			
+			<p>
+MessagePack-<a href="../RPC.html">RPC</a> Exception
+</p>
+<p>
+<a href="RPCError.html">RPCError</a> | +&#8212; <a
+href="TimeoutError.html">TimeoutError</a> | +&#8212; <a
+href="TransportError.html">TransportError</a> |   | |   +&#8212; <a
+href="NetworkUnreachableError.html">NetworkUnreachableError</a> |   | |  
++&#8212; <a href="ConnectionRefusedError.html">ConnectionRefusedError</a> |
+| |   +&#8212; <a
+href="ConnectionTimeoutError.html">ConnectionTimeoutError</a> |   | |  
++&#8212; <a href="MalformedMessageError.html">MalformedMessageError</a> |  
+| |   +&#8212; <a href="StreamClosedError.html">StreamClosedError</a> |
++&#8212; <a href="CallError.html">CallError</a> |   | |   +&#8212; <a
+href="NoMethodError.html">NoMethodError</a> |   | |   +&#8212; <a
+href="ArgumentError.html">ArgumentError</a> | +&#8212; <a
+href="ServerError.html">ServerError</a> |   | |   +&#8212; <a
+href="ServerBusyError.html">ServerBusyError</a> | +&#8212; <a
+href="RemoteError.html">RemoteError</a>
+</p>
+<pre>
+    |
+    +-- RuntimeError
+    |
+    +-- (user-defined errors)</pre>
+
 		</div>
 
 		<!-- Constants -->
 		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="SYSTEM_ERROR_TABLE">SYSTEM_ERROR_TABLE</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+			</dl>
+		</div>
+		
 
 		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="code-attribute-method" class="method-detail">
+				<a name="code"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">code</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="data-attribute-method" class="method-detail">
+				<a name="data"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">data</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+		</div>
 		
 
 		<!-- Methods -->
@@ -205,13 +312,63 @@
 			<h3 class="section-header">Public Class Methods</h3>
 
 		
+			<div id="create-method" class="method-detail ">
+				<a name="method-c-create"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">create</span><span
+						class="method-args">(code, data)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="create-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/exception.rb, line 171</span>
+171:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">data</span>)
+172:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">..</span>
+173:                         <span class="ruby-identifier">code</span> = <span class="ruby-identifier">code</span>.<span class="ruby-identifier">dup</span>
+174:                         <span class="ruby-keyword kw">while</span> <span class="ruby-keyword kw">true</span>
+175:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">klass</span> = <span class="ruby-constant">SYSTEM_ERROR_TABLE</span>[<span class="ruby-identifier">code</span>]
+176:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">data</span>)
+177:                                 <span class="ruby-keyword kw">end</span>
+178:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-regexp re">/\.[^\.]*$/</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">empty?</span>
+179:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-constant">RPCError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, *<span class="ruby-identifier">data</span>)
+180:                                 <span class="ruby-keyword kw">end</span>
+181:                         <span class="ruby-keyword kw">end</span>
+182: 
+183:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">RuntimeError</span><span class="ruby-operator">::</span><span class="ruby-constant">CODE</span>
+184:                         <span class="ruby-constant">RuntimeError</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">data</span>)
+185: 
+186:                 <span class="ruby-keyword kw">else</span>
+187:                         <span class="ruby-constant">RemoteError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, *<span class="ruby-identifier">data</span>)
+188:                 <span class="ruby-keyword kw">end</span>
+189:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
 			<div id="new-method" class="method-detail ">
 				<a name="method-c-new"></a>
 
 				<div class="method-heading">
 				
 					<span class="method-name">new</span><span
-						class="method-args">(msg)</span>
+						class="method-args">(code, *data)</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
@@ -225,10 +382,56 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/exception.rb, line 26</span>
-26:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">msg</span>)
-27:                 <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">msg</span>)
-28:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/exception.rb, line 63</span>
+63:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">code</span>, *<span class="ruby-identifier">data</span>)
+64:                 <span class="ruby-ivar">@code</span> = <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_s</span>
+65:                 <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">data</span>
+66:                 <span class="ruby-keyword kw">super</span>(<span class="ruby-ivar">@data</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@code</span>)
+67:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="is--method" class="method-detail ">
+				<a name="method-i-is%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">is?</span><span
+						class="method-args">(code)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="is--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/exception.rb, line 71</span>
+71:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is?</span>(<span class="ruby-identifier">code</span>)
+72:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">RPCError</span>
+73:                         <span class="ruby-identifier">code</span> = <span class="ruby-identifier">code</span><span class="ruby-operator">::</span><span class="ruby-constant">CODE</span>
+74:                 <span class="ruby-keyword kw">end</span>
+75:                 <span class="ruby-ivar">@code</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@code</span>[<span class="ruby-value">0</span>,<span class="ruby-identifier">code</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-node">&quot;#{code}.&quot;</span> <span class="ruby-operator">||</span>
+76:                         (<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;.RemoteError&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@code</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">..</span>)
+77:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

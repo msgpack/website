@@ -115,13 +115,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -133,7 +141,19 @@
 				
 					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -143,13 +163,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -164,6 +192,8 @@
 					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -238,25 +268,25 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 57</span>
-57:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">address</span>)
-58:                 <span class="ruby-identifier">io</span> = <span class="ruby-constant">UDPSocket</span>.<span class="ruby-identifier">new</span>
-59:                 <span class="ruby-identifier">io</span>.<span class="ruby-identifier">connect</span>(*<span class="ruby-identifier">address</span>)
-60: 
-61:                 <span class="ruby-keyword kw">begin</span>
-62:                         <span class="ruby-ivar">@sock</span> = <span class="ruby-constant">ClientSocket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">session</span>)
-63:                 <span class="ruby-keyword kw">rescue</span>
-64:                         <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
-65:                         <span class="ruby-identifier">raise</span>
-66:                 <span class="ruby-keyword kw">end</span>
-67: 
-68:                 <span class="ruby-keyword kw">begin</span>
-69:                         <span class="ruby-identifier">session</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@sock</span>)
-70:                 <span class="ruby-keyword kw">rescue</span>
-71:                         <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
-72:                         <span class="ruby-identifier">raise</span>
-73:                 <span class="ruby-keyword kw">end</span>
-74:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 63</span>
+63:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">address</span>)
+64:                 <span class="ruby-identifier">io</span> = <span class="ruby-constant">UDPSocket</span>.<span class="ruby-identifier">new</span>
+65:                 <span class="ruby-identifier">io</span>.<span class="ruby-identifier">connect</span>(*<span class="ruby-identifier">address</span>)
+66: 
+67:                 <span class="ruby-keyword kw">begin</span>
+68:                         <span class="ruby-ivar">@sock</span> = <span class="ruby-constant">ClientSocket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">session</span>)
+69:                 <span class="ruby-keyword kw">rescue</span>
+70:                         <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
+71:                         <span class="ruby-identifier">raise</span>
+72:                 <span class="ruby-keyword kw">end</span>
+73: 
+74:                 <span class="ruby-keyword kw">begin</span>
+75:                         <span class="ruby-identifier">session</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@sock</span>)
+76:                 <span class="ruby-keyword kw">rescue</span>
+77:                         <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
+78:                         <span class="ruby-identifier">raise</span>
+79:                 <span class="ruby-keyword kw">end</span>
+80:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -295,11 +325,11 @@ ClientTransport interface
 					<div class="method-source-code"
 						id="close-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 82</span>
-82:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-83:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">attached?</span>
-84:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
-85:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 88</span>
+88:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+89:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">attached?</span>
+90:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
+91:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -332,10 +362,10 @@ ClientTransport interface
 					<div class="method-source-code"
 						id="send-data-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 77</span>
-77:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-78:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-79:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 83</span>
+83:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+84:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+85:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

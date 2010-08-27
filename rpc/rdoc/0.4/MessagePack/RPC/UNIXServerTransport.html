@@ -115,13 +115,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -133,7 +141,19 @@
 				
 					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -143,13 +163,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -164,6 +192,8 @@
 					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -238,11 +268,11 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 110</span>
-110:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">address</span>)
-111:                 <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
-112:                 <span class="ruby-ivar">@sock</span> = <span class="ruby-keyword kw">nil</span>
-113:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 119</span>
+119:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">address</span>)
+120:                 <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
+121:                 <span class="ruby-ivar">@sock</span> = <span class="ruby-keyword kw">nil</span>
+122:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -281,12 +311,12 @@ ServerTransport interface
 					<div class="method-source-code"
 						id="close-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 128</span>
-128:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-129:                 <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@lsock</span>
-130:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">attached?</span>
-131:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">close</span>
-132:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 137</span>
+137:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+138:                 <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@lsock</span>
+139:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">attached?</span>
+140:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">close</span>
+141:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -319,17 +349,17 @@ ServerTransport interface
 					<div class="method-source-code"
 						id="listen-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 116</span>
-116:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">listen</span>(<span class="ruby-identifier">server</span>)
-117:                 <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
-118:                 <span class="ruby-ivar">@lsock</span>  = <span class="ruby-constant">Rev</span><span class="ruby-operator">::</span><span class="ruby-constant">UNIXServer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@address</span>, <span class="ruby-constant">ServerSocket</span>, <span class="ruby-ivar">@server</span>)
-119:                 <span class="ruby-keyword kw">begin</span>
-120:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@lsock</span>)
-121:                 <span class="ruby-keyword kw">rescue</span>
-122:                         <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">close</span>
-123:                         <span class="ruby-identifier">raise</span>
-124:                 <span class="ruby-keyword kw">end</span>
-125:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 125</span>
+125:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">listen</span>(<span class="ruby-identifier">server</span>)
+126:                 <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
+127:                 <span class="ruby-ivar">@lsock</span>  = <span class="ruby-constant">Rev</span><span class="ruby-operator">::</span><span class="ruby-constant">UNIXServer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@address</span>, <span class="ruby-constant">ServerSocket</span>, <span class="ruby-ivar">@server</span>)
+128:                 <span class="ruby-keyword kw">begin</span>
+129:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@lsock</span>)
+130:                 <span class="ruby-keyword kw">rescue</span>
+131:                         <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">close</span>
+132:                         <span class="ruby-identifier">raise</span>
+133:                 <span class="ruby-keyword kw">end</span>
+134:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

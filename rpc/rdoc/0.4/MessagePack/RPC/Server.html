@@ -117,13 +117,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -135,7 +143,19 @@
 				
 					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -145,13 +165,21 @@
 				
 					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -166,6 +194,8 @@
 					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -297,14 +327,14 @@ initialize(loop = Loop.new)
 					<div class="method-source-code"
 						id="close-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 62</span>
-62:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-63:                 <span class="ruby-ivar">@listeners</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">listener</span><span class="ruby-operator">|</span>
-64:                         <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">close</span>
-65:                         <span class="ruby-keyword kw">true</span>
-66:                 }
-67:                 <span class="ruby-keyword kw">super</span>
-68:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 70</span>
+70:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+71:                 <span class="ruby-ivar">@listeners</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">listener</span><span class="ruby-operator">|</span>
+72:                         <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">close</span>
+73:                         <span class="ruby-keyword kw">true</span>
+74:                 }
+75:                 <span class="ruby-keyword kw">super</span>
+76:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -344,28 +374,28 @@ listen(host, port, obj = nil, accept = obj.public_methods)
 					<div class="method-source-code"
 						id="listen-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 40</span>
-40:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">listen</span>(<span class="ruby-identifier">arg1</span>, <span class="ruby-identifier">arg2</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">arg3</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">arg4</span> = <span class="ruby-keyword kw">nil</span>)
-41:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">arg1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:listen</span>)
-42:                         <span class="ruby-comment cmt"># 1.</span>
-43:                         <span class="ruby-identifier">listener</span> = <span class="ruby-identifier">arg1</span>
-44:                         <span class="ruby-identifier">obj</span>      = <span class="ruby-identifier">arg2</span>
-45:                         <span class="ruby-identifier">accept</span>   = <span class="ruby-identifier">arg3</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">public_methods</span>
-46:                 <span class="ruby-keyword kw">else</span>
-47:                         <span class="ruby-comment cmt"># 2.</span>
-48:                         <span class="ruby-identifier">listener</span> = <span class="ruby-constant">TCPServerTransport</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Address</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">arg1</span>,<span class="ruby-identifier">arg2</span>))
-49:                         <span class="ruby-identifier">obj</span>      = <span class="ruby-identifier">arg3</span>
-50:                         <span class="ruby-identifier">accept</span>   = <span class="ruby-identifier">arg4</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">public_methods</span>
-51:                 <span class="ruby-keyword kw">end</span>
-52: 
-53:                 <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">nil?</span>
-54:                         <span class="ruby-identifier">serve</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">accept</span>)
-55:                 <span class="ruby-keyword kw">end</span>
-56: 
-57:                 <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">listen</span>(<span class="ruby-keyword kw">self</span>)
-58:                 <span class="ruby-ivar">@listeners</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">listener</span>)
-59:                 <span class="ruby-keyword kw">nil</span>
-60:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 48</span>
+48:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">listen</span>(<span class="ruby-identifier">arg1</span>, <span class="ruby-identifier">arg2</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">arg3</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">arg4</span> = <span class="ruby-keyword kw">nil</span>)
+49:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">arg1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:listen</span>)
+50:                         <span class="ruby-comment cmt"># 1.</span>
+51:                         <span class="ruby-identifier">listener</span> = <span class="ruby-identifier">arg1</span>
+52:                         <span class="ruby-identifier">obj</span>      = <span class="ruby-identifier">arg2</span>
+53:                         <span class="ruby-identifier">accept</span>   = <span class="ruby-identifier">arg3</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">public_methods</span>
+54:                 <span class="ruby-keyword kw">else</span>
+55:                         <span class="ruby-comment cmt"># 2.</span>
+56:                         <span class="ruby-identifier">listener</span> = <span class="ruby-constant">TCPServerTransport</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Address</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">arg1</span>,<span class="ruby-identifier">arg2</span>))
+57:                         <span class="ruby-identifier">obj</span>      = <span class="ruby-identifier">arg3</span>
+58:                         <span class="ruby-identifier">accept</span>   = <span class="ruby-identifier">arg4</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">public_methods</span>
+59:                 <span class="ruby-keyword kw">end</span>
+60: 
+61:                 <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">nil?</span>
+62:                         <span class="ruby-identifier">serve</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">accept</span>)
+63:                 <span class="ruby-keyword kw">end</span>
+64: 
+65:                 <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">listen</span>(<span class="ruby-keyword kw">self</span>)
+66:                 <span class="ruby-ivar">@listeners</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">listener</span>)
+67:                 <span class="ruby-keyword kw">nil</span>
+68:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -389,18 +419,33 @@ listen(host, port, obj = nil, accept = obj.public_methods)
 
 				<div class="method-description">
 					
-					
+					<ol>
+<li><p>
+serve(dispatcher)
+</p>
+</li>
+<li><p>
+serve(obj, accept = obj.public_methods)
+</p>
+</li>
+</ol>
 					
 
 					
 					<div class="method-source-code"
 						id="serve-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 33</span>
-33:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serve</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">accept</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">public_methods</span>)
-34:                 <span class="ruby-ivar">@dispatcher</span> = <span class="ruby-constant">ObjectDispatcher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">accept</span>)
-35:                 <span class="ruby-keyword kw">self</span>
-36:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/server.rb, line 35</span>
+35:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">serve</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">accept</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">public_methods</span>)
+36:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Dispatcher</span>)
+37:                         <span class="ruby-comment cmt"># 2.</span>
+38:                         <span class="ruby-ivar">@dispatcher</span> = <span class="ruby-identifier">obj</span>
+39:                 <span class="ruby-keyword kw">else</span>
+40:                         <span class="ruby-comment cmt"># 1.</span>
+41:                         <span class="ruby-ivar">@dispatcher</span> = <span class="ruby-constant">ObjectDispatcher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">accept</span>)
+42:                 <span class="ruby-keyword kw">end</span>
+43:                 <span class="ruby-keyword kw">self</span>
+44:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

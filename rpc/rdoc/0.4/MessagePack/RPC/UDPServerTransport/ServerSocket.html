@@ -108,13 +108,21 @@
 				
 					<li><a href="../../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../../../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -126,7 +134,19 @@
 				
 					<li><a href="../../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -136,13 +156,21 @@
 				
 					<li><a href="../../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -157,6 +185,8 @@
 					<li><a href="../../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -231,11 +261,11 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 154</span>
-154:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">server</span>)
-155:                         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">io</span>)
-156:                         <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
-157:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 160</span>
+160:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">server</span>)
+161:                         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">io</span>)
+162:                         <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
+163:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -274,10 +304,10 @@
 					<div class="method-source-code"
 						id="on-notify-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 166</span>
-166:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">addr</span>)
-167:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-168:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 172</span>
+172:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">addr</span>)
+173:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+174:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -310,11 +340,11 @@
 					<div class="method-source-code"
 						id="on-request-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 160</span>
-160:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">addr</span>)
-161:                         <span class="ruby-identifier">sender</span> = <span class="ruby-constant">ResponseSender</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@io</span>, <span class="ruby-identifier">addr</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">addr</span>[<span class="ruby-value">1</span>])
-162:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">sender</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-163:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 166</span>
+166:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">addr</span>)
+167:                         <span class="ruby-identifier">sender</span> = <span class="ruby-constant">ResponseSender</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@io</span>, <span class="ruby-identifier">addr</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">addr</span>[<span class="ruby-value">1</span>])
+168:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">sender</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+169:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -347,10 +377,10 @@
 					<div class="method-source-code"
 						id="on-response-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 171</span>
-171:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_response</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>, <span class="ruby-identifier">addr</span>)
-172:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">RPCError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;response message on server session&quot;</span>)
-173:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 177</span>
+177:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_response</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>, <span class="ruby-identifier">addr</span>)
+178:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;response message on server session&quot;</span>)
+179:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

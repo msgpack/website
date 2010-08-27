@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: MessagePack::RPC::MultiFuture</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/msgpack/rpc/multi_future_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/multi_future.rb">lib/msgpack/rpc/multi_future.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-add">#add</a></li>
+					
+					<li><a href="#method-i-callback">#callback</a></li>
+					
+					<li><a href="#method-i-clear">#clear</a></li>
+					
+					<li><a href="#method-i-clear_callback">#clear_callback</a></li>
+					
+					<li><a href="#method-i-join_all">#join_all</a></li>
+					
+					<li><a href="#method-i-join_error">#join_error</a></li>
+					
+					<li><a href="#method-i-join_num">#join_num</a></li>
+					
+					<li><a href="#method-i-join_success">#join_success</a></li>
+					
+					<li><a href="#method-i-on_all">#on_all</a></li>
+					
+					<li><a href="#method-i-on_error">#on_error</a></li>
+					
+					<li><a href="#method-i-on_num">#on_num</a></li>
+					
+					<li><a href="#method-i-on_success">#on_success</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../MessagePack/RPC.html">MessagePack::RPC</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Future.html">MessagePack::RPC::Future</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil.html">MessagePack::RPC::LoopUtil</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil/TaskQueue.html">MessagePack::RPC::LoopUtil::TaskQueue</a></li>
+				
+					<li><a href="../../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
+				
+					<li><a href="../../MessagePack/RPC/RPCError.html">MessagePack::RPC::RPCError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/RemoteError.html">MessagePack::RPC::RemoteError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
+				
+					<li><a href="../../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
+				
+					<li><a href="../../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPClientTransport/ClientSocket.html">MessagePack::RPC::TCPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPServerTransport.html">MessagePack::RPC::TCPServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPServerTransport/ServerSocket.html">MessagePack::RPC::TCPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPTransport.html">MessagePack::RPC::TCPTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPClientTransport/ClientSocket.html">MessagePack::RPC::UDPClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport.html">MessagePack::RPC::UDPServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport/ResponseSender.html">MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPServerTransport/ServerSocket.html">MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPTransport.html">MessagePack::RPC::UDPTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UDPTransport/BasicSocket.html">MessagePack::RPC::UDPTransport::BasicSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXClientTransport.html">MessagePack::RPC::UNIXClientTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXClientTransport/ClientSocket.html">MessagePack::RPC::UNIXClientTransport::ClientSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXServerTransport/ServerSocket.html">MessagePack::RPC::UNIXServerTransport::ServerSocket</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXTransport.html">MessagePack::RPC::UNIXTransport</a></li>
+				
+					<li><a href="../../MessagePack/RPC/UNIXTransport/BasicSocket.html">MessagePack::RPC::UNIXTransport::BasicSocket</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">MessagePack::RPC::MultiFuture</h1>
+
+		<div id="description">
+			<p>
+<a href="MultiFuture.html">MultiFuture</a> bunldes up multiple <a
+href="Future.html">Future</a> objects.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="all-attribute-method" class="method-detail">
+				<a name="all"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">all</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Gets all registered <a href="Future.html">Future</a> objects.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="not-joined-attribute-method" class="method-detail">
+				<a name="not_joined"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">not_joined</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Gets <a href="Future.html">Future</a> objects which are not joined yet.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="joined-attribute-method" class="method-detail">
+				<a name="joined"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">joined</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Gets <a href="Future.html">Future</a> objects which are already joined.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="error-attribute-method" class="method-detail">
+				<a name="error"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">error</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Gets <a href="Future.html">Future</a> objects which are joined as error.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="success-attribute-method" class="method-detail">
+				<a name="success"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">success</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+Gets <a href="Future.html">Future</a> objects which are joined as success.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 24</span>
+24:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
+25:                 <span class="ruby-ivar">@all</span> = []
+26: 
+27:                 <span class="ruby-ivar">@not_joined</span> = []
+28:                 <span class="ruby-ivar">@joined</span> = []
+29:                 <span class="ruby-ivar">@error</span> = []
+30:                 <span class="ruby-ivar">@success</span> = []
+31: 
+32:                 <span class="ruby-ivar">@on_all</span> = <span class="ruby-keyword kw">nil</span>
+33:                 <span class="ruby-ivar">@on_error</span> = <span class="ruby-keyword kw">nil</span>
+34:                 <span class="ruby-ivar">@on_success</span> = <span class="ruby-keyword kw">nil</span>
+35:                 <span class="ruby-ivar">@on_num</span> = {}  <span class="ruby-comment cmt"># {num =&gt; callback}</span>
+36:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="add-method" class="method-detail ">
+				<a name="method-i-add"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add</span><span
+						class="method-args">(future)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Registeres new <a href="Future.html">Future</a> object. Returns self.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 76</span>
+76:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">future</span>)
+77:                 <span class="ruby-identifier">future</span>.<span class="ruby-identifier">attach_callback</span>(&amp;<span class="ruby-identifier">method</span>(<span class="ruby-value">:callback</span>))
+78:                 <span class="ruby-ivar">@all</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">future</span>
+79:                 <span class="ruby-ivar">@not_joined</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">future</span>
+80:                 <span class="ruby-keyword kw">self</span>
+81:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="clear-method" class="method-detail ">
+				<a name="method-i-clear"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">clear</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Clears all <a href="Future.html">Future</a> objects and all callback
+methods.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="clear-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 54</span>
+54:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear</span>
+55:                 <span class="ruby-ivar">@all</span> = []
+56: 
+57:                 <span class="ruby-ivar">@not_joined</span> = []
+58:                 <span class="ruby-ivar">@joined</span> = []
+59:                 <span class="ruby-ivar">@error</span> = []
+60:                 <span class="ruby-ivar">@success</span> = []
+61: 
+62:                 <span class="ruby-identifier">clear_callback</span>
+63:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="clear-callback-method" class="method-detail ">
+				<a name="method-i-clear_callback"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">clear_callback</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Clears all callback methods registered by on_xxx methods.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="clear-callback-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 66</span>
+66:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clear_callback</span>
+67:                 <span class="ruby-ivar">@on_all</span> = <span class="ruby-keyword kw">nil</span>
+68:                 <span class="ruby-ivar">@on_error</span> = <span class="ruby-keyword kw">nil</span>
+69:                 <span class="ruby-ivar">@on_success</span> = <span class="ruby-keyword kw">nil</span>
+70:                 <span class="ruby-ivar">@on_num</span> = {}
+71:                 <span class="ruby-keyword kw">self</span>
+72:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="join-all-method" class="method-detail ">
+				<a name="method-i-join_all"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">join_all</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Waits until all <a href="Future.html">Future</a> objects join.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="join-all-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 116</span>
+116:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join_all</span>
+117:                 <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">future</span><span class="ruby-operator">|</span>
+118:                         <span class="ruby-identifier">future</span>.<span class="ruby-identifier">join</span>
+119:                 }
+120:                 <span class="ruby-ivar">@all</span>
+121:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="join-error-method" class="method-detail ">
+				<a name="method-i-join_error"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">join_error</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Waits until at least one <a href="Future.html">Future</a> object joins as
+error. Returns the joined <a href="Future.html">Future</a> object or nil.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="join-error-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 137</span>
+137:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join_error</span>
+138:                 <span class="ruby-keyword kw">until</span> <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">empty?</span>
+139:                         <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@error</span>.<span class="ruby-identifier">empty?</span>
+140:                                 <span class="ruby-keyword kw">break</span>
+141:                         <span class="ruby-keyword kw">end</span>
+142:                         <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">run_once</span>
+143:                 <span class="ruby-keyword kw">end</span>
+144:                 <span class="ruby-ivar">@error</span>.<span class="ruby-identifier">last</span>
+145:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="join-num-method" class="method-detail ">
+				<a name="method-i-join_num"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">join_num</span><span
+						class="method-args">(n)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Waits until specified number of <a href="Future.html">Future</a> objects
+join. Returns the joined <a href="Future.html">Future</a> objects or nil.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="join-num-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 149</span>
+149:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join_num</span>(<span class="ruby-identifier">n</span>)
+150:                 <span class="ruby-keyword kw">until</span> <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">empty?</span>
+151:                         <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@joined</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">n</span>
+152:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@joined</span>
+153:                         <span class="ruby-keyword kw">end</span>
+154:                         <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">run_once</span>
+155:                 <span class="ruby-keyword kw">end</span>
+156:                 <span class="ruby-keyword kw">nil</span>
+157:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="join-success-method" class="method-detail ">
+				<a name="method-i-join_success"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">join_success</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Waits until at least one <a href="Future.html">Future</a> object joins as
+success. Returns the joined <a href="Future.html">Future</a> object or nil.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="join-success-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 125</span>
+125:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join_success</span>
+126:                 <span class="ruby-keyword kw">until</span> <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">empty?</span>
+127:                         <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@success</span>.<span class="ruby-identifier">empty?</span>
+128:                                 <span class="ruby-keyword kw">break</span>
+129:                         <span class="ruby-keyword kw">end</span>
+130:                         <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">run_once</span>
+131:                 <span class="ruby-keyword kw">end</span>
+132:                 <span class="ruby-ivar">@success</span>.<span class="ruby-identifier">last</span>
+133:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="on-all-method" class="method-detail ">
+				<a name="method-i-on_all"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_all</span><span
+						class="method-args">(&block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Attaches a callback method that is called when all <a
+href="Future.html">Future</a> objects are joined. Returns self.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-all-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 86</span>
+86:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_all</span>(&amp;<span class="ruby-identifier">block</span>)
+87:                 <span class="ruby-ivar">@on_all</span> = <span class="ruby-identifier">block</span>
+88:                 <span class="ruby-keyword kw">self</span>
+89:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="on-error-method" class="method-detail ">
+				<a name="method-i-on_error"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_error</span><span
+						class="method-args">(&block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Attaches a callback method that is called when <a
+href="Future.html">Future</a> objects are joined as error. Returns self.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-error-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 102</span>
+102:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_error</span>(&amp;<span class="ruby-identifier">block</span>)
+103:                 <span class="ruby-ivar">@on_error</span> = <span class="ruby-identifier">block</span>
+104:                 <span class="ruby-keyword kw">self</span>
+105:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="on-num-method" class="method-detail ">
+				<a name="method-i-on_num"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_num</span><span
+						class="method-args">(n, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Attaches a callback method that is called when specified number of <a
+href="Future.html">Future</a> objects are joined. Returns self.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-num-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 110</span>
+110:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_num</span>(<span class="ruby-identifier">n</span>, &amp;<span class="ruby-identifier">block</span>)
+111:                 <span class="ruby-ivar">@on_num</span>[<span class="ruby-identifier">n</span>.<span class="ruby-identifier">to_i</span>] = <span class="ruby-identifier">block</span>
+112:                 <span class="ruby-keyword kw">self</span>
+113:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="on-success-method" class="method-detail ">
+				<a name="method-i-on_success"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">on_success</span><span
+						class="method-args">(&block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Attaches a callback method that is called when <a
+href="Future.html">Future</a> objects are joined as success. Returns self.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="on-success-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 94</span>
+94:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_success</span>(&amp;<span class="ruby-identifier">block</span>)
+95:                 <span class="ruby-ivar">@on_success</span> = <span class="ruby-identifier">block</span>
+96:                 <span class="ruby-keyword kw">self</span>
+97:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="callback-method" class="method-detail ">
+				<a name="method-i-callback"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">callback</span><span
+						class="method-args">(future)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="callback-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/multi_future.rb, line 161</span>
+161:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">callback</span>(<span class="ruby-identifier">future</span>)
+162:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">future</span>)
+163:                         <span class="ruby-ivar">@joined</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">future</span>
+164: 
+165:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">future</span>.<span class="ruby-identifier">error</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+166:                                 <span class="ruby-ivar">@success</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">future</span>
+167:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@on_success</span>
+168:                                         <span class="ruby-ivar">@on_success</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">future</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+169:                                 <span class="ruby-keyword kw">end</span>
+170:                         <span class="ruby-keyword kw">else</span>
+171:                                 <span class="ruby-ivar">@error</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">future</span>
+172:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@on_error</span>
+173:                                         <span class="ruby-ivar">@on_error</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">future</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+174:                                 <span class="ruby-keyword kw">end</span>
+175:                         <span class="ruby-keyword kw">end</span>
+176: 
+177:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">callback</span> = <span class="ruby-ivar">@on_num</span>[<span class="ruby-ivar">@joined</span>.<span class="ruby-identifier">size</span>]
+178:                                 <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span>(<span class="ruby-ivar">@joined</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+179:                         <span class="ruby-keyword kw">end</span>
+180: 
+181:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@on_all</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@not_joined</span>.<span class="ruby-identifier">empty?</span>
+182:                                 <span class="ruby-ivar">@on_all</span>.<span class="ruby-identifier">call</span>(<span class="ruby-ivar">@all</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+183:                         <span class="ruby-keyword kw">end</span>
+184:                 <span class="ruby-keyword kw">end</span>
+185:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Class: MessagePack::RPC::UDPServerTransport</title>
+	<title>Class: MessagePack::RPC::StreamClosedError</title>
 
 	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
 
@@ -38,8 +38,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="../../lib/msgpack/rpc/transport/udp_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/msgpack/rpc/transport/udp.rb">lib/msgpack/rpc/transport/udp.rb</a></li>
+						<li><a href="../../lib/msgpack/rpc/exception_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/exception.rb">lib/msgpack/rpc/exception.rb</a></li>
 					
 					</ul>
 				</div>
@@ -55,39 +55,15 @@
 			<div id="parent-class-section" class="section">
 				<h3 class="section-header">Parent</h3>
 				
-				<p class="link">Object</p>
+				<p class="link"><a href="TransportError.html">MessagePack::RPC::TransportError</a></p>
 				
 			</div>
 			
 
 			<!-- Namespace Contents -->
 			
-			<div id="namespace-list-section" class="section">
-				<h3 class="section-header">Namespace</h3>
-				<ul class="link-list">
-					
-					<li><span class="type">CLASS</span> <a href="UDPServerTransport/ResponseSender.html">MessagePack::RPC::UDPServerTransport::ResponseSender</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="UDPServerTransport/ServerSocket.html">MessagePack::RPC::UDPServerTransport::ServerSocket</a></li>
-					
-				</ul>
-			</div>
-			
 
 			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-c-new">::new</a></li>
-					
-					<li><a href="#method-i-close">#close</a></li>
-					
-					<li><a href="#method-i-listen">#listen</a></li>
-					
-				</ul>
-			</div>
 			
 
 			<!-- Included Modules -->
@@ -232,7 +208,7 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="class">MessagePack::RPC::UDPServerTransport</h1>
+		<h1 class="class">MessagePack::RPC::StreamClosedError</h1>
 
 		<div id="description">
 			
@@ -240,150 +216,24 @@
 
 		<!-- Constants -->
 		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="CODE">CODE</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+			</dl>
+		</div>
+		
 
 		<!-- Attributes -->
 		
 
 		<!-- Methods -->
 		
-		<div id="public-class-method-details" class="method-section section">
-			<h3 class="section-header">Public Class Methods</h3>
-
-		
-			<div id="new-method" class="method-detail ">
-				<a name="method-c-new"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">(address)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="new-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 124</span>
-124:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">address</span>)
-125:                 <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
-126:                 <span class="ruby-ivar">@sock</span> = <span class="ruby-keyword kw">nil</span>
-127:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-		</div>
-	
-		<div id="public-instance-method-details" class="method-section section">
-			<h3 class="section-header">Public Instance Methods</h3>
-
-		
-			<div id="close-method" class="method-detail ">
-				<a name="method-i-close"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">close</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-ServerTransport interface
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="close-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 152</span>
-152:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-153:                 <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@lsock</span>
-154:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">attached?</span>
-155:                 <span class="ruby-ivar">@lsock</span>.<span class="ruby-identifier">close</span>
-156:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-			<div id="listen-method" class="method-detail ">
-				<a name="method-i-listen"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">listen</span><span
-						class="method-args">(server)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-ServerTransport interface
-</p>
-					
-
-					
-					<div class="method-source-code"
-						id="listen-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/udp.rb, line 130</span>
-130:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">listen</span>(<span class="ruby-identifier">server</span>)
-131:                 <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
-132:                 <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span> = *<span class="ruby-ivar">@address</span>.<span class="ruby-identifier">unpack</span>
-133:                 <span class="ruby-identifier">io</span> = <span class="ruby-constant">UDPSocket</span>.<span class="ruby-identifier">new</span>
-134:                 <span class="ruby-identifier">io</span>.<span class="ruby-identifier">bind</span>(*<span class="ruby-ivar">@address</span>)
-135: 
-136:                 <span class="ruby-keyword kw">begin</span>
-137:                         <span class="ruby-ivar">@sock</span> = <span class="ruby-constant">ServerSocket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>, <span class="ruby-ivar">@server</span>)
-138:                 <span class="ruby-keyword kw">rescue</span>
-139:                         <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
-140:                         <span class="ruby-identifier">raise</span>
-141:                 <span class="ruby-keyword kw">end</span>
-142: 
-143:                 <span class="ruby-keyword kw">begin</span>
-144:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@sock</span>)
-145:                 <span class="ruby-keyword kw">rescue</span>
-146:                         <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
-147:                         <span class="ruby-identifier">raise</span>
-148:                 <span class="ruby-keyword kw">end</span>
-149:         <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-		</div>
-	
 
 	</div>
 

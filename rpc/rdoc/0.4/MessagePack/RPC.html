@@ -59,6 +59,9 @@
 						<li><a href="../lib/msgpack/rpc/message_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/msgpack/rpc/message.rb">lib/msgpack/rpc/message.rb</a></li>
 					
+						<li><a href="../lib/msgpack/rpc/multi_future_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/multi_future.rb">lib/msgpack/rpc/multi_future.rb</a></li>
+					
 						<li><a href="../lib/msgpack/rpc/server_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/msgpack/rpc/server.rb">lib/msgpack/rpc/server.rb</a></li>
 					
@@ -79,6 +82,9 @@
 					
 						<li><a href="../lib/msgpack/rpc/transport/unix_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/msgpack/rpc/transport/unix.rb">lib/msgpack/rpc/transport/unix.rb</a></li>
+					
+						<li><a href="../lib/msgpack/rpc/version_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/msgpack/rpc/version.rb">lib/msgpack/rpc/version.rb</a></li>
 					
 						<li><a href="../lib/msgpack/rpc_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/msgpack/rpc.rb">lib/msgpack/rpc.rb</a></li>
@@ -101,21 +107,41 @@
 				<h3 class="section-header">Namespace</h3>
 				<ul class="link-list">
 					
+					<li><span class="type">MODULE</span> <a href="RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
+					
 					<li><span class="type">MODULE</span> <a href="RPC/LoopUtil.html">MessagePack::RPC::LoopUtil</a></li>
 					
 					<li><span class="type">MODULE</span> <a href="RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/Address.html">MessagePack::RPC::Address</a></li>
 					
+					<li><span class="type">CLASS</span> <a href="RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+					
 					<li><span class="type">CLASS</span> <a href="RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/Client.html">MessagePack::RPC::Client</a></li>
 					
-					<li><span class="type">CLASS</span> <a href="RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><span class="type">CLASS</span> <a href="RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/Error.html">MessagePack::RPC::Error</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/Future.html">MessagePack::RPC::Future</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 					
@@ -125,11 +151,19 @@
 					
 					<li><span class="type">CLASS</span> <a href="RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 					
+					<li><span class="type">CLASS</span> <a href="RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+					
 					<li><span class="type">CLASS</span> <a href="RPC/Server.html">MessagePack::RPC::Server</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/Session.html">MessagePack::RPC::Session</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 					
@@ -138,6 +172,8 @@
 					<li><span class="type">CLASS</span> <a href="RPC/TCPTransport.html">MessagePack::RPC::TCPTransport</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 					
@@ -185,13 +221,21 @@
 				
 					<li><a href="../MessagePack/RPC/Address.html">MessagePack::RPC::Address</a></li>
 				
+					<li><a href="../MessagePack/RPC/ArgumentError.html">MessagePack::RPC::ArgumentError</a></li>
+				
 					<li><a href="../MessagePack/RPC/AsyncResult.html">MessagePack::RPC::AsyncResult</a></li>
+				
+					<li><a href="../MessagePack/RPC/CallError.html">MessagePack::RPC::CallError</a></li>
 				
 					<li><a href="../MessagePack/RPC/Client.html">MessagePack::RPC::Client</a></li>
 				
 					<li><a href="../MessagePack/RPC/Client/Base.html">MessagePack::RPC::Client::Base</a></li>
 				
-					<li><a href="../MessagePack/RPC/ConnectError.html">MessagePack::RPC::ConnectError</a></li>
+					<li><a href="../MessagePack/RPC/ConnectionRefusedError.html">MessagePack::RPC::ConnectionRefusedError</a></li>
+				
+					<li><a href="../MessagePack/RPC/ConnectionTimeoutError.html">MessagePack::RPC::ConnectionTimeoutError</a></li>
+				
+					<li><a href="../MessagePack/RPC/Dispatcher.html">MessagePack::RPC::Dispatcher</a></li>
 				
 					<li><a href="../MessagePack/RPC/Error.html">MessagePack::RPC::Error</a></li>
 				
@@ -203,7 +247,19 @@
 				
 					<li><a href="../MessagePack/RPC/LoopUtil/Timer.html">MessagePack::RPC::LoopUtil::Timer</a></li>
 				
+					<li><a href="../MessagePack/RPC/MalformedMessageError.html">MessagePack::RPC::MalformedMessageError</a></li>
+				
 					<li><a href="../MessagePack/RPC/MessageReceiver.html">MessagePack::RPC::MessageReceiver</a></li>
+				
+					<li><a href="../MessagePack/RPC/MethodForwarder.html">MessagePack::RPC::MethodForwarder</a></li>
+				
+					<li><a href="../MessagePack/RPC/MultiFuture.html">MessagePack::RPC::MultiFuture</a></li>
+				
+					<li><a href="../MessagePack/RPC/NetworkUnreachableError.html">MessagePack::RPC::NetworkUnreachableError</a></li>
+				
+					<li><a href="../MessagePack/RPC/NoMethodError.html">MessagePack::RPC::NoMethodError</a></li>
+				
+					<li><a href="../MessagePack/RPC/NullResponder.html">MessagePack::RPC::NullResponder</a></li>
 				
 					<li><a href="../MessagePack/RPC/ObjectDispatcher.html">MessagePack::RPC::ObjectDispatcher</a></li>
 				
@@ -213,13 +269,21 @@
 				
 					<li><a href="../MessagePack/RPC/Responder.html">MessagePack::RPC::Responder</a></li>
 				
+					<li><a href="../MessagePack/RPC/RuntimeError.html">MessagePack::RPC::RuntimeError</a></li>
+				
 					<li><a href="../MessagePack/RPC/Server.html">MessagePack::RPC::Server</a></li>
 				
 					<li><a href="../MessagePack/RPC/Server/Base.html">MessagePack::RPC::Server::Base</a></li>
 				
+					<li><a href="../MessagePack/RPC/ServerBusyError.html">MessagePack::RPC::ServerBusyError</a></li>
+				
+					<li><a href="../MessagePack/RPC/ServerError.html">MessagePack::RPC::ServerError</a></li>
+				
 					<li><a href="../MessagePack/RPC/Session.html">MessagePack::RPC::Session</a></li>
 				
 					<li><a href="../MessagePack/RPC/SessionPool.html">MessagePack::RPC::SessionPool</a></li>
+				
+					<li><a href="../MessagePack/RPC/StreamClosedError.html">MessagePack::RPC::StreamClosedError</a></li>
 				
 					<li><a href="../MessagePack/RPC/TCPClientTransport.html">MessagePack::RPC::TCPClientTransport</a></li>
 				
@@ -234,6 +298,8 @@
 					<li><a href="../MessagePack/RPC/TCPTransport/BasicSocket.html">MessagePack::RPC::TCPTransport::BasicSocket</a></li>
 				
 					<li><a href="../MessagePack/RPC/TimeoutError.html">MessagePack::RPC::TimeoutError</a></li>
+				
+					<li><a href="../MessagePack/RPC/TransportError.html">MessagePack::RPC::TransportError</a></li>
 				
 					<li><a href="../MessagePack/RPC/UDPClientTransport.html">MessagePack::RPC::UDPClientTransport</a></li>
 				
@@ -542,6 +608,11 @@ href="RPC/UNIXServerTransport.html">MessagePack::RPC::UNIXServerTransport</a>.
 				
 			
 				<dt><a name="ARGUMENT_ERROR">ARGUMENT_ERROR</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+				<dt><a name="VERSION">VERSION</a></dt>
 				
 				<dd class="description"></dd>
 				
