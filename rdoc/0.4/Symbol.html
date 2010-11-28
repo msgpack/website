@@ -174,12 +174,16 @@ Serializes the <a href="Symbol.html">Symbol</a> into raw bytes.
 <pre>
 static VALUE MessagePack_Symbol_to_msgpack(int argc, VALUE *argv, VALUE self)
 {
+#ifdef COMPAT_HAVE_ENCODING
+        return MessagePack_String_to_msgpack(argc, argv, rb_id2str(SYM2ID(self)));
+#else
         ARG_BUFFER(out, argc, argv);
         const char* name = rb_id2name(SYM2ID(self));
         size_t len = strlen(name);
         msgpack_pack_raw(out, len);
         msgpack_pack_raw_body(out, name, len);
         return out;
+#endif
 }</pre>
 					</div>
 					

@@ -177,7 +177,8 @@ internal keys and values.
 static VALUE MessagePack_Hash_to_msgpack(int argc, VALUE *argv, VALUE self)
 {
         ARG_BUFFER(out, argc, argv);
-        msgpack_pack_map(out, RHASH_SIZE(self));
+        // FIXME check sizeof(st_index_t) &gt; sizeof(unsigned int) &amp;&amp; RARRAY_LEN(self) &gt; UINT_MAX
+        msgpack_pack_map(out, (unsigned int)RHASH_SIZE(self));
         rb_hash_foreach(self, MessagePack_Hash_to_msgpack_foreach, out);
         return out;
 }</pre>

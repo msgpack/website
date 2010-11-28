@@ -81,6 +81,8 @@
 					
 					<li><a href="#method-i-feed">#feed</a></li>
 					
+					<li><a href="#method-i-feed_each">#feed_each</a></li>
+					
 					<li><a href="#method-i-fill">#fill</a></li>
 					
 					<li><a href="#method-i-finished%3F">#finished?</a></li>
@@ -293,6 +295,7 @@ static VALUE MessagePack_Unpacker_initialize(int argc, VALUE *argv, VALUE self)
         mp-&gt;user.stream = stream;
         mp-&gt;user.streambuf = rb_str_buf_new(MSGPACK_UNPACKER_BUFFER_RESERVE_SIZE);
         mp-&gt;user.stream_append_method = append_method_of(stream);
+        mp-&gt;user.buffer_free_size = MSGPACK_BUFFER_FREE_SIZE;
 
         return self;
 }</pre>
@@ -387,7 +390,7 @@ static VALUE MessagePack_Unpacker_each(VALUE self)
 #endif
 
         while(1) {
-                if(mp-&gt;user.buffer.size &lt;= mp-&gt;user.offset) {
+                if(mp-&gt;user.buffer.used &lt;= mp-&gt;user.offset) {
                         do_fill:
                         {
                                 VALUE len = MessagePack_Unpacker_fill(self);
@@ -398,7 +401,7 @@ static VALUE MessagePack_Unpacker_each(VALUE self)
                 }
 
                 ret = template_execute_wrap_each(mp,
-                                mp-&gt;user.buffer.ptr, mp-&gt;user.buffer.size,
+                                mp-&gt;user.buffer.ptr, mp-&gt;user.buffer.used,
                                 &amp;mp-&gt;user.offset);
 
                 if(ret &lt; 0) {
@@ -413,6 +416,8 @@ static VALUE MessagePack_Unpacker_each(VALUE self)
                         goto do_fill;
                 }
         }
+
+        try_free_buffer(mp, 0);
 
         return Qnil;
 }</pre>
@@ -446,7 +451,7 @@ bytes.
 This method doesn&#8217;t use the internal buffer.
 </p>
 <p>
-Call *reset()* method before calling this method again.
+Call <b>reset</b> method before calling this method again.
 </p>
 <p>
 This returns offset that was parsed to. Use <b>finished?</b> method to
@@ -499,7 +504,7 @@ bytes upto <em>limit</em> bytes.
 This method doesn&#8217;t use the internal buffer.
 </p>
 <p>
-Call *reset()* method before calling this method again.
+Call <b>reset</b> method before calling this method again.
 </p>
 <p>
 <a href="UnpackError.html">UnpackError</a> is throw when parse error is
@@ -555,6 +560,51 @@ static VALUE MessagePack_Unpacker_feed(VALUE self, VALUE data)
         StringValue(data);
         feed_buffer(mp, RSTRING_PTR(data), RSTRING_LEN(data));
         return Qnil;
+}</pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="feed-each-method" class="method-detail ">
+				<a name="method-i-feed_each"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-callseq">feed_each(data) {|object| }</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Same as feed(data) + each {|object| }, but tries to avoid copying of the
+buffer.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="feed-each-source">
+<pre>
+static VALUE MessagePack_Unpacker_feed_each(VALUE self, VALUE data)
+{
+        size_t consumed = 0;
+        StringValue(data);
+
+        VALUE args[3];
+        args[0] = self;
+        args[1] = data;
+        args[2] = (VALUE)&amp;consumed;
+
+        return rb_ensure(feed_each_impl, (VALUE)args,
+                        feed_each_ensure, (VALUE)args);
 }</pre>
 					</div>
 					
@@ -690,6 +740,7 @@ static VALUE MessagePack_Unpacker_reset(VALUE self)
         UNPACKER(self, mp);
         template_init(mp);
         mp-&gt;user.finished = 0;
+        try_free_buffer(mp, 0);
         return self;
 }</pre>
 					</div>

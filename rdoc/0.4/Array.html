@@ -177,7 +177,8 @@ for internal elements.
 static VALUE MessagePack_Array_to_msgpack(int argc, VALUE *argv, VALUE self)
 {
         ARG_BUFFER(out, argc, argv);
-        msgpack_pack_array(out, RARRAY_LEN(self));
+        // FIXME check sizeof(long) &gt; sizeof(unsigned int) &amp;&amp; RARRAY_LEN(self) &gt; UINT_MAX
+        msgpack_pack_array(out, (unsigned int)RARRAY_LEN(self));
         VALUE* p = RARRAY_PTR(self);
         VALUE* const pend = p + RARRAY_LEN(self);
         for(;p != pend; ++p) {
