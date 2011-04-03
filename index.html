@@ -44,7 +44,7 @@
 				</a>
 			</li>
 			<li style="width:150px;">
-				<a href="http://redmine.msgpack.org/projects/msgpack/wiki">
+				<a href="http://wiki.msgpack.org/display/MSGPACK/Home">
 				<span class="navi_title">Wiki</span>
 				<span class="navi_desc">Learn more</span>
 				</a>
@@ -131,43 +131,45 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 				</thead>
 				<tbody>
 				<tr>
-					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#AsynchronousRPC">Asynchronous RPC</a></th>
+					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-AsynchronousRPC">Asynchronous RPC</a></th>
 					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
 					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
 					<td><img alt="OK" src="index/icon-ng.png" width="18" height="18" /></td>
 				</tr>
 				<tr>
-					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#ParallelPipelining">Parallel Pipelining</a></th>
+					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-ParallelPipelining">Parallel Pipelining</a></th>
+					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
+					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
+					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
+				</tr>
+				<!--
+				<tr>
+					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-IDLSupport">IDL Support</a></th>
+					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
+					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
+					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
+				</tr>
+				-->
+				<tr>
+					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-DynamicTyping">Dynamic Typing</a></th>
+					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
+					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
+					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
+				</tr>
+				<tr>
+					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-ConnectionPooling">Connection pooling</a></th>
 					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
 					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
 					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
 				</tr>
 				<tr>
-					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#IDL">Thrift IDL</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#DynamicTyping">Dynamic Typing</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#ConnectionPooling">Connection pooling</a></th>
+					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-DelayedReturn">Delayed return</a></th>
 					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
 					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
 					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
 				</tr>
 				<tr>
-					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#DelayedReturn">Delayed return</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign#EventDrivenIO">Event-driven I/O</a></th>
+					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-EventdrivenI%2FO">Event-driven I/O</a></th>
 					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
 					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
 					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
@@ -186,20 +188,20 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 		<div class="box3">
 			<h3>Ruby</h3>
 			<p class="getstart_links">
-				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartRuby">Quick Start</a>
+				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Ruby">Quick Start</a>
 				<span>Reference:</span>
 				<a href="http://msgpack.org/rpc/rdoc/current/MessagePack/RPC.html">RPC</a>
 				<a href="http://msgpack.org/rdoc/current/MessagePack.html">Serialization</a>
 			</p>
 			<pre>&gt; gem install msgpack
 &gt; gem install msgpack-rpc</pre>
-			<p>Ruby implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>
+			<!--<p>Ruby implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>-->
 		</div>
 
 		<div class="box3">
 			<h3>Python</h3>
 			<p class="getstart_links">
-				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartPython">Quick Start</a>
+				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Python">Quick Start</a>
 				<!--
 				<span>Reference:</span>
 				<a href="">RPC</a>
@@ -213,7 +215,7 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 		<div class="box3">
 			<h3>Perl</h3>
 			<p class="getstart_links">
-				<!--<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartPerl">Quick Start</a>-->
+				<!--<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Perl">Quick Start</a>-->
 				<span style="margin-left:0;">Reference:</span>
 				<a href="http://search.cpan.org/~tokuhirom/AnyEvent-MPRPC/">RPC</a>
 				<a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/">Serialization</a>
@@ -225,7 +227,7 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 		<div class="box3">
 			<h3>C/C++</h3>
 			<p class="getstart_links">
-				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartC++">Quick Start</a>
+				<a href="http://wiki.msgpack.org/pages/viewpage.action?pageId=1081387">Quick Start</a>
 				<!--
 				<span>Reference:</span>
 				<a href="">RPC</a>
@@ -235,25 +237,26 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 			<pre>port install msgpack  (<a href="http://www.macports.org/">MacPorts</a>)</pre>
 			<p>Download <a href="http://msgpack.org/releases/cpp/msgpack-0.5.5.tar.gz">msgpack-0.5.5.tar.gz</a> and build it.
 			RPC for C++ is at <a href="http://msgpack.org/releases/cpp/msgpack-rpc-0.3.1.tar.gz">msgpack-rpc-0.3.1.tar.gz</a>.
-			C/C++ implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>
+			<!--C/C++ implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>-->
+			C/C++ implementation supports <strong>zero-copy</strong> facility.</p>
 		</div>
 
 		<div class="box3">
 			<h3>Java</h3>
 			<p class="getstart_links">
-				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartJava">Quick Start</a>
+				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Java">Quick Start</a>
 				<span>Reference:</span>
 				<a href="http://msgpack.org/rpc/javadoc/current/">RPC</a>
 				<a href="http://msgpack.org/javadoc/current/">Serialization</a>
 			</p>
-			<p>Maven2 repository is located <a href="http://msgpack.org/maven2/">here</a>. See <a href="/javadoc/current/">javadoc</a> for actual APIs. <a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartIDL">IDL</a> may be greatly useful with Java.</p>
+			<p>Maven2 repository is located <a href="http://msgpack.org/maven2/">here</a>. See <a href="/javadoc/current/">javadoc</a> for actual APIs.<!-- <a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartIDL">IDL</a> may be greatly useful with Java.</p>-->
 			<p>Source code is available from <a href="http://github.com/msgpack/msgpack/tree/master/java/">here</a>, and <a href="http://github.com/msgpack/msgpack/blob/master/java/src/test/java/org/msgpack/TestMessagePackStaticMethods.java">test cases</a> will give you a sample usage.</p>
 		</div>
 
 		<div class="box3">
 			<h3>Haskell</h3>
 			<p class="getstart_links">
-				<a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartHaskell">Quick Start</a>
+				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Haskell">Quick Start</a>
 				<!--
 				<span>Reference:</span>
 				<a href="">RPC</a>
@@ -267,7 +270,7 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 			</p>
 		</div>
 
-		<p id="getstart_more_link"><a href="http://redmine.msgpack.org/projects/msgpack/wiki#Bindings">And more...</a></p>
+		<p id="getstart_more_link"><a href="http://wiki.msgpack.org/display/MSGPACK/Home">And more...</a></p>
 		<!--
 		<p id="getstart_more_link"><a href="javascript:void(0)" onclick="$('#getstart_more_link').slideUp(300); $('#getstart_more').slideDown(300); return false;">And more...</a></p>
 		-->
@@ -277,38 +280,41 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 		<h2 id="LearnMore">Learn More</h2>
 		<div id="doctoc" class="clearfix">
 			<div class="box3">
-				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">Serialize Design</a></h3>
+				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+Serialization">Serialize Design</a></h3>
 				<p>More details about design of MessagePack-RPC.</p>
 			</div>
 
 			<div class="box3">
-				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCDesign">RPC Design</a></h3>
+				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC">RPC Design</a></h3>
 				<p>More details about design of MessagePack.</p>
 			</div>
 
 			<div class="box3">
-				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/ArticlesAndPresentations">Articles and Presentations</a></h3>
+				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/ArticlesAndPresentations">Articles and Presentations</a></h3>
 				<p>Articles and slides about the designs and comparisons.</p>
 			</div>
 
 			<div class="box3">
-				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatSpec">Serialize Spec</a></h3>
+				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/Format+specification">Serialize Spec</a></h3>
 				<p>MessagePack format specification.</p>
 			</div>
 
 			<div class="box3">
-				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/RPCProtocolSpec">RPC Spec</a></h3>
+				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/RPC+specification">RPC Spec</a></h3>
 				<p>MessagePack-RPC protocol specification.</p>
 			</div>
 
+			<!--
 			<div class="box3">
 				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartIDL">IDL Quick Start</a></h3>
 				<p>Start MessagePack-RPC Interface Definition Language.</p>
 			</div>
+			-->
 		</div>
 
 		<div class="box2l" style="height:26em;">
-			<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/MailingLists">Mailing Lists</a></h3>
+			<!--<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/MailingLists">Mailing Lists</a></h3>-->
+			<h3>Mailing Lists</h3>
 			<p>If you use MessagePack, please subscribe to the MessagePack mailing list. If you'd like to contribute to MessagePack, please subscribe to the MessagePack developers mailing list.</p>
 
 			<div id="groups">
@@ -355,13 +361,14 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 		</div>
 
 		<div class="box2l" style="height:7.5em;">
-			<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/IRC">Chat</a></h3>
+			<!--<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/IRC">Chat</a></h3>-->
+			<h3>Chat</h3>
 			<p>Many of the MessagePack developers and community members hang out in the <strong>#msgpack</strong> channel on <a href="http://freenode.net/">irc.freenode.net</a>. If you are new to IRC and don't have a client, you can use a <a href="http://webchat.freenode.net/?channels=#msgpack">web-based client</a>.</p>
 		</div>
 
 		<div class="box2l" style="height:6em;">
-			<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/Contribute">Issues</a></h3>
-			<p>Issues are managed on Redmine <a href="http://redmine.msgpack.org/projects/msgpack/issues">(Issues)</a>. Note that you need to create an account on the <a href="http://redmine.msgpack.org/account/register">registration page</a> to add issues.</p>
+			<h3><a href="http://jira.msgpack.org/">Issues</a></h3>
+			<p>Issues are managed on <a href="http://jira.msgpack.org/">JIRA</a>. Note that you need to create an account on the <a href="http://jira.msgpack.org/secure/Signup!default.jspa">registration page</a> to add issues.</p>
 		</div>
 
 		<div class="box2l" style="height:4em;">
