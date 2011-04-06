@@ -315,11 +315,10 @@ from Rev::TCPSocket
 <pre>
     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 50</span>
 50:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_read</span>(<span class="ruby-identifier">data</span>)
-51:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">feed</span>(<span class="ruby-identifier">data</span>)
-52:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
-53:                                 <span class="ruby-identifier">on_message</span>(<span class="ruby-identifier">obj</span>)
-54:                         }
-55:                 <span class="ruby-keyword kw">end</span></pre>
+51:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">feed_each</span>(<span class="ruby-identifier">data</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+52:                                 <span class="ruby-identifier">on_message</span>(<span class="ruby-identifier">obj</span>)
+53:                         }
+54:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

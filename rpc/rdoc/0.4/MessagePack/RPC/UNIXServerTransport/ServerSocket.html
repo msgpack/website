@@ -263,11 +263,11 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 145</span>
-145:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">server</span>)
-146:                         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">io</span>)
-147:                         <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
-148:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 144</span>
+144:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">server</span>)
+145:                         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">io</span>)
+146:                         <span class="ruby-ivar">@server</span> = <span class="ruby-identifier">server</span>
+147:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -306,10 +306,10 @@
 					<div class="method-source-code"
 						id="on-notify-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 161</span>
-161:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-162:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-163:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 160</span>
+160:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+161:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+162:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -342,10 +342,10 @@
 					<div class="method-source-code"
 						id="on-request-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 156</span>
-156:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-157:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_request</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-158:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 155</span>
+155:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+156:                         <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">on_request</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+157:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -378,10 +378,10 @@
 					<div class="method-source-code"
 						id="on-response-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 166</span>
-166:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_response</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>)
-167:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;response message on server session&quot;</span>)
-168:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 165</span>
+165:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_response</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>)
+166:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;response message on server session&quot;</span>)
+167:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -414,10 +414,10 @@ MessageSendable interface
 					<div class="method-source-code"
 						id="send-data-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 151</span>
-151:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-152:                         <span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
-153:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 150</span>
+150:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+151:                         <span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
+152:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

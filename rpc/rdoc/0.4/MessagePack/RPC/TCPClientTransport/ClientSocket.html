@@ -271,12 +271,12 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 136</span>
-136:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">transport</span>, <span class="ruby-identifier">session</span>)
-137:                         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">io</span>)
-138:                         <span class="ruby-ivar">@t</span> = <span class="ruby-identifier">transport</span>
-139:                         <span class="ruby-ivar">@s</span> = <span class="ruby-identifier">session</span>
-140:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 134</span>
+134:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">transport</span>, <span class="ruby-identifier">session</span>)
+135:                         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">io</span>)
+136:                         <span class="ruby-ivar">@t</span> = <span class="ruby-identifier">transport</span>
+137:                         <span class="ruby-ivar">@s</span> = <span class="ruby-identifier">session</span>
+138:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -315,15 +315,15 @@ from Rev::TCPSocket
 					<div class="method-source-code"
 						id="on-close-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 182</span>
-182:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_close</span>
-183:                         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@t</span>
-184:                         <span class="ruby-ivar">@t</span>.<span class="ruby-identifier">on_close</span>(<span class="ruby-keyword kw">self</span>)
-185:                         <span class="ruby-ivar">@t</span> = <span class="ruby-keyword kw">nil</span>
-186:                         <span class="ruby-ivar">@s</span> = <span class="ruby-keyword kw">nil</span>
-187:                 <span class="ruby-keyword kw">rescue</span>
-188:                         <span class="ruby-keyword kw">nil</span>
-189:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 180</span>
+180:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_close</span>
+181:                         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@t</span>
+182:                         <span class="ruby-ivar">@t</span>.<span class="ruby-identifier">on_close</span>(<span class="ruby-keyword kw">self</span>)
+183:                         <span class="ruby-ivar">@t</span> = <span class="ruby-keyword kw">nil</span>
+184:                         <span class="ruby-ivar">@s</span> = <span class="ruby-keyword kw">nil</span>
+185:                 <span class="ruby-keyword kw">rescue</span>
+186:                         <span class="ruby-keyword kw">nil</span>
+187:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -356,11 +356,11 @@ from Rev::TCPSocket
 					<div class="method-source-code"
 						id="on-connect-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 168</span>
-168:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect</span>
-169:                         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@t</span>
-170:                         <span class="ruby-ivar">@t</span>.<span class="ruby-identifier">on_connect</span>(<span class="ruby-keyword kw">self</span>)
-171:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 166</span>
+166:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect</span>
+167:                         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@t</span>
+168:                         <span class="ruby-ivar">@t</span>.<span class="ruby-identifier">on_connect</span>(<span class="ruby-keyword kw">self</span>)
+169:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -393,13 +393,13 @@ from Rev::TCPSocket
 					<div class="method-source-code"
 						id="on-connect-failed-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 174</span>
-174:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect_failed</span>
-175:                         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@t</span>
-176:                         <span class="ruby-ivar">@t</span>.<span class="ruby-identifier">on_connect_failed</span>(<span class="ruby-keyword kw">self</span>)
-177:                 <span class="ruby-keyword kw">rescue</span>
-178:                         <span class="ruby-keyword kw">nil</span>
-179:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 172</span>
+172:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect_failed</span>
+173:                         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@t</span>
+174:                         <span class="ruby-ivar">@t</span>.<span class="ruby-identifier">on_connect_failed</span>(<span class="ruby-keyword kw">self</span>)
+175:                 <span class="ruby-keyword kw">rescue</span>
+176:                         <span class="ruby-keyword kw">nil</span>
+177:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -432,10 +432,10 @@ from Rev::TCPSocket
 					<div class="method-source-code"
 						id="on-notify-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 158</span>
-158:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-159:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;notify message on client session&quot;</span>)
-160:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 156</span>
+156:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+157:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;notify message on client session&quot;</span>)
+158:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -468,10 +468,10 @@ from Rev::TCPSocket
 					<div class="method-source-code"
 						id="on-request-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 153</span>
-153:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-154:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;request message on client session&quot;</span>)
-155:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 151</span>
+151:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_request</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+152:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;request message on client session&quot;</span>)
+153:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -504,10 +504,10 @@ from Rev::TCPSocket
 					<div class="method-source-code"
 						id="on-response-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 163</span>
-163:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_response</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>)
-164:                         <span class="ruby-ivar">@s</span>.<span class="ruby-identifier">on_response</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>)
-165:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 161</span>
+161:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_response</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>)
+162:                         <span class="ruby-ivar">@s</span>.<span class="ruby-identifier">on_response</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">error</span>, <span class="ruby-identifier">result</span>)
+163:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -540,10 +540,10 @@ MessageSendable interface
 					<div class="method-source-code"
 						id="send-data-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 143</span>
-143:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-144:                         <span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
-145:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 141</span>
+141:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+142:                         <span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
+143:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -576,10 +576,10 @@ from TCPClientTransport::on_connect
 					<div class="method-source-code"
 						id="send-pending-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 148</span>
-148:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_pending</span>(<span class="ruby-identifier">data</span>)
-149:                         <span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
-150:                 <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 146</span>
+146:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_pending</span>(<span class="ruby-identifier">data</span>)
+147:                         <span class="ruby-identifier">write</span> <span class="ruby-identifier">data</span>
+148:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

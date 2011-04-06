@@ -268,24 +268,24 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 60</span>
-60:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">address</span>)
-61:                 <span class="ruby-identifier">io</span> = <span class="ruby-constant">UNIXSocket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">address</span>)
-62: 
-63:                 <span class="ruby-keyword kw">begin</span>
-64:                         <span class="ruby-ivar">@sock</span> = <span class="ruby-constant">ClientSocket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">session</span>)
-65:                 <span class="ruby-keyword kw">rescue</span>
-66:                         <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
-67:                         <span class="ruby-identifier">raise</span>
-68:                 <span class="ruby-keyword kw">end</span>
-69: 
-70:                 <span class="ruby-keyword kw">begin</span>
-71:                         <span class="ruby-identifier">session</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@sock</span>)
-72:                 <span class="ruby-keyword kw">rescue</span>
-73:                         <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
-74:                         <span class="ruby-identifier">raise</span>
-75:                 <span class="ruby-keyword kw">end</span>
-76:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 59</span>
+59:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">address</span>)
+60:                 <span class="ruby-identifier">io</span> = <span class="ruby-constant">UNIXSocket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">address</span>)
+61: 
+62:                 <span class="ruby-keyword kw">begin</span>
+63:                         <span class="ruby-ivar">@sock</span> = <span class="ruby-constant">ClientSocket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">session</span>)
+64:                 <span class="ruby-keyword kw">rescue</span>
+65:                         <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
+66:                         <span class="ruby-identifier">raise</span>
+67:                 <span class="ruby-keyword kw">end</span>
+68: 
+69:                 <span class="ruby-keyword kw">begin</span>
+70:                         <span class="ruby-identifier">session</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-ivar">@sock</span>)
+71:                 <span class="ruby-keyword kw">rescue</span>
+72:                         <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
+73:                         <span class="ruby-identifier">raise</span>
+74:                 <span class="ruby-keyword kw">end</span>
+75:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -324,11 +324,11 @@ ClientTransport interface
 					<div class="method-source-code"
 						id="close-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 84</span>
-84:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-85:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">attached?</span>
-86:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
-87:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 83</span>
+83:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+84:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">attached?</span>
+85:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">close</span>
+86:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -361,10 +361,10 @@ ClientTransport interface
 					<div class="method-source-code"
 						id="send-data-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 79</span>
-79:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-80:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-81:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 78</span>
+78:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+79:                 <span class="ruby-ivar">@sock</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+80:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

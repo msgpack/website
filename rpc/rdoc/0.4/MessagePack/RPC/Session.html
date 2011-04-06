@@ -95,6 +95,8 @@
 					
 					<li><a href="#method-i-send_request">#send_request</a></li>
 					
+					<li><a href="#method-i-send_without_call_async">#send_without_call_async</a></li>
+					
 				</ul>
 			</div>
 			
@@ -468,10 +470,6 @@ Calls remote method asynchronously. This method is non-blocking and returns
 				</div>
 
 				
-				<div class="aliases">
-					Also aliased as: <a href="Session.html#method-i-send">send</a>
-				</div>
-				
 
 				
 			</div>
@@ -538,12 +536,12 @@ same as <a href="Session.html#method-i-call_async">call_async</a>(method,
 					<div class="method-source-code"
 						id="callback-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 95</span>
-95:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">callback</span>(<span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
-96:                 <span class="ruby-identifier">future</span> = <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">args</span>)
-97:                 <span class="ruby-identifier">future</span>.<span class="ruby-identifier">attach_callback</span>(<span class="ruby-identifier">block</span>)
-98:                 <span class="ruby-identifier">future</span>
-99:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 102</span>
+102:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">callback</span>(<span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+103:                 <span class="ruby-identifier">future</span> = <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">args</span>)
+104:                 <span class="ruby-identifier">future</span>.<span class="ruby-identifier">attach_callback</span>(<span class="ruby-identifier">block</span>)
+105:                 <span class="ruby-identifier">future</span>
+106:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -578,12 +576,12 @@ the argument is a array.
 					<div class="method-source-code"
 						id="callback-apply-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 108</span>
-108:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">callback_apply</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>, &amp;<span class="ruby-identifier">block</span>)
-109:                 <span class="ruby-identifier">future</span> = <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>)
-110:                 <span class="ruby-identifier">future</span>.<span class="ruby-identifier">attach_callback</span>(<span class="ruby-identifier">block</span>)
-111:                 <span class="ruby-identifier">future</span>
-112:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 115</span>
+115:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">callback_apply</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>, &amp;<span class="ruby-identifier">block</span>)
+116:                 <span class="ruby-identifier">future</span> = <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>)
+117:                 <span class="ruby-identifier">future</span>.<span class="ruby-identifier">attach_callback</span>(<span class="ruby-identifier">block</span>)
+118:                 <span class="ruby-identifier">future</span>
+119:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -616,13 +614,13 @@ Closes underlaying Transport and destroy resources.
 					<div class="method-source-code"
 						id="close-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 139</span>
-139:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-140:                 <span class="ruby-ivar">@transport</span>.<span class="ruby-identifier">close</span>
-141:                 <span class="ruby-ivar">@reqtable</span> = {}
-142:                 <span class="ruby-ivar">@seqid</span> = <span class="ruby-value">0</span>
-143:                 <span class="ruby-keyword kw">self</span>
-144:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 146</span>
+146:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+147:                 <span class="ruby-ivar">@transport</span>.<span class="ruby-identifier">close</span>
+148:                 <span class="ruby-ivar">@reqtable</span> = {}
+149:                 <span class="ruby-ivar">@seqid</span> = <span class="ruby-value">0</span>
+150:                 <span class="ruby-keyword kw">self</span>
+151:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -655,11 +653,11 @@ to return results. This method is non-blocking and returns nil.
 					<div class="method-source-code"
 						id="notify-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 120</span>
-120:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">notify</span>(<span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>)
-121:                 <span class="ruby-identifier">send_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">args</span>)
-122:                 <span class="ruby-keyword kw">nil</span>
-123:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 127</span>
+127:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">notify</span>(<span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>)
+128:                 <span class="ruby-identifier">send_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">args</span>)
+129:                 <span class="ruby-keyword kw">nil</span>
+130:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -693,11 +691,11 @@ is same as notify(method, *args) excepting that the argument is a array.
 					<div class="method-source-code"
 						id="notify-apply-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 133</span>
-133:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">notify_apply</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>)
-134:                 <span class="ruby-identifier">send_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>)
-135:                 <span class="ruby-keyword kw">nil</span>
-136:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 140</span>
+140:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">notify_apply</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>)
+141:                 <span class="ruby-identifier">send_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">params</span>)
+142:                 <span class="ruby-keyword kw">nil</span>
+143:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -708,12 +706,53 @@ is same as notify(method, *args) excepting that the argument is a array.
 			</div>
 
 		
-			<div id="send-method" class="method-detail method-alias">
+			<div id="send-method" class="method-detail ">
 				<a name="method-i-send"></a>
 
 				<div class="method-heading">
 				
 					<span class="method-name">send</span><span
+						class="method-args">(method, *args)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="send-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 88</span>
+88:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>)
+89:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">caller</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/.*_test.rb/</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">caller</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/.*_spec.rb/</span> <span class="ruby-keyword kw">then</span>
+90:                    <span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;\n Don't use send method. Use 'call_async' method.&quot;</span>
+91:             <span class="ruby-keyword kw">end</span>
+92:             <span class="ruby-identifier">call_async</span>(<span class="ruby-identifier">method</span>, *<span class="ruby-identifier">args</span>)
+93:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="Session.html#method-i-send_without_call_async">send_without_call_async</a>
+				</div>
+				
+
+				
+			</div>
+
+		
+			<div id="send-without-call-async-method" class="method-detail method-alias">
+				<a name="method-i-send_without_call_async"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">send_without_call_async</span><span
 						class="method-args">(method, *args)</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
@@ -733,7 +772,7 @@ backward compatibility
 
 				
 				<div class="aliases">
-          Alias for: <a href="Session.html#method-i-call_async">call_async</a>
+          Alias for: <a href="Session.html#method-i-send">send</a>
 				</div>
 				
 			</div>
@@ -765,13 +804,13 @@ backward compatibility
 					<div class="method-source-code"
 						id="send-notify-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 187</span>
-187:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-188:                 <span class="ruby-identifier">method</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>
-189:                 <span class="ruby-identifier">data</span> = [<span class="ruby-constant">NOTIFY</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>].<span class="ruby-identifier">to_msgpack</span>
-190:                 <span class="ruby-ivar">@transport</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-191:                 <span class="ruby-keyword kw">nil</span>
-192:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 194</span>
+194:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_notify</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+195:                 <span class="ruby-identifier">method</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>
+196:                 <span class="ruby-identifier">data</span> = [<span class="ruby-constant">NOTIFY</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>].<span class="ruby-identifier">to_msgpack</span>
+197:                 <span class="ruby-ivar">@transport</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+198:                 <span class="ruby-keyword kw">nil</span>
+199:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -802,15 +841,15 @@ backward compatibility
 					<div class="method-source-code"
 						id="send-request-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 178</span>
-178:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
-179:                 <span class="ruby-identifier">method</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>
-180:                 <span class="ruby-identifier">msgid</span> = <span class="ruby-ivar">@seqid</span>
-181:                 <span class="ruby-ivar">@seqid</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>; <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@seqid</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">31</span> <span class="ruby-keyword kw">then</span> <span class="ruby-ivar">@seqid</span> = <span class="ruby-value">0</span> <span class="ruby-keyword kw">end</span>
-182:                 <span class="ruby-identifier">data</span> = [<span class="ruby-constant">REQUEST</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>].<span class="ruby-identifier">to_msgpack</span>
-183:                 <span class="ruby-ivar">@transport</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-184:                 <span class="ruby-ivar">@reqtable</span>[<span class="ruby-identifier">msgid</span>] = <span class="ruby-constant">Future</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-ivar">@loop</span>)
-185:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/session.rb, line 185</span>
+185:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>)
+186:                 <span class="ruby-identifier">method</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>
+187:                 <span class="ruby-identifier">msgid</span> = <span class="ruby-ivar">@seqid</span>
+188:                 <span class="ruby-ivar">@seqid</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>; <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@seqid</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">31</span> <span class="ruby-keyword kw">then</span> <span class="ruby-ivar">@seqid</span> = <span class="ruby-value">0</span> <span class="ruby-keyword kw">end</span>
+189:                 <span class="ruby-identifier">data</span> = [<span class="ruby-constant">REQUEST</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">param</span>].<span class="ruby-identifier">to_msgpack</span>
+190:                 <span class="ruby-ivar">@transport</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+191:                 <span class="ruby-ivar">@reqtable</span>[<span class="ruby-identifier">msgid</span>] = <span class="ruby-constant">Future</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-ivar">@loop</span>)
+192:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

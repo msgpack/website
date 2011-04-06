@@ -315,11 +315,10 @@ from Rev::UNIXSocket
 <pre>
     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/unix.rb, line 47</span>
 47:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_read</span>(<span class="ruby-identifier">data</span>)
-48:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">feed</span>(<span class="ruby-identifier">data</span>)
-49:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
-50:                                 <span class="ruby-identifier">on_message</span>(<span class="ruby-identifier">obj</span>)
-51:                         }
-52:                 <span class="ruby-keyword kw">end</span></pre>
+48:                         <span class="ruby-ivar">@pac</span>.<span class="ruby-identifier">feed_each</span>(<span class="ruby-identifier">data</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+49:                                 <span class="ruby-identifier">on_message</span>(<span class="ruby-identifier">obj</span>)
+50:                         }
+51:                 <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

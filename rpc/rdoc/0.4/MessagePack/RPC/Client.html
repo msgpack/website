@@ -338,8 +338,18 @@ Creates a client.
 
 				<div class="method-description">
 					
-					<p>
-Creates a client, call the block and close the client.
+					<ol>
+<li><p>
+open(builder, address, loop = Loop.new) {|client }
+</p>
+</li>
+<li><p>
+open(host, port, loop = Loop.new) {|client }
+</p>
+</li>
+</ol>
+<p>
+Creates a client, calls the block and closes the client.
 </p>
 					
 
@@ -347,15 +357,15 @@ Creates a client, call the block and close the client.
 					<div class="method-source-code"
 						id="open-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/client.rb, line 52</span>
-52:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">open</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
-53:                 <span class="ruby-identifier">c</span> = <span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>)
-54:                 <span class="ruby-keyword kw">begin</span>
-55:                         <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">c</span>)
-56:                 <span class="ruby-keyword kw">ensure</span>
-57:                         <span class="ruby-identifier">c</span>.<span class="ruby-identifier">close</span>
-58:                 <span class="ruby-keyword kw">end</span>
-59:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/client.rb, line 54</span>
+54:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">open</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+55:                 <span class="ruby-identifier">c</span> = <span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>)
+56:                 <span class="ruby-keyword kw">begin</span>
+57:                         <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">c</span>)
+58:                 <span class="ruby-keyword kw">ensure</span>
+59:                         <span class="ruby-identifier">c</span>.<span class="ruby-identifier">close</span>
+60:                 <span class="ruby-keyword kw">end</span>
+61:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -392,11 +402,11 @@ Creates a client, call the block and close the client.
 					<div class="method-source-code"
 						id="close-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/client.rb, line 61</span>
-61:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-62:                 <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">attached?</span>
-63:                 <span class="ruby-keyword kw">super</span>
-64:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/client.rb, line 63</span>
+63:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+64:                 <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@timer</span>.<span class="ruby-identifier">attached?</span>
+65:                 <span class="ruby-keyword kw">super</span>
+66:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

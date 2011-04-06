@@ -276,16 +276,16 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 63</span>
-63:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">address</span>, <span class="ruby-identifier">reconnect_limit</span>)
-64:                 <span class="ruby-ivar">@session</span> = <span class="ruby-identifier">session</span>
-65:                 <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
-66: 
-67:                 <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
-68:                 <span class="ruby-ivar">@sockpool</span> = []
-69:                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
-70:                 <span class="ruby-ivar">@reconnect_limit</span> = <span class="ruby-identifier">reconnect_limit</span>
-71:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 62</span>
+62:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">address</span>, <span class="ruby-identifier">reconnect_limit</span>)
+63:                 <span class="ruby-ivar">@session</span> = <span class="ruby-identifier">session</span>
+64:                 <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
+65: 
+66:                 <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
+67:                 <span class="ruby-ivar">@sockpool</span> = []
+68:                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
+69:                 <span class="ruby-ivar">@reconnect_limit</span> = <span class="ruby-identifier">reconnect_limit</span>
+70:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -324,18 +324,18 @@ ClientTransport interface
 					<div class="method-source-code"
 						id="close-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 90</span>
- 90:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
- 91:                 <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sock</span><span class="ruby-operator">|</span>
- 92:                         <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">attached?</span>
- 93:                         <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">close</span>
- 94:                         <span class="ruby-keyword kw">true</span>
- 95:                 }
- 96:                 <span class="ruby-ivar">@sockpool</span> = []
- 97:                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
- 98:                 <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
- 99:                 <span class="ruby-keyword kw">self</span>
-100:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 89</span>
+89:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+90:                 <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sock</span><span class="ruby-operator">|</span>
+91:                         <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">detach</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">attached?</span>
+92:                         <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">close</span>
+93:                         <span class="ruby-keyword kw">true</span>
+94:                 }
+95:                 <span class="ruby-ivar">@sockpool</span> = []
+96:                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
+97:                 <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
+98:                 <span class="ruby-keyword kw">self</span>
+99:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -368,10 +368,10 @@ from TCPClientTransport::ClientSocket::on_close
 					<div class="method-source-code"
 						id="on-close-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 124</span>
-124:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_close</span>(<span class="ruby-identifier">sock</span>)
-125:                 <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">sock</span>)
-126:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 122</span>
+122:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_close</span>(<span class="ruby-identifier">sock</span>)
+123:                 <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">sock</span>)
+124:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -404,13 +404,13 @@ from TCPClientTransport::ClientSocket::on_connect
 					<div class="method-source-code"
 						id="on-connect-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 103</span>
-103:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect</span>(<span class="ruby-identifier">sock</span>)
-104:                 <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">sock</span>)
-105:                 <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">send_pending</span>(<span class="ruby-ivar">@pending</span>)
-106:                 <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
-107:                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
-108:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 102</span>
+102:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect</span>(<span class="ruby-identifier">sock</span>)
+103:                 <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">sock</span>)
+104:                 <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">send_pending</span>(<span class="ruby-ivar">@pending</span>)
+105:                 <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
+106:                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
+107:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -443,18 +443,17 @@ from TCPClientTransport::ClientSocket::on_connect_failed
 					<div class="method-source-code"
 						id="on-connect-failed-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 111</span>
-111:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect_failed</span>(<span class="ruby-identifier">sock</span>)
-112:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@connecting</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@reconnect_limit</span>
-113:                         <span class="ruby-identifier">try_connect</span>
-114:                         <span class="ruby-ivar">@connecting</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-115:                 <span class="ruby-keyword kw">else</span>
-116:                         <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
-117:                         <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
-118:                         <span class="ruby-ivar">@deflate</span>.<span class="ruby-identifier">reset</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@deflate</span>
-119:                         <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">on_connect_failed</span>
-120:                 <span class="ruby-keyword kw">end</span>
-121:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 110</span>
+110:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_connect_failed</span>(<span class="ruby-identifier">sock</span>)
+111:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@connecting</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@reconnect_limit</span>
+112:                         <span class="ruby-identifier">try_connect</span>
+113:                         <span class="ruby-ivar">@connecting</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+114:                 <span class="ruby-keyword kw">else</span>
+115:                         <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">0</span>
+116:                         <span class="ruby-ivar">@pending</span> = <span class="ruby-value str">&quot;&quot;</span>
+117:                         <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">on_connect_failed</span>
+118:                 <span class="ruby-keyword kw">end</span>
+119:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -487,21 +486,21 @@ ClientTransport interface
 					<div class="method-source-code"
 						id="send-data-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 74</span>
-74:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-75:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">empty?</span>
-76:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@connecting</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
-77:                                 <span class="ruby-identifier">try_connect</span>
-78:                                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">1</span>
-79:                         <span class="ruby-keyword kw">end</span>
-80:                         <span class="ruby-ivar">@pending</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
-81:                 <span class="ruby-keyword kw">else</span>
-82:                         <span class="ruby-comment cmt"># FIXME pesudo connection load balance</span>
-83:                         <span class="ruby-comment cmt"># sock = @sockpool.choice</span>
-84:                         <span class="ruby-identifier">sock</span> = <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">first</span>
-85:                         <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
-86:                 <span class="ruby-keyword kw">end</span>
-87:         <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 73</span>
+73:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+74:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">empty?</span>
+75:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@connecting</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+76:                                 <span class="ruby-identifier">try_connect</span>
+77:                                 <span class="ruby-ivar">@connecting</span> = <span class="ruby-value">1</span>
+78:                         <span class="ruby-keyword kw">end</span>
+79:                         <span class="ruby-ivar">@pending</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+80:                 <span class="ruby-keyword kw">else</span>
+81:                         <span class="ruby-comment cmt"># FIXME pesudo connection load balance</span>
+82:                         <span class="ruby-comment cmt"># sock = @sockpool.choice</span>
+83:                         <span class="ruby-identifier">sock</span> = <span class="ruby-ivar">@sockpool</span>.<span class="ruby-identifier">first</span>
+84:                         <span class="ruby-identifier">sock</span>.<span class="ruby-identifier">send_data</span>(<span class="ruby-identifier">data</span>)
+85:                 <span class="ruby-keyword kw">end</span>
+86:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -538,12 +537,12 @@ ClientTransport interface
 					<div class="method-source-code"
 						id="try-connect-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 129</span>
-129:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">try_connect</span>
-130:                 <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span> = *<span class="ruby-ivar">@address</span>
-131:                 <span class="ruby-identifier">sock</span> = <span class="ruby-constant">ClientSocket</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-keyword kw">self</span>, <span class="ruby-ivar">@session</span>)  <span class="ruby-comment cmt"># async connect</span>
-132:                 <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">sock</span>)
-133:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/transport/tcp.rb, line 127</span>
+127:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">try_connect</span>
+128:                 <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span> = *<span class="ruby-ivar">@address</span>
+129:                 <span class="ruby-identifier">sock</span> = <span class="ruby-constant">ClientSocket</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-keyword kw">self</span>, <span class="ruby-ivar">@session</span>)  <span class="ruby-comment cmt"># async connect</span>
+130:                 <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">loop</span>.<span class="ruby-identifier">attach</span>(<span class="ruby-identifier">sock</span>)
+131:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

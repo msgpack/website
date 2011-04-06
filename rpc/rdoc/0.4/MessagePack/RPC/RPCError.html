@@ -332,26 +332,26 @@ href="RemoteError.html">RemoteError</a>
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/msgpack/rpc/exception.rb, line 171</span>
-171:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">data</span>)
-172:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">..</span>
-173:                         <span class="ruby-identifier">code</span> = <span class="ruby-identifier">code</span>.<span class="ruby-identifier">dup</span>
-174:                         <span class="ruby-keyword kw">while</span> <span class="ruby-keyword kw">true</span>
-175:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">klass</span> = <span class="ruby-constant">SYSTEM_ERROR_TABLE</span>[<span class="ruby-identifier">code</span>]
-176:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">data</span>)
-177:                                 <span class="ruby-keyword kw">end</span>
-178:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-regexp re">/\.[^\.]*$/</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">empty?</span>
-179:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-constant">RPCError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, *<span class="ruby-identifier">data</span>)
-180:                                 <span class="ruby-keyword kw">end</span>
-181:                         <span class="ruby-keyword kw">end</span>
-182: 
-183:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">RuntimeError</span><span class="ruby-operator">::</span><span class="ruby-constant">CODE</span>
-184:                         <span class="ruby-constant">RuntimeError</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">data</span>)
-185: 
-186:                 <span class="ruby-keyword kw">else</span>
-187:                         <span class="ruby-constant">RemoteError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, *<span class="ruby-identifier">data</span>)
-188:                 <span class="ruby-keyword kw">end</span>
-189:         <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/msgpack/rpc/exception.rb, line 175</span>
+175:         <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">data</span>)
+176:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">..</span>
+177:                         <span class="ruby-identifier">code</span> = <span class="ruby-identifier">code</span>.<span class="ruby-identifier">dup</span>
+178:                         <span class="ruby-keyword kw">while</span> <span class="ruby-keyword kw">true</span>
+179:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">klass</span> = <span class="ruby-constant">SYSTEM_ERROR_TABLE</span>[<span class="ruby-identifier">code</span>]
+180:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">data</span>)
+181:                                 <span class="ruby-keyword kw">end</span>
+182:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-regexp re">/\.[^\.]*$/</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">empty?</span>
+183:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-constant">RPCError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, *<span class="ruby-identifier">data</span>)
+184:                                 <span class="ruby-keyword kw">end</span>
+185:                         <span class="ruby-keyword kw">end</span>
+186: 
+187:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">RuntimeError</span><span class="ruby-operator">::</span><span class="ruby-constant">CODE</span>
+188:                         <span class="ruby-constant">RuntimeError</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">data</span>)
+189: 
+190:                 <span class="ruby-keyword kw">else</span>
+191:                         <span class="ruby-constant">RemoteError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, *<span class="ruby-identifier">data</span>)
+192:                 <span class="ruby-keyword kw">end</span>
+193:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -427,11 +427,13 @@ href="RemoteError.html">RemoteError</a>
     <span class="ruby-comment cmt"># File lib/msgpack/rpc/exception.rb, line 71</span>
 71:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is?</span>(<span class="ruby-identifier">code</span>)
 72:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">RPCError</span>
-73:                         <span class="ruby-identifier">code</span> = <span class="ruby-identifier">code</span><span class="ruby-operator">::</span><span class="ruby-constant">CODE</span>
-74:                 <span class="ruby-keyword kw">end</span>
-75:                 <span class="ruby-ivar">@code</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@code</span>[<span class="ruby-value">0</span>,<span class="ruby-identifier">code</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-node">&quot;#{code}.&quot;</span> <span class="ruby-operator">||</span>
-76:                         (<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;.RemoteError&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@code</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">..</span>)
-77:         <span class="ruby-keyword kw">end</span></pre>
+73:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-constant">RemoteError</span>
+74:                                 <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@code</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">..</span>
+75:                         <span class="ruby-keyword kw">end</span>
+76:                         <span class="ruby-identifier">code</span> = <span class="ruby-identifier">code</span><span class="ruby-operator">::</span><span class="ruby-constant">CODE</span>
+77:                 <span class="ruby-keyword kw">end</span>
+78:                 <span class="ruby-ivar">@code</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">code</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@code</span>[<span class="ruby-value">0</span>,<span class="ruby-identifier">code</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-node">&quot;#{code}.&quot;</span>
+79:         <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
