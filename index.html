@@ -107,13 +107,17 @@ svr.run
 			<pre class="prettyprint">require 'msgpack/rpc'
 c = MessagePack::RPC::Client.new('127.0.0.1',18800)
 result = c.call(:add, 1, 2)  #=&gt; 3</pre>
+
+			<p>
+			Information of these related projects are available from: <a href="http://www.json.org/">JSON</a>, <a href="http://code.google.com/p/protobuf/">Protocol Buffers</a>, <a href="http://incubator.apache.org/thrift/">Thrift</a>, <a href="http://avro.apache.org/">Avro</a>.
+			</p>
 		</div>
 
 		<div id="welcome_figure">
 			<h3>Serialization + Deserialization Speed Test</h3>
 			<img id="speedtest" src="index/speedtest.png" width="440" height="225" alt="MessagePack Serialization + Deserialization Speed Test" />
-			<p class="caption">In this test (<a href="http://msgpack.org/releases/benchmark/msgpack-protobuf-json-speed-test.tar.gz">source code</a>), it measured the elapsed time of serializing and deserializing 200,000 target objects.
-			The target object consists of the three integers and 512 bytes string.</p>
+			<p class="caption">In this test (<a href="http://msgpack.org/releases/benchmark/msgpack-protobuf-json-speed-test.tar.gz">source code</a>), we measured the time required to serialize and deserialize 200,000 objects each consisting of three integers and a 512-byte blob (ex. an image with metadata).
+			We chose this particular test case to highlight the power of "zero-copy" in MesspagePack's C++ implementation, which is most relevant for blobs. (<a href="http://blog.treasure-data.com/post/12232702451/messagepack-the-missing-serializer">details</a>)</p>
 
 			<h3>RPC Feature Comparision</h3>
 			<table id="compare" summary="RPC Feature Comparision">
@@ -175,9 +179,6 @@ result = c.call(:add, 1, 2)  #=&gt; 3</pre>
 				</tr>
 				</tbody>
 			</table>
-			<p class="caption">
-			Information of these related projects are available from: <a href="http://www.json.org/">JSON</a>, <a href="http://code.google.com/p/protobuf/">Protocol Buffers</a>, <a href="http://incubator.apache.org/thrift/">Thrift</a>, <a href="http://avro.apache.org/">Avro</a>.
-			</p>
 		</div>
 	</div>
 
