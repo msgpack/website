@@ -109,7 +109,7 @@
           <li><a onclick="changeQuickStart('qs-php',this)">PHP</a></li>
           <li><a onclick="changeQuickStart('qs-javascript',this)">JavaScript</a></li>
           <li><a onclick="changeQuickStart('qs-objective-c',this)">Objective-C</a></li>
-          <li><a onclick="changeQuickStart('qs-csharp',this)">C#/CLI</a></li>
+          <li><a onclick="changeQuickStart('qs-csharp',this)">C#</a></li>
           <li><a onclick="changeQuickStart('qs-lua',this)">Lua</a></li>
           <li><a onclick="changeQuickStart('qs-scala',this)">Scala</a></li>
           <li><a onclick="changeQuickStart('qs-d',this)">D</a></li>
@@ -232,17 +232,18 @@ NSArray* someArray = [packed messagePackParse];
         </div>
 
         <div id="qs-csharp" class="qs">
-          <h4>C#/CLI</h4>
+          <h4>C#</h4>
           <ul class="hlist">
             <li><a href="https://github.com/msgpack/msgpack-cli">GitHub</a></li>
             <li><a href="https://github.com/yfakariya/msgpack/wiki/">Wiki</a></li>
           </ul>
-          <pre class="prettyprint">
-var serializer = MessagePackSerializer.Create<Foo>();
+          <pre class="prettyprint">using MsgPack.Serialization;</pre>
+          <pre class="prettyprint">var serializer = MessagePackSerializer.Create&lt;Foo&gt;();
 serializer.Pack(foo, stream);
 stream.Position = 0;
-var value = serializer.Unpack(stream);
-          </pre>
+var value = serializer.Unpack(stream);</pre>
+          <p>You can also use C#(CLI) implementation for any other CLI (Common Language Infrastructure) languages such as Visual Basic.</p>
+          <p>CLI implementation also provides streaming deserializer, some level of dynamic typing, and annotations. See <a href="https://github.com/yfakariya/msgpack/wiki/">Wiki</a> for details.</p>
         </div>
 
         <div id="qs-lua" class="qs">
