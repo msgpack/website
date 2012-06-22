@@ -246,10 +246,23 @@ var value = serializer.Unpack(stream);
 
         <div id="qs-lua" class="qs">
           <h4>Lua</h4>
+          Comming soon...
+<!--
+          <ul class="hlist">
+            <li><a href="https://github.com/nobu-k/mplua">GitHub</a></li>
+          </ul>
+<pre class="prettyprint">require "msgpack"
+data = msgpack.pack(1, 2, 3, "strings", {"a", "r", "r", "a", "y", "s"},
+                    {t = "a", b = "l", e = "s"; 1, 2, 3, 4})
+a, b, c = msgpack.unpack(msgpack.pack(1, 2, 3))</pre>
+-->
         </div>
 
         <div id="qs-scala" class="qs">
           <h4>Scala</h4>
+          <ul class="hlist">
+            <li><a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Scala">Quick Start</a></li>
+          </ul>
         </div>
 
         <div id="qs-d" class="qs">
@@ -270,6 +283,17 @@ assert(send == recieve);</pre>
 
         <div id="qs-haskell" class="qs">
           <h4>Haskell</h4>
+          <ul class="hlist">
+            <li><a href="http://hackage.haskell.org/packages/archive/msgpack/0.7.1.5/doc/html/Data-MessagePack.html">API Reference</a></li>
+            <li><a href="http://hackage.haskell.org/package/msgpack">hackageDB</a></li>
+            <li><a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Haskell">Quick Start</a></li>
+          </ul>
+<pre class="prettyprint">import Data.MessagePack
+main = do
+  let bs = pack (1 :: Int, 3.14 :: Double, "Hello, MessagePack!")
+  print bs
+  print (unpack bs :: (Int, Double, String))
+</pre>
         </div>
 
         <div id="qs-erlang" class="qs">
@@ -303,6 +327,7 @@ Msgpack.Serialize.desrialize_string("\147\001\002\003");;
 
         <div id="qs-go" class="qs">
           <h4>Go</h4>
+          Comming soon...
         </div>
       </div>
 
