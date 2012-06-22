@@ -1,473 +1,353 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="content-script-type" content="text/javascript" />
-	<meta http-equiv="content-style-type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="MessagePack, msgpack, JSON, Binary JSON, Serializer, Serialization" />
+  <!--<meta name="description" content="" />-->
+  <link href='favicon.ico' rel='icon' type='image/x-icon'/>
 
-	<title>The MessagePack Project</title>
-	<meta name="description" content="MessagePack Web Site" />
-	<meta name="keywords" content="MessagePack, msgpack, serialize, deserialize, JSON, Protocol Buffers, BERT, Thrift" />
+  <title>MessagePack: It's like JSON. but fast and small.</title>
 
-	<script src="index/prettify.js" type="text/javascript"></script>
-	<link href="index/prettify.css" rel="stylesheet" type="text/css" />
+  <!--[if lt IE 9]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js" ></script><![endif]-->
+  <link media="all" rel="stylesheet" type="text/css" href="css/yuibase.css" />
+  <link media="all" rel="stylesheet" type="text/css" href="js/prettify/prettify.css" />
+  <link media="all" rel="stylesheet" type="text/css" href="css/all.css" />
+  <script type="text/javascript" src="js/all.js" ></script>
+  <script type="text/javascript" src="js/prettify/prettify.js" ></script>
 
-	<link rel="stylesheet" type="text/css" href="index/yui/cssreset/reset-min.css" />
-	<link rel="stylesheet" type="text/css" href="index/yui/cssfonts/fonts-min.css" />
-	<link rel="stylesheet" type="text/css" href="index/yui/cssbase/base-min.css" />
-	<link rel="stylesheet" type="text/css" href="index/msgpack.css" />
-
-	<script type="text/javascript">
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-17125377-1']);
-	_gaq.push(['_trackPageview']);
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-	</script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17125377-1']);
+    _gaq.push(['_setDomainName', 'msgpack.org']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </head>
-<body onload="prettyPrint()">
-	<div id="header" class="container">
-		<h1>MessagePack</h1>
-		<p id="summary">Extremely efficient object serialization library for cross-language communication.<br />It's like JSON, but very fast and small.</p>
-	</div>
+<body onload="prettyPrint();changeQuickStart('qs-ruby',document.getElementById('quickstart-default'));">
 
-	<div id="navi" class="container">
-		<ul id="navi_links">
-			<li>
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart">
-				<span class="navi_title">Getting Started</span>
-				<span class="navi_desc">Install and Try it Now</span>
-				</a>
-			</li>
-			<li style="width:140px;">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/Home">
-				<span class="navi_title">Wiki</span>
-				<span class="navi_desc">Learn more</span>
-				</a>
-			</li>
-			<li style="width:180px;">
-				<a href="http://jira.msgpack.org/browse/MSGPACK">
-				<span class="navi_title">Issues</span>
-				<span class="navi_desc">Issues and progress</span>
-				</a>
-			</li>
-			<li style="width:180px;">
-				<a href="http://github.com/msgpack">
-				<span class="navi_title">Source</span>
-				<span class="navi_desc">Repository at Github</span>
-				</a>
-			</li>
-			<li style="width:180px;">
-                <!--http://twitter.com/search?q=%23msgpack-->
-                <a href="http://twitter.com/search/MessagePack%20OR%20msgpack">
-				<span class="navi_title">#msgpack</span>
-				<span class="navi_desc">Find on Twitter</span>
-				</a>
-			</li>
-		</ul>
+<!-- Facebook like button { -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- } Facebook like button -->
 
-		<div id="social" style="overflow:hidden;">
-			<div style="width:50px;height:43px;overflow:hidden;">
-				<script type="text/javascript">/*tweetmeme_style = 'compact';*/</script>
-				<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-			</div>
+  <header id="header">
+    <div id="headerwrap">
+      <h1 id="logo"><a href="/">MessagePack</a></h1>
+      <nav id="topnav">
+        <ul>
+          <li><a href="https://github.com/msgpack">GitHub</a></li>
+          <li><a href="http://wiki.msgpack.org/display/MSGPACK/Home">Wiki</a></li>
+          <li><a href="http://twitter.com/search/MessagePack%20OR%20msgpack">#msgpack</a></li>
+          <li><a href="http://wiki.msgpack.org/display/MSGPACK/Format+specification">Spec</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-			<!--<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmsgapck.org%2F&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>-->
-			<iframe src="http://www.facebook.com/plugins/likebox.php?id=119810658044417&amp;width=110&amp;connections=0&amp;stream=false&amp;header=false&amp;height=40" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; height:40px; width:190px; margin: -9px 0 0 -60px;"></iframe>
-		</div>
-	</div>
-
-	<h2 id="Abstruct">What's MessagePack?</h2>
-
-	<div id="welcome" class="container">
-
-		<div id="welcome_description">
-			<h3>Fast and Compact Serialization</h3>
-			<p>MessagePack is a binary-based efficient object serialization library. It enables to exchange structured objects between many languages like JSON. But unlike JSON, it is very fast and small.</p>
-			<p>Typical small integer (like flags or error code) is saved only in 1 byte, and typical short string only needs 1 byte except the length of the string itself. [1,2,3] (3 elements array) is serialized in 4 bytes using MessagePack as follows:</p>
-			<pre class="prettyprint">&gt; require 'msgpack'
+  <div id="desc">
+    <div id="descbody">
+      <img id="descimg" width="421" height="251" src="images/msgpack-json.png"/>
+      <div id="desctext">
+        <h2>It's like JSON. but fast and small.</h2>
+        <p>MessagePack is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON but it's faster and smaller. For example, small integers (like flags or error code) are encoded into a single byte, and typical short strings only require an extra byte in addition to the strings themselves.</p>
+        <p>If you ever wished to use JSON for convenience (storing an image with metadata) but could not for technical reasons (encoding, size, speed...), MessagePack is a perfect replacement.</p>
+        <pre>&gt; require "msgpack"       # gem install msgpack
 &gt; msg = [1,2,3].to_msgpack  #=&gt; "\x93\x01\x02\x03"
 &gt; MessagePack.unpack(msg)   #=&gt; [1,2,3]</pre>
+        <p>...and <a href="#crosslang">many other languages</a></p>
+      </div>
+    </div>
+  </div>
 
-			<h3>Scalable RPC</h3>
-			<p>MessagePack-RPC is cross-language RPC library for client, server and cluster applications. Because it releases you from complicated network programming completely and provides well-designed API, you can easily implement advanced network applications with MessagePack-RPC.</p>
-			<!--<p>It is built on top of event-driven I/O architecture, and supports synchronous, asynchronous and callback-style RPC with multiple servers. Connection pooling is also supported. C++ and Java implementations are fully multithreaded, so the servers implemented on top of MessagePack-RPC automatically becomes scalable enough to serve thousands of clients.</p>-->
-			<pre class="prettyprint">require 'msgpack/rpc'
-class MyHandler
-  def add(x,y) return x+y end
-end
-svr = MessagePack::RPC::Server.new
-svr.listen('0.0.0.0', 18800, MyHandler.new)
-svr.run
-</pre>
-			<pre class="prettyprint">require 'msgpack/rpc'
-c = MessagePack::RPC::Client.new('127.0.0.1',18800)
-result = c.call(:add, 1, 2)  #=&gt; 3</pre>
+  <div id="background">
+    <div id="content">
+      <h3>Happy Hackers :-)</h3>
+      <div class="tmset">
+        <a class="tmleft"></a>
 
-			<p>
-			Information of these related projects are available from: <a href="http://www.json.org/">JSON</a>, <a href="http://code.google.com/p/protobuf/">Protocol Buffers</a>, <a href="http://incubator.apache.org/thrift/">Thrift</a>, <a href="http://avro.apache.org/">Avro</a>.
-			</p>
-		</div>
+        <div class="tm">
+          <a class="tmlogo" href="http://redis.io/"><img src="images/redis.png" alt="Redis" width="150" height="50" /></a>
+          <p class="tmtext">"Redis scripting has support for MessagePack because it is a fast and compact serialization format with a simple to implement specification. I liked it so much that I implemented a MessagePack C extension for Lua just to include it into Redis."</p>
+          <p class="tmauthor">Salvatore Sanfilippo, creator of Redis.</p>
+        </div>
 
-		<div id="welcome_figure">
-			<h3>Serialization + Deserialization Speed Test</h3>
-			<img id="speedtest" src="index/speedtest.png" width="440" height="225" alt="MessagePack Serialization + Deserialization Speed Test" />
-			<p class="caption">In this test (<a href="http://msgpack.org/releases/benchmark/msgpack-protobuf-json-speed-test.tar.gz">source code</a>), we measured the time required to serialize and deserialize 200,000 objects each consisting of three integers and a 512-byte blob (ex. an image with metadata).
-			We chose this particular test case to highlight the power of "zero-copy" in MesspagePack's C++ implementation, which is most relevant for blobs. (<a href="http://blog.treasure-data.com/post/12232702451/messagepack-the-missing-serializer">details</a>)</p>
+        <div class="tm">
+          <a class="tmlogo" href="http://pinterest.com/"><img src="images/pinterest.png" alt="Pinterest" width="197" height="50" /></a>
+          <p class="tmtext">"MessagePack has been simply invaluable to us. We use MessagePack + Memcache to cache many of our feeds on Pinterest. These feeds are compressed and very quick to unpack thanks to MessagePack while Memcache gives us fast atomic pushes."</p>
+          <p class="tmauthor">Marty Weiner, Software Engineer.</p>
+        </div>
 
-			<h3>RPC Feature Comparision</h3>
-			<table id="compare" summary="RPC Feature Comparision">
-				<colgroup>
-					<col class="header" />
-					<col span="1" class="main" />
-					<col span="2" class="sub" />
-				</colgroup>
-				<thead>
-					<tr>
-						<th></th>
-						<th>MessagePack-RPC</th>
-						<th>Thrift</th>
-						<th>Avro</th>
-					</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-AsynchronousRPC">Asynchronous RPC</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="OK" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-ParallelPipelining">Parallel Pipelining</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-IDLSupport">Thrift-like IDL</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-DynamicTyping">Dynamic Typing</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-ConnectionPooling">Connection pooling</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-DelayedReturn">Delayed return</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				<tr>
-					<th><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC#DesignofRPC-EventdrivenI%2FO">Event-driven I/O</a></th>
-					<td><img alt="OK" src="index/icon-ok.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-					<td><img alt="NG" src="index/icon-ng.png" width="18" height="18" /></td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+        <div class="tm">
+          <a class="tmlogo" href="http://saltstack.com/"><img src="images/saltstack.png" alt="Salt Stack" width="251" height="46" /></a>
+          <p class="tmtext">"I use MessagePack for all of the data serialization in Salt, it is fantastic! I tested quite a few serialization formats and MessagePack was dramatically faster and the data was always smaller. When I changed out pickles for MessagePack in Salt there was a speed increase of almost 3 fold across the board."</p>
+          <p class="tmauthor">Tom Hatch, author of Salt.</p>
+        </div>
 
-	<div id="getstart" class="container">
-		<h2 id="GettingStarted">Getting Started</h2>
+        <a class="tmright"></a>
+      </div>
 
-		<div class="box3" style="height:14em;">
-			<h3>Ruby</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Ruby">Quick Start</a>
-				<span>Reference:</span>
-				<a href="http://msgpack.org/rpc/rdoc/current/MessagePack/RPC.html">RPC</a>
-				<a href="http://msgpack.org/rdoc/current/MessagePack.html">Serialization</a>
-			</p>
-			<pre>&gt; gem install msgpack
-&gt; gem install msgpack-rpc</pre>
-			<!--<p>Ruby implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>-->
-		</div>
+      <p class="tmcontribute">If you also use MessagePack, send us a pull-request.</p>
 
-		<div class="box3" style="height:14em;">
-			<h3>Python</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Python">Quick Start</a>
-				<!--
-				<span>Reference:</span>
-				<a href="">RPC</a>
-				<a href="">Serialization</a>
-				-->
-			</p>
-			<pre>&gt; easy_install msgpack-python</pre>
-			<p>More details for the package is available at the <a href="http://pypi.python.org/pypi/msgpack-python/">PyPI page</a>.</p>
-		</div>
+      <h3 id="crosslang">Implementation projects</h3>
+      <div class="qsset">
+        <ul class="qslist">
+          <li><a onclick="changeQuickStart('qs-ruby',this)" id="quickstart-default">Ruby</a></li>
+          <li><a onclick="changeQuickStart('qs-python',this)">Python</a></li>
+          <li><a onclick="changeQuickStart('qs-perl',this)">Perl</a></li>
+          <li><a onclick="changeQuickStart('qs-cpp',this)">C/C++</a></li>
+          <li><a onclick="changeQuickStart('qs-java',this)">Java</a></li>
+          <li><a onclick="changeQuickStart('qs-php',this)">PHP</a></li>
+          <li><a onclick="changeQuickStart('qs-javascript',this)">JavaScript</a></li>
+          <li><a onclick="changeQuickStart('qs-objective-c',this)">Objective-C</a></li>
+          <li><a onclick="changeQuickStart('qs-csharp',this)">C#/CLI</a></li>
+          <li><a onclick="changeQuickStart('qs-lua',this)">Lua</a></li>
+          <li><a onclick="changeQuickStart('qs-scala',this)">Scala</a></li>
+          <li><a onclick="changeQuickStart('qs-d',this)">D</a></li>
+          <li><a onclick="changeQuickStart('qs-haskell',this)">Haskell</a></li>
+          <li><a onclick="changeQuickStart('qs-erlang',this)">Erlang</a></li>
+          <li><a onclick="changeQuickStart('qs-ocaml',this)">OCaml</a></li>
+          <li><a onclick="changeQuickStart('qs-go',this)">Go</a></li>
+        </ul>
 
-		<div class="box3" style="height:14em;">
-			<h3>Perl</h3>
-			<p class="getstart_links">
-				<!--<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Perl">Quick Start</a>-->
-				<span style="margin-left:0;">Reference:</span>
-				<a href="http://search.cpan.org/~tokuhirom/AnyEvent-MPRPC/">RPC</a>
-				<a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/">Serialization</a>
-			</p>
-			<pre>&gt; cpan Data::MessagePack
-&gt; cpan AnyEvent::MPRPC</pre>
-		</div>
+        <div id="quickstart" class="qsholder"></div>
 
-		<div class="box3" style="height:16em;">
-			<h3>C/C++</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/pages/viewpage.action?pageId=1081387">Quick Start</a>
-				<!--
-				<span>Reference:</span>
-				<a href="">RPC</a>
-				<a href="">Serialization</a>
-				-->
-			</p>
-			<pre>port install msgpack (<a href="http://www.macports.org/">MacPorts</a>)
-brew install msgpack (<a href="http://mxcl.github.com/homebrew/">Homebrew</a>)</pre>
-			<p>Download <a href="http://msgpack.org/releases/cpp/msgpack-0.5.7.tar.gz">msgpack-0.5.7.tar.gz</a> and build it.
-			RPC for C++ is at <a href="http://msgpack.org/releases/cpp/msgpack-rpc-0.3.1.tar.gz">msgpack-rpc-0.3.1.tar.gz</a>.
-			<!--C/C++ implementation supports <a href="http://redmine.msgpack.org/projects/msgpack/wiki/FormatDesign">zero-copy</a> facility.</p>-->
-			<!--
-			It supports <strong>zero-copy</strong> facility.</p>
-			-->
-		</div>
+        <div id="qs-ruby" class="qs">
+          <h4>Ruby</h4>
+          <ul class="hlist">
+            <li><a href="http://msgpack.org/rdoc/current/MessagePack.html">API Reference</a></li>
+            <li><a href="http://rubygems.org/gems/msgpack">RubyGems</a></li>
+          </ul>
+          <pre class="prettyprint">gem install msgpack</pre>
+          <pre class="prettyprint">require "msgpack"
+msg = [1,2,3].to_msgpack  #=&gt; "\x93\x01\x02\x03"
+MessagePack.unpack(msg)   #=&gt; [1,2,3]</pre>
+          <p>Ruby implementation provides <a href="http://msgpack.org/rdoc/current/MessagePack/Unpacker.html">streaming deserializer</a>.</p>
+        </div>
 
-		<div class="box3" style="height:16em;">
-			<h3>Java</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Java">Quick Start</a>
-				<span>Reference:</span>
-				<a href="http://msgpack.org/rpc/javadoc/current/">RPC</a>
-				<a href="http://msgpack.org/javadoc/current/">Serialization</a>
-			</p>
-			<p>Maven2 repository is located <a href="http://msgpack.org/maven2/">here</a>. See <a href="/javadoc/current/">javadoc</a> for actual APIs.<!-- <a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartIDL">IDL</a> may be greatly useful with Java.</p>-->
-			<p>Source code is available from <a href="http://github.com/msgpack/msgpack/tree/master/java/">here</a>, and <a href="http://github.com/msgpack/msgpack/blob/master/java/src/test/java/org/msgpack/TestMessagePackStaticMethods.java">test cases</a> will give you a sample usage.</p>
-		</div>
+        <div id="qs-python" class="qs">
+          <h4>Python</h4>
+          <ul class="hlist">
+            <li><a href="http://pypi.python.org/pypi/msgpack-python/">PyPI</a></li>
+          </ul>
+          <pre class="prettyprint">easy_install msgpack-python</pre>
+          <pre class="prettyprint">import msgpack
+msg = msgpack.packb([1,2,3])    #=&gt; "\x93\x01\x02\x03"
+msgpack.unpackb(msg)            #=&gt; [1,2,3]
+help(msgpack)</pre>
+          <p>Python implementation provides streaming deserializer.</p>
+        </div>
 
-		<div class="box3" style="height:16em;">
-			<h3>Haskell</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Haskell">Quick Start</a>
-				<!--
-				<span>Reference:</span>
-				<a href="">RPC</a>
-				<a href="">Serialization</a>
-				-->
-			</p>
-			<pre>&gt; cabal install msgpack
-&gt; cabal install msgpack-rpc</pre>
-			<p>
-			See hackageDB page (<a href="http://hackage.haskell.org/package/msgpack">msgpack</a>, <a href="http://hackage.haskell.org/package/msgpack-rpc">msgpack-rpc</a>) for details.
-			</p>
-		</div>
+        <div id="qs-perl" class="qs">
+          <h4>Perl</h4>
+          <ul class="hlist">
+            <li><a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/lib/Data/MessagePack.pm">API Reference</a></li>
+            <li><a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/">CPAN</a></li>
+          </ul>
+          <pre class="prettyprint">cpan Data::MessagePack</pre>
+          <pre class="prettyprint">use Data::MessagePack;
+my $packed   = Data::MessagePack-&gt;pack($dat);
+my $unpacked = Data::MessagePack-&gt;unpack($dat);</pre>
+          <p>Perl implementation provides <a href="http://search.cpan.org/~tokuhirom/Data-MessagePack/lib/Data/MessagePack/Unpacker.pod">streaming deserializer</a>.</p>
+        </div>
 
-		<div class="box3" style="height:10em;">
-			<h3>JavaScript</h3>
-			<p class="getstart_links">
-				<a href="https://github.com/msgpack/msgpack-javascript">Quick Start</a>
-			</p>
-			<p>
-			Download <a href="https://raw.github.com/msgpack/msgpack-javascript/master/msgpack.js">msgpack.js</a> from <a href="https://github.com/msgpack/msgpack-javascript">GitHub</a>.<br />
-			Licensed under MIT license.
-			</p>
-		</div>
+        <div id="qs-cpp" class="qs">
+          <h4>C/C++</h4>
+          <ul class="hlist">
+            <li><a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+C+Language">Quick Start for C</a></li>
+            <li><a href="http://wiki.msgpack.org/pages/viewpage.action?pageId=1081387">Quick Start for C++</a></li>
+          </ul>
+          <pre class="prettyprint">port install msgpack  # MacPorts
+brew install msgpack  # Homebrew
+apt-get install libmsgpack-dev  # Ubuntu</pre>
+          <p>Or download <a href="http://msgpack.org/releases/cpp/msgpack-0.5.7.tar.gz">msgpack-0.5.7.tar.gz</a> and build it to install.</p>
+          <pre class="prettyprint">#include &lt;msgpack.hpp&gt;
+struct myclass { std::vector<int> vec; MSGPACK_DEFINE(vec); };
+msgpack::pack(buffer, vec);
+msgpack::unpack(&amp;result, buffer.data(), buffer.size());</pre>
+        </div>
 
-		<div class="box3" style="height:10em;">
-			<h3>D</h3>
-			<p class="getstart_links">
-				<a href="https://github.com/msgpack/msgpack-d">Quick Start</a>
-			</p>
-			<p>
-			See example directory of repository for more details.<br />
-			Licensed under Boost license.
-			</p>
-		</div>
+        <div id="qs-java" class="qs">
+          <h4>Java</h4>
+          <ul class="hlist">
+            <li><a href="http://msgpack.org/javadoc/current/">API Reference</a></li>
+            <li><a href="http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.msgpack%22%20AND%20a%3A%22msgpack%22">Maven</a></li>
+            <li><a href="https://github.com/msgpack/msgpack-java">GitHub</a></li>
+          </ul>
+          <pre class="prettyprint">import org.msgpack.MessagePack;
 
-		<div class="box3" style="height:10em;">
-			<h3>C#</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+C+Sharp">Quick Start</a>
-			</p>
-		</div>
+MessagePack msgpack = new MessagePack();
+byte[] bytes = msgpack.write(object);
+MyClass object = msgpack.read(bytes, MyClass.class);</pre>
+          <p>Java implementation provides <a href="http://msgpack.org/javadoc/current/org/msgpack/unpacker/package-summary.html">streaming deserializer</a>, <a href="http://msgpack.org/javadoc/current/org/msgpack/type/package-summary.html">dynamically typed objects</a>, <a href="http://msgpack.org/javadoc/current/org/msgpack/template/package-summary.html">type conversion templates</a>, <a href="http://msgpack.org/javadoc/current/org/msgpack/template/builder/package-summary.html">dynamic template generators</a> and <a href="http://msgpack.org/javadoc/current/org/msgpack/annotation/package-summary.html">annotations</a>.</p>
+          <p>Take a look at <a href="https://github.com/msgpack/msgpack-java/tree/master/src/test/java/org/msgpack">test cases</a> for examples.</p>
+        </div>
 
-		<div class="box3" style="height:6em;">
-			<h3>Erlang</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Erlang">Quick Start</a>
-			</p>
-		</div>
+        <div id="qs-php" class="qs">
+          <h4>PHP</h4>
+          <ul class="hlist">
+            <li><a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+PHP">Quick Start</a></li>
+          </ul>
+          <pre class="prettyprint">git clone https://github.com/msgpack/msgpack.git
+cd msgpack/php
+phpize
+./configure &amp;&amp; make &amp;&amp; make install</pre>
+          <pre class="prettyprint">$data = array(0=&gt;1,1=&gt;2,2=&gt;3);
+$msg = msgpack_pack($data);
+$data = msgpack_unpack($msg);</pre>
+        </div>
 
-		<div class="box3" style="height:6em;">
-			<h3>Scala</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Scala">Quick Start</a>
-			</p>
-		</div>
+        <div id="qs-javascript" class="qs">
+          <h4>JavaScript</h4>
+          <ul class="hlist">
+            <li><a href="https://github.com/msgpack/msgpack-javascript">GitHub</a></li>
+            <li><a href="https://raw.github.com/msgpack/msgpack-javascript/master/msgpack.js">msgpack.js</a></li>
+          </ul>
+          <pre class="prettyprint">var myByteArray = msgpack.pack(myObject);
+myObject = msgpack.unpack(myByteArray);</pre>
+          <p>Licensed under MIT license.</p>
+        </div>
 
-		<div class="box3" style="height:6em;">
-			<h3>Go</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Go">Quick Start</a>
-			</p>
-		</div>
+        <div id="qs-objective-c" class="qs">
+          <h4>Objective-C</h4>
+          <ul class="hlist">
+            <li><a href="https://github.com/msgpack/msgpack-objectivec">GitHub</a></li>
+          </ul>
+          <pre class="prettyprint">
+#import "MessagePack.h"
+..
+NSData* packed = [someArray messagePack];
+NSArray* someArray = [packed messagePackParse];
+          </pre>
+        </div>
 
-		<div class="box3" style="height:6em;">
-			<h3>Lua</h3>
-			<p class="getstart_links">
-				<a href="https://github.com/nobu-k/mplua">Quick Start</a>
-			</p>
-		</div>
+        <div id="qs-csharp" class="qs">
+          <h4>C#/CLI</h4>
+          <ul class="hlist">
+            <li><a href="https://github.com/msgpack/msgpack-cli">GitHub</a></li>
+            <li><a href="https://github.com/yfakariya/msgpack/wiki/">Wiki</a></li>
+          </ul>
+          <pre class="prettyprint">
+var serializer = MessagePackSerializer.Create<Foo>();
+serializer.Pack(foo, stream);
+stream.Position = 0;
+var value = serializer.Unpack(stream);
+          </pre>
+        </div>
 
-		<div class="box3" style="height:6em;">
-			<h3>Node.JS</h3>
-			<p class="getstart_links">
-				<a href="https://github.com/pgriess/node-msgpack">Quick Start</a>
-			</p>
-		</div>
+        <div id="qs-lua" class="qs">
+          <h4>Lua</h4>
+        </div>
 
-		<div class="box3" style="height:6em;">
-			<h3>OCaml</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+OCaml">Quick Start</a>
-			</p>
-		</div>
+        <div id="qs-scala" class="qs">
+          <h4>Scala</h4>
+        </div>
 
-		<div class="box3" style="height:7em;">
-			<h3>PHP</h3>
-			<p class="getstart_links">
-				<a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+PHP">Quick Start</a>
-			</p>
-		</div>
+        <div id="qs-d" class="qs">
+          <h4>D</h4>
+          <ul class="hlist">
+            <!-- <li><a href="http://msgpack.github.org/msgpack-d">API Reference</a></li> -->
+            <li><a href="https://github.com/msgpack/msgpack-d">GitHub</a></li>
+          </ul>
+          <p>msgpack-d is only one file. Please msgpack.d into your project.</p>
+          <pre class="prettyprint">import msgpack;
 
-		<!--
-		<p id="getstart_more_link"><a href="http://wiki.msgpack.org/display/MSGPACK/Home">And more...</a></p>
-		<p id="getstart_more_link"><a href="javascript:void(0)" onclick="$('#getstart_more_link').slideUp(300); $('#getstart_more').slideDown(300); return false;">And more...</a></p>
-		-->
-	</div>
+Tuple!(uint, string) recieve, send = tuple(2012. "Hello D!");
+serialized = pack(msg);
+unpack(serialized, recieve);
+assert(send == recieve);</pre>
+          <p>D implementation also provides streaming deserializer.</p>
+        </div>
 
-	<div id="more" class="container">
-		<h2 id="LearnMore">Learn More</h2>
-		<div id="doctoc" class="clearfix">
-			<div class="box3">
-				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+Serialization">Serialize Design</a></h3>
-				<p>More details about design of MessagePack-RPC.</p>
-			</div>
+        <div id="qs-haskell" class="qs">
+          <h4>Haskell</h4>
+        </div>
 
-			<div class="box3">
-				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/Design+of+RPC">RPC Design</a></h3>
-				<p>More details about design of MessagePack.</p>
-			</div>
+        <div id="qs-erlang" class="qs">
+          <h4>Erlang</h4>
+          <ul class="hlist">
+            <li><a href="http://msgpack.org/edoc/">API Reference</a></li>
+            <li><a href="http://github.com/msgpack/msgpack-erlang">Repository</a></li>
+          </ul>
+          <p>Write into your <a href="http://github.com/basho/rebar">rebar</a>.config:</p>
+          <pre class="prettyprint">{deps, [
+  {erl_msgpack, ".*",
+    {git, "git://github.com/msgpack/msgpack-erlang.git", "HEAD"}}
+]}.</pre>
+          <pre class="prettyprint">Spam = msgpack:pack(Ham),
+Ham = msgpack:unpack(Spam).</pre>
+        </div>
 
-			<div class="box3">
-				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/ArticlesAndPresentations">Articles and Presentations</a></h3>
-				<p>Articles and slides about the designs and comparisons.</p>
-			</div>
+        <div id="qs-ocaml" class="qs">
+          <h4>OCaml</h4>
+          <pre class="prettyprint">
+$ git clone git@github.com:msgpack/msgpack.git
+$ cd msgpack/ocaml
+$ omake
+$ omake install
+          </pre>
+          <pre class="prettyprint">
+Msgpack.Serialize.desrialize_string("\147\001\002\003");;
+          </pre>
+          <a href="https://github.com/msgpack/msgpack/tree/master/ocaml/proof">This library is mathematically proven!</a>
+        </div>
 
-			<div class="box3">
-				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/Format+specification">Serialize Spec</a></h3>
-				<p>MessagePack format specification.</p>
-			</div>
+        <div id="qs-go" class="qs">
+          <h4>Go</h4>
+        </div>
+      </div>
 
-			<div class="box3">
-				<h3><a href="http://wiki.msgpack.org/display/MSGPACK/RPC+specification">RPC Spec</a></h3>
-				<p>MessagePack-RPC protocol specification.</p>
-			</div>
+      <h3>Related projects</h3>
+      <div class="paragraphs">
+        <h4><a href="https://github.com/dotcloud/zerorpc-python">ZeroRPC</a> by DotCloud</h4>
+        <p>zerorpc is a flexible RPC implementation based on zeromq and messagepack. Service APIs exposed with zerorpc are called "zeroservices".</p>
 
-			<!--
-			<div class="box3">
-				<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/QuickStartIDL">IDL Quick Start</a></h3>
-				<p>Start MessagePack-RPC Interface Definition Language.</p>
-			</div>
-			-->
-		</div>
+        <h4><a href="https://github.com/pfi/pficommon">pficommon</a> by Preferred Infrastructure, Inc.</h4>
+        <p>General purpose C++ library for Preferred Infrastructure, Inc. It includes MessagePack-RPC implementation for C++</p>
 
-		<div class="box2l" style="height:26em;">
-			<!--<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/MailingLists">Mailing Lists</a></h3>-->
-			<h3>Mailing Lists</h3>
-			<p>If you use MessagePack, please subscribe to the MessagePack mailing list. If you'd like to contribute to MessagePack, please subscribe to the MessagePack developers mailing list.</p>
+        <!--
+        <h4><a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Ruby#QuickStartforRuby-RPCQuickStartforRuby">MessagePack-RPC for Ruby</a></h4>
+        <p>MessagePack-RPC implementation for Ruby</p>
 
-			<div id="groups">
-			<hr />
-			<table border="0" style="background-color: #fff; padding: 5px;" cellspacing="0">
-			  <tr><td>
-			  <img src="http://groups.google.com/intl/en/images/logos/groups_logo_sm.gif" height="30" width="140" alt="Google Groups" />
-			  </td></tr>
-			  <tr><td style="padding-left: 5px">
-			  <b>Subscribe to MessagePack</b>
-			  </td></tr>
-			  <form action="http://groups.google.com/group/msgpack/boxsubscribe">
-			  <tr><td style="padding-left: 5px;">
-			  Email: <input type="text" name="email" />
-			  <input type="submit" name="sub" value="Subscribe" />
-			  </td></tr>
-			</form>
-			<tr><td align="right">
-			  <a href="http://groups.google.com/group/msgpack">Visit this group</a>
-			</td></tr>
-			</table>
+        <h4><a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Java#QuickStartforJava-MessagePackRPCforJava">MessagePack-RPC for Java</a></h4>
+        <p>MessagePack-RPC implementation for Java</p>
 
-			<hr />
+        <h4><a href="https://github.com/msgpack/msgpack-rpc/tree/master/haskell">MessagePack-RPC for Haskell</a></h4>
+        <p>MessagePack-RPC implementation for Haskell</p>
 
-			<table border="0" style="background-color: #fff; padding: 5px;" cellspacing="0">
-			  <tr><td>
-			  <img src="http://groups.google.com/intl/en/images/logos/groups_logo_sm.gif" height="30" width="140" alt="Google Groups" />
-			  </td></tr>
-			  <tr><td style="padding-left: 5px">
-			  <b>Subscribe to MessagePack Developers</b>
-			  </td></tr>
-			  <form action="http://groups.google.com/group/msgpack-dev/boxsubscribe">
-			  <tr><td style="padding-left: 5px;">
-			  Email: <input type="text" name="email" />
-			  <input type="submit" name="sub" value="Subscribe" />
-			  </td></tr>
-			</form>
-			<tr><td align="right">
-			  <a href="http://groups.google.com/group/msgpack-dev">Visit this group</a>
-			</td></tr>
-			</table>
-			</div>
+        <h4><a href="https://github.com/msgpack/msgpack-rpc-python">MessagePack-RPC for Python</a></h4>
+        <p>MessagePack-RPC implementation for Python</p>
+        -->
+      </div>
+    </div>
+  </div>
 
-		</div>
+  <footer id="footer">
+    <div id="footerbody" class="paragraphs">
+      <div id="social">
+        <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=msgpack&repo=github-buttons&type=watch"
+          allowtransparency="true" frameborder="0" scrolling="0" width="62px" height="20px" style="margin-right:20px"></iframe>
 
-		<div class="box2l" style="height:7.5em;">
-			<!--<h3><a href="http://redmine.msgpack.org/projects/msgpack/wiki/IRC">Chat</a></h3>-->
-			<h3>Chat</h3>
-			<p>Many of the MessagePack developers and community members hang out in the <strong>#msgpack</strong> channel on <a href="http://freenode.net/">irc.freenode.net</a>. If you are new to IRC and don't have a client, you can use a <a href="http://webchat.freenode.net/?channels=#msgpack">web-based client</a>.</p>
-		</div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="msgpack">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-		<div class="box2l" style="height:6em;">
-			<h3><a href="http://jira.msgpack.org/">Issues</a></h3>
-			<p>Issues are managed on <a href="http://jira.msgpack.org/browse/MSGPACK">JIRA</a>. Note that you need to create an account on the <a href="http://jira.msgpack.org/secure/Signup!default.jspa">registration page</a> to add issues.</p>
-		</div>
+        <div class="fb-like" data-href="http://msgpack.org/" data-send="false" data-layout="button_count" data-width="120" data-show-faces="false"></div>
+      </div>
 
-		<div class="box2l" style="height:4em;">
-			<h3>Sources</h3>
-			<p>Sources are located at github. Send pull requests to <a href="http://github.com/msgpack">msgpack account</a>.</p>
-			<ul>
-				<li><a href="http://github.com/msgpack/msgpack">MessagePack repository at github</a></li>
-				<li><a href="http://github.com/msgpack/msgpack-rpc">MessagePack-RPC repository at github</a></li>
-			</ul>
-		</div>
-	</div>
-
-	<div id="footer">
-		<div class="container">
-			<div id="footerlogo"><a href="http://sourceforge.net/projects/msgpack"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=289834&amp;type=13" width="120" height="30" alt="Get MessagePack at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a></div>
-			<p>Copyright &copy; 2010 FURUHASHI Sadayuki. Licensed under the Apache License, Version 2.0.</p>
-		</div>
-	</div>
+      <div id="thanks">
+        <p id="sponsor"><a href="http://treasure-data.com/?source=mp">Sponsored by Treasure Data, Inc. <img src="images/td-icon.png" width="20" height="20" /></a></p>
+        <p>Copyright &copy; 2008-2012 FURUHASHI Sadayuki</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
