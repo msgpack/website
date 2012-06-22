@@ -275,7 +275,7 @@ a, b, c = msgpack.unpack(msgpack.pack(1, 2, 3))</pre>
           <pre class="prettyprint">import msgpack;
 
 Tuple!(uint, string) recieve, send = tuple(2012. "Hello D!");
-serialized = pack(msg);
+auto serialized = pack(send);
 unpack(serialized, recieve);
 assert(send == recieve);</pre>
           <p>D implementation also provides streaming deserializer.</p>
