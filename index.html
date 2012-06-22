@@ -271,12 +271,12 @@ a, b, c = msgpack.unpack(msgpack.pack(1, 2, 3))</pre>
             <!-- <li><a href="http://msgpack.github.org/msgpack-d">API Reference</a></li> -->
             <li><a href="https://github.com/msgpack/msgpack-d">GitHub</a></li>
           </ul>
-          <p>msgpack-d is only one file. Please msgpack.d into your project.</p>
+          <p>msgpack-d is only one file. Please add msgpack.d to your project.</p>
           <pre class="prettyprint">import msgpack;
 
-Tuple!(uint, string) recieve, send = tuple(2012. "Hello D!");
+Tuple!(uint, string) receive, send = tuple(2012. "Hello D!");
 auto serialized = pack(send);
-unpack(serialized, recieve);
+unpack(serialized, receive);
 assert(send == recieve);</pre>
           <p>D implementation also provides streaming deserializer.</p>
         </div>
