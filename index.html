@@ -309,7 +309,7 @@ main = do
           <p>Write into your <a href="http://github.com/basho/rebar">rebar</a>.config:</p>
           <pre class="prettyprint">{deps, [
   {msgpack, ".*",
-    {git, "git://github.com/msgpack/msgpack-erlang.git", "HEAD"}}
+    {git, "git://github.com/msgpack/msgpack-erlang.git", {tag, "0.0.3"}}}
 ]}.</pre>
           <pre class="prettyprint">{Spam, _} = msgpack:pack(Ham),
 Ham = msgpack:unpack(Spam).</pre>
