@@ -268,14 +268,17 @@ a, b, c = msgpack.unpack(msgpack.pack(1, 2, 3))</pre>
           <h4>Scala</h4>
           <ul class="hlist">
             <li><a href="https://github.com/grammati/clj-msgpack">GitHub</a></li>
-            <pre class="prettyprint">(require '[clj-msgpack.core :as mp])
-(use '[clojure.java.io :only [output-stream]])
+          </ul>
+          <pre class="prettyprint">
+(ns foo
+  (:require [clj-msgpack.core :as mp])
+  (:use [clojure.java.io :only [output-stream]])
 
 (def data [nil true false {"yo" "dawg"} ["foo" "bar"]])
 (with-open [f (output-stream "./temp.dat")]
   (mp/pack-into f "Hello" 23)
-  (apply mp/pack-into f data))</pre>
-          </ul>
+  (apply mp/pack-into f data))
+          </pre>
         </div>
 
         <div id="qs-scala" class="qs">
