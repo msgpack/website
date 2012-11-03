@@ -112,6 +112,7 @@
           <li><a onclick="changeQuickStart('qs-objective-c',this)">Objective-C</a></li>
           <li><a onclick="changeQuickStart('qs-csharp',this)">C#</a></li>
           <li><a onclick="changeQuickStart('qs-lua',this)">Lua</a></li>
+          <li><a onclick="changeQuickStart('qs-clojure',this)">Clojure</a></li>
           <li><a onclick="changeQuickStart('qs-scala',this)">Scala</a></li>
           <li><a onclick="changeQuickStart('qs-d',this)">D</a></li>
           <li><a onclick="changeQuickStart('qs-haskell',this)">Haskell</a></li>
@@ -261,6 +262,23 @@ data = msgpack.pack(1, 2, 3, "strings", {"a", "r", "r", "a", "y", "s"},
                     {t = "a", b = "l", e = "s"; 1, 2, 3, 4})
 a, b, c = msgpack.unpack(msgpack.pack(1, 2, 3))</pre>
 -->
+        </div>
+
+        <div id="qs-clojure" class="qs">
+          <h4>Scala</h4>
+          <ul class="hlist">
+            <li><a href="https://github.com/grammati/clj-msgpack">GitHub</a></li>
+          </ul>
+          <pre class="prettyprint">
+(ns foo
+  (:require [clj-msgpack.core :as mp])
+  (:use [clojure.java.io :only [output-stream]])
+
+(def data [nil true false {"yo" "dawg"} ["foo" "bar"]])
+(with-open [f (output-stream "./temp.dat")]
+  (mp/pack-into f "Hello" 23)
+  (apply mp/pack-into f data))
+          </pre>
         </div>
 
         <div id="qs-scala" class="qs">
