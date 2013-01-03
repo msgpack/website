@@ -107,19 +107,20 @@
           <li><a onclick="changeQuickStart('qs-perl',this)">Perl</a></li>
           <li><a onclick="changeQuickStart('qs-cpp',this)">C/C++</a></li>
           <li><a onclick="changeQuickStart('qs-java',this)">Java</a></li>
-          <li><a onclick="changeQuickStart('qs-php',this)">PHP</a></li>
-          <li><a onclick="changeQuickStart('qs-javascript',this)">JavaScript</a></li>
-          <li><a onclick="changeQuickStart('qs-objective-c',this)">Objective-C</a></li>
-          <li><a onclick="changeQuickStart('qs-csharp',this)">C#</a></li>
-          <li><a onclick="changeQuickStart('qs-lua',this)">Lua</a></li>
           <li><a onclick="changeQuickStart('qs-scala',this)">Scala</a></li>
-          <li><a onclick="changeQuickStart('qs-d',this)">D</a></li>
+          <li><a onclick="changeQuickStart('qs-php',this)">PHP</a></li>
+          <li><a onclick="changeQuickStart('qs-lua',this)">Lua</a></li>
+          <li><a onclick="changeQuickStart('qs-javascript',this)">JavaScript</a></li>
+          <li><a onclick="changeQuickStart('qs-node',this)">Node.js</a></li>
           <li><a onclick="changeQuickStart('qs-haskell',this)">Haskell</a></li>
+          <li><a onclick="changeQuickStart('qs-csharp',this)">C#</a></li>
+          <li><a onclick="changeQuickStart('qs-objective-c',this)">Objective-C</a></li>
           <li><a onclick="changeQuickStart('qs-erlang',this)">Erlang</a></li>
+          <li><a onclick="changeQuickStart('qs-d',this)">D</a></li>
           <li><a onclick="changeQuickStart('qs-ocaml',this)">OCaml</a></li>
-          <li><a onclick="changeQuickStart('qs-smalltalk',this)">Smalltalk</a></li>
           <li><a onclick="changeQuickStart('qs-go',this)">Go</a></li>
           <li><a onclick="changeQuickStart('qs-labview',this)">LabVIEW</a></li>
+          <li><a onclick="changeQuickStart('qs-smalltalk',this)">Smalltalk</a></li>
         </ul>
 
         <div id="quickstart" class="qsholder"></div>
@@ -213,6 +214,19 @@ phpize
           <pre class="prettyprint">$data = array(0=&gt;1,1=&gt;2,2=&gt;3);
 $msg = msgpack_pack($data);
 $data = msgpack_unpack($msg);</pre>
+        </div>
+
+        <div id="qs-node" class="qs">
+          <h4>Node.js</h4>
+          <ul class="hlist">
+            <li><a href="https://github.com/msgpack/msgpack-node">GitHub</a></li>
+          </ul>
+          <pre class="prettyprint">npm install msgpack</pre>
+          <pre class="prettyprint">var msgpack = require('msgpack');
+
+var o = {"a" : 1, "b" : 2, "c" : [1, 2, 3]};
+var b = msgpack.pack(o);
+var oo = msgpack.unpack(b);</pre>
         </div>
 
         <div id="qs-javascript" class="qs">
