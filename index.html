@@ -337,8 +337,8 @@ main = do
   {msgpack, ".*",
     {git, "git://github.com/msgpack/msgpack-erlang.git", "HEAD"}}
 ]}.</pre>
-          <pre class="prettyprint">{Spam, _} = msgpack:pack(Ham),
-Ham = msgpack:unpack(Spam).</pre>
+          <pre class="prettyprint">Binary = msgpack:pack(Spam),
+{ok, Spam} = msgpack:unpack(Binary).</pre>
         </div>
 
         <div id="qs-ocaml" class="qs">
