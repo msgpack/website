@@ -343,14 +343,16 @@ main = do
 
         <div id="qs-ocaml" class="qs">
           <h4>OCaml</h4>
+          <pre class="prettyprint">$ opam install msgpack</pre>
           <pre class="prettyprint">
-$ git clone git@github.com:msgpack/msgpack-ocaml.git
-$ cd msgpack-ocaml
-$ omake
-$ omake install</pre>
-          <pre class="prettyprint">
-Msgpack.Serialize.deserialize_string("\147\001\002\003");;
-          </pre>
+type t = { ans : int } with conv(msgpack)
+
+let bytes =
+  Msgpack.Serialize.serialize_string 
+    (msgpack_of_t { ans = 42 })
+
+let { ans = n } =
+  t_of_msgpack (Msgpack.Serialize.deserialize_string bytes)</pre>
           <a href="https://github.com/msgpack/msgpack-ocaml/tree/master/proof">This library is mathematically proven!</a>
         </div>
 
