@@ -276,16 +276,14 @@ var value = serializer.Unpack(stream);</pre>
 
         <div id="qs-lua" class="qs">
           <h4>Lua</h4>
-          Coming soon...
-<!--
           <ul class="hlist">
-            <li><a href="https://github.com/nobu-k/mplua">GitHub</a></li>
+            <li><a href="https://github.com/fperrad/lua-MessagePack">GitHub</a></li>
+            <li><a href="http://fperrad.github.com/lua-MessagePack/msgpack.html#reference">API Reference</a></li>
           </ul>
-<pre class="prettyprint">require "msgpack"
-data = msgpack.pack(1, 2, 3, "strings", {"a", "r", "r", "a", "y", "s"},
-                    {t = "a", b = "l", e = "s"; 1, 2, 3, 4})
-a, b, c = msgpack.unpack(msgpack.pack(1, 2, 3))</pre>
--->
+          <pre class="prettyprint">luarocks install lua-messagepack</pre>
+          <pre class="prettyprint">local mp = require "MessagePack"
+local msg = mp.pack({1,2,3}) -- =&gt; "\x93\x01\x02\x03"
+mp.unpack(msg) -- =&gt; {1,2,3}</pre>
         </div>
 
         <div id="qs-scala" class="qs">
