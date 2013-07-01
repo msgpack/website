@@ -10,7 +10,7 @@ here = File.dirname(__FILE__)
 
 REPO_DESC_MATCH = /msgpack\.org\[([^\]]+)\]/
 
-DOC_FILES = %w[msgpack.org.md README.md README.rdoc README.rst README]
+DOC_FILES = %w[msgpack.org.md README.md README.markdown README.rdoc README.rst README]
 
 def github_search(keyword, &callback)
   url = "https://api.github.com/legacy/repos/search/#{CGI.escape(keyword)}"
