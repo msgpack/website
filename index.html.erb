@@ -89,7 +89,9 @@
         <h3>Languages</h3>
 
         <ul class="qslist">
-          
+          <% @repos.each do |repo| %>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-<%= repo['id'] %>',this)"><%= repo['lang'] %> <span class="qs-sub"><%= repo['owner'] %></span></a></li>
+          <% end %>
         </ul>
       </div>
 
@@ -99,7 +101,11 @@
         <div id="quickstart" class="qsholder"></div>
         <p id="quickstart-guide">Add 'msgpack.org[LANG]' at the end of description of a github repository to list your code here!</p>
 
-        
+        <% @repos.each_with_index do |repo,i| %>
+        <div id="qs-<%= repo['id'] %>" class="qs"><h4><a href="<%= repo['url'] %>" target="_blank"><%= repo['owner'] %>/<%= repo['name'] %> <span class="qs-url"><%= repo['url'] %></a></li></h4>
+<%= repo['quickstart_html'] %>
+        </div>
+        <% end %>
       </div>
     </section>
 
