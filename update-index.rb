@@ -29,7 +29,12 @@ def get_quickstart_html(repo_url)
     begin
       if fname.include?('.')
         data = RestClient.get("#{repo_url}/blob/master/#{fname}")
-        html = Nokogiri::HTML(data).css('.file')[0].xpath('div').last.to_s
+        begin
+          html = Nokogiri::HTML(data).css('.file')[0].xpath('div').last.to_s
+        rescue
+          break  # fail & skip
+        end
+
       else
         raw_url = repo_url.sub('github.com', 'raw.github.com')
         data = RestClient.get("#{raw_url}/master/#{fname}")
@@ -39,8 +44,6 @@ def get_quickstart_html(repo_url)
       return html, fname
     rescue RestClient::ResourceNotFound
       # do nothing
-    rescue
-      STDERR.puts $!
     end
   }
 
