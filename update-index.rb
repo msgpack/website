@@ -91,7 +91,7 @@ end
 
 html = ERB.new(File.read("#{here}/index.html.erb")).result
 
-orig = File.read("#{here}/index.html")
+orig = File.read("#{here}/index.html") rescue nil
 
 if orig != html
   File.open("#{here}/index.html", 'w') {|f| f.write html }
