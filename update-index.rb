@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rest-client'
 require 'json'
 require 'cgi'
@@ -28,9 +29,10 @@ def get_quickstart_html(repo_url)
   DOC_FILES.each {|fname|
     begin
       if fname.include?('.')
-        data = RestClient.get("#{repo_url}/blob/master/#{fname}")
+        url = "#{repo_url}/blob/master/#{fname}"
+        data = RestClient.get(url)
         begin
-          html = Nokogiri::HTML(data).css('.file')[0].xpath('div').last.to_s
+          html = Nokogiri::HTML::Document.parse(data, url, 'UTF-8').css('.file')[0].xpath('div').last.to_s
         rescue
           break  # fail & skip
         end
