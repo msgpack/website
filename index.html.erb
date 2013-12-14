@@ -32,7 +32,7 @@
   $(function(){$('pre > code').addClass('prettyprint');prettyPrint();});
   </script>
 </head>
-<body onload="prettyPrint();changeQuickStart(document.getElementsByClassName('qs')[0].id,document.getElementsByClassName('qs-a')[0])">
+<body onload="prettyPrint();var index=Math.floor(Math.random()*(document.getElementsByClassName('qs').length-1));changeQuickStart(document.getElementsByClassName('qs')[index].id,document.getElementsByClassName('qs-a')[index])">
   <header>
     <div>
       <h1><a href="/">MessagePack</a></h1>
