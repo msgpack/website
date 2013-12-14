@@ -1,30 +1,32 @@
 # msgpack.org
 
-This is a code repository for [msgpack.org](http://msgpack.org/) website.
+This repository manages [msgpack.org website](http://msgpack.org/).
 
-## Publishing the API document at the top page of msgpack.org
+## Publishing your msgpack implementation to msgpack.org
 
-The API document of msgpack-related project at the top page of msgpack.org are generated automatically
-by crawling github repository.
+The list of msgpack implementations on the [msgpack.org website](http://msgpack.org/) is generated automatically.
 
-### How to add the API document
+[A crowler](https://github.com/msgpack/website/blob/master/update-index.rb) searches Github repositories
+to find specific repositories and put summary documents to the website.
 
-1. Please add the sentence ```msgpack.org[ProjctName]``` into ```Description``` of yoru github repository.
-2. Please add the document named as follows at root of github repository.
-  * msgpack.org.md
-  * README.md
-  * README.markdown
-  * README.rdoc
-  * README.rst
-  * README
+## How to list up your implementation on msgpack.org
 
-The priority to show at msgpack.org is ```msgpack.org.md``` >```README.md``` > ```README.markdown``` > ```README.rdoc``` > ```README.rst``` > ```README```. You can choose to show ```msgpack.org.md``` at msgpack.org separately from README.md at your github page.
-3. Please wait a moment. [A crawler](https://github.com/msgpack/website/blob/master/update-index.rb) visits your github repository each hour, and it's update msgpack.org page automatically.
+1. Add the keyword ```msgpack.org[ProjctName]``` to description of your github repository
+    * ```ProjectName``` is typically programming language name such as ```ruby```
+2. Add one of following files to the root directory of your github repository:
+    1. msgpack.org.md
+    2. README.md
+    3. README.markdown
+    4. README.rdoc
+    5. README.rst
+    6. README
+3. Wait a moment. [The crawler](https://github.com/msgpack/website/blob/master/update-index.rb) visits your github repository every hour.
+4. Your implementation will be listed to the website
 
-### Tutorial
+The crowler copies content of a file to msgpack.org website. Former file name has priority (```msgpack.org.md``` > ```README.md``` > ...).
 
-This section describes how to update msgpack.org page with an example of msgpack-java.
+## Examples
 
-1. Add ```msgpack.org[Java]``` into ```Description``` of msgpack-java.
-2. Add ```msgpack.org.md``` into msgpack-java.
-3. Please wait a moment. [A crawler]() visits your github repository each hour, and it's update msgpack.org page automatically.
+* https://github.com/msgpack/msgpack-java
+* https://github.com/msgpack/msgpack-ruby
+
