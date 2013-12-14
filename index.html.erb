@@ -14,6 +14,8 @@
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="js/all.js" ></script>
   <script type="text/javascript" src="js/prettify/prettify.js" ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
   <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -27,6 +29,7 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+  $(function(){$('pre > code').addClass('prettyprint');prettyPrint();});
   </script>
 </head>
 <body onload="prettyPrint();changeQuickStart(document.getElementsByClassName('qs')[0].id,document.getElementsByClassName('qs-a')[0])">
