@@ -36,6 +36,16 @@
 
   <script type="text/javascript">
   $(function() {
+      $('a[rel*=leanModal]').leanModal({
+          top: 100,
+          overlay : 0.5,
+          closeButton: ".modal_close"
+      });
+  });
+  </script>
+
+  <script type="text/javascript">
+  $(function() {
     $("#json-text").keyup(function(event) {
       var json;
       try {
