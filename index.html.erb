@@ -47,18 +47,25 @@
   <script type="text/javascript">
   $(function() {
     $("#json-text").keyup(function(event) {
-      var json;
+      var text = $("#json-text").val();
+      var obj;
       try {
-         json = JSON.parse($("#json-text").val());
+         obj = JSON.parse(text);
       } catch (e) {
          return;
       }
-      var msg = msgpack.pack(json);
-      var hex = jQuery.map(msg, function(e,i) { return e.toString(16); }).join(" ");
+      var msg = msgpack.pack(obj);
+      var hex = jQuery.map(msg, function(e,i) {
+        return ("0" + e.toString(16)).slice(-2);
+      }).join(" ");
       $("#msgpack-text").text(hex);
+      $("#json-bytes").text(text.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-percent").text(Math.round(msg.length / text.length * 100).toString() + " %");
     }).keyup();
   });
   </script>
+
 </head>
 <body onload="prettyPrint();var index=Math.floor(Math.random()*(document.getElementsByClassName('qs').length-1));changeQuickStart(document.getElementsByClassName('qs')[index].id,document.getElementsByClassName('qs-a')[index])">
   <header>
@@ -172,11 +179,11 @@
     </section>
 
     <div id="json-to-msgpack">
-      <h3>JSON</h3>
+      <h3>JSON <span class="bytes" id="json-bytes"></span></h3>
       <form>
         <textarea type="text" id="json-text">{"compact":true,"schema":0}</textarea>
       </form>
-      <h3>MessagePack (hex)</h3>
+      <h3>MessagePack (hex) <span class="bytes" id="msgpack-bytes"></span> <span class="bytes" id="msgpack-percent"></span></h3>
       <div id="msgpack-text"></div>
     </div>
   </main>

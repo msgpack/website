@@ -497,33 +497,47 @@ footer {
 
 /* for leanModal.js */
 #lean_overlay {
-  position: fixed;
+  position:fixed;
   z-index:100;
-  top: 0px;
-  left: 0px;
+  top:0px;
+  left:0px;
   height:100%;
   width:100%;
-  background: #000;
-  display: none;
+  background:#000;
+  display:none;
 }
 
 #json-to-msgpack {
-  background: none repeat scroll 0 0 #FFFFFF;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
-  display: none;
-  padding: 30px;
-  width: 780px;
+  background-color:#ffffff;
+  box-shadow:0 0 4px rgba(0, 0, 0, 0.7);
+  display:none;
+  padding:20px 30px;
+  width:780px;
 }
 
-#json-to-msgpack textarea {
+#json-to-msgpack h3 {
+  font-size:130%;
+  margin-bottom: 0.8em;
+}
+#json-to-msgpack .bytes {
+  font-weight:400;
+  font-size:96%;
+  font-family:'Titillium Web', 'Myriad Web Pro', 'Helvetica', sans-serif;
+  color:#222;
+  margin-left:0.4em;
+}
+
+#json-to-msgpack #json-text {
   font-size:140%;
-  width:100%;
+  width:770px;
   height:5em;
+  border:1px solid #999;
 }
 
 #json-to-msgpack #msgpack-text {
-  font-size: 140%;
-  min-height: 5em;
+  font-size:140%;
+  min-height:5em;
+  font-family:'Consolas', 'Courier New', 'Courier', 'Monaco', monospace;
 }
 
 .lean_close {
