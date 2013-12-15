@@ -59,9 +59,10 @@
         return ("0" + e.toString(16)).slice(-2);
       }).join(" ");
       $("#msgpack-text").text(hex);
-      $("#json-bytes").text(text.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      var textLength = encodeURIComponent(text).replace(/%../g,"%").length;
+      $("#json-bytes").text(textLength.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
       $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
-      $("#msgpack-percent").text(Math.round(msg.length / text.length * 100).toString() + " %");
+      $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
     }).keyup();
   });
   </script>
