@@ -6,7 +6,7 @@ This repository manages [msgpack.org website](http://msgpack.org/).
 
 The list of msgpack implementations on the [msgpack.org website](http://msgpack.org/) is generated automatically.
 
-[A crowler](https://github.com/msgpack/website/blob/master/update-index.rb) searches Github repositories
+[A crawler](https://github.com/msgpack/website/blob/master/update-index.rb) searches Github repositories
 to find specific repositories and put summary documents to the website.
 
 ## How to list up your implementation on msgpack.org
@@ -23,7 +23,7 @@ to find specific repositories and put summary documents to the website.
 3. Wait a moment. [The crawler](https://github.com/msgpack/website/blob/master/update-index.rb) visits your github repository every hour.
 4. Your implementation will be listed to the website
 
-The crowler copies content of a file to msgpack.org website. Former file name has priority (```msgpack.org.md``` > ```README.md``` > ...).
+The crawler copies content of a file to msgpack.org website. Former file name has priority (```msgpack.org.md``` > ```README.md``` > ...).
 
 ## Examples
 
