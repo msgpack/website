@@ -64,6 +64,24 @@
       $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
       $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
     }).keyup();
+
+    $("#decode-msgpack-text").keyup(function(event) {
+      var hex = $("#decode-msgpack-text").val().split(' ');
+      var msg = jQuery.map(hex, function(e,i) {
+        return parseInt(e, 16)
+      });
+      var text;
+      try {
+         text = JSON.stringify(msgpack.unpack(msg));
+      } catch (e) {
+         return;
+      }
+      $("#decoded-json-text").text(text);
+      var textLength = encodeURIComponent(text).replace(/%../g,"%").length;
+      $("#decode-json-bytes").text(textLength.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#decode-msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#decode-json-percent").text(Math.round(textLength / msg.length * 100).toString() + " %");
+    }).keyup();
   });
   </script>
 
@@ -186,6 +204,15 @@
       </form>
       <h3>MessagePack (hex) <span class="bytes" id="msgpack-bytes"></span> <span class="bytes" id="msgpack-percent"></span></h3>
       <textarea readonly id="msgpack-text"></textarea>
+    </div>
+
+    <div id="msgpack-to-json">
+      <h3>MessagePack (hex, space sparated) <span class="bytes" id="decode-msgpack-bytes"></span></h3>
+      <form>
+        <textarea type="text" id="decode-msgpack-text">82 a7 63 6f 6d 70 61 63 74 c3 a6 73 63 68 65 6d 61 00</textarea>
+      </form>
+      <h3>JSON <span class="bytes" id="decode-json-bytes"></span> <span class="bytes" id="decode-json-percent"></span></h3>
+      <textarea readonly id="decoded-json-text"></textarea>
     </div>
   </main>
 
