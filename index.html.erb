@@ -64,6 +64,21 @@
       $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
       $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
     }).keyup();
+    $("#msgpack-text").keyup(function(event) {
+      var hex = $("#msgpack-text").val().replace(/ +/g,'');
+      var msgbytes = [];
+      for(var i=0; i< hex.length-1; i+=2){
+        msgbytes.push(parseInt(hex.substr(i, 2), 16));
+      }
+      var msg = String.fromCharCode.apply(String, msgbytes);
+      var obj=msgpack.unpack(msg);
+      var text=JSON.stringify(obj);
+      $("#json-text").text(text);
+      var textLength = encodeURIComponent(text).replace(/%../g,"%").length;
+      $("#json-bytes").text(textLength.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
+    });
   });
   </script>
 
@@ -185,7 +200,7 @@
         <textarea type="text" id="json-text">{"compact":true,"schema":0}</textarea>
       </form>
       <h3>MessagePack (hex) <span class="bytes" id="msgpack-bytes"></span> <span class="bytes" id="msgpack-percent"></span></h3>
-      <textarea readonly id="msgpack-text"></textarea>
+      <textarea id="msgpack-text"></textarea>
     </div>
   </main>
 
