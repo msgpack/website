@@ -1,104 +1,189 @@
 # encoding: utf-8
-require 'rest-client'
-require 'json'
-require 'cgi'
+require 'octokit'
+require 'uri'
+require 'httpclient'
+require 'faraday'
 require 'time'
+require 'cgi'
 require 'nokogiri'
 #require 'github/markup'
+require 'git'
 require 'erb'
+require 'logger'
+require 'parallel'
 
-here = File.dirname(__FILE__)
+class IndexHtmlRenderer
+  REPO_DESCRIPTION_MATCH = /msgpack\.org\[([^\]]+)\]/
+  QUICKSTART_FILES = %w[msgpack.org.md README.md README.markdown README.rdoc README.rst README]
 
-REPO_DESC_MATCH = /msgpack\.org\[([^\]]+)\]/
+  def search_github_repos
+    @log.info "Searching msgpack repositories from github..."
+    Parallel.map(octokit_search_repos("msgpack.org"), in_threads: 8) do |repo|
+      github_com = Faraday.new('https://github.com')
+      github_com_raw = Faraday.new('https://raw.github.com')
+      github_com.headers = github_com_raw.headers = {
+        'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      }
 
-DOC_FILES = %w[msgpack.org.md README.md README.markdown README.rdoc README.rst README]
+      @log.info "  < #{repo[:full_name]}"
 
-def github_search(keyword, &callback)
-  url = "https://api.github.com/legacy/repos/search/#{CGI.escape(keyword)}"
-  page = 1
-  while true
-    js = RestClient.get(url, :params=>{'start_page'=>page})
-    repos = JSON.parse(js)['repositories']
-    break if repos.empty?
-    repos.each(&callback)
-    page += 1
+      # skip forked repos
+      next if repo[:fork]
+
+      # description needs to include msgpack[LANG]
+      desc_match = REPO_DESCRIPTION_MATCH.match repo[:description]
+      next unless desc_match
+      lang = CGI.escape_html(desc_match[1])
+
+      quickstart_html, quickstart_fname = get_quickstart_html(github_com, github_com_raw, repo)
+      next unless quickstart_html
+      tweak_quickstart_html!(quickstart_html)
+
+      repo_id = repo[:full_name].gsub(/[^a-zA-Z0-9_\-]+/,'-')
+
+      homepage = repo[:homepage]
+      homepage = nil if homepage =~ /^http\:\/\/msgpack.org\/?/
+      homepage = nil if homepage == ""
+      homepage ||= repo[:html_url]
+
+      @log.info "  >> #{repo[:full_name]}: lang=#{lang}, quickstart_file=#{quickstart_fname}"
+
+      {
+        msgpack_lang: lang,
+        msgpack_quickstart_html: quickstart_html,
+        msgpack_repo_id: repo_id,
+        msgpack_repo_homepage: homepage,
+      }.merge(repo)
+    end.compact
   end
-end
 
-def get_quickstart_html(repo_url)
-  DOC_FILES.each {|fname|
-    begin
+  def get_quickstart_html(github_com, github_com_raw, repo)
+    QUICKSTART_FILES.each {|fname|
       if fname.include?('.')
-        url = "#{repo_url}/blob/master/#{fname}"
-        data = RestClient.get(url)
+        path = "#{repo[:full_name]}/blob/master/#{fname}"
+        res = github_com.get(path)
+        next if res.status != 200
+
         begin
-          html = Nokogiri::HTML::Document.parse(data, url, 'UTF-8').css('.file')[0].xpath('div').last.to_s
+          url = github_com.build_url(path).to_s
+          html = Nokogiri::HTML::Document.parse(res.body, url, 'UTF-8').css('.file')[0].xpath('div').last.to_s
         rescue
+          log.error "Failed to parse quickstart file #{repo[:full_name]}/#{fname}: #{$!}"
           break  # fail & skip
         end
 
       else
-        raw_url = repo_url.sub('github.com', 'raw.github.com')
-        data = RestClient.get("#{raw_url}/master/#{fname}")
-        html = "<pre>#{CGI.escape_html(data)}</pre>"
+        path = "#{repo[:full_name]}/master/#{fname}"
+        res = github_com_raw.get(path)
+        next if res.status != 200
+
+        html = "<pre>#{CGI.escape_html(res.body)}</pre>"
       end
 
       return html, fname
-    rescue RestClient::ResourceNotFound
-      # do nothing
+    }
+
+    return nil
+  end
+
+  private :search_github_repos, :get_quickstart_html
+
+  def initialize(log, github_token)
+    @log = log
+    @github = Octokit::Client.new(access_token: github_token)
+  end
+
+  def render(erb)
+    # older repository first for deterministic display
+    repos = search_github_repos.sort_by {|repo| repo[:created_at] }
+    return ERB.new(File.read(erb)).result(binding)
+  end
+
+  private
+
+  def tweak_quickstart_html!(html)
+    html.gsub!(/<(\/?)h4/, "<\\1h8")
+    html.gsub!(/<(\/?)h3/, "<\\1h7")
+    html.gsub!(/<(\/?)h2/, "<\\1h6")
+    html.gsub!(/<(\/?)h1/, "<\\1h5")
+    html
+  end
+
+  def octokit_search_repos(keyword, &block)
+    items = []
+
+    page = 1
+    loop do
+      res = @github.search_repos("msgpack.org", page: page)
+      break if res.items.empty?
+      items.concat res.items
+      page += 1
     end
-  }
 
-  return nil
+    items
+  end
 end
 
-def tweak_quickstart_html(html)
-  html.gsub!(/<(\/?)h4/, "<\\1h8")
-  html.gsub!(/<(\/?)h3/, "<\\1h7")
-  html.gsub!(/<(\/?)h2/, "<\\1h6")
-  html.gsub!(/<(\/?)h1/, "<\\1h5")
-  html
-end
+github_token = '9324610297f9bbb86acd216baa343514352b638c'
+website_repo = "https://github.com/frsyuki/mptest.git"
+repo_dir = File.expand_path("tmp/website")
 
-Repo = Struct.new(:url, :homepage, :created_at, :html)
+log = Logger.new(STDOUT)
+Faraday.default_adapter = :httpclient
 
-repos = []
+retry_count = 0
+begin
+  if Dir.exists?(repo_dir)
+    log.info "Using cached local git repository..."
+    git = Git.open(repo_dir)
+  else
+    log.info "Cloning remote git repository..."
+    FileUtils.mkdir_p(repo_dir)
+    git = Git.clone(website_repo, File.basename(repo_dir),
+                    path: File.dirname(repo_dir))
+  end
 
-github_search('msgpack.org') do |repo|
-  # description needs to include msgpack[LANG]
-  m = REPO_DESC_MATCH.match(repo['description'])
-  next unless m
-  repo['lang'] = CGI.escape_html(m[1])
+  log.info "Merging the latest files..."
+  log.info git.branch("gh-pages").checkout
+  log.info git.remote("origin").fetch
+  log.info git.remote("origin").merge("gh-pages")
+  prev_commit = git.object('HEAD').sha
 
-  # skip forked repos
-  next if repo['fork']
+  log.info git.remote("origin").merge("master")
 
-  url = repo['url']
+  up = IndexHtmlRenderer.new(log, github_token)
+  html = up.render(File.join(".", "index.html.erb"))
+  #html = up.render(File.join(repo_dir, "index.html.erb"))
+  orig = File.read(File.join(repo_dir, "index.html")) rescue ""
 
-  homepage = repo['homepage']
-  homepage = nil if homepage == url
-  homepage = nil if homepage =~ /\Ahttp\:\/\/msgpack.org\/?/
-  repo['homepage'] = homepage
+  if html != orig
+    File.write(File.join(repo_dir, "index.html"), html)
 
-  html, fname = get_quickstart_html(url)
-  next unless html
+    git.config("user.name", "msgpck.org updator on heroku")
+    git.config("user.email", "frsyuki@users.sourceforge.jp")
 
-  html = tweak_quickstart_html(html)
-  repo['quickstart_html'] = html
-  repo['quickstart_fname'] = fname
+    #git.add(File.join(repo_dir, "index.html"))
+    git.commit("updated index.html")
+  end
 
-  repo['id'] = "#{repo['owner']}-#{repo['name']}".gsub(/[^a-zA-Z0-9_\-]+/,'-')
+  next_commit = git.object('HEAD').sha
+  if prev_commit == next_commit
+    log.info "Not changed."
+  else
+    log.info "Pushing changes to remote repository..."
+    #log.info git.push("origin", "gh-pages")
+  end
 
-  repos << repo
-end
+  log.info "Done."
 
-@repos = repos.sort_by {|repo| Time.parse(repo['created_at']) }
+rescue
+  raise  # TODO
+  raise if retry_count >= 1
 
-html = ERB.new(File.read("#{here}/index.html.erb")).result
-
-orig = File.read("#{here}/index.html") rescue nil
-
-if orig != html
-  File.open("#{here}/index.html", 'w') {|f| f.write html }
+  # delete repo_dir and retry
+  FileUtils.rm_rf repo_dir
+  FileUtils.mkdir_p File.dirname(repo_dir)
+  retry_count += 1
+  retry
 end
 
