@@ -124,64 +124,71 @@ class IndexHtmlRenderer
   end
 end
 
-github_token = ENV['GITHUB_TOKEN']
-website_repo = "git@github.com:msgpack/website.git"
-repo_dir = File.expand_path("tmp/website")
+def update_index(log)
+  github_token = ENV['GITHUB_TOKEN']
+  website_repo = "git@github.com:msgpack/website.git"
+  repo_dir = File.expand_path("tmp/website")
 
-log = Logger.new(STDOUT)
-Faraday.default_adapter = :httpclient
+  Faraday.default_adapter = :httpclient
 
-retry_count = 0
-begin
-  if Dir.exists?(repo_dir)
-    log.info "Using cached local git repository..."
-    git = Git.open(repo_dir)
-  else
-    log.info "Cloning remote git repository..."
-    FileUtils.mkdir_p(repo_dir)
-    git = Git.clone(website_repo, File.basename(repo_dir),
-                    path: File.dirname(repo_dir))
+  retry_count = 0
+  begin
+    File.open('index.html.erb') do |f|
+      f.flock(File::LOCK_EX)
+    end
+
+    if Dir.exists?(repo_dir)
+      log.info "Using cached local git repository..."
+      git = Git.open(repo_dir)
+    else
+      log.info "Cloning remote git repository..."
+      FileUtils.mkdir_p(repo_dir)
+      git = Git.clone(website_repo, File.basename(repo_dir),
+                      path: File.dirname(repo_dir))
+    end
+
+    log.info "Merging the latest files..."
+    log.info git.branch("gh-pages").checkout
+    log.info git.remote("origin").fetch
+    log.info git.remote("origin").merge("gh-pages")
+    prev_commit = git.object('HEAD').sha
+
+    log.info git.remote("origin").merge("master")
+
+    up = IndexHtmlRenderer.new(log, github_token)
+    html = up.render(File.join(".", "index.html.erb"))
+    orig = File.read(File.join(repo_dir, "index.html")) rescue ""
+
+    if html != orig
+      File.write(File.join(repo_dir, "index.html"), html)
+
+      git.config("user.name", "msgpck.org updator on heroku")
+      git.config("user.email", "frsyuki@users.sourceforge.jp")
+
+      git.add(File.join(repo_dir, "index.html"))
+      git.commit("updated index.html")
+    end
+
+    next_commit = git.object('HEAD').sha
+    if prev_commit == next_commit
+      log.info "Not changed."
+    else
+      log.info "Pushing changes to remote repository..."
+      log.info git.push("origin", "gh-pages")
+    end
+
+    log.info "Done."
+
+  rescue
+    raise if retry_count >= 1
+
+    # delete repo_dir and retry
+    FileUtils.rm_rf repo_dir
+    FileUtils.mkdir_p File.dirname(repo_dir)
+    retry_count += 1
+    retry
   end
-
-  log.info "Merging the latest files..."
-  log.info git.branch("gh-pages").checkout
-  log.info git.remote("origin").fetch
-  log.info git.remote("origin").merge("gh-pages")
-  prev_commit = git.object('HEAD').sha
-
-  log.info git.remote("origin").merge("master")
-
-  up = IndexHtmlRenderer.new(log, github_token)
-  html = up.render(File.join(".", "index.html.erb"))
-  orig = File.read(File.join(repo_dir, "index.html")) rescue ""
-
-  if html != orig
-    File.write(File.join(repo_dir, "index.html"), html)
-
-    git.config("user.name", "msgpck.org updator on heroku")
-    git.config("user.email", "frsyuki@users.sourceforge.jp")
-
-    git.add(File.join(repo_dir, "index.html"))
-    git.commit("updated index.html")
-  end
-
-  next_commit = git.object('HEAD').sha
-  if prev_commit == next_commit
-    log.info "Not changed."
-  else
-    log.info "Pushing changes to remote repository..."
-    log.info git.push("origin", "gh-pages")
-  end
-
-  log.info "Done."
-
-rescue
-  raise if retry_count >= 1
-
-  # delete repo_dir and retry
-  FileUtils.rm_rf repo_dir
-  FileUtils.mkdir_p File.dirname(repo_dir)
-  retry_count += 1
-  retry
 end
+
+update_index(Logger.new(STDOUT)) if __FILE__ == $0
 
