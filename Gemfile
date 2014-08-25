@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 gem 'octokit', '~> 3.3.1'
 gem 'faraday', '~> 0.9.0'
 gem 'httpclient', '~> 2.4.0'
