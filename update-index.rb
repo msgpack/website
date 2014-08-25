@@ -124,8 +124,8 @@ class IndexHtmlRenderer
   end
 end
 
-github_token = '9324610297f9bbb86acd216baa343514352b638c'
-website_repo = "https://github.com/frsyuki/mptest.git"
+github_token = ENV['GITHUB_TOKEN']
+website_repo = "git@github.com:msgpack/website.git"
 repo_dir = File.expand_path("tmp/website")
 
 log = Logger.new(STDOUT)
@@ -153,7 +153,6 @@ begin
 
   up = IndexHtmlRenderer.new(log, github_token)
   html = up.render(File.join(".", "index.html.erb"))
-  #html = up.render(File.join(repo_dir, "index.html.erb"))
   orig = File.read(File.join(repo_dir, "index.html")) rescue ""
 
   if html != orig
@@ -162,7 +161,7 @@ begin
     git.config("user.name", "msgpck.org updator on heroku")
     git.config("user.email", "frsyuki@users.sourceforge.jp")
 
-    #git.add(File.join(repo_dir, "index.html"))
+    git.add(File.join(repo_dir, "index.html"))
     git.commit("updated index.html")
   end
 
@@ -171,13 +170,12 @@ begin
     log.info "Not changed."
   else
     log.info "Pushing changes to remote repository..."
-    #log.info git.push("origin", "gh-pages")
+    log.info git.push("origin", "gh-pages")
   end
 
   log.info "Done."
 
 rescue
-  raise  # TODO
   raise if retry_count >= 1
 
   # delete repo_dir and retry
