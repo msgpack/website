@@ -126,14 +126,17 @@ end
 
 def update_index(log)
   # setup ssh
-  FileUtils.mkdir_p "#{ENV['HOME']}/.ssh"
-  ssh_config = File.read("#{ENV['HOME']}/.ssh/config") rescue ""
+  ssh_config_path = "#{ENV['HOME']}/.ssh/config"
+  FileUtils.mkdir_p File.dirname(ssh_config_path)
+  ssh_config = File.read(ssh_config_path) rescue ""
   unless ssh_config =~ /github_msgpack_website/
-    File.read("#{ENV['HOME']}/config", "a") {|f|
+    File.open("#{ENV['HOME']}/.ssh/config", "a") {|f|
       f.write <<-EOF
 Host github_msgpack_website
-  HostName github.com:msgpack/website.git
+  HostName github.com
   User git
+  StrictHostKeyChecking no
+  CheckHostIP no
   IdentityFile ~/.ssh/github_msgpack_website_id
       EOF
     }
@@ -167,6 +170,9 @@ Host github_msgpack_website
                       path: File.dirname(repo_dir))
     end
 
+    git.config("user.name", "msgpck.org updator on heroku")
+    git.config("user.email", "frsyuki@users.sourceforge.jp")
+
     log.info "Merging the latest files..."
     log.info git.branch("gh-pages").checkout
     log.info git.remote("origin").fetch
@@ -182,9 +188,6 @@ Host github_msgpack_website
     if html != orig
       File.write(File.join(repo_dir, "index.html"), html)
 
-      git.config("user.name", "msgpck.org updator on heroku")
-      git.config("user.email", "frsyuki@users.sourceforge.jp")
-
       git.add(File.join(repo_dir, "index.html"))
       git.commit("updated index.html")
     end
@@ -199,8 +202,9 @@ Host github_msgpack_website
 
     log.info "Done."
 
-  rescue
+  rescue => e
     raise if retry_count >= 1
+    log.info "Retrying: #{e}"
 
     # delete repo_dir and retry
     FileUtils.rm_rf repo_dir
