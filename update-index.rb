@@ -170,6 +170,9 @@ Host github_msgpack_website
                       path: File.dirname(repo_dir))
     end
 
+    git.config("user.name", "msgpck.org updator on heroku")
+    git.config("user.email", "frsyuki@users.sourceforge.jp")
+
     log.info "Merging the latest files..."
     log.info git.branch("gh-pages").checkout
     log.info git.remote("origin").fetch
@@ -184,9 +187,6 @@ Host github_msgpack_website
 
     if html != orig
       File.write(File.join(repo_dir, "index.html"), html)
-
-      git.config("user.name", "msgpck.org updator on heroku")
-      git.config("user.email", "frsyuki@users.sourceforge.jp")
 
       git.add(File.join(repo_dir, "index.html"))
       git.commit("updated index.html")
