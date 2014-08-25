@@ -130,7 +130,7 @@ def update_index(log)
   FileUtils.mkdir_p File.dirname(ssh_config_path)
   ssh_config = File.read(ssh_config_path) rescue ""
   unless ssh_config =~ /github_msgpack_website/
-    File.read("#{ENV['HOME']}/.ssh/config", "a") {|f|
+    File.open("#{ENV['HOME']}/.ssh/config", "a") {|f|
       f.write <<-EOF
 Host github_msgpack_website
   HostName github.com:msgpack/website.git
