@@ -128,7 +128,7 @@ def update_index(log)
   # setup ssh
   FileUtils.mkdir_p "#{ENV['HOME']}/.ssh"
   ssh_config = File.read("#{ENV['HOME']}/.ssh/config") rescue ""
-  unless ssh_config =~ "github_msgpack_website"
+  unless ssh_config =~ /github_msgpack_website/
     File.read("#{ENV['HOME']}/config", "a") {|f|
       f.write <<-EOF
 Host github_msgpack_website
