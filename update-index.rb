@@ -135,6 +135,8 @@ def update_index(log)
 Host github_msgpack_website
   HostName github.com
   User git
+  StrictHostKeyChecking no
+  CheckHostIP no
   IdentityFile ~/.ssh/github_msgpack_website_id
       EOF
     }
@@ -200,8 +202,9 @@ Host github_msgpack_website
 
     log.info "Done."
 
-  rescue
+  rescue => e
     raise if retry_count >= 1
+    log.info "Retrying: #{e}"
 
     # delete repo_dir and retry
     FileUtils.rm_rf repo_dir
