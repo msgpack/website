@@ -133,7 +133,7 @@ def update_index(log)
     File.open("#{ENV['HOME']}/.ssh/config", "a") {|f|
       f.write <<-EOF
 Host github_msgpack_website
-  HostName github.com:msgpack/website.git
+  HostName github.com
   User git
   IdentityFile ~/.ssh/github_msgpack_website_id
       EOF
