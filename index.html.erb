@@ -36,11 +36,17 @@
 
   <script type="text/javascript">
   $(function() {
-      $('a[rel*=leanModal]').leanModal({
-          top: 100,
-          overlay : 0.5,
-          closeButton: ".modal_close"
-      });
+    $('a[rel*=leanModal]').leanModal({
+      top: 100,
+      overlay : 0.5,
+      closeButton: ".modal_close"
+    });
+    $(document).keydown(function(e) {
+      if (e.keyCode == 27) {
+        $('#lean_overlay').fadeOut(200);
+        $('#json-to-msgpack').css({'display':'none'});
+      }
+    });
   });
   </script>
 
@@ -64,6 +70,21 @@
       $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
       $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
     }).keyup();
+    $("#msgpack-text").keyup(function(event) {
+      var hex = $("#msgpack-text").val().replace(/ +/g,'');
+      var msgbytes = [];
+      for(var i=0; i< hex.length-1; i+=2){
+        msgbytes.push(parseInt(hex.substr(i, 2), 16));
+      }
+      var msg = String.fromCharCode.apply(String, msgbytes);
+      var obj=msgpack.unpack(msg);
+      var text=JSON.stringify(obj);
+      $("#json-text").text(text);
+      var textLength = encodeURIComponent(text).replace(/%../g,"%").length;
+      $("#json-bytes").text(textLength.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
+    });
   });
   </script>
 
@@ -142,8 +163,8 @@
         <h3>Languages</h3>
 
         <ul class="qslist">
-          <% @repos.each do |repo| %>
-          <li><a class="qs-a" onclick="changeQuickStart('qs-<%= repo['id'] %>',this)"><%= repo['lang'] %> <span class="qs-sub"><%= repo['owner'] %></span></a></li>
+          <% repos.each do |repo| %>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-<%= repo[:msgpack_repo_id] %>',this)"><%= repo[:msgpack_lang] %> <span class="qs-sub"><%= repo[:full_name].split('/').first %></span></a></li>
           <% end %>
         </ul>
       </div>
@@ -154,9 +175,9 @@
         <div id="quickstart" class="qsholder"></div>
         <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md">List your implementation here!</a></p>
 
-        <% @repos.each_with_index do |repo,i| %>
-        <div id="qs-<%= repo['id'] %>" class="qs"><h4><a href="<%= repo['url'] %>" target="_blank"><%= repo['owner'] %>/<%= repo['name'] %> <span class="qs-url"><%= repo['url'] %></a></li></h4>
-<%= repo['quickstart_html'] %>
+        <% repos.each_with_index do |repo,i| %>
+        <div id="qs-<%= repo[:msgpack_repo_id] %>" class="qs"><h4><a href="<%= repo[:msgpack_repo_homepage] %>" target="_blank"><%= repo[:full_name] %> <span class="qs-url"><%= repo[:msgpack_repo_homepage] %></a></li></h4>
+<%= repo[:msgpack_quickstart_html] %>
         </div>
         <% end %>
       </div>
@@ -166,7 +187,6 @@
       <h3>Related projects</h3>
 
       <div class="paragraphs">
-      
         <h4><a href="https://code.jd.com/tommybao/msgpack-rpc-python">msgpack-rpc-python</a> by WWW.JD.COM, Inc.</h4>
         <p>msgpack-rpc is a flexible RPC implementation based on eventlet and messagepack.</p>
 
@@ -176,16 +196,13 @@
         <h4><a href="https://github.com/pfi/pficommon">pficommon</a> by Preferred Infrastructure, Inc.</h4>
         <p>General purpose C++ library for Preferred Infrastructure, Inc. It includes MessagePack-RPC implementation for C++</p>
       </div>
-
     </section>
 
     <div id="json-to-msgpack">
       <h3>JSON <span class="bytes" id="json-bytes"></span></h3>
-      <form>
-        <textarea type="text" id="json-text">{"compact":true,"schema":0}</textarea>
-      </form>
+      <textarea type="text" id="json-text">{"compact":true,"schema":0}</textarea>
       <h3>MessagePack (hex) <span class="bytes" id="msgpack-bytes"></span> <span class="bytes" id="msgpack-percent"></span></h3>
-      <textarea readonly id="msgpack-text"></textarea>
+      <textarea id="msgpack-text"></textarea>
     </div>
   </main>
 
