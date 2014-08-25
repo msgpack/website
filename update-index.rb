@@ -125,11 +125,30 @@ class IndexHtmlRenderer
 end
 
 def update_index(log)
-  github_token = ENV['GITHUB_TOKEN']
-  website_repo = "git@github.com:msgpack/website.git"
-  repo_dir = File.expand_path("tmp/website")
+  # setup ssh
+  ssh_config = File.read("#{ENV['HOME']}/config")
+  unless ssh_config =~ "github_msgpack_website"
+    File.read("#{ENV['HOME']}/config", "a") {|f|
+      f.write <<-EOF
+Host github_msgpack_website
+  HostName github.com:msgpack/website.git
+  User git
+  IdentityFile ~/.ssh/github_msgpack_website_id
+      EOF
+    }
+  end
+  File.open("#{ENV['HOME']}/.ssh/github_msgpack_website_id", "w", 0600) {|f|
+    f.write ENV['GITHUB_DEPLOY_KEY']
+  }
 
+  website_repo = "github_msgpack_website:msgpack/website.git"
+
+  # octokit config
+  github_token = ENV['GITHUB_TOKEN']
   Faraday.default_adapter = :httpclient
+
+  # clone repository
+  repo_dir = File.expand_path("tmp/website")
 
   retry_count = 0
   begin

@@ -12,7 +12,10 @@ get '/update' do
       update_index(Logger.new(out))
     rescue => e
       out.puts e.to_s
-      out.write e.backtrace
+      e.backtrace.each {|bt|
+        out.write "  "
+        out.puts bt
+      }
     end
   end
 end
