@@ -1506,31 +1506,41 @@ $make &amp;&amp; make install
         <div id="qs-fperrad-lua-MessagePack" class="qs"><h4><a href="http://fperrad.github.io/lua-MessagePack/" target="_blank">fperrad/lua-MessagePack <span class="qs-url">http://fperrad.github.io/lua-MessagePack/</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a name="user-content-lua-messagepack--a-pure-lua-implementation-spec-v5" class="anchor" href="#lua-messagepack--a-pure-lua-implementation-spec-v5" aria-hidden="true"><span class="octicon octicon-link"></span></a>lua-MessagePack : a pure Lua implementation (spec v5)</h5>
+<a name="user-content-messagepack-for-lua-spec-v5" class="anchor" href="#messagepack-for-lua-spec-v5" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack for Lua (spec v5)</h5>
 
 <p><a href="https://travis-ci.org/fperrad/lua-MessagePack"><img src="https://camo.githubusercontent.com/7d3a92014a51e2e1e60a4baf8276bde2605909aa/68747470733a2f2f7472617669732d63692e6f72672f667065727261642f6c75612d4d6573736167655061636b2e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/fperrad/lua-MessagePack.png" style="max-width:100%;"></a></p>
 
+<div class="highlight highlight-lua"><pre><span class="kd">local</span> <span class="n">mp</span> <span class="o">=</span> <span class="nb">require</span> <span class="s1">'</span><span class="s">MessagePack'</span>
+<span class="n">mpac</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">mpac</span><span class="p">)</span>
+</pre></div>
+
 <h6>
-<a name="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h6>
+<a name="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
 
-<p><a href="http://msgpack.org/">MessagePack</a> is an efficient binary serialization format.</p>
+<p>You can use LuaRocks to install lua-MessagePack:</p>
 
-<p>It lets you exchange data among multiple languages like JSON but it's faster and smaller.</p>
+<pre><code>$ luarocks install lua-messagepack
+</code></pre>
 
-<p>It's a pure Lua implementation, without dependency.</p>
+<p>or from the source, with:</p>
 
-<p>And it's really fast with <a href="http://luajit.org">LuaJIT</a>.</p>
+<pre><code>$ make install
+</code></pre>
+
+<p>It is a pure Lua implementation, without any dependency.</p>
 
 <h6>
 <a name="user-content-links" class="anchor" href="#links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Links</h6>
 
-<p>The homepage is at <a href="http://fperrad.github.io/lua-MessagePack/">http://fperrad.github.io/lua-MessagePack/</a>,
-and the sources are hosted at <a href="http://github.com/fperrad/lua-MessagePack/">http://github.com/fperrad/lua-MessagePack/</a>.</p>
-
+<ul class="task-list">
+<li><a href="http://github.com/fperrad/lua-MessagePack/">Github</a></li>
+<li><a href="http://fperrad.github.io/lua-MessagePack/msgpack.html">API reference</a></li>
+</ul>
 <h6>
 <a name="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h6>
 
-<p>Copyright (c) 2012-2014 Francois Perrad</p>
+<p>Copyright (c) 2012-2014 Francois Perrad <a href="https://www.openhub.net/accounts/4780"><img src="https://camo.githubusercontent.com/b6b47de1fd31badb4c9a48713018c6124e3f1757/68747470733a2f2f7777772e6f70656e6875622e6e65742f6163636f756e74732f343738302f776964676574732f6163636f756e745f72616e6b2e676966" alt="rank" data-canonical-src="https://www.openhub.net/accounts/4780/widgets/account_rank.gif" style="max-width:100%;"></a></p>
 
 <p>This library is licensed under the terms of the MIT/X11 license, like Lua itself.</p></article>
 </div>
