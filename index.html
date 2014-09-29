@@ -1958,7 +1958,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
         <div id="qs-vsergeev-u-msgpack-python" class="qs"><h4><a href="https://github.com/vsergeev/u-msgpack-python" target="_blank">vsergeev/u-msgpack-python <span class="qs-url">https://github.com/vsergeev/u-msgpack-python</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a name="user-content-u-msgpack-python-v18" class="anchor" href="#u-msgpack-python-v18" aria-hidden="true"><span class="octicon octicon-link"></span></a>u-msgpack-python v1.8</h5>
+<a name="user-content-u-msgpack-python-v20" class="anchor" href="#u-msgpack-python-v20" aria-hidden="true"><span class="octicon octicon-link"></span></a>u-msgpack-python v2.0</h5>
 
 <p>u-msgpack-python is a lightweight <a href="http://msgpack.org/">MessagePack</a> serializer and deserializer module written in pure Python, compatible with both Python 2 and 3, as well CPython and PyPy implementations of Python. u-msgpack-python is fully compliant with the latest <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a>.</p>
 
@@ -2009,21 +2009,23 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <span class="o">&gt;&gt;&gt;</span> 
 </pre></div>
 
-<p>The more complicated example in Python 3:</p>
+<p>Streaming serialization with file-like objects:</p>
 
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">packb</span><span class="p">(</span>
-        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="mh">0xffffffff</span><span class="p">,</span> <span class="p">{</span><span class="s">u"foo"</span><span class="p">:</span> <span class="n">b</span><span class="s">"</span><span class="se">\x80\x01\x02</span><span class="s">"</span><span class="p">,</span>
-         <span class="s">u"bar"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s">u"a"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,{}]}]},</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.12345</span><span class="p">]</span> <span class="p">)</span>
-<span class="n">b</span><span class="s">'</span><span class="se">\x97\x01\xc3\xc2\xce\xff\xff\xff\xff\x82\xa3</span><span class="s">foo</span><span class="se">\xc4\x03\x80\x01</span>
-\<span class="n">x02</span>\<span class="n">xa3bar</span>\<span class="n">x94</span>\<span class="n">x01</span>\<span class="n">x02</span>\<span class="n">x03</span>\<span class="n">x81</span>\<span class="n">xa1a</span>\<span class="n">x94</span>\<span class="n">x01</span>\<span class="n">x02</span>\<span class="n">x03</span>\<span class="n">x80</span>\<span class="n">xff</span>\<span class="n">xcb</span><span class="err">@</span>
-\<span class="n">x00</span>\<span class="n">xfc</span>\<span class="n">xd3Z</span>\<span class="n">x85</span>\<span class="n">x87</span>\<span class="n">x94</span><span class="s">'</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">unpackb</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">4294967295</span><span class="p">,</span> <span class="p">{</span><span class="s">'foo'</span><span class="p">:</span> <span class="n">b</span><span class="s">'</span><span class="se">\x80\x01\x02</span><span class="s">'</span><span class="p">,</span>
- <span class="s">'bar'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{}]}]},</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.12345</span><span class="p">]</span>
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.bin'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">pack</span><span class="p">({</span><span class="s">u"compact"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">u"schema"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">f</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">pack</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">f</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.bin'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">{</span><span class="s">u'compact'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">u'schema'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </pre></div>
 
-<p>An example of encoding and decoding an application ext type:</p>
+<p>Encoding and decoding an application-defined ext type:</p>
 
 <div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
 <span class="o">...</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">Ext</span><span class="p">(</span><span class="mh">0x05</span><span class="p">,</span> <span class="n">b</span><span class="s">"</span><span class="se">\x01\x02\x03</span><span class="s">"</span><span class="p">)</span>
@@ -2039,12 +2041,21 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <span class="o">&gt;&gt;&gt;</span> 
 </pre></div>
 
-<p>Python standard library style <code>loads</code> and <code>dumps</code> functions are also available as aliases:</p>
+<p>Python standard library style names <code>dump</code>, <code>dumps</code>, <code>load</code>, <code>loads</code> are also
+available:</p>
 
 <div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">umsgpack</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">u"compact"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">u"schema"</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
 <span class="s">'</span><span class="se">\x82\xa7</span><span class="s">compact</span><span class="se">\xc3\xa6</span><span class="s">schema</span><span class="se">\x00</span><span class="s">'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<span class="p">{</span><span class="s">u'compact'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">u'schema'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.bin'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span><span class="s">u"compact"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">u"schema"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">f</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.bin'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">umsgpack</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="p">{</span><span class="s">u'compact'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">u'schema'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> 
 </pre></div>
