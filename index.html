@@ -194,6 +194,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ktakashi-r6rs-msgpack',this)">Scheme <span class="qs-sub">ktakashi</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
@@ -1612,6 +1614,69 @@ in the following example:</p>
 <a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
 <p>This code licensed under the same terms as Rust itself: dual MIT/Apache2 license options.</p></article>
+</div>
+        </div>
+        
+        <div id="qs-mururu-msgpack-elixir" class="qs"><h4><a href="https://github.com/mururu/msgpack-elixir" target="_blank">mururu/msgpack-elixir <span class="qs-url">https://github.com/mururu/msgpack-elixir</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a name="user-content-messagepack-for-elixir" class="anchor" href="#messagepack-for-elixir" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack for Elixir</h5>
+
+<p><a href="https://travis-ci.org/mururu/msgpack-elixir"><img src="https://camo.githubusercontent.com/09452907bf3009b0bf9ac3ecb8e3b5ce6bfb4ce6/68747470733a2f2f7472617669732d63692e6f72672f6d75727572752f6d73677061636b2d656c697869722e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/mururu/msgpack-elixir.png?branch=master" style="max-width:100%;"></a></p>
+
+<h6>
+<a name="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
+
+<div class="highlight highlight-elixir"><pre><span class="kd">defp</span> <span class="n">deps</span> <span class="k">do</span>
+  <span class="p">[{</span><span class="ss">:message_pack</span><span class="p">,</span> <span class="s2">"~&gt; 0.1.4"</span><span class="p">}]</span>
+<span class="k">end</span>
+</pre></div>
+
+<h6>
+<a name="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<div class="highlight highlight-elixir"><pre><span class="c1"># pack</span>
+<span class="nc">MessagePack</span><span class="p">.</span><span class="n">pack</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
+<span class="nc">MessagePack</span><span class="p">.</span><span class="n">pack!</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
+
+<span class="c1"># unpack</span>
+<span class="nc">MessagePack</span><span class="p">.</span><span class="n">unpack</span><span class="p">(&lt;&lt;</span><span class="mi">147</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">&gt;&gt;)</span> <span class="c1">#=&gt; { :ok, [1,2,3] }</span>
+<span class="nc">MessagePack</span><span class="p">.</span><span class="n">unpack!</span><span class="p">(&lt;&lt;</span><span class="mi">147</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">&gt;&gt;)</span> <span class="c1">#=&gt; [1,2,3]</span>
+
+<span class="c1"># unpack_once</span>
+<span class="nc">MessagePack</span><span class="p">.</span><span class="n">unpack_once</span><span class="p">(&lt;&lt;</span><span class="mi">147</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">&gt;&gt;)</span> <span class="c1">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
+<span class="nc">MessagePack</span><span class="p">.</span><span class="n">unpack_once!</span><span class="p">(&lt;&lt;</span><span class="mi">147</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">&gt;&gt;)</span> <span class="c1">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span>
+</pre></div>
+
+<h6>
+<a name="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h6>
+
+<ul class="task-list">
+<li><code>enable_string</code></li>
+</ul>
+<p>Support string type. This options is <code>false</code> by default.</p>
+
+<div class="highlight highlight-elixir"><pre><span class="n">iex</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">{</span> <span class="ss">:ok</span><span class="p">,</span> <span class="n">bin</span> <span class="p">}</span> <span class="p">=</span> <span class="nc">MessagePack</span><span class="p">.</span><span class="n">pack</span><span class="p">(&lt;&lt;</span><span class="mi">255</span><span class="p">&gt;&gt;)</span>
+<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="p">&lt;&lt;</span><span class="mi">161</span><span class="p">,</span> <span class="mi">255</span><span class="p">&gt;&gt;}</span>
+<span class="n">iex</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span> <span class="nc">MessagePack</span><span class="p">.</span><span class="n">unpack</span><span class="p">(&lt;&lt;</span><span class="mi">161</span><span class="p">,</span> <span class="mi">255</span><span class="p">&gt;&gt;)</span>
+<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="p">&lt;&lt;</span><span class="mi">255</span><span class="p">&gt;&gt;}</span>
+<span class="n">iex</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">&gt;</span> <span class="nc">MessagePack</span><span class="p">.</span><span class="n">unpack</span><span class="p">(&lt;&lt;</span><span class="mi">161</span><span class="p">,</span> <span class="mi">255</span><span class="p">&gt;&gt;,</span> <span class="ss">enable_string</span><span class="p">:</span> <span class="no">true</span><span class="p">)</span>
+<span class="p">{</span><span class="ss">:error</span><span class="p">,</span> <span class="p">{</span><span class="ss">:invalid_string</span><span class="p">,</span> <span class="p">&lt;&lt;</span><span class="mi">255</span><span class="p">&gt;&gt;}}</span>
+</pre></div>
+
+<ul class="task-list">
+<li><code>ext</code></li>
+</ul>
+<p>Support extention type.</p>
+
+<p>See <code>test/message_pack_ext_test.exs</code>.</p>
+
+<h6>
+<a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+
+<p>MIT</p></article>
 </div>
         </div>
         
