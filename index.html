@@ -258,7 +258,7 @@
 
 <p>You can install msgpack via maven:</p>
 
-<pre><code>&lt;dependencies&gt;
+<div class="highlight highlight-org"><pre>&lt;dependencies&gt;
   ...
   &lt;dependency&gt;
     &lt;groupId&gt;org.msgpack&lt;/groupId&gt;
@@ -267,12 +267,12 @@
   &lt;/dependency&gt;
   ...
 &lt;/dependencies&gt;
-</code></pre>
+</pre></div>
 
 <h6>
 <a name="user-content-simple-serializationdeserializationduck-typing-using-value" class="anchor" href="#simple-serializationdeserializationduck-typing-using-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Serialization/Deserialization/Duck Typing using Value</h6>
 
-<pre><code>// Create serialize objects.
+<div class="highlight highlight-org"><pre>// Create serialize objects.
 List&lt;String&gt; src = new ArrayList&lt;String&gt;();
 src.add("msgpack");
 src.add("kumofs");
@@ -295,7 +295,7 @@ List&lt;String&gt; dst2 = new Converter(dynamic)
 System.out.println(dst2.get(0));
 System.out.println(dst2.get(1));
 System.out.println(dst2.get(2));
-</code></pre>
+</pre></div>
 </article>
 </div>
         </div>
@@ -471,7 +471,8 @@ typed as a base class object.</p>
 <h5>
 <a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h5>
 
-<p>Distributed under the <a href="http://www.boost.org/users/license.html">Boost Software License, Version 1.0</a>.</p></article>
+<p>Distributed under the <a href="http://www.boost.org/users/license.html">Boost Software License, Version 1.0</a>.</p>
+</article>
 </div>
         </div>
         
@@ -833,7 +834,8 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 and old format. But does not support <code>map</code> type introduced in
 OTP 17.0.</p>
 
-<p>It also supports JSX-compatible mode.</p></article>
+<p>It also supports JSX-compatible mode.</p>
+</article>
 </div>
         </div>
         
@@ -842,16 +844,16 @@ OTP 17.0.</p>
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a name="user-content-messagepack-for-ruby" class="anchor" href="#messagepack-for-ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack for Ruby</h5>
 
-<pre><code>require 'msgpack'
+<div class="highlight highlight-org"><pre>require 'msgpack'
 msg = [1,2,3].to_msgpack  #=&gt; "\x93\x01\x02\x03"
 MessagePack.unpack(msg)   #=&gt; [1,2,3]
-</code></pre>
+</pre></div>
 
 <h6>
 <a name="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
 
-<pre><code>gem install msgpack
-</code></pre>
+<div class="highlight highlight-org"><pre>gem install msgpack
+</pre></div>
 
 <h6>
 <a name="user-content-use-cases" class="anchor" href="#use-cases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use cases</h6>
@@ -873,22 +875,23 @@ MessagePack.unpack(msg)   #=&gt; [1,2,3]
 <h6>
 <a name="user-content-streaming-api" class="anchor" href="#streaming-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming API</h6>
 
-<pre><code># serialize a 2-element array [e1, e2]
+<div class="highlight highlight-org"><pre># serialize a 2-element array [e1, e2]
 pk = MessagePack::Packer.new(io)
 pk.write_array_header(2).write(e1).write(e2).flush
-</code></pre>
+</pre></div>
 
-<pre><code># deserialize objects from an IO
+<div class="highlight highlight-org"><pre># deserialize objects from an IO
 u = MessagePack::Unpacker.new(io)
 u.each { |obj| ... }
-</code></pre>
+</pre></div>
 
-<pre><code># event-driven deserialization
+<div class="highlight highlight-org"><pre># event-driven deserialization
 def on_read(data)
   @u ||= MessagePack::Unpacker.new
   @u.feed_each(data) { |obj| ... }
 end
-</code></pre></article>
+</pre></div>
+</article>
 </div>
         </div>
         
@@ -937,7 +940,8 @@ $ mvn release:perform
 <p>Please type the following command.Then intellij project will be generated.</p>
 
 <pre><code>$ sbt gen-idea
-</code></pre></article>
+</code></pre>
+</article>
 </div>
         </div>
         
@@ -984,7 +988,8 @@ $ mvn release:perform
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a name="user-content-messagepack" class="anchor" href="#messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack</h5>
 
-<p>An alternative msgpack.org implementation for Ruby and C++</p></article>
+<p>An alternative msgpack.org implementation for Ruby and C++</p>
+</article>
 </div>
         </div>
         
@@ -1284,7 +1289,8 @@ $ sudo make install
 <h7>
 <a name="user-content-quickstart-guides" class="anchor" href="#quickstart-guides" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart Guides</h7>
 
-<p>For more detailed examples see <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-C.md">QuickStart for C</a> and <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md">QuickStart for C++</a>.</p></article>
+<p>For more detailed examples see <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-C.md">QuickStart for C</a> and <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md">QuickStart for C++</a>.</p>
+</article>
 </div>
         </div>
         
@@ -1354,7 +1360,8 @@ This section for user intrested in formal verification.</p>
 <pre><code>$ cd proof
 $ make
 $ cp *.ml ../lib
-</code></pre></article>
+</code></pre>
+</article>
 </div>
         </div>
         
@@ -1443,16 +1450,16 @@ Get started: <a href="http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/">h
 <p><strong>Basic usage (encoding/decoding):</strong></p>
 
 <div class="highlight highlight-actionscript"><pre><span class="c1">// create messagepack object</span>
-<span class="k">var</span> <span class="nx">msgpack</span><span class="o">:</span><span class="nx">MsgPack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MsgPack</span><span class="p">();</span>
+<span class="kd">var</span> <span class="n">msgpack</span><span class="p">:</span><span class="kt">MsgPack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">MsgPack</span><span class="o">();</span>
 
 <span class="c1">// encode an array</span>
-<span class="k">var</span> <span class="nx">bytes</span><span class="o">:</span><span class="nb">ByteArray</span> <span class="o">=</span> <span class="nx">msgpack</span><span class="p">.</span><span class="nx">write</span><span class="p">([</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="p">]);</span>
+<span class="kd">var</span> <span class="n">bytes</span><span class="p">:</span><span class="kt">ByteArray</span> <span class="o">=</span> <span class="n">msgpack</span><span class="o">.</span><span class="na">write</span><span class="o">([</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">]);</span>
 
 <span class="c1">// rewind the buffer</span>
-<span class="nx">bytes</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="n">bytes</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
 <span class="c1">// print the decoded object</span>
-<span class="nf">trace</span><span class="p">(</span><span class="nx">msgpack</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">bytes</span><span class="p">));</span>
+<span class="nf">trace</span><span class="o">(</span><span class="n">msgpack</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bytes</span><span class="o">));</span>
 </pre></div>
 
 <p>For downloads, source code and further information, check the project repository: <a href="https://github.com/loteixeira/as3-msgpack">https://github.com/loteixeira/as3-msgpack</a>.</p>
@@ -1537,13 +1544,13 @@ $make &amp;&amp; make install
 
 <p>You can use LuaRocks to install lua-MessagePack:</p>
 
-<pre><code>$ luarocks install lua-messagepack
-</code></pre>
+<div class="highlight highlight-org"><pre>$ luarocks install lua-messagepack
+</pre></div>
 
 <p>or from the source, with:</p>
 
-<pre><code>$ make install
-</code></pre>
+<div class="highlight highlight-org"><pre>$ make install
+</pre></div>
 
 <p>It is a pure Lua implementation, without any dependency.</p>
 
@@ -1559,7 +1566,8 @@ $make &amp;&amp; make install
 
 <p>Copyright (c) 2012-2014 Francois Perrad <a href="https://www.openhub.net/accounts/4780"><img src="https://camo.githubusercontent.com/b6b47de1fd31badb4c9a48713018c6124e3f1757/68747470733a2f2f7777772e6f70656e6875622e6e65742f6163636f756e74732f343738302f776964676574732f6163636f756e745f72616e6b2e676966" alt="rank" data-canonical-src="https://www.openhub.net/accounts/4780/widgets/account_rank.gif" style="max-width:100%;"></a></p>
 
-<p>This library is licensed under the terms of the MIT/X11 license, like Lua itself.</p></article>
+<p>This library is licensed under the terms of the MIT/X11 license, like Lua itself.</p>
+</article>
 </div>
         </div>
         
@@ -1810,7 +1818,8 @@ bit8, bit16, bit32 -&gt; bytevector</p>
 <li>push and pull parser</li>
 <li>byte wise data flow control</li>
 </ul>
-<p><a href="https://github.com/Lichtso/netLink/wiki/MsgPack">Tutorial</a></p></article>
+<p><a href="https://github.com/Lichtso/netLink/wiki/MsgPack">Tutorial</a></p>
+</article>
 </div>
         </div>
         
@@ -1822,8 +1831,8 @@ bit8, bit16, bit32 -&gt; bytevector</p>
 
 <p>To install:</p>
 
-<pre><code>go get github.com/ugorji/go/codec
-</code></pre>
+<div class="highlight highlight-org"><pre>go get github.com/ugorji/go/codec
+</pre></div>
 
 <p>Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
 Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">http://godoc.org/github.com/ugorji/go/codec</a>]  </p>
@@ -1862,7 +1871,8 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
     <span class="nx">rpcCodec</span> <span class="o">:=</span> <span class="nx">codec</span><span class="p">.</span><span class="nx">GoRpc</span><span class="p">.</span><span class="nx">ClientCodec</span><span class="p">(</span><span class="nx">conn</span><span class="p">,</span> <span class="nx">h</span><span class="p">)</span>
     <span class="c1">//OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span>
     <span class="nx">client</span> <span class="o">:=</span> <span class="nx">rpc</span><span class="p">.</span><span class="nx">NewClientWithCodec</span><span class="p">(</span><span class="nx">rpcCodec</span><span class="p">)</span>
-</pre></div></article>
+</pre></div>
+</article>
 </div>
         </div>
         
@@ -1938,7 +1948,8 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <p>Copyrigh : Copyright (c) 2013 Jun Hiroe</p>
 
-<p>License : MIT License</p></article>
+<p>License : MIT License</p>
+</article>
 </div>
         </div>
         
@@ -2140,7 +2151,8 @@ available:</p>
 <h6>
 <a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
-<p>u-msgpack-python is MIT licensed. See the included <code>LICENSE</code> file for more details.</p></article>
+<p>u-msgpack-python is MIT licensed. See the included <code>LICENSE</code> file for more details.</p>
+</article>
 </div>
         </div>
         
@@ -2188,7 +2200,8 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 
 <p>For compatibility with other implementations, I'm following this convention.  On the unpacking side, every integer type becomes an Int64 in Julia, unless it doesn't fit (ie. values greater than 2^63 are unpacked as Uint64).</p>
 
-<p>I might change this at some point, and/or provide a way to control the unpacked types.</p></article>
+<p>I might change this at some point, and/or provide a way to control the unpacked types.</p>
+</article>
 </div>
         </div>
         
@@ -2240,7 +2253,8 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 <h6>
 <a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
-<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p></article>
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
+</article>
 </div>
         </div>
         
@@ -2381,7 +2395,8 @@ called MsgPack-SML, which is targeted for MLton.</p>
 
 <p>For information on MessagePack, see:</p>
 
-<p><a href="http://msgpack.org/">http://msgpack.org/</a></p></article>
+<p><a href="http://msgpack.org/">http://msgpack.org/</a></p>
+</article>
 </div>
         </div>
         
@@ -2548,7 +2563,8 @@ null-terminated, binary data is not, error codes are clear, and so on.</p>
 <p>There is no build system for CMP.  The programmer can drop <code>cmp.c</code> and <code>cmp.h</code>
 in their source tree and modify as necessary.  No special compiler settings are
 required to build it, and it generates no compilation errors in either clang or
-gcc.</p></article>
+gcc.</p>
+</article>
 </div>
         </div>
         
@@ -2572,7 +2588,8 @@ gcc.</p></article>
 
 <p>For each class you need to define the <code>fromList</code> and <code>toList</code> methods, which convert from and to a list of fields respectively.</p>
 
-<p>For example usage, see the unit tests.</p></article>
+<p>For example usage, see the unit tests.</p>
+</article>
 </div>
         </div>
         
@@ -2633,7 +2650,9 @@ be the same as <a href="https://github.com/msgpack/msgpack-php">PHP version of m
 <p><tt>Copyright (c) 2014- Kazuhiro Matsushima</tt></p>
 <h6>
 <a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
-<p>Distributed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a> .</p></article>
+<p>Distributed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a> .</p>
+
+</article>
 </div>
         </div>
         
@@ -2707,7 +2726,8 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
   TypeReference&lt;List&lt;Object&gt;&gt; typeReference = new TypeReference&lt;List&lt;Object&gt;&gt;(){};
   List&lt;Object&gt; xs = objectMapper.readValue(bs, typeReference);
   // xs =&gt; [zero, 1, 2.0, null]
-</code></pre></article>
+</code></pre>
+</article>
 </div>
         </div>
         
@@ -2799,7 +2819,8 @@ after that you can bring the <code>ERL shell</code> with</p>
 
 <p>If you want to bring the <code>IEX</code> you can type</p>
 
-<p><code>make runex</code></p></article>
+<p><code>make runex</code></p>
+</article>
 </div>
         </div>
         
@@ -2832,8 +2853,8 @@ after that you can bring the <code>ERL shell</code> with</p>
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a name="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h5>
 
-<pre><code>pod "MPMessagePack"
-</code></pre>
+<div class="highlight highlight-org"><pre>pod "MPMessagePack"
+</pre></div>
 
 <h5>
 <a name="user-content-writing" class="anchor" href="#writing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing</h5>
@@ -2887,7 +2908,8 @@ after that you can bring the <code>ERL shell</code> with</p>
     <span class="c1">-- ...</span>
 </pre></div>
 
-<p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p></article>
+<p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p>
+</article>
 </div>
         </div>
         
@@ -2994,7 +3016,8 @@ Author:swish
   <span class="n">showMessage</span><span class="p">(</span><span class="n">lvMsg</span><span class="o">.</span><span class="n">ForcePath</span><span class="p">(</span><span class="s">'key.obj'</span><span class="p">)</span><span class="o">.</span><span class="n">AsString</span><span class="p">)</span><span class="o">;</span>
   <span class="o">....</span>
 
-</pre></div></article>
+</pre></div>
+</article>
 </div>
         </div>
         
