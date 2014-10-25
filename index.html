@@ -226,6 +226,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vertexclique-thealchemist',this)">Elixir <span class="qs-sub">vertexclique</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-gabriel-MPMessagePack',this)">Objective-C <span class="qs-sub">gabriel</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-rodrigosetti-messagepack',this)">Haskell <span class="qs-sub">rodrigosetti</span></a></li>
@@ -233,8 +235,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-chinawsb-qmsgpack-delphi',this)">Delphi <span class="qs-sub">chinawsb</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-philhofer-msgp',this)">go <span class="qs-sub">philhofer</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-philhofer-msgp',this)">go <span class="qs-sub">philhofer</span></a></li>
           
@@ -2826,6 +2826,30 @@ after that you can bring the <code>ERL shell</code> with</p>
 </div>
         </div>
         
+        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a name="user-content-swiftpack" class="anchor" href="#swiftpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>SwiftPack</h5>
+
+<p>SwiftPack is MessagePack packer and unpacker written almost entirely in Swift. </p>
+
+<h5>
+<a name="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
+
+<ul class="task-list">
+<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
+<li>Maps currently only support String types for keys.</li>
+</ul>
+<h5>
+<a name="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h5>
+
+<p>Copyright (c) 2014 Brian Williams</p>
+
+<p>This software is licensed under the terms of the MIT license.</p>
+</article>
+</div>
+        </div>
+        
         <div id="qs-gabriel-MPMessagePack" class="qs"><h4><a href="https://github.com/gabriel/MPMessagePack" target="_blank">gabriel/MPMessagePack <span class="qs-url">https://github.com/gabriel/MPMessagePack</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -2995,127 +3019,6 @@ Author:swish
   <span class="o">....</span>
 
 </pre></div>
-</article>
-</div>
-        </div>
-        
-        <div id="qs-philhofer-msgp" class="qs"><h4><a href="https://github.com/philhofer/msgp" target="_blank">philhofer/msgp <span class="qs-url">https://github.com/philhofer/msgp</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a name="user-content-messagepack-code-generator" class="anchor" href="#messagepack-code-generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack Code Generator</h5>
-
-<p><a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/299ea3461543de30174632b3fb35e878c03148b7/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f757365732d6261646765732e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/uses-badges.svg" style="max-width:100%;"></a>
-<a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/c59ba0baf49c28105097e0476665b22c66031113/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f6365727469666965642d736e6f6f702d6c696f6e2e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/certified-snoop-lion.svg" style="max-width:100%;"></a></p>
-
-<p>This is a code generation tool for serializing Go <code>struct</code>s using the <a href="http://msgpack.org">MesssagePack</a> standard. It is targeted 
-at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>.</p>
-
-<h7>
-<a name="user-content-use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h7>
-
-<p>*** Note: <code>go generate</code> is a go 1.4+ feature. ***</p>
-
-<p>In a source file, include the following directive:</p>
-
-<div class="highlight highlight-go"><pre><span class="c1">//go:generate msgp</span>
-</pre></div>
-
-<p>The <code>msgp</code> command will generate serialization methods for all exported struct
-definitions in the file. You will need to include that directive in every file that contains structs that 
-need code generation. The generated files will be named {filename}_gen.go by default (but can 
-be overridden with the <code>-o</code> flag.) Additionally, it will write tests and benchmarks in {{filename}}_gen_test.go.</p>
-
-<p>Field names can be overridden in much the same way as the <code>encoding/json</code> package. For example:</p>
-
-<div class="highlight highlight-go"><pre><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
-    <span class="nx">Name</span>       <span class="kt">string</span> <span class="s">`msg:"name"`</span>
-    <span class="nx">Address</span>    <span class="kt">string</span> <span class="s">`msg:"address"`</span>
-    <span class="nx">Age</span>        <span class="kt">int</span>    <span class="s">`msg:"age"`</span>
-    <span class="nx">Hidden</span>     <span class="kt">string</span> <span class="s">`msg:"-"`</span> <span class="c1">// this field is ignored</span>
-    <span class="nx">unexported</span> <span class="kt">bool</span>             <span class="c1">// this field is also ignored</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>Running <code>msgp</code> on a file containing the above declaration would generate the following methods:</p>
-
-<div class="highlight highlight-go"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">MarshalMsg</span><span class="p">()</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">UnmarshalMsg</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">EncodeTo</span><span class="p">(</span><span class="nx">en</span> <span class="o">*</span><span class="nx">enc</span><span class="p">.</span><span class="nx">MsgWriter</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">DecodeFrom</span><span class="p">(</span><span class="nx">dc</span> <span class="o">*</span><span class="nx">enc</span><span class="p">.</span><span class="nx">MsgReader</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">EncodeMsg</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">DecodeMsg</span><span class="p">(</span><span class="nx">r</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
-</pre></div>
-
-<p>Each method is optimized for a certain use-case, depending on whether or not the user
-can afford to recycle <code>*enc.MsgWriter</code> and <code>*enc.MsgReader</code> object, and whether or not
-the user is dealing with <code>io.Reader/io.Writer</code> or <code>[]byte</code>. (Pro tip: <code>EncodeTo</code> is the
-fastest marshaller, and <code>UnmarshalMsg</code> is the fastest unmarshaller. Also, <code>*enc.MsgReader</code>s
-are buffered, and you can create one with an arbitrary buffer size with <code>enc.NewDecoderSize</code>.)</p>
-
-<p>The <code>msgp/enc</code> package has utility functions for transforming MessagePack to JSON directly,
-both from <code>io.Reader</code>s and <code>[]byte</code>.</p>
-
-<h7>
-<a name="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
-
-<ul class="task-list">
-<li>Proper handling of pointers, nullables, and recursive types</li>
-<li>Backwards-compatible decoding logic</li>
-<li>Efficient and readable generated code</li>
-<li>JSON interoperability</li>
-<li>Support for embedded fields, anonymous structs, and multi-field inline declarations</li>
-<li>Identifier resolution (see below)</li>
-<li>Support for Go's <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types through extensions</li>
-<li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods.</li>
-</ul>
-<p>For example, this will work fine:</p>
-
-<div class="highlight highlight-go"><pre><span class="kd">type</span> <span class="nx">MyInt</span> <span class="kt">int</span>
-<span class="kd">type</span> <span class="nx">Data</span> <span class="p">[]</span><span class="kt">byte</span>
-<span class="kd">type</span> <span class="nx">Struct</span> <span class="kd">struct</span> <span class="p">{</span>
-    <span class="nx">Which</span>  <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">MyInt</span> <span class="s">`msg:"which"`</span>
-    <span class="nx">Other</span>  <span class="nx">Data</span>              <span class="s">`msg:"other"`</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file, the parser will figure out that 
-<code>MyInt</code> is really an <code>int</code>, and <code>Data</code> is really just a <code>[]byte</code>. Note that this only works for "base" types 
-(no slices or maps, although <code>[]byte</code> is supported as a special case.) Unresolved identifiers are (optimistically) 
-assumed to be struct definitions in other files. (The parser will spit out warnings about unresolved identifiers.)</p>
-
-<h7>
-<a name="user-content-status" class="anchor" href="#status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status</h7>
-
-<p>Alpha. Here are the known limitations/restrictions:</p>
-
-<ul class="task-list">
-<li>All fields of a struct that are not Go built-ins are assumed to satisfy the <code>enc.MsgEncoder</code> and <code>enc.MsgDecoder</code>
-interfaces. This will only <em>actually</em> be the case if the declaration for that type is in a file touched by the code generator. The generator will output a warning if it can't resolve an identifier in the file, or if it ignores an exported field. The generated code will fail to compile if you encounter this issue, so it shouldn't catch you by surprise.</li>
-<li>Like most serializers, <code>chan</code> and <code>func</code> fields are ignored, as well as non-exported fields.</li>
-<li>Methods are only generated for <code>struct</code> definitions. Chances are that we will keep things this way.</li>
-<li>Encoding/decoding of <code>interface{}</code> can be flaky. It works fine for go builtins, but don't count on it working 
-well for anything beyond that.</li>
-<li>Maps must have <code>string</code> keys. This is intentional (as it preserves JSON interop.) The generator will yell
-at you if you try to use something else. Although non-string map keys are not explicitly forbidden by the messagepack
-standard, many serializers impose this restriction.</li>
-</ul>
-<p>I have no idea whether or not this generator will work with your code. Luckily, if the output compiles, then 
-there's a pretty good chance things are fine. (Plus, we generate tests for you.) <em>Please, please, please</em> file 
-an issue if you think the generator is writing broken code.</p>
-
-<h7>
-<a name="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance</h7>
-
-<p>If you like benchmarks, this is <a href="https://github.com/alecthomas/go_serialization_benchmarks">the fastest and lowest-memory-footprint serializer for Go in this test.</a> (I put considerable effort into generating high-performance code. I figure there's no 
-point in putting up with the extra complexity of generated code if it does not buy you a substantial performance improvement.)</p>
-
-<p>As you might imagine, the generated code is quite a lot more performant than reflection-based serialization; generally 
-you can expect a ~4x speed improvement and an order of magnitude fewer memory allocations when compared to other reflection-based messagepack serialization libraries. (Typically, the <code>EncodeTo</code> method does zero allocations. <code>UnmarshalMsg</code> can also do zero allocations in the best case.) YMMV.</p>
 </article>
 </div>
         </div>
