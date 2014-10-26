@@ -1131,7 +1131,7 @@ Or install Visual Studio or Visual Studio Express.
 <h6>
 <a name="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
-<p>Msgpack is Copyright (C) 2008-2010 FURUHASHI Sadayuki and licensed under the Apache License, Version 2.0 (the "License"). For details see the <code>COPYING</code> file in this directory.</p>
+<p>Msgpack is Copyright (C) 2008-2014 FURUHASHI Sadayuki and licensed under the Apache License, Version 2.0 (the "License"). For details see the <code>COPYING</code> file in this directory.</p>
 
 <h6>
 <a name="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h6>
@@ -1143,10 +1143,44 @@ Or install Visual Studio or Visual Studio Express.
 <h6>
 <a name="user-content-version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h6>
 
-<p>0.5.9 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a></p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+
+<h5>
+<a name="user-content-059-" class="anchor" href="#059-" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.5.9 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a>
+</h5>
+
+<p>0.6.0 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/b0b347fbc592827ab031e7c8394da458830073de/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d706f632f302e36" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=poc/0.6" style="max-width:100%;"></a></p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>466986b5190ae8e03065e7b614702ec2f43dce1c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
 <h6>
 <a name="user-content-using-msgpack" class="anchor" href="#using-msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Msgpack</h6>
+
+<h7>
+<a name="user-content-header-only-library-for-c" class="anchor" href="#header-only-library-for-c" aria-hidden="true"><span class="octicon octicon-link"></span></a>Header only library for C++</h7>
+
+<p>When you use msgpack on C++03 and C++11, you just add msgpack-c/include to your include path. You don't need to link any msgpack libraries.</p>
+
+<p>e.g.)</p>
+
+<pre><code>g++ -I msgpack-c/include your_source_file.cpp
+</code></pre>
+
+<p>If you want to use C version of msgpack, you need to build it. You can also install C and C++ version of msgpack.</p>
 
 <h7>
 <a name="user-content-building-and-installing" class="anchor" href="#building-and-installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building and Installing</h7>
@@ -1159,7 +1193,10 @@ Or install Visual Studio or Visual Studio Express.
 
 <p>You will need gcc (4.1.0 or higher), autotools.</p>
 
-<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+<p>For C:
+C++03 and C:</p>
+
+<pre><code>$ git clone https://github.com/redboltz/msgpack-c/tree/cxx_separate
 $ cd msgpack-c
 $ ./bootstrap
 $ ./configure
@@ -1167,8 +1204,23 @@ $ make
 $ sudo make install
 </code></pre>
 
+<p>For C++11:</p>
+
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+$ cd msgpack-c
+$ ./bootstrap
+$ ./configure CXXFLAGS="-std=c++11"
+$ make
+$ sudo make install
+</code></pre>
+
+<p>You need the compiler that fully supports C++11.</p>
+
 <h5>
 <a name="user-content-using-cmake" class="anchor" href="#using-cmake" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using cmake</h5>
+
+<h6>
+<a name="user-content-cui" class="anchor" href="#cui" aria-hidden="true"><span class="octicon octicon-link"></span></a>CUI</h6>
 
 <p>You will need gcc (4.1.0 or higher), cmake.</p>
 
@@ -1176,51 +1228,21 @@ $ sudo make install
 $ cd msgpack-c
 $ cmake .
 $ make
-</code></pre>
-
-<h8>
-<a name="user-content-install-from-package" class="anchor" href="#install-from-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install from package</h8>
-
-<h5>
-<a name="user-content-unix-like-platform-with-configure" class="anchor" href="#unix-like-platform-with-configure" aria-hidden="true"><span class="octicon octicon-link"></span></a>UNIX-like platform with ./configure</h5>
-
-<p>On typical UNIX-like platforms, download source package from <a href="https://github.com/msgpack/msgpack-c/releases">Releases</a> and run <code>./configure &amp;&amp; make &amp;&amp; make install</code>. Example:</p>
-
-<pre><code>$ wget https://github.com/msgpack/msgpack-c/releases/download/cpp-0.5.9/msgpack-0.5.9.tar.gz
-$ tar zxvf msgpack-0.5.9.tar.gz
-$ cd msgpack-0.5.9
-$ ./configure
-$ make
 $ sudo make install
 </code></pre>
 
-<h5>
-<a name="user-content-freebsd-with-ports-collection" class="anchor" href="#freebsd-with-ports-collection" aria-hidden="true"><span class="octicon octicon-link"></span></a>FreeBSD with Ports Collection</h5>
+<p>If you want to setup C++11 version of msgpack, execute the following command:</p>
 
-<p>On FreeBSD, you can use Ports Collection. Install <a href="http://www.freebsd.org/cgi/cvsweb.cgi/ports/devel/msgpack/">net/msgpack</a> package.</p>
-
-<h5>
-<a name="user-content-gentoo-linux-with-portage" class="anchor" href="#gentoo-linux-with-portage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gentoo Linux with Portage</h5>
-
-<p>On Gentoo Linux, you can use emerge. Install <a href="http://gentoo-portage.com/dev-libs/msgpack">dev-libs/msgpack</a> package.</p>
-
-<h5>
-<a name="user-content-mac-os-x-with-macports" class="anchor" href="#mac-os-x-with-macports" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mac OS X with MacPorts</h5>
-
-<p>On Mac OS X, you can install MessagePack for C using MacPorts.</p>
-
-<pre><code>$ sudo port install msgpack
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+$ cd msgpack-c
+$ cmake -DMSGPACK_CXX11=ON .
+$ sudo make install
 </code></pre>
 
-<p>You might need to run <code>sudo port selfupdate</code> before installing to update the package repository.</p>
-
-<p>You can also install via Homebrew.</p>
-
-<pre><code>$ sudo brew install msgpack
-</code></pre>
+<p>You need the compiler that fully supports C++11.</p>
 
 <h5>
-<a name="user-content-windows" class="anchor" href="#windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows</h5>
+<a name="user-content-gui-on-windows" class="anchor" href="#gui-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>GUI on Windows</h5>
 
 <p>Clone msgpack-c git repository.</p>
 
@@ -1231,67 +1253,82 @@ $ sudo make install
 
 <p>e.g.) tortoise git <a href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
 
-<p>Launch cmake GUI client. <a href="http://www.cmake.org/cmake/resources/software.html">http://www.cmake.org/cmake/resources/software.html</a></p>
+<ol class="task-list">
+<li><p>Launch cmake GUI client. <a href="http://www.cmake.org/cmake/resources/software.html">http://www.cmake.org/cmake/resources/software.html</a></p></li>
+<li><p>Set 'Where is the source code:' text box and 'Where to build the binaries:' text box.</p></li>
+<li><p>Click 'Configure' button.</p></li>
+<li><p>Choose your Visual Studio version.</p></li>
+<li><p>Click 'Generate' button.</p></li>
+<li><p>Open the created msgpack.sln on Visual Studio.</p></li>
+<li><p>Build all.</p></li>
+</ol>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 
-<p>Set 'Where is the source code:' text box and 'Where to build the binaries:' text box.</p>
+<h5>
+<a name="user-content-or-using-gui-git-client" class="anchor" href="#or-using-gui-git-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>or using GUI git client.</h5>
 
-<p>Click 'Configure' button.</p>
+<h8>
+<a name="user-content-install-from-package" class="anchor" href="#install-from-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install from package</h8>
 
-<p>Choose your Visual Studio version.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>466986b5190ae8e03065e7b614702ec2f43dce1c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
-<p>Click 'Generate' button.</p>
-
-<p>Open the created msgpack.sln on Visual Studio.</p>
-
-<p>Build all.</p>
-
-<h7>
-<a name="user-content-linking-with-an-application" class="anchor" href="#linking-with-an-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linking with an Application</h7>
-
-<p>Include <code>msgpack.hpp</code> (or <code>msgpack.h</code> for C) in your application and link with libmsgpack. Here is a typical gcc link command:</p>
-
-<pre><code>g++ myapp.cpp -lmsgpack -o myapp
-</code></pre>
+<p>Install from package for this branch (poc/0.6) is not supported yet.</p>
 
 <h7>
 <a name="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Example</h7>
 
-<div class="highlight highlight-CPP"><pre><span class="cp">#include &lt;msgpack.hpp&gt;</span>
-<span class="cp">#include &lt;vector&gt;</span>
-<span class="cp">#include &lt;string&gt;</span>
-<span class="cp">#include &lt;iostream&gt;</span>
+<pre><code>#include &lt;msgpack.hpp&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// This is target object.</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">target</span><span class="p">;</span>
-    <span class="n">target</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">"Hello,"</span><span class="p">);</span>
-    <span class="n">target</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">"World!"</span><span class="p">);</span>
+int main() {
+    // This is target object.
+    std::vector&lt;std::string&gt; target;
+    target.push_back("Hello,");
+    target.push_back("World!");
 
-    <span class="c1">// Serialize it.</span>
-    <span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">sbuf</span><span class="p">;</span>  <span class="c1">// simple buffer</span>
-    <span class="n">msgpack</span><span class="o">::</span><span class="n">pack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
+    // Serialize it.
+    msgpack::sbuffer sbuf;  // simple buffer
+    msgpack::pack(&amp;sbuf, target);
 
-    <span class="c1">// Deserialize the serialized data.</span>
-    <span class="n">msgpack</span><span class="o">::</span><span class="n">unpacked</span> <span class="n">msg</span><span class="p">;</span>    <span class="c1">// includes memory pool and deserialized object</span>
-    <span class="n">msgpack</span><span class="o">::</span><span class="n">unpack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
-    <span class="n">msgpack</span><span class="o">::</span><span class="n">object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+    // Deserialize the serialized data.
+    msgpack::unpacked msg;    // includes memory pool and deserialized object
+    msgpack::unpack(msg, sbuf.data(), sbuf.size());
+    msgpack::object obj = msg.get();
 
-    <span class="c1">// Print the deserialized object to stdout.</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// ["Hello," "World!"]</span>
+    // Print the deserialized object to stdout.
+    std::cout &lt;&lt; obj &lt;&lt; std::endl;    // ["Hello," "World!"]
 
-    <span class="c1">// Convert the deserialized object to staticaly typed object.</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
-    <span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
+    // Convert the deserialized object to staticaly typed object.
+    std::vector&lt;std::string&gt; result;
+    obj.convert(&amp;result);
 
-    <span class="c1">// If the type is mismatched, it throws msgpack::type_error.</span>
-    <span class="n">obj</span><span class="p">.</span><span class="n">as</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>  <span class="c1">// type is mismatched, msgpack::type_error is thrown</span>
-<span class="p">}</span>
-</pre></div>
+    // If the type is mismatched, it throws msgpack::type_error.
+    obj.as&lt;int&gt;();  // type is mismatched, msgpack::type_error is thrown
+}
+</code></pre>
 
 <h7>
-<a name="user-content-quickstart-guides" class="anchor" href="#quickstart-guides" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart Guides</h7>
+<a name="user-content-documents" class="anchor" href="#documents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documents</h7>
 
-<p>For more detailed examples see <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-C.md">QuickStart for C</a> and <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md">QuickStart for C++</a>.</p>
+<p>You can get addtional information on the wiki:</p>
+
+<p><a href="https://github.com/msgpack/msgpack-c/wiki/cpp_overview">https://github.com/msgpack/msgpack-c/wiki/cpp_overview</a></p>
 </article>
 </div>
         </div>
