@@ -3035,10 +3035,31 @@ at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Gener
 
 <p>The <code>msgp</code> command will generate serialization methods for all exported struct
 definitions in the file. You will need to include that directive in every file that contains structs that 
-need code generation. The generated files will be named {filename}_gen.go by default (but can 
-be overridden with the <code>-o</code> flag.) Additionally, it will write tests and benchmarks in {{filename}}_gen_test.go.</p>
+need code generation.</p>
 
-<p>Field names can be overridden in much the same way as the <code>encoding/json</code> package. For example:</p>
+<h8>
+<a name="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h8>
+
+<p>The following command-line flags are supported:</p>
+
+<ul class="task-list">
+<li>
+<code>-o</code> - output file name (default is <code>{filename}_gen.go</code>)</li>
+<li>
+<code>-file</code> - input file name (default is <code>$GOPATH/src/$GOPACKAGE/$GOFILE</code>, which are set by the <code>go generate</code> command)</li>
+<li>
+<code>-pkg</code> - output package name (default is <code>$GOPACKAGE</code>)</li>
+<li>
+<code>-encode</code> - satisfy the <code>msgp.Decoder</code> and <code>msgp.Encoder</code> interfaces (default is <code>true</code>)</li>
+<li>
+<code>-marshal</code> - satisfy the <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> interfaces (default is <code>true</code>)</li>
+<li>
+<code>-tests</code> - generate tests and benchmarks (default is <code>true</code>)</li>
+</ul>
+<h8>
+<a name="user-content-use-1" class="anchor" href="#use-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h8>
+
+<p>Field names can be set in much the same way as the <code>encoding/json</code> package. For example:</p>
 
 <div class="highlight highlight-go"><pre><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">Name</span>       <span class="kt">string</span> <span class="s">`msg:"name"`</span>
@@ -3049,42 +3070,88 @@ be overridden with the <code>-o</code> flag.) Additionally, it will write tests 
 <span class="p">}</span>
 </pre></div>
 
-<p>Running <code>msgp</code> on a file containing the above declaration would generate the following methods:</p>
+<p>Running <code>msgp</code> on a file containing the above declaration would generate methods 
+to fulfill the following interfaces (which are defined in the <code>/msgp</code> subdirectory):</p>
 
-<div class="highlight highlight-go"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">MarshalMsg</span><span class="p">()</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<div class="highlight highlight-go"><pre><span class="c1">// Marshaler is the interface implemented</span>
+<span class="c1">// by types that know how to marshal themselves</span>
+<span class="c1">// as MessagePack</span>
+<span class="kd">type</span> <span class="nx">Marshaler</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="c1">// AppendMsg appends the marshalled</span>
+    <span class="c1">// form of the object to the provided</span>
+    <span class="c1">// byte slice, returning the extended</span>
+    <span class="c1">// slice and any errors encountered</span>
+    <span class="nx">AppendMsg</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">UnmarshalMsg</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// MarshalMsg returns a new []byte</span>
+    <span class="c1">// containing the MessagePack-encoded</span>
+    <span class="c1">// form of the object</span>
+    <span class="nx">MarshalMsg</span><span class="p">()</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">EncodeTo</span><span class="p">(</span><span class="nx">en</span> <span class="o">*</span><span class="nx">enc</span><span class="p">.</span><span class="nx">MsgWriter</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
+<span class="c1">// Encoder is the interface implemented</span>
+<span class="c1">// by types that know how to write themselves</span>
+<span class="c1">// as MessagePack</span>
+<span class="kd">type</span> <span class="nx">Encoder</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="c1">// EncodeMsg writes the object in MessagePack</span>
+    <span class="c1">// format to the writer, returning the number</span>
+    <span class="c1">// of bytes written and any errors encountered.</span>
+    <span class="nx">EncodeMsg</span><span class="p">(</span><span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">DecodeFrom</span><span class="p">(</span><span class="nx">dc</span> <span class="o">*</span><span class="nx">enc</span><span class="p">.</span><span class="nx">MsgReader</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// EncodeTo writes the object to a *Writer,</span>
+    <span class="c1">// returning the number of bytes written, and</span>
+    <span class="c1">// any errors encountered.</span>
+    <span class="nx">EncodeTo</span><span class="p">(</span><span class="o">*</span><span class="nx">Writer</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">EncodeMsg</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
+<span class="c1">// Unmarshaler is the interface fulfilled</span>
+<span class="c1">// byte objects that know how to unmarshal</span>
+<span class="c1">// themselves from MessagePack</span>
+<span class="kd">type</span> <span class="nx">Unmarshaler</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="c1">// UnmarshalMsg unmarshals the object</span>
+    <span class="c1">// from binary, returing any leftover</span>
+    <span class="c1">// bytes and any errors encountered</span>
+    <span class="nx">UnmarshalMsg</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">z</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nx">DecodeMsg</span><span class="p">(</span><span class="nx">r</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
+<span class="c1">// Decoder is the interface fulfilled</span>
+<span class="c1">// by objects that know how to decode themselves</span>
+<span class="c1">// from MessagePack</span>
+<span class="kd">type</span> <span class="nx">Decoder</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="c1">// DecodeMsg decodes the object</span>
+    <span class="c1">// from an io.Reader, returning</span>
+    <span class="c1">// the number of bytes read and</span>
+    <span class="c1">// any errors encountered</span>
+    <span class="nx">DecodeMsg</span><span class="p">(</span><span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+
+    <span class="c1">// DecodeFrom decodes the object</span>
+    <span class="c1">// using an existing *Reader,</span>
+    <span class="c1">// returning the number of bytes</span>
+    <span class="c1">// read and any errors encountered</span>
+    <span class="nx">DecodeFrom</span><span class="p">(</span><span class="o">*</span><span class="nx">Reader</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 
 <p>Each method is optimized for a certain use-case, depending on whether or not the user
-can afford to recycle <code>*enc.MsgWriter</code> and <code>*enc.MsgReader</code> object, and whether or not
-the user is dealing with <code>io.Reader/io.Writer</code> or <code>[]byte</code>. (Pro tip: <code>EncodeTo</code> is the
-fastest marshaller, and <code>UnmarshalMsg</code> is the fastest unmarshaller. Also, <code>*enc.MsgReader</code>s
-are buffered, and you can create one with an arbitrary buffer size with <code>enc.NewDecoderSize</code>.)</p>
+can afford to recycle <code>*msgp.Writer</code> and <code>*msgp.Reader</code> object, and whether or not
+the user is dealing with <code>io.Reader/io.Writer</code> or <code>[]byte</code>. Carefully-designed applications 
+can use these methods to do marshalling/unmarshalling with zero allocations.</p>
 
-<p>The <code>msgp/enc</code> package has utility functions for transforming MessagePack to JSON directly,
-both from <code>io.Reader</code>s and <code>[]byte</code>.</p>
+<p>The <code>/msgp</code> package has utility functions for transforming MessagePack to JSON directly,
+both from <code>io.Reader</code>s and <code>[]byte</code>. There are also utilities for in-place manipulation of
+raw MessagePack.</p>
 
 <h7>
 <a name="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
 
 <ul class="task-list">
-<li>Proper handling of pointers, nullables, and recursive types</li>
-<li>Backwards-compatible decoding logic</li>
-<li>Efficient and readable generated code</li>
-<li>JSON interoperability</li>
+<li>Extremely fast generated code</li>
+<li>JSON interoperability (see <code>msgp.CopyToJSON() and msgp.UnmarshalAsJSON()</code>)</li>
 <li>Support for embedded fields, anonymous structs, and multi-field inline declarations</li>
 <li>Identifier resolution (see below)</li>
-<li>Support for Go's <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types through extensions</li>
-<li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods.</li>
+<li>Native support for Go's <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types </li>
+<li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
+<li>Support for arbitrary type system extensions (see below)</li>
 </ul>
 <p>For example, this will work fine:</p>
 
@@ -3101,34 +3168,75 @@ both from <code>io.Reader</code>s and <code>[]byte</code>.</p>
 (no slices or maps, although <code>[]byte</code> is supported as a special case.) Unresolved identifiers are (optimistically) 
 assumed to be struct definitions in other files. (The parser will spit out warnings about unresolved identifiers.)</p>
 
+<h8>
+<a name="user-content-extensions" class="anchor" href="#extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extensions</h8>
+
+<p>MessagePack supports defining your own types through "extensions," which are just a tuple of
+the data "type" (<code>int8</code>) and the raw binary. Extensions should satisfy the <code>msgp.Extension</code> interface:</p>
+
+<div class="highlight highlight-go"><pre><span class="c1">// Extension is the interface fulfilled</span>
+<span class="c1">// by types that want to define their</span>
+<span class="c1">// own binary encoding.</span>
+<span class="kd">type</span> <span class="nx">Extension</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="c1">// ExtensionType should return</span>
+    <span class="c1">// a int8 that identifies the concrete</span>
+    <span class="c1">// type of the extension. (Types &lt;0 are</span>
+    <span class="c1">// officially reserved by the MessagePack</span>
+    <span class="c1">// specifications.)</span>
+    <span class="nx">ExtensionType</span><span class="p">()</span> <span class="kt">int8</span>
+
+    <span class="c1">// Len should return the length</span>
+    <span class="c1">// of the data to be encoded</span>
+    <span class="nx">Len</span><span class="p">()</span> <span class="kt">int</span>
+
+    <span class="c1">// MarshalBinaryTo should copy</span>
+    <span class="c1">// the data into the supplied slice,</span>
+    <span class="c1">// assuming that the slice has length Len()</span>
+    <span class="nx">MarshalBinaryTo</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="kt">error</span>
+
+    <span class="nx">UnmarshalBinary</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="kt">error</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>A simple implementation of <code>Extension</code> is the <code>msgp.RawExtension</code> type.</p>
+
+<p>In order to tell the generator to use the field as an extension, you must include the "extension"
+annotation in the struct tag:</p>
+
+<div class="highlight highlight-go"><pre><span class="kd">type</span> <span class="nx">Thing</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Blah</span> <span class="nx">msgp</span><span class="p">.</span><span class="nx">RawExtension</span> <span class="s">`msg:"blah,extension"`</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Users should use <code>msgp.RegisterExtension</code> to register type system extensions. Registering extensions 
+allows the <code>interface{}</code> decoders and the JSON translators to use the concrete type of your extension 
+when decoding/encoding.</p>
+
 <h7>
 <a name="user-content-status" class="anchor" href="#status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status</h7>
 
-<p>Alpha. Here are the known limitations/restrictions:</p>
+<p>Alpha. I <em>will</em> break stuff.</p>
+
+<p>Here are the known limitations/restrictions:</p>
 
 <ul class="task-list">
-<li>All fields of a struct that are not Go built-ins are assumed to satisfy the <code>enc.MsgEncoder</code> and <code>enc.MsgDecoder</code>
-interfaces. This will only <em>actually</em> be the case if the declaration for that type is in a file touched by the code generator. The generator will output a warning if it can't resolve an identifier in the file, or if it ignores an exported field. The generated code will fail to compile if you encounter this issue, so it shouldn't catch you by surprise.</li>
+<li>All fields of a struct that are not Go built-ins are assumed (optimistically) to have been seen by the code generator in another file. The generator will output a warning if it can't resolve an identifier in the file, or if it ignores an exported field. The generated code will fail to compile if you encounter this issue, so it shouldn't catch you by surprise.</li>
 <li>Like most serializers, <code>chan</code> and <code>func</code> fields are ignored, as well as non-exported fields.</li>
 <li>Methods are only generated for <code>struct</code> definitions. Chances are that we will keep things this way.</li>
-<li>Encoding/decoding of <code>interface{}</code> can be flaky. It works fine for go builtins, but don't count on it working 
-well for anything beyond that.</li>
-<li>Maps must have <code>string</code> keys. This is intentional (as it preserves JSON interop.) The generator will yell
-at you if you try to use something else. Although non-string map keys are not explicitly forbidden by the messagepack
-standard, many serializers impose this restriction.</li>
+<li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
+<li>
+<em>Maps must have <code>string</code> keys.</em> This is intentional (as it preserves JSON interop.) Although non-string map keys are not explicitly forbidden by the MessagePack standard, many serializers impose this restriction. (This restriction also means <em>any</em> well-formed <code>struct</code> can be de-serialized into a <code>map[string]interface{}</code>.)</li>
+<li>All variable-length objects (maps, strings, arrays, extensions, etc.) cannot have more than <code>(1&lt;&lt;32)-1</code> elements.</li>
 </ul>
-<p>I have no idea whether or not this generator will work with your code. Luckily, if the output compiles, then 
-there's a pretty good chance things are fine. (Plus, we generate tests for you.) <em>Please, please, please</em> file 
-an issue if you think the generator is writing broken code.</p>
+<p>If the output compiles, then there's a pretty good chance things are fine. (Plus, we generate tests for you.) <em>Please, please, please</em> file an issue if you think the generator is writing broken code.</p>
 
 <h7>
 <a name="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance</h7>
 
-<p>If you like benchmarks, this is <a href="https://github.com/alecthomas/go_serialization_benchmarks">the fastest and lowest-memory-footprint serializer for Go in this test.</a> (I put considerable effort into generating high-performance code. I figure there's no 
-point in putting up with the extra complexity of generated code if it does not buy you a substantial performance improvement.)</p>
+<p>If you like benchmarks, we're the <a href="https://github.com/alecthomas/go_serialization_benchmarks">fastest and lowest-memory-footprint round-trip serializer for Go in this test.</a></p>
 
-<p>As you might imagine, the generated code is quite a lot more performant than reflection-based serialization; generally 
-you can expect a ~4x speed improvement and an order of magnitude fewer memory allocations when compared to other reflection-based messagepack serialization libraries. (Typically, the <code>EncodeTo</code> method does zero allocations. <code>UnmarshalMsg</code> can also do zero allocations in the best case.) YMMV.</p>
+<p>Speed is the core impetus for this project; there are already a number of reflection-based libraries that exist 
+for MessagePack serialization. (Type safety and generated tests are an added bonus.)</p>
 </article>
 </div>
         </div>
