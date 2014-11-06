@@ -2550,12 +2550,29 @@ gcc.</p>
 
 <p>Build Status: <a href="http://travis-ci.org/reeze/msgpack-hhvm"><img src="https://camo.githubusercontent.com/049faf8e16a7430277c7604af979bfaab5fd5e3e/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f7265657a652f6d73677061636b2d6868766d2e706e67" alt="Build Status" data-canonical-src="https://secure.travis-ci.org/reeze/msgpack-hhvm.png" style="max-width:100%;"></a></p>
 
-<blockquote>
-<p>Currently no object serialization supported, Work-In-Process.</p>
-</blockquote>
+<p>Msgpack for HHVM, It is a msgpack binding for HHVM</p>
 
-<p>Msgpack for HHVM, It is a msgpack binding for HHVM, The APIs are mean to
-be the same as <a href="https://github.com/msgpack/msgpack-php">PHP version of msgpack Bingding</a>.</p>
+<h5>
+<a id="user-content-api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h5>
+
+<ul class="task-list">
+<li>msgpack_pack(mixed $input) : string;
+pack a input to msgpack, object and resource are not supported, array and other types supported,
+false on failure.</li>
+<li>msgpack_unpack(string $pac) : mixed;
+unpack a msgpack.</li>
+</ul>
+<h5>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h5>
+
+<div class="highlight highlight-bash"><pre>$ git clone https://github.com/reeze/msgpack-hhvm
+$ <span class="nf">cd</span> msgpack-hhvm
+$ hphpize <span class="o">&amp;&amp;</span> cmake <span class="nf">.</span> <span class="o">&amp;&amp;</span> make
+$ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
+
+<p>If you don't have <code>hphpize</code> program, please intall package <code>hhvm-dev</code></p>
+
+<div class="highlight highlight-bash"><pre>$ sudo apt-get install hhvm-dev</pre></div>
 
 <h5>
 <a id="user-content-contribution-and--issues" class="anchor" href="#contribution-and--issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribution and  Issues</h5>
