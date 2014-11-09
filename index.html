@@ -204,6 +204,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-suzukaze-mruby-msgpack',this)">mruby <span class="qs-sub">suzukaze</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-lexmag-msgpax',this)">Elixir <span class="qs-sub">lexmag</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-jingweno-msgpack_rails',this)">Rails <span class="qs-sub">jingweno</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
@@ -1908,6 +1910,46 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 <p>Copyrigh : Copyright (c) 2013 Jun Hiroe</p>
 
 <p>License : MIT License</p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-lexmag-msgpax" class="qs"><h4><a href="https://github.com/lexmag/msgpax" target="_blank">lexmag/msgpax <span class="qs-url">https://github.com/lexmag/msgpax</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpax-" class="anchor" href="#msgpax-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Msgpax <a href="https://travis-ci.org/lexmag/msgpax"><img src="https://camo.githubusercontent.com/578c5f36cb5d8f123825ff693fc781f1dccfcff6/68747470733a2f2f7472617669732d63692e6f72672f6c65786d61672f6d73677061782e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/lexmag/msgpax.svg" style="max-width:100%;"></a>
+</h5>
+
+<p>This library provides an API for serializing and de-serializing Elixir terms using the <a href="http://msgpack.org/">MessagePack</a> format.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Add Msgpax as a dependency in your <code>mix.exs</code> file:</p>
+
+<div class="highlight highlight-elixir"><pre><span class="k">def</span> deps <span class="k">do</span>
+  <span class="o">[</span>{<span class="ss">:msgpax</span>, <span class="s2">"~&gt; 0.3"</span>}<span class="o">]</span>
+<span class="k">end</span></pre></div>
+
+<p>After you are done, run <code>mix deps.get</code> in your shell to fetch the dependencies.</p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<pre lang="iex"><code>iex&gt; {:ok, iodata} = Msgpax.pack([300, "Spartans"])
+{:ok, [&lt;&lt;146&gt;&gt;, [&lt;&lt;205, 1, 44&gt;&gt;, [&lt;&lt;168&gt;&gt;, "Spartans"]]]}
+iex&gt; iodata = Msgpax.pack!([300, "Spartans"])
+...
+iex&gt; {:ok, term} = Msgpax.unpack(iodata)
+{:ok, [300, "Spartans"]}
+iex&gt; term = Msgpax.unpack!(iodata)
+[300, "Spartans"]
+</code></pre>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+
+<p>This software is licensed under <a href="/lexmag/msgpax/blob/master/LICENSE">the ISC license</a>.</p>
 </article>
 </div>
         </div>
