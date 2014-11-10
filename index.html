@@ -212,6 +212,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
@@ -227,8 +229,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-jackson-dataformat-msgpack',this)">Jackson-dataformat <span class="qs-sub">komamitsu</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vertexclique-thealchemist',this)">Elixir <span class="qs-sub">vertexclique</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-gabriel-MPMessagePack',this)">Objective-C <span class="qs-sub">gabriel</span></a></li>
           
@@ -2200,6 +2200,55 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 </div>
         </div>
         
+        <div id="qs-kmsquire-MsgPack-jl" class="qs"><h4><a href="https://github.com/kmsquire/MsgPack.jl" target="_blank">kmsquire/MsgPack.jl <span class="qs-url">https://github.com/kmsquire/MsgPack.jl</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack</h5>
+
+<p><a href="https://travis-ci.org/kmsquire/MsgPack.jl"><img src="https://camo.githubusercontent.com/8a2893a403c22c2fa53ef926fa2a63aecff17e69/68747470733a2f2f7472617669732d63692e6f72672f6b6d7371756972652f4d73675061636b2e6a6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kmsquire/MsgPack.jl.svg?branch=master" style="max-width:100%;"></a></p>
+
+<p>Provides basic support for the <a href="http://msgpack.org">msgpack</a> format.</p>
+
+<pre><code>julia&gt; import MsgPack
+
+julia&gt; MsgPack.pack("hi")
+3-element Array{Uint8,1}:
+ 0xa2
+ 0x68
+ 0x69
+
+julia&gt; a = MsgPack.pack([1,2,"hi"])
+6-element Array{Uint8,1}:
+ 0x93
+ 0x01
+ 0x02
+ 0xa2
+ 0x68
+ 0x69
+
+julia&gt; MsgPack.unpack(MsgPack.pack(4.5))
+4.5
+
+julia&gt; f = open("in.mp")
+julia&gt; MsgPack.unpack(f)
+"hello"
+
+julia&gt; f2 = open("out.mp", "w")
+julia&gt; MsgPack.pack(f2, [1,2,"hi"])
+
+
+
+</code></pre>
+
+<p>NOTE: The standard method for encoding integers in msgpack is to use the most compact representation possible, and to encode negative integers as signed ints and non-negative numbers as unsigned ints.</p>
+
+<p>For compatibility with other implementations, I'm following this convention.  On the unpacking side, every integer type becomes an Int64 in Julia, unless it doesn't fit (ie. values greater than 2^63 are unpacked as Uint64).</p>
+
+<p>I might change this at some point, and/or provide a way to control the unpacked types.</p>
+</article>
+</div>
+        </div>
+        
         <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -2822,30 +2871,6 @@ after that you can bring the <code>ERL shell</code> with</p>
 <p>If you want to bring the <code>IEX</code> you can type</p>
 
 <p><code>make runex</code></p>
-</article>
-</div>
-        </div>
-        
-        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-swiftpack" class="anchor" href="#swiftpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>SwiftPack</h5>
-
-<p>SwiftPack is MessagePack packer and unpacker written almost entirely in Swift. </p>
-
-<h5>
-<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
-
-<ul class="task-list">
-<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
-<li>Maps currently only support String types for keys.</li>
-</ul>
-<h5>
-<a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h5>
-
-<p>Copyright (c) 2014 Brian Williams</p>
-
-<p>This software is licensed under the terms of the MIT license.</p>
 </article>
 </div>
         </div>
