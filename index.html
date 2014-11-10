@@ -2988,9 +2988,60 @@ welcome to report bug
 QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http://sourceforge.net/p/qdac3">http://sourceforge.net/p/qdac3</a>).</p>
 
 <h7>
+<a id="user-content-feathers" class="anchor" href="#feathers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feathers</h7>
+
+<p>· Full types support,include messagepack extension type</p>
+
+<p>· Full open source,free for used in ANY PURPOSE</p>
+
+<p>· Quick and simple interface</p>
+
+<p>· RTTI support include</p>
+
+<h7>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h7>
 
 <p>QMsgPack is not a desgin time package.So just place QMsgPack files into search path and add to your project.</p>
+
+<h7>
+<a id="user-content-support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h7>
+
+<p>· Topic in Website (<a href="http://www.qdac.cc/?cat=44">http://www.qdac.cc/?cat=44</a>) ,CHINESE only</p>
+
+<p>· Mail to author (<a href="mailto:chinawsb@sina.com">chinawsb@sina.com</a>)</p>
+
+<p>· Post in forum (<a href="http://tieba.baidu.com/f?kw=qdac">http://tieba.baidu.com/f?kw=qdac</a>)</p>
+
+<p>· QQ Group No：250530692 (<a href="http://jq.qq.com/?_wv=1027&amp;k=ZH6mZR">http://jq.qq.com/?_wv=1027&amp;k=ZH6mZR</a>)</p>
+
+<h7>
+<a id="user-content-source-check-out" class="anchor" href="#source-check-out" aria-hidden="true"><span class="octicon octicon-link"></span></a>Source check out</h7>
+
+<p>· HTTP (<a href="http://svn.code.sf.net/p/qdac3/code/">http://svn.code.sf.net/p/qdac3/code/</a>)</p>
+
+<p>· SVN (svn://svn.code.sf.net/p/qdac3/code/)</p>
+
+<h7>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h7>
+
+<div class="highlight highlight-Pascal"><pre>
+<span class="k">var</span>
+  lvMsg, lvMsg2:TQMsgPack;
+  lvBytes:TBytes;
+  s:string;
+<span class="k">begin</span>
+  lvMsg := TQMsgPack.Create;
+  lvMsg.ForcePath(<span class="s1">'key.obj'</span>).AsString := <span class="s1">'汉字,ascii'</span>;
+
+  <span class="c1">//</span>
+  lvBytes := lvMsg.Encode;
+
+  lvMsg2 := TQMsgPack.Create;
+  lvMsg2.Parse(lvBytes);
+  <span class="c1">//</span>
+  showMessage(lvMsg.ForcePath(<span class="s1">'key.obj'</span>).AsString);
+  ....
+</pre></div>
 </article>
 </div>
         </div>
