@@ -210,10 +210,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
@@ -229,6 +225,10 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-jackson-dataformat-msgpack',this)">Jackson-dataformat <span class="qs-sub">komamitsu</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vertexclique-thealchemist',this)">Elixir <span class="qs-sub">vertexclique</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-gabriel-MPMessagePack',this)">Objective-C <span class="qs-sub">gabriel</span></a></li>
           
@@ -2150,104 +2150,6 @@ available:</p>
 </div>
         </div>
         
-        <div id="qs-kmsquire-MsgPack-jl" class="qs"><h4><a href="https://github.com/kmsquire/MsgPack.jl" target="_blank">kmsquire/MsgPack.jl <span class="qs-url">https://github.com/kmsquire/MsgPack.jl</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack</h5>
-
-<p><a href="https://travis-ci.org/kmsquire/MsgPack.jl"><img src="https://camo.githubusercontent.com/8a2893a403c22c2fa53ef926fa2a63aecff17e69/68747470733a2f2f7472617669732d63692e6f72672f6b6d7371756972652f4d73675061636b2e6a6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kmsquire/MsgPack.jl.svg?branch=master" style="max-width:100%;"></a></p>
-
-<p>Provides basic support for the <a href="http://msgpack.org">msgpack</a> format.</p>
-
-<pre><code>julia&gt; import MsgPack
-
-julia&gt; MsgPack.pack("hi")
-3-element Array{Uint8,1}:
- 0xa2
- 0x68
- 0x69
-
-julia&gt; a = MsgPack.pack([1,2,"hi"])
-6-element Array{Uint8,1}:
- 0x93
- 0x01
- 0x02
- 0xa2
- 0x68
- 0x69
-
-julia&gt; MsgPack.unpack(MsgPack.pack(4.5))
-4.5
-
-julia&gt; f = open("in.mp")
-julia&gt; MsgPack.unpack(f)
-"hello"
-
-julia&gt; f2 = open("out.mp", "w")
-julia&gt; MsgPack.pack(f2, [1,2,"hi"])
-
-
-
-</code></pre>
-
-<p>NOTE: The standard method for encoding integers in msgpack is to use the most compact representation possible, and to encode negative integers as signed ints and non-negative numbers as unsigned ints.</p>
-
-<p>For compatibility with other implementations, I'm following this convention.  On the unpacking side, every integer type becomes an Int64 in Julia, unless it doesn't fit (ie. values greater than 2^63 are unpacked as Uint64).</p>
-
-<p>I might change this at some point, and/or provide a way to control the unpacked types.</p>
-</article>
-</div>
-        </div>
-        
-        <div id="qs-kmsquire-MsgPack-jl" class="qs"><h4><a href="https://github.com/kmsquire/MsgPack.jl" target="_blank">kmsquire/MsgPack.jl <span class="qs-url">https://github.com/kmsquire/MsgPack.jl</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack</h5>
-
-<p><a href="https://travis-ci.org/kmsquire/MsgPack.jl"><img src="https://camo.githubusercontent.com/8a2893a403c22c2fa53ef926fa2a63aecff17e69/68747470733a2f2f7472617669732d63692e6f72672f6b6d7371756972652f4d73675061636b2e6a6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kmsquire/MsgPack.jl.svg?branch=master" style="max-width:100%;"></a></p>
-
-<p>Provides basic support for the <a href="http://msgpack.org">msgpack</a> format.</p>
-
-<pre><code>julia&gt; import MsgPack
-
-julia&gt; MsgPack.pack("hi")
-3-element Array{Uint8,1}:
- 0xa2
- 0x68
- 0x69
-
-julia&gt; a = MsgPack.pack([1,2,"hi"])
-6-element Array{Uint8,1}:
- 0x93
- 0x01
- 0x02
- 0xa2
- 0x68
- 0x69
-
-julia&gt; MsgPack.unpack(MsgPack.pack(4.5))
-4.5
-
-julia&gt; f = open("in.mp")
-julia&gt; MsgPack.unpack(f)
-"hello"
-
-julia&gt; f2 = open("out.mp", "w")
-julia&gt; MsgPack.pack(f2, [1,2,"hi"])
-
-
-
-</code></pre>
-
-<p>NOTE: The standard method for encoding integers in msgpack is to use the most compact representation possible, and to encode negative integers as signed ints and non-negative numbers as unsigned ints.</p>
-
-<p>For compatibility with other implementations, I'm following this convention.  On the unpacking side, every integer type becomes an Int64 in Julia, unless it doesn't fit (ie. values greater than 2^63 are unpacked as Uint64).</p>
-
-<p>I might change this at some point, and/or provide a way to control the unpacked types.</p>
-</article>
-</div>
-        </div>
-        
         <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -2874,6 +2776,54 @@ after that you can bring the <code>ERL shell</code> with</p>
 </div>
         </div>
         
+        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-swiftpack" class="anchor" href="#swiftpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>SwiftPack</h5>
+
+<p>SwiftPack is MessagePack packer and unpacker written almost entirely in Swift. </p>
+
+<h5>
+<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
+
+<ul class="task-list">
+<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
+<li>Maps currently only support String types for keys.</li>
+</ul>
+<h5>
+<a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h5>
+
+<p>Copyright (c) 2014 Brian Williams</p>
+
+<p>This software is licensed under the terms of the MIT license.</p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-swiftpack" class="anchor" href="#swiftpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>SwiftPack</h5>
+
+<p>SwiftPack is MessagePack packer and unpacker written almost entirely in Swift. </p>
+
+<h5>
+<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
+
+<ul class="task-list">
+<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
+<li>Maps currently only support String types for keys.</li>
+</ul>
+<h5>
+<a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h5>
+
+<p>Copyright (c) 2014 Brian Williams</p>
+
+<p>This software is licensed under the terms of the MIT license.</p>
+</article>
+</div>
+        </div>
+        
         <div id="qs-gabriel-MPMessagePack" class="qs"><h4><a href="https://github.com/gabriel/MPMessagePack" target="_blank">gabriel/MPMessagePack <span class="qs-url">https://github.com/gabriel/MPMessagePack</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -3107,7 +3057,7 @@ need code generation.</p>
 <li>
 <code>-pkg</code> - output package name (default is <code>$GOPACKAGE</code>)</li>
 <li>
-<code>-io</code> - satisfy the <code>msgp.Decoder</code> and <code>msgp.Encoder</code> interfaces (default is <code>true</code>)</li>
+<code>-io</code> - satisfy the <code>msgp.Decodable</code> and <code>msgp.Encodable</code> interfaces (default is <code>true</code>)</li>
 <li>
 <code>-marshal</code> - satisfy the <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> interfaces (default is <code>true</code>)</li>
 <li>
@@ -3126,75 +3076,18 @@ need code generation.</p>
     unexported <span class="pl-s">bool</span>             <span class="pl-c"><span class="pl-pdc">//</span> this field is also ignored</span>
 }</pre></div>
 
-<p>Running <code>msgp</code> on a file containing the above declaration would generate methods 
-to fulfill the following interfaces (which are defined in the <code>/msgp</code> subdirectory):</p>
+<p>By default, the code generator will satisfy <code>msgp.Sizer</code>, <code>msgp.Encodable</code>, <code>msgp.Decodable</code>, 
+<code>msgp.Marshaler</code>, and <code>msgp.Unmarshaler</code>. Carefully-designed applications can use these methods to do
+marshalling/unmarshalling with zero allocations.</p>
 
-<div class="highlight highlight-go"><pre><span class="pl-c"><span class="pl-pdc">//</span> Marshaler is the interface implemented</span>
-<span class="pl-c"><span class="pl-pdc">//</span> by types that know how to marshal themselves</span>
-<span class="pl-c"><span class="pl-pdc">//</span> as MessagePack</span>
-<span class="pl-k">type</span> <span class="pl-v">Marshaler</span> <span class="pl-k">interface</span> {
-    <span class="pl-c"><span class="pl-pdc">//</span> AppendMsg appends the marshalled</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> form of the object to the provided</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> byte slice, returning the extended</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> slice and any errors encountered</span>
-    <span class="pl-sf">AppendMsg</span>([]<span class="pl-s">byte</span>) ([]<span class="pl-s">byte</span>, <span class="pl-s">error</span>)
+<p>One of the unique features of this package is the implementation of <code>*Reader</code> and <code>*Writer</code>, which
+are both buffered. The fact that these objects can manipulate the contents of their buffers directly
+means that encoding and decoding from streams can be nearly as fast as marshalling and unmarshalling. 
+Additionally, the fact that these are buffered means that they can be directly applied to a <code>net.Conn</code>
+or <code>*os.File</code>, for example.</p>
 
-    <span class="pl-c"><span class="pl-pdc">//</span> MarshalMsg returns a new []byte</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> containing the MessagePack-encoded</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> form of the object</span>
-    <span class="pl-sf">MarshalMsg</span>() ([]<span class="pl-s">byte</span>, <span class="pl-s">error</span>)
-}
-
-<span class="pl-c"><span class="pl-pdc">//</span> Encoder is the interface implemented</span>
-<span class="pl-c"><span class="pl-pdc">//</span> by types that know how to write themselves</span>
-<span class="pl-c"><span class="pl-pdc">//</span> as MessagePack</span>
-<span class="pl-k">type</span> <span class="pl-v">Encoder</span> <span class="pl-k">interface</span> {
-    <span class="pl-c"><span class="pl-pdc">//</span> EncodeMsg writes the object in MessagePack</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> format to the writer, returning the number</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> of bytes written and any errors encountered.</span>
-    <span class="pl-sf">EncodeMsg</span>(io.<span class="pl-v">Writer</span>) (<span class="pl-s">int</span>, <span class="pl-s">error</span>)
-
-    <span class="pl-c"><span class="pl-pdc">//</span> EncodeTo writes the object to a *Writer,</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> returning the number of bytes written, and</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> any errors encountered.</span>
-    <span class="pl-sf">EncodeTo</span>(*Writer) (<span class="pl-s">int</span>, <span class="pl-s">error</span>)
-}
-
-<span class="pl-c"><span class="pl-pdc">//</span> Unmarshaler is the interface fulfilled</span>
-<span class="pl-c"><span class="pl-pdc">//</span> byte objects that know how to unmarshal</span>
-<span class="pl-c"><span class="pl-pdc">//</span> themselves from MessagePack</span>
-<span class="pl-k">type</span> <span class="pl-v">Unmarshaler</span> <span class="pl-k">interface</span> {
-    <span class="pl-c"><span class="pl-pdc">//</span> UnmarshalMsg unmarshals the object</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> from binary, returing any leftover</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> bytes and any errors encountered</span>
-    <span class="pl-sf">UnmarshalMsg</span>([]<span class="pl-s">byte</span>) ([]<span class="pl-s">byte</span>, <span class="pl-s">error</span>)
-}
-
-<span class="pl-c"><span class="pl-pdc">//</span> Decoder is the interface fulfilled</span>
-<span class="pl-c"><span class="pl-pdc">//</span> by objects that know how to decode themselves</span>
-<span class="pl-c"><span class="pl-pdc">//</span> from MessagePack</span>
-<span class="pl-k">type</span> <span class="pl-v">Decoder</span> <span class="pl-k">interface</span> {
-    <span class="pl-c"><span class="pl-pdc">//</span> DecodeMsg decodes the object</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> from an io.Reader, returning</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> the number of bytes read and</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> any errors encountered</span>
-    <span class="pl-sf">DecodeMsg</span>(io.<span class="pl-v">Reader</span>) (<span class="pl-s">int</span>, <span class="pl-s">error</span>)
-
-    <span class="pl-c"><span class="pl-pdc">//</span> DecodeFrom decodes the object</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> using an existing *Reader,</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> returning the number of bytes</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> read and any errors encountered</span>
-    <span class="pl-sf">DecodeFrom</span>(*Reader) (<span class="pl-s">int</span>, <span class="pl-s">error</span>)
-}</pre></div>
-
-<p>Each method is optimized for a certain use-case, depending on whether or not the user
-can afford to recycle <code>*msgp.Writer</code> and <code>*msgp.Reader</code> object, and whether or not
-the user is dealing with <code>io.Reader/io.Writer</code> or <code>[]byte</code>. Carefully-designed applications 
-can use these methods to do marshalling/unmarshalling with zero allocations.</p>
-
-<p>The <code>/msgp</code> package has utility functions for transforming MessagePack to JSON directly,
-both from <code>io.Reader</code>s and <code>[]byte</code>. There are also utilities for in-place manipulation of
-raw MessagePack.</p>
+<p>There are also utility functions available for translating MessagePack into JSON without an intermediate
+de-serialization step.</p>
 
 <h7>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
@@ -3208,7 +3101,8 @@ raw MessagePack.</p>
 <li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
 <li>Support for arbitrary type system extensions (see below)</li>
 </ul>
-<p>For example, this will work fine:</p>
+<p>Because of (limited) identifier resolution, the following
+struct declaration will work fine:</p>
 
 <div class="highlight highlight-go"><pre><span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-s">int</span>
 <span class="pl-k">type</span> <span class="pl-v">Data</span> []<span class="pl-s">byte</span>
@@ -3217,9 +3111,9 @@ raw MessagePack.</p>
     <span class="pl-v">Other</span>  <span class="pl-v">Data</span>              <span class="pl-s1"><span class="pl-pds">`</span>msg:"other"<span class="pl-pds">`</span></span>
 }</pre></div>
 
-<p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file, the parser will figure out that 
+<p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file as <code>Struct</code>, the parser will figure out that 
 <code>MyInt</code> is really an <code>int</code>, and <code>Data</code> is really just a <code>[]byte</code>. Note that this only works for "base" types 
-(no slices or maps, although <code>[]byte</code> is supported as a special case.) Unresolved identifiers are (optimistically) 
+(no composite types, although <code>[]byte</code> is supported as a special case.) Unresolved identifiers are (optimistically) 
 assumed to be struct definitions in other files. (The parser will spit out warnings about unresolved identifiers.)</p>
 
 <h8>
