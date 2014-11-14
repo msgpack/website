@@ -3066,7 +3066,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>. You can read more about MessagePack and Go <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>.</p>
 
 <h7>
-<a id="user-content-use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h7>
+<a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h7>
 
 <p>*** Note: <code>go generate</code> is a go 1.4+ feature. ***</p>
 
@@ -3080,8 +3080,28 @@ need code generation.</p>
 
 <p>You can <a href="http://github.com/philhofer/msgp/wiki/Using-the-Code-Generator">read more about the code generation options here</a>.</p>
 
-<h8>
-<a id="user-content-use-1" class="anchor" href="#use-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h8>
+<p>Once you have the appropriate methods generated, we can use the methods in <code>github.com/philhofer/msgp/msgp</code> to serialize and
+de-serialize the objects.</p>
+
+<p>For example, if we had generated methods for a <code>Person</code> struct:</p>
+
+<div class="highlight highlight-go"><pre><span class="pl-k">import</span> (
+    <span class="pl-s1"><span class="pl-pds">"</span>github.com/philhofer/msgp/msgp<span class="pl-pds">"</span></span>
+    <span class="pl-s1"><span class="pl-pds">"</span>os<span class="pl-pds">"</span></span>
+)
+
+<span class="pl-v">p</span> <span class="pl-ko">:=</span> &amp;Person{
+    <span class="pl-v">Name</span>: <span class="pl-s1"><span class="pl-pds">"</span>Huck Finn<span class="pl-pds">"</span></span>,
+    <span class="pl-v">Age</span>: <span class="pl-cn">14</span>,
+}
+
+<span class="pl-c"><span class="pl-pdc">//</span> write 'p' to standard out</span>
+<span class="pl-c"><span class="pl-pdc">//</span> (no need for buffering here; </span>
+<span class="pl-c"><span class="pl-pdc">//</span> Encode does it for you)</span>
+msgp.<span class="pl-sf">Encode</span>(os.<span class="pl-v">Stdout</span>, p)</pre></div>
+
+<h7>
+<a id="user-content-use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h7>
 
 <p>Field names can be set in much the same way as the <code>encoding/json</code> package. For example:</p>
 
