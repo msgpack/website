@@ -210,8 +210,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
@@ -227,6 +225,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-jackson-dataformat-msgpack',this)">Jackson-dataformat <span class="qs-sub">komamitsu</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vertexclique-thealchemist',this)">Elixir <span class="qs-sub">vertexclique</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
@@ -2150,55 +2150,6 @@ available:</p>
 </div>
         </div>
         
-        <div id="qs-kmsquire-MsgPack-jl" class="qs"><h4><a href="https://github.com/kmsquire/MsgPack.jl" target="_blank">kmsquire/MsgPack.jl <span class="qs-url">https://github.com/kmsquire/MsgPack.jl</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack</h5>
-
-<p><a href="https://travis-ci.org/kmsquire/MsgPack.jl"><img src="https://camo.githubusercontent.com/8a2893a403c22c2fa53ef926fa2a63aecff17e69/68747470733a2f2f7472617669732d63692e6f72672f6b6d7371756972652f4d73675061636b2e6a6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kmsquire/MsgPack.jl.svg?branch=master" style="max-width:100%;"></a></p>
-
-<p>Provides basic support for the <a href="http://msgpack.org">msgpack</a> format.</p>
-
-<pre><code>julia&gt; import MsgPack
-
-julia&gt; MsgPack.pack("hi")
-3-element Array{Uint8,1}:
- 0xa2
- 0x68
- 0x69
-
-julia&gt; a = MsgPack.pack([1,2,"hi"])
-6-element Array{Uint8,1}:
- 0x93
- 0x01
- 0x02
- 0xa2
- 0x68
- 0x69
-
-julia&gt; MsgPack.unpack(MsgPack.pack(4.5))
-4.5
-
-julia&gt; f = open("in.mp")
-julia&gt; MsgPack.unpack(f)
-"hello"
-
-julia&gt; f2 = open("out.mp", "w")
-julia&gt; MsgPack.pack(f2, [1,2,"hi"])
-
-
-
-</code></pre>
-
-<p>NOTE: The standard method for encoding integers in msgpack is to use the most compact representation possible, and to encode negative integers as signed ints and non-negative numbers as unsigned ints.</p>
-
-<p>For compatibility with other implementations, I'm following this convention.  On the unpacking side, every integer type becomes an Int64 in Julia, unless it doesn't fit (ie. values greater than 2^63 are unpacked as Uint64).</p>
-
-<p>I might change this at some point, and/or provide a way to control the unpacked types.</p>
-</article>
-</div>
-        </div>
-        
         <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -2849,6 +2800,30 @@ after that you can bring the <code>ERL shell</code> with</p>
 </div>
         </div>
         
+        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-swiftpack" class="anchor" href="#swiftpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>SwiftPack</h5>
+
+<p>SwiftPack is MessagePack packer and unpacker written almost entirely in Swift. </p>
+
+<h5>
+<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
+
+<ul class="task-list">
+<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
+<li>Maps currently only support String types for keys.</li>
+</ul>
+<h5>
+<a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h5>
+
+<p>Copyright (c) 2014 Brian Williams</p>
+
+<p>This software is licensed under the terms of the MIT license.</p>
+</article>
+</div>
+        </div>
+        
         <div id="qs-gabriel-MPMessagePack" class="qs"><h4><a href="https://github.com/gabriel/MPMessagePack" target="_blank">gabriel/MPMessagePack <span class="qs-url">https://github.com/gabriel/MPMessagePack</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -3054,7 +3029,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 <a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/c59ba0baf49c28105097e0476665b22c66031113/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f6365727469666965642d736e6f6f702d6c696f6e2e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/certified-snoop-lion.svg" style="max-width:100%;"></a></p>
 
 <p>This is a code generation tool for serializing Go <code>struct</code>s using the <a href="http://msgpack.org">MesssagePack</a> standard. It is targeted 
-at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>.</p>
+at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>. You can read more about MessagePack and Go <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>.</p>
 
 <h7>
 <a id="user-content-use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h7>
@@ -3069,25 +3044,8 @@ at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Gener
 definitions in the file. You will need to include that directive in every file that contains structs that 
 need code generation.</p>
 
-<h8>
-<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h8>
+<p>You can <a href="http://github.com/philhofer/msgp/wiki/Using-the-Code-Generator">read more about the code generation options here</a>.</p>
 
-<p>The following command-line flags are supported:</p>
-
-<ul class="task-list">
-<li>
-<code>-o</code> - output file name (default is <code>{filename}_gen.go</code>)</li>
-<li>
-<code>-file</code> - input file name (default is <code>$GOPATH/src/$GOPACKAGE/$GOFILE</code>, which are set by the <code>go generate</code> command)</li>
-<li>
-<code>-pkg</code> - output package name (default is <code>$GOPACKAGE</code>)</li>
-<li>
-<code>-io</code> - satisfy the <code>msgp.Decodable</code> and <code>msgp.Encodable</code> interfaces (default is <code>true</code>)</li>
-<li>
-<code>-marshal</code> - satisfy the <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> interfaces (default is <code>true</code>)</li>
-<li>
-<code>-tests</code> - generate tests and benchmarks (default is <code>true</code>)</li>
-</ul>
 <h8>
 <a id="user-content-use-1" class="anchor" href="#use-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h8>
 
@@ -3145,50 +3103,16 @@ assumed to be struct definitions in other files. (The parser will spit out warni
 <a id="user-content-extensions" class="anchor" href="#extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extensions</h8>
 
 <p>MessagePack supports defining your own types through "extensions," which are just a tuple of
-the data "type" (<code>int8</code>) and the raw binary. Extensions should satisfy the <code>msgp.Extension</code> interface:</p>
-
-<div class="highlight highlight-go"><pre><span class="pl-c"><span class="pl-pdc">//</span> Extension is the interface fulfilled</span>
-<span class="pl-c"><span class="pl-pdc">//</span> by types that want to define their</span>
-<span class="pl-c"><span class="pl-pdc">//</span> own binary encoding.</span>
-<span class="pl-k">type</span> <span class="pl-v">Extension</span> <span class="pl-k">interface</span> {
-    <span class="pl-c"><span class="pl-pdc">//</span> ExtensionType should return</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> a int8 that identifies the concrete</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> type of the extension. (Types &lt;0 are</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> officially reserved by the MessagePack</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> specifications.)</span>
-    <span class="pl-sf">ExtensionType</span>() <span class="pl-s">int8</span>
-
-    <span class="pl-c"><span class="pl-pdc">//</span> Len should return the length</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> of the data to be encoded</span>
-    <span class="pl-sf">Len</span>() <span class="pl-s">int</span>
-
-    <span class="pl-c"><span class="pl-pdc">//</span> MarshalBinaryTo should copy</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> the data into the supplied slice,</span>
-    <span class="pl-c"><span class="pl-pdc">//</span> assuming that the slice has length Len()</span>
-    <span class="pl-sf">MarshalBinaryTo</span>([]<span class="pl-s">byte</span>) <span class="pl-s">error</span>
-
-    <span class="pl-sf">UnmarshalBinary</span>([]<span class="pl-s">byte</span>) <span class="pl-s">error</span>
-}</pre></div>
-
-<p>A simple implementation of <code>Extension</code> is the <code>msgp.RawExtension</code> type.</p>
-
-<p>In order to tell the generator to use the field as an extension, you must include the "extension"
-annotation in the struct tag:</p>
-
-<div class="highlight highlight-go"><pre><span class="pl-k">type</span> <span class="pl-v">Thing</span> <span class="pl-s">struct</span> {
-    <span class="pl-v">Blah</span> msgp.<span class="pl-v">RawExtension</span> <span class="pl-s1"><span class="pl-pds">`</span>msg:"blah,extension"<span class="pl-pds">`</span></span>
-}</pre></div>
-
-<p>Users should use <code>msgp.RegisterExtension</code> to register type system extensions. Registering extensions 
-allows the <code>interface{}</code> decoders and the JSON translators to use the concrete type of your extension 
-when decoding/encoding.</p>
+the data "type" (<code>int8</code>) and the raw binary. You <a href="http://github.com/philhofer/msgp/wiki/Using-Extensions">can examine a worked example in the wiki.</a></p>
 
 <h7>
 <a id="user-content-status" class="anchor" href="#status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status</h7>
 
 <p>Alpha. I <em>will</em> break stuff.</p>
 
-<p>Here are the known limitations/restrictions:</p>
+<p>You can read more about how <code>msgp</code> maps MessagePack types onto Go types <a href="http://github.com/philhofer/msgp/wiki">in our wiki</a>.</p>
+
+<p>Here some of the known limitations/restrictions:</p>
 
 <ul class="task-list">
 <li>All fields of a struct that are not Go built-ins are assumed (optimistically) to have been seen by the code generator in another file. The generator will output a warning if it can't resolve an identifier in the file, or if it ignores an exported field. The generated code will fail to compile if you encounter this issue, so it shouldn't catch you by surprise.</li>
