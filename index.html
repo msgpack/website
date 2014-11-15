@@ -3095,10 +3095,12 @@ de-serialize the objects.</p>
     <span class="pl-v">Age</span>: <span class="pl-cn">14</span>,
 }
 
-<span class="pl-c"><span class="pl-pdc">//</span> write 'p' to standard out</span>
-<span class="pl-c"><span class="pl-pdc">//</span> (no need for buffering here; </span>
-<span class="pl-c"><span class="pl-pdc">//</span> Encode does it for you)</span>
-msgp.<span class="pl-sf">Encode</span>(os.<span class="pl-v">Stdout</span>, p)</pre></div>
+<span class="pl-k">func</span> <span class="pl-enf">main</span>() {
+    <span class="pl-c"><span class="pl-pdc">//</span> write 'p' to standard out</span>
+    <span class="pl-c"><span class="pl-pdc">//</span> (no need for buffering here; </span>
+    <span class="pl-c"><span class="pl-pdc">//</span> Encode does it for you)</span>
+    msgp.<span class="pl-sf">Encode</span>(os.<span class="pl-v">Stdout</span>, p)
+}</pre></div>
 
 <h7>
 <a id="user-content-use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h7>
@@ -3138,26 +3140,30 @@ de-serialization step.</p>
 <li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
 <li>Support for arbitrary type system extensions (see below)</li>
 </ul>
-<p>Because of (limited) identifier resolution, the following
-struct declaration will work fine:</p>
+<p>Because of (limited) identifier resolution, the code generator will still yield the
+correct code for the following struct declaration:</p>
 
-<div class="highlight highlight-go"><pre><span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-s">int</span>
+<div class="highlight highlight-go"><pre><span class="pl-s">const</span> <span class="pl-v">Eight</span> = <span class="pl-cn">8</span>
+<span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-s">int</span>
 <span class="pl-k">type</span> <span class="pl-v">Data</span> []<span class="pl-s">byte</span>
+
 <span class="pl-k">type</span> <span class="pl-v">Struct</span> <span class="pl-s">struct</span> {
     <span class="pl-v">Which</span>  <span class="pl-s">map</span>[<span class="pl-s">string</span>]*MyInt <span class="pl-s1"><span class="pl-pds">`</span>msg:"which"<span class="pl-pds">`</span></span>
     <span class="pl-v">Other</span>  <span class="pl-v">Data</span>              <span class="pl-s1"><span class="pl-pds">`</span>msg:"other"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Nums</span>   [Eight]<span class="pl-s">float64</span>    <span class="pl-s1"><span class="pl-pds">`</span>msg:"nums"<span class="pl-pds">`</span></span>
 }</pre></div>
 
 <p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file as <code>Struct</code>, the parser will figure out that 
-<code>MyInt</code> is really an <code>int</code>, and <code>Data</code> is really just a <code>[]byte</code>. Note that this only works for "base" types 
-(no composite types, although <code>[]byte</code> is supported as a special case.) Unresolved identifiers are (optimistically) 
+<code>MyInt</code> is really an <code>int</code>, and <code>Data</code> is really just a <code>[]byte</code>. The constant <code>Eight</code> does not have to be in the 
+same file as the struct definition, but it does have to be in the same package (as the generated code will simply
+use <code>Eight</code> as a literal under the assumption that the compiler will figure out what it is.) Note that this only works for "base" types (no composite types, although <code>[]byte</code> is supported as a special case.) Unresolved identifiers are (optimistically) 
 assumed to be struct definitions in other files. (The parser will spit out warnings about unresolved identifiers.)</p>
 
 <h8>
 <a id="user-content-extensions" class="anchor" href="#extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extensions</h8>
 
 <p>MessagePack supports defining your own types through "extensions," which are just a tuple of
-the data "type" (<code>int8</code>) and the raw binary. You <a href="http://github.com/philhofer/msgp/wiki/Using-Extensions">can examine a worked example in the wiki.</a></p>
+the data "type" (<code>int8</code>) and the raw binary. You <a href="http://github.com/philhofer/msgp/wiki/Using-Extensions">can see a worked example in the wiki.</a></p>
 
 <h7>
 <a id="user-content-status" class="anchor" href="#status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status</h7>
