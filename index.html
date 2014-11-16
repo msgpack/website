@@ -3062,16 +3062,17 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 <p><a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/299ea3461543de30174632b3fb35e878c03148b7/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f757365732d6261646765732e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/uses-badges.svg" style="max-width:100%;"></a>
 <a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/c59ba0baf49c28105097e0476665b22c66031113/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f6365727469666965642d736e6f6f702d6c696f6e2e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/certified-snoop-lion.svg" style="max-width:100%;"></a></p>
 
-<p>This is a code generation tool for serializing Go <code>struct</code>s using the <a href="http://msgpack.org">MesssagePack</a> standard. It is targeted 
-at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>. You can read more about MessagePack and Go <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>.</p>
+<p>This is a code generation tool and serialization library for <a href="http://msgpack.org">MesssagePack</a>. It is targeted at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>. You can read more about MessagePack <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>, or at <a href="http://msgp.org">msgpack.org</a>.</p>
 
 <h7>
-<a id="user-content-why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why</h7>
+<a id="user-content-why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h7>
 
-<p>The generated code is about five times faster than other reflection-based implementations of MessagePack, and an order of magnitude faster than <code>encoding/json</code>. Additionally, the memory footprint is much smaller (on both the stack and the heap.)</p>
-
-<p>Generated <code>msgp</code> code typically serializes/deserializes to <code>io.Writer</code>/<code>io.Readers</code>, respectively, in excess of 200MB/s.</p>
-
+<ul class="task-list">
+<li>Use Go as your schema language</li>
+<li>Speeeeeed (400MB/s on modern hardware)</li>
+<li><a href="http://godoc.org/github.com/philhofer/msgp/msgp#CopyToJSON">JSON interop</a></li>
+<li><a href="http://github.com/philhofer/msgp/wiki/Using-Extensions">User-defined types</a></li>
+</ul>
 <h7>
 <a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h7>
 
@@ -3132,9 +3133,6 @@ means that encoding and decoding from streams can be nearly as fast as marshalli
 Additionally, the fact that these are buffered means that they can be directly applied to a <code>net.Conn</code>
 or <code>*os.File</code>, for example.</p>
 
-<p>There are also utility functions available for translating MessagePack into JSON without an intermediate
-de-serialization step.</p>
-
 <h7>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
 
@@ -3177,7 +3175,7 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 
 <p>Alpha. I <em>will</em> break stuff.</p>
 
-<p>You can read more about how <code>msgp</code> maps MessagePack types onto Go types <a href="http://github.com/philhofer/msgp/wiki">in our wiki</a>.</p>
+<p>You can read more about how <code>msgp</code> maps MessagePack types onto Go types <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>.</p>
 
 <p>Here some of the known limitations/restrictions:</p>
 
@@ -3187,7 +3185,7 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 <li>Methods are only generated for <code>struct</code> definitions. Chances are that we will keep things this way.</li>
 <li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
 <li>
-<em>Maps must have <code>string</code> keys.</em> This is intentional (as it preserves JSON interop.) Although non-string map keys are not explicitly forbidden by the MessagePack standard, many serializers impose this restriction. (This restriction also means <em>any</em> well-formed <code>struct</code> can be de-serialized into a <code>map[string]interface{}</code>.) The only exception to this rule is that the deserializers will allow you to read map keys encoded as <code>bin</code> types, due to the fact that some legacy encodings permitted this. (However, those values will still be cast to Go <code>string</code>s, and they will be converted to <code>str</code> types when re-encoded. It is the responsibility of the user to ensure that map keys are UTF-8 safe in this case.) The same rules hold true for JSON translation.</li>
+<em>Maps must have <code>string</code> keys.</em> This is intentional (as it preserves JSON interop.) Although non-string map keys are not forbidden by the MessagePack standard, many serializers impose this restriction. (It also means <em>any</em> well-formed <code>struct</code> can be de-serialized into a <code>map[string]interface{}</code>.) The only exception to this rule is that the deserializers will allow you to read map keys encoded as <code>bin</code> types, due to the fact that some legacy encodings permitted this. (However, those values will still be cast to Go <code>string</code>s, and they will be converted to <code>str</code> types when re-encoded. It is the responsibility of the user to ensure that map keys are UTF-8 safe in this case.) The same rules hold true for JSON translation.</li>
 <li>All variable-length objects (maps, strings, arrays, extensions, etc.) cannot have more than <code>(1&lt;&lt;32)-1</code> elements.</li>
 </ul>
 <p>If the output compiles, then there's a pretty good chance things are fine. (Plus, we generate tests for you.) <em>Please, please, please</em> file an issue if you think the generator is writing broken code.</p>
