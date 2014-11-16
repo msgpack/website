@@ -3066,6 +3066,13 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>. You can read more about MessagePack and Go <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>.</p>
 
 <h7>
+<a id="user-content-why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why</h7>
+
+<p>The generated code is about five times faster than other reflection-based implementations of MessagePack, and an order of magnitude faster than <code>encoding/json</code>. Additionally, the memory footprint is much smaller (on both the stack and the heap.)</p>
+
+<p>Generated <code>msgp</code> code typically serializes/deserializes to <code>io.Writer</code>/<code>io.Readers</code>, respectively, in excess of 200MB/s.</p>
+
+<h7>
 <a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h7>
 
 <p>*** Note: <code>go generate</code> is a go 1.4+ feature. ***</p>
