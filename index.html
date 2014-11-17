@@ -232,6 +232,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-gabriel-MPMessagePack',this)">Objective-C <span class="qs-sub">gabriel</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-rodrigosetti-messagepack',this)">Haskell <span class="qs-sub">rodrigosetti</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
@@ -2880,6 +2882,214 @@ after that you can bring the <code>ERL shell</code> with</p>
 <a id="user-content-reading" class="anchor" href="#reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading</h5>
 
 <div class="highlight highlight-objc"><pre><span class="pl-s">id</span> obj = [MPMessagePackReader <span class="pl-sf">readData:</span>data <span class="pl-sf">error:</span>&amp;error];</pre></div>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-mcollina-msgpack5" class="qs"><h4><a href="https://github.com/mcollina/msgpack5" target="_blank">mcollina/msgpack5 <span class="qs-url">https://github.com/mcollina/msgpack5</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack5" class="anchor" href="#msgpack5" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack5  <a href="https://travis-ci.org/mcollina/msgpack5"><img src="https://camo.githubusercontent.com/9b55d6db87b3f41e6c4963d8169561554a7e4975/68747470733a2f2f7472617669732d63692e6f72672f6d636f6c6c696e612f6d73677061636b352e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/mcollina/msgpack5.png" style="max-width:100%;"></a>
+</h5>
+
+<p>A msgpack v5 implementation for node.js, with prototype-based extension points.</p>
+
+<p>This library was built as the data format for
+<a href="http://npm.im/jschan">JSChan</a>.</p>
+
+<h6>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
+
+<div class="highlight highlight-bash"><pre>npm install msgpack5 --save</pre></div>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> msgpack <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>msgpack5<span class="pl-pds">'</span></span>)() <span class="pl-c"><span class="pl-pdc">//</span> namespace our extensions</span>
+  , assert  <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>assert<span class="pl-pds">'</span></span>)
+  , a       <span class="pl-ko">=</span> <span class="pl-ko">new</span> <span class="pl-enti">MyType</span>(<span class="pl-cn">2</span>, <span class="pl-s1"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>)
+  , encode  <span class="pl-ko">=</span> msgpack.encode
+  , decode  <span class="pl-ko">=</span> msgpack.decode
+
+msgpack.register(<span class="pl-cn">0x42</span>, MyType, mytipeEncode, mytipeDecode)
+
+console<span class="pl-sf">.log</span>(encode({ <span class="pl-s1"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> }).<span class="pl-sf">toString</span>(<span class="pl-s1"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
+<span class="pl-c"><span class="pl-pdc">//</span> 81a568656c6c6fa5776f726c64</span>
+console<span class="pl-sf">.log</span>(decode(encode({ <span class="pl-s1"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> })))
+<span class="pl-c"><span class="pl-pdc">//</span> { hello: 'world' }</span>
+console<span class="pl-sf">.log</span>(encode(a).<span class="pl-sf">toString</span>(<span class="pl-s1"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
+<span class="pl-c"><span class="pl-pdc">//</span> d5426161</span>
+console<span class="pl-sf">.log</span>(decode(encode(a)) <span class="pl-ko">instanceof</span> MyType)
+<span class="pl-c"><span class="pl-pdc">//</span> true</span>
+console<span class="pl-sf">.log</span>(decode(encode(a)))
+<span class="pl-c"><span class="pl-pdc">//</span> { value: 'a', size: 2 }</span>
+
+<span class="pl-s">function</span> <span class="pl-enf">MyType</span>(<span class="pl-vpf">size</span>, <span class="pl-vpf">value</span>) {
+  <span class="pl-v">this</span>.value <span class="pl-ko">=</span> value
+  <span class="pl-v">this</span>.size  <span class="pl-ko">=</span> size
+}
+
+<span class="pl-s">function</span> <span class="pl-enf">mytipeEncode</span>(<span class="pl-vpf">obj</span>) {
+  <span class="pl-s">var</span> buf <span class="pl-ko">=</span> <span class="pl-ko">new</span> <span class="pl-enti">Buffer</span>(obj.size)
+  buf.fill(obj.value)
+  <span class="pl-k">return</span> buf
+}
+
+<span class="pl-s">function</span> <span class="pl-enf">mytipeDecode</span>(<span class="pl-vpf">data</span>) {
+  <span class="pl-s">var</span> result <span class="pl-ko">=</span> <span class="pl-ko">new</span> <span class="pl-enti">MyType</span>(data.length, data.<span class="pl-sf">toString</span>(<span class="pl-s1"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>, <span class="pl-cn">0</span>, <span class="pl-cn">1</span>))
+    , i
+
+  <span class="pl-k">for</span> (i <span class="pl-ko">=</span> <span class="pl-cn">0</span>; i <span class="pl-ko">&lt;</span> data.length; i<span class="pl-ko">++</span>) {
+    <span class="pl-k">if</span> (data.readUInt8(<span class="pl-cn">0</span>) <span class="pl-ko">!=</span> data.readUInt8(i)) {
+      <span class="pl-k">throw</span> <span class="pl-ko">new</span> <span class="pl-enti">Error</span>(<span class="pl-s1"><span class="pl-pds">'</span>should all be the same<span class="pl-pds">'</span></span>)
+    }
+  }
+
+  <span class="pl-k">return</span> result
+}</pre></div>
+
+<h6>
+<a id="user-content-api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h6>
+
+<p><a name="user-content-api"></a></p>
+
+<h6>
+<a id="user-content-api-1" class="anchor" href="#api-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h6>
+
+<ul class="task-list">
+<li><a href="#msgpack"><code><b>msgpack()</b></code></a></li>
+<li><a href="#encode"><code>msgpack().<b>encode()</b></code></a></li>
+<li><a href="#decode"><code>msgpack().<b>decode()</b></code></a></li>
+<li><a href="#registerEncoder"><code>msgpack().<b>registerEncoder()</b></code></a></li>
+<li><a href="#registerDecoder"><code>msgpack().<b>registerDecoder()</b></code></a></li>
+<li><a href="#register"><code>msgpack().<b>register()</b></code></a></li>
+<li><a href="#encoder"><code>msgpack().<b>encoder()</b></code></a></li>
+<li><a href="#decoder"><code>msgpack().<b>decoder()</b></code></a></li>
+</ul>
+<hr>
+<p><a name="user-content-msgpack"></a></p>
+
+<h7>
+<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack()</h7>
+
+<p>Creates a new instance on which you can register new types for being
+encoded.</p>
+
+<hr>
+<p><a name="user-content-encode"></a></p>
+
+<h7>
+<a id="user-content-encodeobject" class="anchor" href="#encodeobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>encode(object)</h7>
+
+<p>Encodes <code>object</code> in msgpack, returns a <a href="http://npm.im/bl">bl</a>.</p>
+
+<hr>
+<p><a name="user-content-decode"></a></p>
+
+<h7>
+<a id="user-content-decodebuf" class="anchor" href="#decodebuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>decode(buf)</h7>
+
+<p>Decodes buf from in msgpack. <code>buf</code> can be a <code>Buffer</code> or a <a href="http://npm.im/bl">bl</a> instance.</p>
+
+<hr>
+<p><a name="user-content-registerEncoder"></a></p>
+
+<h7>
+<a id="user-content-registerencodercheckobj-encodeobj" class="anchor" href="#registerencodercheckobj-encodeobj" aria-hidden="true"><span class="octicon octicon-link"></span></a>registerEncoder(check(obj), encode(obj))</h7>
+
+<p>Register a new custom object type for being automatically encoded.
+The arguments are:</p>
+
+<ul class="task-list">
+<li>
+<code>check</code>, a function that will be called to check if the passed
+object should be encoded with the <code>encode</code> function</li>
+<li>
+<code>encode</code>, a function that will be called to encode an object in binary
+form; this function <strong>must</strong> return a <code>Buffer</code> which include the same type
+for <a href="#registerDecoder">registerDecoder</a>.</li>
+</ul>
+<hr>
+<p><a name="user-content-registerDecoder"></a></p>
+
+<h7>
+<a id="user-content-registerdecodertype-decodebuf" class="anchor" href="#registerdecodertype-decodebuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>registerDecoder(type, decode(buf))</h7>
+
+<p>Register a new custom objet type for being automatically decoded.
+The arguments are:</p>
+
+<ul class="task-list">
+<li>
+<code>type</code>, is a positive integer identificating the type once serialized</li>
+<li>
+<code>decode</code>, a function that will be called to decode the object from
+the passed <code>Buffer</code>
+</li>
+</ul>
+<hr>
+<p><a name="user-content-register"></a></p>
+
+<h7>
+<a id="user-content-registertype-constructor-encodeobj-decodebuf" class="anchor" href="#registertype-constructor-encodeobj-decodebuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>register(type, constructor, encode(obj), decode(buf))</h7>
+
+<p>Register a new custom objet type for being automatically encoded and
+decoded. The arguments are:</p>
+
+<ul class="task-list">
+<li>
+<code>type</code>, is a positive integer identificating the type once serialized</li>
+<li>
+<code>constructor</code>, the function that will be used to match the objects
+with <code>instanceof</code>
+</li>
+<li>
+<code>encode</code>, a function that will be called to encode an object in binary
+form; this function <strong>must</strong> return a <code>Buffer</code> that can be
+deserialized by the <code>decode</code> function</li>
+<li>
+<code>decode</code>, a function that will be called to decode the object from
+the passed <code>Buffer</code>
+</li>
+</ul>
+<p>This is just a commodity that calls
+<a href="#registerEncoder"><code>registerEncoder</code></a> and
+<a href="#registerDecoder"><code>registerDecoder</code></a> internally.</p>
+
+<hr>
+<p><a name="user-content-encoder"></a></p>
+
+<h7>
+<a id="user-content-encoderopts" class="anchor" href="#encoderopts" aria-hidden="true"><span class="octicon octicon-link"></span></a>encoder(opts)</h7>
+
+<p>Builds a stream in object mode that encodes msgpack. By default it writes
+an 4 byte length header containing the message length as a UInt32BE. This
+ header can be disabled by passing <code>{ header: false }</code> as an option.</p>
+
+<hr>
+<p><a name="user-content-decoder"></a></p>
+
+<h7>
+<a id="user-content-decoderopts" class="anchor" href="#decoderopts" aria-hidden="true"><span class="octicon octicon-link"></span></a>decoder(opts)</h7>
+
+<p>Builds a stream in object mode that decodes msgpack. By default it expects
+msgpack to have a 4 byte length header containing the packaged length as
+a UInt32BE. This header can be disabled by passing <code>{ header: false }</code> as an option.</p>
+
+<h6>
+<a id="user-content-disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disclaimer</h6>
+
+<p>This library is built fully on JS and on <a href="http://npm.im/bl">bl</a> to
+simplify the code. Every improvement that keeps the same API is welcome.</p>
+
+<h6>
+<a id="user-content-acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acknowledgements</h6>
+
+<p>This project was kindly sponsored by <a href="http://nearform.com">nearForm</a>.</p>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+
+<p>MIT</p>
 </article>
 </div>
         </div>
