@@ -3270,7 +3270,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 <a id="user-content-messagepack-code-generator" class="anchor" href="#messagepack-code-generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack Code Generator</h5>
 
 <p><a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/299ea3461543de30174632b3fb35e878c03148b7/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f757365732d6261646765732e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/uses-badges.svg" style="max-width:100%;"></a>
-<a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/c59ba0baf49c28105097e0476665b22c66031113/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f6365727469666965642d736e6f6f702d6c696f6e2e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/certified-snoop-lion.svg" style="max-width:100%;"></a></p>
+<a href="http://forthebadge.com"><img src="https://camo.githubusercontent.com/49f354772cd85677a4abe7fc0404273fa953b9bd/687474703a2f2f666f7274686562616467652e636f6d2f6261646765732f616765732d31322e737667" alt="forthebadge" data-canonical-src="http://forthebadge.com/badges/ages-12.svg" style="max-width:100%;"></a></p>
 
 <p>This is a code generation tool and serialization library for <a href="http://msgpack.org">MesssagePack</a>. It is targeted at the <code>go generate</code> <a href="http://tip.golang.org/cmd/go/#hdr-Generate_Go_files_by_processing_source">tool</a>. You can read more about MessagePack <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>, or at <a href="http://msgp.org">msgpack.org</a>.</p>
 
@@ -3298,28 +3298,6 @@ need code generation.</p>
 
 <p>You can <a href="http://github.com/philhofer/msgp/wiki/Using-the-Code-Generator">read more about the code generation options here</a>.</p>
 
-<p>Once you have the appropriate methods generated, we can use the methods in <code>github.com/philhofer/msgp/msgp</code> to serialize and
-de-serialize the objects.</p>
-
-<p>For example, if we had generated methods for a <code>Person</code> struct:</p>
-
-<div class="highlight highlight-go"><pre><span class="pl-k">import</span> (
-    <span class="pl-s1"><span class="pl-pds">"</span>github.com/philhofer/msgp/msgp<span class="pl-pds">"</span></span>
-    <span class="pl-s1"><span class="pl-pds">"</span>os<span class="pl-pds">"</span></span>
-)
-
-<span class="pl-vo">p</span> <span class="pl-k">:=</span> &amp;Person{
-    <span class="pl-v">Name</span>: <span class="pl-s1"><span class="pl-pds">"</span>Huck Finn<span class="pl-pds">"</span></span>,
-    <span class="pl-v">Age</span>: <span class="pl-c1">14</span>,
-}
-
-<span class="pl-k">func</span> <span class="pl-en">main</span>() {
-    <span class="pl-c">// write 'p' to standard out</span>
-    <span class="pl-c">// (no need for buffering here; </span>
-    <span class="pl-c">// Encode does it for you)</span>
-    msgp.<span class="pl-s3">Encode</span>(os.<span class="pl-vo">Stdout</span>, p)
-}</pre></div>
-
 <h7>
 <a id="user-content-use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h7>
 
@@ -3337,11 +3315,10 @@ de-serialize the objects.</p>
 <code>msgp.Marshaler</code>, and <code>msgp.Unmarshaler</code>. Carefully-designed applications can use these methods to do
 marshalling/unmarshalling with zero allocations.</p>
 
-<p>One of the unique features of this package is the implementation of <code>*Reader</code> and <code>*Writer</code>, which
-are both buffered. The fact that these objects can manipulate the contents of their buffers directly
-means that encoding and decoding from streams can be nearly as fast as marshalling and unmarshalling. 
-Additionally, the fact that these are buffered means that they can be directly applied to a <code>net.Conn</code>
-or <code>*os.File</code>, for example.</p>
+<p>While <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> are quite similar to the standard library's
+<code>json.Marshaler</code> and <code>json.Unmarshaler</code>, <code>msgp.Encodable</code> and <code>msgp.Decodable</code> are useful for 
+stream serialization. (<code>*msgp.Writer</code> and <code>*msgp.Reader</code> are essentially protocol-aware versions
+of <code>*bufio.Writer</code> and <code>*bufio.Reader</code>, respectively.)</p>
 
 <h7>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
@@ -3353,7 +3330,8 @@ or <code>*os.File</code>, for example.</p>
 <li>Identifier resolution (see below)</li>
 <li>Native support for Go's <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types </li>
 <li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
-<li>Support for arbitrary type system extensions (see below)</li>
+<li>Support for arbitrary type system extensions</li>
+<li><a href="http://github.com/philhofer/msgp/wiki/Preprocessor-Directives">Preprocessor directives</a></li>
 </ul>
 <p>Because of (limited) identifier resolution, the code generator will still yield the
 correct code for the following struct declaration:</p>
