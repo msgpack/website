@@ -2220,29 +2220,29 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
-<div class="highlight highlight-clojure"><pre>(<span class="pl-s3">require</span> <span class="pl-c1">'</span>[<span class="pl-s2">msgpack</span><span class="pl-k">.</span><span class="pl-s2">core</span> <span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">refer</span></span> <span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">all</span></span>])
+<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:refer</span> <span class="pl-c1">:all</span>])
 
-(<span class="pl-s2">pack</span> {<span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">compact</span></span> <span class="pl-c1">true</span> <span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">schema</span></span> <span class="pl-c1">0</span>})
+(pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
 <span class="pl-c">; #&lt;byte[] [B@5984b649&gt;</span>
 
 <span class="pl-c">; Declare records and types as Extended types.</span>
-(<span class="pl-s3">defrecord</span> <span class="pl-s2">Employee</span> [<span class="pl-s3">name</span>])
+(<span class="pl-k">defrecord</span> Employee [name])
 
-(<span class="pl-s3">defext</span> <span class="pl-s2">Employee</span> <span class="pl-c1">1</span> [<span class="pl-s2">e</span>]
-  (.<span class="pl-s2">getBytes</span> (<span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">name</span></span> <span class="pl-s2">e</span>)))
+(<span class="pl-k">defext</span> Employee <span class="pl-c1">1</span> [e]
+  (.getBytes (<span class="pl-c1">:name</span> e)))
 
-(<span class="pl-k">let</span> [<span class="pl-v"><span class="pl-s2">bob</span></span> (<span class="pl-stj"><span class="pl-s2">Employee</span>.</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
-      <span class="pl-v"><span class="pl-s2">bytes</span></span> (<span class="pl-s2">pack</span> <span class="pl-s2">bob</span>)]
-  (<span class="pl-s">map</span> <span class="pl-st">#</span>(<span class="pl-s3">format</span> <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> <span class="pl-v">%</span>) <span class="pl-s2">bytes</span>))
+(<span class="pl-s">let</span> [bob (Employee. <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
+      bytes (pack bob)]
+  (map #(format <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
 <span class="pl-c">; ("0xc7" "0x3" "0x1" "0x62" "0x6f" "0x62")</span>
 
 <span class="pl-c">; Or encode an extension directly</span>
-(<span class="pl-s2">pack</span> (<span class="pl-k">-</span><span class="pl-s2">&gt;Extension</span> <span class="pl-c1">1</span> (.<span class="pl-s2">getBytes</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)))
+(pack (-&gt;Extension <span class="pl-c1">1</span> (.getBytes <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)))
 
-(<span class="pl-s2">pack</span> {<span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">compact</span></span> <span class="pl-c1">true</span> <span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">schema</span></span> <span class="pl-c1">0</span>})
+(pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
 <span class="pl-c">; #&lt;byte[] [B@59ce1eed&gt;</span>
 
-(<span class="pl-s2">unpack</span> (<span class="pl-s2">pack</span> {<span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">compact</span></span> <span class="pl-c1">true</span> <span class="pl-c1"><span class="pl-kos">:</span><span class="pl-s2">schema</span></span> <span class="pl-c1">0</span>}))
+(unpack (pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
 <span class="pl-c">; {"schema" 0, "compact" true}</span></pre></div>
 
 <h6>
@@ -2425,16 +2425,16 @@ examples included with the msgpack-c project.</p>
 
 #<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">"</span>cmp.h<span class="pl-pds">"</span></span>
 
-<span class="pl-s">static</span> <span class="pl-st">bool</span> <span class="pl-en">read_bytes</span>(<span class="pl-st">void</span> *data, <span class="pl-s3">size_t</span> sz, FILE *fh) {
+<span class="pl-s">static</span> <span class="pl-st">bool</span> <span class="pl-en">read_bytes</span>(<span class="pl-st">void</span> *data, <span class="pl-s3">size_t</span> sz, <span class="pl-s3">FILE</span> *fh) {
     <span class="pl-k">return</span> <span class="pl-s3">fread</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-s3">uint8_t</span>), sz, fh) == (sz * <span class="pl-k">sizeof</span>(<span class="pl-s3">uint8_t</span>));
 }
 
 <span class="pl-s">static</span> <span class="pl-st">bool</span> <span class="pl-en">file_reader</span>(<span class="pl-s3">cmp_ctx_t</span> *ctx, <span class="pl-st">void</span> *data, <span class="pl-s3">size_t</span> limit) {
-    <span class="pl-k">return</span> <span class="pl-s3">read_bytes</span>(data, limit, (FILE *)ctx-&gt;buf);
+    <span class="pl-k">return</span> <span class="pl-s3">read_bytes</span>(data, limit, (<span class="pl-s3">FILE</span> *)ctx-&gt;buf);
 }
 
 <span class="pl-s">static</span> <span class="pl-s3">size_t</span> <span class="pl-en">file_writer</span>(<span class="pl-s3">cmp_ctx_t</span> *ctx, <span class="pl-s">const</span> <span class="pl-st">void</span> *data, <span class="pl-s3">size_t</span> count) {
-    <span class="pl-k">return</span> <span class="pl-s3">fwrite</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-s3">uint8_t</span>), count, (FILE *)ctx-&gt;buf);
+    <span class="pl-k">return</span> <span class="pl-s3">fwrite</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-s3">uint8_t</span>), count, (<span class="pl-s3">FILE</span> *)ctx-&gt;buf);
 }
 
 <span class="pl-st">void</span> <span class="pl-en">error_and_exit</span>(<span class="pl-s">const</span> <span class="pl-st">char</span> *msg) {
@@ -2443,7 +2443,7 @@ examples included with the msgpack-c project.</p>
 }
 
 <span class="pl-st">int</span> <span class="pl-en">main</span>(<span class="pl-st">void</span>) {
-    FILE *fh = <span class="pl-c1">NULL</span>;
+    <span class="pl-s3">FILE</span> *fh = <span class="pl-c1">NULL</span>;
     <span class="pl-s3">cmp_ctx_t</span> cmp;
     <span class="pl-s3">uint32_t</span> array_size = <span class="pl-c1">0</span>;
     <span class="pl-s3">uint32_t</span> str_size = <span class="pl-c1">0</span>;
@@ -2571,12 +2571,12 @@ gcc.</p>
 
 <div class="highlight highlight-dart"><pre><span class="pl-k">class</span> NotificationFrame <span class="pl-k">extends</span> Message {
     <span class="pl-st">String</span> kind;
-    Map<span class="pl-k">&lt;</span><span class="pl-st">String</span>, Object<span class="pl-k">&gt;</span> data;
+    <span class="pl-st">Map</span><span class="pl-k">&lt;</span><span class="pl-st">String</span>, Object<span class="pl-k">&gt;</span> data;
 
     NotificationFrame(<span class="pl-v">this</span>.kind, <span class="pl-v">this</span>.data);
 
-    <span class="pl-s">static</span> NotificationFrame fromList(List f) <span class="pl-k">=</span><span class="pl-k">&gt;</span> <span class="pl-k">new</span> NotificationFrame(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
-    List toList() <span class="pl-k">=</span><span class="pl-k">&gt;</span> [kind, data];
+    <span class="pl-s">static</span> NotificationFrame fromList(<span class="pl-st">List</span> f) <span class="pl-k">=</span><span class="pl-k">&gt;</span> <span class="pl-k">new</span> NotificationFrame(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
+    <span class="pl-st">List</span> toList() <span class="pl-k">=</span><span class="pl-k">&gt;</span> [kind, data];
 }</pre></div>
 
 <p>For each class you need to define the <code>fromList</code> and <code>toList</code> methods, which convert from and to a list of fields respectively.</p>
