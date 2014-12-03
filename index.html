@@ -2646,14 +2646,14 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 <div class="highlight highlight-fsharp"><pre>
 <span class="pl-k">open</span> <span class="pl-s3">MsgPack</span>
 
-[| <span class="pl-c1">1</span>uy; <span class="pl-c1">2</span>uy; <span class="pl-c1">3</span>uy |]
-|&gt; <span class="pl-s3">Array</span>.map (<span class="pl-s3">Value</span>.UInt8)
-|&gt; <span class="pl-s3">Value</span>.Array
-|&gt; <span class="pl-s3">Packer</span>.packOne
-//=&gt; val it : byte [] = [|<span class="pl-c1">147</span>uy; <span class="pl-c1">1</span>uy; <span class="pl-c1">2</span>uy; <span class="pl-c1">3</span>uy|]
+<span class="pl-k">[</span><span class="pl-k">|</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy <span class="pl-k">|</span><span class="pl-k">]</span>
+<span class="pl-k">|&gt;</span> <span class="pl-s3">Array</span>.map (<span class="pl-s3">Value</span>.UInt8)
+<span class="pl-k">|&gt;</span> <span class="pl-s3">Value</span>.Array
+<span class="pl-k">|&gt;</span> <span class="pl-s3">Packer</span>.packOne
+<span class="pl-c">//=&gt; val it : byte [] = [|147uy; 1uy; 2uy; 3uy|]</span>
 
-<span class="pl-s3">Unpacker</span>.unpack [|<span class="pl-c1">147</span>uy; <span class="pl-c1">1</span>uy; <span class="pl-c1">2</span>uy; <span class="pl-c1">3</span>uy|]
-//=&gt; [|<span class="pl-s3">Value</span>.Array [|<span class="pl-s3">Value</span>.UInt8 <span class="pl-c1">1</span>uy; <span class="pl-s3">Value</span>.UInt8 <span class="pl-c1">2</span>uy; <span class="pl-s3">Value</span>.UInt8 <span class="pl-c1">3</span>uy|]|]</pre></div>
+<span class="pl-s3">Unpacker</span>.unpack <span class="pl-k">[</span><span class="pl-k">|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|</span><span class="pl-k">]</span>
+<span class="pl-c">//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]</span></pre></div>
 <h6>
 <a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright</h6>
 <p><tt>Copyright (c) 2014- Kazuhiro Matsushima</tt></p>
