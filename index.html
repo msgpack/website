@@ -2083,9 +2083,9 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb(
         [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">0x</span>ffffffff, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: b<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
          <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
-<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01</span>\xc3\xc2\xce\xff\xff\xff\xff<span class="pl-cce">\x82</span>\xa3foo\xc4<span class="pl-cce">\x03\x80\x01</span><span class="pl-ii"></span></span>
-\<span class="pl-ii">x02\xa3bar\x94\x01\x02\x03\x81\xa1a\x94\x01\x02\x03\x80\xff\xcb</span>
-@\<span class="pl-ii">x00\xfc\xd3Z\x85\x87\x94'</span>
+<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01</span>\xc3\xc2\xce\xff\xff\xff\xff<span class="pl-cce">\x82</span>\xa3foo\xc4<span class="pl-cce">\x03\x80\x01</span><span class="pl-pds">'</span></span>
+<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x02</span>\xa3bar<span class="pl-cce">\x94\x01\x02\x03\x81</span>\xa1a<span class="pl-cce">\x94\x01\x02\x03\x80</span>\xff\xcb<span class="pl-pds">'</span></span>
+<span class="pl-s1"><span class="pl-pds">'</span>@<span class="pl-cce">\x00</span>\xfc\xd3Z<span class="pl-cce">\x85\x87\x94</span><span class="pl-pds">'</span></span>
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
 [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">4294967295</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">'</span></span>,
  <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>]
@@ -2242,8 +2242,9 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 (pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
 <span class="pl-c">; #&lt;byte[] [B@59ce1eed&gt;</span>
 
-(unpack (pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
-<span class="pl-c">; {"schema" 0, "compact" true}</span></pre></div>
+<span class="pl-c">; Pass the :keywordize flag to unpack map keys as Clojure keywords.</span>
+(unpack (pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}) <span class="pl-c1">:keywordize</span>)
+<span class="pl-c">; {:schema 0, :compact true}</span></pre></div>
 
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
