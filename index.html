@@ -897,45 +897,57 @@ end
 <p>An implementation of <a href="http://msgpack.org/">MessagePack</a> for Scala.</p>
 
 <h6>
-<a id="user-content-quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start</h6>
-
-<p>Quick Start is available at <a href="http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+Scala">MessagePack official site</a>.</p>
-
-<h6>
 <a id="user-content-requirement" class="anchor" href="#requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirement</h6>
 
 <ul class="task-list">
-<li>sbt 0.12.2 or later</li>
+<li>sbt 0.13.5 or later</li>
 </ul>
 <h6>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+<a id="user-content-sbt" class="anchor" href="#sbt" aria-hidden="true"><span class="octicon octicon-link"></span></a>SBT</h6>
+
+<p>Add dependency.</p>
+
+<pre><code>libraryDependencies += "org.msgpack" %% "msgpack-scala" % "0.6.11"
+</code></pre>
+
+<h6>
+<a id="user-content-for-developer" class="anchor" href="#for-developer" aria-hidden="true"><span class="octicon octicon-link"></span></a>For developer</h6>
 
 <h7>
-<a id="user-content-by-using-sbt" class="anchor" href="#by-using-sbt" aria-hidden="true"><span class="octicon octicon-link"></span></a>By using sbt</h7>
-
-<p>This project also supports sbt 0.13.5
-To build JAR file of MessagePack for Scala, please type the following command:</p>
-
-<pre><code>$ package
-</code></pre>
-
-<h6>
-<a id="user-content-how-to-release-the-project" class="anchor" href="#how-to-release-the-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to release the project</h6>
-
-<p>To relese the project (compile, test, tagging, deploy), please use the commands as follows:</p>
-
-<pre><code>$ mvn release:prepare
-$ mvn release:perform
-</code></pre>
-
-<h6>
-<a id="user-content-make-intellij-project" class="anchor" href="#make-intellij-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Make intellij project</h6>
+<a id="user-content-make-intellij-project" class="anchor" href="#make-intellij-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Make intellij project</h7>
 
 <p>Please type the following command.Then intellij project will be generated.</p>
 
 <pre><code>$ sbt gen-idea
 </code></pre>
-</article>
+
+<h5>
+<a id="user-content-quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start</h5>
+
+<h6>
+<a id="user-content-serializedeserialize-class" class="anchor" href="#serializedeserialize-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize class</h6>
+
+<div class="highlight highlight-scala"><pre>
+<span class="pl-k">import</span> <span class="pl-v">org.msgpack.annotation.</span><span class="pl-v">Message</span>
+<span class="pl-k">import</span> <span class="pl-v">org.msgpack.</span><span class="pl-v">ScalaMessagePack</span>
+
+<span class="pl-k">@</span><span class="pl-en">Message</span> <span class="pl-c">// Don't forget to add Message annotation.</span>
+<span class="pl-k">class</span> <span class="pl-en">YourClass</span>{
+  <span class="pl-k">var</span> <span class="pl-en">name</span> <span class="pl-k">:</span> <span class="pl-st">String</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+  <span class="pl-k">var</span> <span class="pl-en">age</span> <span class="pl-k">:</span> <span class="pl-st">Int</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>
+}
+
+<span class="pl-k">val</span> <span class="pl-en">obj</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">YourClass</span>()
+obj.name <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>hoge<span class="pl-pds">"</span></span>
+obj.age <span class="pl-k">=</span> <span class="pl-c1">22</span>
+<span class="pl-k">val</span> <span class="pl-en">serialized</span> <span class="pl-k">:</span> <span class="pl-en">Array</span>[<span class="pl-st">Byte</span>] <span class="pl-k">=</span> <span class="pl-en">ScalaMessagePack</span>.write(obj)
+
+<span class="pl-k">val</span> <span class="pl-en">deserialized</span> <span class="pl-k">:</span> <span class="pl-en">YourClass</span> <span class="pl-k">=</span> <span class="pl-en">ScalaMessagePack</span>.read[<span class="pl-en">YourClass</span>](serialized)
+</pre></div>
+
+<ul class="task-list">
+<li>Sorry, case classes are not supported now.</li>
+</ul></article>
 </div>
         </div>
         
