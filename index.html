@@ -3372,11 +3372,13 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 <li>Speeeeeed (400MB/s on modern hardware)</li>
 <li><a href="http://godoc.org/github.com/philhofer/msgp/msgp#CopyToJSON">JSON interop</a></li>
 <li><a href="http://github.com/philhofer/msgp/wiki/Using-Extensions">User-defined types</a></li>
+<li>Type safety</li>
+<li>Encoding flexibility</li>
 </ul>
 <h7>
 <a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h7>
 
-<p>*** Note: <code>go generate</code> is a go 1.4+ feature. ***</p>
+<p>Note: you need at least go 1.3 to compile this package, and at least go 1.4 to use <code>go generate</code>.</p>
 
 <p>In a source file, include the following directive:</p>
 
@@ -3451,7 +3453,7 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 <h7>
 <a id="user-content-status" class="anchor" href="#status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status</h7>
 
-<p>Alpha. I <em>will</em> break stuff.</p>
+<p>Alpha. I <em>will</em> break stuff. There is an open milestone for Beta stability (targeted for January.)</p>
 
 <p>You can read more about how <code>msgp</code> maps MessagePack types onto Go types <a href="http://github.com/philhofer/msgp/wiki">in the wiki</a>.</p>
 
@@ -3473,8 +3475,7 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 
 <p>If you like benchmarks, we're the <a href="https://github.com/alecthomas/go_serialization_benchmarks">fastest and lowest-memory-footprint round-trip serializer for Go in this test.</a></p>
 
-<p>Speed is the core impetus for this project; there are already a number of reflection-based libraries that exist 
-for MessagePack serialization. (Type safety and generated tests are an added bonus.)</p>
+<p>As one might expect, the generated methods that deal with <code>[]byte</code> are faster, but the <code>io.Reader/Writer</code> methods are generally more memory-efficient for large (&gt; 2KB) objects. As always, benchmark for your particular use case.</p>
 </article>
 </div>
         </div>
