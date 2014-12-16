@@ -1959,6 +1959,18 @@ iex&gt; term = Msgpax.unpack!(iodata)
 [300, "Spartans"]
 </code></pre>
 
+<h7>
+<a id="user-content-binary-format" class="anchor" href="#binary-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary format</h7>
+
+<pre lang="iex"><code>iex&gt; msgbin = Msgpax.binary(&lt;&lt;3, 18, 122, 27, 115&gt;&gt;)
+%Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}
+iex&gt; iodata = Msgpax.pack!(msgbin)
+[&lt;&lt;196, 5&gt;&gt;, &lt;&lt;3, 18, 122, 27, 115&gt;&gt;]
+...
+iex&gt; code = Msgpax.unpack!(iodata, %{binary: true})
+%Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}
+</code></pre>
+
 <h6>
 <a id="user-content-data-conversion" class="anchor" href="#data-conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data conversion</h6>
 
