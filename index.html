@@ -2949,8 +2949,8 @@ after that you can bring the <code>ERL shell</code> with</p>
 <pre><code>pod "MPMessagePack"
 </code></pre>
 
-<h5>
-<a id="user-content-writing" class="anchor" href="#writing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing</h5>
+<h6>
+<a id="user-content-writing" class="anchor" href="#writing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing</h6>
 
 <div class="highlight highlight-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>MPMessagePack/MPMessagePack.h<span class="pl-pds">&gt;</span></span>
 
@@ -2962,16 +2962,28 @@ after that you can bring the <code>ERL shell</code> with</p>
 <span class="pl-s1"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>: [<span class="pl-s3">NSData</span> <span class="pl-s3">data</span>],
 };
 
-<span class="pl-s3">NSData</span> *data = [dict <span class="pl-s3">mp_messagePack</span>];
+<span class="pl-s3">NSData</span> *data = [dict <span class="pl-s3">mp_messagePack</span>];</pre></div>
 
-<span class="pl-c">// To get error info</span>
-<span class="pl-s3">NSError</span> *error = <span class="pl-c1">nil</span>;
+<p>Or via <code>MPMessagePackWriter</code>.</p>
+
+<div class="highlight highlight-objc"><pre><span class="pl-s3">NSError</span> *error = <span class="pl-c1">nil</span>;
 <span class="pl-s3">NSData</span> *data = [MPMessagePackWriter <span class="pl-s3">writeObject:</span>dict <span class="pl-s3">error:</span>&amp;error];</pre></div>
 
-<h5>
-<a id="user-content-reading" class="anchor" href="#reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading</h5>
+<p>If you need to use an ordered dictionary.</p>
+
+<div class="highlight highlight-objc"><pre>MPOrderedDictionary *dict = [[MPOrderedDictionary <span class="pl-s3">alloc</span>] <span class="pl-s3">init</span>];
+[dict <span class="pl-s3">addEntriesFromDictionary:</span>@{<span class="pl-s1"><span class="pl-pds">@"</span>c<span class="pl-pds">"</span></span>: @(<span class="pl-c1">1</span>), <span class="pl-s1"><span class="pl-pds">@"</span>b<span class="pl-pds">"</span></span>: @(<span class="pl-c1">2</span>), <span class="pl-s1"><span class="pl-pds">@"</span>a<span class="pl-pds">"</span></span>: @(<span class="pl-c1">3</span>)}];
+[dict <span class="pl-s3">sortKeysUsingSelector:</span><span class="pl-st">@selector</span>(<span class="pl-s3">localizedCaseInsensitiveCompare:</span>)];
+[dict <span class="pl-s3">mp_messagePack</span>];</pre></div>
+
+<h6>
+<a id="user-content-reading" class="anchor" href="#reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading</h6>
 
 <div class="highlight highlight-objc"><pre><span class="pl-st">id</span> obj = [MPMessagePackReader <span class="pl-s3">readData:</span>data <span class="pl-s3">error:</span>&amp;error];</pre></div>
+
+<div class="highlight highlight-objc"><pre>MPMessagePackReader *reader = [[MPMessagePackReader <span class="pl-s3">alloc</span>] <span class="pl-s3">initWithData:</span>data];
+<span class="pl-st">id</span> obj1 = [reader <span class="pl-s3">read</span>:&amp;error]; <span class="pl-c">// Read an object</span>
+<span class="pl-st">id</span> obj2 = [reader <span class="pl-s3">read</span>:&amp;error]; <span class="pl-c">// Read another object</span></pre></div>
 </article>
 </div>
         </div>
