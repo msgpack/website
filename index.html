@@ -3512,6 +3512,65 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 <a id="user-content-simplemsgpacknet" class="anchor" href="#simplemsgpacknet" aria-hidden="true"><span class="octicon octicon-link"></span></a>SimpleMsgPack.Net</h5>
 
 <p>MessagePack implementation for C# / msgpack.org[C#] </p>
+
+<p>It's like JSON but small and fast.</p>
+
+<pre><code>unit Owner: D10.Mofen
+contract:
+       qq:185511468, 
+    email:ymofen@diocp.org
+    homepage:www.diocp.org
+welcome to report bug
+</code></pre>
+
+<h6>
+<a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><span class="octicon octicon-link"></span></a>Works with</h6>
+
+<p>.NET Framework 4.x</p>
+
+<h7>
+<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Example</h7>
+
+<div class="highlight highlight-C#"><pre>
+    MsgPack msgpack = <span class="pl-s">new</span> MsgPack();
+    msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.name<span class="pl-pds">"</span></span>).AsString = <span class="pl-s1"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>;
+    msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.age<span class="pl-pds">"</span></span>).AsInteger = <span class="pl-c1">25</span>;
+    msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>).AsArray.Add(<span class="pl-c1">90</span>);
+    msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>).AsArray.Add(<span class="pl-c1">80</span>);
+    msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>).AsArray.Add(<span class="pl-s1"><span class="pl-pds">"</span>李四<span class="pl-pds">"</span></span>);
+    msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>).AsArray.Add(<span class="pl-c1">3.1415926</span>);
+
+    <span class="pl-c">// pack file</span>
+    msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.filedata<span class="pl-pds">"</span></span>).LoadFileAsBytes(<span class="pl-s1"><span class="pl-pds">"</span>C:<span class="pl-cce">\\</span>a.png<span class="pl-pds">"</span></span>);
+
+    <span class="pl-c">// pack msgPack binary</span>
+    <span class="pl-st">byte</span>[] packData = msgpack.Encode2Bytes();
+
+    MsgPack unpack_msgpack = <span class="pl-s">new</span> MsgPack();
+
+    <span class="pl-c">// unpack msgpack</span>
+    unpack_msgpack.DecodeFromBytes(packData);
+
+    System.Console.WriteLine(<span class="pl-s1"><span class="pl-pds">"</span>name:{0}, age:{1}<span class="pl-pds">"</span></span>,
+          unpack_msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.name<span class="pl-pds">"</span></span>).AsString,
+          unpack_msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.age<span class="pl-pds">"</span></span>).AsInteger);
+
+    Console.WriteLine(<span class="pl-s1"><span class="pl-pds">"</span>==================================<span class="pl-pds">"</span></span>);
+    System.Console.WriteLine(<span class="pl-s1"><span class="pl-pds">"</span>use index property, Length{0}:{1}<span class="pl-pds">"</span></span>,
+          unpack_msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>).AsArray.Length,
+          unpack_msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>).AsArray[<span class="pl-c1">0</span>].AsString
+          );
+
+    Console.WriteLine(<span class="pl-s1"><span class="pl-pds">"</span>==================================<span class="pl-pds">"</span></span>);
+    Console.WriteLine(<span class="pl-s1"><span class="pl-pds">"</span>use foreach statement:<span class="pl-pds">"</span></span>);
+    <span class="pl-k">foreach</span> (MsgPack item <span class="pl-k">in</span> unpack_msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>))
+    {
+        Console.WriteLine(item.AsString);
+    }
+
+    <span class="pl-c">// unpack filedata </span>
+    unpack_msgpack.ForcePathObject(<span class="pl-s1"><span class="pl-pds">"</span>p.filedata<span class="pl-pds">"</span></span>).SaveBytesToFile(<span class="pl-s1"><span class="pl-pds">"</span>C:<span class="pl-cce">\\</span>b.png<span class="pl-pds">"</span></span>);
+    Console.Read();</pre></div>
 </article>
 </div>
         </div>
