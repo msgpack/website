@@ -1961,8 +1961,17 @@ iex&gt; term = Msgpax.unpack!(iodata)
 [300, "Spartans"]
 </code></pre>
 
-<h7>
-<a id="user-content-binary-format" class="anchor" href="#binary-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary format</h7>
+<h8>
+<a id="user-content-stream-oriented-deserialization" class="anchor" href="#stream-oriented-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream-oriented deserialization</h8>
+
+<pre lang="iex"><code>iex&gt; {term1, rest} = Msgpax.unpack_slice!(buffer)
+{[1,2,3], &lt;&lt;4&gt;&gt;}
+iex&gt; {:ok, term2, rest} = Msgpax.unpack_slice(rest)
+{:ok, 4, ""}
+</code></pre>
+
+<h8>
+<a id="user-content-binary-format" class="anchor" href="#binary-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary format</h8>
 
 <pre lang="iex"><code>iex&gt; msgbin = Msgpax.binary(&lt;&lt;3, 18, 122, 27, 115&gt;&gt;)
 %Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}
