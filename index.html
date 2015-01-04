@@ -210,7 +210,7 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
@@ -2264,137 +2264,115 @@ available:</p>
 </div>
         </div>
         
-        <div id="qs-kmsquire-MsgPack-jl" class="qs"><h4><a href="https://github.com/kmsquire/MsgPack.jl" target="_blank">kmsquire/MsgPack.jl <span class="qs-url">https://github.com/kmsquire/MsgPack.jl</a></li></h4>
+        <div id="qs-vsergeev-u-msgpack-python" class="qs"><h4><a href="https://github.com/vsergeev/u-msgpack-python" target="_blank">vsergeev/u-msgpack-python <span class="qs-url">https://github.com/vsergeev/u-msgpack-python</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack</h5>
+<a id="user-content-u-msgpack-python-v20" class="anchor" href="#u-msgpack-python-v20" aria-hidden="true"><span class="octicon octicon-link"></span></a>u-msgpack-python v2.0</h5>
 
-<p><a href="https://travis-ci.org/kmsquire/MsgPack.jl"><img src="https://camo.githubusercontent.com/8a2893a403c22c2fa53ef926fa2a63aecff17e69/68747470733a2f2f7472617669732d63692e6f72672f6b6d7371756972652f4d73675061636b2e6a6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kmsquire/MsgPack.jl.svg?branch=master" style="max-width:100%;"></a></p>
+<p>u-msgpack-python is a lightweight <a href="http://msgpack.org/">MessagePack</a> serializer and deserializer module written in pure Python, compatible with both Python 2 and 3, as well CPython and PyPy implementations of Python. u-msgpack-python is fully compliant with the latest <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a>.</p>
 
-<p>Provides basic support for the <a href="http://msgpack.org">msgpack</a> format.</p>
+<p>u-msgpack-python is currently distributed on PyPI: <a href="https://pypi.python.org/pypi/u-msgpack-python">https://pypi.python.org/pypi/u-msgpack-python</a> and as a single file: <a href="https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py">umsgpack.py</a></p>
 
-<pre><code>julia&gt; import MsgPack
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
 
-julia&gt; MsgPack.pack("hi")
-3-element Array{Uint8,1}:
- 0xa2
- 0x68
- 0x69
+<p>With pip:</p>
 
-julia&gt; a = MsgPack.pack([1,2,"hi"])
-6-element Array{Uint8,1}:
- 0x93
- 0x01
- 0x02
- 0xa2
- 0x68
- 0x69
-
-julia&gt; MsgPack.unpack(MsgPack.pack(4.5))
-4.5
-
-julia&gt; f = open("in.mp")
-julia&gt; MsgPack.unpack(f)
-"hello"
-
-julia&gt; f2 = open("out.mp", "w")
-julia&gt; MsgPack.pack(f2, [1,2,"hi"])
-
-
-
+<pre lang="text"><code>$ pip install u-msgpack-python
 </code></pre>
 
-<p>NOTE: The standard method for encoding integers in msgpack is to use the most compact representation possible, and to encode negative integers as signed ints and non-negative numbers as unsigned ints.</p>
+<p>With easy_install:</p>
 
-<p>For compatibility with other implementations, I'm following this convention.  On the unpacking side, every integer type becomes an Int64 in Julia, unless it doesn't fit (ie. values greater than 2^63 are unpacked as Uint64).</p>
+<pre lang="text"><code>$ easy_install u-msgpack-python
+</code></pre>
 
-<p>I might change this at some point, and/or provide a way to control the unpacked types.</p>
+<p>or simply drop <a href="https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py">umsgpack.py</a> into your project!</p>
 
-<h7>
-<a id="user-content-the-extension-type" class="anchor" href="#the-extension-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Extension Type</h7>
+<pre lang="text"><code>$ wget https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py
+</code></pre>
 
-<p>The MsgPack spec <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#formats-ext">defines</a> the <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#types-extension-type">extension type</a> to be a tuple of <code>(typecode, bytearray)</code> where <code>typecode</code> is an application-specific identifier for the data in <code>bytearray</code>. MsgPack.jl provides support for the extension type through the <code>Ext</code> immutable.</p>
+<h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
 
-<p>It is defined like so</p>
+<p>Basic Example:</p>
 
-<div class="highlight highlight-julia"><pre><span class="pl-k">immutable</span> <span class="pl-en">Ext</span>
-    typecode<span class="pl-s3">::Int8</span>
-    data<span class="pl-s3">::Vector{Uint8}</span>
-<span class="pl-k">end</span></pre></div>
+<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
+<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
+{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
+<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
 
-<p>and used like this</p>
+<p>A more complicated example:</p>
 
-<div class="highlight highlight-julia"><pre>julia<span class="pl-k">&gt;</span> a <span class="pl-k">=</span> [<span class="pl-c1">0x34</span>, <span class="pl-c1">0xff</span>, <span class="pl-c1">0x76</span>, <span class="pl-c1">0x22</span>, <span class="pl-c1">0xd3</span>, <span class="pl-c1">0xab</span>]
-<span class="pl-c1">6</span><span class="pl-k">-</span>element Array{UInt8,<span class="pl-c1">1</span>}<span class="pl-k">:</span>
- <span class="pl-c1">0x34</span>
- <span class="pl-c1">0xff</span>
- <span class="pl-c1">0x76</span>
- <span class="pl-c1">0x22</span>
- <span class="pl-c1">0xd3</span>
- <span class="pl-c1">0xab</span>
+<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb(
+        [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">0x</span>ffffffff, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: b<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
+         <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
+<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01</span>\xc3\xc2\xce\xff\xff\xff\xff<span class="pl-cce">\x82</span>\xa3foo\xc4<span class="pl-cce">\x03\x80\x01</span><span class="pl-pds">'</span></span>
+<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x02</span>\xa3bar<span class="pl-cce">\x94\x01\x02\x03\x81</span>\xa1a<span class="pl-cce">\x94\x01\x02\x03\x80</span>\xff\xcb<span class="pl-pds">'</span></span>
+<span class="pl-s1"><span class="pl-pds">'</span>@<span class="pl-cce">\x00</span>\xfc\xd3Z<span class="pl-cce">\x85\x87\x94</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
+[<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">4294967295</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">'</span></span>,
+ <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>]
+<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
 
-julia<span class="pl-k">&gt;</span> b <span class="pl-k">=</span> <span class="pl-s3">Ext</span>(<span class="pl-c1">22</span>, a)
-MsgPack<span class="pl-k">.</span><span class="pl-s3">Ext</span>(<span class="pl-c1">22</span>,UInt8[<span class="pl-c1">0x34</span>,<span class="pl-c1">0xff</span>,<span class="pl-c1">0x76</span>,<span class="pl-c1">0x22</span>,<span class="pl-c1">0xd3</span>,<span class="pl-c1">0xab</span>])
+<p>Streaming serialization with file-like objects:</p>
 
-julia<span class="pl-k">&gt;</span> p <span class="pl-k">=</span> <span class="pl-s3">pack</span>(b)
-<span class="pl-c1">9</span><span class="pl-k">-</span>element Array{UInt8,<span class="pl-c1">1</span>}<span class="pl-k">:</span>
- <span class="pl-c1">0xc7</span>
- <span class="pl-c1">0x06</span>
- <span class="pl-c1">0x16</span>
- <span class="pl-c1">0x34</span>
- <span class="pl-c1">0xff</span>
- <span class="pl-c1">0x76</span>
- <span class="pl-c1">0x22</span>
- <span class="pl-c1">0xd3</span>
- <span class="pl-c1">0xab</span>
+<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>], f)
+<span class="pl-k">&gt;&gt;&gt;</span> f.close()
+<span class="pl-k">&gt;&gt;&gt;</span> 
+<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpack(f)
+{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpack(f)
+[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>]
+<span class="pl-k">&gt;&gt;&gt;</span> f.close()
+<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
 
-julia<span class="pl-k">&gt;</span> c <span class="pl-k">=</span> <span class="pl-s3">unpack</span>(p)
-MsgPack<span class="pl-k">.</span><span class="pl-s3">Ext</span>(<span class="pl-c1">22</span>,UInt8[<span class="pl-c1">0x34</span>,<span class="pl-c1">0xff</span>,<span class="pl-c1">0x76</span>,<span class="pl-c1">0x22</span>,<span class="pl-c1">0xd3</span>,<span class="pl-c1">0xab</span>])
+<p>Encoding and decoding an application-defined ext type:</p>
 
-julia<span class="pl-k">&gt;</span> c <span class="pl-k">==</span> b
-<span class="pl-c1">true</span></pre></div>
+<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
+... foo <span class="pl-k">=</span> umsgpack.Ext(<span class="pl-c1">0x</span>05, b<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">"</span></span>)
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
+b<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xadspecial stuff\xc7<span class="pl-cce">\x03\x05\x01\x02\x03</span>\xa7awesome\xc3<span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;&gt;</span> bar <span class="pl-k">=</span> umsgpack.unpackb(_)
+<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">print</span>(bar[<span class="pl-s1"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>])
+Ext Object (Type: <span class="pl-c1">0x</span>05, Data: <span class="pl-c1">01</span> <span class="pl-c1">02</span> <span class="pl-c1">03</span>)
+<span class="pl-k">&gt;&gt;&gt;</span> bar[<span class="pl-s1"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].type
+<span class="pl-c1">5</span>
+<span class="pl-k">&gt;&gt;&gt;</span> bar[<span class="pl-s1"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].data
+b<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
 
-<p>MsgPack reserves typecodes in the range <code>[-128, -1]</code> for future types specified by the MsgPack spec. MsgPack.jl enforces this when creating an <code>Ext</code> but if you are packing an implementation defined extension type (currently there are none) you can pass <code>impltype=true</code>.</p>
+<p>Python standard library style names <code>dump</code>, <code>dumps</code>, <code>load</code>, <code>loads</code> are also
+available:</p>
 
-<div class="highlight highlight-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-s3">Ext</span>(<span class="pl-k">-</span><span class="pl-c1">43</span>, Uint8[<span class="pl-c1">1</span>, <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">9</span>])
-ERROR<span class="pl-k">:</span> MsgPack Ext typecode <span class="pl-k">-</span><span class="pl-c1">128</span> through <span class="pl-k">-</span><span class="pl-c1">1</span> reserved by implementation
- <span class="pl-k">in</span> call at <span class="pl-k">/</span>Users<span class="pl-k">/</span>sean<span class="pl-k">/</span><span class="pl-k">.</span>julia<span class="pl-k">/</span>v0<span class="pl-c1">.4</span><span class="pl-k">/</span>MsgPack<span class="pl-k">/</span>src<span class="pl-k">/</span>MsgPack<span class="pl-k">.</span>jl<span class="pl-k">:</span><span class="pl-c1">48</span> 
+<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.dumps({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
+<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.loads(_)
+{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
+<span class="pl-k">&gt;&gt;&gt;</span> 
+<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.dump({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
+<span class="pl-k">&gt;&gt;&gt;</span> f.close()
+<span class="pl-k">&gt;&gt;&gt;</span> 
+<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.load(f)
+{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
+<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
 
-julia<span class="pl-k">&gt;</span> <span class="pl-s3">Ext</span>(<span class="pl-k">-</span><span class="pl-c1">43</span>, Uint8[<span class="pl-c1">1</span>, <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">9</span>], impltype<span class="pl-k">=</span><span class="pl-c1">true</span>)
-MsgPack<span class="pl-k">.</span><span class="pl-s3">Ext</span>(<span class="pl-k">-</span><span class="pl-c1">43</span>,UInt8[<span class="pl-c1">0x01</span>,<span class="pl-c1">0x05</span>,<span class="pl-c1">0x03</span>,<span class="pl-c1">0x09</span>])</pre></div>
+<h6>
+<a id="user-content-more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Information</h6>
 
-<h8>
-<a id="user-content-serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h8>
+<p>See the <a href="https://github.com/vsergeev/u-msgpack-python">project page</a> for more information on old specification compatibility mode, exceptions, behavior, and testing.</p>
 
-<p>MsgPack.jl also defines the <code>extserialize</code> and <code>extdeserialize</code> convenience functions. These functions can turn an arbitrary object into an <code>Ext</code> and vice-versa.</p>
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
-<div class="highlight highlight-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-k">type</span> <span class="pl-en">Point</span>{T}
-        x<span class="pl-s3">::T</span>
-        y<span class="pl-s3">::T</span>
-       <span class="pl-k">end</span>
-
-julia<span class="pl-k">&gt;</span> r <span class="pl-k">=</span> <span class="pl-s3">Point</span>(<span class="pl-c1">2.5</span>, <span class="pl-c1">7.8</span>)
-Point{Float64}(<span class="pl-c1">2.5</span>,<span class="pl-c1">7.8</span>)
-
-julia<span class="pl-k">&gt;</span> e <span class="pl-k">=</span> MsgPack<span class="pl-k">.</span><span class="pl-s3">extserialize</span>(<span class="pl-c1">123</span>, r)
-MsgPack<span class="pl-k">.</span><span class="pl-s3">Ext</span>(<span class="pl-c1">123</span>,UInt8[<span class="pl-c1">0x11</span>,<span class="pl-c1">0x01</span>,<span class="pl-c1">0x02</span>,<span class="pl-c1">0x05</span>,<span class="pl-c1">0x50</span>,<span class="pl-c1">0x6f</span>,<span class="pl-c1">0x69</span>,<span class="pl-c1">0x6e</span>,<span class="pl-c1">0x74</span>,<span class="pl-c1">0x23</span>  …  <span class="pl-c1">0x40</span>,<span class="pl-c1">0x0e</span>,<span class="pl-c1">0x33</span>,<span class="pl-c1">0x33</span>,<span class="pl-c1">0x33</span>,<span class="pl-c1">0x33</span>,<span class="pl-c1">0x33</span>,<span class="pl-c1">0x33</span>,<span class="pl-c1">0x1f</span>,<span class="pl-c1">0x40</span>])
-
-julia<span class="pl-k">&gt;</span> s <span class="pl-k">=</span> MsgPack<span class="pl-k">.</span><span class="pl-s3">extdeserialize</span>(e)
-(<span class="pl-c1">123</span>,Point{Float64}(<span class="pl-c1">2.5</span>,<span class="pl-c1">7.8</span>))
-
-julia<span class="pl-k">&gt;</span> s[<span class="pl-c1">2</span>]
-Point{Float64}(<span class="pl-c1">2.5</span>,<span class="pl-c1">7.8</span>)
-
-julia<span class="pl-k">&gt;</span> r
-Point{Float64}(<span class="pl-c1">2.5</span>,<span class="pl-c1">7.8</span>)</pre></div>
-
-<p>Since these functions use <a href="http://docs.julialang.org/en/latest/stdlib/base/#Base.serialize"><code>serialize</code></a> under the hood they are subject to the following caveat.</p>
-
-<blockquote>
-<p>In general, this process will not work if the reading and writing are done by
-different versions of Julia, or an instance of Julia with a different system
-image.</p>
-</blockquote>
+<p>u-msgpack-python is MIT licensed. See the included <code>LICENSE</code> file for more details.</p>
 </article>
 </div>
         </div>
