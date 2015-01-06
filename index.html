@@ -3596,7 +3596,7 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 <h7>
 <a id="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance</h7>
 
-<p>If you like benchmarks, we're the <a href="https://github.com/alecthomas/go_serialization_benchmarks">fastest and lowest-memory-footprint round-trip serializer for Go in this test.</a></p>
+<p>If you like benchmarks, see <a href="https://github.com/alecthomas/go_serialization_benchmarks">here.</a> In general, you pay a performance penalty using this code generator over the gogoprotobuf (protocol buffers) generator, but you get substantially better JSON interop and dedicated <code>io.Reader/Writer</code> methods, along with the ability to use Go as your schema language.</p>
 
 <p>As one might expect, the generated methods that deal with <code>[]byte</code> are faster, but the <code>io.Reader/Writer</code> methods are generally more memory-efficient for large (&gt; 2KB) objects. As always, benchmark for your particular use case.</p>
 </article>
