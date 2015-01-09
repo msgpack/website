@@ -530,25 +530,21 @@ To distinguish string and bytes, msgpack 2.0 adds <em>bin</em>.
 It is non-string binary like Python 3's <tt>bytes</tt>.</p>
 <p>To use <em>bin</em> type for packing <tt>bytes</tt>, pass <tt>use_bin_type=True</tt> to
 packer argument.</p>
-<blockquote>
-<pre>
+<pre lang="pycon">
 &gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; packed = msgpack.packb([b'spam', u'egg'], use_bin_type=True)
 &gt;&gt;&gt; msgpack.unpackb(packed, encoding='utf-8')
 ['spam', u'egg']
 </pre>
-</blockquote>
 <p>You shoud use it carefully. When you use <tt>use_bin_type=True</tt>, packed
 binary can be unpacked by unpackers supporting msgpack-2.0.</p>
 <p>To use <em>ext</em> type, pass <tt>msgpack.ExtType</tt> object to packer.</p>
-<blockquote>
-<pre>
+<pre lang="pycon">
 &gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
 &gt;&gt;&gt; msgpack.unpackb(packed)
 ExtType(code=42, data='xyzzy')
 </pre>
-</blockquote>
 <p>You can use it with <tt>default</tt> and <tt>ext_hook</tt>. See below.</p>
 <h7>
 <a id="user-content-note-for-msgpack-02x-users" class="anchor" href="#note-for-msgpack-02x-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note for msgpack 0.2.x users</h7>
@@ -567,7 +563,7 @@ msgpack provides <tt>dumps</tt> and <tt>loads</tt> as alias for compatibility wi
 <tt>json</tt> and <tt>pickle</tt>.</p>
 <p><tt>pack</tt> and <tt>dump</tt> packs to file-like object.
 <tt>unpack</tt> and <tt>load</tt> unpacks from file-like object.</p>
-<pre>
+<pre lang="pycon">
 &gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; msgpack.packb([1, 2, 3])
 '\x93\x01\x02\x03'
@@ -575,7 +571,7 @@ msgpack provides <tt>dumps</tt> and <tt>loads</tt> as alias for compatibility wi
 [1, 2, 3]
 </pre>
 <p><tt>unpack</tt> unpacks msgpack's array to Python's list, but can unpack to tuple:</p>
-<pre>
+<pre lang="pycon">
 &gt;&gt;&gt; msgpack.unpackb(b'\x93\x01\x02\x03', use_list=False)
 (1, 2, 3)
 </pre>
@@ -585,56 +581,53 @@ msgpack provides <tt>dumps</tt> and <tt>loads</tt> as alias for compatibility wi
 <a id="user-content-streaming-unpacking" class="anchor" href="#streaming-unpacking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming unpacking</h7>
 <p><tt>Unpacker</tt> is a "streaming unpacker". It unpacks multiple objects from one
 stream (or from bytes provided through its <tt>feed</tt> method).</p>
-<pre>
-import msgpack
-from io import BytesIO
+<div class="highlight highlight-python"><pre>
+<span class="pl-k">import</span> msgpack
+<span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
 
-buf = BytesIO()
-for i in range(100):
-   buf.write(msgpack.packb(range(i)))
+buf <span class="pl-k">=</span> BytesIO()
+<span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-s3">range</span>(<span class="pl-c1">100</span>):
+   buf.write(msgpack.packb(<span class="pl-s3">range</span>(i)))
 
-buf.seek(0)
+buf.seek(<span class="pl-c1">0</span>)
 
-unpacker = msgpack.Unpacker(buf)
-for unpacked in unpacker:
-    print unpacked
-</pre>
+unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf)
+<span class="pl-k">for</span> unpacked <span class="pl-k">in</span> unpacker:
+    <span class="pl-k">print</span> unpacked</pre></div>
 <h7>
 <a id="user-content-packingunpacking-of-custom-data-type" class="anchor" href="#packingunpacking-of-custom-data-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packing/unpacking of custom data type</h7>
 <p>It is also possible to pack/unpack custom data types. Here is an example for
 <tt>datetime.datetime</tt>.</p>
-<pre>
-import datetime
+<div class="highlight highlight-python"><pre>
+<span class="pl-k">import</span> datetime
 
-import msgpack
+<span class="pl-k">import</span> msgpack
 
-useful_dict = {
-    "id": 1,
-    "created": datetime.datetime.now(),
+useful_dict <span class="pl-k">=</span> {
+    <span class="pl-s1"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-c1">1</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>created<span class="pl-pds">"</span></span>: datetime.datetime.now(),
 }
 
-def decode_datetime(obj):
-    if b'__datetime__' in obj:
-        obj = datetime.datetime.strptime(obj["as_str"], "%Y%m%dT%H:%M:%S.%f")
-    return obj
+<span class="pl-st">def</span> <span class="pl-en">decode_datetime</span>(<span class="pl-vpf">obj</span>):
+    <span class="pl-k">if</span> b<span class="pl-s1"><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span> <span class="pl-k">in</span> obj:
+        obj <span class="pl-k">=</span> datetime.datetime.strptime(obj[<span class="pl-s1"><span class="pl-pds">"</span>as_str<span class="pl-pds">"</span></span>], <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-c1">%Y%m%d</span>T<span class="pl-c1">%H</span>:<span class="pl-c1">%M</span>:<span class="pl-c1">%S</span>.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)
+    <span class="pl-k">return</span> obj
 
-def encode_datetime(obj):
-    if isinstance(obj, datetime.datetime):
-        return {'__datetime__': True, 'as_str': obj.strftime("%Y%m%dT%H:%M:%S.%f")}
-    return obj
+<span class="pl-st">def</span> <span class="pl-en">encode_datetime</span>(<span class="pl-vpf">obj</span>):
+    <span class="pl-k">if</span> <span class="pl-s3">isinstance</span>(obj, datetime.datetime):
+        <span class="pl-k">return</span> {<span class="pl-s1"><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-pds">'</span>as_str<span class="pl-pds">'</span></span>: obj.strftime(<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-c1">%Y%m%d</span>T<span class="pl-c1">%H</span>:<span class="pl-c1">%M</span>:<span class="pl-c1">%S</span>.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)}
+    <span class="pl-k">return</span> obj
 
 
-packed_dict = msgpack.packb(useful_dict, default=encode_datetime)
-this_dict_again = msgpack.unpackb(packed_dict, object_hook=decode_datetime)
-</pre>
+packed_dict <span class="pl-k">=</span> msgpack.packb(useful_dict, <span class="pl-vpf">default</span><span class="pl-k">=</span>encode_datetime)
+this_dict_again <span class="pl-k">=</span> msgpack.unpackb(packed_dict, <span class="pl-vpf">object_hook</span><span class="pl-k">=</span>decode_datetime)</pre></div>
 <p><tt>Unpacker</tt>'s <tt>object_hook</tt> callback receives a dict; the
 <tt>object_pairs_hook</tt> callback may instead be used to receive a list of
 key-value pairs.</p>
 <h7>
 <a id="user-content-extended-types" class="anchor" href="#extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extended types</h7>
 <p>It is also possible to pack/unpack custom data types using the msgpack 2.0 feature.</p>
-<blockquote>
-<pre>
+<pre lang="pycon">
 &gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; import array
 &gt;&gt;&gt; def default(obj):
@@ -655,7 +648,6 @@ key-value pairs.</p>
 &gt;&gt;&gt; data == unpacked
 True
 </pre>
-</blockquote>
 <h7>
 <a id="user-content-advanced-unpacking-control" class="anchor" href="#advanced-unpacking-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced unpacking control</h7>
 <p>As an alternative to iteration, <tt>Unpacker</tt> objects provide <tt>unpack</tt>,
@@ -666,21 +658,20 @@ in the upcoming container, so that each element in an array, or key-value pair
 in a map, can be unpacked or skipped individually.</p>
 <p>Each of these methods may optionally write the packed data it reads to a
 callback function:</p>
-<pre>
-from io import BytesIO
+<div class="highlight highlight-python"><pre>
+<span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
 
-def distribute(unpacker, get_worker):
-    nelems = unpacker.read_map_header()
-    for i in range(nelems):
-        # Select a worker for the given key
-        key = unpacker.unpack()
-        worker = get_worker(key)
+<span class="pl-st">def</span> <span class="pl-en">distribute</span>(<span class="pl-vpf">unpacker</span>, <span class="pl-vpf">get_worker</span>):
+    nelems <span class="pl-k">=</span> unpacker.read_map_header()
+    <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-s3">range</span>(nelems):
+        <span class="pl-c"># Select a worker for the given key</span>
+        key <span class="pl-k">=</span> unpacker.unpack()
+        worker <span class="pl-k">=</span> get_worker(key)
 
-        # Send the value as a packed message to worker
-        bytestream = BytesIO()
+        <span class="pl-c"># Send the value as a packed message to worker</span>
+        bytestream <span class="pl-k">=</span> BytesIO()
         unpacker.skip(bytestream.write)
-        worker.send(bytestream.getvalue())
-</pre>
+        worker.send(bytestream.getvalue())</pre></div>
 <h6>
 <a id="user-content-note-about-performance" class="anchor" href="#note-about-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note about performance</h6>
 <h7>
