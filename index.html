@@ -3093,7 +3093,7 @@ after that you can bring the <code>ERL shell</code> with</p>
 <a id="user-content-msgpack5" class="anchor" href="#msgpack5" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack5  <a href="https://travis-ci.org/mcollina/msgpack5"><img src="https://camo.githubusercontent.com/9b55d6db87b3f41e6c4963d8169561554a7e4975/68747470733a2f2f7472617669732d63692e6f72672f6d636f6c6c696e612f6d73677061636b352e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/mcollina/msgpack5.png" style="max-width:100%;"></a>
 </h5>
 
-<p>A msgpack v5 implementation for node.js, with extension point support.</p>
+<p>A msgpack v5 implementation for node.js and the browser, with extension point support.</p>
 
 <h6>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
@@ -3144,6 +3144,26 @@ msgpack.register(<span class="pl-c1">0x42</span>, MyType, mytipeEncode, mytipeDe
 
   <span class="pl-k">return</span> result
 }</pre></div>
+
+<h6>
+<a id="user-content-in-the-browser" class="anchor" href="#in-the-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>In the Browser</h6>
+
+<p>This library is compatible with <a href="http://npm.im/browserify">Browserify</a>.</p>
+
+<p>If you want to use standalone, grab the file in the <code>dist</code> folder of
+this repo, and use in your own HTML page, the module will expose a
+<code>msgpack5</code> global.</p>
+
+<pre><code>&lt;script type="text/javascript"
+        src="./msgpack5.min.js"&gt;
+&lt;/script&gt;
+</code></pre>
+
+<h7>
+<a id="user-content-to-build" class="anchor" href="#to-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>To build</h7>
+
+<pre><code>    npm run build
+</code></pre>
 
 <h6>
 <a id="user-content-api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h6>
@@ -3271,6 +3291,27 @@ an 4 byte length header containing the message length as a UInt32BE. This
 <p>Builds a stream in object mode that decodes msgpack. By default it expects
 msgpack to have a 4 byte length header containing the packaged length as
 a UInt32BE. This header can be disabled by passing <code>{ header: false }</code> as an option.</p>
+
+<h6>
+<a id="user-content-levelup-support" class="anchor" href="#levelup-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>LevelUp Support</h6>
+
+<p><strong>msgpack5</strong> can be used as a LevelUp
+<a href="https://github.com/rvagg/node-levelup#leveluplocation-options-callback"><code>valueEncoding</code></a> straight away:</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> level <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>level<span class="pl-pds">'</span></span>)
+  , pack  <span class="pl-k">=</span> msgpack()
+  , db    <span class="pl-k">=</span> level(<span class="pl-s1"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>, {
+      valueEncoding<span class="pl-k">:</span> pack
+    })
+  , obj   <span class="pl-k">=</span> { my<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>obj<span class="pl-pds">'</span></span> }
+
+db.put(<span class="pl-s1"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, obj, <span class="pl-st">function</span>(<span class="pl-vpf">err</span>) {
+  db.get(<span class="pl-s1"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">err</span>, <span class="pl-vpf">result</span>) {
+    <span class="pl-en">console</span><span class="pl-s3">.log</span>(result)
+    db.<span class="pl-s3">close</span>()
+  })
+})
+</pre></div>
 
 <h6>
 <a id="user-content-disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disclaimer</h6>
