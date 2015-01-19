@@ -182,6 +182,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-c',this)">C/C++ <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
@@ -191,8 +193,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-fperrad-lua-MessagePack',this)">Lua <span class="qs-sub">fperrad</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
           
@@ -207,8 +207,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-lexmag-msgpax',this)">Elixir <span class="qs-sub">lexmag</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jingweno-msgpack_rails',this)">Rails <span class="qs-sub">jingweno</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
@@ -229,6 +227,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-jackson-dataformat-msgpack',this)">Jackson-dataformat <span class="qs-sub">komamitsu</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vertexclique-thealchemist',this)">Elixir <span class="qs-sub">vertexclique</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-gabriel-MPMessagePack',this)">Objective-C <span class="qs-sub">gabriel</span></a></li>
           
@@ -1278,6 +1278,77 @@ int main() {
 </div>
         </div>
         
+        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-for-ocaml" class="anchor" href="#msgpack-for-ocaml" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack for OCaml</h5>
+
+<h6>
+<a id="user-content-bulid" class="anchor" href="#bulid" aria-hidden="true"><span class="octicon octicon-link"></span></a>BULID</h6>
+
+<pre><code>$ make
+$ sudo make install
+</code></pre>
+
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXAMPLE</h6>
+
+<h7>
+<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for Msgpack Object</h7>
+
+<pre><code>(* serialize *)
+let bytes = 
+  Msgpack.Serialize.serialize_string (`FixArray [`PFixnum 1; `PFixnum 2; `PFixnum 3])
+
+(* deserialize *)
+let obj =
+  Msgpack.Serialize.deserialize_string bytes
+</code></pre>
+
+<h7>
+<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" href="#serializedeserialize-for-ocaml-types-with-meta_conv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
+
+<pre><code>open Msgpack_conv
+
+type t = {
+  int : int;
+  str : string;
+} with conv(msgpack)
+
+(* serialize *)
+let bytes = 
+  Msgpack.Serialize.serialize_string (msgpack_of_t { int = 42; str = "ans" })
+
+(* deserialize *)
+let obj =
+  t_of_msgpack (Msgpack.Serialize.deserialize_string bytes)
+</code></pre>
+
+<p>See also, <code>examlpe/</code></p>
+
+<h6>
+<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEST</h6>
+
+<pre><code>$ ocaml setup.ml -configure --enable-tests
+$ make test
+</code></pre>
+
+<h6>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROOF</h6>
+
+<p>If you want to use msgpack at OCaml, you need not do this section.
+This section for user intrested in formal verification.</p>
+
+<p>You need Coq 8.4 and omake.</p>
+
+<pre><code>$ cd proof
+$ make
+$ cp *.ml ../lib
+</code></pre>
+</article>
+</div>
+        </div>
+        
         <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -1528,67 +1599,6 @@ in the following example:</p>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
 <p>This code licensed under the same terms as Rust itself: dual MIT/Apache2 license options.</p>
-</article>
-</div>
-        </div>
-        
-        <div id="qs-mururu-msgpack-elixir" class="qs"><h4><a href="https://github.com/mururu/msgpack-elixir" target="_blank">mururu/msgpack-elixir <span class="qs-url">https://github.com/mururu/msgpack-elixir</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-messagepack-for-elixir" class="anchor" href="#messagepack-for-elixir" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack for Elixir</h5>
-
-<p><a href="https://travis-ci.org/mururu/msgpack-elixir"><img src="https://camo.githubusercontent.com/09452907bf3009b0bf9ac3ecb8e3b5ce6bfb4ce6/68747470733a2f2f7472617669732d63692e6f72672f6d75727572752f6d73677061636b2d656c697869722e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/mururu/msgpack-elixir.png?branch=master" style="max-width:100%;"></a></p>
-
-<h6>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
-
-<p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
-
-<div class="highlight highlight-elixir"><pre><span class="pl-k">defp</span> deps <span class="pl-k">do</span>
-  [{<span class="pl-c1">:message_pack</span>, <span class="pl-s1"><span class="pl-pds">"</span>~&gt; 0.1.4<span class="pl-pds">"</span></span>}]
-<span class="pl-k">end</span></pre></div>
-
-<h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
-
-<div class="highlight highlight-elixir"><pre><span class="pl-c"># pack</span>
-<span class="pl-vo">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
-<span class="pl-vo">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
-
-<span class="pl-c"># unpack</span>
-<span class="pl-vo">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
-<span class="pl-vo">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
-
-<span class="pl-c"># unpack_once</span>
-<span class="pl-vo">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
-<span class="pl-vo">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
-
-<h6>
-<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h6>
-
-<ul class="task-list">
-<li><code>enable_string</code></li>
-</ul>
-<p>Support string type. This options is <code>false</code> by default.</p>
-
-<div class="highlight highlight-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-vo">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
-{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-vo">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
-{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-vo">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
-{<span class="pl-c1">:error</span>, {<span class="pl-c1">:invalid_string</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}}</pre></div>
-
-<ul class="task-list">
-<li><code>ext</code></li>
-</ul>
-<p>Support extention type.</p>
-
-<p>See <code>test/message_pack_ext_test.exs</code>.</p>
-
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
-
-<p>MIT</p>
 </article>
 </div>
         </div>
@@ -2128,119 +2138,6 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
 <li>Create new Pull Request</li>
 </ol></article>
-</div>
-        </div>
-        
-        <div id="qs-vsergeev-u-msgpack-python" class="qs"><h4><a href="https://github.com/vsergeev/u-msgpack-python" target="_blank">vsergeev/u-msgpack-python <span class="qs-url">https://github.com/vsergeev/u-msgpack-python</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-u-msgpack-python-v20" class="anchor" href="#u-msgpack-python-v20" aria-hidden="true"><span class="octicon octicon-link"></span></a>u-msgpack-python v2.0</h5>
-
-<p>u-msgpack-python is a lightweight <a href="http://msgpack.org/">MessagePack</a> serializer and deserializer module written in pure Python, compatible with both Python 2 and 3, as well CPython and PyPy implementations of Python. u-msgpack-python is fully compliant with the latest <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a>.</p>
-
-<p>u-msgpack-python is currently distributed on PyPI: <a href="https://pypi.python.org/pypi/u-msgpack-python">https://pypi.python.org/pypi/u-msgpack-python</a> and as a single file: <a href="https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py">umsgpack.py</a></p>
-
-<h6>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
-
-<p>With pip:</p>
-
-<pre lang="text"><code>$ pip install u-msgpack-python
-</code></pre>
-
-<p>With easy_install:</p>
-
-<pre lang="text"><code>$ easy_install u-msgpack-python
-</code></pre>
-
-<p>or simply drop <a href="https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py">umsgpack.py</a> into your project!</p>
-
-<pre lang="text"><code>$ wget https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py
-</code></pre>
-
-<h6>
-<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
-
-<p>Basic Example:</p>
-
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
-<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
-{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
-
-<p>A more complicated example:</p>
-
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb(
-        [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">0x</span>ffffffff, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: b<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
-         <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
-<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01</span>\xc3\xc2\xce\xff\xff\xff\xff<span class="pl-cce">\x82</span>\xa3foo\xc4<span class="pl-cce">\x03\x80\x01</span><span class="pl-pds">'</span></span>
-<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x02</span>\xa3bar<span class="pl-cce">\x94\x01\x02\x03\x81</span>\xa1a<span class="pl-cce">\x94\x01\x02\x03\x80</span>\xff\xcb<span class="pl-pds">'</span></span>
-<span class="pl-s1"><span class="pl-pds">'</span>@<span class="pl-cce">\x00</span>\xfc\xd3Z<span class="pl-cce">\x85\x87\x94</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
-[<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">4294967295</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">'</span></span>,
- <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>]
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
-
-<p>Streaming serialization with file-like objects:</p>
-
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>], f)
-<span class="pl-k">&gt;&gt;&gt;</span> f.close()
-<span class="pl-k">&gt;&gt;&gt;</span> 
-<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpack(f)
-{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpack(f)
-[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>]
-<span class="pl-k">&gt;&gt;&gt;</span> f.close()
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
-
-<p>Encoding and decoding an application-defined ext type:</p>
-
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
-... foo <span class="pl-k">=</span> umsgpack.Ext(<span class="pl-c1">0x</span>05, b<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">"</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
-b<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xadspecial stuff\xc7<span class="pl-cce">\x03\x05\x01\x02\x03</span>\xa7awesome\xc3<span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> bar <span class="pl-k">=</span> umsgpack.unpackb(_)
-<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">print</span>(bar[<span class="pl-s1"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>])
-Ext Object (Type: <span class="pl-c1">0x</span>05, Data: <span class="pl-c1">01</span> <span class="pl-c1">02</span> <span class="pl-c1">03</span>)
-<span class="pl-k">&gt;&gt;&gt;</span> bar[<span class="pl-s1"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].type
-<span class="pl-c1">5</span>
-<span class="pl-k">&gt;&gt;&gt;</span> bar[<span class="pl-s1"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].data
-b<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
-
-<p>Python standard library style names <code>dump</code>, <code>dumps</code>, <code>load</code>, <code>loads</code> are also
-available:</p>
-
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.dumps({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
-<span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.loads(_)
-{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> 
-<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.dump({<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
-<span class="pl-k">&gt;&gt;&gt;</span> f.close()
-<span class="pl-k">&gt;&gt;&gt;</span> 
-<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-s3">open</span>(<span class="pl-s1"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.load(f)
-{<span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s1"><span class="pl-st">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
-
-<h6>
-<a id="user-content-more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Information</h6>
-
-<p>See the <a href="https://github.com/vsergeev/u-msgpack-python">project page</a> for more information on old specification compatibility mode, exceptions, behavior, and testing.</p>
-
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
-
-<p>u-msgpack-python is MIT licensed. See the included <code>LICENSE</code> file for more details.</p>
-</article>
 </div>
         </div>
         
@@ -3115,6 +3012,30 @@ after that you can bring the <code>ERL shell</code> with</p>
 <p>If you want to bring the <code>IEX</code> you can type</p>
 
 <p><code>make runex</code></p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-swiftpack" class="anchor" href="#swiftpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>SwiftPack</h5>
+
+<p>SwiftPack is MessagePack packer and unpacker written almost entirely in Swift. </p>
+
+<h5>
+<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
+
+<ul class="task-list">
+<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
+<li>Maps currently only support String types for keys.</li>
+</ul>
+<h5>
+<a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h5>
+
+<p>Copyright (c) 2014 Brian Williams</p>
+
+<p>This software is licensed under the terms of the MIT license.</p>
 </article>
 </div>
         </div>
