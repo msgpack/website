@@ -178,6 +178,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-MessagePack',this)">Ruby/C++ <span class="qs-sub">mneumann</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-aaulia-msgpack-haxe',this)">Haxe <span class="qs-sub">aaulia</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-cli',this)">C# <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-c',this)">C/C++ <span class="qs-sub">msgpack</span></a></li>
@@ -986,6 +988,34 @@ $ cabal install msgpack-idl</pre></div>
 <a id="user-content-messagepack" class="anchor" href="#messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack</h5>
 
 <p>An alternative msgpack.org implementation for Ruby and C++</p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-aaulia-msgpack-haxe" class="qs"><h4><a href="https://github.com/aaulia/msgpack-haxe" target="_blank">aaulia/msgpack-haxe <span class="qs-url">https://github.com/aaulia/msgpack-haxe</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-haxe" class="anchor" href="#msgpack-haxe" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-haxe</h5>
+
+<p>MessagePack (<a href="http://msgpack.org">http://msgpack.org</a>) serialization library for HaXe</p>
+
+<h6>
+<a id="user-content-example-code" class="anchor" href="#example-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example code:</h6>
+
+<div class="highlight highlight-haxe"><pre>package;
+<span class="pl-st">import</span> <span class="pl-en">org.msgpack.</span><span class="pl-en">MsgPack</span>;
+
+<span class="pl-st">class</span> <span class="pl-en">Example</span> {
+    <span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-k">function</span> <span class="pl-en">main</span>() {
+        <span class="pl-k">var</span> i <span class="pl-k">=</span> { a: <span class="pl-c1">1</span>, b: <span class="pl-c1">2</span>, c: <span class="pl-s1"><span class="pl-pds">"</span>Hello World!<span class="pl-pds">"</span></span> };
+        <span class="pl-k">var</span> m <span class="pl-k">=</span> <span class="pl-en">MsgPack</span>.encode(i);
+        <span class="pl-k">var</span> o <span class="pl-k">=</span> <span class="pl-en">MsgPack</span>.decode(m);
+
+        <span class="pl-k">trace</span>(i);
+        <span class="pl-k">trace</span>(m.toHex());
+        <span class="pl-k">trace</span>(o);
+    }
+}</pre></div>
 </article>
 </div>
         </div>
