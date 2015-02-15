@@ -1976,36 +1976,33 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
-<pre lang="iex"><code>iex&gt; {:ok, iodata} = Msgpax.pack([300, "Spartans"])
-{:ok, [&lt;&lt;146&gt;&gt;, [&lt;&lt;205, 1, 44&gt;&gt;, [&lt;&lt;168&gt;&gt;, "Spartans"]]]}
-iex&gt; iodata = Msgpax.pack!([300, "Spartans"])
-...
-iex&gt; {:ok, term} = Msgpax.unpack(iodata)
-{:ok, [300, "Spartans"]}
-iex&gt; term = Msgpax.unpack!(iodata)
-[300, "Spartans"]
-</code></pre>
+<div class="highlight highlight-elixir"><pre>{<span class="pl-c1">:ok</span>, iodata} <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.pack([<span class="pl-c1">300</span>, <span class="pl-s1"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
+<span class="pl-c"># =&gt; {:ok, [&lt;&lt;146&gt;&gt;, [&lt;&lt;205, 1, 44&gt;&gt;, [&lt;&lt;168&gt;&gt;, "Spartans"]]]}</span>
+iodata <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.pack!([<span class="pl-c1">300</span>, <span class="pl-s1"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
+<span class="pl-c"># ...</span>
+{<span class="pl-c1">:ok</span>, term} <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.unpack(iodata)
+<span class="pl-c"># =&gt; {:ok, [300, "Spartans"]}</span>
+term <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.unpack!(iodata)
+<span class="pl-c"># =&gt; [300, "Spartans"]</span></pre></div>
 
 <h8>
 <a id="user-content-stream-oriented-deserialization" class="anchor" href="#stream-oriented-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream-oriented deserialization</h8>
 
-<pre lang="iex"><code>iex&gt; {term1, rest} = Msgpax.unpack_slice!(buffer)
-{[1,2,3], &lt;&lt;4&gt;&gt;}
-iex&gt; {:ok, term2, rest} = Msgpax.unpack_slice(rest)
-{:ok, 4, ""}
-</code></pre>
+<div class="highlight highlight-elixir"><pre>{term1, rest} <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.unpack_slice!(buffer)
+<span class="pl-c"># =&gt; {[1,2,3], &lt;&lt;4&gt;&gt;}</span>
+{<span class="pl-c1">:ok</span>, term2, rest} <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.unpack_slice(rest)
+<span class="pl-c"># =&gt; {:ok, 4, ""}</span></pre></div>
 
 <h8>
 <a id="user-content-binary-format" class="anchor" href="#binary-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary format</h8>
 
-<pre lang="iex"><code>iex&gt; msgbin = Msgpax.binary(&lt;&lt;3, 18, 122, 27, 115&gt;&gt;)
-%Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}
-iex&gt; iodata = Msgpax.pack!(msgbin)
-[&lt;&lt;196, 5&gt;&gt;, &lt;&lt;3, 18, 122, 27, 115&gt;&gt;]
-...
-iex&gt; code = Msgpax.unpack!(iodata, %{binary: true})
-%Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}
-</code></pre>
+<div class="highlight highlight-elixir"><pre>msgbin <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.binary(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">3</span>, <span class="pl-c1">18</span>, <span class="pl-c1">122</span>, <span class="pl-c1">27</span>, <span class="pl-c1">115</span><span class="pl-k">&gt;&gt;</span>)
+<span class="pl-c"># =&gt; %Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}</span>
+iodata <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.pack!(msgbin)
+<span class="pl-c"># =&gt; [&lt;&lt;196, 5&gt;&gt;, &lt;&lt;3, 18, 122, 27, 115&gt;&gt;]</span>
+<span class="pl-c"># ...</span>
+code <span class="pl-k">=</span> <span class="pl-vo">Msgpax</span>.unpack!(iodata, %{<span class="pl-c1">binary:</span> <span class="pl-c1">true</span>})
+<span class="pl-c"># =&gt; %Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}</span></pre></div>
 
 <h6>
 <a id="user-content-data-conversion" class="anchor" href="#data-conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data conversion</h6>
