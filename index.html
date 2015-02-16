@@ -1147,46 +1147,122 @@ Or install Visual Studio or Visual Studio Express.
         <div id="qs-msgpack-msgpack-c" class="qs"><h4><a href="https://github.com/msgpack/msgpack-c" target="_blank">msgpack/msgpack-c <span class="qs-url">https://github.com/msgpack/msgpack-c</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack-for-cc" class="anchor" href="#msgpack-for-cc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Msgpack for C/C++</h5>
+<a id="user-content-msgpack-for-cc" class="anchor" href="#msgpack-for-cc" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<code>msgpack</code> for C/C++</h5>
+
+<p>Version 0.5.9 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a></p>
 
 <p>It's like JSON but small and fast.</p>
 
 <h6>
 <a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h6>
 
-<p>MessagePack is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. But it's faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
+<p><a href="http://msgpack.org/">MessagePack</a> is an efficient binary serialization
+format, which lets you exchange data among multiple languages like JSON,
+except that it's faster and smaller. Small integers are encoded into a
+single byte while typical short strings require only one extra byte in
+addition to the strings themselves.</p>
 
 <h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
 
-<p>Msgpack is Copyright (C) 2008-2014 FURUHASHI Sadayuki and licensed under the Apache License, Version 2.0 (the "License"). For details see the <code>COPYING</code> file in this directory.</p>
+<p>In C:</p>
+
+<div class="highlight highlight-c"><pre>#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>msgpack.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-st">int</span> <span class="pl-en">main</span>(<span class="pl-st">void</span>)
+{
+    <span class="pl-c">/* msgpack::sbuffer is a simple buffer implementation. */</span>
+    msgpack_sbuffer sbuf;
+    <span class="pl-s3">msgpack_sbuffer_init</span>(&amp;sbuf);
+
+    <span class="pl-c">/* serialize values into the buffer using msgpack_sbuffer_write callback function. */</span>
+    msgpack_packer pk;
+    <span class="pl-s3">msgpack_packer_init</span>(&amp;pk, &amp;sbuf, msgpack_sbuffer_write);
+
+    <span class="pl-s3">msgpack_pack_array</span>(&amp;pk, <span class="pl-c1">3</span>);
+    <span class="pl-s3">msgpack_pack_int</span>(&amp;pk, <span class="pl-c1">1</span>);
+    <span class="pl-s3">msgpack_pack_true</span>(&amp;pk);
+    <span class="pl-s3">msgpack_pack_str</span>(&amp;pk, <span class="pl-c1">7</span>);
+    <span class="pl-s3">msgpack_pack_str_body</span>(&amp;pk, <span class="pl-s1"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>, <span class="pl-c1">7</span>);
+
+    <span class="pl-c">/* deserialize the buffer into msgpack_object instance. */</span>
+    <span class="pl-c">/* deserialized object is valid during the msgpack_zone instance alive. */</span>
+    msgpack_zone mempool;
+    <span class="pl-s3">msgpack_zone_init</span>(&amp;mempool, <span class="pl-c1">2048</span>);
+
+    msgpack_object deserialized;
+    <span class="pl-s3">msgpack_unpack</span>(sbuf.<span class="pl-vo">data</span>, sbuf.<span class="pl-vo">size</span>, <span class="pl-c1">NULL</span>, &amp;mempool, &amp;deserialized);
+
+    <span class="pl-c">/* print the deserialized object. */</span>
+    <span class="pl-s3">msgpack_object_print</span>(stdout, deserialized);
+    <span class="pl-s3">puts</span>(<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>);
+
+    <span class="pl-s3">msgpack_zone_destroy</span>(&amp;mempool);
+    <span class="pl-s3">msgpack_sbuffer_destroy</span>(&amp;sbuf);
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-C.md"><code>QUICKSTART-C.md</code></a> for more details.</p>
+
+<p>In C++:</p>
+
+<div class="highlight highlight-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>msgpack.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>sstream<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-st">int</span> <span class="pl-en">main</span>(<span class="pl-st">void</span>)
+{
+    msgpack::type::tuple&lt;<span class="pl-st">int</span>, <span class="pl-st">bool</span>, std::string&gt; <span class="pl-s3">src</span>(<span class="pl-c1">1</span>, <span class="pl-c1">true</span>, <span class="pl-s1"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>);
+
+    <span class="pl-c">// serialize the object into the buffer.</span>
+    <span class="pl-c">// any classes that implements write(const char*,size_t) can be a buffer.</span>
+    std::stringstream buffer;
+    <span class="pl-s3">msgpack::pack</span>(buffer, src);
+
+    <span class="pl-c">// send the buffer ...</span>
+    buffer.<span class="pl-s3">seekg</span>(<span class="pl-c1">0</span>);
+
+    <span class="pl-c">// deserialize the buffer into msgpack::object instance.</span>
+    std::string <span class="pl-vo">str</span>(buffer.<span class="pl-s3">str</span>());
+
+    msgpack::unpacked result;
+
+    <span class="pl-s3">msgpack::unpack</span>(result, str.<span class="pl-s3">data</span>(), str.<span class="pl-s3">size</span>());
+
+    <span class="pl-c">// deserialized object is valid during the msgpack::unpacked instance alive.</span>
+    msgpack::object deserialized = result.<span class="pl-s3">get</span>();
+
+    <span class="pl-c">// msgpack::object supports ostream.</span>
+    std::cout &lt;&lt; deserialized &lt;&lt; std::endl;
+
+    <span class="pl-c">// convert msgpack::object instance into the original type.</span>
+    <span class="pl-c">// if the type is mismatched, it throws msgpack::type_error exception.</span>
+    msgpack::type::tuple&lt;<span class="pl-st">int</span>, <span class="pl-st">bool</span>, std::string&gt; dst;
+    deserialized.<span class="pl-s3">convert</span>(&amp;dst);
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md"><code>QUICKSTART-CPP.md</code></a> for more details.</p>
 
 <h6>
-<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h6>
-
-<p>The source for msgpack-c is held at <a href="https://github.com/msgpack/msgpack-c">msgpack-c</a> github.com site.</p>
-
-<p>To report an issue, use the <a href="https://github.com/msgpack/msgpack-c/issues">msgpack-c issue tracker</a> at github.com.</p>
-
-<h6>
-<a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h6>
-
-<p>0.5.9 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a></p>
-
-<h6>
-<a id="user-content-using-msgpack" class="anchor" href="#using-msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Msgpack</h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
 <h7>
-<a id="user-content-header-only-library-for-c" class="anchor" href="#header-only-library-for-c" aria-hidden="true"><span class="octicon octicon-link"></span></a>Header only library for C++</h7>
+<a id="user-content-c-header-only-library" class="anchor" href="#c-header-only-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>C++ Header Only Library</h7>
 
-<p>When you use msgpack on C++03 and C++11, you just add msgpack-c/include to your include path. You don't need to link any msgpack libraries.</p>
-
-<p>e.g.)</p>
+<p>When you use msgpack on C++03 and C++11, you can just add
+msgpack-c/include to your include path:</p>
 
 <pre><code>g++ -I msgpack-c/include your_source_file.cpp
 </code></pre>
 
-<p>If you want to use C version of msgpack, you need to build it. You can also install C and C++ version of msgpack.</p>
+<p>If you want to use C version of msgpack, you need to build it. You can
+also install the C and C++ versions of msgpack.</p>
 
 <h7>
 <a id="user-content-building-and-installing" class="anchor" href="#building-and-installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building and Installing</h7>
@@ -1197,38 +1273,44 @@ Or install Visual Studio or Visual Studio Express.
 <h5>
 <a id="user-content-using-autotools" class="anchor" href="#using-autotools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using autotools</h5>
 
-<p>You will need gcc (4.1.0 or higher), autotools.</p>
+<p>You will need:</p>
 
-<p>For C:
-C++03 and C:</p>
+<ul class="task-list">
+<li>
+<code>gcc &gt;= 4.1.0</code> or <code>clang &gt;= 3.3.0</code>
+</li>
+<li><code>autoconf &gt;= 2.60</code></li>
+<li><code>automake &gt;= 1.10</code></li>
+<li><code>libtool &gt;= 2.2.4</code></li>
+</ul>
+<p>The build steps below are for C and C++03. If compiling for C++11,
+add <code>-std=c++11</code> to the environmental variable <code>CXXFLAGS</code> with
+<code>export CXXFLAGS="$CXXFLAGS -std=c++11"</code> prior to following the
+directions below.</p>
 
-<pre><code>$ git clone https://github.com/redboltz/msgpack-c/tree/cxx_separate
-$ cd msgpack-c
+<div class="highlight highlight-bash"><pre>$ git clone https://github.com/msgpack/msgpack-c
+$ <span class="pl-s3">cd</span> msgpack-c
 $ ./bootstrap
 $ ./configure
-$ make
-$ sudo make install
-</code></pre>
+$ make</pre></div>
 
-<p>For C++11:</p>
+<p>You can install the resulting library like this:</p>
 
-<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
-$ cd msgpack-c
-$ ./bootstrap
-$ ./configure CXXFLAGS="-std=c++11"
-$ make
-$ sudo make install
-</code></pre>
-
-<p>You need the compiler that fully supports C++11.</p>
+<div class="highlight highlight-bash"><pre>$ sudo make install</pre></div>
 
 <h5>
 <a id="user-content-using-cmake" class="anchor" href="#using-cmake" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using cmake</h5>
 
 <h6>
-<a id="user-content-cui" class="anchor" href="#cui" aria-hidden="true"><span class="octicon octicon-link"></span></a>CUI</h6>
+<a id="user-content-using-the-terminal-cli" class="anchor" href="#using-the-terminal-cli" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the Terminal (CLI)</h6>
 
-<p>You will need gcc (4.1.0 or higher), cmake.</p>
+<p>You will need:</p>
+
+<ul class="task-list">
+<li><code>gcc &gt;= 4.1.0</code></li>
+<li><code>cmake &gt;= 2.8.0</code></li>
+</ul>
+<p>C and C++03:</p>
 
 <pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
 $ cd msgpack-c
@@ -1237,15 +1319,14 @@ $ make
 $ sudo make install
 </code></pre>
 
-<p>If you want to setup C++11 version of msgpack, execute the following command:</p>
+<p>If you want to setup C++11 version of msgpack instead,
+execute the following commands:</p>
 
 <pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
 $ cd msgpack-c
 $ cmake -DMSGPACK_CXX11=ON .
 $ sudo make install
 </code></pre>
-
-<p>You need the compiler that fully supports C++11.</p>
 
 <h5>
 <a id="user-content-gui-on-windows" class="anchor" href="#gui-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>GUI on Windows</h5>
@@ -1260,8 +1341,9 @@ $ sudo make install
 <p>e.g.) tortoise git <a href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
 
 <ol class="task-list">
-<li><p>Launch cmake GUI client. <a href="http://www.cmake.org/cmake/resources/software.html">http://www.cmake.org/cmake/resources/software.html</a></p></li>
-<li><p>Set 'Where is the source code:' text box and 'Where to build the binaries:' text box.</p></li>
+<li><p>Launch <a href="http://www.cmake.org/cmake/resources/software.html">cmake GUI client</a>.</p></li>
+<li><p>Set 'Where is the source code:' text box and 'Where to build
+the binaries:' text box.</p></li>
 <li><p>Click 'Configure' button.</p></li>
 <li><p>Choose your Visual Studio version.</p></li>
 <li><p>Click 'Generate' button.</p></li>
@@ -1269,46 +1351,25 @@ $ sudo make install
 <li><p>Build all.</p></li>
 </ol>
 <h7>
-<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Example</h7>
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h7>
 
-<pre><code>#include &lt;msgpack.hpp&gt;
-#include &lt;vector&gt;
-#include &lt;string&gt;
-#include &lt;iostream&gt;
+<p>You can get addtional information on the
+<a href="https://github.com/msgpack/msgpack-c/wiki/cpp_overview">wiki</a>.</p>
 
-int main() {
-    // This is target object.
-    std::vector&lt;std::string&gt; target;
-    target.push_back("Hello,");
-    target.push_back("World!");
+<h6>
+<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h6>
 
-    // Serialize it.
-    msgpack::sbuffer sbuf;  // simple buffer
-    msgpack::pack(&amp;sbuf, target);
+<p><code>msgpack-c</code> is developed on GitHub at <a href="https://github.com/msgpack/msgpack-c">msgpack/msgpack-c</a>.
+To report an issue or send a pull request, use the
+<a href="https://github.com/msgpack/msgpack-c/issues">issue tracker</a>.</p>
 
-    // Deserialize the serialized data.
-    msgpack::unpacked msg;    // includes memory pool and deserialized object
-    msgpack::unpack(msg, sbuf.data(), sbuf.size());
-    msgpack::object obj = msg.get();
+<p>Here's the list of <a href="https://github.com/msgpack/msgpack-c/graphs/contributors">great contributors</a>.</p>
 
-    // Print the deserialized object to stdout.
-    std::cout &lt;&lt; obj &lt;&lt; std::endl;    // ["Hello," "World!"]
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
-    // Convert the deserialized object to staticaly typed object.
-    std::vector&lt;std::string&gt; result;
-    obj.convert(&amp;result);
-
-    // If the type is mismatched, it throws msgpack::type_error.
-    obj.as&lt;int&gt;();  // type is mismatched, msgpack::type_error is thrown
-}
-</code></pre>
-
-<h7>
-<a id="user-content-documents" class="anchor" href="#documents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documents</h7>
-
-<p>You can get addtional information on the wiki:</p>
-
-<p><a href="https://github.com/msgpack/msgpack-c/wiki/cpp_overview">https://github.com/msgpack/msgpack-c/wiki/cpp_overview</a></p>
+<p><code>msgpack-c</code> is licensed under the Apache License Version 2.0. See
+the <a href="/msgpack/msgpack-c/blob/master/LICENSE"><code>LICENSE</code></a> file for details.</p>
 </article>
 </div>
         </div>
