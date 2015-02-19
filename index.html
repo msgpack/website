@@ -196,6 +196,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ktakashi-r6rs-msgpack',this)">Scheme <span class="qs-sub">ktakashi</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
@@ -227,8 +229,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-jackson-dataformat-msgpack',this)">Jackson-dataformat <span class="qs-sub">komamitsu</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vertexclique-thealchemist',this)">Elixir <span class="qs-sub">vertexclique</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
@@ -1701,6 +1701,67 @@ in the following example:</p>
 </div>
         </div>
         
+        <div id="qs-mururu-msgpack-elixir" class="qs"><h4><a href="https://github.com/mururu/msgpack-elixir" target="_blank">mururu/msgpack-elixir <span class="qs-url">https://github.com/mururu/msgpack-elixir</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-messagepack-for-elixir" class="anchor" href="#messagepack-for-elixir" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack for Elixir</h5>
+
+<p><a href="https://travis-ci.org/mururu/msgpack-elixir"><img src="https://camo.githubusercontent.com/09452907bf3009b0bf9ac3ecb8e3b5ce6bfb4ce6/68747470733a2f2f7472617669732d63692e6f72672f6d75727572752f6d73677061636b2d656c697869722e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/mururu/msgpack-elixir.png?branch=master" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
+
+<div class="highlight highlight-elixir"><pre><span class="pl-s2"><span class="pl-k">defp</span> <span class="pl-s2">deps</span> <span class="pl-k">do</span></span>
+  [{<span class="pl-c1">:message_pack</span>, <span class="pl-s1"><span class="pl-pds">"</span>~&gt; 0.1.4<span class="pl-pds">"</span></span>}]
+<span class="pl-k">end</span></pre></div>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<div class="highlight highlight-elixir"><pre><span class="pl-c"># pack</span>
+<span class="pl-vo">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
+<span class="pl-vo">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
+
+<span class="pl-c"># unpack</span>
+<span class="pl-vo">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
+<span class="pl-vo">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
+
+<span class="pl-c"># unpack_once</span>
+<span class="pl-vo">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
+<span class="pl-vo">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
+
+<h6>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h6>
+
+<ul class="task-list">
+<li><code>enable_string</code></li>
+</ul>
+<p>Support string type. This options is <code>false</code> by default.</p>
+
+<div class="highlight highlight-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-vo">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
+{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
+iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-vo">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
+{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
+iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-vo">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
+{<span class="pl-c1">:error</span>, {<span class="pl-c1">:invalid_string</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}}</pre></div>
+
+<ul class="task-list">
+<li><code>ext</code></li>
+</ul>
+<p>Support extention type.</p>
+
+<p>See <code>test/message_pack_ext_test.exs</code>.</p>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+
+<p>MIT</p>
+</article>
+</div>
+        </div>
+        
         <div id="qs-ktakashi-r6rs-msgpack" class="qs"><h4><a href="https://github.com/ktakashi/r6rs-msgpack" target="_blank">ktakashi/r6rs-msgpack <span class="qs-url">https://github.com/ktakashi/r6rs-msgpack</a></li></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -3046,30 +3107,6 @@ after that you can bring the <code>ERL shell</code> with</p>
 <p>If you want to bring the <code>IEX</code> you can type</p>
 
 <p><code>make runex</code></p>
-</article>
-</div>
-        </div>
-        
-        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-swiftpack" class="anchor" href="#swiftpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>SwiftPack</h5>
-
-<p>SwiftPack is MessagePack packer and unpacker written almost entirely in Swift. </p>
-
-<h5>
-<a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
-
-<ul class="task-list">
-<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
-<li>Maps currently only support String types for keys.</li>
-</ul>
-<h5>
-<a id="user-content-copyright-and-license" class="anchor" href="#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h5>
-
-<p>Copyright (c) 2014 Brian Williams</p>
-
-<p>This software is licensed under the terms of the MIT license.</p>
 </article>
 </div>
         </div>
