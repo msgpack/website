@@ -244,6 +244,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tinylib-msgp',this)">Go <span class="qs-sub">tinylib</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-msgpack-cli',this)">Shell <span class="qs-sub">jakm</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-SimpleMsgPack-Net',this)">C# <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-core',this)">Scala <span class="qs-sub">msgpack4z</span></a></li>
@@ -3722,6 +3724,143 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 <p>If you like benchmarks, see <a href="https://github.com/alecthomas/go_serialization_benchmarks">here.</a> In general, you pay a performance penalty using this code generator over the gogoprotobuf (protocol buffers) generator, but you get substantially better JSON interop and dedicated <code>io.Reader/Writer</code> methods, along with the ability to use Go as your schema language.</p>
 
 <p>As one might expect, the generated methods that deal with <code>[]byte</code> are faster, but the <code>io.Reader/Writer</code> methods are generally more memory-efficient for large (&gt; 2KB) objects. As always, benchmark for your particular use case.</p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-jakm-msgpack-cli" class="qs"><h4><a href="https://github.com/jakm/msgpack-cli" target="_blank">jakm/msgpack-cli <span class="qs-url">https://github.com/jakm/msgpack-cli</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-cli" class="anchor" href="#msgpack-cli" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-cli</h5>
+
+<p>msgpack-cli is command line tool that converts data from JSON to <a href="http://msgpack.org">Msgpack</a> and vice versa. Also allows calling RPC methods via <a href="https://github.com/msgpack-rpc/msgpack-rpc/blob/master/spec.md">msgpack-rpc</a>.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<div class="highlight highlight-sh"><pre>% go get github.com/jakm/msgpack-cli</pre></div>
+
+<p>Debian packages and Windows binaries are available on project's
+<a href="https://github.com/jakm/msgpack-cli/releases/latest">Releases page</a>.</p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<pre><code>msgpack-cli
+
+Usage:
+    msgpack-cli encode &lt;input-file&gt; [--out=&lt;output-file&gt;] [--disable-int64-conv]
+    msgpack-cli decode &lt;input-file&gt; [--out=&lt;output-file&gt;] [--pp]
+    msgpack-cli rpc &lt;host&gt; &lt;port&gt; &lt;method&gt; [&lt;params&gt;|--file=&lt;input-file&gt;] [--pp]
+        [--timeout=&lt;timeout&gt;][--disable-int64-conv]
+    msgpack-cli -h | --help
+    msgpack-cli --version
+
+Commands:
+    encode                Encode data from input file to STDOUT
+    decode                Decode data from input file to STDOUT
+    rpc                   Call RPC method and write result to STDOUT
+
+Options:
+    -h --help             Show this help message and exit
+    --version             Show version
+    --out=&lt;output-file&gt;   Write output data to file instead of STDOUT
+    --file=&lt;input-file&gt;   File where parameters or RPC method are read from
+    --pp                  Pretty-print - indent output JSON data
+    --timeout=&lt;timeout&gt;   Timeout of RPC call [default: 30]
+    --disable-int64-conv  Disable the default behaviour such that JSON numbers
+                          are converted to float64 or int64 numbers by their
+                          meaning, all result numbers will have float64 type
+
+
+Arguments:
+    &lt;input-file&gt;          File where data are read from
+    &lt;host&gt;                Server hostname
+    &lt;port&gt;                Server port
+    &lt;method&gt;              Name of RPC method
+    &lt;params&gt;              Parameters of RPC method in JSON format
+</code></pre>
+
+<h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
+
+<p>Encoding/decoding:</p>
+
+<pre><code>$ cat test.json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25,
+  "height_cm": 167.6,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+$
+$ msgpack-cli encode test.json --out test.bin
+$
+$ ls -l test.* | awk '{print $9, $5}'
+test.bin 242
+test.json 429
+$
+$ msgpack-cli decode test.bin --pp  # pretty-print
+{
+  "address": {
+    "city": "New York",
+    "postalCode": "10021-3100",
+    "state": "NY",
+    "streetAddress": "21 2nd Street"
+  },
+  "age": 25,
+  "children": [],
+  "firstName": "John",
+  "height_cm": 167.6,
+  "isAlive": true,
+  "lastName": "Smith",
+  "phoneNumbers": [
+    {
+      "number": "212 555-1234",
+      "type": "home"
+    },
+    {
+      "number": "646 555-4567",
+      "type": "office"
+    }
+  ],
+  "spouse": null
+}
+</code></pre>
+
+<p>RPC calling:</p>
+
+<pre><code>$ # zero params
+$ msgpack-cli rpc localhost 8000 echo
+[]
+$
+$ # single param
+$ msgpack-cli rpc localhost 8000 echo 3.14159
+[3.14159]
+$
+$ # multiple params (as json array)
+$ msgpack-cli rpc localhost 8000 echo '["abc", "def", "ghi", {"A": 65, "B": 66, "C": 67}]'
+["abc","def","ghi",{"A":65,"B":66,"C":67}]
+</code></pre>
 </article>
 </div>
         </div>
