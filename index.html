@@ -1528,16 +1528,16 @@ Get started: <a href="http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/">h
 <p><strong>Basic usage (encoding/decoding):</strong></p>
 
 <div class="highlight highlight-actionscript"><pre><span class="pl-c">// create messagepack object</span>
-var msgpack:MsgPack = new MsgPack();
+<span class="pl-st">var</span> msgpack<span class="pl-k">:</span>MsgPack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack()<span class="pl-k">;</span>
 
 <span class="pl-c">// encode an array</span>
-var bytes:ByteArray = msgpack.write([1, 2, 3, 4, 5]);
+<span class="pl-st">var</span> <span class="pl-s3">bytes</span><span class="pl-k">:</span><span class="pl-s3">ByteArray</span> <span class="pl-k">=</span> msgpack<span class="pl-k">.</span>write(<span class="pl-k">[</span><span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span><span class="pl-k">]</span>)<span class="pl-k">;</span>
 
 <span class="pl-c">// rewind the buffer</span>
-bytes.position = 0;
+<span class="pl-s3">bytes</span><span class="pl-k">.</span><span class="pl-s3">position</span> <span class="pl-k">=</span> <span class="pl-c1">0</span><span class="pl-k">;</span>
 
 <span class="pl-c">// print the decoded object</span>
-trace(msgpack.read(bytes));</pre></div>
+<span class="pl-s3">trace</span>(msgpack<span class="pl-k">.</span>read(<span class="pl-s3">bytes</span>))<span class="pl-k">;</span></pre></div>
 
 <p>For downloads, source code and further information, check the project repository: <a href="https://github.com/loteixeira/as3-msgpack">https://github.com/loteixeira/as3-msgpack</a>.</p>
 </article>
@@ -2507,28 +2507,28 @@ image.</p>
 
 <div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:refer</span> <span class="pl-c1">:all</span>])
 
-(<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+(pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
 <span class="pl-c">; #&lt;byte[] [B@5984b649&gt;</span>
 
 <span class="pl-c">; Declare records and types as Extended types.</span>
 (<span class="pl-k">defrecord</span> Employee [name])
 
 (<span class="pl-k">defext</span> Employee <span class="pl-c1">1</span> [e]
-  (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> e)))
+  (.getBytes (<span class="pl-c1">:name</span> e)))
 
-(<span class="pl-s">let</span> [bob (<span class="pl-en">Employee.</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
-      bytes (<span class="pl-en">pack</span> bob)]
-  (<span class="pl-en">map</span> #(<span class="pl-en">format</span> <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
+(<span class="pl-s">let</span> [bob (Employee. <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
+      bytes (pack bob)]
+  (map #(format <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
 <span class="pl-c">; ("0xc7" "0x3" "0x1" "0x62" "0x6f" "0x62")</span>
 
 <span class="pl-c">; Or encode an extension directly</span>
-(<span class="pl-en">pack</span> (<span class="pl-en">-&gt;Extension</span> <span class="pl-c1">1</span> (<span class="pl-en">.getBytes</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)))
+(pack (-&gt;Extension <span class="pl-c1">1</span> (.getBytes <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)))
 
-(<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+(pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
 <span class="pl-c">; #&lt;byte[] [B@59ce1eed&gt;</span>
 
 <span class="pl-c">; Pass the :keywordize flag to unpack map keys as Clojure keywords.</span>
-(<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}) <span class="pl-c1">:keywordize</span>)
+(unpack (pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}) <span class="pl-c1">:keywordize</span>)
 <span class="pl-c">; {:schema 0, :compact true}</span></pre></div>
 
 <h6>
