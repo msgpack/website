@@ -3633,7 +3633,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 <li>Use Go as your schema language</li>
 <li>Speeeeeed (400MB/s on modern hardware)</li>
 <li><a href="http://godoc.org/github.com/tinylib/msgp/msgp#CopyToJSON">JSON interop</a></li>
-<li><a href="http://github.com/tinylib/msgp/wiki/Using-Extensions">User-defined types</a></li>
+<li><a href="http://github.com/tinylib/msgp/wiki/Using-Extensions">User-defined extensions</a></li>
 <li>Type safety</li>
 <li>Encoding flexibility</li>
 </ul>
@@ -3646,9 +3646,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 
 <div class="highlight highlight-go"><pre><span class="pl-c">//go:generate msgp</span></pre></div>
 
-<p>The <code>msgp</code> command will generate serialization methods for all exported struct
-definitions in the file. You will need to include that directive in every file that contains structs that 
-need code generation.</p>
+<p>The <code>msgp</code> command will generate serialization methods for all exported type declarations in the file.</p>
 
 <p>You can <a href="http://github.com/tinylib/msgp/wiki/Using-the-Code-Generator">read more about the code generation options here</a>.</p>
 
@@ -3679,16 +3677,15 @@ of <code>*bufio.Writer</code> and <code>*bufio.Reader</code>, respectively.)</p>
 
 <ul class="task-list">
 <li>Extremely fast generated code</li>
+<li>Test and benchmark generation</li>
 <li>JSON interoperability (see <code>msgp.CopyToJSON() and msgp.UnmarshalAsJSON()</code>)</li>
-<li>Support for embedded fields, anonymous structs, and multi-field inline declarations</li>
-<li>Identifier resolution (see below)</li>
+<li>Support for complex type declarations</li>
 <li>Native support for Go's <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types </li>
 <li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
 <li>Support for arbitrary type system extensions</li>
 <li><a href="http://github.com/tinylib/msgp/wiki/Preprocessor-Directives">Preprocessor directives</a></li>
 </ul>
-<p>Because of (limited) identifier resolution, the code generator will still yield the
-correct code for the following struct declaration:</p>
+<p>Consider the following:</p>
 
 <div class="highlight highlight-go"><pre><span class="pl-s">const</span> <span class="pl-v">Eight</span> = <span class="pl-c1">8</span>
 <span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-st">int</span>
@@ -3700,11 +3697,7 @@ correct code for the following struct declaration:</p>
     <span class="pl-v">Nums</span>   [Eight]<span class="pl-st">float64</span>    <span class="pl-s1"><span class="pl-pds">`</span>msg:"nums"<span class="pl-pds">`</span></span>
 }</pre></div>
 
-<p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file as <code>Struct</code>, the parser will figure out that 
-<code>MyInt</code> is really an <code>int</code>, and <code>Data</code> is really just a <code>[]byte</code>. The constant <code>Eight</code> does not have to be in the 
-same file as the struct definition, but it does have to be in the same package (as the generated code will simply
-use <code>Eight</code> as a literal under the assumption that the compiler will figure out what it is.) Note that this only works for "base" types (no composite types, although <code>[]byte</code> is supported as a special case.) Unresolved identifiers are (optimistically) 
-assumed to be struct definitions in other files. (The parser will spit out warnings about unresolved identifiers.)</p>
+<p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file as <code>Struct</code>, the parser will determine that the type information for <code>MyInt</code> and <code>Data</code> can be passed into the definition of <code>Struct</code> before its methods are generated.</p>
 
 <h8>
 <a id="user-content-extensions" class="anchor" href="#extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extensions</h8>
@@ -3722,22 +3715,20 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 <p>Here some of the known limitations/restrictions:</p>
 
 <ul class="task-list">
-<li>All fields of a struct that are not Go built-ins are assumed (optimistically) to have been seen by the code generator in another file. The generator will output a warning if it can't resolve an identifier in the file, or if it ignores an exported field. The generated code will fail to compile if you encounter this issue, so it shouldn't catch you by surprise.</li>
+<li>Identifiers from outside the processed source file are assumed (optimistically) to satisfy the generator's interfaces. If this isn't the case, your code will fail to compile.</li>
 <li>Like most serializers, <code>chan</code> and <code>func</code> fields are ignored, as well as non-exported fields.</li>
-<li>Methods are only generated for <code>struct</code> definitions. Chances are that we will keep things this way.</li>
 <li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
 <li>
 <em>Maps must have <code>string</code> keys.</em> This is intentional (as it preserves JSON interop.) Although non-string map keys are not forbidden by the MessagePack standard, many serializers impose this restriction. (It also means <em>any</em> well-formed <code>struct</code> can be de-serialized into a <code>map[string]interface{}</code>.) The only exception to this rule is that the deserializers will allow you to read map keys encoded as <code>bin</code> types, due to the fact that some legacy encodings permitted this. (However, those values will still be cast to Go <code>string</code>s, and they will be converted to <code>str</code> types when re-encoded. It is the responsibility of the user to ensure that map keys are UTF-8 safe in this case.) The same rules hold true for JSON translation.</li>
-<li>All variable-length objects (maps, strings, arrays, extensions, etc.) cannot have more than <code>(1&lt;&lt;32)-1</code> elements.</li>
 </ul>
 <p>If the output compiles, then there's a pretty good chance things are fine. (Plus, we generate tests for you.) <em>Please, please, please</em> file an issue if you think the generator is writing broken code.</p>
 
 <h7>
 <a id="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance</h7>
 
-<p>If you like benchmarks, see <a href="https://github.com/alecthomas/go_serialization_benchmarks">here.</a> In general, you pay a performance penalty using this code generator over the gogoprotobuf (protocol buffers) generator, but you get substantially better JSON interop and dedicated <code>io.Reader/Writer</code> methods, along with the ability to use Go as your schema language.</p>
+<p>If you like benchmarks, see <a href="https://github.com/alecthomas/go_serialization_benchmarks">here.</a></p>
 
-<p>As one might expect, the generated methods that deal with <code>[]byte</code> are faster, but the <code>io.Reader/Writer</code> methods are generally more memory-efficient for large (&gt; 2KB) objects. As always, benchmark for your particular use case.</p>
+<p>As one might expect, the generated methods that deal with <code>[]byte</code> are faster, but the <code>io.Reader/Writer</code> methods are generally more memory-efficient for large (&gt; 2KB) objects.</p>
 </article>
 </div>
         </div>
