@@ -250,6 +250,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-core',this)">Scala <span class="qs-sub">msgpack4z</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-txmsgpackrpc',this)">Python/Twisted <span class="qs-sub">jakm</span></a></li>
+          
         </ul>
       </div>
 
@@ -3928,6 +3930,420 @@ if you find any bug, please contact me!
 <ul class="task-list">
 <li><a href="https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala">https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala</a></li>
 </ul></article>
+</div>
+        </div>
+        
+        <div id="qs-jakm-txmsgpackrpc" class="qs"><h4><a href="https://github.com/jakm/txmsgpackrpc" target="_blank">jakm/txmsgpackrpc <span class="qs-url">https://github.com/jakm/txmsgpackrpc</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-txmsgpackrpc" class="anchor" href="#txmsgpackrpc" aria-hidden="true"><span class="octicon octicon-link"></span></a>txmsgpackrpc</h5>
+<p>For the latest source code, see <a href="http://github.com/jakm/txmsgpackrpc">http://github.com/jakm/txmsgpackrpc</a></p>
+<p><tt>txmsgpackrpc</tt> is a library for writing asynchronous
+<a href="https://github.com/msgpack-rpc/msgpack-rpc/blob/master/spec.md">msgpack-rpc</a>
+servers and clients in Python, using <a href="http://twistedmatrix.com">Twisted
+framework</a>. Library is based on
+<a href="https://github.com/donalm/txMsgpack">txMsgpack</a>, but some
+improvements and fixes were made.</p>
+<h6>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
+<ul>
+<li>user friendly API</li>
+<li>modular object model</li>
+<li>working timeouts and reconnecting</li>
+<li>connection pool support</li>
+<li>TCP, SSL, UDP and UNIX sockets</li>
+</ul>
+<h6>
+<a id="user-content-python-3-note" class="anchor" href="#python-3-note" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python 3 note</h6>
+<p>Twisted (actually 15.0) doesn't support twisted.internet.unix module for
+Python 3, therefore UNIX sockets are not supported.</p>
+<h6>
+<a id="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h6>
+<ul>
+<li>msgpack-python <a href="https://pypi.python.org/pypi/msgpack-python/">https://pypi.python.org/pypi/msgpack-python/</a>
+</li>
+<li>Twisted <a href="http://twistedmatrix.com/trac/">http://twistedmatrix.com/trac/</a>
+</li>
+</ul>
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+<div class="highlight highlight-sh"><pre>
+% pip install txmsgpackrpc</pre></div>
+<p>Debian packages are available on project's <a href="https://github.com/jakm/txmsgpackrpc/releases/latest">Releases
+page</a>.</p>
+<h6>
+<a id="user-content-tcp-example" class="anchor" href="#tcp-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>TCP example</h6>
+<p>Computation of PI using Chudnovsky algorithm in subprocess. For details,
+see <a href="http://www.craig-wood.com/nick/articles/pi-chudnovsky/">http://www.craig-wood.com/nick/articles/pi-chudnovsky/</a>.</p>
+<h7>
+<a id="user-content-results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h7>
+<pre>
+Computation of PI with 5 places finished in 0.022390 seconds
+
+Computation of PI with 100 places finished in 0.037856 seconds
+
+Computation of PI with 1000 places finished in 0.038070 seconds
+
+Computation of PI with 10000 places finished in 0.073907 seconds
+
+Computation of PI with 100000 places finished in 6.741683 seconds
+
+Computation of PI with 5 places finished in 0.001142 seconds
+
+Computation of PI with 100 places finished in 0.001182 seconds
+
+Computation of PI with 1000 places finished in 0.001206 seconds
+
+Computation of PI with 10000 places finished in 0.001230 seconds
+
+Computation of PI with 100000 places finished in 0.001255 seconds
+
+Computation of PI with 1000000 places finished in 432.574457 seconds
+
+Computation of PI with 1000000 places finished in 402.551226 seconds
+
+DONE
+</pre>
+<h7>
+<a id="user-content-server" class="anchor" href="#server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
+<div class="highlight highlight-python"><pre>
+<span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+
+<span class="pl-k">from</span> collections <span class="pl-k">import</span> defaultdict
+<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, utils
+<span class="pl-k">from</span> twisted.python <span class="pl-k">import</span> failure
+<span class="pl-k">from</span> txmsgpackrpc.server <span class="pl-k">import</span> MsgpackRPCServer
+
+
+pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'''</span></span>
+<span class="pl-s1">"""</span>
+<span class="pl-s1">Python3 program to calculate Pi using python long integers, binary</span>
+<span class="pl-s1">splitting and the Chudnovsky algorithm</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">See: http://www.craig-wood.com/nick/articles/pi-chudnovsky/ for more</span>
+<span class="pl-s1">info</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">Nick Craig-Wood &lt;nick@craig-wood.com&gt;</span>
+<span class="pl-s1">"""</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">import math</span>
+<span class="pl-s1">from time import time</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">def sqrt(n, one):</span>
+<span class="pl-s1">    """</span>
+<span class="pl-s1">    Return the square root of n as a fixed point number with the one</span>
+<span class="pl-s1">    passed in.  It uses a second order Newton-Raphson convgence.  This</span>
+<span class="pl-s1">    doubles the number of significant figures on each iteration.</span>
+<span class="pl-s1">    """</span>
+<span class="pl-s1">    # Use floating point arithmetic to make an initial guess</span>
+<span class="pl-s1">    floating_point_precision = 10**16</span>
+<span class="pl-s1">    n_float = float((n * floating_point_precision) // one) / floating_point_precision</span>
+<span class="pl-s1">    x = (int(floating_point_precision * math.sqrt(n_float)) * one) // floating_point_precision</span>
+<span class="pl-s1">    n_one = n * one</span>
+<span class="pl-s1">    while 1:</span>
+<span class="pl-s1">        x_old = x</span>
+<span class="pl-s1">        x = (x + n_one // x) // 2</span>
+<span class="pl-s1">        if x == x_old:</span>
+<span class="pl-s1">            break</span>
+<span class="pl-s1">    return x</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">def pi_chudnovsky_bs(digits):</span>
+<span class="pl-s1">    """</span>
+<span class="pl-s1">    Compute int(pi * 10**digits)</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    This is done using Chudnovsky's series with binary splitting</span>
+<span class="pl-s1">    """</span>
+<span class="pl-s1">    C = 640320</span>
+<span class="pl-s1">    C3_OVER_24 = C**3 // 24</span>
+<span class="pl-s1">    def bs(a, b):</span>
+<span class="pl-s1">        """</span>
+<span class="pl-s1">        Computes the terms for binary splitting the Chudnovsky infinite series</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        a(a) = +/- (13591409 + 545140134*a)</span>
+<span class="pl-s1">        p(a) = (6*a-5)*(2*a-1)*(6*a-1)</span>
+<span class="pl-s1">        b(a) = 1</span>
+<span class="pl-s1">        q(a) = a*a*a*C3_OVER_24</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        returns P(a,b), Q(a,b) and T(a,b)</span>
+<span class="pl-s1">        """</span>
+<span class="pl-s1">        if b - a == 1:</span>
+<span class="pl-s1">            # Directly compute P(a,a+1), Q(a,a+1) and T(a,a+1)</span>
+<span class="pl-s1">            if a == 0:</span>
+<span class="pl-s1">                Pab = Qab = 1</span>
+<span class="pl-s1">            else:</span>
+<span class="pl-s1">                Pab = (6*a-5)*(2*a-1)*(6*a-1)</span>
+<span class="pl-s1">                Qab = a*a*a*C3_OVER_24</span>
+<span class="pl-s1">            Tab = Pab * (13591409 + 545140134*a) # a(a) * p(a)</span>
+<span class="pl-s1">            if a &amp; 1:</span>
+<span class="pl-s1">                Tab = -Tab</span>
+<span class="pl-s1">        else:</span>
+<span class="pl-s1">            # Recursively compute P(a,b), Q(a,b) and T(a,b)</span>
+<span class="pl-s1">            # m is the midpoint of a and b</span>
+<span class="pl-s1">            m = (a + b) // 2</span>
+<span class="pl-s1">            # Recursively calculate P(a,m), Q(a,m) and T(a,m)</span>
+<span class="pl-s1">            Pam, Qam, Tam = bs(a, m)</span>
+<span class="pl-s1">            # Recursively calculate P(m,b), Q(m,b) and T(m,b)</span>
+<span class="pl-s1">            Pmb, Qmb, Tmb = bs(m, b)</span>
+<span class="pl-s1">            # Now combine</span>
+<span class="pl-s1">            Pab = Pam * Pmb</span>
+<span class="pl-s1">            Qab = Qam * Qmb</span>
+<span class="pl-s1">            Tab = Qmb * Tam + Pam * Tmb</span>
+<span class="pl-s1">        return Pab, Qab, Tab</span>
+<span class="pl-s1">    # how many terms to compute</span>
+<span class="pl-s1">    DIGITS_PER_TERM = math.log10(C3_OVER_24/6/2/6)</span>
+<span class="pl-s1">    N = int(digits/DIGITS_PER_TERM + 1)</span>
+<span class="pl-s1">    # Calclate P(0,N) and Q(0,N)</span>
+<span class="pl-s1">    P, Q, T = bs(0, N)</span>
+<span class="pl-s1">    one = 10**digits</span>
+<span class="pl-s1">    sqrtC = sqrt(10005*one, one)</span>
+<span class="pl-s1">    return (Q*426880*sqrtC) // T</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">if __name__ == "__main__":</span>
+<span class="pl-s1">    import sys</span>
+<span class="pl-s1">    digits = int(sys.argv[1])</span>
+<span class="pl-s1">    pi = pi_chudnovsky_bs(digits)</span>
+<span class="pl-s1">    print(pi)</span>
+<span class="pl-s1"><span class="pl-pds">'''</span></span>
+
+
+<span class="pl-st">def</span> <span class="pl-en">set_timeout</span>(<span class="pl-vpf">deferred</span>, <span class="pl-vpf">timeout</span><span class="pl-k">=</span><span class="pl-c1">30</span>):
+    <span class="pl-st">def</span> <span class="pl-en">callback</span>(<span class="pl-vpf">value</span>):
+        <span class="pl-k">if</span> <span class="pl-k">not</span> watchdog.called:
+            watchdog.cancel()
+        <span class="pl-k">return</span> value
+
+    deferred.addBoth(callback)
+
+    watchdog <span class="pl-k">=</span> reactor.callLater(timeout, defer.timeout, deferred)
+
+
+<span class="pl-st">class</span> <span class="pl-en">ComputePI</span>(<span class="pl-e">MsgpackRPCServer</span>):
+
+    <span class="pl-st">def</span> <span class="pl-en"><span class="pl-s3">__init__</span></span>(<span class="pl-vpf">self</span>):
+        <span class="pl-v">self</span>.waiting <span class="pl-k">=</span> defaultdict(<span class="pl-s3">list</span>)
+        <span class="pl-v">self</span>.results <span class="pl-k">=</span> {}
+
+    <span class="pl-st">def</span> <span class="pl-en">remote_PI</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">digits</span>, <span class="pl-vpf">timeout</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
+        <span class="pl-k">if</span> digits <span class="pl-k">in</span> <span class="pl-v">self</span>.results:
+            <span class="pl-k">return</span> defer.succeed(<span class="pl-v">self</span>.results[digits])
+
+        d <span class="pl-k">=</span> defer.Deferred()
+
+        <span class="pl-k">if</span> digits <span class="pl-k">not</span> <span class="pl-k">in</span> <span class="pl-v">self</span>.waiting:
+            subprocessDeferred <span class="pl-k">=</span> <span class="pl-v">self</span>.computePI(digits, timeout)
+
+            <span class="pl-st">def</span> <span class="pl-en">callWaiting</span>(<span class="pl-vpf">res</span>):
+                waiting <span class="pl-k">=</span> <span class="pl-v">self</span>.waiting[digits]
+                <span class="pl-k">del</span> <span class="pl-v">self</span>.waiting[digits]
+
+                <span class="pl-k">if</span> <span class="pl-s3">isinstance</span>(res, failure.Failure):
+                    func <span class="pl-k">=</span> <span class="pl-st">lambda</span> <span class="pl-vpf">d</span>: d.errback(res)
+                <span class="pl-k">else</span>:
+                    func <span class="pl-k">=</span> <span class="pl-st">lambda</span> <span class="pl-vpf">d</span>: d.callback(res)
+
+                <span class="pl-k">for</span> d <span class="pl-k">in</span> waiting:
+                    func(d)
+
+            subprocessDeferred.addBoth(callWaiting)
+
+        <span class="pl-v">self</span>.waiting[digits].append(d)
+
+        <span class="pl-k">return</span> d
+
+    <span class="pl-st">def</span> <span class="pl-en">computePI</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">digits</span>, <span class="pl-vpf">timeout</span>):
+        d <span class="pl-k">=</span> utils.getProcessOutputAndValue(<span class="pl-s1"><span class="pl-pds">'</span>/usr/bin/python<span class="pl-pds">'</span></span>, <span class="pl-vpf">args</span><span class="pl-k">=</span>(<span class="pl-s1"><span class="pl-pds">'</span>-c<span class="pl-pds">'</span></span>, pi_chudovsky_bs, <span class="pl-s3">str</span>(digits)))
+
+        <span class="pl-st">def</span> <span class="pl-en">callback</span>((<span class="pl-vpf">out</span>, <span class="pl-vpf">err</span>, <span class="pl-vpf">code</span>)):
+            <span class="pl-k">if</span> code <span class="pl-k">==</span> <span class="pl-c1">0</span>:
+                pi <span class="pl-k">=</span> <span class="pl-s3">int</span>(out)
+                <span class="pl-v">self</span>.results[digits] <span class="pl-k">=</span> pi
+                <span class="pl-k">return</span> pi
+            <span class="pl-k">else</span>:
+                <span class="pl-k">return</span> failure.Failure(<span class="pl-s3">RuntimeError</span>(<span class="pl-s1"><span class="pl-pds">'</span>Computation failed: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> err))
+
+        <span class="pl-k">if</span> timeout <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:
+            set_timeout(d, timeout)
+
+        d.addCallback(callback)
+
+        <span class="pl-k">return</span> d
+
+
+<span class="pl-st">def</span> <span class="pl-en">main</span>():
+    server <span class="pl-k">=</span> ComputePI()
+    reactor.listenTCP(<span class="pl-c1">8000</span>, server.getStreamFactory())
+
+<span class="pl-k">if</span> <span class="pl-sv">__name__</span> <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
+    reactor.callWhenRunning(main)
+    reactor.run()</pre></div>
+<h7>
+<a id="user-content-client" class="anchor" href="#client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
+<div class="highlight highlight-python"><pre>
+<span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+
+<span class="pl-k">import</span> sys
+<span class="pl-k">import</span> time
+<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
+<span class="pl-k">from</span> twisted.python <span class="pl-k">import</span> failure
+
+<span class="pl-en">@defer.inlineCallbacks</span>
+<span class="pl-st">def</span> <span class="pl-en">main</span>():
+    <span class="pl-k">try</span>:
+
+        <span class="pl-k">from</span> txmsgpackrpc.client <span class="pl-k">import</span> connect
+
+        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect(<span class="pl-s1"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-vpf">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">900</span>)
+
+        <span class="pl-st">def</span> <span class="pl-en">callback</span>(<span class="pl-vpf">res</span>, <span class="pl-vpf">digits</span>, <span class="pl-vpf">start_time</span>):
+            <span class="pl-k">if</span> <span class="pl-s3">isinstance</span>(res, failure.Failure):
+                <span class="pl-k">print</span>(<span class="pl-s1"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places failed: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span>
+                      (digits, res.getErrorMessage()), end<span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
+            <span class="pl-k">else</span>:
+                <span class="pl-k">print</span>(<span class="pl-s1"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places finished in <span class="pl-c1">%f</span> seconds<span class="pl-pds">'</span></span> <span class="pl-k">%</span>
+                      (digits, time.time() <span class="pl-k">-</span> start_time), end<span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
+            sys.stdout.flush()
+
+        defers <span class="pl-k">=</span> []
+        <span class="pl-k">for</span> _ <span class="pl-k">in</span> <span class="pl-s3">range</span>(<span class="pl-c1">2</span>):
+            <span class="pl-k">for</span> digits <span class="pl-k">in</span> (<span class="pl-c1">5</span>, <span class="pl-c1">100</span>, <span class="pl-c1">1000</span>, <span class="pl-c1">10000</span>, <span class="pl-c1">100000</span>, <span class="pl-c1">1000000</span>):
+                d <span class="pl-k">=</span> c.createRequest(<span class="pl-s1"><span class="pl-pds">'</span>PI<span class="pl-pds">'</span></span>, digits, <span class="pl-c1">600</span>)
+                d.addBoth(callback, digits, time.time())
+                defers.append(d)
+            <span class="pl-c"># wait for 30 seconds</span>
+            <span class="pl-k">yield</span> task.deferLater(reactor, <span class="pl-c1">30</span>, <span class="pl-st">lambda</span>: <span class="pl-c1">None</span>)
+
+        <span class="pl-k">yield</span> defer.DeferredList(defers)
+
+        <span class="pl-k">print</span>(<span class="pl-s1"><span class="pl-pds">'</span>DONE<span class="pl-pds">'</span></span>)
+
+    <span class="pl-k">except</span> <span class="pl-s3">Exception</span>:
+        <span class="pl-k">import</span> traceback
+        traceback.print_exc()
+    <span class="pl-k">finally</span>:
+        reactor.stop()
+
+<span class="pl-k">if</span> <span class="pl-sv">__name__</span> <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
+    reactor.callWhenRunning(main)
+    reactor.run()</pre></div>
+<h6>
+<a id="user-content-multicast-udp-example" class="anchor" href="#multicast-udp-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multicast UDP example</h6>
+<p>Example servers join to group 224.0.0.5 and listen on port 8000. Their only
+method <tt>echo</tt> returns its parameter.</p>
+<p>Client joins group to 224.0.0.5, sends multicast request to group on port 8000
+and waits for 5 seconds for responses. If some responses are received,
+protocol callbacks with tuple of results and individual parts are checked for
+errors. If no responses are received, protocol errbacks with TimeoutError.</p>
+<p>Because there is no common way to determine number of peers in group,
+MsgpackMulticastDatagramProtocol always wait for responses until waitTimeout
+expires.</p>
+<div class="highlight highlight-sh"><pre>
+$ <span class="pl-c"># setup multicast routing</span>
+$ ip route add 224.0.0.0/4 dev eth0
+$ <span class="pl-s3">echo</span> 1 <span class="pl-k">&gt;</span> /proc/sys/net/ipv4/ip_forward
+$
+$ <span class="pl-c"># start servers listening on port 8000</span>
+$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
+[1] 3584
+$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
+[2] 3585
+$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
+[3] 3586
+$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
+[4] 3587
+$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
+[5] 3588
+$
+$ <span class="pl-c"># execute client</span>
+$ python examples/tx_rpc_client_udp_multicast.py
+Received results from 5 peers
+$</pre></div>
+<h7>
+<a id="user-content-server-1" class="anchor" href="#server-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
+<div class="highlight highlight-python"><pre>
+<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
+<span class="pl-k">from</span> txmsgpackrpc.server <span class="pl-k">import</span> MsgpackRPCServer
+
+
+<span class="pl-st">class</span> <span class="pl-en">EchoRPC</span>(<span class="pl-e">MsgpackRPCServer</span>):
+
+    <span class="pl-en">@defer.inlineCallbacks</span>
+    <span class="pl-st">def</span> <span class="pl-en">remote_echo</span>(<span class="pl-vpf">self</span>, <span class="pl-vpf">value</span>, <span class="pl-vpf">delay</span><span class="pl-k">=</span><span class="pl-c1">None</span>, <span class="pl-vpf">msgid</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
+        <span class="pl-k">if</span> delay <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:
+            <span class="pl-k">yield</span> task.deferLater(reactor, delay, <span class="pl-st">lambda</span>: <span class="pl-c1">None</span>)
+        defer.returnValue(value)
+
+
+<span class="pl-st">def</span> <span class="pl-en">main</span>():
+    server <span class="pl-k">=</span> EchoRPC()
+    reactor.listenMulticast(<span class="pl-c1">8000</span>, server.getMulticastProtocol(<span class="pl-s1"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-vpf">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>),
+                            <span class="pl-vpf">listenMultiple</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+
+<span class="pl-k">if</span> <span class="pl-sv">__name__</span> <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
+    reactor.callWhenRunning(main)
+    reactor.run()</pre></div>
+<h7>
+<a id="user-content-client-1" class="anchor" href="#client-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
+<div class="highlight highlight-python"><pre>
+<span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+
+<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor
+
+<span class="pl-en">@defer.inlineCallbacks</span>
+<span class="pl-st">def</span> <span class="pl-en">main</span>():
+    <span class="pl-k">try</span>:
+
+        <span class="pl-k">from</span> txmsgpackrpc.client <span class="pl-k">import</span> connect_multicast
+
+        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect_multicast(<span class="pl-s1"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-vpf">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>, <span class="pl-vpf">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>)
+
+        data <span class="pl-k">=</span> {
+                    <span class="pl-s1"><span class="pl-pds">'</span>firstName<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>John<span class="pl-pds">'</span></span>,
+                    <span class="pl-s1"><span class="pl-pds">'</span>lastName<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>Smith<span class="pl-pds">'</span></span>,
+                    <span class="pl-s1"><span class="pl-pds">'</span>isAlive<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>,
+                    <span class="pl-s1"><span class="pl-pds">'</span>age<span class="pl-pds">'</span></span>: <span class="pl-c1">25</span>,
+                    <span class="pl-s1"><span class="pl-pds">'</span>height_cm<span class="pl-pds">'</span></span>: <span class="pl-c1">167.6</span>,
+                    <span class="pl-s1"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span>: {
+                      <span class="pl-s1"><span class="pl-pds">'</span>streetAddress<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>21 2nd Street<span class="pl-pds">"</span></span>,
+                      <span class="pl-s1"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>New York<span class="pl-pds">'</span></span>,
+                      <span class="pl-s1"><span class="pl-pds">"</span>state<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>NY<span class="pl-pds">'</span></span>,
+                      <span class="pl-s1"><span class="pl-pds">'</span>postalCode<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>10021-3100<span class="pl-pds">'</span></span>
+                    },
+                    <span class="pl-s1"><span class="pl-pds">'</span>phoneNumbers<span class="pl-pds">'</span></span>: [
+                      {
+                        <span class="pl-s1"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>home<span class="pl-pds">'</span></span>,
+                        <span class="pl-s1"><span class="pl-pds">'</span>number<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>212 555-1234<span class="pl-pds">'</span></span>
+                      },
+                      {
+                        <span class="pl-s1"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>office<span class="pl-pds">'</span></span>,
+                        <span class="pl-s1"><span class="pl-pds">'</span>number<span class="pl-pds">'</span></span>: <span class="pl-s1"><span class="pl-pds">'</span>646 555-4567<span class="pl-pds">'</span></span>
+                      }
+                    ],
+                    <span class="pl-s1"><span class="pl-pds">'</span>children<span class="pl-pds">'</span></span>: [],
+                    <span class="pl-s1"><span class="pl-pds">'</span>spouse<span class="pl-pds">'</span></span>: <span class="pl-c1">None</span>
+                  }
+
+        results <span class="pl-k">=</span> <span class="pl-k">yield</span> c.createRequest(<span class="pl-s1"><span class="pl-pds">'</span>echo<span class="pl-pds">'</span></span>, data)
+
+        <span class="pl-k">assert</span> <span class="pl-s3">isinstance</span>(results, <span class="pl-s3">tuple</span>)
+
+        <span class="pl-k">print</span>(<span class="pl-s1"><span class="pl-pds">'</span>Received results from <span class="pl-c1">%d</span> peers<span class="pl-pds">'</span></span> <span class="pl-k">%</span> <span class="pl-s3">len</span>(results))
+
+        <span class="pl-k">for</span> i, result <span class="pl-k">in</span> <span class="pl-s3">enumerate</span>(results):
+            <span class="pl-k">if</span> result <span class="pl-k">!=</span> data:
+                <span class="pl-k">print</span>(<span class="pl-s1"><span class="pl-pds">'</span>Result <span class="pl-c1">%d</span> mismatch<span class="pl-pds">'</span></span> <span class="pl-k">%</span> i)
+                <span class="pl-k">print</span>(result)
+
+    <span class="pl-k">except</span> <span class="pl-s3">Exception</span>:
+        <span class="pl-k">import</span> traceback
+        traceback.print_exc()
+    <span class="pl-k">finally</span>:
+        reactor.stop()
+
+<span class="pl-k">if</span> <span class="pl-sv">__name__</span> <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
+    reactor.callWhenRunning(main)
+    reactor.run()</pre></div>
+
+</article>
 </div>
         </div>
         
