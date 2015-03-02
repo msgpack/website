@@ -252,6 +252,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-txmsgpackrpc',this)">Python/Twisted <span class="qs-sub">jakm</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-akiradeveloper-msgpack-nim',this)">Nim <span class="qs-sub">akiradeveloper</span></a></li>
+          
         </ul>
       </div>
 
@@ -4398,6 +4400,49 @@ $</pre></div>
     reactor.callWhenRunning(main)
     reactor.run()</pre></div>
 
+</article>
+</div>
+        </div>
+        
+        <div id="qs-akiradeveloper-msgpack-nim" class="qs"><h4><a href="https://github.com/akiradeveloper/msgpack-nim" target="_blank">akiradeveloper/msgpack-nim <span class="qs-url">https://github.com/akiradeveloper/msgpack-nim</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-nim" class="anchor" href="#msgpack-nim" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-nim</h5>
+
+<p>A MessagePack binding for Nim</p>
+
+<p><a href="https://travis-ci.org/akiradeveloper/msgpack-nim"><img src="https://camo.githubusercontent.com/fafee151bfb3e0cfecd74e540d07e84245b0feb3/68747470733a2f2f7472617669732d63692e6f72672f616b697261646576656c6f7065722f6d73677061636b2d6e696d2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/akiradeveloper/msgpack-nim.svg?branch=master" style="max-width:100%;"></a></p>
+
+<p>API: <a href="https://rawgit.com/akiradeveloper/msgpack-nim/master/msgpack.html">https://rawgit.com/akiradeveloper/msgpack-nim/master/msgpack.html</a></p>
+
+<p>msgpack-nim currently provides only the basic functionality.
+Please see what's listed in Todo section. Compared to other language bindings, it's well-tested by
+1000 auto-generated test cases by Haskell QuickCheck, which always runs
+on every commit to Github repository. Please try <code>make quickcheck</code> on your local machine
+to see what happens (It will take a bit while. Be patient). Have a nice packing!</p>
+
+<p><a href="https://camo.githubusercontent.com/98a4aa48feec91b3cfa37ab7b62a90df53e2f1ff/68747470733a2f2f7261776769742e636f6d2f616b697261646576656c6f7065722f6d73677061636b2d6e696d2f6d61737465722f6f766572766965772e737667" target="_blank"><img src="https://camo.githubusercontent.com/98a4aa48feec91b3cfa37ab7b62a90df53e2f1ff/68747470733a2f2f7261776769742e636f6d2f616b697261646576656c6f7065722f6d73677061636b2d6e696d2f6d61737465722f6f766572766965772e737667" alt="Overview" data-canonical-src="https://rawgit.com/akiradeveloper/msgpack-nim/master/overview.svg" style="max-width:100%;"></a></p>
+
+<h7>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h7>
+
+<ul class="task-list">
+<li>Implement Messagepack-RPC<br>
+</li>
+<li>Implement nim object to/from Msg object translation (but I am a bit skeptical about this idea of
+mapping nim object to Msg object)<br>
+</li>
+<li>Performance evaluation<br>
+</li>
+<li>Talk with offical Ruby implementation<br>
+</li>
+<li>Don't repeat yourself: The code now has too much duplications. Using templates?<br>
+</li>
+</ul>
+<h7>
+<a id="user-content-author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author</h7>
+
+<p>Akira Hayakawa (<a href="mailto:ruby.wktk@gmail.com">ruby.wktk@gmail.com</a>)</p>
 </article>
 </div>
         </div>
