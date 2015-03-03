@@ -4425,8 +4425,49 @@ to see what happens (It will take a bit while. Be patient). Have a nice packing!
 
 <p><a href="https://camo.githubusercontent.com/98a4aa48feec91b3cfa37ab7b62a90df53e2f1ff/68747470733a2f2f7261776769742e636f6d2f616b697261646576656c6f7065722f6d73677061636b2d6e696d2f6d61737465722f6f766572766965772e737667" target="_blank"><img src="https://camo.githubusercontent.com/98a4aa48feec91b3cfa37ab7b62a90df53e2f1ff/68747470733a2f2f7261776769742e636f6d2f616b697261646576656c6f7065722f6d73677061636b2d6e696d2f6d61737465722f6f766572766965772e737667" alt="Overview" data-canonical-src="https://rawgit.com/akiradeveloper/msgpack-nim/master/overview.svg" style="max-width:100%;"></a></p>
 
-<h7>
-<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h7>
+<h6>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
+
+<div class="highlight highlight-sh"><pre>$ nimble update
+$ nimble msgpack</pre></div>
+
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack
+<span class="pl-k">import</span> streams
+
+<span class="pl-c"># You can use any stream subclasses to serialize/deserialize messages.</span>
+<span class="pl-c"># e.g. FileStream</span>
+<span class="pl-k">let</span> st: Stream = <span class="pl-s3">newStringStream</span>()
+
+<span class="pl-s3">assert</span>(st.getPosition == <span class="pl-c1">0</span>)
+
+<span class="pl-c"># Type checking protects you from making trivial mistakes.</span>
+<span class="pl-c"># Now we pack {"ints":[5,-3]} but more complex combination of any Msg types is allowed.</span>
+<span class="pl-k">let</span> xs = @[<span class="pl-s3">PFixNum</span>(<span class="pl-c1">5</span>), <span class="pl-s3">NFixNum</span>(-<span class="pl-c1">3</span>)]
+<span class="pl-k">let</span> ys = @[(key: <span class="pl-s3">FixStr</span>(<span class="pl-s1">"ints"</span>), val: <span class="pl-s3">FixArray</span>(xs.toIterable))]
+st.<span class="pl-s3">pack</span>(<span class="pl-s3">FixMap</span>(ys.toIterable)) <span class="pl-c"># Serialize!</span>
+
+<span class="pl-c"># We need to reset the cursor to the beginning of the target byte sequence.</span>
+st.<span class="pl-s3">setPosition</span>(<span class="pl-c1">0</span>)
+
+<span class="pl-k">let</span> msg = st.unpack <span class="pl-c"># Deserialize!</span>
+
+<span class="pl-k">for</span> k, v <span class="pl-k">in</span> msg.vFixMap.<span class="pl-s3">iter</span>():
+  <span class="pl-s3">echo</span> k.vFixStr <span class="pl-c"># emits "ints"</span>
+  <span class="pl-k">for</span> e <span class="pl-k">in</span> v.vFixArray.<span class="pl-s3">iter</span>():
+    <span class="pl-c"># emits 5 and then -3</span>
+    <span class="pl-k">case</span> e.kind:
+    <span class="pl-k">of</span> mkPFixNum:
+      <span class="pl-s3">echo</span> e.vPFixNum
+    <span class="pl-k">of</span> mkNFixNum:
+      <span class="pl-s3">echo</span> e.vNFixNum
+    <span class="pl-k">else</span>:
+      <span class="pl-s3">assert</span>(<span class="pl-c1">false</span>)</pre></div>
+
+<h6>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h6>
 
 <ul class="task-list">
 <li>Implement Messagepack-RPC<br>
@@ -4441,8 +4482,8 @@ mapping nim object to Msg object)<br>
 <li>Don't repeat yourself: The code now has too much duplications. Using templates?<br>
 </li>
 </ul>
-<h7>
-<a id="user-content-author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author</h7>
+<h6>
+<a id="user-content-author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author</h6>
 
 <p>Akira Hayakawa (<a href="mailto:ruby.wktk@gmail.com">ruby.wktk@gmail.com</a>)</p>
 </article>
