@@ -4437,19 +4437,21 @@ $ nimble msgpack</pre></div>
 <div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack
 <span class="pl-k">import</span> streams
 
-<span class="pl-c"># You can use any stream subclasses to serialize/deserialize messages.</span>
-<span class="pl-c"># e.g. FileStream</span>
+<span class="pl-c"># You can use any stream subclasses to serialize/deserialize</span>
+<span class="pl-c"># messages. e.g. FileStream</span>
 <span class="pl-k">let</span> st: Stream = <span class="pl-s3">newStringStream</span>()
 
 <span class="pl-s3">assert</span>(st.getPosition == <span class="pl-c1">0</span>)
 
 <span class="pl-c"># Type checking protects you from making trivial mistakes.</span>
-<span class="pl-c"># Now we pack {"ints":[5,-3]} but more complex combination of any Msg types is allowed.</span>
+<span class="pl-c"># Now we pack {"ints":[5,-3]} but more complex combination of</span>
+<span class="pl-c"># any Msg types is allowed.</span>
 <span class="pl-k">let</span> xs = @[<span class="pl-s3">PFixNum</span>(<span class="pl-c1">5</span>), <span class="pl-s3">NFixNum</span>(-<span class="pl-c1">3</span>)]
 <span class="pl-k">let</span> ys = @[(key: <span class="pl-s3">FixStr</span>(<span class="pl-s1">"ints"</span>), val: <span class="pl-s3">FixArray</span>(xs.toIterable))]
 st.<span class="pl-s3">pack</span>(<span class="pl-s3">FixMap</span>(ys.toIterable)) <span class="pl-c"># Serialize!</span>
 
-<span class="pl-c"># We need to reset the cursor to the beginning of the target byte sequence.</span>
+<span class="pl-c"># We need to reset the cursor to the beginning of the target</span>
+<span class="pl-c"># byte sequence.</span>
 st.<span class="pl-s3">setPosition</span>(<span class="pl-c1">0</span>)
 
 <span class="pl-k">let</span> msg = st.unpack <span class="pl-c"># Deserialize!</span>
@@ -4472,10 +4474,10 @@ st.<span class="pl-s3">setPosition</span>(<span class="pl-c1">0</span>)
 <ul class="task-list">
 <li>Implement Messagepack-RPC<br>
 </li>
-<li>Implement nim object to/from Msg object translation (but I am a bit skeptical about this idea of
-mapping nim object to Msg object)<br>
+<li>Implement Nim object to/from Msg object translation (but I am a bit skeptical about this idea of
+mapping Nim object to Msg object)<br>
 </li>
-<li>Performance evaluation<br>
+<li>Evaluate performance and scalability<br>
 </li>
 <li>Talk with offical Ruby implementation<br>
 </li>
