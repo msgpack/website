@@ -4447,8 +4447,8 @@ $ nimble msgpack</pre></div>
 <span class="pl-c"># Now we pack {"ints":[5,-3]} but more complex combination of</span>
 <span class="pl-c"># any Msg types is allowed.</span>
 <span class="pl-k">let</span> xs = @[<span class="pl-s3">PFixNum</span>(<span class="pl-c1">5</span>), <span class="pl-s3">NFixNum</span>(-<span class="pl-c1">3</span>)]
-<span class="pl-k">let</span> ys = @[(key: <span class="pl-s3">FixStr</span>(<span class="pl-s1">"ints"</span>), val: <span class="pl-s3">FixArray</span>(xs.toIterable))]
-st.<span class="pl-s3">pack</span>(<span class="pl-s3">FixMap</span>(ys.toIterable)) <span class="pl-c"># Serialize!</span>
+<span class="pl-k">let</span> ys = @[(key: <span class="pl-s3">FixStr</span>(<span class="pl-s1">"ints"</span>), val: <span class="pl-s3">FixArray</span>(xs))]
+st.<span class="pl-s3">pack</span>(<span class="pl-s3">FixMap</span>(ys)) <span class="pl-c"># Serialize!</span>
 
 <span class="pl-c"># We need to reset the cursor to the beginning of the target</span>
 <span class="pl-c"># byte sequence.</span>
@@ -4456,9 +4456,9 @@ st.<span class="pl-s3">setPosition</span>(<span class="pl-c1">0</span>)
 
 <span class="pl-k">let</span> msg = st.unpack <span class="pl-c"># Deserialize!</span>
 
-<span class="pl-k">for</span> k, v <span class="pl-k">in</span> msg.vFixMap.<span class="pl-s3">iter</span>():
-  <span class="pl-s3">echo</span> k.vFixStr <span class="pl-c"># emits "ints"</span>
-  <span class="pl-k">for</span> e <span class="pl-k">in</span> v.vFixArray.<span class="pl-s3">iter</span>():
+<span class="pl-k">for</span> e <span class="pl-k">in</span> msg.vFixMap:
+  <span class="pl-s3">echo</span> e.key.vFixStr <span class="pl-c"># emits "ints"</span>
+  <span class="pl-k">for</span> e <span class="pl-k">in</span> e.val.vFixArray:
     <span class="pl-c"># emits 5 and then -3</span>
     <span class="pl-k">case</span> e.kind:
     <span class="pl-k">of</span> mkPFixNum:
