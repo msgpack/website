@@ -1681,7 +1681,7 @@ data <span class="pl-k">=</span> mp.<span class="pl-s3">unpack</span>(mpac)</pre
 
 <div class="highlight highlight-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">msgpack</span>]
 
-<span class="pl-sc">git</span> = <span class="pl-s1"><span class="pl-pds">"</span>git@github.com:mneumann/rust-msgpack.git<span class="pl-pds">"</span></span></pre></div>
+<span class="pl-vo">git</span> = <span class="pl-s1"><span class="pl-pds">"</span>git@github.com:mneumann/rust-msgpack.git<span class="pl-pds">"</span></span></pre></div>
 
 <h6>
 <a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h6>
@@ -1735,7 +1735,7 @@ in the following example:</p>
 
 <p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
 
-<div class="highlight highlight-elixir"><pre><span class="pl-s2"><span class="pl-k">defp</span> <span class="pl-s2">deps</span> <span class="pl-k">do</span></span>
+<div class="highlight highlight-elixir"><pre><span class="pl-k">defp</span> deps <span class="pl-k">do</span>
   [{<span class="pl-c1">:message_pack</span>, <span class="pl-s1"><span class="pl-pds">"</span>~&gt; 0.1.4<span class="pl-pds">"</span></span>}]
 <span class="pl-k">end</span></pre></div>
 
@@ -2052,7 +2052,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <p>Add Msgpax as a dependency in your <code>mix.exs</code> file:</p>
 
-<div class="highlight highlight-elixir"><pre><span class="pl-s2"><span class="pl-k">def</span> <span class="pl-s2">deps</span> <span class="pl-k">do</span></span>
+<div class="highlight highlight-elixir"><pre><span class="pl-k">def</span> deps <span class="pl-k">do</span>
   [{<span class="pl-c1">:msgpax</span>, <span class="pl-s1"><span class="pl-pds">"</span>~&gt; 0.5<span class="pl-pds">"</span></span>}]
 <span class="pl-k">end</span></pre></div>
 
@@ -2527,28 +2527,28 @@ image.</p>
 
 <div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:refer</span> <span class="pl-c1">:all</span>])
 
-(pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+(<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
 <span class="pl-c">; #&lt;byte[] [B@5984b649&gt;</span>
 
 <span class="pl-c">; Declare records and types as Extended types.</span>
 (<span class="pl-k">defrecord</span> Employee [name])
 
 (<span class="pl-k">defext</span> Employee <span class="pl-c1">1</span> [e]
-  (.getBytes (<span class="pl-c1">:name</span> e)))
+  (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> e)))
 
-(<span class="pl-s">let</span> [bob (Employee. <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
-      bytes (pack bob)]
-  (map #(format <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
+(<span class="pl-s">let</span> [bob (<span class="pl-en">Employee.</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
+      bytes (<span class="pl-en">pack</span> bob)]
+  (<span class="pl-en">map</span> #(<span class="pl-en">format</span> <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
 <span class="pl-c">; ("0xc7" "0x3" "0x1" "0x62" "0x6f" "0x62")</span>
 
 <span class="pl-c">; Or encode an extension directly</span>
-(pack (-&gt;Extension <span class="pl-c1">1</span> (.getBytes <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)))
+(<span class="pl-en">pack</span> (<span class="pl-en">-&gt;Extension</span> <span class="pl-c1">1</span> (<span class="pl-en">.getBytes</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)))
 
-(pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+(<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
 <span class="pl-c">; #&lt;byte[] [B@59ce1eed&gt;</span>
 
 <span class="pl-c">; Pass the :keywordize flag to unpack map keys as Clojure keywords.</span>
-(unpack (pack {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}) <span class="pl-c1">:keywordize</span>)
+(<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}) <span class="pl-c1">:keywordize</span>)
 <span class="pl-c">; {:schema 0, :compact true}</span></pre></div>
 
 <h6>
