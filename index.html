@@ -4446,7 +4446,10 @@ $ nimble msgpack</pre></div>
 <span class="pl-c"># Type checking protects you from making trivial mistakes.</span>
 <span class="pl-c"># Now we pack {"ints":[5,-3]} but more complex combination of</span>
 <span class="pl-c"># any Msg types is allowed.</span>
-<span class="pl-k">let</span> xs = @[<span class="pl-c1">5</span>.toMsg, (-<span class="pl-c1">3</span>).toMsg]
+<span class="pl-c">#</span>
+<span class="pl-c"># In xs we can mix specific conversion (PFixNum) and generic</span>
+<span class="pl-c"># conversion (toMsg).</span>
+<span class="pl-k">let</span> xs = @[<span class="pl-s3">PFixNum</span>(<span class="pl-c1">5</span>), (<span class="pl-k">-</span><span class="pl-c1">3</span>).toMsg]
 <span class="pl-k">let</span> ys = @[(key: <span class="pl-s1">"ints"</span><span class="pl-k">.</span>toMsg, val: xs.toMsg)]
 st.<span class="pl-s3">pack</span>(ys.toMsg) <span class="pl-c"># Serialize!</span>
 
@@ -4460,8 +4463,7 @@ st.<span class="pl-s3">setPosition</span>(<span class="pl-c1">0</span>)
   <span class="pl-s3">echo</span> e.key.unwrapStr <span class="pl-c"># emits "ints"</span>
   <span class="pl-k">for</span> e <span class="pl-k">in</span> e.val.unwrapArray:
     <span class="pl-c"># emits 5 and then -3</span>
-    <span class="pl-s3">echo</span> e.unwrapInt
-</pre></div>
+    <span class="pl-s3">echo</span> e.unwrapInt</pre></div>
 
 <h6>
 <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h6>
