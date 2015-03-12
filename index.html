@@ -503,43 +503,49 @@ typed as a base class object.</p>
 </tr>
 <tr>
 <th>Version:</th>
-<td>0.4.5</td>
+<td>0.4.6</td>
 </tr>
 <tr>
 <th>Date:</th>
-<td>2015-01-25</td>
+<td>2015-03-13</td>
 </tr>
 </tbody></table>
 <a href="https://travis-ci.org/#!/msgpack/msgpack-python"><img alt="https://secure.travis-ci.org/msgpack/msgpack-python.png" src="https://camo.githubusercontent.com/ac7548dfc8653b0cb85e8e70fede71b1fb12536b/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d707974686f6e2e706e67" data-canonical-src="https://secure.travis-ci.org/msgpack/msgpack-python.png" style="max-width:100%;"></a>
 <a href="https://pypi.python.org/pypi/msgpack-python/"><img alt="Latest Version" src="https://camo.githubusercontent.com/85d16b402feb38b9d730554401be241387192abc/68747470733a2f2f70797069702e696e2f76657273696f6e2f6d73677061636b2d707974686f6e2f62616467652e737667" data-canonical-src="https://pypip.in/version/msgpack-python/badge.svg" style="max-width:100%;"></a>
+<a name="user-content-what-s-this"></a>
 <h6>
 <a id="user-content-whats-this" class="anchor" href="#whats-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's this</h6>
 <p><a href="http://msgpack.org/">MessagePack</a> is a fast, compact binary serialization format, suitable for
 similar data to JSON. This package provides CPython bindings for reading and
 writing MessagePack data.</p>
+<a name="user-content-install"></a>
 <h6>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
 <pre>
 $ pip install msgpack-python
 </pre>
+<a name="user-content-pypy"></a>
 <h7>
 <a id="user-content-pypy" class="anchor" href="#pypy" aria-hidden="true"><span class="octicon octicon-link"></span></a>PyPy</h7>
 <p>msgpack-python provides pure python implementation.  PyPy can use this.</p>
+<a name="user-content-windows"></a>
 <h7>
 <a id="user-content-windows" class="anchor" href="#windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows</h7>
 <p>When you can't use binary distribution, you need to install Visual Studio
 or Windows SDK on Windows. (NOTE: Visual C++ Express 2010 doesn't support
 amd64. Windows SDK is recommanded way to build amd64 msgpack without any fee.)</p>
 <p>Without extension, using pure python implementation on CPython runs slowly.</p>
+<a name="user-content-notes"></a>
 <h6>
 <a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h6>
+<a name="user-content-note-for-msgpack-2-0-support"></a>
 <h7>
 <a id="user-content-note-for-msgpack-20-support" class="anchor" href="#note-for-msgpack-20-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note for msgpack 2.0 support</h7>
 <p>msgpack 2.0 adds two types: <em>bin</em> and <em>ext</em>.</p>
-<p><em>raw</em> was bytes or string type like Python 2's <tt>str</tt>.
+<p><em>raw</em> was bytes or string type like Python 2's <code>str</code>.
 To distinguish string and bytes, msgpack 2.0 adds <em>bin</em>.
-It is non-string binary like Python 3's <tt>bytes</tt>.</p>
-<p>To use <em>bin</em> type for packing <tt>bytes</tt>, pass <tt>use_bin_type=True</tt> to
+It is non-string binary like Python 3's <code>bytes</code>.</p>
+<p>To use <em>bin</em> type for packing <code>bytes</code>, pass <code>use_bin_type=True</code> to
 packer argument.</p>
 <pre lang="pycon">
 &gt;&gt;&gt; import msgpack
@@ -547,33 +553,36 @@ packer argument.</p>
 &gt;&gt;&gt; msgpack.unpackb(packed, encoding='utf-8')
 ['spam', u'egg']
 </pre>
-<p>You shoud use it carefully. When you use <tt>use_bin_type=True</tt>, packed
+<p>You shoud use it carefully. When you use <code>use_bin_type=True</code>, packed
 binary can be unpacked by unpackers supporting msgpack-2.0.</p>
-<p>To use <em>ext</em> type, pass <tt>msgpack.ExtType</tt> object to packer.</p>
+<p>To use <em>ext</em> type, pass <code>msgpack.ExtType</code> object to packer.</p>
 <pre lang="pycon">
 &gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
 &gt;&gt;&gt; msgpack.unpackb(packed)
 ExtType(code=42, data='xyzzy')
 </pre>
-<p>You can use it with <tt>default</tt> and <tt>ext_hook</tt>. See below.</p>
+<p>You can use it with <code>default</code> and <code>ext_hook</code>. See below.</p>
+<a name="user-content-note-for-msgpack-0-2-x-users"></a>
 <h7>
 <a id="user-content-note-for-msgpack-02x-users" class="anchor" href="#note-for-msgpack-02x-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note for msgpack 0.2.x users</h7>
 <p>The msgpack 0.3 have some incompatible changes.</p>
-<p>The default value of <tt>use_list</tt> keyword argument is <tt>True</tt> from 0.3.
+<p>The default value of <code>use_list</code> keyword argument is <code>True</code> from 0.3.
 You should pass the argument explicitly for backward compatibility.</p>
 <p>Unpacker.unpack() and some unpack methods now raises OutOfData
 instead of StopIteration.
 StopIteration is used for iterator protocol only.</p>
+<a name="user-content-how-to-use"></a>
 <h6>
 <a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h6>
+<a name="user-content-one-shot-pack-unpack"></a>
 <h7>
 <a id="user-content-one-shot-pack--unpack" class="anchor" href="#one-shot-pack--unpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>One-shot pack &amp; unpack</h7>
-<p>Use <tt>packb</tt> for packing and <tt>unpackb</tt> for unpacking.
-msgpack provides <tt>dumps</tt> and <tt>loads</tt> as alias for compatibility with
-<tt>json</tt> and <tt>pickle</tt>.</p>
-<p><tt>pack</tt> and <tt>dump</tt> packs to file-like object.
-<tt>unpack</tt> and <tt>load</tt> unpacks from file-like object.</p>
+<p>Use <code>packb</code> for packing and <code>unpackb</code> for unpacking.
+msgpack provides <code>dumps</code> and <code>loads</code> as alias for compatibility with
+<code>json</code> and <code>pickle</code>.</p>
+<p><code>pack</code> and <code>dump</code> packs to file-like object.
+<code>unpack</code> and <code>load</code> unpacks from file-like object.</p>
 <pre lang="pycon">
 &gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; msgpack.packb([1, 2, 3])
@@ -581,17 +590,18 @@ msgpack provides <tt>dumps</tt> and <tt>loads</tt> as alias for compatibility wi
 &gt;&gt;&gt; msgpack.unpackb(_)
 [1, 2, 3]
 </pre>
-<p><tt>unpack</tt> unpacks msgpack's array to Python's list, but can unpack to tuple:</p>
+<p><code>unpack</code> unpacks msgpack's array to Python's list, but can unpack to tuple:</p>
 <pre lang="pycon">
 &gt;&gt;&gt; msgpack.unpackb(b'\x93\x01\x02\x03', use_list=False)
 (1, 2, 3)
 </pre>
-<p>You should always pass the <tt>use_list</tt> keyword argument. See performance issues relating to <a href="#use-list-option">use_list option</a> below.</p>
+<p>You should always pass the <code>use_list</code> keyword argument. See performance issues relating to <a href="#use-list-option">use_list option</a> below.</p>
 <p>Read the docstring for other options.</p>
+<a name="user-content-streaming-unpacking"></a>
 <h7>
 <a id="user-content-streaming-unpacking" class="anchor" href="#streaming-unpacking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming unpacking</h7>
-<p><tt>Unpacker</tt> is a "streaming unpacker". It unpacks multiple objects from one
-stream (or from bytes provided through its <tt>feed</tt> method).</p>
+<p><code>Unpacker</code> is a "streaming unpacker". It unpacks multiple objects from one
+stream (or from bytes provided through its <code>feed</code> method).</p>
 <div class="highlight highlight-python"><pre>
 <span class="pl-k">import</span> msgpack
 <span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
@@ -605,10 +615,11 @@ buf.seek(<span class="pl-c1">0</span>)
 unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf)
 <span class="pl-k">for</span> unpacked <span class="pl-k">in</span> unpacker:
     <span class="pl-k">print</span> unpacked</pre></div>
+<a name="user-content-packing-unpacking-of-custom-data-type"></a>
 <h7>
 <a id="user-content-packingunpacking-of-custom-data-type" class="anchor" href="#packingunpacking-of-custom-data-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packing/unpacking of custom data type</h7>
 <p>It is also possible to pack/unpack custom data types. Here is an example for
-<tt>datetime.datetime</tt>.</p>
+<code>datetime.datetime</code>.</p>
 <div class="highlight highlight-python"><pre>
 <span class="pl-k">import</span> datetime
 
@@ -632,9 +643,10 @@ useful_dict <span class="pl-k">=</span> {
 
 packed_dict <span class="pl-k">=</span> msgpack.packb(useful_dict, <span class="pl-vpf">default</span><span class="pl-k">=</span>encode_datetime)
 this_dict_again <span class="pl-k">=</span> msgpack.unpackb(packed_dict, <span class="pl-vpf">object_hook</span><span class="pl-k">=</span>decode_datetime)</pre></div>
-<p><tt>Unpacker</tt>'s <tt>object_hook</tt> callback receives a dict; the
-<tt>object_pairs_hook</tt> callback may instead be used to receive a list of
+<p><code>Unpacker</code>'s <code>object_hook</code> callback receives a dict; the
+<code>object_pairs_hook</code> callback may instead be used to receive a list of
 key-value pairs.</p>
+<a name="user-content-extended-types"></a>
 <h7>
 <a id="user-content-extended-types" class="anchor" href="#extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extended types</h7>
 <p>It is also possible to pack/unpack custom data types using the msgpack 2.0 feature.</p>
@@ -659,10 +671,11 @@ key-value pairs.</p>
 &gt;&gt;&gt; data == unpacked
 True
 </pre>
+<a name="user-content-advanced-unpacking-control"></a>
 <h7>
 <a id="user-content-advanced-unpacking-control" class="anchor" href="#advanced-unpacking-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced unpacking control</h7>
-<p>As an alternative to iteration, <tt>Unpacker</tt> objects provide <tt>unpack</tt>,
-<tt>skip</tt>, <tt>read_array_header</tt> and <tt>read_map_header</tt> methods. The former two
+<p>As an alternative to iteration, <code>Unpacker</code> objects provide <code>unpack</code>,
+<code>skip</code>, <code>read_array_header</code> and <code>read_map_header</code> methods. The former two
 read an entire message from the stream, respectively deserialising and returning
 the result, or ignoring it. The latter two methods return the number of elements
 in the upcoming container, so that each element in an array, or key-value pair
@@ -683,21 +696,25 @@ callback function:</p>
         bytestream <span class="pl-k">=</span> BytesIO()
         unpacker.skip(bytestream.write)
         worker.send(bytestream.getvalue())</pre></div>
+<a name="user-content-note-about-performance"></a>
 <h6>
 <a id="user-content-note-about-performance" class="anchor" href="#note-about-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note about performance</h6>
+<a name="user-content-gc"></a>
 <h7>
 <a id="user-content-gc" class="anchor" href="#gc" aria-hidden="true"><span class="octicon octicon-link"></span></a>GC</h7>
 <p>CPython's GC starts when growing allocated object.
 This means unpacking may cause useless GC.
-You can use <tt>gc.disable()</tt> when unpacking large message.</p>
+You can use <code>gc.disable()</code> when unpacking large message.</p>
+<a name="user-content-use-list-option"></a>
 <h7>
 <a id="user-content-use_list-option" class="anchor" href="#use_list-option" aria-hidden="true"><span class="octicon octicon-link"></span></a>use_list option</h7>
 <p>List is the default sequence type of Python.
 But tuple is lighter than list.
-You can use <tt>use_list=False</tt> while unpacking when performance is important.</p>
+You can use <code>use_list=False</code> while unpacking when performance is important.</p>
 <p>Python's dict can't use list as key and MessagePack allows array for key of mapping.
-<tt>use_list=False</tt> allows unpacking such message.
-Another way to unpacking such object is using <tt>object_pairs_hook</tt>.</p>
+<code>use_list=False</code> allows unpacking such message.
+Another way to unpacking such object is using <code>object_pairs_hook</code>.</p>
+<a name="user-content-test"></a>
 <h6>
 <a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test</h6>
 <p>MessagePack uses pytest for testing.
