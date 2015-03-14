@@ -4471,14 +4471,14 @@ $ nimble install msgpack</pre></div>
 <span class="pl-s3">assert</span>(st.getPosition == <span class="pl-c1">0</span>)
 
 <span class="pl-c"># Type checking protects you from making trivial mistakes.</span>
-<span class="pl-c"># Now we pack {"ints":[5,-3]} but more complex combination of</span>
-<span class="pl-c"># any Msg types is allowed.</span>
+<span class="pl-c"># Now we pack {"a":[5,-3], "b":[1,2,3]} but more complex</span>
+<span class="pl-c"># combination of any Msg types is allowed.</span>
 <span class="pl-c">#</span>
 <span class="pl-c"># In xs we can mix specific conversion (PFixNum) and generic</span>
-<span class="pl-c"># conversion (unwrap or toMsg).</span>
-<span class="pl-k">let</span> xs = @[<span class="pl-s3">PFixNum</span>(<span class="pl-c1">5</span>), (<span class="pl-k">-</span><span class="pl-c1">3</span>).toMsg]
-<span class="pl-k">let</span> ys = @[(<span class="pl-s1">"a"</span><span class="pl-k">.</span>toMsg, xs.toMsg), (<span class="pl-s3">wrap</span>(<span class="pl-s1">"b"</span>), <span class="pl-s3">wrap</span>(@[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>]))]
-st.<span class="pl-s3">pack</span>(ys.toMsg) <span class="pl-c"># Serialize!</span>
+<span class="pl-c"># conversion (unwrap).</span>
+<span class="pl-k">let</span> xs: Msg = <span class="pl-s3">wrap</span>(@[<span class="pl-s3">PFixNum</span>(<span class="pl-c1">5</span>), (<span class="pl-k">-</span><span class="pl-c1">3</span>)<span class="pl-k">.</span>wrap])
+<span class="pl-k">let</span> ys: Msg = <span class="pl-s3">wrap</span>(@[(<span class="pl-s1">"a"</span><span class="pl-k">.</span>wrap, xs.wrap), (<span class="pl-s1">"b"</span><span class="pl-k">.</span>wrap, @[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].wrap)])
+st.<span class="pl-s3">pack</span>(ys.wrap) <span class="pl-c"># Serialize!</span>
 
 <span class="pl-c"># We need to reset the cursor to the beginning of the target</span>
 <span class="pl-c"># byte sequence.</span>
@@ -4503,7 +4503,7 @@ st.<span class="pl-s3">setPosition</span>(<span class="pl-c1">0</span>)
 <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h6>
 
 <ul class="task-list">
-<li>Implement Messagepack-RPC<br>
+<li>Implement unwrapInto to convert Msg object to Nim object handily<br>
 </li>
 <li>Evaluate performance and scalability<br>
 </li>
