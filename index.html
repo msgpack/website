@@ -2970,10 +2970,12 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a id="user-content-messagepack-for-f" class="anchor" href="#messagepack-for-f" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack for F#</h5>
 <a href="https://ci.appveyor.com/project/Gabkm/msgpack-fsharp"><img alt="Build status" src="https://camo.githubusercontent.com/4abfa86ee3c1757a0aa637a0e880fe82b962c1ad/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f71676871726c376e777139366176616c" data-canonical-src="https://ci.appveyor.com/api/projects/status/qghqrl7nwq96aval" style="max-width:100%;"></a>
+<a name="user-content-what-is-this"></a>
 <h6>
 <a id="user-content-what-is-this" class="anchor" href="#what-is-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is this?</h6>
 <p>MessagePack is a fast and compact binary serialization library.</p>
 <p>MessagePack for F# is a MessagePack implementation of F#, by F#, for F#.</p>
+<a name="user-content-usage"></a>
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 <div class="highlight highlight-fsharp"><pre>
@@ -2987,9 +2989,11 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 
 <span class="pl-s3">Unpacker</span>.unpack <span class="pl-k">[</span><span class="pl-k">|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|</span><span class="pl-k">]</span>
 <span class="pl-c">//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]</span></pre></div>
+<a name="user-content-copyright"></a>
 <h6>
 <a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright</h6>
-<p><tt>Copyright (c) 2014- Kazuhiro Matsushima</tt></p>
+<p><code>Copyright (c) 2014- Kazuhiro Matsushima</code></p>
+<a name="user-content-license"></a>
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 <p>Distributed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a> .</p>
@@ -4024,12 +4028,13 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a id="user-content-txmsgpackrpc" class="anchor" href="#txmsgpackrpc" aria-hidden="true"><span class="octicon octicon-link"></span></a>txmsgpackrpc</h5>
 <p>For the latest source code, see <a href="http://github.com/jakm/txmsgpackrpc">http://github.com/jakm/txmsgpackrpc</a></p>
-<p><tt>txmsgpackrpc</tt> is a library for writing asynchronous
+<p><code>txmsgpackrpc</code> is a library for writing asynchronous
 <a href="https://github.com/msgpack-rpc/msgpack-rpc/blob/master/spec.md">msgpack-rpc</a>
 servers and clients in Python, using <a href="http://twistedmatrix.com">Twisted
 framework</a>. Library is based on
 <a href="https://github.com/donalm/txMsgpack">txMsgpack</a>, but some
 improvements and fixes were made.</p>
+<a name="user-content-features"></a>
 <h6>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
 <ul>
@@ -4039,10 +4044,12 @@ improvements and fixes were made.</p>
 <li>connection pool support</li>
 <li>TCP, SSL, UDP and UNIX sockets</li>
 </ul>
+<a name="user-content-python-3-note"></a>
 <h6>
 <a id="user-content-python-3-note" class="anchor" href="#python-3-note" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python 3 note</h6>
 <p>Twisted (actually 15.0) doesn't support twisted.internet.unix module for
 Python 3, therefore UNIX sockets are not supported.</p>
+<a name="user-content-dependencies"></a>
 <h6>
 <a id="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h6>
 <ul>
@@ -4051,16 +4058,19 @@ Python 3, therefore UNIX sockets are not supported.</p>
 <li>Twisted <a href="http://twistedmatrix.com/trac/">http://twistedmatrix.com/trac/</a>
 </li>
 </ul>
+<a name="user-content-installation"></a>
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
 <div class="highlight highlight-sh"><pre>
 % pip install txmsgpackrpc</pre></div>
 <p>Debian packages are available on project's <a href="https://github.com/jakm/txmsgpackrpc/releases/latest">Releases
 page</a>.</p>
+<a name="user-content-tcp-example"></a>
 <h6>
 <a id="user-content-tcp-example" class="anchor" href="#tcp-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>TCP example</h6>
 <p>Computation of PI using Chudnovsky algorithm in subprocess. For details,
 see <a href="http://www.craig-wood.com/nick/articles/pi-chudnovsky/">http://www.craig-wood.com/nick/articles/pi-chudnovsky/</a>.</p>
+<a name="user-content-results"></a>
 <h7>
 <a id="user-content-results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h7>
 <pre>
@@ -4090,6 +4100,7 @@ Computation of PI with 1000000 places finished in 402.551226 seconds
 
 DONE
 </pre>
+<a name="user-content-server"></a>
 <h7>
 <a id="user-content-server" class="anchor" href="#server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
 <div class="highlight highlight-python"><pre>
@@ -4262,6 +4273,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-
 <span class="pl-k">if</span> <span class="pl-sv">__name__</span> <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
     reactor.callWhenRunning(main)
     reactor.run()</pre></div>
+<a name="user-content-client"></a>
 <h7>
 <a id="user-content-client" class="anchor" href="#client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
 <div class="highlight highlight-python"><pre>
@@ -4311,10 +4323,11 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-
 <span class="pl-k">if</span> <span class="pl-sv">__name__</span> <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
     reactor.callWhenRunning(main)
     reactor.run()</pre></div>
+<a name="user-content-multicast-udp-example"></a>
 <h6>
 <a id="user-content-multicast-udp-example" class="anchor" href="#multicast-udp-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multicast UDP example</h6>
 <p>Example servers join to group 224.0.0.5 and listen on port 8000. Their only
-method <tt>echo</tt> returns its parameter.</p>
+method <code>echo</code> returns its parameter.</p>
 <p>Client joins group to 224.0.0.5, sends multicast request to group on port 8000
 and waits for 5 seconds for responses. If some responses are received,
 protocol callbacks with tuple of results and individual parts are checked for
@@ -4343,6 +4356,7 @@ $ <span class="pl-c"># execute client</span>
 $ python examples/tx_rpc_client_udp_multicast.py
 Received results from 5 peers
 $</pre></div>
+<a name="user-content-id1"></a>
 <h7>
 <a id="user-content-server-1" class="anchor" href="#server-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
 <div class="highlight highlight-python"><pre>
@@ -4367,6 +4381,7 @@ $</pre></div>
 <span class="pl-k">if</span> <span class="pl-sv">__name__</span> <span class="pl-k">==</span> <span class="pl-s1"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
     reactor.callWhenRunning(main)
     reactor.run()</pre></div>
+<a name="user-content-id2"></a>
 <h7>
 <a id="user-content-client-1" class="anchor" href="#client-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
 <div class="highlight highlight-python"><pre>
