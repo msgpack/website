@@ -1059,13 +1059,13 @@ $ cabal install msgpack-idl</pre></div>
 <a id="user-content-example-code" class="anchor" href="#example-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example code:</h6>
 
 <div class="highlight highlight-haxe"><pre><span class="pl-st">package</span>;
-<span class="pl-st">import</span> <span class="pl-en">org.msgpack.</span><span class="pl-en">MsgPack</span>;
+<span class="pl-st">import</span> <span class="pl-s3">org.msgpack.</span><span class="pl-s3">MsgPack</span>;
 
 <span class="pl-st">class</span> <span class="pl-en">Example</span> {
-    <span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-k">function</span> <span class="pl-en">main</span>() {
-        <span class="pl-k">var</span> i <span class="pl-k">=</span> { a: <span class="pl-c1">1</span>, b: <span class="pl-c1">2</span>, c: <span class="pl-s1"><span class="pl-pds">"</span>Hello World!<span class="pl-pds">"</span></span> };
-        <span class="pl-k">var</span> m <span class="pl-k">=</span> <span class="pl-en">MsgPack</span>.encode(i);
-        <span class="pl-k">var</span> o <span class="pl-k">=</span> <span class="pl-en">MsgPack</span>.decode(m);
+    <span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-st">function</span> <span class="pl-en">main</span>() {
+        <span class="pl-st">var</span> i <span class="pl-k">=</span> { a: <span class="pl-c1">1</span>, b: <span class="pl-c1">2</span>, c: <span class="pl-s1"><span class="pl-pds">"</span>Hello World!<span class="pl-pds">"</span></span> };
+        <span class="pl-st">var</span> m <span class="pl-k">=</span> <span class="pl-s3">MsgPack.</span>encode(i);
+        <span class="pl-st">var</span> o <span class="pl-k">=</span> <span class="pl-s3">MsgPack.</span>decode(m);
 
         <span class="pl-k">trace</span>(i);
         <span class="pl-k">trace</span>(m.toHex());
