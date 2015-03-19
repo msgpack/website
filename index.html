@@ -2538,46 +2538,75 @@ image.</p>
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>clojure-msgpack</h5>
 
-<p>clojure-msgpack is a library for</p>
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has zero third-party
+dependencies.</p>
 
-<ul class="task-list">
-<li>serializing native Clojure data structures as MessagePack byte arrays.</li>
-<li>deserializing MessagePack byte arrays into native Clojure data structures.</li>
-</ul>
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
 
-<p>See <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a></p>
+<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a></p>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
-<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:refer</span> <span class="pl-c1">:all</span>])
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic:</h7>
 
-(<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
-<span class="pl-c">; #&lt;byte[] [B@5984b649&gt;</span>
+<div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:refer</span> <span class="pl-c1">:all</span>])
+<span class="pl-c1">nil</span>
 
-<span class="pl-c">; Declare records and types as Extended types.</span>
-(<span class="pl-k">defrecord</span> Employee [name])
+user=&gt; (<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+(<span class="pl-en">-126</span> -90 <span class="pl-c1">115</span> <span class="pl-c1">99</span> <span class="pl-c1">104</span> <span class="pl-c1">101</span> <span class="pl-c1">109</span> <span class="pl-c1">97</span> <span class="pl-c1">0</span> -89 <span class="pl-c1">99</span> <span class="pl-c1">111</span> <span class="pl-c1">109</span> <span class="pl-c1">112</span> <span class="pl-c1">97</span> <span class="pl-c1">99</span> <span class="pl-c1">116</span> -61)
 
-(<span class="pl-k">defext</span> Employee <span class="pl-c1">1</span> [e]
-  (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> e)))
+user=&gt; (<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+{<span class="pl-s1"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span> <span class="pl-c1">0</span>, <span class="pl-s1"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span> <span class="pl-c1">true</span>}</pre></div>
 
-(<span class="pl-s">let</span> [bob (<span class="pl-en">Employee.</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
-      bytes (<span class="pl-en">pack</span> bob)]
-  (<span class="pl-en">map</span> #(<span class="pl-en">format</span> <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
-<span class="pl-c">; ("0xc7" "0x3" "0x1" "0x62" "0x6f" "0x62")</span>
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming:</h7>
 
-<span class="pl-c">; Or encode an extension directly</span>
-(<span class="pl-en">pack</span> (<span class="pl-en">-&gt;Extension</span> <span class="pl-c1">1</span> (<span class="pl-en">.getBytes</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)))
+<div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">use</span> 'clojure.java.io)
+<span class="pl-c1">nil</span>
 
-(<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
-<span class="pl-c">; #&lt;byte[] [B@59ce1eed&gt;</span>
+user=&gt; (<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
+<span class="pl-c1">nil</span>
 
-<span class="pl-c">; Pass the :keywordize flag to unpack map keys as Clojure keywords.</span>
-(<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}) <span class="pl-c1">:keywordize</span>)
-<span class="pl-c">; {:schema 0, :compact true}</span></pre></div>
+user=&gt; (<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s1"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-s">let</span> [data-output (<span class="pl-en">DataOutputStream.</span> o)]
+    (<span class="pl-en">pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
+<span class="pl-c1">nil</span>
 
+user=&gt; (<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s1"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-s">let</span> [data-input (<span class="pl-en">DataInputStream.</span> i)]
+    (<span class="pl-en">unpack-stream</span> data-input)))
+{<span class="pl-s1"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span> <span class="pl-c1">0</span>, <span class="pl-s1"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span> <span class="pl-c1">true</span>}</pre></div>
+
+<h7>
+<a id="user-content-user-defined-extensions" class="anchor" href="#user-defined-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>User-defined extensions:</h7>
+
+<div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [<span class="pl-k">defext</span>]])
+<span class="pl-c1">nil</span>
+
+user=&gt; (<span class="pl-k">defrecord</span> Employee [name])
+user.Employee
+
+user=&gt; (<span class="pl-k">defext</span> Employee <span class="pl-c1">1</span> #(<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> %)))
+<span class="pl-c1">nil</span>
+
+user=&gt; (<span class="pl-s">let</span> [bob (<span class="pl-en">Employee.</span> <span class="pl-s1"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
+             bytes (<span class="pl-en">pack</span> bob)]
+         (<span class="pl-en">map</span> #(<span class="pl-en">format</span> <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
+(<span class="pl-en">"0xc7"</span> <span class="pl-s1"><span class="pl-pds">"</span>0x3<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x1<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x42<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x6f<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x62<span class="pl-pds">"</span></span>)</pre></div>
+
+<h6>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO:</h6>
+
+<ul class="task-list">
+<li>Error checking</li>
+<li>Compatibility mode</li>
+<li>Benchmarks</li>
+</ul>
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
