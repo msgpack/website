@@ -2546,7 +2546,8 @@ dependencies.</p>
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
 
-<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a></p>
+<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a>
+<a href="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" target="_blank"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a></p>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
@@ -2554,6 +2555,12 @@ dependencies.</p>
 <h7>
 <a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic:</h7>
 
+<ul class="task-list">
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
 <div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:refer</span> <span class="pl-c1">:all</span>])
 <span class="pl-c1">nil</span>
 
@@ -2566,6 +2573,14 @@ user=&gt; (<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<
 <h7>
 <a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming:</h7>
 
+<ul class="task-list">
+<li>
+<code>unpack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">InputStream</a>
+</li>
+<li>
+<code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
+</li>
+</ul>
 <div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">use</span> 'clojure.java.io)
 <span class="pl-c1">nil</span>
 
@@ -2585,6 +2600,8 @@ user=&gt; (<span class="pl-en">with-open</span> [i (<span class="pl-en">input-st
 <h7>
 <a id="user-content-user-defined-extensions" class="anchor" href="#user-defined-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>User-defined extensions:</h7>
 
+<p>A macro <code>defext</code> is provided to allow serialization of application-specific types. Currently this only works one-way; data serialized this way will always deserialize as a raw <code>Extended</code> type.</p>
+
 <div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [<span class="pl-k">defext</span>]])
 <span class="pl-c1">nil</span>
 
@@ -2599,8 +2616,15 @@ user=&gt; (<span class="pl-s">let</span> [bob (<span class="pl-en">Employee.</sp
          (<span class="pl-en">map</span> #(<span class="pl-en">format</span> <span class="pl-s1"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
 (<span class="pl-en">"0xc7"</span> <span class="pl-s1"><span class="pl-pds">"</span>0x3<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x1<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x42<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x6f<span class="pl-pds">"</span></span> <span class="pl-s1"><span class="pl-pds">"</span>0x62<span class="pl-pds">"</span></span>)</pre></div>
 
+<h7>
+<a id="user-content-extras" class="anchor" href="#extras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extras:</h7>
+
+<ul class="task-list">
+<li>Symbols and Keywords are treated as MessagePack strings.</li>
+<li>Sets are treated as MessagePack arrays.</li>
+</ul>
 <h6>
-<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO:</h6>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h6>
 
 <ul class="task-list">
 <li>Error checking</li>
