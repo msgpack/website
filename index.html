@@ -2116,6 +2116,17 @@ iodata <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack!(msgbi
 code <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodata, %{<span class="pl-c1">binary:</span> <span class="pl-c1">true</span>})
 <span class="pl-c"># =&gt; %Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}</span></pre></div>
 
+<h8>
+<a id="user-content-packer-deriving" class="anchor" href="#packer-deriving" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packer deriving</h8>
+
+<div class="highlight highlight-elixir"><pre><span class="pl-k">defmodule</span> <span class="pl-en">User</span> <span class="pl-k">do</span>
+  <span class="pl-smi">@derive</span> [<span class="pl-c1">Msgpax</span>.<span class="pl-c1">Packer</span>]
+  <span class="pl-k">defstruct</span> [<span class="pl-c1">:name</span>]
+<span class="pl-k">end</span>
+
+<span class="pl-c1">Msgpax</span>.pack!(%<span class="pl-c1">User</span>{<span class="pl-c1">name:</span> <span class="pl-s"><span class="pl-pds">"</span>Lex<span class="pl-pds">"</span></span>})
+<span class="pl-c"># =&gt; [&lt;&lt;129&gt;&gt;, [[[&lt;&lt;164&gt;&gt;, "name"], [&lt;&lt;163&gt;&gt;, "Lex"]]]]</span></pre></div>
+
 <h6>
 <a id="user-content-data-conversion" class="anchor" href="#data-conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data conversion</h6>
 
