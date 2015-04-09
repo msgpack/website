@@ -523,8 +523,7 @@ writing MessagePack data.</p>
 <a name="user-content-install"></a>
 <h6>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
-<pre>
-$ pip install msgpack-python
+<pre>$ pip install msgpack-python
 </pre>
 <a name="user-content-pypy"></a>
 <h7>
@@ -549,8 +548,7 @@ To distinguish string and bytes, msgpack 2.0 adds <em>bin</em>.
 It is non-string binary like Python 3's <code>bytes</code>.</p>
 <p>To use <em>bin</em> type for packing <code>bytes</code>, pass <code>use_bin_type=True</code> to
 packer argument.</p>
-<pre lang="pycon">
-&gt;&gt;&gt; import msgpack
+<pre lang="pycon">&gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; packed = msgpack.packb([b'spam', u'egg'], use_bin_type=True)
 &gt;&gt;&gt; msgpack.unpackb(packed, encoding='utf-8')
 ['spam', u'egg']
@@ -558,8 +556,7 @@ packer argument.</p>
 <p>You shoud use it carefully. When you use <code>use_bin_type=True</code>, packed
 binary can be unpacked by unpackers supporting msgpack-2.0.</p>
 <p>To use <em>ext</em> type, pass <code>msgpack.ExtType</code> object to packer.</p>
-<pre lang="pycon">
-&gt;&gt;&gt; import msgpack
+<pre lang="pycon">&gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
 &gt;&gt;&gt; msgpack.unpackb(packed)
 ExtType(code=42, data='xyzzy')
@@ -585,16 +582,14 @@ msgpack provides <code>dumps</code> and <code>loads</code> as alias for compatib
 <code>json</code> and <code>pickle</code>.</p>
 <p><code>pack</code> and <code>dump</code> packs to file-like object.
 <code>unpack</code> and <code>load</code> unpacks from file-like object.</p>
-<pre lang="pycon">
-&gt;&gt;&gt; import msgpack
+<pre lang="pycon">&gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; msgpack.packb([1, 2, 3])
 '\x93\x01\x02\x03'
 &gt;&gt;&gt; msgpack.unpackb(_)
 [1, 2, 3]
 </pre>
 <p><code>unpack</code> unpacks msgpack's array to Python's list, but can unpack to tuple:</p>
-<pre lang="pycon">
-&gt;&gt;&gt; msgpack.unpackb(b'\x93\x01\x02\x03', use_list=False)
+<pre lang="pycon">&gt;&gt;&gt; msgpack.unpackb(b'\x93\x01\x02\x03', use_list=False)
 (1, 2, 3)
 </pre>
 <p>You should always pass the <code>use_list</code> keyword argument. See performance issues relating to <a href="#use-list-option">use_list option</a> below.</p>
@@ -604,8 +599,7 @@ msgpack provides <code>dumps</code> and <code>loads</code> as alias for compatib
 <a id="user-content-streaming-unpacking" class="anchor" href="#streaming-unpacking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming unpacking</h7>
 <p><code>Unpacker</code> is a "streaming unpacker". It unpacks multiple objects from one
 stream (or from bytes provided through its <code>feed</code> method).</p>
-<div class="highlight highlight-python"><pre>
-<span class="pl-k">import</span> msgpack
+<div class="highlight highlight-python"><pre><span class="pl-k">import</span> msgpack
 <span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
 
 buf <span class="pl-k">=</span> BytesIO()
@@ -622,8 +616,7 @@ unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf)
 <a id="user-content-packingunpacking-of-custom-data-type" class="anchor" href="#packingunpacking-of-custom-data-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packing/unpacking of custom data type</h7>
 <p>It is also possible to pack/unpack custom data types. Here is an example for
 <code>datetime.datetime</code>.</p>
-<div class="highlight highlight-python"><pre>
-<span class="pl-k">import</span> datetime
+<div class="highlight highlight-python"><pre><span class="pl-k">import</span> datetime
 
 <span class="pl-k">import</span> msgpack
 
@@ -652,8 +645,7 @@ key-value pairs.</p>
 <h7>
 <a id="user-content-extended-types" class="anchor" href="#extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extended types</h7>
 <p>It is also possible to pack/unpack custom data types using the msgpack 2.0 feature.</p>
-<pre lang="pycon">
-&gt;&gt;&gt; import msgpack
+<pre lang="pycon">&gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; import array
 &gt;&gt;&gt; def default(obj):
 ...     if isinstance(obj, array.array) and obj.typecode == 'd':
@@ -684,8 +676,7 @@ in the upcoming container, so that each element in an array, or key-value pair
 in a map, can be unpacked or skipped individually.</p>
 <p>Each of these methods may optionally write the packed data it reads to a
 callback function:</p>
-<div class="highlight highlight-python"><pre>
-<span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
 
 <span class="pl-k">def</span> <span class="pl-en">distribute</span>(<span class="pl-smi">unpacker</span>, <span class="pl-smi">get_worker</span>):
     nelems <span class="pl-k">=</span> unpacker.read_map_header()
