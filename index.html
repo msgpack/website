@@ -3032,8 +3032,7 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 <a name="user-content-usage"></a>
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
-<div class="highlight highlight-fsharp"><pre>
-<span class="pl-k">open</span> <span class="pl-c1">MsgPack</span>
+<div class="highlight highlight-fsharp"><pre><span class="pl-k">open</span> <span class="pl-c1">MsgPack</span>
 
 <span class="pl-k">[</span><span class="pl-k">|</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy <span class="pl-k">|</span><span class="pl-k">]</span>
 <span class="pl-k">|&gt;</span> <span class="pl-c1">Array</span>.map (<span class="pl-c1">Value</span>.UInt8)
@@ -4115,8 +4114,7 @@ Python 3, therefore UNIX sockets are not supported.</p>
 <a name="user-content-installation"></a>
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
-<div class="highlight highlight-sh"><pre>
-% pip install txmsgpackrpc</pre></div>
+<div class="highlight highlight-sh"><pre>% pip install txmsgpackrpc</pre></div>
 <p>Debian packages are available on project's <a href="https://github.com/jakm/txmsgpackrpc/releases/latest">Releases
 page</a>.</p>
 <a name="user-content-tcp-example"></a>
@@ -4127,8 +4125,7 @@ see <a href="http://www.craig-wood.com/nick/articles/pi-chudnovsky/">http://www.
 <a name="user-content-results"></a>
 <h7>
 <a id="user-content-results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h7>
-<pre>
-Computation of PI with 5 places finished in 0.022390 seconds
+<pre>Computation of PI with 5 places finished in 0.022390 seconds
 
 Computation of PI with 100 places finished in 0.037856 seconds
 
@@ -4157,8 +4154,7 @@ DONE
 <a name="user-content-server"></a>
 <h7>
 <a id="user-content-server" class="anchor" href="#server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
-<div class="highlight highlight-python"><pre>
-<span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
 
 <span class="pl-k">from</span> collections <span class="pl-k">import</span> defaultdict
 <span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, utils
@@ -4330,8 +4326,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 <a name="user-content-client"></a>
 <h7>
 <a id="user-content-client" class="anchor" href="#client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
-<div class="highlight highlight-python"><pre>
-<span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
 
 <span class="pl-k">import</span> sys
 <span class="pl-k">import</span> time
@@ -4389,8 +4384,7 @@ errors. If no responses are received, protocol errbacks with TimeoutError.</p>
 <p>Because there is no common way to determine number of peers in group,
 MsgpackMulticastDatagramProtocol always wait for responses until waitTimeout
 expires.</p>
-<div class="highlight highlight-sh"><pre>
-$ <span class="pl-c"># setup multicast routing</span>
+<div class="highlight highlight-sh"><pre>$ <span class="pl-c"># setup multicast routing</span>
 $ ip route add 224.0.0.0/4 dev eth0
 $ <span class="pl-c1">echo</span> 1 <span class="pl-k">&gt;</span> /proc/sys/net/ipv4/ip_forward
 $
@@ -4413,8 +4407,7 @@ $</pre></div>
 <a name="user-content-id1"></a>
 <h7>
 <a id="user-content-server-1" class="anchor" href="#server-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
-<div class="highlight highlight-python"><pre>
-<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
 <span class="pl-k">from</span> txmsgpackrpc.server <span class="pl-k">import</span> MsgpackRPCServer
 
 
@@ -4438,8 +4431,7 @@ $</pre></div>
 <a name="user-content-id2"></a>
 <h7>
 <a id="user-content-client-1" class="anchor" href="#client-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
-<div class="highlight highlight-python"><pre>
-<span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
 
 <span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor
 
