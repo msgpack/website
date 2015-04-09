@@ -4724,6 +4724,7 @@ if (mpack_writer_destroy(&amp;writer) != mpack_ok) {
 <li><p>Compound types such as strings, maps and arrays are delimited, so appropriate storage cannot be allocated upfront. The whole object must be parsed to determine its size.</p></li>
 <li><p>Strings are not stored in their native encoding. They cannot contain quotes or special characters, so they must be escaped when written and converted back when read.</p></li>
 <li><p>Numbers are particularly inefficient (especially when parsing back floats), making JSON inappropriate as a base format for structured data that contains lots of numbers.</p></li>
+<li><p>Binary data is not supported by JSON at all. Small binary blobs such as icons and thumbnails need to be Base64 encoded or passed out-of-band.</p></li>
 </ul>
 <p>The above issues greatly increase the complexity of the decoder. Full-featured JSON decoders are quite large, and minimal decoders tend to leave out such features as string unescaping and float parsing, instead leaving these up to the user or platform. This can lead to hard-to-find and/or platform-specific bugs. This also significantly decreases performance, making JSON unattractive for use in applications such as mobile games.</p>
 
@@ -4738,7 +4739,7 @@ if (mpack_writer_destroy(&amp;writer) != mpack_ok) {
 
 <p>If you are on 64-bit, you will also need support for cross-compiling to 32-bit, and running 32-bit binaries with 64-bit Valgrind. On Ubuntu, you'll need <code>libc6-dbg:i386</code>. On Arch you'll need <code>gcc-multilib</code> or <code>lib32-clang</code>, and <code>valgrind-multilib</code>. Just run <code>scons</code> to build and run all tests.</p>
 
-<p>On Windows, there is a Visual Studio solution for building and running the test suite.</p>
+<p>On Windows, there is a Visual Studio solution, and on OS X, there is an Xcode project for building and running the test suite.</p>
 </article>
 </div>
         </div>
