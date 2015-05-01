@@ -336,7 +336,7 @@ System.out.println(dst2.get(2));
 <h5>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h5>
 
-<ul class="task-list">
+<ul>
 <li>Small size and High performance</li>
 <li>Zero copy serialization / deserialization</li>
 <li>Stream deserializer / Direct-conversion deserializer</li>
@@ -349,7 +349,7 @@ Note that <code>Unpacker</code> will raise an exception if a loss of precision o
 <h6>
 <a id="user-content-current-limitations" class="anchor" href="#current-limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Current Limitations</h6>
 
-<ul class="task-list">
+<ul>
 <li>No circular references support</li>
 </ul>
 <h5>
@@ -463,7 +463,7 @@ typed as a base class object.</p>
 <h5>
 <a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Links</h5>
 
-<ul class="task-list">
+<ul>
 <li>
 <p><a href="http://msgpack.org/">The MessagePack Project</a></p>
 
@@ -821,7 +821,7 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 <h6>
 <a id="user-content-033" class="anchor" href="#033" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.3</h6>
 
-<ul class="task-list">
+<ul>
 <li>Add OTP 17 series to Travis-CI tests</li>
 <li>Fix wrong numbering for ext types</li>
 <li>Allow packing maps even when {format,map} is not set</li>
@@ -831,14 +831,14 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 <h6>
 <a id="user-content-032" class="anchor" href="#032" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.2</h6>
 
-<ul class="task-list">
+<ul>
 <li>set back default style as jiffy</li>
 <li>fix bugs around nil/null handling</li>
 </ul>
 <h6>
 <a id="user-content-030" class="anchor" href="#030" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.0</h6>
 
-<ul class="task-list">
+<ul>
 <li>supports map new in 17.0</li>
 <li>jiffy-style maps will be deprecated in near future</li>
 <li>set default style as map</li>
@@ -874,7 +874,7 @@ MessagePack.unpack(msg)   #=&gt; [1,2,3]
 <h6>
 <a id="user-content-use-cases" class="anchor" href="#use-cases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use cases</h6>
 
-<ul class="task-list">
+<ul>
 <li>Create REST API returing MessagePack using Rails + <a href="https://github.com/nesquena/rabl">RABL</a>
 </li>
 <li>Store objects efficiently in memcached or Redis</li>
@@ -884,7 +884,7 @@ MessagePack.unpack(msg)   #=&gt; [1,2,3]
 <h6>
 <a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Links</h6>
 
-<ul class="task-list">
+<ul>
 <li><a href="https://github.com/msgpack/msgpack-ruby">Github</a></li>
 <li><a href="http://ruby.msgpack.org/">API document</a></li>
 </ul>
@@ -923,7 +923,7 @@ end
 <h6>
 <a id="user-content-requirement" class="anchor" href="#requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirement</h6>
 
-<ul class="task-list">
+<ul>
 <li>sbt 0.13.5 or later</li>
 </ul>
 <h6>
@@ -977,7 +977,7 @@ obj.age <span class="pl-k">=</span> <span class="pl-c1">22</span>
 <span class="pl-k">val</span> <span class="pl-en">deserialized</span> <span class="pl-k">:</span> <span class="pl-en">YourClass</span> <span class="pl-k">=</span> <span class="pl-en">ScalaMessagePack</span>.read[<span class="pl-en">YourClass</span>](serialized)
 </pre></div>
 
-<ul class="task-list">
+<ul>
 <li>Sorry, case classes are not supported now.</li>
 </ul></article>
 </div>
@@ -992,7 +992,7 @@ obj.age <span class="pl-k">=</span> <span class="pl-c1">22</span>
 
 <p>It containes:</p>
 
-<ul class="task-list">
+<ul>
 <li>Serializer/Deserializer</li>
 <li>RPC</li>
 </ul>
@@ -1010,7 +1010,7 @@ $ cabal install msgpack-rpc</pre></div>
 
 <p>There are Haddoc documents on Hackage Database.</p>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://hackage.haskell.org/package/msgpack">http://hackage.haskell.org/package/msgpack</a></li>
 <li><a href="http://hackage.haskell.org/package/msgpack-rpc">http://hackage.haskell.org/package/msgpack-rpc</a></li>
 </ul></article>
@@ -1044,7 +1044,7 @@ $ cabal install msgpack-rpc</pre></div>
 <h6>
 <a id="user-content-supported-type" class="anchor" href="#supported-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported Type:</h6>
 
-<ul class="task-list">
+<ul>
 <li>Null</li>
 <li>Bool</li>
 <li>Int</li>
@@ -1113,7 +1113,7 @@ serializer<span class="pl-k">.</span>Pack(stream, obj)
 <h6>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
 
-<ul class="task-list">
+<ul>
 <li>Fast and interoperable binary format serialization with simple API.</li>
 <li>Generating pre-compiled assembly for rapid start up.</li>
 <li>Flexible MessagePackObject which represents MessagePack type system naturally.</li>
@@ -1126,16 +1126,16 @@ serializer<span class="pl-k">.</span>Pack(stream, obj)
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
 
-<ul class="task-list">
+<ul>
 <li>Binary files distributed via the NuGet package <a href="http://www.nuget.org/packages/MsgPack.Cli/">MsgPack.Cli</a>.</li>
 <li>You can extract binary (DLL) file as following:
 
-<ol class="task-list">
+<ol>
 <li>Download *.zip file from <a href="https://github.com/msgpack/msgpack-cli/releases/">GitHub Release page</a>.</li>
 <li>Extract it.</li>
 <li>Under the <code>bin</code> directory, binaries are there!
 
-<ul class="task-list">
+<ul>
 <li>For mono, you can use <code>net45</code> or <code>net35</code> drops as you run with.</li>
 <li>For Unity, <code>unity3d</code> drop is suitable.</li>
 </ul>
@@ -1149,11 +1149,11 @@ serializer<span class="pl-k">.</span>Pack(stream, obj)
 <h7>
 <a id="user-content-for-net-framework" class="anchor" href="#for-net-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>For .NET Framework</h7>
 
-<ol class="task-list">
+<ol>
 <li>Install recent Windows SDK (at least, .NET Framework 4 Client Profile and MSBuild is needed.) <br>
 Or install Visual Studio or Visual Studio Express.
 
-<ol class="task-list">
+<ol>
 <li>If you want to build unit test assemblies, install NuGet and then restore NUnit packages.</li>
 </ol>
 </li>
@@ -1178,7 +1178,7 @@ Or install Visual Studio or Visual Studio Express.
 <h6>
 <a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See also</h6>
 
-<ul class="task-list">
+<ul>
 <li> GitHub Page           : <a href="http://cli.msgpack.org/">http://cli.msgpack.org/</a>
 </li>
 <li> Wiki (documentation)  : <a href="https://github.com/msgpack/msgpack-cli/wiki">https://github.com/msgpack/msgpack-cli/wiki</a>
@@ -1326,7 +1326,7 @@ also install the C and C++ versions of msgpack.</p>
 
 <p>You will need:</p>
 
-<ul class="task-list">
+<ul>
 <li>
 <code>gcc &gt;= 4.1.0</code> or <code>clang &gt;= 3.3.0</code>
 </li>
@@ -1357,7 +1357,7 @@ $ make</pre></div>
 
 <p>You will need:</p>
 
-<ul class="task-list">
+<ul>
 <li><code>gcc &gt;= 4.1.0</code></li>
 <li><code>cmake &gt;= 2.8.0</code></li>
 </ul>
@@ -1391,7 +1391,7 @@ $ sudo make install
 
 <p>e.g.) tortoise git <a href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
 
-<ol class="task-list">
+<ol>
 <li><p>Launch <a href="http://www.cmake.org/cmake/resources/software.html">cmake GUI client</a>.</p></li>
 <li><p>Set 'Where is the source code:' text box and 'Where to build
 the binaries:' text box.</p></li>
@@ -1503,7 +1503,7 @@ $ cp *.ml ../lib
 
 <p>MessagePack serialization library for various Smalltalk dialects.</p>
 
-<ul class="task-list">
+<ul>
 <li>Squeak</li>
 <li>Pharo</li>
 <li>VisualWorks</li>
@@ -1607,7 +1607,7 @@ But unlike JSON, it is very fast and small.</p>
 <h6>
 <a id="user-content-requirement" class="anchor" href="#requirement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirement</h6>
 
-<ul class="task-list">
+<ul>
 <li>PHP 5.0 +</li>
 </ul>
 <h6>
@@ -1641,7 +1641,7 @@ $make &amp;&amp; make install
 <h5>
 <a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h5>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://msgpack.org/">msgpack</a></li>
 </ul></article>
 </div>
@@ -1679,7 +1679,7 @@ data <span class="pl-k">=</span> mp.<span class="pl-c1">unpack</span>(mpac)</pre
 <h6>
 <a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Links</h6>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://github.com/fperrad/lua-MessagePack/">Github</a></li>
 <li><a href="http://fperrad.github.io/lua-MessagePack/msgpack.html">API reference</a></li>
 </ul>
@@ -1784,7 +1784,7 @@ in the following example:</p>
 <h6>
 <a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h6>
 
-<ul class="task-list">
+<ul>
 <li><code>enable_string</code></li>
 </ul>
 <p>Support string type. This options is <code>false</code> by default.</p>
@@ -1796,7 +1796,7 @@ iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-
 iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-c1">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
 {<span class="pl-c1">:error</span>, {<span class="pl-c1">:invalid_string</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}}</pre></div>
 
-<ul class="task-list">
+<ul>
 <li><code>ext</code></li>
 </ul>
 <p>Support extention type.</p>
@@ -1913,7 +1913,7 @@ bit8, bit16, bit32 -&gt; bytevector</p>
 <h6>
 <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h6>
 
-<ul class="task-list">
+<ul>
 <li>More testing</li>
 <li>Extended type handling</li>
 </ul></article>
@@ -1928,7 +1928,7 @@ bit8, bit16, bit32 -&gt; bytevector</p>
 <h6>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
 
-<ul class="task-list">
+<ul>
 <li>std::streambuf serializer and deserializer</li>
 <li>hierarchy or token stream</li>
 <li>push and pull parser</li>
@@ -2015,7 +2015,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 <h6>
 <a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h6>
 
-<ol class="task-list">
+<ol>
 <li>
 <p>Download MessagePack for mruby at the command prompt:</p>
 
@@ -2030,7 +2030,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
   conf.<span class="pl-k">gem</span> <span class="pl-c1">:git</span> =&gt; <span class="pl-s"><span class="pl-pds">'</span>https://github.com/suzukaze/mruby-msgpack.git<span class="pl-pds">'</span></span>
 <span class="pl-k">end</span></pre></div>
 
-<ol class="task-list">
+<ol>
 <li>
 <p>Test at the command prompt:</p>
 
@@ -2286,7 +2286,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <h6>
 <a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h6>
 
-<ol class="task-list">
+<ol>
 <li>Fork it</li>
 <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
 <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
@@ -2566,7 +2566,7 @@ dependencies.</p>
 <h7>
 <a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic:</h7>
 
-<ul class="task-list">
+<ul>
 <li>
 <code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
 <li>
@@ -2584,7 +2584,7 @@ user=&gt; (<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<
 <h7>
 <a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming:</h7>
 
-<ul class="task-list">
+<ul>
 <li>
 <code>unpack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">InputStream</a>
 </li>
@@ -2630,14 +2630,14 @@ user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</sp
 <h7>
 <a id="user-content-extras" class="anchor" href="#extras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extras:</h7>
 
-<ul class="task-list">
+<ul>
 <li>Symbols and Keywords are treated as MessagePack strings.</li>
 <li>Sets are treated as MessagePack arrays.</li>
 </ul>
 <h6>
 <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h6>
 
-<ul class="task-list">
+<ul>
 <li>Error checking</li>
 <li>Compatibility mode</li>
 <li>Benchmarks</li>
@@ -2660,7 +2660,7 @@ user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</sp
 <h6>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
 
-<ul class="task-list">
+<ul>
 <li>Portable: Depends only on the required components of the SML Basis Library specification.</li>
 <li>Composable: Composable combinators for encoding and decoding.</li>
 </ul>
@@ -2677,7 +2677,7 @@ user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</sp
 
 <p>From the interactive shell, use .sml files in the following order.</p>
 
-<ul class="task-list">
+<ul>
 <li>mlmsgpack-aux.sml</li>
 <li>realprinter-default.sml</li>
 <li>mlmsgpack.sml</li>
@@ -2692,7 +2692,7 @@ user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</sp
 
 <p>From the interactive shell, use .sml files in the following order.</p>
 
-<ul class="task-list">
+<ul>
 <li>large.sml</li>
 <li>mlmsgpack-aux.sml</li>
 <li>realprinter-fail.sml</li>
@@ -2705,7 +2705,7 @@ user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</sp
 
 <p>From the interactive shell, use .sml files in the following order.</p>
 
-<ul class="task-list">
+<ul>
 <li>mlmsgpack-aux.sml</li>
 <li>realprinter-fail.sml</li>
 <li>mlmsgpack.sml</li>
@@ -2715,7 +2715,7 @@ user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</sp
 
 <p>From the interactive shell, use .sml files in the following order.</p>
 
-<ul class="task-list">
+<ul>
 <li>mlmsgpack-aux.sml</li>
 <li>realprinter-fail.sml</li>
 <li>mlmsgpack.sml</li>
@@ -2727,7 +2727,7 @@ user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</sp
 
 <p>From the interactive shell, use .sml files in the following order.</p>
 
-<ul class="task-list">
+<ul>
 <li>mlmsgpack-aux.sml</li>
 <li>realprinter-default.sml</li>
 <li>mlmsgpack.sml</li>
@@ -2995,7 +2995,7 @@ gcc.</p>
 <h5>
 <a id="user-content-api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h5>
 
-<ul class="task-list">
+<ul>
 <li>msgpack_pack(mixed $input) : string;
 pack a input to msgpack, object and resource are not supported, array and other types supported,
 false on failure.</li>
@@ -3022,7 +3022,7 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 <h5>
 <a id="user-content-authors" class="anchor" href="#authors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors</h5>
 
-<ul class="task-list">
+<ul>
 <li>Reeze Xia <a href="mailto:reeze@php.net">reeze@php.net</a>
 </li>
 </ul></article>
@@ -3237,7 +3237,7 @@ after that you can bring the <code>ERL shell</code> with</p>
 <h5>
 <a id="user-content-issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h5>
 
-<ul class="task-list">
+<ul>
 <li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures. </li>
 <li>Maps currently only support String types for keys.</li>
 </ul>
@@ -3384,7 +3384,7 @@ this repo, and use in your own HTML page, the module will expose a
 <h6>
 <a id="user-content-api-1" class="anchor" href="#api-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h6>
 
-<ul class="task-list">
+<ul>
 <li><a href="#msgpack"><code><b>msgpack()</b></code></a></li>
 <li><a href="#encode"><code>msgpack().<b>encode()</b></code></a></li>
 <li><a href="#decode"><code>msgpack().<b>decode()</b></code></a></li>
@@ -3430,7 +3430,7 @@ encoded.</p>
 <p>Register a new custom object type for being automatically encoded.
 The arguments are:</p>
 
-<ul class="task-list">
+<ul>
 <li>
 <code>check</code>, a function that will be called to check if the passed
 object should be encoded with the <code>encode</code> function</li>
@@ -3448,7 +3448,7 @@ for <a href="#registerDecoder">registerDecoder</a>.</li>
 <p>Register a new custom objet type for being automatically decoded.
 The arguments are:</p>
 
-<ul class="task-list">
+<ul>
 <li>
 <code>type</code>, is a greater than zero integer identificating the type once serialized</li>
 <li>
@@ -3465,7 +3465,7 @@ the passed <code>Buffer</code>
 <p>Register a new custom objet type for being automatically encoded and
 decoded. The arguments are:</p>
 
-<ul class="task-list">
+<ul>
 <li>
 <code>type</code>, is a greater than zero integer identificating the type once serialized</li>
 <li>
@@ -3589,7 +3589,7 @@ welcome to report bug
 <h6>
 <a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><span class="octicon octicon-link"></span></a>Works with</h6>
 
-<ul class="task-list">
+<ul>
 <li>Delphi 7 (tested)</li>
 <li>Delphi 2007 (tested)</li>
 <li>XE5, XE6, XE7, FMX (tested)</li>
@@ -3597,7 +3597,7 @@ welcome to report bug
 <h6>
 <a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>changes:</h6>
 
-<ul class="task-list">
+<ul>
 <li><p>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
  2014-11-09 22:35:27</p></li>
 <li><p>add EncodeToFile/DecodeFromFile
@@ -3729,7 +3729,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 <h7>
 <a id="user-content-why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h7>
 
-<ul class="task-list">
+<ul>
 <li>Use Go as your schema language</li>
 <li>Speeeeeed (400MB/s on modern hardware)</li>
 <li><a href="http://godoc.org/github.com/tinylib/msgp/msgp#CopyToJSON">JSON interop</a></li>
@@ -3775,7 +3775,7 @@ of <code>*bufio.Writer</code> and <code>*bufio.Reader</code>, respectively.)</p>
 <h7>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
 
-<ul class="task-list">
+<ul>
 <li>Extremely fast generated code</li>
 <li>Test and benchmark generation</li>
 <li>JSON interoperability (see <code>msgp.CopyToJSON() and msgp.UnmarshalAsJSON()</code>)</li>
@@ -3814,7 +3814,7 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 
 <p>Here some of the known limitations/restrictions:</p>
 
-<ul class="task-list">
+<ul>
 <li>Identifiers from outside the processed source file are assumed (optimistically) to satisfy the generator's interfaces. If this isn't the case, your code will fail to compile.</li>
 <li>Like most serializers, <code>chan</code> and <code>func</code> fields are ignored, as well as non-exported fields.</li>
 <li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
@@ -4050,14 +4050,14 @@ if you find any bug, please contact me!
 <a href="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-core_2.11"><img src="https://camo.githubusercontent.com/a73a91fa3efef97d78ae7dfbadb57e9a1f934e87/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d636f72655f322e31312f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-core_2.11/badge.svg" style="max-width:100%;"></a>
 <a href="http://javadoc-badge.appspot.com/com.github.xuwei-k/msgpack4z-core_2.11"><img src="https://camo.githubusercontent.com/bed9332e3f7a86c2a944d10ea08cee73a4cdd861/687474703a2f2f6a617661646f632d62616467652e61707073706f742e636f6d2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d636f72655f322e31312e7376673f6c6162656c3d7363616c61646f63" alt="scaladoc" data-canonical-src="http://javadoc-badge.appspot.com/com.github.xuwei-k/msgpack4z-core_2.11.svg?label=scaladoc" style="max-width:100%;"></a></p>
 
-<ul class="task-list">
+<ul>
 <li><a href="http://msgpack.org/">http://msgpack.org/</a></li>
 <li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a></li>
 </ul>
 <h7>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>example</h7>
 
-<ul class="task-list">
+<ul>
 <li><a href="https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala">https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala</a></li>
 </ul>
 <h7>
@@ -4065,7 +4065,7 @@ if you find any bug, please contact me!
 
 <div class="highlight highlight-scala"><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.1.2<span class="pl-pds">"</span></span></pre></div>
 
-<ul class="task-list">
+<ul>
 <li><a href="https://oss.sonatype.org/service/local/repositories/releases/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.1.2/msgpack4z-core_2.11-0.1.2-sxr.jar/!/index.html">sxr</a></li>
 </ul>
 <h7>
@@ -4075,7 +4075,7 @@ if you find any bug, please contact me!
 
 resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-en">Opts</span>.resolver.sonatypeSnapshots</pre></div>
 
-<ul class="task-list">
+<ul>
 <li><a href="https://oss.sonatype.org/service/local/repositories/snapshots/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.1.3-SNAPSHOT/msgpack4z-core_2.11-0.1.3-SNAPSHOT-sxr.jar/!/index.html">sxr</a></li>
 </ul>
 <h7>
@@ -4613,7 +4613,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <h6>
 <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h6>
 
-<ul class="task-list">
+<ul>
 <li>Implement unwrapInto to convert Msg object to Nim object handily<br>
 </li>
 <li>Evaluate performance and scalability<br>
@@ -4638,7 +4638,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <p>MPack is a C implementation of an encoder and decoder for the <a href="http://msgpack.org/">MessagePack</a> serialization format. It is intended to be:</p>
 
-<ul class="task-list">
+<ul>
 <li>Simple and easy to use</li>
 <li>Secure against untrusted data</li>
 <li>Lightweight, suitable for embedded</li>
@@ -4713,7 +4713,7 @@ if (mpack_writer_destroy(&amp;writer) != mpack_ok) {
 
 <p>Conceptually, MessagePack stores data similarly to JSON: they are both composed of simple values such as numbers and strings, stored hierarchically in maps and arrays. So why not just use JSON instead? The main reason is that JSON is designed to be human-readable, so it is not as efficient as a binary serialization format:</p>
 
-<ul class="task-list">
+<ul>
 <li><p>Compound types such as strings, maps and arrays are delimited, so appropriate storage cannot be allocated upfront. The whole object must be parsed to determine its size.</p></li>
 <li><p>Strings are not stored in their native encoding. They cannot contain quotes or special characters, so they must be escaped when written and converted back when read.</p></li>
 <li><p>Numbers are particularly inefficient (especially when parsing back floats), making JSON inappropriate as a base format for structured data that contains lots of numbers.</p></li>
