@@ -4706,8 +4706,6 @@ if (mpack_writer_destroy(&amp;writer) != mpack_ok) {
 
 <p>If any error occurs, the writer is placed in an error state and can optionally longjmp if a handler is set. The writer will flag an error if too much data is written, if the wrong number of elements are written, if the data could not be flushed, etc.</p>
 
-<p>The MPack writer API is imperative in nature. Since it's easy to incorrectly compose structured data with an imperative API, MPack provides a debug mode which tracks reads and writes of compound types to ensure that the correct number of elements and bytes were read and written. This allows for rapid development of high-performance applications that use MessagePack. In release mode, these checks are eliminated for maximum performance.</p>
-
 <h6>
 <a id="user-content-why-not-just-use-json" class="anchor" href="#why-not-just-use-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Not Just Use JSON?</h6>
 
