@@ -375,7 +375,7 @@ or use dub to add it as a dependency:</p>
 <div class="highlight highlight-D"><pre><span class="pl-k">import</span> <span class="pl-c1">std.file</span>;
 <span class="pl-k">import</span> msgpack;
 
-<span class="pl-k">struct</span> <span class="pl-en">S</span> { <span class="pl-k">int</span> x; <span class="pl-k">float</span> y; string z; }
+<span class="pl-k">struct</span> <span class="pl-en">S</span> { <span class="pl-k">int</span> x; <span class="pl-k">float</span> y; <span class="pl-c1">string</span> z; }
 
 <span class="pl-k">void</span> <span class="pl-en">main</span>()
 {
@@ -394,9 +394,9 @@ or use dub to add it as a dependency:</p>
     S target = outData.unpack<span class="pl-k">!</span>S();
 
     <span class="pl-c">// verify data is the same</span>
-    assert(target.x <span class="pl-k">==</span> input.x);
-    assert(target.y <span class="pl-k">==</span> input.y);
-    assert(target.z <span class="pl-k">==</span> input.z);
+    <span class="pl-k">assert</span>(target.x <span class="pl-k">==</span> input.x);
+    <span class="pl-k">assert</span>(target.y <span class="pl-k">==</span> input.y);
+    <span class="pl-k">assert</span>(target.z <span class="pl-k">==</span> input.z);
 }</pre></div>
 
 <h7>
@@ -406,7 +406,7 @@ or use dub to add it as a dependency:</p>
 
 <div class="highlight highlight-d"><pre><span class="pl-k">struct</span> <span class="pl-en">User</span>
 {
-    string name;
+    <span class="pl-c1">string</span> name;
     @nonPacked <span class="pl-k">int</span> level;  <span class="pl-c">// pack / unpack will ignore the 'level' field</span>
 }</pre></div>
 
@@ -424,16 +424,16 @@ typed as a base class object.</p>
 <span class="pl-k">class</span> <span class="pl-en">XmlDocument</span> : <span class="pl-e">Document</span>
 {
     <span class="pl-en">this</span>() { }
-    <span class="pl-v">this</span>(string name) { <span class="pl-v">this</span>.name = name; }
-    string name;
+    <span class="pl-en">this</span>(<span class="pl-c1">string</span> name) { <span class="pl-v">this</span>.name = name; }
+    <span class="pl-c1">string</span> name;
 }
 
-<span class="pl-k">void</span> <span class="pl-en">xmlPackHandler</span>(ref <span class="pl-k">Packer</span> p, ref <span class="pl-k">XmlDocument</span> xml)
+<span class="pl-k">void</span> <span class="pl-en">xmlPackHandler</span>(<span class="pl-k">ref</span> Packer p, <span class="pl-k">ref</span> XmlDocument xml)
 {
     p.pack(xml.name);
 }
 
-<span class="pl-k">void</span> <span class="pl-en">xmlUnpackHandler</span>(ref <span class="pl-k">Unpacker</span> u, ref <span class="pl-k">XmlDocument</span> xml)
+<span class="pl-k">void</span> <span class="pl-en">xmlUnpackHandler</span>(<span class="pl-k">ref</span> Unpacker u, <span class="pl-k">ref</span> XmlDocument xml)
 {
     u.unpack(xml.name);
 }
@@ -442,15 +442,15 @@ typed as a base class object.</p>
 {
     <span class="pl-c">/// Register the 'xmlPackHandler' and 'xmlUnpackHandler' routines for</span>
     <span class="pl-c">/// XmlDocument object instances.</span>
-    registerPackHandler<span class="pl-k">!</span>(<span class="pl-k">XmlDocument</span>, xmlPackHandler);
-    registerUnpackHandler<span class="pl-k">!</span>(<span class="pl-k">XmlDocument</span>, xmlUnpackHandler);
+    registerPackHandler<span class="pl-k">!</span>(XmlDocument, xmlPackHandler);
+    registerUnpackHandler<span class="pl-k">!</span>(XmlDocument, xmlUnpackHandler);
 
     <span class="pl-c">/// Now we can serialize/deserialize XmlDocument object instances via a</span>
     <span class="pl-c">/// base class reference.</span>
-    <span class="pl-c1">Document</span> doc = <span class="pl-k">new</span> <span class="pl-k">XmlDocument</span>(<span class="pl-s"><span class="pl-pds">"</span>test.xml<span class="pl-pds">"</span></span>);
+    <span class="pl-c1">Document</span> doc = <span class="pl-k">new</span> XmlDocument(<span class="pl-s"><span class="pl-pds">"</span>test.xml<span class="pl-pds">"</span></span>);
     <span class="pl-k">auto</span> data = pack(doc);
-    <span class="pl-k">XmlDocument</span> xml = unpack<span class="pl-k">!</span><span class="pl-k">XmlDocument</span>(data);
-    assert(xml.name <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>test.xml<span class="pl-pds">"</span></span>);  <span class="pl-c">// xml.name is "test.xml"</span>
+    XmlDocument xml = unpack<span class="pl-k">!</span>XmlDocument(data);
+    <span class="pl-k">assert</span>(xml.name <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>test.xml<span class="pl-pds">"</span></span>);  <span class="pl-c">// xml.name is "test.xml"</span>
 }</pre></div>
 
 <h6>
@@ -1718,10 +1718,10 @@ data <span class="pl-k">=</span> mp.<span class="pl-c1">unpack</span>(mpac)</pre
 <span class="pl-k">fn</span> <span class="pl-en">main</span>() {
   <span class="pl-k">let</span> <span class="pl-smi">arr</span> <span class="pl-k">=</span> vec![<span class="pl-s">"str1"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()<span class="pl-k">,</span> <span class="pl-s">"str2"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()]<span class="pl-k">;</span>
   <span class="pl-k">let</span> <span class="pl-smi">str</span> <span class="pl-k">=</span> msgpack::Encoder::<span class="pl-c1">to_msgpack</span>(<span class="pl-k">&amp;</span>arr)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
-  println!(<span class="pl-s">"Encoded: {}"</span><span class="pl-k">,</span> <span class="pl-k">str</span>)<span class="pl-k">;</span>
+  <span class="pl-c1">println!</span>(<span class="pl-s">"Encoded: {}"</span><span class="pl-k">,</span> <span class="pl-k">str</span>)<span class="pl-k">;</span>
 
   <span class="pl-k">let</span> <span class="pl-smi">dec</span><span class="pl-k">: Vec&lt;String&gt; </span><span class="pl-k">=</span> msgpack::<span class="pl-c1">from_msgpack</span>(<span class="pl-k">str</span>)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
-  println!(<span class="pl-s">"Decoded: {}"</span><span class="pl-k">,</span> dec)<span class="pl-k">;</span>
+  <span class="pl-c1">println!</span>(<span class="pl-s">"Decoded: {}"</span><span class="pl-k">,</span> dec)<span class="pl-k">;</span>
 }</pre></div>
 
 <p>To enable your own data structures to be automatically serialized from and to
