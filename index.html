@@ -258,6 +258,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-mpack',this)">C <span class="qs-sub">ludocode</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-jangko-msgpack4nim',this)">Nim <span class="qs-sub">jangko</span></a></li>
+          
         </ul>
       </div>
 
@@ -4731,6 +4733,89 @@ if (mpack_writer_destroy(&amp;writer) != mpack_ok) {
 <p>If you are on 64-bit, you will also need support for cross-compiling to 32-bit, and running 32-bit binaries with 64-bit Valgrind. On Ubuntu, you'll need <code>libc6-dbg:i386</code>. On Arch you'll need <code>gcc-multilib</code> or <code>lib32-clang</code>, and <code>valgrind-multilib</code>. Just run <code>scons -j12</code> (or some appropriate thread count) to build and run all tests.</p>
 
 <p>On Windows, there is a Visual Studio solution, and on OS X, there is an Xcode project for building and running the test suite.</p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-jangko-msgpack4nim" class="qs"><h4><a href="https://github.com/jangko/msgpack4nim" target="_blank">jangko/msgpack4nim <span class="qs-url">https://github.com/jangko/msgpack4nim</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack4nim" class="anchor" href="#msgpack4nim" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack4nim</h5>
+
+<p><a href="http://msgpack.org/">MessagePack</a> implementation written in pure nim</p>
+
+<h7>
+<a id="user-content-why-another-implementation" class="anchor" href="#why-another-implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>why another implementation?</h7>
+
+<p>I am fully aware of <a href="https://github.com/akiradeveloper/msgpack-nim">another</a> msgpack implementation written in nim. But I want something easier to use. Another motivation come from the nim language itself. The current version of nim compiler offer many improvements, including 'generics ' specialization. I found out nim compiler is smart enough to make serialization/deserialization to/from msgpack easy and convenient.</p>
+
+<p><strong>requirement:</strong> nim ver 0.11.2 or later</p>
+
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack, streams
+
+<span class="pl-k">type</span>
+  <span class="pl-c">#lets try with a rather complex object</span>
+  CustomType = <span class="pl-k">object</span>
+    count: <span class="pl-k">int</span>
+    content: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
+    name: <span class="pl-k">string</span>
+    ratio: <span class="pl-k">float</span>
+    attr: <span class="pl-k">array</span>[<span class="pl-c1">0</span>..<span class="pl-c1">5</span>, <span class="pl-k">int</span>]
+    ok: <span class="pl-k">bool</span>
+
+<span class="pl-k">proc</span> <span class="pl-en">initCustomType</span>()<span class="pl-k">:</span> CustomType <span class="pl-k">=</span>
+  result.count = -<span class="pl-c1">1</span>
+  result.content = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]
+  result.name = <span class="pl-s">"custom"</span>
+  result.ratio = <span class="pl-c1">1.0</span>
+  <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">0</span>..<span class="pl-c1">5</span>: result.attr[i] = i
+  result.ok = <span class="pl-c1">false</span>
+
+<span class="pl-k">var</span> x = <span class="pl-c1">initCustomType</span>()
+<span class="pl-c">#you can use another stream compatible</span>
+<span class="pl-c">#class here e.g. FileStream</span>
+<span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>() 
+s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#here the magic happened</span>
+
+s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
+<span class="pl-k">var</span> xx: CustomType
+s.<span class="pl-c1">unpack</span>(xx) <span class="pl-c">#and here too</span>
+
+assert xx == x
+<span class="pl-c1">echo</span> <span class="pl-s">"OK "</span>, xx.name</pre></div>
+
+<p>see? you only need to call 'pack' and 'unpack', and the compiler do the hard work for you. Very easy, convenient, and works well</p>
+
+<p>in case the compiler cannot decide how to serialize or deserialize your very very complex object, you can help it in easy way</p>
+
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">type</span>
+  <span class="pl-c">#not really complex, just for example</span>
+  mycomplexobject = <span class="pl-k">object</span>
+    a: someSimpleType
+    b: someSimpleType
+
+<span class="pl-c">#help the compiler to decide</span>
+<span class="pl-k">proc</span> <span class="pl-en">pack</span>(s: Stream, x: mycomplexobject) <span class="pl-k">=</span>
+  s.<span class="pl-c1">pack</span>(x.a) <span class="pl-c"># let the compiler decide</span>
+  s.<span class="pl-c1">pack</span>(x.b) <span class="pl-c"># let the compiler decide</span>
+
+<span class="pl-c">#help the compiler to decide</span>
+<span class="pl-k">proc</span> <span class="pl-en">unpack</span>(s: Stream, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
+  s.<span class="pl-c1">unpack</span>(x.a)
+  s.<span class="pl-c1">unpack</span>(x.b)
+
+<span class="pl-k">var</span> s: <span class="pl-c1">newStringStream</span>()
+<span class="pl-k">var</span> x: mycomplexobject
+
+s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#pack as usual</span>
+
+s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
+s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span></pre></div>
+
+<p>enjoy it, happy nim-ing</p>
 </article>
 </div>
         </div>
