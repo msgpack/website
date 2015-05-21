@@ -4789,6 +4789,14 @@ assert xx == x
 
 <p>see? you only need to call 'pack' and 'unpack', and the compiler do the hard work for you. Very easy, convenient, and works well</p>
 
+<p>if you think setting up a StringStream too much for you, you can simply call pack(yourobject) and it will return a string containing msgpack data.</p>
+
+<div class="highlight highlight-nimrod"><pre>  <span class="pl-k">var</span> a = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>,<span class="pl-c1">8</span>,<span class="pl-c1">9</span>,<span class="pl-c1">0</span>]
+  <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(a)
+  <span class="pl-k">var</span> aa: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
+  <span class="pl-c1">unpack</span>(buf, aa)
+  <span class="pl-c1">assert</span> a == aa</pre></div>
+
 <p>in case the compiler cannot decide how to serialize or deserialize your very very complex object, you can help it in easy way</p>
 
 <div class="highlight highlight-nimrod"><pre><span class="pl-k">type</span>
@@ -4814,6 +4822,95 @@ s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#pack as usual</span>
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span></pre></div>
+
+<h6>
+<a id="user-content-data-conversion" class="anchor" href="#data-conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Conversion</h6>
+
+<table>
+<thead><tr>
+<th><strong>nim</strong></th>
+<th><strong>msgpack</strong></th>
+</tr></thead>
+<tbody>
+<tr>
+<td>int8/16/32/64</td>
+<td>int8/16/32/64</td>
+</tr>
+<tr>
+<td>uint8/16/32/64</td>
+<td>uint8/16/32/64</td>
+</tr>
+<tr>
+<td>true/false/nil</td>
+<td>true/false/nil</td>
+</tr>
+<tr>
+<td>procedural type</td>
+<td>ignored</td>
+</tr>
+<tr>
+<td>float32/64</td>
+<td>float32/64</td>
+</tr>
+<tr>
+<td>string</td>
+<td>string</td>
+</tr>
+<tr>
+<td>array/seq</td>
+<td>array</td>
+</tr>
+<tr>
+<td>set</td>
+<td>array</td>
+</tr>
+<tr>
+<td>range/subrange</td>
+<td>int8/16/32/64</td>
+</tr>
+<tr>
+<td>enum</td>
+<td>int8/16/32/64</td>
+</tr>
+<tr>
+<td>IntSet,Doubly/SinglyLinkedList</td>
+<td>array</td>
+</tr>
+<tr>
+<td>Doubly/SinglyLinkedRing</td>
+<td>array</td>
+</tr>
+<tr>
+<td>Queue,HashSet,OrderedSet</td>
+<td>array</td>
+</tr>
+<tr>
+<td>Table,TableRef</td>
+<td>map</td>
+</tr>
+<tr>
+<td>OrderedTable,OrderedTableRef</td>
+<td>map</td>
+</tr>
+<tr>
+<td>StringTableRef</td>
+<td>map</td>
+</tr>
+<tr>
+<td>CritBitTree</td>
+<td>map</td>
+</tr>
+<tr>
+<td>object/tuple</td>
+<td>array/map</td>
+</tr>
+</tbody>
+</table>
+<p>object/tuple by default converted to msgpack array, however
+you can tell the compiler to convert it to map by supplying --define:msgpack_obj_to_map
+when you compile your project</p>
+
+<div class="highlight highlight-shell"><pre>nim c --define:msgpack_obj_to_map yourfile.nim</pre></div>
 
 <p>enjoy it, happy nim-ing</p>
 </article>
