@@ -4854,7 +4854,218 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 </tr>
 <tr>
 <td>string</td>
+<td>string8/16/32</td>
+</tr>
+<tr>
+<td>array/seq</td>
+<td>array</td>
+</tr>
+<tr>
+<td>set</td>
+<td>array</td>
+</tr>
+<tr>
+<td>range/subrange</td>
+<td>int8/16/32/64</td>
+</tr>
+<tr>
+<td>enum</td>
+<td>int8/16/32/64</td>
+</tr>
+<tr>
+<td>IntSet,Doubly/SinglyLinkedList</td>
+<td>array</td>
+</tr>
+<tr>
+<td>Doubly/SinglyLinkedRing</td>
+<td>array</td>
+</tr>
+<tr>
+<td>Queue,HashSet,OrderedSet</td>
+<td>array</td>
+</tr>
+<tr>
+<td>Table,TableRef</td>
+<td>map</td>
+</tr>
+<tr>
+<td>OrderedTable,OrderedTableRef</td>
+<td>map</td>
+</tr>
+<tr>
+<td>StringTableRef</td>
+<td>map</td>
+</tr>
+<tr>
+<td>CritBitTree</td>
+<td>map</td>
+</tr>
+<tr>
+<td>object/tuple</td>
+<td>array/map</td>
+</tr>
+</tbody>
+</table>
+<p>object/tuple by default converted to msgpack array, however
+you can tell the compiler to convert it to map by supplying --define:msgpack_obj_to_map</p>
+
+<div class="highlight highlight-shell"><pre>nim c --define:msgpack_obj_to_map yourfile.nim</pre></div>
+
+<h6>
+<a id="user-content-bin-and-ext-format" class="anchor" href="#bin-and-ext-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>bin and ext format</h6>
+
+<p>this implementation provide function to encode/decode msgpack bin/ext format header, but for the body, you must write it yourself to the StringStream</p>
+
+<ul>
+<li>proc pack_bin*(s: Stream, len: int)</li>
+<li>proc pack_ext*(s: Stream, len: int, exttype: int8)</li>
+<li>proc unpack_bin*(s: Stream): int</li>
+<li>proc unpack_ext*(s: Stream): tuple[exttype:uint8, len: int]</li>
+</ul>
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> streams, msgpack
+
+<span class="pl-k">const</span> exttype0 = <span class="pl-c1">0</span>
+
+<span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>()
+<span class="pl-k">var</span> body = <span class="pl-s">"this is the body"</span>
+
+s.<span class="pl-c1">pack_ext</span>(body.<span class="pl-c1">len</span>, exttype0)
+s.<span class="pl-c1">write</span>(body)
+
+<span class="pl-c">#the same goes to bin format</span>
+s.<span class="pl-c1">pack_bin</span>(body.<span class="pl-c1">len</span>)
+s.<span class="pl-c1">write</span>(body)
+
+s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
+<span class="pl-c">#unpack_ext return tuple[exttype:uint8, len: int]</span>
+<span class="pl-k">let</span> (extype, extlen) = s.<span class="pl-c1">unpack_ext</span>()
+<span class="pl-k">var</span> extbody = s.<span class="pl-c1">readStr</span>(extlen)
+
+assert extbody == body
+
+<span class="pl-k">let</span> binlen = s.<span class="pl-c1">unpack_bin</span>()
+<span class="pl-k">var</span> binbody = s.<span class="pl-c1">readStr</span>(binlen)
+
+assert binbody == body</pre></div>
+
+<p>enjoy it, happy nim-ing</p>
+
+<h5>
+<a id="user-content-msgpack4nim-1" class="anchor" href="#msgpack4nim-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack4nim</h5>
+
+<p><a href="http://msgpack.org/">MessagePack</a> implementation written in pure nim</p>
+
+<h7>
+<a id="user-content-why-another-implementation-1" class="anchor" href="#why-another-implementation-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>why another implementation?</h7>
+
+<p>I am fully aware of <a href="https://github.com/akiradeveloper/msgpack-nim">another</a> msgpack implementation written in nim. But I want something easier to use. Another motivation come from the nim language itself. The current version of nim compiler offer many improvements, including 'generics ' specialization. I found out nim compiler is smart enough to make serialization/deserialization to/from msgpack easy and convenient.</p>
+
+<p><strong>requirement:</strong> nim ver 0.11.2 or later</p>
+
+<h6>
+<a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack, streams
+
+<span class="pl-k">type</span>
+  <span class="pl-c">#lets try with a rather complex object</span>
+  CustomType = <span class="pl-k">object</span>
+    count: <span class="pl-k">int</span>
+    content: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
+    name: <span class="pl-k">string</span>
+    ratio: <span class="pl-k">float</span>
+    attr: <span class="pl-k">array</span>[<span class="pl-c1">0</span>..<span class="pl-c1">5</span>, <span class="pl-k">int</span>]
+    ok: <span class="pl-k">bool</span>
+
+<span class="pl-k">proc</span> <span class="pl-en">initCustomType</span>()<span class="pl-k">:</span> CustomType <span class="pl-k">=</span>
+  result.count = -<span class="pl-c1">1</span>
+  result.content = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]
+  result.name = <span class="pl-s">"custom"</span>
+  result.ratio = <span class="pl-c1">1.0</span>
+  <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">0</span>..<span class="pl-c1">5</span>: result.attr[i] = i
+  result.ok = <span class="pl-c1">false</span>
+
+<span class="pl-k">var</span> x = <span class="pl-c1">initCustomType</span>()
+<span class="pl-c">#you can use another stream compatible</span>
+<span class="pl-c">#class here e.g. FileStream</span>
+<span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>() 
+s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#here the magic happened</span>
+
+s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
+<span class="pl-k">var</span> xx: CustomType
+s.<span class="pl-c1">unpack</span>(xx) <span class="pl-c">#and here too</span>
+
+assert xx == x
+<span class="pl-c1">echo</span> <span class="pl-s">"OK "</span>, xx.name</pre></div>
+
+<p>see? you only need to call 'pack' and 'unpack', and the compiler do the hard work for you. Very easy, convenient, and works well</p>
+
+<p>if you think setting up a StringStream too much for you, you can simply call pack(yourobject) and it will return a string containing msgpack data.</p>
+
+<div class="highlight highlight-nimrod"><pre>  <span class="pl-k">var</span> a = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>,<span class="pl-c1">8</span>,<span class="pl-c1">9</span>,<span class="pl-c1">0</span>]
+  <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(a)
+  <span class="pl-k">var</span> aa: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
+  <span class="pl-c1">unpack</span>(buf, aa)
+  <span class="pl-c1">assert</span> a == aa</pre></div>
+
+<p>in case the compiler cannot decide how to serialize or deserialize your very very complex object, you can help it in easy way</p>
+
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">type</span>
+  <span class="pl-c">#not really complex, just for example</span>
+  mycomplexobject = <span class="pl-k">object</span>
+    a: someSimpleType
+    b: someSimpleType
+
+<span class="pl-c">#help the compiler to decide</span>
+<span class="pl-k">proc</span> <span class="pl-en">pack</span>(s: Stream, x: mycomplexobject) <span class="pl-k">=</span>
+  s.<span class="pl-c1">pack</span>(x.a) <span class="pl-c"># let the compiler decide</span>
+  s.<span class="pl-c1">pack</span>(x.b) <span class="pl-c"># let the compiler decide</span>
+
+<span class="pl-c">#help the compiler to decide</span>
+<span class="pl-k">proc</span> <span class="pl-en">unpack</span>(s: Stream, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
+  s.<span class="pl-c1">unpack</span>(x.a)
+  s.<span class="pl-c1">unpack</span>(x.b)
+
+<span class="pl-k">var</span> s: <span class="pl-c1">newStringStream</span>()
+<span class="pl-k">var</span> x: mycomplexobject
+
+s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#pack as usual</span>
+
+s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
+s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span></pre></div>
+
+<h6>
+<a id="user-content-data-conversion-1" class="anchor" href="#data-conversion-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Conversion</h6>
+
+<table>
+<thead><tr>
+<th><strong>nim</strong></th>
+<th><strong>msgpack</strong></th>
+</tr></thead>
+<tbody>
+<tr>
+<td>int8/16/32/64</td>
+<td>int8/16/32/64</td>
+</tr>
+<tr>
+<td>uint8/16/32/64</td>
+<td>uint8/16/32/64</td>
+</tr>
+<tr>
+<td>true/false/nil</td>
+<td>true/false/nil</td>
+</tr>
+<tr>
+<td>procedural type</td>
+<td>ignored</td>
+</tr>
+<tr>
+<td>float32/64</td>
+<td>float32/64</td>
+</tr>
+<tr>
 <td>string</td>
+<td>string8/16/32</td>
 </tr>
 <tr>
 <td>array/seq</td>
