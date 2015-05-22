@@ -4892,8 +4892,12 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 <td>map</td>
 </tr>
 <tr>
-<td>CritBitTree</td>
+<td>CritBitTree[T]</td>
 <td>map</td>
+</tr>
+<tr>
+<td>CritBitTree[void]</td>
+<td>array</td>
 </tr>
 <tr>
 <td>object/tuple</td>
@@ -4901,10 +4905,72 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 </tr>
 </tbody>
 </table>
-<p>object/tuple by default converted to msgpack array, however
+<h6>
+<a id="user-content-object-and-tuple" class="anchor" href="#object-and-tuple" aria-hidden="true"><span class="octicon octicon-link"></span></a>object and tuple</h6>
+
+<p>object and tuple by default converted to msgpack array, however
 you can tell the compiler to convert it to map by supplying --define:msgpack_obj_to_map</p>
 
 <div class="highlight highlight-shell"><pre>nim c --define:msgpack_obj_to_map yourfile.nim</pre></div>
+
+<p>or --define:msgpack_obj_to_stream to convert object/tuple fields <em>value</em> into stream of msgpack objects</p>
+
+<div class="highlight highlight-shell"><pre>nim c --define:msgpack_obj_to_stream yourfile.nim</pre></div>
+
+<p><strong>Restriction</strong>: 
+ For objects their type is <strong>not</strong> serialized. This means essentially that it does not work if the object has some other runtime type than its compiletime type:</p>
+
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> streams, msgpack
+
+<span class="pl-k">type</span>
+  TA = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
+  TB = <span class="pl-k">object</span> <span class="pl-k">of</span> TA
+    f: <span class="pl-k">int</span>
+
+<span class="pl-k">var</span>
+  a: <span class="pl-k">ref</span> TA
+  b: <span class="pl-k">ref</span> TB
+
+<span class="pl-c1">new</span>(b)
+a = b
+
+<span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(a)) 
+<span class="pl-c">#produces "[ ]" or "{ }"</span>
+<span class="pl-c">#not "[ 0 ]" or '{ "f" : 0 }'</span></pre></div>
+
+<p><strong>Gotchas:</strong>
+because data conversion did not preserve original data types, the following code is perfectly valid and will raise no exception</p>
+
+<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack, streams, tables, sets, strtabs
+
+<span class="pl-k">type</span>
+  Horse = <span class="pl-k">object</span>
+    legs: <span class="pl-k">int</span>
+    foals: <span class="pl-k">seq</span>[<span class="pl-k">string</span>]
+    attr: Table[<span class="pl-k">string</span>, <span class="pl-k">string</span>]
+
+  Cat = <span class="pl-k">object</span>
+    legs: <span class="pl-k">uint8</span>
+    kittens: HashSet[<span class="pl-k">string</span>]
+    traits: StringTableRef
+
+<span class="pl-k">proc</span> <span class="pl-en">initHorse</span>()<span class="pl-k">:</span> Horse <span class="pl-k">=</span>
+  result.legs = <span class="pl-c1">4</span>
+  result.foals = @[<span class="pl-s">"jilly"</span>, <span class="pl-s">"colt"</span>]
+  result.attr = <span class="pl-c1">initTable</span>[<span class="pl-k">string</span>, <span class="pl-k">string</span>]()
+  result.attr[<span class="pl-s">"color"</span>] <span class="pl-k">=</span> <span class="pl-s">"black"</span>
+  result.attr[<span class="pl-s">"speed"</span>] <span class="pl-k">=</span> <span class="pl-s">"120mph"</span>
+
+<span class="pl-k">var</span> stallion = <span class="pl-c1">initHorse</span>()
+<span class="pl-k">var</span> tom: Cat
+
+<span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(stallion) <span class="pl-c">#pack a Horse here</span>
+<span class="pl-c1">unpack</span>(buf, tom) 
+<span class="pl-c">#magically, it will unpack into a Cat</span>
+
+<span class="pl-c1">echo</span> <span class="pl-s">"legs: "</span>, <span class="pl-k">$</span>tom.legs
+<span class="pl-c1">echo</span> <span class="pl-s">"kittens: "</span>, <span class="pl-k">$</span>tom.kittens
+<span class="pl-c1">echo</span> <span class="pl-s">"traits: "</span>, <span class="pl-k">$</span>tom.traits</pre></div>
 
 <h6>
 <a id="user-content-bin-and-ext-format" class="anchor" href="#bin-and-ext-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>bin and ext format</h6>
@@ -4961,11 +5027,14 @@ assert binbody == body</pre></div>
 
 <p>the result will be:</p>
 
-<div class="highlight highlight-json"><pre>[ <span class="pl-c1">4</span>, <span class="pl-c1">150</span>, <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span> ]
+<div class="highlight highlight-json"><pre>default:
+[ <span class="pl-c1">4</span>, <span class="pl-c1">150</span>, <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span> ]
 
-or like this if msgpack_obj_to_map defined:
+msgpack_obj_to_map defined:
+{ <span class="pl-s"><span class="pl-pds">"</span>legs<span class="pl-pds">"</span></span> : <span class="pl-c1">4</span>, <span class="pl-s"><span class="pl-pds">"</span>speed<span class="pl-pds">"</span></span> : <span class="pl-c1">150</span>, <span class="pl-s"><span class="pl-pds">"</span>color<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span> }
 
-{ <span class="pl-s"><span class="pl-pds">"</span>legs<span class="pl-pds">"</span></span> : <span class="pl-c1">4</span>, <span class="pl-s"><span class="pl-pds">"</span>speed<span class="pl-pds">"</span></span> : <span class="pl-c1">150</span>, <span class="pl-s"><span class="pl-pds">"</span>color<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span> }</pre></div>
+msgpack_obj_to_stream defined:
+<span class="pl-c1">4</span> <span class="pl-c1">150</span> <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span></pre></div>
 
 <p>enjoy it, happy nim-ing</p>
 </article>
