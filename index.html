@@ -4844,6 +4844,18 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 <td>ignored</td>
 </tr>
 <tr>
+<td>cstring</td>
+<td>ignored</td>
+</tr>
+<tr>
+<td>ptr</td>
+<td>ignored</td>
+</tr>
+<tr>
+<td>distinct types</td>
+<td><a href="#limitation">see limitation</a></td>
+</tr>
+<tr>
 <td>float32/64</td>
 <td>float32/64</td>
 </tr>
@@ -4937,6 +4949,26 @@ a = b
 <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(a)) 
 <span class="pl-c">#produces "[ ]" or "{ }"</span>
 <span class="pl-c">#not "[ 0 ]" or '{ "f" : 0 }'</span></pre></div>
+
+<h8>
+<a id="user-content-limitation" class="anchor" href="#limitation" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>limitation:</strong>
+</h8>
+
+<p>these types will be ignored:</p>
+
+<ul>
+<li>procedural type</li>
+<li>cstring(it is not safe to assume it always terminated by null)</li>
+<li>ptr(don't know what it is behind this pointer)</li>
+</ul>
+<p>these types cannot be automatically pack/unpacked:</p>
+
+<ul>
+<li>
+<em>void</em> (will cause compile time error)</li>
+<li>distinct types(you must provide your own handler)</li>
+</ul>
+<p>however, you can provide your own handler for cstring, ptr, and distinct types</p>
 
 <p><strong>Gotchas:</strong>
 because data conversion did not preserve original data types, the following code is perfectly valid and will raise no exception</p>
