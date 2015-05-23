@@ -4852,6 +4852,14 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 <td>ignored</td>
 </tr>
 <tr>
+<td>ref</td>
+<td><a href="#ref-types">see ref-types</a></td>
+</tr>
+<tr>
+<td>circular ref</td>
+<td><a href="#ref-types">see ref-types</a></td>
+</tr>
+<tr>
 <td>distinct types</td>
 <td><a href="#limitation">see limitation</a></td>
 </tr>
@@ -4929,6 +4937,20 @@ you can tell the compiler to convert it to map by supplying --define:msgpack_obj
 
 <div class="highlight highlight-shell"><pre>nim c --define:msgpack_obj_to_stream yourfile.nim</pre></div>
 
+<h8>
+<a id="user-content-ref-types" class="anchor" href="#ref-types" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>ref-types:</strong>
+</h8>
+
+<p><em>ref something</em> :</p>
+
+<ul>
+<li>if ref value is nil, it will be packed into msgpack nil, and when unpacked, usually will do nothing except seq[T] will be @[]</li>
+<li>if ref value not nil, it will be dereferenced e.g. pack(val[]) or unpack(val[])</li>
+<li>ref subject to some restriction. see <strong>restriction</strong> below</li>
+</ul>
+<p><em>circular reference</em>:
+altough detecting circular reference is not too difficult(using set of pointers), the current implementation does not provide circular reference detection. If you pack something contains circular reference, you know something bad will happened</p>
+
 <p><strong>Restriction</strong>: 
  For objects their type is <strong>not</strong> serialized. This means essentially that it does not work if the object has some other runtime type than its compiletime type:</p>
 
@@ -4998,7 +5020,7 @@ because data conversion did not preserve original data types, the following code
 
 <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(stallion) <span class="pl-c">#pack a Horse here</span>
 <span class="pl-c1">unpack</span>(buf, tom) 
-<span class="pl-c">#magically, it will unpack into a Cat</span>
+<span class="pl-c">#abracadabra, it will unpack into a Cat</span>
 
 <span class="pl-c1">echo</span> <span class="pl-s">"legs: "</span>, <span class="pl-k">$</span>tom.legs
 <span class="pl-c1">echo</span> <span class="pl-s">"kittens: "</span>, <span class="pl-k">$</span>tom.kittens
