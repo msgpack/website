@@ -2551,7 +2551,7 @@ image.</p>
 
 <p>clojure-msgpack is a lightweight and simple library for converting
 between native Clojure data structures and MessagePack byte formats.
-clojure-msgpack only depends on Clojure itself; it has zero third-party
+clojure-msgpack only depends on Clojure itself; it has no third-party
 dependencies.</p>
 
 <h6>
@@ -2572,14 +2572,14 @@ dependencies.</p>
 <li>
 <code>unpack</code> Deserialize bytes as a Clojure object.</li>
 </ul>
-<div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:refer</span> <span class="pl-c1">:all</span>])
-<span class="pl-c1">nil</span>
+<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
 
-user=&gt; (<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
-(<span class="pl-en">-126</span> -90 <span class="pl-c1">115</span> <span class="pl-c1">99</span> <span class="pl-c1">104</span> <span class="pl-c1">101</span> <span class="pl-c1">109</span> <span class="pl-c1">97</span> <span class="pl-c1">0</span> -89 <span class="pl-c1">99</span> <span class="pl-c1">111</span> <span class="pl-c1">109</span> <span class="pl-c1">112</span> <span class="pl-c1">97</span> <span class="pl-c1">99</span> <span class="pl-c1">116</span> -61)
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c">; =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
 
-user=&gt; (<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
-{<span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span> <span class="pl-c1">0</span>, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span> <span class="pl-c1">true</span>}</pre></div>
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
 
 <h7>
 <a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming:</h7>
@@ -2592,48 +2592,135 @@ user=&gt; (<span class="pl-en">unpack</span> (<span class="pl-en">pack</span> {<
 <code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
 </li>
 </ul>
-<div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">use</span> 'clojure.java.io)
-<span class="pl-c1">nil</span>
+<div class="highlight highlight-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+(<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
 
-user=&gt; (<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
-<span class="pl-c1">nil</span>
+(<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-output (<span class="pl-en">java.io.DataOutputStream.</span> o)]
+    (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
 
-user=&gt; (<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
-  (<span class="pl-k">let</span> [data-output (<span class="pl-en">DataOutputStream.</span> o)]
-    (<span class="pl-en">pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
-<span class="pl-c1">nil</span>
-
-user=&gt; (<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
-  (<span class="pl-k">let</span> [data-input (<span class="pl-en">DataInputStream.</span> i)]
-    (<span class="pl-en">unpack-stream</span> data-input)))
-{<span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span> <span class="pl-c1">0</span>, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span> <span class="pl-c1">true</span>}</pre></div>
+(<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-input (<span class="pl-en">java.io.DataInputStream.</span> i)]
+    (<span class="pl-en">msg/unpack-stream</span> data-input)))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
 
 <h7>
-<a id="user-content-user-defined-extensions" class="anchor" href="#user-defined-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>User-defined extensions:</h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core types:</h7>
 
-<p>A macro <code>defext</code> is provided to allow serialization of application-specific types. Currently this only works one-way; data serialized this way will always deserialize as a raw <code>Extended</code> type.</p>
+<table>
+<thead><tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Number</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+<h7>
+<a id="user-content-clojure-extended-types" class="anchor" href="#clojure-extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clojure Extended types:</h7>
 
-<div class="highlight highlight-clojure"><pre>user=&gt; (<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [<span class="pl-k">defext</span>]])
-<span class="pl-c1">nil</span>
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
 
-user=&gt; (<span class="pl-k">defrecord</span> Employee [name])
-user.Employee
+<table>
+<thead><tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+<p>With <code>msgpack.clojure-extensions</code>:</p>
 
-user=&gt; (<span class="pl-k">defext</span> Employee <span class="pl-c1">1</span> #(<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> %)))
-<span class="pl-c1">nil</span>
+<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
 
-user=&gt; (<span class="pl-k">let</span> [bob (<span class="pl-en">Employee.</span> <span class="pl-s"><span class="pl-pds">"</span>Bob<span class="pl-pds">"</span></span>)
-             bytes (<span class="pl-en">pack</span> bob)]
-         (<span class="pl-en">map</span> #(<span class="pl-en">format</span> <span class="pl-s"><span class="pl-pds">"</span>0x%x<span class="pl-pds">"</span></span> %) bytes))
-(<span class="pl-en">"0xc7"</span> <span class="pl-s"><span class="pl-pds">"</span>0x3<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>0x1<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>0x42<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>0x6f<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>0x62<span class="pl-pds">"</span></span>)</pre></div>
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
 
 <h7>
-<a id="user-content-extras" class="anchor" href="#extras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extras:</h7>
+<a id="user-content-application-extended-types" class="anchor" href="#application-extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Extended types:</h7>
 
-<ul>
-<li>Symbols and Keywords are treated as MessagePack strings.</li>
-<li>Sets are treated as MessagePack arrays.</li>
-</ul>
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c">; =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
 <h6>
 <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h6>
 
