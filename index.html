@@ -4929,7 +4929,7 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 </tr>
 <tr>
 <td>ptr</td>
-<td>ignored</td>
+<td><a href="#ref-types">see ref-types</a></td>
 </tr>
 <tr>
 <td>ref</td>
@@ -4941,7 +4941,7 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 </tr>
 <tr>
 <td>distinct types</td>
-<td><a href="#limitation">see limitation</a></td>
+<td>converted to base type</td>
 </tr>
 <tr>
 <td>float32/64</td>
@@ -5027,6 +5027,7 @@ you can tell the compiler to convert it to map by supplying --define:msgpack_obj
 <li>if ref value is nil, it will be packed into msgpack nil, and when unpacked, usually will do nothing except seq[T] will be @[]</li>
 <li>if ref value not nil, it will be dereferenced e.g. pack(val[]) or unpack(val[])</li>
 <li>ref subject to some restriction. see <strong>restriction</strong> below</li>
+<li>ptr will be treated like ref</li>
 </ul>
 <p><em>circular reference</em>:
 altough detecting circular reference is not too difficult(using set of pointers), the current implementation does not provide circular reference detection. If you pack something contains circular reference, you know something bad will happened</p>
@@ -5061,16 +5062,14 @@ a = b
 <ul>
 <li>procedural type</li>
 <li>cstring(it is not safe to assume it always terminated by null)</li>
-<li>ptr(don't know what it is behind this pointer)</li>
 </ul>
 <p>these types cannot be automatically pack/unpacked:</p>
 
 <ul>
 <li>
 <em>void</em> (will cause compile time error)</li>
-<li>distinct types(you must provide your own handler)</li>
 </ul>
-<p>however, you can provide your own handler for cstring, ptr, and distinct types</p>
+<p>however, you can provide your own handler for cstring</p>
 
 <p><strong>Gotchas:</strong>
 because data conversion did not preserve original data types, the following code is perfectly valid and will raise no exception</p>
@@ -5105,6 +5104,26 @@ because data conversion did not preserve original data types, the following code
 <span class="pl-c1">echo</span> <span class="pl-s">"legs: "</span>, <span class="pl-k">$</span>tom.legs
 <span class="pl-c1">echo</span> <span class="pl-s">"kittens: "</span>, <span class="pl-k">$</span>tom.kittens
 <span class="pl-c1">echo</span> <span class="pl-s">"traits: "</span>, <span class="pl-k">$</span>tom.traits</pre></div>
+
+<p>another gotcha:</p>
+
+<div class="highlight highlight-nimrod"><pre>  <span class="pl-k">type</span>
+    KAB = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
+      aaa: <span class="pl-k">int</span>
+      bbb: <span class="pl-k">int</span>
+
+    KCD = <span class="pl-k">object</span> <span class="pl-k">of</span> KAB
+      ccc: <span class="pl-k">int</span>
+      ddd: <span class="pl-k">int</span>
+
+    KEF = <span class="pl-k">object</span> <span class="pl-k">of</span> KCD
+      eee: <span class="pl-k">int</span>
+      fff: <span class="pl-k">int</span>
+
+  <span class="pl-k">var</span> kk = <span class="pl-c1">KEF</span>()
+  <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(kk))
+  <span class="pl-c"># will produce "{ "eee" : 0, "fff" : 0, "ccc" : 0, "ddd" : 0, "aaa" : 0, "bbb" : 0 }"</span>
+  <span class="pl-c"># not "{ "aaa" : 0, "bbb" : 0, "ccc" : 0, "ddd" : 0, "eee" : 0, "fff" : 0 }"</span></pre></div>
 
 <h6>
 <a id="user-content-bin-and-ext-format" class="anchor" href="#bin-and-ext-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>bin and ext format</h6>
