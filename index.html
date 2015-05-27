@@ -4872,7 +4872,8 @@ assert xx == x
   <span class="pl-c1">unpack</span>(buf, aa)
   <span class="pl-c1">assert</span> a == aa</pre></div>
 
-<p>in case the compiler cannot decide how to serialize or deserialize your very very complex object, you can help it in easy way</p>
+<p>in case the compiler cannot decide how to serialize or deserialize your very very complex object, you can help it in easy way
+by defining your own handler pack_type/unpack_type</p>
 
 <div class="highlight highlight-nimrod"><pre><span class="pl-k">type</span>
   <span class="pl-c">#not really complex, just for example</span>
@@ -4881,12 +4882,12 @@ assert xx == x
     b: someSimpleType
 
 <span class="pl-c">#help the compiler to decide</span>
-<span class="pl-k">proc</span> <span class="pl-en">pack</span>(s: Stream, x: mycomplexobject) <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">pack_type</span><span class="pl-k">*</span>(s: Stream, x: mycomplexobject) <span class="pl-k">=</span>
   s.<span class="pl-c1">pack</span>(x.a) <span class="pl-c"># let the compiler decide</span>
   s.<span class="pl-c1">pack</span>(x.b) <span class="pl-c"># let the compiler decide</span>
 
 <span class="pl-c">#help the compiler to decide</span>
-<span class="pl-k">proc</span> <span class="pl-en">unpack</span>(s: Stream, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">unpack_type</span><span class="pl-k">*</span>(s: Stream, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
   s.<span class="pl-c1">unpack</span>(x.a)
   s.<span class="pl-c1">unpack</span>(x.b)
 
@@ -4925,6 +4926,10 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 </tr>
 <tr>
 <td>cstring</td>
+<td>ignored</td>
+</tr>
+<tr>
+<td>pointer</td>
 <td>ignored</td>
 </tr>
 <tr>
@@ -5027,7 +5032,8 @@ you can tell the compiler to convert it to map by supplying --define:msgpack_obj
 <li>if ref value is nil, it will be packed into msgpack nil, and when unpacked, usually will do nothing except seq[T] will be @[]</li>
 <li>if ref value not nil, it will be dereferenced e.g. pack(val[]) or unpack(val[])</li>
 <li>ref subject to some restriction. see <strong>restriction</strong> below</li>
-<li>ptr will be treated like ref</li>
+<li>ptr will be treated like ref during pack</li>
+<li>unpacking ptr will invoke alloc, so you must dealloc it</li>
 </ul>
 <p><em>circular reference</em>:
 altough detecting circular reference is not too difficult(using set of pointers), the current implementation does not provide circular reference detection. If you pack something contains circular reference, you know something bad will happened</p>
@@ -5062,6 +5068,7 @@ a = b
 <ul>
 <li>procedural type</li>
 <li>cstring(it is not safe to assume it always terminated by null)</li>
+<li>pointer</li>
 </ul>
 <p>these types cannot be automatically pack/unpacked:</p>
 
@@ -5069,7 +5076,7 @@ a = b
 <li>
 <em>void</em> (will cause compile time error)</li>
 </ul>
-<p>however, you can provide your own handler for cstring</p>
+<p>however, you can provide your own handler for cstring and pointer</p>
 
 <p><strong>Gotchas:</strong>
 because data conversion did not preserve original data types, the following code is perfectly valid and will raise no exception</p>
