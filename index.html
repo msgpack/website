@@ -1925,6 +1925,9 @@ bit8, bit16, bit32 -&gt; bytevector</p>
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a id="user-content-msgpack-v5-implementation-for-c-11" class="anchor" href="#msgpack-v5-implementation-for-c-11" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack v5 implementation for C++ 11</h5>
 
+<p><a href="https://travis-ci.org/Lichtso/netLink"><img src="https://camo.githubusercontent.com/1595d84b723daaced17cd83455a0f07b3722c4c5/68747470733a2f2f7472617669732d63692e6f72672f4c69636874736f2f6e65744c696e6b2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/Lichtso/netLink.svg" style="max-width:100%;"></a>
+<a href="http://en.wikipedia.org/wiki/Zlib_License"><img src="https://camo.githubusercontent.com/bd8e513df5763d4db311ba4c3018a661df881989/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d5a4c49422d627269676874677265656e2e737667" alt="License" data-canonical-src="https://img.shields.io/badge/License-ZLIB-brightgreen.svg" style="max-width:100%;"></a></p>
+
 <h6>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
 
@@ -1934,6 +1937,26 @@ bit8, bit16, bit32 -&gt; bytevector</p>
 <li>push and pull parser</li>
 <li>byte wise data flow control</li>
 </ul>
+<h6>
+<a id="user-content-small-example" class="anchor" href="#small-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Small Example</h6>
+
+<pre><code>MsgPack::Serializer serializer(socket);  
+std::vector&lt;std::unique_ptr&lt;MsgPack::Element&gt;&gt; arrayWithoutElements, arrayWith3Elements;
+arrayWith3Elements.push_back(MsgPack::Factory(true));
+arrayWith3Elements.push_back(MsgPack__Factory(Array(std::move(arrayWithoutElements))));
+arrayWith3Elements.push_back(MsgPack::Factory("Hello World!"));  
+serializer &lt;&lt; MsgPack__Factory(Array(std::move(arrayWith3Elements)));
+
+MsgPack::Deserializer deserializer(socket);  
+deserializer.deserialize([](std::unique_ptr&lt;MsgPack::Element&gt; parsed) {
+    std::cout &lt;&lt; "Parsed: " &lt;&lt; *parsed &lt;&lt; "\n";
+    return false;
+}, true);
+</code></pre>
+
+<h6>
+<a id="user-content-read-more" class="anchor" href="#read-more" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read More</h6>
+
 <p><a href="https://github.com/Lichtso/netLink/wiki/MsgPack">Tutorial</a></p>
 </article>
 </div>
