@@ -4767,21 +4767,20 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <p>The Node API parses a chunk of MessagePack data into an immutable tree of dynamically-typed nodes. A series of helper functions can be used to extract data of specific types from each node.</p>
 
-<pre><code>// parse a file into a node tree
-mpack_tree_t tree;
-mpack_tree_init_file(&amp;tree, "homepage-example.mp", 0);
-mpack_node_t* root = mpack_tree_root(&amp;tree);
+<div class="highlight highlight-C"><pre><span class="pl-c">// parse a file into a node tree</span>
+<span class="pl-c1">mpack_tree_t</span> tree;
+<span class="pl-en">mpack_tree_init_file</span>(&amp;tree, <span class="pl-s"><span class="pl-pds">"</span>homepage-example.mp<span class="pl-pds">"</span></span>, <span class="pl-c1">0</span>);
+<span class="pl-c1">mpack_node_t</span>* root = mpack_tree_root(&amp;tree);
 
-// extract the example data on the msgpack homepage
-bool compact = mpack_node_bool(mpack_node_map_cstr(root, "compact"));
-int schema = mpack_node_i32(mpack_node_map_cstr(root, "schema"));
+<span class="pl-c">// extract the example data on the msgpack homepage</span>
+<span class="pl-k">bool</span> compact = mpack_node_bool(mpack_node_map_cstr(root, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>));
+<span class="pl-k">int</span> schema = mpack_node_i32(mpack_node_map_cstr(root, <span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>));
 
-// clean up and check for errors
-if (mpack_tree_destroy(tree) != mpack_ok) {
-    fprintf(stderr, "An error occurred decoding the data!\n");
-    return;
-}
-</code></pre>
+<span class="pl-c">// clean up and check for errors</span>
+<span class="pl-k">if</span> (mpack_tree_destroy(tree) != mpack_ok) {
+    <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>An error occurred decoding the data!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span>;
+}</pre></div>
 
 <p>Note that no additional error handling is needed in the above code. If the file is missing or corrupt, if map keys are missing or if nodes are not in the expected types, special "nil" nodes and false/zero values are returned and the tree is placed in an error state. An error check is only needed before using the data. Alternatively, the tree can be configured to longjmp in such cases if a handler is set.</p>
 
@@ -4790,26 +4789,25 @@ if (mpack_tree_destroy(tree) != mpack_ok) {
 
 <p>The MPack Write API encodes structured data of a fixed (hardcoded) schema to MessagePack.</p>
 
-<pre><code>// encode to memory buffer
-char buffer[256];
-mpack_writer_t writer;
-mpack_writer_init(&amp;writer, buffer, sizeof(buffer));
+<div class="highlight highlight-C"><pre><span class="pl-c">// encode to memory buffer</span>
+<span class="pl-k">char</span> buffer[<span class="pl-c1">256</span>];
+<span class="pl-c1">mpack_writer_t</span> writer;
+<span class="pl-en">mpack_writer_init</span>(&amp;writer, buffer, <span class="pl-k">sizeof</span>(buffer));
 
-// write the example on the msgpack homepage
-mpack_start_map(&amp;writer, 2);
-mpack_write_cstr(&amp;writer, "compact");
-mpack_write_bool(&amp;writer, true);
-mpack_write_cstr(&amp;writer, "schema");
-mpack_write_uint(&amp;writer, 0);
-mpack_finish_map(&amp;writer);
+<span class="pl-c">// write the example on the msgpack homepage</span>
+<span class="pl-en">mpack_start_map</span>(&amp;writer, <span class="pl-c1">2</span>);
+<span class="pl-en">mpack_write_cstr</span>(&amp;writer, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>);
+<span class="pl-en">mpack_write_bool</span>(&amp;writer, <span class="pl-c1">true</span>);
+<span class="pl-en">mpack_write_cstr</span>(&amp;writer, <span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>);
+<span class="pl-en">mpack_write_uint</span>(&amp;writer, <span class="pl-c1">0</span>);
+<span class="pl-en">mpack_finish_map</span>(&amp;writer);
 
-// clean up
-size_t count = mpack_writer_buffer_used(&amp;writer);
-if (mpack_writer_destroy(&amp;writer) != mpack_ok) {
-    fprintf(stderr, "An error occurred encoding the data!\n");
-    return;
-}
-</code></pre>
+<span class="pl-c">// clean up</span>
+<span class="pl-c1">size_t</span> count = mpack_writer_buffer_used(&amp;writer);
+<span class="pl-k">if</span> (mpack_writer_destroy(&amp;writer) != mpack_ok) {
+    <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>An error occurred encoding the data!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+    <span class="pl-k">return</span>;
+}</pre></div>
 
 <p>In the above example, we encode only to an in-memory buffer. The writer can optionally be provided with a flush function (such as a file or socket write function) to call when the buffer is full or when writing is done.</p>
 
