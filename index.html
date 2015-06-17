@@ -3144,15 +3144,15 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 <a name="user-content-usage"></a>
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
-<div class="highlight highlight-fsharp"><pre><span class="pl-k">open</span> <span class="pl-c1">MsgPack</span>
+<div class="highlight highlight-fsharp"><pre><span class="pl-en"><span class="pl-k">open</span> <span class="pl-c1">MsgPack</span></span>
 
 <span class="pl-k">[</span><span class="pl-k">|</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy <span class="pl-k">|</span><span class="pl-k">]</span>
-<span class="pl-k">|&gt;</span> <span class="pl-c1">Array</span>.map (<span class="pl-c1">Value</span>.UInt8)
-<span class="pl-k">|&gt;</span> <span class="pl-c1">Value</span>.Array
-<span class="pl-k">|&gt;</span> <span class="pl-c1">Packer</span>.packOne
+<span class="pl-k">|&gt;</span> Array.map (Value.UInt8)
+<span class="pl-k">|&gt;</span> Value.Array
+<span class="pl-k">|&gt;</span> Packer.packOne
 <span class="pl-c">//=&gt; val it : byte [] = [|147uy; 1uy; 2uy; 3uy|]</span>
 
-<span class="pl-c1">Unpacker</span>.unpack <span class="pl-k">[</span><span class="pl-k">|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|</span><span class="pl-k">]</span>
+Unpacker.unpack <span class="pl-k">[</span><span class="pl-k">|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|</span><span class="pl-k">]</span>
 <span class="pl-c">//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]</span></pre></div>
 <a name="user-content-copyright"></a>
 <h6>
@@ -4686,7 +4686,7 @@ $ nimble install msgpack</pre></div>
 
 <span class="pl-c"># You can use any stream subclasses to serialize/deserialize</span>
 <span class="pl-c"># messages. e.g. FileStream</span>
-<span class="pl-k">let</span> st: Stream = <span class="pl-c1">newStringStream</span>()
+<span class="pl-v"><span class="pl-k">let </span><span class="pl-v">st</span><span class="pl-k">: Stream </span>=</span> <span class="pl-c1">newStringStream</span>()
 
 <span class="pl-c1">assert</span>(st.getPosition == <span class="pl-c1">0</span>)
 
@@ -4696,15 +4696,15 @@ $ nimble install msgpack</pre></div>
 <span class="pl-c">#</span>
 <span class="pl-c"># In xs we can mix specific conversion (PFixNum) and generic</span>
 <span class="pl-c"># conversion (unwrap).</span>
-<span class="pl-k">let</span> xs: Msg = <span class="pl-c1">wrap</span>(@[<span class="pl-c1">PFixNum</span>(<span class="pl-c1">5</span>), (<span class="pl-k">-</span><span class="pl-c1">3</span>)<span class="pl-k">.</span>wrap])
-<span class="pl-k">let</span> ys: Msg = <span class="pl-c1">wrap</span>(@[(<span class="pl-s">"a"</span><span class="pl-k">.</span>wrap, xs.wrap), (<span class="pl-s">"b"</span><span class="pl-k">.</span>wrap, @[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].wrap)])
+<span class="pl-v"><span class="pl-k">let </span><span class="pl-v">xs</span><span class="pl-k">: Msg </span>=</span> <span class="pl-c1">wrap</span>(@[<span class="pl-c1">PFixNum</span>(<span class="pl-c1">5</span>), (<span class="pl-k">-</span><span class="pl-c1">3</span>)<span class="pl-k">.</span>wrap])
+<span class="pl-v"><span class="pl-k">let </span><span class="pl-v">ys</span><span class="pl-k">: Msg </span>=</span> <span class="pl-c1">wrap</span>(@[(<span class="pl-s">"a"</span><span class="pl-k">.</span>wrap, xs.wrap), (<span class="pl-s">"b"</span><span class="pl-k">.</span>wrap, @[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].wrap)])
 st.<span class="pl-c1">pack</span>(ys.wrap) <span class="pl-c"># Serialize!</span>
 
 <span class="pl-c"># We need to reset the cursor to the beginning of the target</span>
 <span class="pl-c"># byte sequence.</span>
 st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
-<span class="pl-k">let</span> msg = st.unpack <span class="pl-c"># Deserialize!</span>
+<span class="pl-v"><span class="pl-k">let </span><span class="pl-v">msg</span> =</span> st.unpack <span class="pl-c"># Deserialize!</span>
 
 <span class="pl-c"># output:</span>
 <span class="pl-c"># a</span>
@@ -4865,7 +4865,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <span class="pl-k">type</span>
   <span class="pl-c">#lets try with a rather complex object</span>
-  CustomType = <span class="pl-k">object</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">CustomType</span> =</span> <span class="pl-k">object</span>
     count: <span class="pl-k">int</span>
     content: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
     name: <span class="pl-k">string</span>
@@ -4873,18 +4873,18 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
     attr: <span class="pl-k">array</span>[<span class="pl-c1">0</span>..<span class="pl-c1">5</span>, <span class="pl-k">int</span>]
     ok: <span class="pl-k">bool</span>
 
-<span class="pl-k">proc</span> <span class="pl-en">initCustomType</span>()<span class="pl-k">:</span> CustomType <span class="pl-k">=</span>
-  result.count = -<span class="pl-c1">1</span>
-  result.content = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]
-  result.name = <span class="pl-s">"custom"</span>
-  result.ratio = <span class="pl-c1">1.0</span>
-  <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">0</span>..<span class="pl-c1">5</span>: result.attr[i] = i
-  result.ok = <span class="pl-c1">false</span>
+<span class="pl-k">proc</span> <span class="pl-en">initCustomType</span><span class="pl-v">()</span><span class="pl-k">: CustomType </span><span class="pl-k">=</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">count</span> =</span> <span class="pl-k">-</span><span class="pl-c1">1</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">content</span> =</span> <span class="pl-k">@</span>[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">name</span> =</span> <span class="pl-s">"custom"</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">ratio</span> =</span> <span class="pl-c1">1.0</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">for i in 0..</span><span class="pl-v">5</span><span class="pl-k">: result.attr[i] </span>=</span> i
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">ok</span> =</span> <span class="pl-c1">false</span>
 
-<span class="pl-k">var</span> x = <span class="pl-c1">initCustomType</span>()
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">x</span> =</span> <span class="pl-c1">initCustomType</span>()
 <span class="pl-c">#you can use another stream compatible</span>
 <span class="pl-c">#class here e.g. FileStream</span>
-<span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>() 
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">s</span> =</span> <span class="pl-c1">newStringStream</span>() 
 s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#here the magic happened</span>
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
@@ -4898,8 +4898,8 @@ assert xx == x
 
 <p>if you think setting up a StringStream too much for you, you can simply call pack(yourobject) and it will return a string containing msgpack data.</p>
 
-<div class="highlight highlight-nimrod"><pre>  <span class="pl-k">var</span> a = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>,<span class="pl-c1">8</span>,<span class="pl-c1">9</span>,<span class="pl-c1">0</span>]
-  <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(a)
+<div class="highlight highlight-nimrod"><pre><span class="pl-v"><span class="pl-k">  var </span><span class="pl-v">a</span> =</span> <span class="pl-k">@</span>[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>,<span class="pl-c1">8</span>,<span class="pl-c1">9</span>,<span class="pl-c1">0</span>]
+<span class="pl-v"><span class="pl-k">  var </span><span class="pl-v">buf</span> =</span> <span class="pl-c1">pack</span>(a)
   <span class="pl-k">var</span> aa: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
   <span class="pl-c1">unpack</span>(buf, aa)
   <span class="pl-c1">assert</span> a == aa</pre></div>
@@ -4909,17 +4909,17 @@ by defining your own handler pack_type/unpack_type</p>
 
 <div class="highlight highlight-nimrod"><pre><span class="pl-k">type</span>
   <span class="pl-c">#not really complex, just for example</span>
-  mycomplexobject = <span class="pl-k">object</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">mycomplexobject</span> =</span> <span class="pl-k">object</span>
     a: someSimpleType
     b: someSimpleType
 
 <span class="pl-c">#help the compiler to decide</span>
-<span class="pl-k">proc</span> <span class="pl-en">pack_type</span><span class="pl-k">*</span>(s: Stream, x: mycomplexobject) <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">pack_type</span><span class="pl-k">*</span><span class="pl-v">(s: Stream, x: mycomplexobject)</span> <span class="pl-k">=</span>
   s.<span class="pl-c1">pack</span>(x.a) <span class="pl-c"># let the compiler decide</span>
   s.<span class="pl-c1">pack</span>(x.b) <span class="pl-c"># let the compiler decide</span>
 
 <span class="pl-c">#help the compiler to decide</span>
-<span class="pl-k">proc</span> <span class="pl-en">unpack_type</span><span class="pl-k">*</span>(s: Stream, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">unpack_type</span><span class="pl-k">*</span><span class="pl-v">(s: Stream, x: var complexobject)</span> <span class="pl-k">=</span>
   s.<span class="pl-c1">unpack</span>(x.a)
   s.<span class="pl-c1">unpack</span>(x.b)
 
@@ -5076,8 +5076,8 @@ altough detecting circular reference is not too difficult(using set of pointers)
 <div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> streams, msgpack
 
 <span class="pl-k">type</span>
-  TA = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
-  TB = <span class="pl-k">object</span> <span class="pl-k">of</span> TA
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">TA</span> =</span> <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
+  TB = object of TA
     f: <span class="pl-k">int</span>
 
 <span class="pl-k">var</span>
@@ -5116,27 +5116,27 @@ because data conversion did not preserve original data types, the following code
 <div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack, streams, tables, sets, strtabs
 
 <span class="pl-k">type</span>
-  Horse = <span class="pl-k">object</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">Horse</span> =</span> <span class="pl-k">object</span>
     legs: <span class="pl-k">int</span>
     foals: <span class="pl-k">seq</span>[<span class="pl-k">string</span>]
     attr: Table[<span class="pl-k">string</span>, <span class="pl-k">string</span>]
 
-  Cat = <span class="pl-k">object</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">Cat</span> =</span> <span class="pl-k">object</span>
     legs: <span class="pl-k">uint8</span>
     kittens: HashSet[<span class="pl-k">string</span>]
     traits: StringTableRef
 
-<span class="pl-k">proc</span> <span class="pl-en">initHorse</span>()<span class="pl-k">:</span> Horse <span class="pl-k">=</span>
-  result.legs = <span class="pl-c1">4</span>
-  result.foals = @[<span class="pl-s">"jilly"</span>, <span class="pl-s">"colt"</span>]
-  result.attr = <span class="pl-c1">initTable</span>[<span class="pl-k">string</span>, <span class="pl-k">string</span>]()
+<span class="pl-k">proc</span> <span class="pl-en">initHorse</span><span class="pl-v">()</span><span class="pl-k">: Horse </span><span class="pl-k">=</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">legs</span> =</span> <span class="pl-c1">4</span>
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">foals</span> =</span> <span class="pl-k">@</span>[<span class="pl-s">"jilly"</span>, <span class="pl-s">"colt"</span>]
+<span class="pl-v"><span class="pl-k">  </span><span class="pl-v">result.</span><span class="pl-v">attr</span> =</span> <span class="pl-c1">initTable</span>[<span class="pl-k">string</span>, <span class="pl-k">string</span>]()
   result.attr[<span class="pl-s">"color"</span>] <span class="pl-k">=</span> <span class="pl-s">"black"</span>
   result.attr[<span class="pl-s">"speed"</span>] <span class="pl-k">=</span> <span class="pl-s">"120mph"</span>
 
-<span class="pl-k">var</span> stallion = <span class="pl-c1">initHorse</span>()
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">stallion</span> =</span> <span class="pl-c1">initHorse</span>()
 <span class="pl-k">var</span> tom: Cat
 
-<span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(stallion) <span class="pl-c">#pack a Horse here</span>
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">buf</span> =</span> <span class="pl-c1">pack</span>(stallion) <span class="pl-c">#pack a Horse here</span>
 <span class="pl-c1">unpack</span>(buf, tom) 
 <span class="pl-c">#abracadabra, it will unpack into a Cat</span>
 
@@ -5147,19 +5147,19 @@ because data conversion did not preserve original data types, the following code
 <p>another gotcha:</p>
 
 <div class="highlight highlight-nimrod"><pre>  <span class="pl-k">type</span>
-    KAB = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
+<span class="pl-v"><span class="pl-k">    </span><span class="pl-v">KAB</span> =</span> <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
       aaa: <span class="pl-k">int</span>
       bbb: <span class="pl-k">int</span>
 
-    KCD = <span class="pl-k">object</span> <span class="pl-k">of</span> KAB
+<span class="pl-v"><span class="pl-k">    </span><span class="pl-v">KCD</span> =</span> <span class="pl-k">object</span> <span class="pl-k">of</span> KAB
       ccc: <span class="pl-k">int</span>
       ddd: <span class="pl-k">int</span>
 
-    KEF = <span class="pl-k">object</span> <span class="pl-k">of</span> KCD
+<span class="pl-v"><span class="pl-k">    </span><span class="pl-v">KEF</span> =</span> <span class="pl-k">object</span> <span class="pl-k">of</span> KCD
       eee: <span class="pl-k">int</span>
       fff: <span class="pl-k">int</span>
 
-  <span class="pl-k">var</span> kk = <span class="pl-c1">KEF</span>()
+<span class="pl-v"><span class="pl-k">  var </span><span class="pl-v">kk</span> =</span> <span class="pl-c1">KEF</span>()
   <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(kk))
   <span class="pl-c"># will produce "{ "eee" : 0, "fff" : 0, "ccc" : 0, "ddd" : 0, "aaa" : 0, "bbb" : 0 }"</span>
   <span class="pl-c"># not "{ "aaa" : 0, "bbb" : 0, "ccc" : 0, "ddd" : 0, "eee" : 0, "fff" : 0 }"</span></pre></div>
@@ -5177,10 +5177,10 @@ because data conversion did not preserve original data types, the following code
 </ul>
 <div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> streams, msgpack
 
-<span class="pl-k">const</span> exttype0 = <span class="pl-c1">0</span>
+<span class="pl-v"><span class="pl-k">const </span><span class="pl-v">exttype0</span> =</span> <span class="pl-c1">0</span>
 
-<span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>()
-<span class="pl-k">var</span> body = <span class="pl-s">"this is the body"</span>
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">s</span> =</span> <span class="pl-c1">newStringStream</span>()
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">body</span> =</span> <span class="pl-s">"this is the body"</span>
 
 s.<span class="pl-c1">pack_ext</span>(body.<span class="pl-c1">len</span>, exttype0)
 s.<span class="pl-c1">write</span>(body)
@@ -5192,12 +5192,12 @@ s.<span class="pl-c1">write</span>(body)
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <span class="pl-c">#unpack_ext return tuple[exttype:uint8, len: int]</span>
 <span class="pl-k">let</span> (extype, extlen) = s.<span class="pl-c1">unpack_ext</span>()
-<span class="pl-k">var</span> extbody = s.<span class="pl-c1">readStr</span>(extlen)
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">extbody</span> =</span> s.<span class="pl-c1">readStr</span>(extlen)
 
 assert extbody == body
 
-<span class="pl-k">let</span> binlen = s.<span class="pl-c1">unpack_bin</span>()
-<span class="pl-k">var</span> binbody = s.<span class="pl-c1">readStr</span>(binlen)
+<span class="pl-v"><span class="pl-k">let </span><span class="pl-v">binlen</span> =</span> s.<span class="pl-c1">unpack_bin</span>()
+<span class="pl-v"><span class="pl-k">var </span><span class="pl-v">binbody</span> =</span> s.<span class="pl-c1">readStr</span>(binlen)
 
 assert binbody == body</pre></div>
 
@@ -5207,14 +5207,14 @@ assert binbody == body</pre></div>
 <p>you can convert msgpack data to readable string using stringify function</p>
 
 <div class="highlight highlight-nimrod"><pre>  <span class="pl-k">type</span>
-    Horse = <span class="pl-k">object</span>
+<span class="pl-v"><span class="pl-k">    </span><span class="pl-v">Horse</span> =</span> <span class="pl-k">object</span>
       legs: <span class="pl-k">int</span>
       speed: <span class="pl-k">int</span>
       color: <span class="pl-k">string</span>
       name: <span class="pl-k">string</span>
 
-  <span class="pl-k">var</span> cc = <span class="pl-c1">Horse</span>(legs:<span class="pl-c1">4</span>, speed:<span class="pl-c1">150</span>, color:<span class="pl-s">"black"</span>, name:<span class="pl-s">"stallion"</span>)
-  <span class="pl-k">var</span> zz = <span class="pl-c1">pack</span>(cc)
+<span class="pl-v"><span class="pl-k">  var </span><span class="pl-v">cc</span> =</span> <span class="pl-c1">Horse</span>(legs:<span class="pl-c1">4</span>, speed:<span class="pl-c1">150</span>, color:<span class="pl-s">"black"</span>, name:<span class="pl-s">"stallion"</span>)
+<span class="pl-v"><span class="pl-k">  var </span><span class="pl-v">zz</span> =</span> <span class="pl-c1">pack</span>(cc)
   <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(zz)</pre></div>
 
 <p>the result will be:</p>
