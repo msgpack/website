@@ -3011,7 +3011,7 @@ examples included with the msgpack-c project.</p>
 <p>CMP uses no internal buffers; conversions, encoding and decoding are done on
 the fly.</p>
 
-<p>CMP's source and header file together are ~3,100 LOC.</p>
+<p>CMP's source and header file together are ~3,300 LOC.</p>
 
 <p>CMP makes no heap allocations.</p>
 
@@ -3052,6 +3052,9 @@ validation.</p>
 <p>CMP's API is designed to be clear, convenient and unsurprising.  Strings are
 null-terminated, binary data is not, error codes are clear, and so on.</p>
 
+<p>CMP provides optional backwards compatibility for use with other MessagePack
+implementations that only implement version 4 of the spec.</p>
+
 <h6>
 <a id="user-content-building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h6>
 
@@ -3059,7 +3062,41 @@ null-terminated, binary data is not, error codes are clear, and so on.</p>
 in their source tree and modify as necessary.  No special compiler settings are
 required to build it, and it generates no compilation errors in either clang or
 gcc.</p>
-</article>
+
+<h6>
+<a id="user-content-backwards-compatibility" class="anchor" href="#backwards-compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Backwards Compatibility</h6>
+
+<p>Version 4 of the MessagePack spec has no <code>BIN</code> type, and provides no <code>STR8</code>
+marker.  In order to remain backwards compatible with version 4 of MessagePack,
+do the following:</p>
+
+<p>Avoid these functions:</p>
+
+<ul>
+<li><code>cmp_write_bin</code></li>
+<li><code>cmp_write_bin_marker</code></li>
+<li><code>cmp_write_str8_marker</code></li>
+<li><code>cmp_write_str8</code></li>
+<li><code>cmp_write_bin8_marker</code></li>
+<li><code>cmp_write_bin8</code></li>
+<li><code>cmp_write_bin16_marker</code></li>
+<li><code>cmp_write_bin16</code></li>
+<li><code>cmp_write_bin32_marker</code></li>
+<li><code>cmp_write_bin32</code></li>
+</ul>
+<p>Use these functions in lieu of their v5 counterparts:</p>
+
+<ul>
+<li>
+<code>cmp_write_str_marker_v4</code> instead of <code>cmp_write_str_marker</code>
+</li>
+<li>
+<code>cmp_write_str_v4</code> instead of <code>cmp_write_str</code>
+</li>
+<li>
+<code>cmp_write_object_v4</code> instead of <code>cmp_write_object</code>
+</li>
+</ul></article>
 </div>
         </div>
         
