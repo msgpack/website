@@ -240,6 +240,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-chinawsb-qmsgpack-delphi',this)">Delphi <span class="qs-sub">chinawsb</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-romixlab-qmsgpack',this)">Qt <span class="qs-sub">romixlab</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-tinylib-msgp',this)">Go <span class="qs-sub">tinylib</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-msgpack-cli',this)">Shell <span class="qs-sub">jakm</span></a></li>
@@ -3772,6 +3774,52 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
   showMessage(lvMsg.ForcePath(<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>).AsString);
   ....
 </pre></div>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-romixlab-qmsgpack" class="qs"><h4><a href="https://github.com/romixlab/qmsgpack" target="_blank">romixlab/qmsgpack <span class="qs-url">https://github.com/romixlab/qmsgpack</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-messagepack-for-qt" class="anchor" href="#messagepack-for-qt" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack for Qt</h5>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Clone repository:</p>
+
+<div class="highlight highlight-bash"><pre>git clone https://github.com/romixlab/qmsgpack.git
+<span class="pl-c1">cd</span> qmsgpack
+mkdir build
+<span class="pl-c1">cd</span> build
+cmake ..
+make install</pre></div>
+
+<h6>
+<a id="user-content-sample-usage" class="anchor" href="#sample-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample usage</h6>
+
+<p>Packing</p>
+
+<div class="highlight highlight-cpp"><pre>QVariantList list;
+list &lt;&lt; <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">2</span> &lt;&lt; <span class="pl-c1">3</span>;
+QByteArray array = MsgPack::pack(list);</pre></div>
+
+<p>Unpacking:</p>
+
+<div class="highlight highlight-cpp"><pre>QVariantList unpacked = MsgPack::unpack(array).toList();</pre></div>
+
+<p>Streaming API:</p>
+
+<div class="highlight highlight-cpp"><pre><span class="pl-c">// packing</span>
+MsgPackStream <span class="pl-en">stream</span>(&amp;ba, QIODevice::WriteOnly);
+stream &lt;&lt; <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">2.3</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>some string<span class="pl-pds">"</span></span>;
+
+<span class="pl-c">// unpacking</span>
+MsgPackStream <span class="pl-en">stream</span>(ba);
+<span class="pl-k">int</span> a;
+<span class="pl-k">double</span> b;
+QSting s;
+stream &gt;&gt; a &gt;&gt; b &gt;&gt; s;</pre></div>
 </article>
 </div>
         </div>
