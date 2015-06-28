@@ -260,6 +260,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-mpack',this)">C <span class="qs-sub">ludocode</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-3Hren-msgpack-rust',this)">Rust <span class="qs-sub">3Hren</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-jangko-msgpack4nim',this)">Nim <span class="qs-sub">jangko</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-benoist-msgpack-crystal',this)">Crystal <span class="qs-sub">benoist</span></a></li>
@@ -4930,6 +4932,150 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <p>You can also build and run the test suite in all supported configurations, which is what the continuous integration server will build and run. If you are on 64-bit, you will need support for cross-compiling to 32-bit, and running 32-bit binaries with 64-bit Valgrind. On Ubuntu, you'll need <code>libc6-dbg:i386</code>. On Arch you'll need <code>gcc-multilib</code> or <code>lib32-clang</code>, and <code>valgrind-multilib</code>. Use <code>scons all=1 -j16</code> (or some appropriate thread count) to build and run all tests.</p>
 </article>
+</div>
+        </div>
+        
+        <div id="qs-3Hren-msgpack-rust" class="qs"><h4><a href="https://github.com/3Hren/msgpack-rust" target="_blank">3Hren/msgpack-rust <span class="qs-url">https://github.com/3Hren/msgpack-rust</a></li></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-rmp---rust-messagepack" class="anchor" href="#rmp---rust-messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>RMP - Rust MessagePack</h5>
+
+<p>RMP is a pure Rust <a href="http://msgpack.org">MessagePack</a> implementation.</p>
+
+<p><a href="https://travis-ci.org/3Hren/msgpack-rust"><img src="https://camo.githubusercontent.com/20ebe3c911448a9065b08456ca2756bac8286aa1/68747470733a2f2f7472617669732d63692e6f72672f334872656e2f6d73677061636b2d727573742e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/3Hren/msgpack-rust.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://crates.io/crates/rmp"><img src="https://camo.githubusercontent.com/8cd4852fe3605c05bbfc01d2d37be8977aab0d4f/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d70" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp" style="max-width:100%;"></a></p>
+
+<ul>
+<li><p><a href="http://3hren.github.io/msgpack-rust/rmp/index.html">API documentation</a></p></li>
+<li><p><a href="http://crates.io/crates/rmp">Crates.io</a></p></li>
+</ul>
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<p>To use <code>rmp</code>, first add this to your <code>Cargo.toml</code>:</p>
+
+<div class="highlight highlight-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">rmp</span>]
+<span class="pl-smi">rmp</span> = <span class="pl-s"><span class="pl-pds">"</span>0.3.0<span class="pl-pds">"</span></span></pre></div>
+
+<p>Then, add this to your crate root:</p>
+
+<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span></pre></div>
+
+<h6>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
+
+<ul>
+<li>
+<p><strong>Convenient API</strong></p>
+
+<p>RMP is designed to be lightweight and straightforward. There are low-level API, which gives you
+full control on data encoding/decoding process and makes no heap allocations. On the other hand
+there are high-level API, which provides you convenient interface using Rust standard library and
+compiler reflection, allowing to encode/decode structures using <code>derive</code> attribute.</p>
+</li>
+<li>
+<p><strong>Clear error handling</strong></p>
+
+<p>RMP's error system guarantees that you never receive an error enum with unreachable variant.</p>
+</li>
+<li>
+<p><strong>Robust and tested</strong></p>
+
+<p>This project is developed using TDD and CI, so any found bugs will be fixed without breaking
+existing functionality.</p>
+</li>
+</ul>
+<h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
+
+<p>Let's try to encode a tuple of int and string.</p>
+
+<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern crate</span> <span class="pl-c1">rustc_serialize</span><span class="pl-k">;</span>
+
+<span class="pl-k">use</span> rustc_serialize::Encodable<span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack::Encoder<span class="pl-k">;</span>
+
+<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">let</span> <span class="pl-smi">val</span> <span class="pl-k">=</span> (<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span>)<span class="pl-k">;</span>
+
+    <span class="pl-c">// The encoder borrows the bytearray buffer.</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">buf</span> <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
+
+    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> Encoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
+
+    <span class="pl-c1">assert_eq!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
+}</pre></div>
+
+<p>Now we have an encoded buffer, which we can decode the same way:</p>
+
+<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern crate</span> <span class="pl-c1">rustc_serialize</span><span class="pl-k">;</span>
+
+<span class="pl-k">use</span> rustc_serialize::Decodable<span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack::Decoder<span class="pl-k">;</span>
+
+<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">let</span> <span class="pl-smi">buf</span> <span class="pl-k">=</span> [<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">;</span>
+
+    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">decoder</span> <span class="pl-k">=</span> Decoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
+
+    <span class="pl-k">let</span> <span class="pl-smi">res</span><span class="pl-k">: (u8, String) </span><span class="pl-k">=</span> Decodable::<span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+
+    <span class="pl-c1">assert_eq!</span>((<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>())<span class="pl-k">,</span> res)<span class="pl-k">;</span>
+}</pre></div>
+
+<p>RMP also allows to automatically serialize/deserialize custom structures using rustc_serialize
+reflection. To enable this feature, derive RustcEncodable and RustcDecodable attributes as
+shown in the following example:</p>
+
+<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern crate</span> <span class="pl-c1">rustc_serialize</span><span class="pl-k">;</span>
+
+<span class="pl-k">use</span> rustc_serialize::{Encodable<span class="pl-k">,</span> Decodable}<span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack::{Encoder<span class="pl-k">,</span> Decoder}<span class="pl-k">;</span>
+
+<span class="pl-c">#[derive(RustcEncodable, RustcDecodable, PartialEq, Debug)]</span>
+<span class="pl-k">struct</span> Custom {
+    id<span class="pl-k">:</span> <span class="pl-k">u32</span><span class="pl-k">,</span>
+    key<span class="pl-k">:</span> String<span class="pl-k">,</span>
+}
+
+<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">let</span> <span class="pl-smi">val</span> <span class="pl-k">=</span> Custom { id<span class="pl-k">:</span> <span class="pl-c1">42u32</span><span class="pl-k">,</span> key<span class="pl-k">:</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>() }<span class="pl-k">;</span>
+
+    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">buf</span> <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
+
+    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> Encoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
+
+    <span class="pl-c1">assert_eq!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
+
+    <span class="pl-c">// Now try to unpack the buffer into the initial struct.</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">decoder</span> <span class="pl-k">=</span> Decoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
+    <span class="pl-k">let</span> <span class="pl-smi">res</span><span class="pl-k">: Custom </span><span class="pl-k">=</span> Decodable::<span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+
+    <span class="pl-c1">assert_eq!</span>(val<span class="pl-k">,</span> res)<span class="pl-k">;</span>
+}</pre></div>
+
+<h6>
+<a id="user-content-limitations-and-plans" class="anchor" href="#limitations-and-plans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations and plans</h6>
+
+<ul>
+<li>Non-owning <code>ValueRef</code> variant, which can be created from <code>[u8]</code>, <code>Cursor&lt;[u8]&gt;</code> etc. and
+borrows data from it, which makes it absolute zero-copy.</li>
+</ul>
+<h6>
+<a id="user-content-versioning" class="anchor" href="#versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versioning</h6>
+
+<p>This project adheres to <a href="http://semver.org/">Semantic Versioning</a>. However until 1.0.0 comes there
+will be the following rules:</p>
+
+<ul>
+<li>Any API/ABI breaking changes will be notified in the changelog explicitly and results in minor
+version bumping.</li>
+<li>API extending features results in minor version bumping.</li>
+<li>Non-breaking bug fixes and performance improving results in patch version bumping.</li>
+</ul></article>
 </div>
         </div>
         
