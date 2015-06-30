@@ -4711,70 +4711,66 @@ $</pre></div>
 
 <p>Implementation of the Message Pack serialization format in J.</p>
 
-<h5>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h5>
+<h7>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h7>
 
 <p>import into projects and open in jqt or other. It's very simple. </p>
 
-<h6>
-<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
+<h7>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h7>
 
 <p><code>pack</code> packs J types into a byte string. <code>unpack</code> reverses this.</p>
 
-<p><b><code>pack 'hello world'</code></b></p>
+<pre><code>  `pack 'hello world'`
 
-<p><b><code>�hello world</code></b></p>
+     `�hello world`
 
-<p><b><code>unpack �hello world</code></b></p>
+  `unpack �hello world`
 
-<p><b><code>'hello world'</code></b></p>
+     `'hello world'`
+</code></pre>
 
-<p><code>packObj</code> packs J types into a hex string (string literal). <code>unpackObj</code> reverses this.</p>
+<p><b><code>packObj</code></b> packs J types into a hex string (string literal). <b><code>unpackObj</code></b> reverses this.</p>
 
-<p>e.g.
-<b><code>packObj 'Hello World'</code></b></p>
+<p>e.g.</p>
 
-<p><b><code>ab48656c6c6f20576f726c64</code></b></p>
+<pre><code>   `packObj 'Hello World'`
 
-<p><b><code>unpackObj 'ab48656c6c6f20576f726c64'</code></b></p>
+     `ab48656c6c6f20576f726c64`
 
-<p><b><code>Hello World</code></b></p>
+  `unpackObj 'ab48656c6c6f20576f726c64'`
+
+  `Hello World`
+</code></pre>
 
 <h7>
 <a id="user-content-more-usage" class="anchor" href="#more-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Usage</h7>
 
 <p>Example:</p>
 
-<p><b><code>pack 2;4.67;'hello, world'</code></b></p>
+<pre><code>  `pack 2;4.67;'hello, world'`
 
-<p><b><code>���@┐�┼z�G��hello, world</code></b></p>
+     `���@┐�┼z�G��hello, world`
 
-<p><b><code>packObj 2;4.67;'hello, world'</code></b></p>
+  `packObj 2;4.67;'hello, world'`&lt;/b&gt;
 
-<p><b><code>9302cb4012ae147ae147aeac68656c6c6f2c20776f726c64</code></b></p>
+     `9302cb4012ae147ae147aeac68656c6c6f2c20776f726c64`
+</code></pre>
 
 <p>JSON representation:
-<code>[
-  2,
-  4.67,
-  "hello, world"
-]</code></p>
+      <code>[2,4.67,"hello, world"]</code></p>
 
 <p>Example: </p>
 
-<p><b><code>unpackObj '81a46461746183a2696401a67
-3636f72657394cb4009999999
-99999acb4016cccccccccccdc
-b40091eb851eb851fcb400733
-3333333333a56f7468657283a
-4736f6d65d1f2b8a46d6f7265
-ccc8a4646174610c'</code></b></p>
+<pre><code>  `unpackObj '81a46461746183a2696401a673636f72657394cb400999999999999acb4016cccccccccccdcb40091eb851eb851fcb4007333333333333a56f7468657283a4736f6d65d1f2b8a46d6f7265ccc8a4646174610c'`
+</code></pre>
 
 <p>returns a nested dictionary. </p>
 
 <p>JSON representation:</p>
 
-<p><b><code>{"data":{"id":1,"scores":[3.2,5.7,3.14,2.9],"other":{"some":_3400,"more":200,"data":12}}}</code></b></p>
+<pre><code>  `{"data":{"id":1,"scores":[3.2,5.7,3.14,2.9],"other":{"some":_3400,"more":200,"data":12}}}`
+</code></pre>
 
 <h7>
 <a id="user-content-handling-dictionary--hashmap-datatypes" class="anchor" href="#handling-dictionary--hashmap-datatypes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling dictionary / hashmap datatypes</h7>
@@ -4783,39 +4779,47 @@ ccc8a4646174610c'</code></b></p>
 
 <p>Construction:</p>
 
-<p><b><code>HM =: '' conew 'HashMap'</code></b></p>
+<pre><code>  `HM =: '' conew 'HashMap'`
+</code></pre>
 
 <p>This will instantiate a new HashMap object.</p>
 
-<p><b><code>set__HM 'key';'value'</code></b></p>
+<pre><code>  `set__HM 'key';'value'`
+</code></pre>
 
 <p>This will add a key value pair to the dicitonary. Note the length of the boxed array argument must be two. i.e. if  the value is an array itself, then it must be boxed together before appending to the key value.</p>
 
-<p><b><code>get__HM 'key'</code></b></p>
+<pre><code>  `get__HM 'key'`
+</code></pre>
 
 <p>This will return the value for the given key, if one exists.</p>
 
 <p>To pack a HashMap:</p>
 
-<p><b><code>packObj s: HM</code></b></p>
+<pre><code>  `packObj s: HM`
+</code></pre>
 
 <p>Here HM is the HashMap reference name. It must be symbolized first, before packing. Furthermore, to add a HashMap as a value of another HashMap:</p>
 
-<p><b><code>set__HM 'hashmapkey';s:HM2</code></b></p>
+<pre><code>  `set__HM 'hashmapkey';s:HM2`
+</code></pre>
 
 <p>The inner HashMap reference (HM2) must be symbolized before adding to the dictionary. If you are adding a list of HashMaps to the parent HashMap:</p>
 
-<p><b><code>set__HM 'key'; &lt;(s:HM2;s:HM3;s:HM4)</code></b></p>
+<pre><code>  `set__HM 'key'; &lt;(s:HM2;s:HM3;s:HM4)`
+</code></pre>
 
 <p>Note the HashMap array is boxed so that the argument for <code>set</code> is of length two. Since the HashMap <code>HM</code> stores the reference to the child HashMaps as symbols, they must be desymbolized if retrieved. e.g.</p>
 
-<p><b><code>ChildHM =: getHashmapFromValue_HashMap_ get__HM 'mychildHashMapkey'</code></b></p>
+<pre><code>  `ChildHM =: getHashmapFromValue_HashMap_ get__HM 'mychildHashMapkey'`
+</code></pre>
 
 <p>Here, <b><code>getHashmapFromValue_HashMap_</code></b> ensures that the retrieved object is a reference to a hashmap, as is wanted.</p>
 
 <p>When unpacking data, assuming the root object is a dictionary / hashmap:</p>
 
-<p><b><code>HM =: 5 s: unpackObj 'some serialized data'</code></b></p>
+<pre><code>  `HM =: 5 s: unpackObj 'some serialized data'`
+</code></pre>
 
 <p><b><code>5 s:</code></b> must be called to desymbolize the reference to the HashMap. Furthermore, all child HashMaps of <code>HM</code> must also be desymbolized too.</p>
 
