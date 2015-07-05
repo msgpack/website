@@ -1171,9 +1171,17 @@ Or install Visual Studio or Visual Studio Express.
 
 <p>msbuild MsgPack.sln</p>
 
-<p>Or (for .NET 3.5 drops, Silverlight 4 drops, and Silverlight 5 drops):</p>
+<p>Or (for .NET 3.5 drops and Unity 3D drops):</p>
 
 <p>msbuild MsgPack.compats.sln</p>
+
+<p>Or (for Windows Runtime/Phone drops and Silverlight 5 drops):</p>
+
+<p>msbuild MsgPack.Windows.sln</p>
+
+<p>Or (for Xamarin drops, you must have Xamarin Business or upper license and Mac machine on the LAN to build on Windows):</p>
+
+<p>msbuild MsgPack.Xamarin.sln</p>
 </li>
 </ol>
 <p>Or open one of above solution files in your IDE and run build command in it.</p>
@@ -1183,6 +1191,14 @@ Or install Visual Studio or Visual Studio Express.
 
 <p>Open MsgPack.mono.sln with MonoDevelop and then click <strong>Build</strong> menu item.
 (Of cource, you can build via xbuild.)</p>
+
+<h7>
+<a id="user-content-own-unity-3d-build" class="anchor" href="#own-unity-3d-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Own Unity 3D Build</h7>
+
+<p>First of all, there are binary drops on github release page, you should use it to save your time. 
+Because we will not guarantee source code organization compatibilities, we might add/remove non-public types or members, which should break source code build.
+If you want to import sources, you must include just only described on MsgPack.Unity3D.csproj.
+If you want to use ".NET 2.0 Subset" settings, you must use just only described on MsgPack.Unity3D.CorLibOnly.csproj file, and define <code>CORLIB_ONLY</code> compiler constants.</p>
 
 <h6>
 <a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See also</h6>
