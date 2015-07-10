@@ -20,21 +20,17 @@
   <script type="text/javascript" src="js/msgpack.js" ></script>
 
   <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-17125377-1']);
-  _gaq.push(['_setDomainName', 'msgpack.org']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_anonymizeIP']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  $(function(){$('pre > code').addClass('prettyprint');prettyPrint();});
-  </script>
+  // select initially-selected quick start randomly
+  $(function(){
+    var index = Math.floor(Math.random()*(document.getElementsByClassName('qs').length-1));
+    changeQuickStart(document.getElementsByClassName('qs')[index].id,document.getElementsByClassName('qs-a')[index])}
+  );
 
-  <script type="text/javascript">
+  $(function() {
+    $('pre > code').addClass('prettyprint');
+    prettyPrint();
+  });
+
   $(function() {
     $('a[rel*=leanModal]').leanModal({
       top: 100,
@@ -88,8 +84,18 @@
   });
   </script>
 
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-17125377-1', 'auto', {'allowLinker': true});
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
 </head>
-<body onload="prettyPrint();var index=Math.floor(Math.random()*(document.getElementsByClassName('qs').length-1));changeQuickStart(document.getElementsByClassName('qs')[index].id,document.getElementsByClassName('qs-a')[index])">
+<body>
   <header>
     <div>
       <h1><a href="/">MessagePack</a></h1>
@@ -5570,9 +5576,6 @@ msgpack_obj_to_stream defined:
       <h3>Related projects</h3>
 
       <div class="paragraphs">
-        <h4><a href="https://code.jd.com/tommybao/msgpack-rpc-python">msgpack-rpc-python</a> by WWW.JD.COM, Inc.</h4>
-        <p>msgpack-rpc is a flexible RPC implementation based on eventlet and messagepack.</p>
-
         <h4><a href="https://github.com/dotcloud/zerorpc-python">ZeroRPC</a> by DotCloud</h4>
         <p>zerorpc is a flexible RPC implementation based on zeromq and messagepack. Service APIs exposed with zerorpc are called "zeroservices".</p>
 
