@@ -186,8 +186,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-php',this)">PHP <span class="qs-sub">msgpack</span></a></li>
@@ -1516,74 +1514,6 @@ This section for user intrested in formal verification.</p>
 $ make
 $ cp *.ml ../lib
 </code></pre>
-</article>
-</div>
-        </div>
-        
-        <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</a></li></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack-smalltalk" class="anchor" href="#msgpack-smalltalk" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-smalltalk</h5>
-
-<p>MessagePack serialization library for various Smalltalk dialects.</p>
-
-<ul>
-<li>Squeak</li>
-<li>Pharo</li>
-<li>VisualWorks</li>
-<li>VA Smalltalk</li>
-<li>Dolphin Smalltalk</li>
-<li>GNU Smalltalk (Beta)</li>
-<li><a href="https://github.com/mumez/Cuis-Smalltalk-MessagePack">Cuis</a></li>
-</ul>
-<p>Sources are put as <a href="https://github.com/CampSmalltalk/Cypress/blob/master/README.md">Cypress</a> for the neutral accesses from various Smalltalk dialects.</p>
-
-<h6>
-<a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h6>
-
-<h7>
-<a id="user-content-serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h7>
-
-<div class="highlight highlight-Smalltalk"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">pack:</span> <span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span></pre></div>
-
-<p>or:</p>
-
-<div class="highlight highlight-Smalltalk"><pre><span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span> messagePacked</pre></div>
-
-<h7>
-<a id="user-content-deserialization" class="anchor" href="#deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deserialization</h7>
-
-<div class="highlight highlight-Smalltalk"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">unpack:</span> msgpackBytes</pre></div>
-
-<p>or:</p>
-
-<div class="highlight highlight-Smalltalk"><pre><span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> msgBytes</pre></div>
-
-<h7>
-<a id="user-content-samples" class="anchor" href="#samples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Samples</h7>
-
-<div class="highlight highlight-Smalltalk"><pre>map <span class="pl-k">:=</span> <span class="pl-c1">Dictionary</span> <span class="pl-k">new</span>.
-map <span class="pl-c1">at:</span> <span class="pl-s">'someArray'</span> asByteArray <span class="pl-c1">put:</span> <span class="pl-c1">#(1 2.2 #[3 4 5])</span>.
-packed <span class="pl-k">:=</span> map messagePacked.
-(<span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> packed) inspect.</pre></div>
-
-<div class="highlight highlight-Smalltalk"><pre>writeStream <span class="pl-k">:=</span> <span class="pl-c1">WriteStream</span> <span class="pl-c1">on:</span> <span class="pl-c1">ByteArray</span> <span class="pl-k">new</span>.
-encoder <span class="pl-k">:=</span> <span class="pl-c1">MpEncoder</span> <span class="pl-c1">on:</span> writeStream.
-encoder <span class="pl-c1">nextPut:</span> <span class="pl-c1">1</span>.
-encoder <span class="pl-c1">nextPut:</span> <span class="pl-c1">#(2 3)</span>.
-dic <span class="pl-k">:=</span> <span class="pl-c1">Dictionary</span> <span class="pl-k">new</span>.
-dic <span class="pl-c1">at:</span> <span class="pl-c1">4</span> <span class="pl-c1">put:</span> <span class="pl-c1">5</span>.
-encoder <span class="pl-c1">nextPut:</span> dic.
-encoder <span class="pl-c1">nextPut:</span> <span class="pl-s">'four'</span> asByteArray.
-bytes <span class="pl-k">:=</span> encoder contents.
-readStream <span class="pl-k">:=</span> <span class="pl-c1">ReadStream</span> <span class="pl-c1">on:</span> bytes.
-decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span class="pl-c1">on:</span> readStream.
-[decoder atEnd] <span class="pl-k">whileFalse:</span> [
-        <span class="pl-c1">Transcript</span> cr; <span class="pl-c1">show:</span> decoder next printString
-]</pre></div>
-
-<hr>
-<p>We are moving from <a href="http://code.google.com/p/messagepack-st/">Google Code site</a>. Old contents including installation guide are still there.</p>
 </article>
 </div>
         </div>
