@@ -19,10 +19,8 @@
   <script src="js/jquery.leanModal.min.js" ></script>
   <script src="js/msgpack.js" ></script>
 
-  <% if lang != 'en' %>
   <link rel="alternate" hreflang="en" href="index.html">
-  <% end %>
-  <% (langs - ['en', lang]).each do |alt| %>
+  <% (langs - ['en']).each do |alt| %>
   <link rel="alternate" hreflang="<%= alt %>" href="<%= alt %>.html">
   <% end %>
 
