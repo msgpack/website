@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
   <meta charset="UTF-8">
   <meta name="keywords" content="MessagePack, msgpack, JSON, Binary JSON, Serializer, Serialization">
@@ -192,7 +192,7 @@
         <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md"><%= t 'list_your_impl' %></a></p>
 
         <% repos.each_with_index do |repo,i| %>
-        <div id="qs-<%= repo[:msgpack_repo_id] %>" class="qs"><h4><a href="<%= repo[:msgpack_repo_homepage] %>" target="_blank"><%= repo[:full_name] %> <span class="qs-url"><%= repo[:msgpack_repo_homepage] %></a></li></h4>
+        <div id="qs-<%= repo[:msgpack_repo_id] %>" class="qs"><h4><a href="<%= repo[:msgpack_repo_homepage] %>" target="_blank"><%= repo[:full_name] %> <span class="qs-url"><%= repo[:msgpack_repo_homepage] %></span></a></h4>
 <%= repo[:msgpack_quickstart_html] %>
         </div>
         <% end %>
