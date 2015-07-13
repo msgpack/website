@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="keywords" content="MessagePack, msgpack, JSON, Binary JSON, Serializer, Serialization" />
-  <link href='favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="MessagePack, msgpack, JSON, Binary JSON, Serializer, Serialization">
+  <link href='favicon.ico' rel='icon' type='image/x-icon'>
 
-  <title>MessagePack: It's like JSON. but fast and small.</title>
+  <title><%= t 'title' %></title>
 
   <!--[if lt IE 9]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js" ></script><![endif]-->
-  <link media="all" rel="stylesheet" type="text/css" href="css/yuibase.css" />
-  <link media="all" rel="stylesheet" type="text/css" href="js/prettify/prettify.css" />
-  <link media="all" rel="stylesheet" type="text/css" href="css/all.css" />
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="js/all.js" ></script>
-  <script type="text/javascript" src="js/prettify/prettify.js" ></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-  <script type="text/javascript" src="js/jquery.leanModal.min.js" ></script>
-  <script type="text/javascript" src="js/msgpack.js" ></script>
+  <link media="all" rel="stylesheet" href="css/yuibase.css">
+  <link media="all" rel="stylesheet" href="js/prettify/prettify.css">
+  <link media="all" rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Titillium+Web:400,200">
+  <script src="js/all.js"></script>
+  <script src="js/prettify/prettify.js"></script>
+  <script src="js/prettify/run_prettify.js"></script>
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/jquery.leanModal.min.js" ></script>
+  <script src="js/msgpack.js" ></script>
+
+  <% if lang != 'en' %>
+  <link rel="alternate" hreflang="en" href="index.html">
+  <% end %>
+  <% (langs - ['en', lang]).each do |alt| %>
+  <link rel="alternate" hreflang="<%= alt %>" href="<%= alt %>.html">
+  <% end %>
+
+  <style>
+  <%= t 'css' %>
+  </style>
 
   <script type="text/javascript">
   // select initially-selected quick start randomly
@@ -101,9 +112,9 @@
       <h1><a href="/">MessagePack</a></h1>
       <nav id="topnav">
         <ul>
-          <li><a rel="leanModal" href="#json-to-msgpack">Try!</a></li>
-          <li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">Spec</a></li>
-          <li><a href="http://twitter.com/search/MessagePack%20OR%20msgpack">#msgpack</a></li>
+          <li><a rel="leanModal" href="#json-to-msgpack" class="i18n_nav"><%= t 'nav_try' %></a></li>
+          <li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md" class="i18n_nav"><%= t 'nav_spec' %></a></li>
+          <li><a href="http://twitter.com/search/MessagePack%20OR%20msgpack" class="i18n_nav"><%= t 'nav_tag' %></a></li>
         </ul>
       </nav>
     </div>
@@ -112,17 +123,17 @@
   <main>
     <section id="introduction">
       <div id="description">
-        <h2>It's like JSON.<br />but fast and small.</h2>
-        <p>MessagePack is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. But it's faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
-        <!--<p>Best for memcached, and network protocol aiming for performance and loosly-coupling.</p>-->
+        <h2 class="i18n"><%= t 'h2_html' %></h2>
+        <p class="i18n"><%= t 'desc_html' %></p>
       </div>
 
       <div id="next">
-        <h3>Next:</h3>
-        <p>MessagePack has new spec! See <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a> for the spec and migration plan.<br />See <a href="https://github.com/msgpack/msgpack/issues/128">github issue 128</a> for discussion.</p>
+        <h3 class="i18n_head i18n_next"><%= t 'next_head' %></h3>
+        <p class="i18n"><%= t 'next_body_html' %></p>
       </div>
     </section>
 
+    <%= '<!--' if lang != 'en' %>
     <section id="usecases">
       <div id="testimonials">
         <div class="tmset">
@@ -161,10 +172,11 @@
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       </div>
     </section>
+    <%= '-->' if lang != 'en' %>
 
     <section id="usage">
       <div id="languages">
-        <h3>Languages</h3>
+        <h3 class="i18n_head"><%= t 'languages' %></h3>
 
         <ul class="qslist">
           <% repos.each do |repo| %>
@@ -174,10 +186,10 @@
       </div>
 
       <div id="api">
-        <h3>API</h3>
+        <h3 class="i18n_head"><%= t 'api' %></h3>
         <h4 id="language">&nbsp;</h4>
         <div id="quickstart" class="qsholder"></div>
-        <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md">List your implementation here!</a></p>
+        <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md"><%= t 'list_your_impl' %></a></p>
 
         <% repos.each_with_index do |repo,i| %>
         <div id="qs-<%= repo[:msgpack_repo_id] %>" class="qs"><h4><a href="<%= repo[:msgpack_repo_homepage] %>" target="_blank"><%= repo[:full_name] %> <span class="qs-url"><%= repo[:msgpack_repo_homepage] %></a></li></h4>
@@ -188,7 +200,7 @@
     </section>
 
     <section id="related">
-      <h3>Related projects</h3>
+      <h3><%= t 'related_projects' %></h3>
 
       <div class="paragraphs">
         <h4><a href="https://github.com/dotcloud/zerorpc-python">ZeroRPC</a> by DotCloud</h4>

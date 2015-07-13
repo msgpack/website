@@ -18,7 +18,7 @@ class IndexHtmlRenderer
 
   def search_github_repos
     @log.info "Searching msgpack repositories from github..."
-    Parallel.map(octokit_search_repos("msgpack.org"), in_threads: 8) do |repo|
+    repos = Parallel.map(octokit_search_repos("msgpack.org"), in_threads: 8) do |repo|
       github_com = Faraday.new('https://github.com')
       github_com_raw = Faraday.new('https://raw.github.com')
       github_com.headers = github_com_raw.headers = {
@@ -55,6 +55,9 @@ class IndexHtmlRenderer
         msgpack_repo_homepage: homepage,
       }.merge(repo)
     end.compact
+
+    # older repository first for deterministic display
+    repos.sort_by {|repo| repo[:created_at] }
   end
 
   def get_quickstart_html(github_com, github_com_raw, repo)
@@ -93,10 +96,46 @@ class IndexHtmlRenderer
     @github = Octokit::Client.new(access_token: github_token)
   end
 
-  def render(erb)
-    # older repository first for deterministic display
-    repos = search_github_repos.sort_by {|repo| repo[:created_at] }
-    return ERB.new(File.read(erb)).result(binding)
+  #def render(erb, locale='en')
+  #  I18n.locale = locale
+  #  repos = search_github_repos
+  #  return ERB.new(File.read(erb)).result(binding)
+  #end
+
+  def render_all(erb_file, lang_file)
+    require 'i18n'
+
+    I18n.load_path += [lang_file]
+    I18n.default_locale = 'en'
+
+    require 'i18n/backend/fallbacks'
+    I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+
+    erb = ERB.new(File.read(erb_file))
+    repos = search_github_repos
+
+    langs = YAML.load_file(lang_file).keys
+    files = langs.map do |lang|
+      if lang == "en"
+        file = "index.html"
+      else
+        file = "#{lang}.html"
+      end
+      I18n.locale = lang
+      html = erb.result(binding)
+      [file, html]
+    end
+
+    return Hash[files]
+  end
+
+  def t(key)
+    v = I18n.t(key)
+    if key =~ /_html$/
+      return v
+    else
+      return CGI.escape_html(v)
+    end
   end
 
   private
@@ -182,14 +221,19 @@ Host github_msgpack_website
     log.info git.remote("origin").merge("master")
 
     up = IndexHtmlRenderer.new(log, github_token)
-    html = up.render(File.join(".", "index.html.erb"))
-    orig = File.read(File.join(repo_dir, "index.html")) rescue ""
+    files = up.render_all("index.html.erb", "lang.yml")
 
-    if html != orig
-      File.write(File.join(repo_dir, "index.html"), html)
+    updated = false
+    files.each do |file,html|
+      path = File.join(repo_dir, file)
+      orig = File.read(path) rescue ""
+      if orig != html
+        File.write(path, html)
 
-      git.add(File.join(repo_dir, "index.html"))
-      git.commit("updated index.html")
+        git.add(path)
+        git.commit("updated #{file}")
+        updated = true
+      end
     end
 
     next_commit = git.object('HEAD').sha
@@ -214,5 +258,13 @@ Host github_msgpack_website
   end
 end
 
-update_index(Logger.new(STDOUT)) if __FILE__ == $0
+if __FILE__ == $0
+  #update_index(Logger.new(STDOUT))
 
+  log = Logger.new(STDOUT)
+  up = IndexHtmlRenderer.new(log, ENV['GITHUB_TOKEN'])
+  files = up.render_all("index.html.erb", "lang.yml")
+  files.each do |file,html|
+    File.open(file, "w") {|f| f.write html }
+  end
+end
