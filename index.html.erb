@@ -2,8 +2,12 @@
 <html lang="<%= lang %>">
 <head>
   <meta charset="UTF-8">
-  <meta name="keywords" content="MessagePack, msgpack, JSON, Binary JSON, Serializer, Serialization">
+  <meta name="keywords" content="MessagePack,msgpack,JSON,alternative,better json,faster json,serializer">
   <link href='favicon.ico' rel='icon' type='image/x-icon'>
+
+  <link rel="alternate" hreflang="en" href="index.html">
+<% (langs - ['en']).each do |alt| %>  <link rel="alternate" hreflang="<%= alt %>" href="<%= alt %>.html">
+<% end %>
 
   <title><%= t 'title' %></title>
 
@@ -18,11 +22,6 @@
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/jquery.leanModal.min.js" ></script>
   <script src="js/msgpack.js" ></script>
-
-  <link rel="alternate" hreflang="en" href="index.html">
-  <% (langs - ['en']).each do |alt| %>
-  <link rel="alternate" hreflang="<%= alt %>" href="<%= alt %>.html">
-  <% end %>
 
   <style>
   <%= t 'css' %>
