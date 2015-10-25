@@ -204,6 +204,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-php',this)">PHP <span class="qs-sub">msgpack</span></a></li>
@@ -283,6 +285,10 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-jangko-msgpack4nim',this)">Nim <span class="qs-sub">jangko</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-benoist-msgpack-crystal',this)">Crystal <span class="qs-sub">benoist</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-kawanet-msgpack-lite',this)">JavaScript <span class="qs-sub">kawanet</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack2json',this)">Shell <span class="qs-sub">ludocode</span></a></li>
           
         </ul>
       </div>
@@ -377,6 +383,7 @@ Note that <code>Unpacker</code> will raise an exception if a loss of precision o
 
 <ul>
 <li>No circular references support</li>
+<li>if you use the LDC compiler you need at least version 0.15.2 beta2</li>
 </ul>
 <h5>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h5>
@@ -384,7 +391,7 @@ Note that <code>Unpacker</code> will raise an exception if a loss of precision o
 <p>msgpack-d is implemented as a single module. Either copy <code>src/msgpack.d</code> to your project
 or use dub to add it as a dependency:</p>
 
-<div class="highlight highlight-sh"><pre>% dub install msgpack-d</pre></div>
+<div class="highlight highlight-source-shell"><pre>% dub install msgpack-d</pre></div>
 
 <h5>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h5>
@@ -398,7 +405,7 @@ or use dub to add it as a dependency:</p>
 
 <p>msgpack-d is very simple to use. Use <code>pack</code> for serialization, and <code>unpack</code> for deserialization:</p>
 
-<div class="highlight highlight-D"><pre><span class="pl-k">import</span> <span class="pl-c1">std.file</span>;
+<div class="highlight highlight-source-d"><pre><span class="pl-k">import</span> <span class="pl-c1">std.file</span>;
 <span class="pl-k">import</span> msgpack;
 
 <span class="pl-k">struct</span> <span class="pl-en">S</span> { <span class="pl-k">int</span> x; <span class="pl-k">float</span> y; <span class="pl-c1">string</span> z; }
@@ -430,7 +437,7 @@ or use dub to add it as a dependency:</p>
 
 <p>Use the <code>@nonPacked</code> attribute:</p>
 
-<div class="highlight highlight-d"><pre><span class="pl-k">struct</span> <span class="pl-en">User</span>
+<div class="highlight highlight-source-d"><pre><span class="pl-k">struct</span> <span class="pl-en">User</span>
 {
     <span class="pl-c1">string</span> name;
     @nonPacked <span class="pl-k">int</span> level;  <span class="pl-c">// pack / unpack will ignore the 'level' field</span>
@@ -446,7 +453,7 @@ typed as a base class object.</p>
 
 <p>For example:</p>
 
-<div class="highlight highlight-d"><pre><span class="pl-k">class</span> <span class="pl-en">Document</span> { }
+<div class="highlight highlight-source-d"><pre><span class="pl-k">class</span> <span class="pl-en">Document</span> { }
 <span class="pl-k">class</span> <span class="pl-en">XmlDocument</span> : <span class="pl-e">Document</span>
 {
     <span class="pl-en">this</span>() { }
@@ -625,7 +632,7 @@ msgpack provides <code>dumps</code> and <code>loads</code> as alias for compatib
 <a id="user-content-streaming-unpacking" class="anchor" href="#streaming-unpacking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming unpacking</h7>
 <p><code>Unpacker</code> is a "streaming unpacker". It unpacks multiple objects from one
 stream (or from bytes provided through its <code>feed</code> method).</p>
-<div class="highlight highlight-python"><pre><span class="pl-k">import</span> msgpack
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> msgpack
 <span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
 
 buf <span class="pl-k">=</span> BytesIO()
@@ -642,7 +649,7 @@ unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf)
 <a id="user-content-packingunpacking-of-custom-data-type" class="anchor" href="#packingunpacking-of-custom-data-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packing/unpacking of custom data type</h7>
 <p>It is also possible to pack/unpack custom data types. Here is an example for
 <code>datetime.datetime</code>.</p>
-<div class="highlight highlight-python"><pre><span class="pl-k">import</span> datetime
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> datetime
 
 <span class="pl-k">import</span> msgpack
 
@@ -702,7 +709,7 @@ in the upcoming container, so that each element in an array, or key-value pair
 in a map, can be unpacked or skipped individually.</p>
 <p>Each of these methods may optionally write the packed data it reads to a
 callback function:</p>
-<div class="highlight highlight-python"><pre><span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
 
 <span class="pl-k">def</span> <span class="pl-en">distribute</span>(<span class="pl-smi">unpacker</span>, <span class="pl-smi">get_worker</span>):
     nelems <span class="pl-k">=</span> unpacker.read_map_header()
@@ -763,7 +770,7 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
 <h6>
 <a id="user-content-edit-rebarconfig-to-use-in-your-application" class="anchor" href="#edit-rebarconfig-to-use-in-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>edit rebar.config to use in your application</h6>
 
-<div class="highlight highlight-erlang"><pre>{<span class="pl-c1">deps</span>, [
+<div class="highlight highlight-source-erlang"><pre>{<span class="pl-c1">deps</span>, [
   {<span class="pl-c1">msgpack</span>, <span class="pl-s"><span class="pl-pds">"</span>.*<span class="pl-pds">"</span></span>,
     {<span class="pl-c1">git</span>, <span class="pl-s"><span class="pl-pds">"</span>git://github.com/msgpack/msgpack-erlang.git<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>master<span class="pl-pds">"</span></span>}}
 ]}.</pre></div>
@@ -771,13 +778,13 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
 <h6>
 <a id="user-content-simple-deserialization" class="anchor" href="#simple-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple deserialization</h6>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-smi">Ham</span> <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-smi">Spam</span>),
+<div class="highlight highlight-source-erlang"><pre><span class="pl-smi">Ham</span> <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-smi">Spam</span>),
 {<span class="pl-c1">ok</span>, <span class="pl-smi">Spam</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-smi">Ham</span>).</pre></div>
 
 <h6>
 <a id="user-content-stream-deserialization" class="anchor" href="#stream-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream deserialization</h6>
 
-<div class="highlight highlight-erlang"><pre>{<span class="pl-smi">Term0</span>, <span class="pl-smi">Rest0</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack_stream</span>(<span class="pl-smi">Binary</span>),
+<div class="highlight highlight-source-erlang"><pre>{<span class="pl-smi">Term0</span>, <span class="pl-smi">Rest0</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack_stream</span>(<span class="pl-smi">Binary</span>),
 {<span class="pl-smi">Term1</span>, <span class="pl-smi">Rest1</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack_stream</span>(<span class="pl-smi">Rest0</span>),
 ...</pre></div>
 
@@ -786,7 +793,7 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
 
 <p>Now this supports string type!</p>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-smi">Opt</span> <span class="pl-k">=</span> [{<span class="pl-c1">enable_str</span>, <span class="pl-c1">true</span>}]
+<div class="highlight highlight-source-erlang"><pre><span class="pl-smi">Opt</span> <span class="pl-k">=</span> [{<span class="pl-c1">enable_str</span>, <span class="pl-c1">true</span>}]
 {<span class="pl-c1">ok</span>, <span class="pl-s"><span class="pl-pds">"</span>埼玉<span class="pl-pds">"</span></span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-s"><span class="pl-pds">"</span>埼玉<span class="pl-pds">"</span></span>, <span class="pl-smi">Opt</span>), <span class="pl-smi">Opt</span>).
  <span class="pl-k">=&gt;</span> {<span class="pl-c1">ok</span>,[<span class="pl-c1">22524</span>,<span class="pl-c1">29577</span>]}</pre></div>
 
@@ -798,11 +805,11 @@ See <code>msgpack:options()</code> in <code>msgpack.hrl</code>.</p>
 
 <p>Since Erlang/OTP 17.0</p>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(#{ &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt; <span class="pl-k">=&gt;</span> &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt; }, [{<span class="pl-c1">format</span>, <span class="pl-c1">map</span>}]).</pre></div>
+<div class="highlight highlight-source-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(#{ &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt; <span class="pl-k">=&gt;</span> &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt; }, [{<span class="pl-c1">format</span>, <span class="pl-c1">map</span>}]).</pre></div>
 
 <p>Or use old jiffy/jsx style</p>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>({[{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}]}, [{<span class="pl-c1">format</span>, <span class="pl-c1">jiffy</span>}]),
+<div class="highlight highlight-source-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>({[{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}]}, [{<span class="pl-c1">format</span>, <span class="pl-c1">jiffy</span>}]),
 <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>([{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}], [{<span class="pl-c1">format</span>, <span class="pl-c1">jsx</span>}]).</pre></div>
 
 <h6>
@@ -813,7 +820,7 @@ with your original (de)serializer. That will enable us to handle
 erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <code>tuple()</code>. See
 <code>test/msgpack_ext_example_tests.erl</code> for example code.</p>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-smi">Packer</span> <span class="pl-k">=</span> <span class="pl-k">fun</span>({<span class="pl-c1">ref</span>, <span class="pl-smi">Ref</span>}, <span class="pl-smi">Opt</span>) <span class="pl-k">when</span> <span class="pl-en">is_reference</span>(<span class="pl-smi">Ref</span>) -&gt; {<span class="pl-c1">ok</span>, {<span class="pl-c1">12</span>, <span class="pl-en">term_to_binary</span>(<span class="pl-smi">Ref</span>)}} <span class="pl-k">end</span>,
+<div class="highlight highlight-source-erlang"><pre><span class="pl-smi">Packer</span> <span class="pl-k">=</span> <span class="pl-k">fun</span>({<span class="pl-c1">ref</span>, <span class="pl-smi">Ref</span>}, <span class="pl-smi">Opt</span>) <span class="pl-k">when</span> <span class="pl-en">is_reference</span>(<span class="pl-smi">Ref</span>) -&gt; {<span class="pl-c1">ok</span>, {<span class="pl-c1">12</span>, <span class="pl-en">term_to_binary</span>(<span class="pl-smi">Ref</span>)}} <span class="pl-k">end</span>,
 <span class="pl-smi">Unpacker</span> <span class="pl-k">=</span> <span class="pl-k">fun</span>(<span class="pl-c1">12</span>, <span class="pl-smi">Bin</span>) -&gt; {<span class="pl-c1">ok</span>, {<span class="pl-c1">ref</span>, <span class="pl-en">binary_to_term</span>(<span class="pl-smi">Bin</span>)}} <span class="pl-k">end</span>,
 <span class="pl-smi">Ref</span> <span class="pl-k">=</span> <span class="pl-en">make_ref</span>(),
 <span class="pl-smi">Opt</span> <span class="pl-k">=</span> [{<span class="pl-c1">ext</span>,{<span class="pl-smi">Packer</span>,<span class="pl-smi">Unpacker</span>}}],
@@ -826,7 +833,7 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 
 <p>To use as same with <a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">old spec</a>:</p>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-smi">OldHam</span> <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-smi">Spam</span>, [{<span class="pl-c1">enable_str</span>,<span class="pl-c1">false</span>}]),
+<div class="highlight highlight-source-erlang"><pre><span class="pl-smi">OldHam</span> <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-smi">Spam</span>, [{<span class="pl-c1">enable_str</span>,<span class="pl-c1">false</span>}]),
 {<span class="pl-c1">ok</span>, <span class="pl-smi">Spam</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-smi">OldHam</span>, [{<span class="pl-c1">enable_str</span>,<span class="pl-c1">false</span>}]).</pre></div>
 
 <p>Since 0.2.3 now it's <strong>false by default</strong>.</p>
@@ -985,7 +992,7 @@ end
 <h6>
 <a id="user-content-serializedeserialize-class" class="anchor" href="#serializedeserialize-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize class</h6>
 
-<div class="highlight highlight-scala"><pre><span class="pl-k">import</span> <span class="pl-v">org.msgpack.annotation.</span><span class="pl-v">Message</span>
+<div class="highlight highlight-source-scala"><pre><span class="pl-k">import</span> <span class="pl-v">org.msgpack.annotation.</span><span class="pl-v">Message</span>
 <span class="pl-k">import</span> <span class="pl-v">org.msgpack.</span><span class="pl-v">ScalaMessagePack</span>
 
 <span class="pl-k">@</span><span class="pl-en">Message</span> <span class="pl-c">// Don't forget to add Message annotation.</span>
@@ -1026,7 +1033,7 @@ obj.age <span class="pl-k">=</span> <span class="pl-c1">22</span>
 
 <p>Execute following instructions:</p>
 
-<div class="highlight highlight-bash"><pre>$ cabal update
+<div class="highlight highlight-source-shell"><pre>$ cabal update
 $ cabal install msgpack
 $ cabal install msgpack-rpc</pre></div>
 
@@ -1083,7 +1090,7 @@ $ cabal install msgpack-rpc</pre></div>
 <h6>
 <a id="user-content-example-code" class="anchor" href="#example-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example code:</h6>
 
-<div class="highlight highlight-haxe"><pre><span class="pl-k">package</span>;
+<div class="highlight highlight-source-haxe-2"><pre><span class="pl-k">package</span>;
 <span class="pl-k">import</span> <span class="pl-c1">org.msgpack.</span><span class="pl-c1">MsgPack</span>;
 
 <span class="pl-k">class</span> <span class="pl-en">Example</span> {
@@ -1121,14 +1128,14 @@ This library can be used from ALL CLS compliant languages such as C#, F#, Visual
 ** <code>Pack</code> method with destination <code>Stream</code> and target object for serialization.
 ** <code>Unpack</code> method with source <code>Stream</code>.</p>
 
-<div class="highlight highlight-c#"><pre><span class="pl-c">// Creates serializer.</span>
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// Creates serializer.</span>
 <span class="pl-k">var</span> serializer = SerializationContext.Default.GetSerializer&lt;T&gt;();
 <span class="pl-c">// Pack obj to stream.</span>
 serializer.Pack(stream, obj);
 <span class="pl-c">// Unpack from stream.</span>
 <span class="pl-k">var</span> unpackedObject = serializer.Unpack(stream);</pre></div>
 
-<div class="highlight highlight-vb"><pre><span class="pl-c">' Creates serializer.</span>
+<div class="highlight highlight-source-vbnet"><pre><span class="pl-c">' Creates serializer.</span>
 <span class="pl-k">Dim</span> serializer <span class="pl-k">=</span> SerializationContext<span class="pl-k">.</span><span class="pl-k">Default</span><span class="pl-k">.</span>GetSerializer(<span class="pl-k">Of </span>T)()
 <span class="pl-c">' Pack obj to stream.</span>
 serializer<span class="pl-k">.</span>Pack(stream, obj)
@@ -1241,7 +1248,7 @@ If you want to use ".NET 2.0 Subset" settings, you must use just only described 
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
 <a id="user-content-msgpack-for-cc" class="anchor" href="#msgpack-for-cc" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>msgpack</code> for C/C++</h5>
 
-<p>Version 1.1.0 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a> <a href="https://ci.appveyor.com/project/redboltz/msgpack-c/branch/master"><img src="https://camo.githubusercontent.com/b9c03b99428de22ee2a2c1845ba060563e700a05/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f386b73746367743739716a3132336d772f6272616e63682f6d61737465723f7376673d74727565" alt="Build status" data-canonical-src="https://ci.appveyor.com/api/projects/status/8kstcgt79qj123mw/branch/master?svg=true" style="max-width:100%;"></a></p>
+<p>Version 1.2.0 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a> <a href="https://ci.appveyor.com/project/redboltz/msgpack-c/branch/master"><img src="https://camo.githubusercontent.com/b9c03b99428de22ee2a2c1845ba060563e700a05/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f386b73746367743739716a3132336d772f6272616e63682f6d61737465723f7376673d74727565" alt="Build status" data-canonical-src="https://ci.appveyor.com/api/projects/status/8kstcgt79qj123mw/branch/master?svg=true" style="max-width:100%;"></a></p>
 
 <p>It's like JSON but small and fast.</p>
 
@@ -1259,7 +1266,7 @@ addition to the strings themselves.</p>
 
 <p>In C:</p>
 
-<div class="highlight highlight-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.h<span class="pl-pds">&gt;</span></span>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.h<span class="pl-pds">&gt;</span></span>
 #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
 
 <span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
@@ -1300,7 +1307,7 @@ addition to the strings themselves.</p>
 
 <p>In C++:</p>
 
-<div class="highlight highlight-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.hpp<span class="pl-pds">&gt;</span></span>
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.hpp<span class="pl-pds">&gt;</span></span>
 #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
 #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
 #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>sstream<span class="pl-pds">&gt;</span></span>
@@ -1379,7 +1386,7 @@ add <code>-std=c++11</code> to the environmental variable <code>CXXFLAGS</code> 
 <code>export CXXFLAGS="$CXXFLAGS -std=c++11"</code> prior to following the
 directions below.</p>
 
-<div class="highlight highlight-bash"><pre>$ git clone https://github.com/msgpack/msgpack-c
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/msgpack/msgpack-c
 $ <span class="pl-c1">cd</span> msgpack-c
 $ ./bootstrap
 $ ./configure
@@ -1387,7 +1394,7 @@ $ make</pre></div>
 
 <p>You can install the resulting library like this:</p>
 
-<div class="highlight highlight-bash"><pre>$ sudo make install</pre></div>
+<div class="highlight highlight-source-shell"><pre>$ sudo make install</pre></div>
 
 <h5>
 <a id="user-content-using-cmake" class="anchor" href="#using-cmake" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using cmake</h5>
@@ -1473,9 +1480,8 @@ the <a href="/msgpack/msgpack-c/blob/master/LICENSE"><code>LICENSE</code></a> fi
 <h6>
 <a id="user-content-bulid" class="anchor" href="#bulid" aria-hidden="true"><span class="octicon octicon-link"></span></a>BULID</h6>
 
-<pre><code>$ make
-$ sudo make install
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>$ make
+$ sudo make install</pre></div>
 
 <h6>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXAMPLE</h6>
@@ -1483,42 +1489,39 @@ $ sudo make install
 <h7>
 <a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for Msgpack Object</h7>
 
-<pre><code>(* serialize *)
-let bytes = 
-  Msgpack.Serialize.serialize_string (`FixArray [`PFixnum 1; `PFixnum 2; `PFixnum 3])
+<div class="highlight highlight-source-ocaml"><pre><span class="pl-c">(* serialize *)</span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
 
-(* deserialize *)
-let obj =
-  Msgpack.Serialize.deserialize_string bytes
-</code></pre>
+<span class="pl-c">(* deserialize *)</span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
 
 <h7>
 <a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" href="#serializedeserialize-for-ocaml-types-with-meta_conv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
 
-<pre><code>open Msgpack_conv
+<div class="highlight highlight-source-ocaml"><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
 
-type t = {
-  int : int;
-  str : string;
-} with conv(msgpack)
+<span class="pl-k">type</span> <span class="pl-k">t </span>= {
+  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
+  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
+} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
 
-(* serialize *)
-let bytes = 
-  Msgpack.Serialize.serialize_string (msgpack_of_t { int = 42; str = "ans" })
+<span class="pl-c">(* serialize *)</span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
 
-(* deserialize *)
-let obj =
-  t_of_msgpack (Msgpack.Serialize.deserialize_string bytes)
-</code></pre>
+<span class="pl-c">(* deserialize *)</span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
 
 <p>See also, <code>examlpe/</code></p>
 
 <h6>
 <a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEST</h6>
 
-<pre><code>$ ocaml setup.ml -configure --enable-tests
-$ make test
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>$ ocaml setup.ml -configure --enable-tests
+$ make <span class="pl-c1">test</span></pre></div>
 
 <h6>
 <a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROOF</h6>
@@ -1528,10 +1531,77 @@ This section for user intrested in formal verification.</p>
 
 <p>You need Coq 8.4 and omake.</p>
 
-<pre><code>$ cd proof
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> proof
 $ make
-$ cp *.ml ../lib
-</code></pre>
+$ cp <span class="pl-k">*</span>.ml ../lib</pre></div>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-smalltalk" class="anchor" href="#msgpack-smalltalk" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-smalltalk</h5>
+
+<p>MessagePack serialization library for various Smalltalk dialects.</p>
+
+<ul>
+<li>Squeak</li>
+<li>Pharo</li>
+<li>VisualWorks</li>
+<li>VA Smalltalk</li>
+<li>Dolphin Smalltalk</li>
+<li>GNU Smalltalk (Beta)</li>
+<li><a href="https://github.com/mumez/Cuis-Smalltalk-MessagePack">Cuis</a></li>
+</ul>
+<p>Sources are put as <a href="https://github.com/CampSmalltalk/Cypress/blob/master/README.md">Cypress</a> for the neutral accesses from various Smalltalk dialects.</p>
+
+<h6>
+<a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h6>
+
+<h7>
+<a id="user-content-serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h7>
+
+<div class="highlight highlight-source-smalltalk"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">pack:</span> <span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span></pre></div>
+
+<p>or:</p>
+
+<div class="highlight highlight-source-smalltalk"><pre><span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span> messagePacked</pre></div>
+
+<h7>
+<a id="user-content-deserialization" class="anchor" href="#deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deserialization</h7>
+
+<div class="highlight highlight-source-smalltalk"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">unpack:</span> msgpackBytes</pre></div>
+
+<p>or:</p>
+
+<div class="highlight highlight-source-smalltalk"><pre><span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> msgBytes</pre></div>
+
+<h7>
+<a id="user-content-samples" class="anchor" href="#samples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Samples</h7>
+
+<div class="highlight highlight-source-smalltalk"><pre>map <span class="pl-k">:=</span> <span class="pl-c1">Dictionary</span> <span class="pl-k">new</span>.
+map <span class="pl-c1">at:</span> <span class="pl-s">'someArray'</span> asByteArray <span class="pl-c1">put:</span> <span class="pl-c1">#(1 2.2 #[3 4 5])</span>.
+packed <span class="pl-k">:=</span> map messagePacked.
+(<span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> packed) inspect.</pre></div>
+
+<div class="highlight highlight-source-smalltalk"><pre>writeStream <span class="pl-k">:=</span> <span class="pl-c1">WriteStream</span> <span class="pl-c1">on:</span> <span class="pl-c1">ByteArray</span> <span class="pl-k">new</span>.
+encoder <span class="pl-k">:=</span> <span class="pl-c1">MpEncoder</span> <span class="pl-c1">on:</span> writeStream.
+encoder <span class="pl-c1">nextPut:</span> <span class="pl-c1">1</span>.
+encoder <span class="pl-c1">nextPut:</span> <span class="pl-c1">#(2 3)</span>.
+dic <span class="pl-k">:=</span> <span class="pl-c1">Dictionary</span> <span class="pl-k">new</span>.
+dic <span class="pl-c1">at:</span> <span class="pl-c1">4</span> <span class="pl-c1">put:</span> <span class="pl-c1">5</span>.
+encoder <span class="pl-c1">nextPut:</span> dic.
+encoder <span class="pl-c1">nextPut:</span> <span class="pl-s">'four'</span> asByteArray.
+bytes <span class="pl-k">:=</span> encoder contents.
+readStream <span class="pl-k">:=</span> <span class="pl-c1">ReadStream</span> <span class="pl-c1">on:</span> bytes.
+decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span class="pl-c1">on:</span> readStream.
+[decoder atEnd] <span class="pl-k">whileFalse:</span> [
+        <span class="pl-c1">Transcript</span> cr; <span class="pl-c1">show:</span> decoder next printString
+]</pre></div>
+
+<hr>
+<p>We are moving from <a href="http://code.google.com/p/messagepack-st/">Google Code site</a>. Old contents including installation guide are still there.</p>
 </article>
 </div>
         </div>
@@ -1546,7 +1616,7 @@ Get started: <a href="http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/">h
 
 <p><strong>Basic usage (encoding/decoding):</strong></p>
 
-<div class="highlight highlight-actionscript"><pre><span class="pl-c">// create messagepack object</span>
+<div class="highlight highlight-source-actionscript-3"><pre><span class="pl-c">// create messagepack object</span>
 <span class="pl-k">var</span> msgpack<span class="pl-k">:</span>MsgPack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack()<span class="pl-k">;</span>
 
 <span class="pl-c">// encode an array</span>
@@ -1604,7 +1674,7 @@ $make &amp;&amp; make install
 <h7>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h7>
 
-<div class="highlight highlight-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$data</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-c1">0</span><span class="pl-k">=&gt;</span><span class="pl-c1">1</span>,<span class="pl-c1">1</span><span class="pl-k">=&gt;</span><span class="pl-c1">2</span>,<span class="pl-c1">2</span><span class="pl-k">=&gt;</span><span class="pl-c1">3</span>);</span>
 <span class="pl-s1"><span class="pl-smi">$msg</span> <span class="pl-k">=</span> msgpack_pack(<span class="pl-smi">$data</span>);</span>
 <span class="pl-s1"><span class="pl-smi">$data</span> <span class="pl-k">=</span> msgpack_unpack(<span class="pl-smi">$msg</span>);</span>
@@ -1629,7 +1699,7 @@ $make &amp;&amp; make install
 <a href="/fperrad/lua-MessagePack/blob/master/COPYRIGHT"><img src="https://camo.githubusercontent.com/4ebe0bb28f60172b0c0378442dd98253e2b5fded/687474703a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e63652d4d49542d627269676874677265656e2e737667" alt="Licence" data-canonical-src="http://img.shields.io/badge/Licence-MIT-brightgreen.svg" style="max-width:100%;"></a>
 <a href="/fperrad/lua-MessagePack/blob/master/COPYRIGHT"><img src="https://camo.githubusercontent.com/10709f61ba8fa7657411081e600eccd7b2e9067a/687474703a2f2f696d672e736869656c64732e696f2f62616467652f446570656e64656e636965732d6e6f6e652d627269676874677265656e2e737667" alt="Dependencies" data-canonical-src="http://img.shields.io/badge/Dependencies-none-brightgreen.svg" style="max-width:100%;"></a></p>
 
-<div class="highlight highlight-lua"><pre><span class="pl-k">local</span> mp <span class="pl-k">=</span> <span class="pl-c1">require</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>
+<div class="highlight highlight-source-lua"><pre><span class="pl-k">local</span> mp <span class="pl-k">=</span> <span class="pl-c1">require</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>
 mpac <span class="pl-k">=</span> mp.<span class="pl-c1">pack</span>(data)
 data <span class="pl-k">=</span> mp.<span class="pl-c1">unpack</span>(mpac)</pre></div>
 
@@ -1678,34 +1748,34 @@ data <span class="pl-k">=</span> mp.<span class="pl-c1">unpack</span>(mpac)</pre
 
 <p>Simply include the rust-msgpack in your Cargo dependencies.</p>
 
-<div class="highlight highlight-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">msgpack</span>]
+<div class="highlight highlight-source-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">msgpack</span>]
 
 <span class="pl-smi">git</span> = <span class="pl-s"><span class="pl-pds">"</span>git@github.com:mneumann/rust-msgpack.git<span class="pl-pds">"</span></span></pre></div>
 
 <h6>
 <a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h6>
 
-<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">msgpack</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> msgpack<span class="pl-k">;</span>
 
 <span class="pl-k">fn</span> <span class="pl-en">main</span>() {
-  <span class="pl-k">let</span> <span class="pl-smi">arr</span> <span class="pl-k">=</span> vec![<span class="pl-s">"str1"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()<span class="pl-k">,</span> <span class="pl-s">"str2"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()]<span class="pl-k">;</span>
-  <span class="pl-k">let</span> <span class="pl-smi">str</span> <span class="pl-k">=</span> msgpack::Encoder::<span class="pl-c1">to_msgpack</span>(<span class="pl-k">&amp;</span>arr)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
-  <span class="pl-c1">println!</span>(<span class="pl-s">"Encoded: {}"</span><span class="pl-k">,</span> <span class="pl-k">str</span>)<span class="pl-k">;</span>
+  <span class="pl-k">let</span> arr <span class="pl-k">=</span> vec<span class="pl-k">!</span>[<span class="pl-s">"str1"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()<span class="pl-k">,</span> <span class="pl-s">"str2"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()]<span class="pl-k">;</span>
+  <span class="pl-k">let</span> <span class="pl-k">str</span> <span class="pl-k">=</span> msgpack<span class="pl-k">::</span><span class="pl-k">Encoder</span><span class="pl-k">::</span><span class="pl-c1">to_msgpack</span>(<span class="pl-k">&amp;</span>arr)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+  println<span class="pl-k">!</span>(<span class="pl-s">"Encoded: {}"</span><span class="pl-k">,</span> <span class="pl-k">str</span>)<span class="pl-k">;</span>
 
-  <span class="pl-k">let</span> <span class="pl-smi">dec</span><span class="pl-k">: Vec&lt;String&gt; </span><span class="pl-k">=</span> msgpack::<span class="pl-c1">from_msgpack</span>(<span class="pl-k">str</span>)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
-  <span class="pl-c1">println!</span>(<span class="pl-s">"Decoded: {}"</span><span class="pl-k">,</span> dec)<span class="pl-k">;</span>
+  <span class="pl-k">let</span> dec<span class="pl-k">:</span> <span class="pl-k">Vec</span><span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span> <span class="pl-k">=</span> msgpack<span class="pl-k">::</span><span class="pl-c1">from_msgpack</span>(<span class="pl-k">str</span>)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+  println<span class="pl-k">!</span>(<span class="pl-s">"Decoded: {}"</span><span class="pl-k">,</span> dec)<span class="pl-k">;</span>
 }</pre></div>
 
 <p>To enable your own data structures to be automatically serialized from and to
 msgpack, derive from <code>Encodable</code> and <code>Decodable</code> as shown
 in the following example:</p>
 
-<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">serialize</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> serialize<span class="pl-k">;</span>
 
 <span class="pl-c">#[deriving(Encodable,Decodable)]</span>
-<span class="pl-k">struct</span> MyStruct {
-  a<span class="pl-k">:</span> <span class="pl-c1">Vec</span><span class="pl-k">&lt;</span><span class="pl-k">u32</span><span class="pl-k">&gt;,</span>
-  s<span class="pl-k">:</span> String
+<span class="pl-k">struct</span> <span class="pl-k">MyStruct</span> {
+  a<span class="pl-k">:</span> <span class="pl-k">Vec</span><span class="pl-k">&lt;</span><span class="pl-k">u32</span><span class="pl-k">&gt;,</span>
+  s<span class="pl-k">:</span> <span class="pl-k">String</span>
 }</pre></div>
 
 <h6>
@@ -1734,14 +1804,14 @@ in the following example:</p>
 
 <p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
 
-<div class="highlight highlight-elixir"><pre><span class="pl-k">defp</span> deps <span class="pl-k">do</span>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-k">defp</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
   [{<span class="pl-c1">:message_pack</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.2.0<span class="pl-pds">"</span></span>}]
 <span class="pl-k">end</span></pre></div>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
-<div class="highlight highlight-elixir"><pre><span class="pl-c"># pack</span>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-c"># pack</span>
 <span class="pl-c1">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
 <span class="pl-c1">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
 
@@ -1761,7 +1831,7 @@ in the following example:</p>
 </ul>
 <p>Support string type. This options is <code>false</code> by default.</p>
 
-<div class="highlight highlight-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
+<div class="highlight highlight-source-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
 {<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
 iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-c1">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
 {<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
@@ -1950,7 +2020,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <p>Typical usage:</p>
 
-<div class="highlight highlight-go"><pre>    <span class="pl-c">// create and use decoder/encoder</span>
+<div class="highlight highlight-source-go"><pre>    <span class="pl-c">// create and use decoder/encoder</span>
     <span class="pl-c1">var</span> (
         v <span class="pl-k">interface</span>{} <span class="pl-c">// value to decode/encode into</span>
         r io.<span class="pl-smi">Reader</span>
@@ -1997,7 +2067,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <p>MessagePack for mruby is MessagePack implimented in mruby language.</p>
 
-<div class="highlight highlight-ruby"><pre>msg <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].to_msgpack  <span class="pl-c">#=&gt; "\x93\x01\x02\x03"</span>
+<div class="highlight highlight-source-ruby"><pre>msg <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].to_msgpack  <span class="pl-c">#=&gt; "\x93\x01\x02\x03"</span>
 <span class="pl-c1">MessagePack</span>.unpack(msg)     <span class="pl-c">#=&gt; [1, 2, 3]</span></pre></div>
 
 <p>This is early vesion. Please check the methods that work in test foloder.</p>
@@ -2019,7 +2089,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 </li>
 <li><p>Add config.gem line to <code>build_config.rb</code></p></li>
 </ol>
-<div class="highlight highlight-ruby"><pre><span class="pl-c1">MRuby</span>::<span class="pl-c1">Build</span>.<span class="pl-k">new</span> <span class="pl-k">do </span>|<span class="pl-smi">conf</span>|
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">MRuby</span>::<span class="pl-c1">Build</span>.<span class="pl-k">new</span> <span class="pl-k">do </span>|<span class="pl-smi">conf</span>|
 
   <span class="pl-c"># ...(snip)...</span>
   conf.<span class="pl-k">gem</span> <span class="pl-c1">:git</span> =&gt; <span class="pl-s"><span class="pl-pds">'</span>https://github.com/suzukaze/mruby-msgpack.git<span class="pl-pds">'</span></span>
@@ -2074,8 +2144,8 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <p>Add Msgpax as a dependency in your <code>mix.exs</code> file:</p>
 
-<div class="highlight highlight-elixir"><pre><span class="pl-k">def</span> deps <span class="pl-k">do</span>
-  [{<span class="pl-c1">:msgpax</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.5<span class="pl-pds">"</span></span>}]
+<div class="highlight highlight-source-elixir"><pre><span class="pl-k">def</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
+  [{<span class="pl-c1">:msgpax</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.8<span class="pl-pds">"</span></span>}]
 <span class="pl-k">end</span></pre></div>
 
 <p>After you are done, run <code>mix deps.get</code> in your shell to fetch the dependencies.</p>
@@ -2083,7 +2153,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
-<div class="highlight highlight-elixir"><pre>{<span class="pl-c1">:ok</span>, iodata} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack([<span class="pl-c1">300</span>, <span class="pl-s"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
+<div class="highlight highlight-source-elixir"><pre>{<span class="pl-c1">:ok</span>, iodata} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack([<span class="pl-c1">300</span>, <span class="pl-s"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
 <span class="pl-c"># =&gt; {:ok, [&lt;&lt;146&gt;&gt;, [&lt;&lt;205, 1, 44&gt;&gt;, [&lt;&lt;168&gt;&gt;, "Spartans"]]]}</span>
 iodata <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack!([<span class="pl-c1">300</span>, <span class="pl-s"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
 <span class="pl-c"># ...</span>
@@ -2095,26 +2165,32 @@ term <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodat
 <h8>
 <a id="user-content-stream-oriented-deserialization" class="anchor" href="#stream-oriented-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream-oriented deserialization</h8>
 
-<div class="highlight highlight-elixir"><pre>{term1, rest} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack_slice!(buffer)
+<div class="highlight highlight-source-elixir"><pre>{term1, rest} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack_slice!(buffer)
 <span class="pl-c"># =&gt; {[1,2,3], &lt;&lt;4&gt;&gt;}</span>
 {<span class="pl-c1">:ok</span>, term2, rest} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack_slice(rest)
 <span class="pl-c"># =&gt; {:ok, 4, ""}</span></pre></div>
 
 <h8>
-<a id="user-content-binary-format" class="anchor" href="#binary-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary format</h8>
+<a id="user-content-binary-type" class="anchor" href="#binary-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary type</h8>
 
-<div class="highlight highlight-elixir"><pre>msgbin <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.binary(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">3</span>, <span class="pl-c1">18</span>, <span class="pl-c1">122</span>, <span class="pl-c1">27</span>, <span class="pl-c1">115</span><span class="pl-k">&gt;&gt;</span>)
-<span class="pl-c"># =&gt; %Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}</span>
+<div class="highlight highlight-source-elixir"><pre>msgbin <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.<span class="pl-c1">Bin</span>.new(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">3</span>, <span class="pl-c1">18</span>, <span class="pl-c1">122</span>, <span class="pl-c1">27</span>, <span class="pl-c1">115</span><span class="pl-k">&gt;&gt;</span>)
+<span class="pl-c"># =&gt; #Msgpax.Bin&lt;&lt;&lt;3, 18, 122, 27, 115&gt;&gt;&gt;</span>
 iodata <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack!(msgbin)
 <span class="pl-c"># =&gt; [&lt;&lt;196, 5&gt;&gt;, &lt;&lt;3, 18, 122, 27, 115&gt;&gt;]</span>
 <span class="pl-c"># ...</span>
 code <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodata, %{<span class="pl-c1">binary:</span> <span class="pl-c1">true</span>})
-<span class="pl-c"># =&gt; %Msgpax.Binary{data: &lt;&lt;3, 18, 122, 27, 115&gt;&gt;}</span></pre></div>
+<span class="pl-c"># =&gt; #Msgpax.Bin&lt;&lt;&lt;3, 18, 122, 27, 115&gt;&gt;&gt;</span></pre></div>
+
+<h8>
+<a id="user-content-extension-type" class="anchor" href="#extension-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extension type</h8>
+
+<p>See <a href="/lexmag/msgpax/blob/master/test/msgpax/ext_test.exs"><code>ext_test.exs</code></a>
+file for more information and usage examples.</p>
 
 <h8>
 <a id="user-content-packer-protocol-deriving" class="anchor" href="#packer-protocol-deriving" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packer protocol deriving</h8>
 
-<div class="highlight highlight-elixir"><pre><span class="pl-k">defmodule</span> <span class="pl-en">User</span> <span class="pl-k">do</span>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-k">defmodule</span> <span class="pl-en">User</span> <span class="pl-k">do</span>
   <span class="pl-smi">@derive</span> [<span class="pl-c1">Msgpax</span>.<span class="pl-c1">Packer</span>]
   <span class="pl-k">defstruct</span> [<span class="pl-c1">:name</span>]
 <span class="pl-k">end</span>
@@ -2178,7 +2254,7 @@ code <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodat
 <td><code>"\xFF\xFF"</code></td>
 </tr>
 <tr>
-<td><code>%Msgpax.Binary{data: "\xFF"}</code></td>
+<td><code>#Msgpax.Bin&lt;"\xFF"&gt;</code></td>
 <td>binary</td>
 <td><code>"\xFF"</code></td>
 </tr>
@@ -2196,6 +2272,11 @@ code <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodat
 <td><code>[1, true]</code></td>
 <td>array</td>
 <td><code>[1, true]</code></td>
+</tr>
+<tr>
+<td><code>#Msgpax.Ext&lt;4, "02:12"&gt;</code></td>
+<td>extension</td>
+<td><code>#Msgpax.Ext&lt;4, "02:12"&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -2262,7 +2343,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>You can also use it as part of <code>ActiveModel</code>, similar to <code>to_json</code>:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-k">class</span> <span class="pl-en">Contact</span>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">class</span> <span class="pl-en">Contact</span>
   <span class="pl-k">include</span> <span class="pl-c1">ActiveModel</span>::<span class="pl-c1">Serializers</span>::<span class="pl-c1">MessagePack</span>
 
   ...
@@ -2323,7 +2404,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>Basic Example:</p>
 
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
 <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
@@ -2332,7 +2413,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>A more complicated example:</p>
 
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb(
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb(
         [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">0x</span>ffffffff, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: b<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
          <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
 <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01</span>\xc3\xc2\xce\xff\xff\xff\xff<span class="pl-cce">\x82</span>\xa3foo\xc4<span class="pl-cce">\x03\x80\x01</span><span class="pl-pds">'</span></span>
@@ -2345,7 +2426,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>Streaming serialization with file-like objects:</p>
 
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>], f)
 <span class="pl-k">&gt;&gt;&gt;</span> f.close()
@@ -2360,7 +2441,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>Encoding and decoding an application-defined ext type:</p>
 
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
 ... foo <span class="pl-k">=</span> umsgpack.Ext(<span class="pl-c1">0x</span>05, b<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">"</span></span>)
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
 b<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xadspecial stuff\xc7<span class="pl-cce">\x03\x05\x01\x02\x03</span>\xa7awesome\xc3<span class="pl-pds">'</span></span>
@@ -2376,7 +2457,7 @@ b<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x01\x02\x
 <p>Python standard library style names <code>dump</code>, <code>dumps</code>, <code>load</code>, <code>loads</code> are also
 available:</p>
 
-<div class="highlight highlight-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.dumps({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
 <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
 <span class="pl-k">&gt;&gt;&gt;</span> umsgpack.loads(_)
@@ -2457,14 +2538,14 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 
 <p>It is defined like so</p>
 
-<div class="highlight highlight-julia"><pre><span class="pl-k">immutable</span> <span class="pl-en">Ext</span>
+<div class="highlight highlight-source-julia"><pre><span class="pl-k">immutable</span> <span class="pl-en">Ext</span>
     typecode<span class="pl-c1">::Int8</span>
     data<span class="pl-c1">::Vector{Uint8}</span>
 <span class="pl-k">end</span></pre></div>
 
 <p>and used like this</p>
 
-<div class="highlight highlight-julia"><pre>julia<span class="pl-k">&gt;</span> a <span class="pl-k">=</span> [<span class="pl-c1">0x34</span>, <span class="pl-c1">0xff</span>, <span class="pl-c1">0x76</span>, <span class="pl-c1">0x22</span>, <span class="pl-c1">0xd3</span>, <span class="pl-c1">0xab</span>]
+<div class="highlight highlight-source-julia"><pre>julia<span class="pl-k">&gt;</span> a <span class="pl-k">=</span> [<span class="pl-c1">0x34</span>, <span class="pl-c1">0xff</span>, <span class="pl-c1">0x76</span>, <span class="pl-c1">0x22</span>, <span class="pl-c1">0xd3</span>, <span class="pl-c1">0xab</span>]
 <span class="pl-c1">6</span><span class="pl-k">-</span>element Array{UInt8,<span class="pl-c1">1</span>}<span class="pl-k">:</span>
  <span class="pl-c1">0x34</span>
  <span class="pl-c1">0xff</span>
@@ -2496,7 +2577,7 @@ julia<span class="pl-k">&gt;</span> c <span class="pl-k">==</span> b
 
 <p>MsgPack reserves typecodes in the range <code>[-128, -1]</code> for future types specified by the MsgPack spec. MsgPack.jl enforces this when creating an <code>Ext</code> but if you are packing an implementation defined extension type (currently there are none) you can pass <code>impltype=true</code>.</p>
 
-<div class="highlight highlight-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-c1">Ext</span>(<span class="pl-k">-</span><span class="pl-c1">43</span>, Uint8[<span class="pl-c1">1</span>, <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">9</span>])
+<div class="highlight highlight-source-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-c1">Ext</span>(<span class="pl-k">-</span><span class="pl-c1">43</span>, Uint8[<span class="pl-c1">1</span>, <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">9</span>])
 ERROR<span class="pl-k">:</span> MsgPack Ext typecode <span class="pl-k">-</span><span class="pl-c1">128</span> through <span class="pl-k">-</span><span class="pl-c1">1</span> reserved by implementation
  <span class="pl-k">in</span> call at <span class="pl-k">/</span>Users<span class="pl-k">/</span>sean<span class="pl-k">/</span><span class="pl-k">.</span>julia<span class="pl-k">/</span>v0<span class="pl-c1">.4</span><span class="pl-k">/</span>MsgPack<span class="pl-k">/</span>src<span class="pl-k">/</span>MsgPack<span class="pl-k">.</span>jl<span class="pl-k">:</span><span class="pl-c1">48</span> 
 
@@ -2508,7 +2589,7 @@ MsgPack<span class="pl-k">.</span><span class="pl-c1">Ext</span>(<span class="pl
 
 <p>MsgPack.jl also defines the <code>extserialize</code> and <code>extdeserialize</code> convenience functions. These functions can turn an arbitrary object into an <code>Ext</code> and vice-versa.</p>
 
-<div class="highlight highlight-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-k">type</span> <span class="pl-en">Point</span>{T}
+<div class="highlight highlight-source-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-k">type</span> <span class="pl-en">Point</span>{T}
         x<span class="pl-c1">::T</span>
         y<span class="pl-c1">::T</span>
        <span class="pl-k">end</span>
@@ -2559,7 +2640,7 @@ dependencies.</p>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
 <h7>
-<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic:</h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic</h7>
 
 <ul>
 <li>
@@ -2567,7 +2648,7 @@ dependencies.</p>
 <li>
 <code>unpack</code> Deserialize bytes as a Clojure object.</li>
 </ul>
-<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
 (<span class="pl-k">require</span> 'msgpack.clojure-extensions)
 
 (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
@@ -2577,7 +2658,7 @@ dependencies.</p>
 <span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
 
 <h7>
-<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming:</h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming</h7>
 
 <ul>
 <li>
@@ -2587,7 +2668,7 @@ dependencies.</p>
 <code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
 </li>
 </ul>
-<div class="highlight highlight-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
 (<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
 
 (<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
@@ -2600,7 +2681,7 @@ dependencies.</p>
 <span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
 
 <h7>
-<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core types:</h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core types</h7>
 
 <table>
 <thead><tr>
@@ -2610,11 +2691,35 @@ dependencies.</p>
 <tbody>
 <tr>
 <td>nil</td>
-<td>nil</td>
+<td>Nil</td>
 </tr>
 <tr>
 <td>java.lang.Boolean</td>
 <td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
 </tr>
 <tr>
 <td>java.lang.Float</td>
@@ -2627,10 +2732,6 @@ dependencies.</p>
 <tr>
 <td>java.math.BigDecimal</td>
 <td>Float</td>
-</tr>
-<tr>
-<td>java.lang.Number</td>
-<td>Integer</td>
 </tr>
 <tr>
 <td>java.lang.String</td>
@@ -2650,8 +2751,10 @@ dependencies.</p>
 </tr>
 </tbody>
 </table>
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
 <h7>
-<a id="user-content-clojure-extended-types" class="anchor" href="#clojure-extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clojure Extended types:</h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clojure types</h7>
 
 <p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
 serialize them as Extended types. To enable automatic conversion of these
@@ -2687,23 +2790,24 @@ types, load the <code>clojure-extensions</code> library.</p>
 </table>
 <p>With <code>msgpack.clojure-extensions</code>:</p>
 
-<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
 (<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
 <span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
 
 <p>Without <code>msgpack.clojure-extensions</code>:</p>
 
-<div class="highlight highlight-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
 <span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
 <span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
 <span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
 
 <h7>
-<a id="user-content-application-extended-types" class="anchor" href="#application-extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Extended types:</h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-application-types">Application types</a>
+</h7>
 
 <p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
 
-<div class="highlight highlight-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
 
 (<span class="pl-k">defrecord</span> Person [name])
 
@@ -2787,15 +2891,14 @@ types, load the <code>clojure-extensions</code> library.</p>
 <h8>
 <a id="user-content-alice-ml" class="anchor" href="#alice-ml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alice ML</h8>
 
-<p>From the interactive shell, use .sml files in the following order.</p>
+<p>Makefile.alice is provided.</p>
 
-<ul>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-fail.sml</li>
-<li>mlmsgpack.sml</li>
-</ul>
+<pre><code>make -f Makefile.alice
+alicerun mlmsgpack-test
+</code></pre>
+
 <h8>
-<a id="user-content-smlsharp" class="anchor" href="#smlsharp" aria-hidden="true"><span class="octicon octicon-link"></span></a>SMLSharp</h8>
+<a id="user-content-sml" class="anchor" href="#sml" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML#</h8>
 
 <p>For separate compilation, .smi files are provided. Require mlmsgpack.smi from your .smi file.</p>
 
@@ -2840,14 +2943,9 @@ Some functions are very slow, although they work properly. (We tested HaMLet com
 Also, some unit tests fail.</p>
 
 <h8>
-<a id="user-content-smlsharp-1" class="anchor" href="#smlsharp-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>SMLSharp</h8>
+<a id="user-content-sml-1" class="anchor" href="#sml-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML#</h8>
 
 <p>Most functions do not work properly because of bugs of SML# prior to version 2.0.0.</p>
-
-<h6>
-<a id="user-content-status" class="anchor" href="#status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status</h6>
-
-<p>Ext is not supported yet.</p>
 
 <h6>
 <a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h6>
@@ -2889,7 +2987,7 @@ programmer.</p>
 <p>The following examples use a file as the backend, and are modeled after the
 examples included with the msgpack-c project.</p>
 
-<div class="highlight highlight-C"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdbool.h<span class="pl-pds">&gt;</span></span>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdbool.h<span class="pl-pds">&gt;</span></span>
 #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdint.h<span class="pl-pds">&gt;</span></span>
 #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
 #<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdlib.h<span class="pl-pds">&gt;</span></span>
@@ -3077,7 +3175,7 @@ do the following:</p>
 
 <p>This is a very early release of my MessagePack library for Dart. Currently, message classes must be written by hand. For example:</p>
 
-<div class="highlight highlight-dart"><pre><span class="pl-k">class</span> NotificationFrame <span class="pl-k">extends</span> Message {
+<div class="highlight highlight-source-dart"><pre><span class="pl-k">class</span> NotificationFrame <span class="pl-k">extends</span> Message {
     <span class="pl-k">String</span> kind;
     <span class="pl-k">Map</span><span class="pl-k">&lt;</span><span class="pl-k">String</span>, Object<span class="pl-k">&gt;</span> data;
 
@@ -3116,14 +3214,14 @@ unpack a msgpack.</li>
 <h5>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h5>
 
-<div class="highlight highlight-bash"><pre>$ git clone https://github.com/reeze/msgpack-hhvm --depth=1
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/reeze/msgpack-hhvm --depth=1
 $ <span class="pl-c1">cd</span> msgpack-hhvm
 $ hphpize <span class="pl-k">&amp;&amp;</span> cmake <span class="pl-c1">.</span> <span class="pl-k">&amp;&amp;</span> make
 $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 
 <p>If you don't have <code>hphpize</code> program, please intall package <code>hhvm-dev</code></p>
 
-<div class="highlight highlight-bash"><pre>$ sudo apt-get install hhvm-dev</pre></div>
+<div class="highlight highlight-source-shell"><pre>$ sudo apt-get install hhvm-dev</pre></div>
 
 <h5>
 <a id="user-content-contribution-and--issues" class="anchor" href="#contribution-and--issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribution and  Issues</h5>
@@ -3153,15 +3251,15 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 <a name="user-content-usage"></a>
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
-<div class="highlight highlight-fsharp"><pre><span class="pl-en"><span class="pl-k">open</span> <span class="pl-c1">MsgPack</span></span>
+<div class="highlight highlight-source-fsharp"><pre><span class="pl-k">open</span> <span class="pl-en">MsgPack</span>
 
-<span class="pl-k">[</span><span class="pl-k">|</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy <span class="pl-k">|</span><span class="pl-k">]</span>
+<span class="pl-k">[|</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy <span class="pl-k">|]</span>
 <span class="pl-k">|&gt;</span> Array.map (Value.UInt8)
 <span class="pl-k">|&gt;</span> Value.Array
 <span class="pl-k">|&gt;</span> Packer.packOne
 <span class="pl-c">//=&gt; val it : byte [] = [|147uy; 1uy; 2uy; 3uy|]</span>
 
-Unpacker.unpack <span class="pl-k">[</span><span class="pl-k">|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|</span><span class="pl-k">]</span>
+Unpacker.unpack <span class="pl-k">[|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|]</span>
 <span class="pl-c">//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]</span></pre></div>
 <a name="user-content-copyright"></a>
 <h6>
@@ -3286,7 +3384,7 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 <h6>
 <a id="user-content-writing" class="anchor" href="#writing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing</h6>
 
-<div class="highlight highlight-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>MPMessagePack/MPMessagePack.h<span class="pl-pds">&gt;</span></span>
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>MPMessagePack/MPMessagePack.h<span class="pl-pds">&gt;</span></span>
 
 <span class="pl-c1">NSDictionary</span> *dict =
 @{
@@ -3300,12 +3398,12 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 
 <p>Or via <code>MPMessagePackWriter</code>.</p>
 
-<div class="highlight highlight-objc"><pre><span class="pl-c1">NSError</span> *error = <span class="pl-c1">nil</span>;
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSError</span> *error = <span class="pl-c1">nil</span>;
 <span class="pl-c1">NSData</span> *data = [MPMessagePackWriter <span class="pl-c1">writeObject:</span>dict <span class="pl-c1">error:</span>&amp;error];</pre></div>
 
 <p>If you need to use an ordered dictionary.</p>
 
-<div class="highlight highlight-objc"><pre>MPOrderedDictionary *dict = [[MPOrderedDictionary <span class="pl-c1">alloc</span>] <span class="pl-c1">init</span>];
+<div class="highlight highlight-source-objc"><pre>MPOrderedDictionary *dict = [[MPOrderedDictionary <span class="pl-c1">alloc</span>] <span class="pl-c1">init</span>];
 [dict <span class="pl-c1">addEntriesFromDictionary:</span>@{<span class="pl-s"><span class="pl-pds">@"</span>c<span class="pl-pds">"</span></span>: @(<span class="pl-c1">1</span>), <span class="pl-s"><span class="pl-pds">@"</span>b<span class="pl-pds">"</span></span>: @(<span class="pl-c1">2</span>), <span class="pl-s"><span class="pl-pds">@"</span>a<span class="pl-pds">"</span></span>: @(<span class="pl-c1">3</span>)}];
 [dict <span class="pl-c1">sortKeysUsingSelector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">localizedCaseInsensitiveCompare:</span>)];
 [dict <span class="pl-c1">mp_messagePack</span>];</pre></div>
@@ -3313,9 +3411,9 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 <h6>
 <a id="user-content-reading" class="anchor" href="#reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading</h6>
 
-<div class="highlight highlight-objc"><pre><span class="pl-k">id</span> obj = [MPMessagePackReader <span class="pl-c1">readData:</span>data <span class="pl-c1">error:</span>&amp;error];</pre></div>
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">id</span> obj = [MPMessagePackReader <span class="pl-c1">readData:</span>data <span class="pl-c1">error:</span>&amp;error];</pre></div>
 
-<div class="highlight highlight-objc"><pre>MPMessagePackReader *reader = [[MPMessagePackReader <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithData:</span>data];
+<div class="highlight highlight-source-objc"><pre>MPMessagePackReader *reader = [[MPMessagePackReader <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithData:</span>data];
 <span class="pl-k">id</span> obj1 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c">// Read an object</span>
 <span class="pl-k">id</span> obj2 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c">// Read another object</span></pre></div>
 </article>
@@ -3333,27 +3431,27 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 <h6>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
 
-<div class="highlight highlight-bash"><pre>npm install msgpack5 --save</pre></div>
+<div class="highlight highlight-source-shell"><pre>npm install msgpack5 --save</pre></div>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
-<div class="highlight highlight-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack5<span class="pl-pds">'</span></span>)() <span class="pl-c">// namespace our extensions</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack5<span class="pl-pds">'</span></span>)() <span class="pl-c">// namespace our extensions</span>
   , a       <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyType</span>(<span class="pl-c1">2</span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>)
   , encode  <span class="pl-k">=</span> msgpack.encode
   , decode  <span class="pl-k">=</span> msgpack.decode
 
 msgpack.register(<span class="pl-c1">0x42</span>, MyType, mytipeEncode, mytipeDecode)
 
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(encode({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> }).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(encode({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> }).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
 <span class="pl-c">// 81a568656c6c6fa5776f726c64</span>
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(decode(encode({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> })))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(decode(encode({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> })))
 <span class="pl-c">// { hello: 'world' }</span>
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(encode(a).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(encode(a).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
 <span class="pl-c">// d5426161</span>
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(decode(encode(a)) <span class="pl-k">instanceof</span> MyType)
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(decode(encode(a)) <span class="pl-k">instanceof</span> MyType)
 <span class="pl-c">// true</span>
-<span class="pl-en">console</span><span class="pl-c1">.log</span>(decode(encode(a)))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(decode(encode(a)))
 <span class="pl-c">// { value: 'a', size: 2 }</span>
 
 <span class="pl-k">function</span> <span class="pl-en">MyType</span>(<span class="pl-smi">size</span>, <span class="pl-smi">value</span>) {
@@ -3422,11 +3520,17 @@ this repo, and use in your own HTML page, the module will expose a
 <p><a name="user-content-msgpack"></a></p>
 
 <h7>
-<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack()</h7>
+<a id="user-content-msgpackoptionsobj" class="anchor" href="#msgpackoptionsobj" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack(options(obj))</h7>
 
 <p>Creates a new instance on which you can register new types for being
 encoded.</p>
 
+<p>options:</p>
+
+<ul>
+<li>
+<code>forceFloat64</code>, a boolean to that forces all floats to be encoded as 64-bits floats. Defaults is false.</li>
+</ul>
 <hr>
 <p><a name="user-content-encode"></a></p>
 
@@ -3469,7 +3573,7 @@ for <a href="#registerDecoder">registerDecoder</a>.</li>
 <h7>
 <a id="user-content-registerdecodertype-decodebuf" class="anchor" href="#registerdecodertype-decodebuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>registerDecoder(type, decode(buf))</h7>
 
-<p>Register a new custom objet type for being automatically decoded.
+<p>Register a new custom object type for being automatically decoded.
 The arguments are:</p>
 
 <ul>
@@ -3486,7 +3590,7 @@ the passed <code>Buffer</code>
 <h7>
 <a id="user-content-registertype-constructor-encodeobj-decodebuf" class="anchor" href="#registertype-constructor-encodeobj-decodebuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>register(type, constructor, encode(obj), decode(buf))</h7>
 
-<p>Register a new custom objet type for being automatically encoded and
+<p>Register a new custom object type for being automatically encoded and
 decoded. The arguments are:</p>
 
 <ul>
@@ -3531,7 +3635,7 @@ the passed <code>Buffer</code>
 <p><strong>msgpack5</strong> can be used as a LevelUp
 <a href="https://github.com/rvagg/node-levelup#leveluplocation-options-callback"><code>valueEncoding</code></a> straight away:</p>
 
-<div class="highlight highlight-js"><pre><span class="pl-k">var</span> level <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>level<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> level <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>level<span class="pl-pds">'</span></span>)
   , pack  <span class="pl-k">=</span> msgpack()
   , db    <span class="pl-k">=</span> level(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>, {
       valueEncoding<span class="pl-k">:</span> pack
@@ -3540,7 +3644,7 @@ the passed <code>Buffer</code>
 
 db.put(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, obj, <span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
   db.get(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
-    <span class="pl-en">console</span><span class="pl-c1">.log</span>(result)
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(result)
     db.<span class="pl-c1">close</span>()
   })
 })
@@ -3585,7 +3689,8 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
 <p>This implementation defines an messagepack <code>Object</code> type, which is an instance of
 <code>Serialize</code> (from <a href="http://hackage.haskell.org/package/cereal">cereal</a> ):</p>
 
-<div class="highlight highlight-haskell"><pre><span class="pl-k">data</span> <span class="pl-c1">Object</span> = <span class="pl-c1">ObjectNil</span>
+<div class="highlight highlight-source-haskell"><pre><span class="pl-k">data</span> <span class="pl-c1">Object</span> = <span class="pl-c1">ObjectNil</span>
+            | <span class="pl-c1">ObjectUInt</span>   <span class="pl-c1">Word64</span>
             | <span class="pl-c1">ObjectInt</span>    <span class="pl-c1">Int64</span>
             | <span class="pl-c1">ObjectBool</span>   <span class="pl-c1">Bool</span>
             | <span class="pl-c1">ObjectFloat</span>  <span class="pl-c1">Float</span>
@@ -3631,6 +3736,12 @@ welcome to report bug
 <a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>changes:</h6>
 
 <ul>
+<li><p>first release
+ 2014-08-15 13:05:13</p></li>
+<li><p>add array support
+ 2014-08-19 12:18:47</p></li>
+<li><p>add andriod support
+ 2014-09-08 00:45:27</p></li>
 <li><p>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
  2014-11-09 22:35:27</p></li>
 <li><p>add EncodeToFile/DecodeFromFile
@@ -3642,11 +3753,18 @@ welcome to report bug
 <li><p>fix AsInteger = -127 bug
  check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
  2014-11-14 12:30:38</p></li>
+<li><p>fix AsFloat = 2.507182 bug
+ thanks fo [珠海]-芒果  1939331207
+ 2014-11-21 12:37:04</p></li>
+<li><p>add AddArrayChild func
+ 2015-03-25 17:47:28</p></li>
+<li><p>add remove/removeFromParent/Delete function
+ 2015-08-29 22:37:48</p></li>
 </ul>
 <h7>
 <a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Example</h7>
 
-<div class="highlight highlight-Pascal"><pre><span class="pl-k">var</span>
+<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
   lvMsg, lvMsg2:TSimpleMsgPack;
   lvBytes:TBytes;
   s:string;
@@ -3725,7 +3843,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 <h7>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h7>
 
-<div class="highlight highlight-Pascal"><pre><span class="pl-k">var</span>
+<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
   lvMsg, lvMsg2:TQMsgPack;
   lvBytes:TBytes;
   s:string;
@@ -3758,7 +3876,7 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
 
 <p>Clone repository:</p>
 
-<div class="highlight highlight-bash"><pre>git clone https://github.com/romixlab/qmsgpack.git
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/romixlab/qmsgpack.git
 <span class="pl-c1">cd</span> qmsgpack
 mkdir build
 <span class="pl-c1">cd</span> build
@@ -3770,17 +3888,17 @@ make install</pre></div>
 
 <p>Packing</p>
 
-<div class="highlight highlight-cpp"><pre>QVariantList list;
+<div class="highlight highlight-source-c++"><pre>QVariantList list;
 list &lt;&lt; <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">2</span> &lt;&lt; <span class="pl-c1">3</span>;
 QByteArray array = MsgPack::pack(list);</pre></div>
 
 <p>Unpacking:</p>
 
-<div class="highlight highlight-cpp"><pre>QVariantList unpacked = MsgPack::unpack(array).toList();</pre></div>
+<div class="highlight highlight-source-c++"><pre>QVariantList unpacked = MsgPack::unpack(array).toList();</pre></div>
 
 <p>Streaming API:</p>
 
-<div class="highlight highlight-cpp"><pre><span class="pl-c">// packing</span>
+<div class="highlight highlight-source-c++"><pre><span class="pl-c">// packing</span>
 MsgPackStream <span class="pl-en">stream</span>(&amp;ba, QIODevice::WriteOnly);
 stream &lt;&lt; <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">2.3</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>some string<span class="pl-pds">"</span></span>;
 
@@ -3828,7 +3946,7 @@ stream &gt;&gt; a &gt;&gt; b &gt;&gt; s;</pre></div>
 
 <p>In a source file, include the following directive:</p>
 
-<div class="highlight highlight-go"><pre><span class="pl-c">//go:generate msgp</span></pre></div>
+<div class="highlight highlight-source-go"><pre><span class="pl-c">//go:generate msgp</span></pre></div>
 
 <p>The <code>msgp</code> command will generate serialization methods for all exported type declarations in the file.</p>
 
@@ -3839,7 +3957,7 @@ stream &gt;&gt; a &gt;&gt; b &gt;&gt; s;</pre></div>
 
 <p>Field names can be set in much the same way as the <code>encoding/json</code> package. For example:</p>
 
-<div class="highlight highlight-go"><pre><span class="pl-k">type</span> <span class="pl-v">Person</span> <span class="pl-k">struct</span> {
+<div class="highlight highlight-source-go"><pre><span class="pl-k">type</span> <span class="pl-v">Person</span> <span class="pl-k">struct</span> {
     <span class="pl-v">Name</span>       <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"name"<span class="pl-pds">`</span></span>
     <span class="pl-v">Address</span>    <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"address"<span class="pl-pds">`</span></span>
     <span class="pl-v">Age</span>        <span class="pl-k">int</span>    <span class="pl-s"><span class="pl-pds">`</span>msg:"age"<span class="pl-pds">`</span></span>
@@ -3871,7 +3989,7 @@ of <code>*bufio.Writer</code> and <code>*bufio.Reader</code>, respectively.)</p>
 </ul>
 <p>Consider the following:</p>
 
-<div class="highlight highlight-go"><pre><span class="pl-k">const</span> <span class="pl-v">Eight</span> = <span class="pl-c1">8</span>
+<div class="highlight highlight-source-go"><pre><span class="pl-k">const</span> <span class="pl-v">Eight</span> = <span class="pl-c1">8</span>
 <span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-k">int</span>
 <span class="pl-k">type</span> <span class="pl-v">Data</span> []<span class="pl-k">byte</span>
 
@@ -3927,7 +4045,7 @@ the data "type" (<code>int8</code>) and the raw binary. You <a href="http://gith
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
 
-<div class="highlight highlight-sh"><pre>% go get github.com/jakm/msgpack-cli</pre></div>
+<div class="highlight highlight-source-shell"><pre>% go get github.com/jakm/msgpack-cli</pre></div>
 
 <p>Debian packages and Windows binaries are available on project's
 <a href="https://github.com/jakm/msgpack-cli/releases/latest">Releases page</a>.</p>
@@ -4081,7 +4199,7 @@ if you find any bug, please contact me!
 <h7>
 <a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Example</h7>
 
-<div class="highlight highlight-C#"><pre>    MsgPack msgpack = <span class="pl-k">new</span> MsgPack();
+<div class="highlight highlight-source-cs"><pre>    MsgPack msgpack = <span class="pl-k">new</span> MsgPack();
     msgpack.ForcePathObject(<span class="pl-s"><span class="pl-pds">"</span>p.name<span class="pl-pds">"</span></span>).AsString = <span class="pl-s"><span class="pl-pds">"</span>张三<span class="pl-pds">"</span></span>;
     msgpack.ForcePathObject(<span class="pl-s"><span class="pl-pds">"</span>p.age<span class="pl-pds">"</span></span>).AsInteger = <span class="pl-c1">25</span>;
     msgpack.ForcePathObject(<span class="pl-s"><span class="pl-pds">"</span>p.datas<span class="pl-pds">"</span></span>).AsArray.Add(<span class="pl-c1">90</span>);
@@ -4147,7 +4265,7 @@ if you find any bug, please contact me!
 <h7>
 <a id="user-content-in-pure-elixir" class="anchor" href="#in-pure-elixir" aria-hidden="true"><span class="octicon octicon-link"></span></a> In pure elixir:</h7>
 
-<div class="highlight highlight-elixir"><pre><span class="pl-c"># pack</span>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-c"># pack</span>
 <span class="pl-c1">TheAlchemist</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
 <span class="pl-c1">TheAlchemist</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
 
@@ -4166,13 +4284,13 @@ if you find any bug, please contact me!
 <h8>
 <a id="user-content-deserialization" class="anchor" href="#deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deserialization</h8>
 
-<div class="highlight highlight-elixir"><pre>msgpacked <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.pack(<span class="pl-c1"><span class="pl-pds">'</span>{"test":false}<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-source-elixir"><pre>msgpacked <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.pack(<span class="pl-s"><span class="pl-pds">'</span>{"test":false}<span class="pl-pds">'</span></span>)
 <span class="pl-c1">TheAlchemistErl</span>.unpack(msgpacked)</pre></div>
 
 <h8>
 <a id="user-content-stream-deserialization" class="anchor" href="#stream-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream deserialization</h8>
 
-<div class="highlight highlight-elixir"><pre>mat <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.unpack_stream(data)
+<div class="highlight highlight-source-elixir"><pre>mat <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.unpack_stream(data)
 <span class="pl-c1">TheAlchemistErl</span>.unpack_stream(elem(mat, <span class="pl-c1">1</span>)),</pre></div>
 
 <h8>
@@ -4180,7 +4298,7 @@ if you find any bug, please contact me!
 
 <p>Now this supports string type!</p>
 
-<div class="highlight highlight-elixir"><pre>opt <span class="pl-k">=</span> [{<span class="pl-c1">:enable_str</span>, <span class="pl-c1">true</span>}]
+<div class="highlight highlight-source-elixir"><pre>opt <span class="pl-k">=</span> [{<span class="pl-c1">:enable_str</span>, <span class="pl-c1">true</span>}]
 <span class="pl-c1">TheAlchemistErl</span>.unpack(<span class="pl-c1">TheAlchemistErl</span>.pack(<span class="pl-s"><span class="pl-pds">"</span>埼玉kanji<span class="pl-pds">"</span></span>, opt), opt)
  <span class="pl-k">=&gt;</span> {<span class="pl-c1">:ok</span>, <span class="pl-s"><span class="pl-pds">"</span>埼玉kanji<span class="pl-pds">"</span></span>}</pre></div>
 
@@ -4189,11 +4307,11 @@ if you find any bug, please contact me!
 
 <p>Since Erlang/OTP 17.0</p>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(#{ &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt; <span class="pl-k">=&gt;</span> &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt; }, [{<span class="pl-c1">format</span>, <span class="pl-c1">map</span>}]).</pre></div>
+<div class="highlight highlight-source-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(#{ &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt; <span class="pl-k">=&gt;</span> &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt; }, [{<span class="pl-c1">format</span>, <span class="pl-c1">map</span>}]).</pre></div>
 
 <p>Or use old jiffy/jsx style</p>
 
-<div class="highlight highlight-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>({[{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}]}, [{<span class="pl-c1">format</span>, <span class="pl-c1">jiffy</span>}]),
+<div class="highlight highlight-source-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>({[{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}]}, [{<span class="pl-c1">format</span>, <span class="pl-c1">jiffy</span>}]),
 <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>([{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}], [{<span class="pl-c1">format</span>, <span class="pl-c1">jsx</span>}]).</pre></div>
 
 <h6>
@@ -4234,20 +4352,20 @@ after that you can bring the <code>ERL shell</code> with</p>
 <h7>
 <a id="user-content-latest-stable-version" class="anchor" href="#latest-stable-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>latest stable version</h7>
 
-<div class="highlight highlight-scala"><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.1.3<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-scala"><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.1.4<span class="pl-pds">"</span></span></pre></div>
 
 <ul>
-<li><a href="https://oss.sonatype.org/service/local/repositories/releases/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.1.3/msgpack4z-core_2.11-0.1.3-sxr.jar/!/index.html">sxr</a></li>
+<li><a href="https://oss.sonatype.org/service/local/repositories/releases/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.1.4/msgpack4z-core_2.11-0.1.4-sxr.jar/!/index.html">sxr</a></li>
 </ul>
 <h7>
 <a id="user-content-snapshot-version" class="anchor" href="#snapshot-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>snapshot version</h7>
 
-<div class="highlight highlight-scala"><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.1.4-SNAPSHOT<span class="pl-pds">"</span></span>
+<div class="highlight highlight-source-scala"><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.1.5-SNAPSHOT<span class="pl-pds">"</span></span>
 
 resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-en">Opts</span>.resolver.sonatypeSnapshots</pre></div>
 
 <ul>
-<li><a href="https://oss.sonatype.org/service/local/repositories/snapshots/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.1.4-SNAPSHOT/msgpack4z-core_2.11-0.1.4-SNAPSHOT-sxr.jar/!/index.html">sxr</a></li>
+<li><a href="https://oss.sonatype.org/service/local/repositories/snapshots/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.1.5-SNAPSHOT/msgpack4z-core_2.11-0.1.5-SNAPSHOT-sxr.jar/!/index.html">sxr</a></li>
 </ul>
 <h7>
 <a id="user-content-dependency-graph" class="anchor" href="#dependency-graph" aria-hidden="true"><span class="octicon octicon-link"></span></a>dependency graph</h7>
@@ -4281,8 +4399,7 @@ improvements and fixes were made.</p>
 <a name="user-content-python-3-note"></a>
 <h6>
 <a id="user-content-python-3-note" class="anchor" href="#python-3-note" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python 3 note</h6>
-<p>Twisted (actually 15.0) doesn't support twisted.internet.unix module for
-Python 3, therefore UNIX sockets are not supported.</p>
+<p>To use UNIX sockets with Python 3 please use Twisted framework 15.3.0 and above.</p>
 <a name="user-content-dependencies"></a>
 <h6>
 <a id="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h6>
@@ -4295,7 +4412,7 @@ Python 3, therefore UNIX sockets are not supported.</p>
 <a name="user-content-installation"></a>
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
-<div class="highlight highlight-sh"><pre>% pip install txmsgpackrpc</pre></div>
+<div class="highlight highlight-source-shell"><pre>% pip install txmsgpackrpc</pre></div>
 <p>Debian packages are available on project's <a href="https://github.com/jakm/txmsgpackrpc/releases/latest">Releases
 page</a>.</p>
 <a name="user-content-tcp-example"></a>
@@ -4335,7 +4452,7 @@ DONE
 <a name="user-content-server"></a>
 <h7>
 <a id="user-content-server" class="anchor" href="#server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
-<div class="highlight highlight-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
 
 <span class="pl-k">from</span> collections <span class="pl-k">import</span> defaultdict
 <span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, utils
@@ -4507,7 +4624,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 <a name="user-content-client"></a>
 <h7>
 <a id="user-content-client" class="anchor" href="#client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
-<div class="highlight highlight-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
 
 <span class="pl-k">import</span> sys
 <span class="pl-k">import</span> time
@@ -4565,7 +4682,7 @@ errors. If no responses are received, protocol errbacks with TimeoutError.</p>
 <p>Because there is no common way to determine number of peers in group,
 MsgpackMulticastDatagramProtocol always wait for responses until waitTimeout
 expires.</p>
-<div class="highlight highlight-sh"><pre>$ <span class="pl-c"># setup multicast routing</span>
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c"># setup multicast routing</span>
 $ ip route add 224.0.0.0/4 dev eth0
 $ <span class="pl-c1">echo</span> 1 <span class="pl-k">&gt;</span> /proc/sys/net/ipv4/ip_forward
 $
@@ -4588,7 +4705,7 @@ $</pre></div>
 <a name="user-content-id1"></a>
 <h7>
 <a id="user-content-server-1" class="anchor" href="#server-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server</h7>
-<div class="highlight highlight-python"><pre><span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
 <span class="pl-k">from</span> txmsgpackrpc.server <span class="pl-k">import</span> MsgpackRPCServer
 
 
@@ -4612,7 +4729,7 @@ $</pre></div>
 <a name="user-content-id2"></a>
 <h7>
 <a id="user-content-client-1" class="anchor" href="#client-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client</h7>
-<div class="highlight highlight-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> __future__ <span class="pl-k">import</span> print_function
 
 <span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor
 
@@ -4834,7 +4951,7 @@ SOFTWARE.</p>
 <h6>
 <a id="user-content-availability" class="anchor" href="#availability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Availability</h6>
 
-<p>MessagePack.swift is intended for Swift 1.2. For compatibility with Swift 1.1, see the <a href="https://github.com/a2/MessagePack.swift/tree/swift-1.1"><code>swift-1.1</code></a> branch. Compatibility with future versions is not guaranteed.</p>
+<p>MessagePack.swift is intended for use with Swift 2.0. Compatibility with past and future versions is not guaranteed.</p>
 </article>
 </div>
         </div>
@@ -4861,13 +4978,13 @@ to see what happens (It will take a bit while. Be patient). Have a nice packing!
 <h6>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h6>
 
-<div class="highlight highlight-sh"><pre>$ nimble update
+<div class="highlight highlight-source-shell"><pre>$ nimble update
 $ nimble install msgpack</pre></div>
 
 <h6>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
 
-<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack
+<div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> msgpack
 <span class="pl-k">import</span> streams
 
 <span class="pl-c"># You can use any stream subclasses to serialize/deserialize</span>
@@ -4928,7 +5045,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
         
         <div id="qs-ludocode-mpack" class="qs"><h4><a href="https://github.com/ludocode/mpack" target="_blank">ludocode/mpack <span class="qs-url">https://github.com/ludocode/mpack</span></a></h4>
 <div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><p><a href="https://travis-ci.org/ludocode/mpack"><img src="https://camo.githubusercontent.com/dabfb27ce58997332acdab1b1e8aaf85632af861/68747470733a2f2f7472617669732d63692e6f72672f6c75646f636f64652f6d7061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ludocode/mpack.svg?branch=master" style="max-width:100%;"></a></p>
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><p><a href="https://travis-ci.org/ludocode/mpack/branches"><img src="https://camo.githubusercontent.com/dabfb27ce58997332acdab1b1e8aaf85632af861/68747470733a2f2f7472617669732d63692e6f72672f6c75646f636f64652f6d7061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ludocode/mpack.svg?branch=master" style="max-width:100%;"></a></p>
 
 <h6>
 <a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h6>
@@ -4939,26 +5056,26 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <li>Simple and easy to use</li>
 <li>Secure against untrusted data</li>
 <li>Lightweight, suitable for embedded</li>
-<li>Helpful for debugging</li>
 <li><a href="http://ludocode.github.io/mpack/">Extensively documented</a></li>
+<li>Extremely fast</li>
 </ul>
 <p>The core of MPack contains a buffered reader and writer with a custom callback to fill or flush the buffer. Helper functions can be enabled to read values of expected type, to work with files, to allocate strings automatically, to check UTF-8 encoding, and more. The MPack featureset can be configured at compile-time to set which features, components and debug checks are compiled, and what dependencies are available.</p>
 
 <p>The MPack code is small enough to be embedded directly into your codebase. The easiest way to use it is to download the <a href="https://github.com/ludocode/mpack/releases">amalgamation package</a> and insert the source files directly into your project. Copy <code>mpack.h</code> and <code>mpack.c</code> into to your codebase, and copy <code>mpack-config.h.sample</code> as <code>mpack-config.h</code>. You can use the defaults or edit it if you'd like to customize the MPack featureset.</p>
 
-<p>MPack is written in the portable intersection of C99 and C++. In other words, it's written in C99, but if you are stuck using a certain popular compiler from a certain unpopular vendor that refuses to support C99, you can compile it as C++ instead. (The headers should also be C89-clean, provided compatible definitions of <code>bool</code>, <code>inline</code>, <code>stdint.h</code> and friends are available, and <code>const</code> is defined away.)</p>
+<p>MPack is written in the portable intersection of C99 and C++. In other words, it's written in C99, but if you are stuck using a certain popular compiler from a certain unpopular vendor that refuses to support C99, you can compile it as C++ instead.</p>
 
-<p><em>NOTE: MPack is beta software under development. There are still some TODOs in the codebase, some security issues to fix, some MessagePack 1.0/1.1 compatibility and interoperability issues to sort out, some test suite portability issues to fix, and there is only around 45% unit test coverage.</em></p>
+<p><em>NOTE: MPack is beta software under development. The API occasionally changes, there are still some TODOs in the codebase, some security issues to fix, some MessagePack 1.0/1.1 compatibility and interoperability issues to sort out, some test suite portability issues to fix, and there is only around 65% unit test coverage.</em></p>
 
 <h6>
 <a id="user-content-the-node-reader-api" class="anchor" href="#the-node-reader-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Node Reader API</h6>
 
 <p>The Node API parses a chunk of MessagePack data into an immutable tree of dynamically-typed nodes. A series of helper functions can be used to extract data of specific types from each node.</p>
 
-<div class="highlight highlight-C"><pre><span class="pl-c">// parse a file into a node tree</span>
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// parse a file into a node tree</span>
 <span class="pl-c1">mpack_tree_t</span> tree;
 <span class="pl-en">mpack_tree_init_file</span>(&amp;tree, <span class="pl-s"><span class="pl-pds">"</span>homepage-example.mp<span class="pl-pds">"</span></span>, <span class="pl-c1">0</span>);
-<span class="pl-c1">mpack_node_t</span>* root = mpack_tree_root(&amp;tree);
+<span class="pl-c1">mpack_node_t</span> root = mpack_tree_root(&amp;tree);
 
 <span class="pl-c">// extract the example data on the msgpack homepage</span>
 <span class="pl-k">bool</span> compact = mpack_node_bool(mpack_node_map_cstr(root, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>));
@@ -4973,14 +5090,15 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <p>Note that no additional error handling is needed in the above code. If the file is missing or corrupt, if map keys are missing or if nodes are not in the expected types, special "nil" nodes and false/zero values are returned and the tree is placed in an error state. An error check is only needed before using the data. Alternatively, the tree can be configured to longjmp in such cases if a handler is set.</p>
 
 <h6>
-<a id="user-content-the-static-write-api" class="anchor" href="#the-static-write-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Static Write API</h6>
+<a id="user-content-the-write-api" class="anchor" href="#the-write-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Write API</h6>
 
-<p>The MPack Write API encodes structured data of a fixed (hardcoded) schema to MessagePack.</p>
+<p>The MPack Write API encodes structured data to MessagePack.</p>
 
-<div class="highlight highlight-C"><pre><span class="pl-c">// encode to memory buffer</span>
-<span class="pl-k">char</span> buffer[<span class="pl-c1">256</span>];
+<div class="highlight highlight-source-c"><pre><span class="pl-c">// encode to memory buffer</span>
+<span class="pl-k">char</span>* data;
+<span class="pl-c1">size_t</span> size;
 <span class="pl-c1">mpack_writer_t</span> writer;
-<span class="pl-en">mpack_writer_init</span>(&amp;writer, buffer, <span class="pl-k">sizeof</span>(buffer));
+<span class="pl-en">mpack_writer_init_growable</span>(&amp;writer, &amp;data, &amp;size);
 
 <span class="pl-c">// write the example on the msgpack homepage</span>
 <span class="pl-en">mpack_start_map</span>(&amp;writer, <span class="pl-c1">2</span>);
@@ -4990,18 +5108,21 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <span class="pl-en">mpack_write_uint</span>(&amp;writer, <span class="pl-c1">0</span>);
 <span class="pl-en">mpack_finish_map</span>(&amp;writer);
 
-<span class="pl-c">// clean up</span>
-<span class="pl-c1">size_t</span> count = mpack_writer_buffer_used(&amp;writer);
+<span class="pl-c">// finish writing</span>
 <span class="pl-k">if</span> (mpack_writer_destroy(&amp;writer) != mpack_ok) {
     <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>An error occurred encoding the data!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
     <span class="pl-k">return</span>;
-}</pre></div>
+}
 
-<p>In the above example, we encode only to an in-memory buffer. The writer can optionally be provided with a flush function (such as a file or socket write function) to call when the buffer is full or when writing is done.</p>
+<span class="pl-c">// use the data</span>
+<span class="pl-en">do_something_with_data</span>(data, size);
+<span class="pl-en">free</span>(data);</pre></div>
 
-<p>If any error occurs, the writer is placed in an error state and can optionally longjmp if a handler is set. The writer will flag an error if too much data is written, if the wrong number of elements are written, if the data could not be flushed, etc.</p>
+<p>In the above example, we encode to a growable memory buffer. The writer can instead write to a pre-allocated or stack-allocated buffer, avoiding the need for memory allocation. The writer can also be provided with a flush function (such as a file or socket write function) to call when the buffer is full or when writing is done.</p>
 
-<p>Note in particular that the <code>mpack_finish_map()</code> call above ensures that two key/value pairs were actually written as claimed, something that other MessagePack C/C++ libraries may not do. Any data written without error via MPack is guaranteed to parse as valid MessagePack (as long as malloc() is available.)</p>
+<p>If any error occurs, the writer is placed in an error state and can optionally longjmp if a handler is set. The writer will flag an error if too much data is written, if the wrong number of elements are written, if the data could not be flushed, etc. No additional error handling is needed in the above code; any subsequent writes are ignored when the writer is in an error state, so you don't need to check every write for errors.</p>
+
+<p>Note in particular that in debug mode, the <code>mpack_finish_map()</code> call above ensures that two key/value pairs were actually written as claimed, something that other MessagePack C/C++ libraries may not do.</p>
 
 <h6>
 <a id="user-content-why-not-just-use-json" class="anchor" href="#why-not-just-use-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Not Just Use JSON?</h6>
@@ -5014,7 +5135,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <li><p>Numbers are particularly inefficient (especially when parsing back floats), making JSON inappropriate as a base format for structured data that contains lots of numbers.</p></li>
 <li><p>Binary data is not supported by JSON at all. Small binary blobs such as icons and thumbnails need to be Base64 encoded or passed out-of-band.</p></li>
 </ul>
-<p>The above issues greatly increase the complexity of the decoder. Full-featured JSON decoders are quite large, and minimal decoders tend to leave out such features as string unescaping and float parsing, instead leaving these up to the user or platform. This can lead to hard-to-find and/or platform-specific bugs. This also significantly decreases performance, making JSON unattractive for use in applications such as mobile games.</p>
+<p>The above issues greatly increase the complexity of the decoder. Full-featured JSON decoders are quite large, and minimal decoders tend to leave out such features as string unescaping and float parsing, instead leaving these up to the user or platform. This can lead to hard-to-find platform-specific and locale-specific bugs. This also significantly decreases performance, making JSON unattractive for use in applications such as mobile games.</p>
 
 <p>While the space inefficiencies of JSON can be partially mitigated through minification and compression, the performance inefficiencies cannot. More importantly, if you are minifying and compressing the data, then why use a human-readable format in the first place?</p>
 
@@ -5040,24 +5161,46 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <p>RMP is a pure Rust <a href="http://msgpack.org">MessagePack</a> implementation.</p>
 
 <p><a href="https://travis-ci.org/3Hren/msgpack-rust"><img src="https://camo.githubusercontent.com/20ebe3c911448a9065b08456ca2756bac8286aa1/68747470733a2f2f7472617669732d63692e6f72672f334872656e2f6d73677061636b2d727573742e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/3Hren/msgpack-rust.svg?branch=master" style="max-width:100%;"></a>
-<a href="https://crates.io/crates/rmp"><img src="https://camo.githubusercontent.com/8cd4852fe3605c05bbfc01d2d37be8977aab0d4f/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d70" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp" style="max-width:100%;"></a>
 <a href="https://coveralls.io/github/3Hren/msgpack-rust?branch=master"><img src="https://camo.githubusercontent.com/ff5a42d50bd6a64d9dd01983996bef139104bf5e/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f334872656e2f6d73677061636b2d727573742f62616467652e7376673f6272616e63683d6d617374657226736572766963653d676974687562" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/3Hren/msgpack-rust/badge.svg?branch=master&amp;service=github" style="max-width:100%;"></a></p>
 
-<ul>
-<li><p><a href="http://3hren.github.io/msgpack-rust/rmp/index.html">API documentation</a></p></li>
-<li><p><a href="http://crates.io/crates/rmp">Crates.io</a></p></li>
-</ul>
+<p>This repository consists of three separate crates: the RMP core and two implementations to ease serializing and
+deserializing Rust structs.</p>
+
+<table>
+<thead><tr>
+<th></th>
+<th>Crates.io</th>
+<th>API Documentation</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>rmp</strong></td>
+<td><a href="https://crates.io/crates/rmp"><img src="https://camo.githubusercontent.com/8cd4852fe3605c05bbfc01d2d37be8977aab0d4f/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d70" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp" style="max-width:100%;"></a></td>
+<td><a href="http://3hren.github.io/msgpack-rust/rmp/rmp/index.html">RMP</a></td>
+</tr>
+<tr>
+<td><strong>rmp-serialize</strong></td>
+<td><a href="https://crates.io/crates/rmp-serialize"><img src="https://camo.githubusercontent.com/25e25b0b737dd4d649c6ab4d56171339a3b4703a/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d702d73657269616c697a65" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp-serialize" style="max-width:100%;"></a></td>
+<td><a href="http://3hren.github.io/msgpack-rust/rmp-serialize/rmp_serialize/index.html">RMP Serialize</a></td>
+</tr>
+<tr>
+<td><strong>rmp-serde</strong></td>
+<td><a href="https://crates.io/crates/rmp-serde"><img src="https://camo.githubusercontent.com/f078f56b2e0bdb20e7999f74513eaf949e2a3bb2/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d702d7365726465" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp-serde" style="max-width:100%;"></a></td>
+<td><a href="http://3hren.github.io/msgpack-rust/rmp-serde/rmp_serde/index.html">RMP Serde</a></td>
+</tr>
+</tbody>
+</table>
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
 <p>To use <code>rmp</code>, first add this to your <code>Cargo.toml</code>:</p>
 
-<div class="highlight highlight-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">rmp</span>]
-<span class="pl-smi">rmp</span> = <span class="pl-s"><span class="pl-pds">"</span>0.3.2<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">rmp</span>]
+<span class="pl-smi">rmp</span> = <span class="pl-s"><span class="pl-pds">"</span>^0.7<span class="pl-pds">"</span></span></pre></div>
 
 <p>Then, add this to your crate root:</p>
 
-<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span></pre></div>
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp <span class="pl-k">as</span> msgpack<span class="pl-k">;</span> <span class="pl-c">// Or just `rmp`.</span></pre></div>
 
 <h6>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
@@ -5070,6 +5213,12 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 full control on data encoding/decoding process and makes no heap allocations. On the other hand
 there are high-level API, which provides you convenient interface using Rust standard library and
 compiler reflection, allowing to encode/decode structures using <code>derive</code> attribute.</p>
+</li>
+<li>
+<p><strong>Zero-copy value decoding</strong></p>
+
+<p>RMP allows to decode bytes from a buffer in a zero-copy manner easily and blazingly fast, while Rust
+static checks guarantees that the data will be valid until buffer lives.</p>
 </li>
 <li>
 <p><strong>Clear error handling</strong></p>
@@ -5088,80 +5237,73 @@ existing functionality.</p>
 
 <p>Let's try to encode a tuple of int and string.</p>
 
-<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
-<span class="pl-k">extern crate</span> <span class="pl-c1">rustc_serialize</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize<span class="pl-k">;</span>
 
-<span class="pl-k">use</span> rustc_serialize::Encodable<span class="pl-k">;</span>
-<span class="pl-k">use</span> msgpack::Encoder<span class="pl-k">;</span>
+<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span><span class="pl-k">Encodable</span><span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack<span class="pl-k">::</span><span class="pl-k">Encoder</span><span class="pl-k">;</span>
 
 <span class="pl-k">fn</span> <span class="pl-en">main</span>() {
-    <span class="pl-k">let</span> <span class="pl-smi">val</span> <span class="pl-k">=</span> (<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span>)<span class="pl-k">;</span>
+    <span class="pl-k">let</span> val <span class="pl-k">=</span> (<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span>)<span class="pl-k">;</span>
 
     <span class="pl-c">// The encoder borrows the bytearray buffer.</span>
-    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">buf</span> <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
 
-    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> Encoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
+    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">Encoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
 
-    <span class="pl-c1">assert_eq!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
+    assert_eq<span class="pl-k">!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
 }</pre></div>
 
 <p>Now we have an encoded buffer, which we can decode the same way:</p>
 
-<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
-<span class="pl-k">extern crate</span> <span class="pl-c1">rustc_serialize</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize<span class="pl-k">;</span>
 
-<span class="pl-k">use</span> rustc_serialize::Decodable<span class="pl-k">;</span>
-<span class="pl-k">use</span> msgpack::Decoder<span class="pl-k">;</span>
+<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span><span class="pl-k">Decodable</span><span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack<span class="pl-k">::</span><span class="pl-k">Decoder</span><span class="pl-k">;</span>
 
 <span class="pl-k">fn</span> <span class="pl-en">main</span>() {
-    <span class="pl-k">let</span> <span class="pl-smi">buf</span> <span class="pl-k">=</span> [<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">;</span>
+    <span class="pl-k">let</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">;</span>
 
-    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">decoder</span> <span class="pl-k">=</span> Decoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> decoder <span class="pl-k">=</span> <span class="pl-k">Decoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
 
-    <span class="pl-k">let</span> <span class="pl-smi">res</span><span class="pl-k">: (u8, String) </span><span class="pl-k">=</span> Decodable::<span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+    <span class="pl-k">let</span> res<span class="pl-k">:</span> (<span class="pl-k">u8</span><span class="pl-k">,</span> <span class="pl-k">String</span>) <span class="pl-k">=</span> <span class="pl-k">Decodable</span><span class="pl-k">::</span><span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
 
-    <span class="pl-c1">assert_eq!</span>((<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>())<span class="pl-k">,</span> res)<span class="pl-k">;</span>
+    assert_eq<span class="pl-k">!</span>((<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>())<span class="pl-k">,</span> res)<span class="pl-k">;</span>
 }</pre></div>
 
 <p>RMP also allows to automatically serialize/deserialize custom structures using rustc_serialize
 reflection. To enable this feature, derive RustcEncodable and RustcDecodable attributes as
 shown in the following example:</p>
 
-<div class="highlight highlight-rust"><pre><span class="pl-k">extern crate</span> <span class="pl-c1">rmp</span> <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
-<span class="pl-k">extern crate</span> <span class="pl-c1">rustc_serialize</span><span class="pl-k">;</span>
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize<span class="pl-k">;</span>
 
-<span class="pl-k">use</span> rustc_serialize::{Encodable<span class="pl-k">,</span> Decodable}<span class="pl-k">;</span>
-<span class="pl-k">use</span> msgpack::{Encoder<span class="pl-k">,</span> Decoder}<span class="pl-k">;</span>
+<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span>{<span class="pl-k">Encodable</span><span class="pl-k">,</span> <span class="pl-k">Decodable</span>}<span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack<span class="pl-k">::</span>{<span class="pl-k">Encoder</span><span class="pl-k">,</span> <span class="pl-k">Decoder</span>}<span class="pl-k">;</span>
 
 <span class="pl-c">#[derive(RustcEncodable, RustcDecodable, PartialEq, Debug)]</span>
-<span class="pl-k">struct</span> Custom {
+<span class="pl-k">struct</span> <span class="pl-k">Custom</span> {
     id<span class="pl-k">:</span> <span class="pl-k">u32</span><span class="pl-k">,</span>
-    key<span class="pl-k">:</span> String<span class="pl-k">,</span>
+    key<span class="pl-k">:</span> <span class="pl-k">String</span><span class="pl-k">,</span>
 }
 
 <span class="pl-k">fn</span> <span class="pl-en">main</span>() {
-    <span class="pl-k">let</span> <span class="pl-smi">val</span> <span class="pl-k">=</span> Custom { id<span class="pl-k">:</span> <span class="pl-c1">42u32</span><span class="pl-k">,</span> key<span class="pl-k">:</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>() }<span class="pl-k">;</span>
+    <span class="pl-k">let</span> val <span class="pl-k">=</span> <span class="pl-k">Custom</span> { id<span class="pl-k">:</span> <span class="pl-c1">42u32</span><span class="pl-k">,</span> key<span class="pl-k">:</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>() }<span class="pl-k">;</span>
 
-    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">buf</span> <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
 
-    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> Encoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
+    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">Encoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
 
-    <span class="pl-c1">assert_eq!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
+    assert_eq<span class="pl-k">!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
 
     <span class="pl-c">// Now try to unpack the buffer into the initial struct.</span>
-    <span class="pl-k">let</span> <span class="pl-k">mut </span><span class="pl-smi">decoder</span> <span class="pl-k">=</span> Decoder::<span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
-    <span class="pl-k">let</span> <span class="pl-smi">res</span><span class="pl-k">: Custom </span><span class="pl-k">=</span> Decodable::<span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> decoder <span class="pl-k">=</span> <span class="pl-k">Decoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
+    <span class="pl-k">let</span> res<span class="pl-k">:</span> <span class="pl-k">Custom</span> <span class="pl-k">=</span> <span class="pl-k">Decodable</span><span class="pl-k">::</span><span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
 
-    <span class="pl-c1">assert_eq!</span>(val<span class="pl-k">,</span> res)<span class="pl-k">;</span>
+    assert_eq<span class="pl-k">!</span>(val<span class="pl-k">,</span> res)<span class="pl-k">;</span>
 }</pre></div>
 
-<h6>
-<a id="user-content-limitations-and-plans" class="anchor" href="#limitations-and-plans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations and plans</h6>
-
-<ul>
-<li>Non-owning <code>ValueRef</code> variant, which can be created from <code>[u8]</code>, <code>Cursor&lt;[u8]&gt;</code> etc. and
-borrows data from it, which makes it absolute zero-copy.</li>
-</ul>
 <h6>
 <a id="user-content-versioning" class="anchor" href="#versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versioning</h6>
 
@@ -5194,7 +5336,7 @@ version bumping.</li>
 <h6>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
 
-<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack, streams
+<div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> msgpack, streams
 
 <span class="pl-k">type</span>
   <span class="pl-c">#lets try with a rather complex object</span>
@@ -5217,7 +5359,7 @@ version bumping.</li>
 <span class="pl-k">var</span> x = <span class="pl-c1">initCustomType</span>()
 <span class="pl-c">#you can use another stream compatible</span>
 <span class="pl-c">#class here e.g. FileStream</span>
-<span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>() 
+<span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>()
 s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#here the magic happened</span>
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
@@ -5231,7 +5373,7 @@ assert xx == x
 
 <p>if you think setting up a StringStream too much for you, you can simply call pack(yourobject) and it will return a string containing msgpack data.</p>
 
-<div class="highlight highlight-nimrod"><pre>  <span class="pl-k">var</span> a = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>,<span class="pl-c1">8</span>,<span class="pl-c1">9</span>,<span class="pl-c1">0</span>]
+<div class="highlight highlight-source-nim"><pre>  <span class="pl-k">var</span> a = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>,<span class="pl-c1">8</span>,<span class="pl-c1">9</span>,<span class="pl-c1">0</span>]
   <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(a)
   <span class="pl-k">var</span> aa: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
   <span class="pl-c1">unpack</span>(buf, aa)
@@ -5240,7 +5382,7 @@ assert xx == x
 <p>in case the compiler cannot decide how to serialize or deserialize your very very complex object, you can help it in easy way
 by defining your own handler pack_type/unpack_type</p>
 
-<div class="highlight highlight-nimrod"><pre><span class="pl-k">type</span>
+<div class="highlight highlight-source-nim"><pre><span class="pl-k">type</span>
   <span class="pl-c">#not really complex, just for example</span>
   mycomplexobject = <span class="pl-k">object</span>
     a: someSimpleType
@@ -5381,11 +5523,11 @@ s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span
 <p>object and tuple by default converted to msgpack array, however
 you can tell the compiler to convert it to map by supplying --define:msgpack_obj_to_map</p>
 
-<div class="highlight highlight-shell"><pre>nim c --define:msgpack_obj_to_map yourfile.nim</pre></div>
+<div class="highlight highlight-source-shell"><pre>nim c --define:msgpack_obj_to_map yourfile.nim</pre></div>
 
 <p>or --define:msgpack_obj_to_stream to convert object/tuple fields <em>value</em> into stream of msgpack objects</p>
 
-<div class="highlight highlight-shell"><pre>nim c --define:msgpack_obj_to_stream yourfile.nim</pre></div>
+<div class="highlight highlight-source-shell"><pre>nim c --define:msgpack_obj_to_stream yourfile.nim</pre></div>
 
 <h8>
 <a id="user-content-ref-types" class="anchor" href="#ref-types" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>ref-types:</strong>
@@ -5403,10 +5545,10 @@ you can tell the compiler to convert it to map by supplying --define:msgpack_obj
 <p><em>circular reference</em>:
 altough detecting circular reference is not too difficult(using set of pointers), the current implementation does not provide circular reference detection. If you pack something contains circular reference, you know something bad will happened</p>
 
-<p><strong>Restriction</strong>: 
+<p><strong>Restriction</strong>:
  For objects their type is <strong>not</strong> serialized. This means essentially that it does not work if the object has some other runtime type than its compiletime type:</p>
 
-<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> streams, msgpack
+<div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> streams, msgpack
 
 <span class="pl-k">type</span>
   TA = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
@@ -5420,7 +5562,7 @@ altough detecting circular reference is not too difficult(using set of pointers)
 <span class="pl-c1">new</span>(b)
 a = b
 
-<span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(a)) 
+<span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(a))
 <span class="pl-c">#produces "[ ]" or "{ }"</span>
 <span class="pl-c">#not "[ 0 ]" or '{ "f" : 0 }'</span></pre></div>
 
@@ -5446,7 +5588,7 @@ a = b
 <p><strong>Gotchas:</strong>
 because data conversion did not preserve original data types, the following code is perfectly valid and will raise no exception</p>
 
-<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> msgpack, streams, tables, sets, strtabs
+<div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> msgpack, streams, tables, sets, strtabs
 
 <span class="pl-k">type</span>
   Horse = <span class="pl-k">object</span>
@@ -5470,7 +5612,7 @@ because data conversion did not preserve original data types, the following code
 <span class="pl-k">var</span> tom: Cat
 
 <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(stallion) <span class="pl-c">#pack a Horse here</span>
-<span class="pl-c1">unpack</span>(buf, tom) 
+<span class="pl-c1">unpack</span>(buf, tom)
 <span class="pl-c">#abracadabra, it will unpack into a Cat</span>
 
 <span class="pl-c1">echo</span> <span class="pl-s">"legs: "</span>, <span class="pl-k">$</span>tom.legs
@@ -5479,7 +5621,7 @@ because data conversion did not preserve original data types, the following code
 
 <p>another gotcha:</p>
 
-<div class="highlight highlight-nimrod"><pre>  <span class="pl-k">type</span>
+<div class="highlight highlight-source-nim"><pre>  <span class="pl-k">type</span>
     KAB = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
       aaa: <span class="pl-k">int</span>
       bbb: <span class="pl-k">int</span>
@@ -5508,7 +5650,7 @@ because data conversion did not preserve original data types, the following code
 <li>proc unpack_bin*(s: Stream): int</li>
 <li>proc unpack_ext*(s: Stream): tuple[exttype:uint8, len: int]</li>
 </ul>
-<div class="highlight highlight-nimrod"><pre><span class="pl-k">import</span> streams, msgpack
+<div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> streams, msgpack
 
 <span class="pl-k">const</span> exttype0 = <span class="pl-c1">0</span>
 
@@ -5539,7 +5681,7 @@ assert binbody == body</pre></div>
 
 <p>you can convert msgpack data to readable string using stringify function</p>
 
-<div class="highlight highlight-nimrod"><pre>  <span class="pl-k">type</span>
+<div class="highlight highlight-source-nim"><pre>  <span class="pl-k">type</span>
     Horse = <span class="pl-k">object</span>
       legs: <span class="pl-k">int</span>
       speed: <span class="pl-k">int</span>
@@ -5552,7 +5694,7 @@ assert binbody == body</pre></div>
 
 <p>the result will be:</p>
 
-<div class="highlight highlight-json"><pre>default:
+<div class="highlight highlight-source-json"><pre>default:
 [ <span class="pl-c1">4</span>, <span class="pl-c1">150</span>, <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span> ]
 
 msgpack_obj_to_map defined:
@@ -5560,6 +5702,32 @@ msgpack_obj_to_map defined:
 
 msgpack_obj_to_stream defined:
 <span class="pl-c1">4</span> <span class="pl-c1">150</span> <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span></pre></div>
+
+<h6>
+<a id="user-content-toany" class="anchor" href="#toany" aria-hidden="true"><span class="octicon octicon-link"></span></a>toAny</h6>
+
+<p><strong>toAny</strong> takes a string of msgpack data or a stream, then it will produce <strong>msgAny</strong> which you can interrogate of it's  type and value during runtime by accessing it's member <strong>msgType</strong></p>
+
+<p><strong>toAny</strong> recognize all valid msgpack message and translate it into a group of types:</p>
+
+<pre><code>msgMap, msgArray, msgString, msgBool,
+msgBin, msgExt, msgFloat32, msgFloat64,
+msgInt, msgUint, msgNull
+</code></pre>
+
+<p>for example, <strong>msg</strong> is a <em>msgpack</em> data with content [1, "hello", {"a": "b"}], you can interrogate it like this:</p>
+
+<div class="highlight highlight-source-nim"><pre><span class="pl-k">var</span> a = msg.<span class="pl-c1">toAny</span>()
+<span class="pl-c1">assert</span> a.msgType == msgArray
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">0</span>].msgType == msgInt
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">0</span>].intVal == <span class="pl-c1">1</span>
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">1</span>].msgType == msgString
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">1</span>].stringVal == <span class="pl-s">"hello"</span>
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].msgType == msgMap
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].key.msgType == msgString
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].key.stringVal == <span class="pl-s">"a"</span>
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.msgType == msgString
+<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.stringVal == <span class="pl-s">"b"</span></pre></div>
 
 <p>enjoy it, happy nim-ing</p>
 </article>
@@ -5585,6 +5753,569 @@ msgpack_obj_to_stream defined:
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 
 <p><em>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</em></p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-kawanet-msgpack-lite" class="qs"><h4><a href="https://www.npmjs.com/package/msgpack-lite" target="_blank">kawanet/msgpack-lite <span class="qs-url">https://www.npmjs.com/package/msgpack-lite</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-lite--" class="anchor" href="#msgpack-lite--" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-lite <a href="http://badge.fury.io/js/msgpack-lite"><img src="https://camo.githubusercontent.com/2d47899edd34f109837021072113765774890b3d/68747470733a2f2f62616467652e667572792e696f2f6a732f6d73677061636b2d6c6974652e737667" alt="npm version" data-canonical-src="https://badge.fury.io/js/msgpack-lite.svg" style="max-width:100%;"></a> <a href="https://travis-ci.org/kawanet/msgpack-lite"><img src="https://camo.githubusercontent.com/5ca034a89cf672211032248ca1c874bbf63796a8/68747470733a2f2f7472617669732d63692e6f72672f6b6177616e65742f6d73677061636b2d6c6974652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kawanet/msgpack-lite.svg?branch=master" style="max-width:100%;"></a>
+</h5>
+
+<p>Fast Pure JavaScript MessagePack Encoder and Decoder</p>
+
+<p><a href="https://saucelabs.com/u/msgpack-lite"><img src="https://camo.githubusercontent.com/93259aae9a453bead1c7e0c8045ce334f4c8072e/68747470733a2f2f73617563656c6162732e636f6d2f62726f777365722d6d61747269782f6d73677061636b2d6c6974652e737667" alt="Sauce Test Status" data-canonical-src="https://saucelabs.com/browser-matrix/msgpack-lite.svg" style="max-width:100%;"></a></p>
+
+<p>Online demo: <a href="http://kawanet.github.io/msgpack-lite/">http://kawanet.github.io/msgpack-lite/</a></p>
+
+<h7>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
+
+<ul>
+<li>Pure JavaScript only (No node-gyp nor gcc required)</li>
+<li>Faster than any other pure JavaScript libraries: <strong>5x faster</strong> encoding and <strong>50% faster</strong> decoding</li>
+<li>Even faster than C++ based <a href="https://www.npmjs.com/package/msgpack">msgpack</a> library: <strong>50% faster</strong> encoding and <strong>10% faster</strong> decoding</li>
+<li>Streaming encoding and decoding interface is also available. It's more faster.</li>
+<li>
+<a href="https://saucelabs.com/u/msgpack-lite">Browsers</a> ready (Chrome, Firefox, Safari and even works on IE8)</li>
+<li>
+<a href="https://travis-ci.org/kawanet/msgpack-lite">Tested</a> on Node.js-v0.12, v0.10 and io.js-v3.3 and browsers</li>
+</ul>
+<h7>
+<a id="user-content-encoding-and-decoding-messagepack" class="anchor" href="#encoding-and-decoding-messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encoding and Decoding MessagePack</h7>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">// encode from JS Object to MessagePack (Buffer)</span>
+<span class="pl-k">var</span> buffer <span class="pl-k">=</span> msgpack.encode({<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
+
+<span class="pl-c">// decode from MessagePack (Buffer) to JS Object</span>
+<span class="pl-k">var</span> data <span class="pl-k">=</span> msgpack.decode(buffer); <span class="pl-c">// =&gt; {"foo": "bar"}</span></pre></div>
+
+<h7>
+<a id="user-content-writing-to-messagepack-stream" class="anchor" href="#writing-to-messagepack-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing to MessagePack Stream</h7>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>fs<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
+
+<span class="pl-k">var</span> writeStream <span class="pl-k">=</span> fs.createWriteStream(<span class="pl-s"><span class="pl-pds">"</span>test.msp<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> encodeStream <span class="pl-k">=</span> msgpack.createEncodeStream();
+encodeStream.pipe(writeStream);
+
+<span class="pl-c">// send multiple objects to stream</span>
+encodeStream.<span class="pl-c1">write</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
+encodeStream.<span class="pl-c1">write</span>({baz<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>qux<span class="pl-pds">"</span></span>});</pre></div>
+
+<h7>
+<a id="user-content-reading-from-messagepack-stream" class="anchor" href="#reading-from-messagepack-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading from MessagePack Stream</h7>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>fs<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
+
+<span class="pl-k">var</span> readStream <span class="pl-k">=</span> fs.createReadStream(<span class="pl-s"><span class="pl-pds">"</span>test.msp<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> decodeStream <span class="pl-k">=</span> msgpack.createDecodeStream();
+
+<span class="pl-c">// show multiple objects decoded from stream</span>
+readStream.pipe(decodeStream).on(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.warn);</pre></div>
+
+<h7>
+<a id="user-content-command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line Interface</h7>
+
+<p>A CLI tool bin/msgpack converts data stream from JSON to MessagePack and vice versa.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>{"foo": "bar"}<span class="pl-pds">'</span></span> <span class="pl-k">|</span> ./bin/msgpack -Jm <span class="pl-k">|</span> od -tx1
+0000000    81  a3  66  6f  6f  a3  62  61  72
+
+$ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>{"foo": "bar"}<span class="pl-pds">'</span></span> <span class="pl-k">|</span> ./bin/msgpack -Jm <span class="pl-k">|</span> ./bin/msgpack -Mj
+{<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>}</pre></div>
+
+<h7>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h7>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install --save msgpack-lite</pre></div>
+
+<h7>
+<a id="user-content-tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h7>
+
+<p>Run tests on node.js:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ make <span class="pl-c1">test</span></pre></div>
+
+<p>Run tests on browsers:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ make <span class="pl-c1">test</span>-browser-local
+open the following url <span class="pl-k">in</span> a browser:
+http://localhost:4000/__zuul</pre></div>
+
+<h7>
+<a id="user-content-browser-build" class="anchor" href="#browser-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser Build</h7>
+
+<p>Browser version <a href="https://rawgithub.com/kawanet/msgpack-lite/master/dist/msgpack.min.js">msgpack.min.js</a> is also available. 37KB minified, 11KB gziped.</p>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!--[if lte IE 9]&gt;</span>
+<span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.10/es5-shim.min.js"&gt;&lt;/script&gt;</span>
+<span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"&gt;&lt;/script&gt;</span>
+<span class="pl-c">&lt;![endif]--&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://rawgithub.com/kawanet/msgpack-lite/master/dist/msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1"><span class="pl-c">// encode from JS Object to MessagePack (Uint8Array)</span></span>
+<span class="pl-s1"><span class="pl-k">var</span> buffer <span class="pl-k">=</span> msgpack.encode({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// decode from MessagePack (Uint8Array) to JS Object</span></span>
+<span class="pl-s1"><span class="pl-k">var</span> array <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]);</span>
+<span class="pl-s1"><span class="pl-k">var</span> data <span class="pl-k">=</span> msgpack.decode(array);</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h7>
+<a id="user-content-interoperability" class="anchor" href="#interoperability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interoperability</h7>
+
+<p>It is tested to have basic compatibility with other Node.js MessagePack modules below:</p>
+
+<ul>
+<li>
+<a href="https://www.npmjs.com/package/msgpack">https://www.npmjs.com/package/msgpack</a> (0.2.6)</li>
+<li>
+<a href="https://www.npmjs.com/package/msgpack-js">https://www.npmjs.com/package/msgpack-js</a> (0.3.0)</li>
+<li>
+<a href="https://www.npmjs.com/package/msgpack-js-v5">https://www.npmjs.com/package/msgpack-js-v5</a> (0.3.0-v5)</li>
+<li>
+<a href="https://www.npmjs.com/package/msgpack5">https://www.npmjs.com/package/msgpack5</a> (3.1.0)</li>
+<li>
+<a href="https://www.npmjs.com/package/msgpack-unpack">https://www.npmjs.com/package/msgpack-unpack</a> (2.1.1)</li>
+<li>
+<a href="https://github.com/msgpack/msgpack-javascript">https://github.com/msgpack/msgpack-javascript</a> (msgpack.codec)</li>
+</ul>
+<h7>
+<a id="user-content-benchmark" class="anchor" href="#benchmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h7>
+
+<p>A benchmark tool <code>lib/benchmark.js</code> is available to compare encoding/decoding speed
+(operation per second) with other MessagePack modules.
+It counts operations of <a href="https://github.com/kawanet/msgpack-lite/blob/master/test/example.json">1KB JSON document</a> in 10 seconds.</p>
+
+<table>
+<thead><tr>
+<th>operation</th>
+<th align="right">op</th>
+<th align="right">ms</th>
+<th align="right">op/s</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>buf = Buffer(JSON.stringify(obj));</td>
+<td align="right">261300</td>
+<td align="right">10002</td>
+<td align="right">26124</td>
+</tr>
+<tr>
+<td>obj = JSON.parse(buf);</td>
+<td align="right">259200</td>
+<td align="right">10013</td>
+<td align="right">25886</td>
+</tr>
+<tr>
+<td>buf = require("msgpack-lite").encode(obj);</td>
+<td align="right">242800</td>
+<td align="right">10001</td>
+<td align="right">24277</td>
+</tr>
+<tr>
+<td>obj = require("msgpack-lite").decode(buf);</td>
+<td align="right">212000</td>
+<td align="right">10002</td>
+<td align="right">21195</td>
+</tr>
+<tr>
+<td>buf = require("msgpack").pack(obj);</td>
+<td align="right">162800</td>
+<td align="right">10009</td>
+<td align="right">16265</td>
+</tr>
+<tr>
+<td>obj = require("msgpack").unpack(buf);</td>
+<td align="right">189800</td>
+<td align="right">10012</td>
+<td align="right">18957</td>
+</tr>
+<tr>
+<td>buf = Buffer(require("msgpack.codec").msgpack.pack(obj));</td>
+<td align="right">46900</td>
+<td align="right">10006</td>
+<td align="right">4687</td>
+</tr>
+<tr>
+<td>obj = require("msgpack.codec").msgpack.unpack(buf);</td>
+<td align="right">155900</td>
+<td align="right">10000</td>
+<td align="right">15590</td>
+</tr>
+<tr>
+<td>buf = require("msgpack-js-v5").encode(obj);</td>
+<td align="right">45200</td>
+<td align="right">10017</td>
+<td align="right">4512</td>
+</tr>
+<tr>
+<td>obj = require("msgpack-js-v5").decode(buf);</td>
+<td align="right">146700</td>
+<td align="right">10015</td>
+<td align="right">14648</td>
+</tr>
+<tr>
+<td>buf = require("msgpack-js").encode(obj);</td>
+<td align="right">43000</td>
+<td align="right">10009</td>
+<td align="right">4296</td>
+</tr>
+<tr>
+<td>obj = require("msgpack-js").decode(buf);</td>
+<td align="right">146400</td>
+<td align="right">10011</td>
+<td align="right">14623</td>
+</tr>
+<tr>
+<td>buf = require("msgpack5")().encode(obj);</td>
+<td align="right">4500</td>
+<td align="right">10040</td>
+<td align="right">448</td>
+</tr>
+<tr>
+<td>obj = require("msgpack5")().decode(buf);</td>
+<td align="right">18900</td>
+<td align="right">10025</td>
+<td align="right">1885</td>
+</tr>
+<tr>
+<td>obj = require("msgpack-unpack").decode(buf);</td>
+<td align="right">1000</td>
+<td align="right">10343</td>
+<td align="right">96</td>
+</tr>
+</tbody>
+</table>
+<p>Streaming benchmark tool <code>lib/benchmark-stream.js</code> is also available.
+It counts milliseconds for 1,000,000 operations of 30 bytes fluentd msgpack fragment.
+This shows streaming encoding and decoding are super faster.</p>
+
+<table>
+<thead><tr>
+<th>operation (1000000 x 3)</th>
+<th align="right">op</th>
+<th align="right">ms</th>
+<th align="right">op/s</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>stream.write(msgpack.encode(obj));</td>
+<td align="right">1000000</td>
+<td align="right">36072</td>
+<td align="right">27722</td>
+</tr>
+<tr>
+<td>msgpack.createEncodeStream().write(obj);</td>
+<td align="right">1000000</td>
+<td align="right">6080</td>
+<td align="right">164473</td>
+</tr>
+<tr>
+<td>stream.write(msgpack.decode(buf));</td>
+<td align="right">1000000</td>
+<td align="right">9568</td>
+<td align="right">104515</td>
+</tr>
+<tr>
+<td>msgpack.createDecodeStream().write(buf);</td>
+<td align="right">1000000</td>
+<td align="right">5681</td>
+<td align="right">176025</td>
+</tr>
+</tbody>
+</table>
+<p>Test environment: msgpack-lite 0.1.13 on Node v0.12.7</p>
+
+<h7>
+<a id="user-content-messagepack-mapping-table" class="anchor" href="#messagepack-mapping-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack Mapping Table</h7>
+
+<p>The following table shows how JavaScript objects (value) will be mapped to 
+<a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack formats</a>
+and vice versa.</p>
+
+<table>
+<thead><tr>
+<th>Source Value</th>
+<th>MessagePack Format</th>
+<th>Value Decoded</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>null, undefined</td>
+<td>nil format family</td>
+<td>null</td>
+</tr>
+<tr>
+<td>Boolean (true, false)</td>
+<td>bool format family</td>
+<td>Boolean (true, false)</td>
+</tr>
+<tr>
+<td>Number (32bit int)</td>
+<td>int format family</td>
+<td>Number (int or double)</td>
+</tr>
+<tr>
+<td>Number (64bit double)</td>
+<td>float format family</td>
+<td>Number (double)</td>
+</tr>
+<tr>
+<td>String</td>
+<td>str format family</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Buffer</td>
+<td>bin format family</td>
+<td>Buffer</td>
+</tr>
+<tr>
+<td>Array</td>
+<td>array format family</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>Object (plain object)</td>
+<td>map format family</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>Object (see below)</td>
+<td>ext format family</td>
+<td>Object (see below)</td>
+</tr>
+</tbody>
+</table>
+<p>Note that both <code>null</code> and <code>undefined</code> are mapped to nil <code>0xC1</code> type.
+This means <code>undefined</code> value will be <em>upgraded</em> to <code>null</code> in other words.</p>
+
+<h7>
+<a id="user-content-extension-types" class="anchor" href="#extension-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extension Types</h7>
+
+<p>The MessagePack specification allows 128 application-specific extension types. 
+The library uses the following types to make round-trip conversion possible
+for JavaScript native objects.</p>
+
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Object</th>
+<th>Type</th>
+<th>Object</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td></td>
+<td>0x10</td>
+<td></td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>EvalError</td>
+<td>0x11</td>
+<td>Int8Array</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>RangeError</td>
+<td>0x12</td>
+<td>Uint8Array</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>ReferenceError</td>
+<td>0x13</td>
+<td>Int16Array</td>
+</tr>
+<tr>
+<td>0x04</td>
+<td>SyntaxError</td>
+<td>0x14</td>
+<td>Uint16Array</td>
+</tr>
+<tr>
+<td>0x05</td>
+<td>TypeError</td>
+<td>0x15</td>
+<td>Int32Array</td>
+</tr>
+<tr>
+<td>0x06</td>
+<td>URIError</td>
+<td>0x16</td>
+<td>Uint32Array</td>
+</tr>
+<tr>
+<td>0x07</td>
+<td></td>
+<td>0x17</td>
+<td>Float32Array</td>
+</tr>
+<tr>
+<td>0x08</td>
+<td></td>
+<td>0x18</td>
+<td>Float64Array</td>
+</tr>
+<tr>
+<td>0x09</td>
+<td></td>
+<td>0x19</td>
+<td>Uint8ClampedArray</td>
+</tr>
+<tr>
+<td>0x0A</td>
+<td>RegExp</td>
+<td>0x1A</td>
+<td>ArrayBuffer</td>
+</tr>
+<tr>
+<td>0x0B</td>
+<td>Boolean</td>
+<td>0x1B</td>
+<td></td>
+</tr>
+<tr>
+<td>0x0C</td>
+<td>String</td>
+<td>0x1C</td>
+<td></td>
+</tr>
+<tr>
+<td>0x0D</td>
+<td>Date</td>
+<td>0x1D</td>
+<td>DataView</td>
+</tr>
+<tr>
+<td>0x0E</td>
+<td>Error</td>
+<td>0x1E</td>
+<td></td>
+</tr>
+<tr>
+<td>0x0F</td>
+<td>Number</td>
+<td>0x1F</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Other extension types are mapped to internal ExtBuffer object.</p>
+
+<h7>
+<a id="user-content-repository" class="anchor" href="#repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository</h7>
+
+<ul>
+<li><a href="https://github.com/kawanet/msgpack-lite">https://github.com/kawanet/msgpack-lite</a></li>
+</ul>
+<h7>
+<a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h7>
+
+<ul>
+<li><a href="http://msgpack.org/">http://msgpack.org/</a></li>
+</ul>
+<h7>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h7>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2015 Yusuke Kawasaki</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-ludocode-msgpack2json" class="qs"><h4><a href="https://github.com/ludocode/msgpack2json" target="_blank">ludocode/msgpack2json <span class="qs-url">https://github.com/ludocode/msgpack2json</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h6>
+<a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h6>
+
+<p><code>msgpack2json</code> and <code>json2msgpack</code> are simple command-line utilities for converting from <a href="http://msgpack.org/">MessagePack</a> to <a href="http://json.org/">JSON</a> and vice-versa. They support options for lax parsing, lossy conversions, pretty-printing, and base64 encoding.</p>
+
+<p>They can be used for dumping MessagePack from a file or web API to a human-readable format, or for converting hand-written or generated JSON to MessagePack.</p>
+
+<h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
+
+<p>To view a MessagePack file in a human-readable format for debugging purposes:</p>
+
+<pre><code>msgpack2json -di file.mp
+</code></pre>
+
+<p>To convert a hand-written JSON file to a MessagePack file, ignoring comments and trailing commas, and allowing embedded base64 with a "<code>base64:</code>" prefix:</p>
+
+<pre><code>json2msgpack -bli file.json -o file.mp
+</code></pre>
+
+<p>To fetch MessagePack from a web API and view it in a human-readable format:</p>
+
+<pre><code>curl http://example/url | msgpack2json -d
+</code></pre>
+
+<p>To view the MessagePack-equivalent encoding of a JSON string:</p>
+
+<pre><code>$ echo '{"compact": true, "schema": 0}' | json2msgpack | hexdump -C
+00000000  82 a7 63 6f 6d 70 61 63  74 c3 a6 73 63 68 65 6d  |..compact..schem|
+00000010  61 00                                             |a.|
+00000012
+</code></pre>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p><code>msgpack2json</code> currently must be built from source. The latest version of the <code>msgpack2json</code> source archive can be downloaded from the releases page. This includes the library dependencies and has pre-generated man pages:</p>
+
+<p><a href="https://github.com/ludocode/msgpack2json/releases">https://github.com/ludocode/msgpack2json/releases</a></p>
+
+<p><code>msgpack2json</code> uses CMake. A <code>configure</code> script is provided that calls CMake, so on Linux and Mac OS X, you can simply run the usual:</p>
+
+<pre><code>./configure &amp;&amp; make &amp;&amp; sudo make install
+</code></pre>
+
+<p>If you are building from the repository, you will need to fetch the dependencies and generate the man pages. These are done with the scripts under <code>tools/fetch.sh</code> and <code>tools/man.sh</code>. <a href="https://github.com/sunaku/md2man">md2man</a> is required to generate the man pages.</p>
+
+<h6>
+<a id="user-content-differences-between-messagepack-and-json" class="anchor" href="#differences-between-messagepack-and-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Differences between MessagePack and JSON</h6>
+
+<p>MessagePack is intended to be very close to JSON in supported features, so they can usually be transparently converted from one to the other. There are some differences, however, which can complicate conversions.</p>
+
+<p>These are the differences in what objects are representable in each format:</p>
+
+<ul>
+<li><p>JSON keys must be strings. MessagePack keys can be any type, including maps and arrays.</p></li>
+<li><p>JSON supports "bignums", i.e. integers of any size. MessagePack integers must fit within a 64-bit signed or unsigned integer.</p></li>
+<li><p>MessagePack supports binary and extension type objects. JSON does not support binary data. Binary data is often encoded into a base64 string to be embedded into a JSON document.</p></li>
+<li><p>The top-level object in a JSON document must be either an array or object (map). The top-level object in MessagePack can be any type.</p></li>
+<li><p>A JSON document must be entirely in one encoding. MessagePack does not specify encoding, and different strings in the same document can technically be in different encodings (though this is a really bad idea.)</p></li>
+</ul>
+<p>By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
 </article>
 </div>
         </div>
