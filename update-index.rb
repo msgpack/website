@@ -259,12 +259,5 @@ Host github_msgpack_website
 end
 
 if __FILE__ == $0
-  #update_index(Logger.new(STDOUT))
-
-  log = Logger.new(STDOUT)
-  up = IndexHtmlRenderer.new(log, ENV['GITHUB_TOKEN'])
-  files = up.render_all("index.html.erb", "lang.yml")
-  files.each do |file,html|
-    File.open(file, "w") {|f| f.write html }
-  end
+  update_index(Logger.new(STDOUT))
 end
