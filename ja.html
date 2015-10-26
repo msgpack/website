@@ -248,11 +248,11 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-gabriel-MPMessagePack',this)">Objective-C <span class="qs-sub">gabriel</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-gabriel-MPMessagePack',this)">Objective-C <span class="qs-sub">gabriel</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-rodrigosetti-messagepack',this)">Haskell <span class="qs-sub">rodrigosetti</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
@@ -3347,53 +3347,6 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 </div>
         </div>
         
-        <div id="qs-gabriel-MPMessagePack" class="qs"><h4><a href="https://github.com/gabriel/MPMessagePack" target="_blank">gabriel/MPMessagePack <span class="qs-url">https://github.com/gabriel/MPMessagePack</span></a></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h5>
-
-<pre><code>pod "MPMessagePack"
-</code></pre>
-
-<h6>
-<a id="user-content-writing" class="anchor" href="#writing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing</h6>
-
-<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>MPMessagePack/MPMessagePack.h<span class="pl-pds">&gt;</span></span>
-
-<span class="pl-c1">NSDictionary</span> *dict =
-@{
-<span class="pl-s"><span class="pl-pds">@"</span>n<span class="pl-pds">"</span></span>: @(<span class="pl-c1">32134123</span>),
-<span class="pl-s"><span class="pl-pds">@"</span>bool<span class="pl-pds">"</span></span>: @(<span class="pl-c1">YES</span>),
-<span class="pl-s"><span class="pl-pds">@"</span>array<span class="pl-pds">"</span></span>: @[@(<span class="pl-c1">1</span>.<span class="pl-c1">1f</span>), @(<span class="pl-c1">2.1</span>)],
-<span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>: [<span class="pl-c1">NSData</span> <span class="pl-c1">data</span>],
-};
-
-<span class="pl-c1">NSData</span> *data = [dict <span class="pl-c1">mp_messagePack</span>];</pre></div>
-
-<p>Or via <code>MPMessagePackWriter</code>.</p>
-
-<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSError</span> *error = <span class="pl-c1">nil</span>;
-<span class="pl-c1">NSData</span> *data = [MPMessagePackWriter <span class="pl-c1">writeObject:</span>dict <span class="pl-c1">error:</span>&amp;error];</pre></div>
-
-<p>If you need to use an ordered dictionary.</p>
-
-<div class="highlight highlight-source-objc"><pre>MPOrderedDictionary *dict = [[MPOrderedDictionary <span class="pl-c1">alloc</span>] <span class="pl-c1">init</span>];
-[dict <span class="pl-c1">addEntriesFromDictionary:</span>@{<span class="pl-s"><span class="pl-pds">@"</span>c<span class="pl-pds">"</span></span>: @(<span class="pl-c1">1</span>), <span class="pl-s"><span class="pl-pds">@"</span>b<span class="pl-pds">"</span></span>: @(<span class="pl-c1">2</span>), <span class="pl-s"><span class="pl-pds">@"</span>a<span class="pl-pds">"</span></span>: @(<span class="pl-c1">3</span>)}];
-[dict <span class="pl-c1">sortKeysUsingSelector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">localizedCaseInsensitiveCompare:</span>)];
-[dict <span class="pl-c1">mp_messagePack</span>];</pre></div>
-
-<h6>
-<a id="user-content-reading" class="anchor" href="#reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading</h6>
-
-<div class="highlight highlight-source-objc"><pre><span class="pl-k">id</span> obj = [MPMessagePackReader <span class="pl-c1">readData:</span>data <span class="pl-c1">error:</span>&amp;error];</pre></div>
-
-<div class="highlight highlight-source-objc"><pre>MPMessagePackReader *reader = [[MPMessagePackReader <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithData:</span>data];
-<span class="pl-k">id</span> obj1 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c">// Read an object</span>
-<span class="pl-k">id</span> obj2 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c">// Read another object</span></pre></div>
-</article>
-</div>
-        </div>
-        
         <div id="qs-mcollina-msgpack5" class="qs"><h4><a href="https://github.com/mcollina/msgpack5" target="_blank">mcollina/msgpack5 <span class="qs-url">https://github.com/mcollina/msgpack5</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -3680,6 +3633,94 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
     <span class="pl-c">-- ...</span></pre></div>
 
 <p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p>
+</article>
+</div>
+        </div>
+        
+        <div id="qs-ymofen-msgpack-delphi" class="qs"><h4><a href="https://github.com/ymofen/msgpack-delphi" target="_blank">ymofen/msgpack-delphi <span class="qs-url">https://github.com/ymofen/msgpack-delphi</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-for-delphi" class="anchor" href="#msgpack-for-delphi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Msgpack for Delphi</h5>
+
+<p>It's like JSON but small and fast.</p>
+
+<pre><code>unit Owner: D10.Mofen, qdac.swish
+contact:
+       qq:185511468, 
+    email:185511468@qq.com
+welcome to report bug
+</code></pre>
+
+<h6>
+<a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><span class="octicon octicon-link"></span></a>Works with</h6>
+
+<ul>
+<li>Delphi 7 (tested)</li>
+<li>Delphi 2007 (tested)</li>
+<li>XE5, XE6, XE7, FMX (tested)</li>
+</ul>
+<h6>
+<a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>changes:</h6>
+
+<ul>
+<li><p>first release
+ 2014-08-15 13:05:13</p></li>
+<li><p>add array support
+ 2014-08-19 12:18:47</p></li>
+<li><p>add andriod support
+ 2014-09-08 00:45:27</p></li>
+<li><p>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
+ 2014-11-09 22:35:27</p></li>
+<li><p>add EncodeToFile/DecodeFromFile
+ 2014-11-13 12:30:58</p></li>
+<li><p>fix  asVariant = null (thanks for cyw(26890954))
+ 2014-11-14 09:05:52</p></li>
+<li><p>fix AsInteger = -1 bug (thanks for cyw(26890954))
+ 2014-11-14 12:15:52</p></li>
+<li><p>fix AsInteger = -127 bug
+ check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
+ 2014-11-14 12:30:38</p></li>
+<li><p>fix AsFloat = 2.507182 bug
+ thanks fo [珠海]-芒果  1939331207
+ 2014-11-21 12:37:04</p></li>
+<li><p>add AddArrayChild func
+ 2015-03-25 17:47:28</p></li>
+<li><p>add remove/removeFromParent/Delete function
+ 2015-08-29 22:37:48</p></li>
+</ul>
+<h7>
+<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Example</h7>
+
+<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
+  lvMsg, lvMsg2:TSimpleMsgPack;
+  lvBytes:TBytes;
+  s:string;
+<span class="pl-k">begin</span>
+  lvMsg := TSimpleMsgPack.Create;
+  lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>] := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
+  <span class="pl-k">if</span> dlgOpen.Execute <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] := ExtractFileName(dlgOpen.FileName);
+
+    <span class="pl-c">// file binary data</span>
+    lvMsg.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).LoadBinaryFromFile(dlgOpen.FileName);
+  <span class="pl-k">end</span>;
+
+  <span class="pl-c">//</span>
+  lvBytes := lvMsg.EncodeToBytes;
+
+  lvMsg2 := TSimpleMsgPack.Create;
+  lvMsg2.DecodeFromBytes(lvBytes);
+  <span class="pl-c">//</span>
+  Memo1.Lines.Add(lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>]);
+  <span class="pl-k">if</span> lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] &lt;&gt; <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    s := ExtractFilePath(ParamStr(<span class="pl-c1">0</span>)) + lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>];
+    Memo1.Lines.Add(<span class="pl-s"><span class="pl-pds">'</span>file saved<span class="pl-pds">'</span></span>);
+    Memo1.Lines.Add(s);
+    lvMsg2.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).SaveBinaryToFile(s);    
+  <span class="pl-k">end</span>;
+</pre></div>
 </article>
 </div>
         </div>
