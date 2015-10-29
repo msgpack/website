@@ -219,8 +219,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ugorji-go',this)">Go <span class="qs-sub">ugorji</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-suzukaze-mruby-msgpack',this)">mruby <span class="qs-sub">suzukaze</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-lexmag-msgpax',this)">Elixir <span class="qs-sub">lexmag</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jingweno-msgpack_rails',this)">Rails <span class="qs-sub">jingweno</span></a></li>
@@ -253,6 +251,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-chinawsb-qmsgpack-delphi',this)">Delphi <span class="qs-sub">chinawsb</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-romixlab-qmsgpack',this)">Qt <span class="qs-sub">romixlab</span></a></li>
@@ -276,6 +276,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-akiradeveloper-msgpack-nim',this)">Nim <span class="qs-sub">akiradeveloper</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-mpack',this)">C <span class="qs-sub">ludocode</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-3Hren-msgpack-rust',this)">Rust <span class="qs-sub">3Hren</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-3Hren-msgpack-rust',this)">Rust <span class="qs-sub">3Hren</span></a></li>
           
@@ -2089,83 +2091,6 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
   </div>
         </div>
         
-        <div id="qs-suzukaze-mruby-msgpack" class="qs"><h4><a href="MessagePack for mruby" target="_blank">suzukaze/mruby-msgpack <span class="qs-url">MessagePack for mruby</span></a></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-mruby-msgpack---" class="anchor" href="#mruby-msgpack---" aria-hidden="true"><span class="octicon octicon-link"></span></a>mruby-msgpack   <a href="https://travis-ci.org/suzukaze/mruby-msgpack"><img src="https://camo.githubusercontent.com/363e4c78a037f69c0b697b36f5e213eaf4497681/68747470733a2f2f7472617669732d63692e6f72672f73757a756b617a652f6d727562792d6d73677061636b2e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/suzukaze/mruby-msgpack.png?branch=master" style="max-width:100%;"></a>
-</h5>
-
-<h6>
-<a id="user-content-welcome-to-messagepack-for-mruby" class="anchor" href="#welcome-to-messagepack-for-mruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to MessagePack for mruby</h6>
-
-<p>MessagePack for mruby is MessagePack implimented in mruby language.</p>
-
-<div class="highlight highlight-source-ruby"><pre>msg <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].to_msgpack  <span class="pl-c">#=&gt; "\x93\x01\x02\x03"</span>
-<span class="pl-c1">MessagePack</span>.unpack(msg)     <span class="pl-c">#=&gt; [1, 2, 3]</span></pre></div>
-
-<p>This is early vesion. Please check the methods that work in test foloder.</p>
-
-<h6>
-<a id="user-content-platform" class="anchor" href="#platform" aria-hidden="true"><span class="octicon octicon-link"></span></a>Platform</h6>
-
-<p>I test MessagePack for mruby in mac OSX 10.8.4. In the future it will work in Windows and Linux OS.</p>
-
-<h6>
-<a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h6>
-
-<ol>
-<li>
-<p>Download MessagePack for mruby at the command prompt:</p>
-
-<pre><code>git clone https://github.com/suzukaze/mruby-msgpack.git
-</code></pre>
-</li>
-<li><p>Add config.gem line to <code>build_config.rb</code></p></li>
-</ol>
-
-<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">MRuby</span>::<span class="pl-c1">Build</span>.<span class="pl-k">new</span> <span class="pl-k">do </span>|<span class="pl-smi">conf</span>|
-
-  <span class="pl-c"># ...(snip)...</span>
-  conf.<span class="pl-k">gem</span> <span class="pl-c1">:git</span> =&gt; <span class="pl-s"><span class="pl-pds">'</span>https://github.com/suzukaze/mruby-msgpack.git<span class="pl-pds">'</span></span>
-<span class="pl-k">end</span></pre></div>
-
-<ol>
-<li>
-<p>Test at the command prompt:</p>
-
-<pre><code>rake test
-</code></pre>
-</li>
-<li>
-<p>Build at the command prompt:</p>
-
-<pre><code>rake
-</code></pre>
-</li>
-</ol>
-
-<h6>
-<a id="user-content-msgpack-ruby-commit" class="anchor" href="#msgpack-ruby-commit" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-ruby commit</h6>
-
-<p>mruby-msgpack is based on <a href="https://github.com/msgpack/msgpack-ruby">msgpack-ruby</a>(<code>a7c2dc34ef69c9132167e38009baa8420c460c9b</code>)</p>
-
-<h6>
-<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h6>
-
-<p>I encourage you to contribute to MessagePack for mruby!</p>
-
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
-
-<p>Author : Jun Hiroe</p>
-
-<p>Copyrigh : Copyright (c) 2013 Jun Hiroe</p>
-
-<p>License : MIT License</p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-lexmag-msgpax" class="qs"><h4><a href="https://github.com/lexmag/msgpax" target="_blank">lexmag/msgpax <span class="qs-url">https://github.com/lexmag/msgpax</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -3871,6 +3796,96 @@ welcome to report bug
   </div>
         </div>
         
+        <div id="qs-ymofen-msgpack-delphi" class="qs"><h4><a href="https://github.com/ymofen/msgpack-delphi" target="_blank">ymofen/msgpack-delphi <span class="qs-url">https://github.com/ymofen/msgpack-delphi</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-for-delphi" class="anchor" href="#msgpack-for-delphi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Msgpack for Delphi</h5>
+
+<p>It's like JSON but small and fast.</p>
+
+<pre><code>unit Owner: D10.Mofen, qdac.swish
+contact:
+       qq:185511468, 
+    email:185511468@qq.com
+welcome to report bug
+</code></pre>
+
+<h6>
+<a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><span class="octicon octicon-link"></span></a>Works with</h6>
+
+<ul>
+<li>Delphi 7 (tested)</li>
+<li>Delphi 2007 (tested)</li>
+<li>XE5, XE6, XE7, FMX (tested)</li>
+</ul>
+
+<h6>
+<a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>changes:</h6>
+
+<ul>
+<li><p>first release
+ 2014-08-15 13:05:13</p></li>
+<li><p>add array support
+ 2014-08-19 12:18:47</p></li>
+<li><p>add andriod support
+ 2014-09-08 00:45:27</p></li>
+<li><p>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
+ 2014-11-09 22:35:27</p></li>
+<li><p>add EncodeToFile/DecodeFromFile
+ 2014-11-13 12:30:58</p></li>
+<li><p>fix  asVariant = null (thanks for cyw(26890954))
+ 2014-11-14 09:05:52</p></li>
+<li><p>fix AsInteger = -1 bug (thanks for cyw(26890954))
+ 2014-11-14 12:15:52</p></li>
+<li><p>fix AsInteger = -127 bug
+ check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
+ 2014-11-14 12:30:38</p></li>
+<li><p>fix AsFloat = 2.507182 bug
+ thanks fo [珠海]-芒果  1939331207
+ 2014-11-21 12:37:04</p></li>
+<li><p>add AddArrayChild func
+ 2015-03-25 17:47:28</p></li>
+<li><p>add remove/removeFromParent/Delete function
+ 2015-08-29 22:37:48</p></li>
+</ul>
+
+<h7>
+<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Example</h7>
+
+<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
+  lvMsg, lvMsg2:TSimpleMsgPack;
+  lvBytes:TBytes;
+  s:string;
+<span class="pl-k">begin</span>
+  lvMsg := TSimpleMsgPack.Create;
+  lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>] := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
+  <span class="pl-k">if</span> dlgOpen.Execute <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] := ExtractFileName(dlgOpen.FileName);
+
+    <span class="pl-c">// file binary data</span>
+    lvMsg.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).LoadBinaryFromFile(dlgOpen.FileName);
+  <span class="pl-k">end</span>;
+
+  <span class="pl-c">//</span>
+  lvBytes := lvMsg.EncodeToBytes;
+
+  lvMsg2 := TSimpleMsgPack.Create;
+  lvMsg2.DecodeFromBytes(lvBytes);
+  <span class="pl-c">//</span>
+  Memo1.Lines.Add(lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>]);
+  <span class="pl-k">if</span> lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] &lt;&gt; <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    s := ExtractFilePath(ParamStr(<span class="pl-c1">0</span>)) + lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>];
+    Memo1.Lines.Add(<span class="pl-s"><span class="pl-pds">'</span>file saved<span class="pl-pds">'</span></span>);
+    Memo1.Lines.Add(s);
+    lvMsg2.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).SaveBinaryToFile(s);    
+  <span class="pl-k">end</span>;
+</pre></div>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-chinawsb-qmsgpack-delphi" class="qs"><h4><a href="http://www.qdac.cc" target="_blank">chinawsb/qmsgpack-delphi <span class="qs-url">http://www.qdac.cc</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h7>
@@ -5234,6 +5249,177 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <p>On Windows, there is a Visual Studio solution, and on OS X, there is an Xcode project for building and running the test suite.</p>
 
 <p>You can also build and run the test suite in all supported configurations, which is what the continuous integration server will build and run. If you are on 64-bit, you will need support for cross-compiling to 32-bit, and running 32-bit binaries with 64-bit Valgrind. On Ubuntu, you'll need <code>libc6-dbg:i386</code>. On Arch you'll need <code>gcc-multilib</code> or <code>lib32-clang</code>, and <code>valgrind-multilib</code>. Use <code>scons all=1 -j16</code> (or some appropriate thread count) to build and run all tests.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-3Hren-msgpack-rust" class="qs"><h4><a href="https://github.com/3Hren/msgpack-rust" target="_blank">3Hren/msgpack-rust <span class="qs-url">https://github.com/3Hren/msgpack-rust</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-rmp---rust-messagepack" class="anchor" href="#rmp---rust-messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>RMP - Rust MessagePack</h5>
+
+<p>RMP is a pure Rust <a href="http://msgpack.org">MessagePack</a> implementation.</p>
+
+<p><a href="https://travis-ci.org/3Hren/msgpack-rust"><img src="https://camo.githubusercontent.com/20ebe3c911448a9065b08456ca2756bac8286aa1/68747470733a2f2f7472617669732d63692e6f72672f334872656e2f6d73677061636b2d727573742e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/3Hren/msgpack-rust.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://coveralls.io/github/3Hren/msgpack-rust?branch=master"><img src="https://camo.githubusercontent.com/ff5a42d50bd6a64d9dd01983996bef139104bf5e/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f334872656e2f6d73677061636b2d727573742f62616467652e7376673f6272616e63683d6d617374657226736572766963653d676974687562" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/3Hren/msgpack-rust/badge.svg?branch=master&amp;service=github" style="max-width:100%;"></a></p>
+
+<p>This repository consists of three separate crates: the RMP core and two implementations to ease serializing and
+deserializing Rust structs.</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Crates.io</th>
+<th>API Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>rmp</strong></td>
+<td><a href="https://crates.io/crates/rmp"><img src="https://camo.githubusercontent.com/8cd4852fe3605c05bbfc01d2d37be8977aab0d4f/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d70" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp" style="max-width:100%;"></a></td>
+<td><a href="http://3hren.github.io/msgpack-rust/rmp/rmp/index.html">RMP</a></td>
+</tr>
+<tr>
+<td><strong>rmp-serialize</strong></td>
+<td><a href="https://crates.io/crates/rmp-serialize"><img src="https://camo.githubusercontent.com/25e25b0b737dd4d649c6ab4d56171339a3b4703a/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d702d73657269616c697a65" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp-serialize" style="max-width:100%;"></a></td>
+<td><a href="http://3hren.github.io/msgpack-rust/rmp-serialize/rmp_serialize/index.html">RMP Serialize</a></td>
+</tr>
+<tr>
+<td><strong>rmp-serde</strong></td>
+<td><a href="https://crates.io/crates/rmp-serde"><img src="https://camo.githubusercontent.com/f078f56b2e0bdb20e7999f74513eaf949e2a3bb2/687474703a2f2f6d6572697462616467652e6865726f6b756170702e636f6d2f726d702d7365726465" alt="" data-canonical-src="http://meritbadge.herokuapp.com/rmp-serde" style="max-width:100%;"></a></td>
+<td><a href="http://3hren.github.io/msgpack-rust/rmp-serde/rmp_serde/index.html">RMP Serde</a></td>
+</tr>
+</tbody>
+</table>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<p>To use <code>rmp</code>, first add this to your <code>Cargo.toml</code>:</p>
+
+<div class="highlight highlight-source-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">rmp</span>]
+<span class="pl-smi">rmp</span> = <span class="pl-s"><span class="pl-pds">"</span>^0.7<span class="pl-pds">"</span></span></pre></div>
+
+<p>Then, add this to your crate root:</p>
+
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp <span class="pl-k">as</span> msgpack<span class="pl-k">;</span> <span class="pl-c">// Or just `rmp`.</span></pre></div>
+
+<h6>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
+
+<ul>
+<li>
+<p><strong>Convenient API</strong></p>
+
+<p>RMP is designed to be lightweight and straightforward. There are low-level API, which gives you
+full control on data encoding/decoding process and makes no heap allocations. On the other hand
+there are high-level API, which provides you convenient interface using Rust standard library and
+compiler reflection, allowing to encode/decode structures using <code>derive</code> attribute.</p>
+</li>
+<li>
+<p><strong>Zero-copy value decoding</strong></p>
+
+<p>RMP allows to decode bytes from a buffer in a zero-copy manner easily and blazingly fast, while Rust
+static checks guarantees that the data will be valid until buffer lives.</p>
+</li>
+<li>
+<p><strong>Clear error handling</strong></p>
+
+<p>RMP's error system guarantees that you never receive an error enum with unreachable variant.</p>
+</li>
+<li>
+<p><strong>Robust and tested</strong></p>
+
+<p>This project is developed using TDD and CI, so any found bugs will be fixed without breaking
+existing functionality.</p>
+</li>
+</ul>
+
+<h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
+
+<p>Let's try to encode a tuple of int and string.</p>
+
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize<span class="pl-k">;</span>
+
+<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span><span class="pl-k">Encodable</span><span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack<span class="pl-k">::</span><span class="pl-k">Encoder</span><span class="pl-k">;</span>
+
+<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">let</span> val <span class="pl-k">=</span> (<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span>)<span class="pl-k">;</span>
+
+    <span class="pl-c">// The encoder borrows the bytearray buffer.</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
+
+    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">Encoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
+
+    assert_eq<span class="pl-k">!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
+}</pre></div>
+
+<p>Now we have an encoded buffer, which we can decode the same way:</p>
+
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize<span class="pl-k">;</span>
+
+<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span><span class="pl-k">Decodable</span><span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack<span class="pl-k">::</span><span class="pl-k">Decoder</span><span class="pl-k">;</span>
+
+<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">let</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">;</span>
+
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> decoder <span class="pl-k">=</span> <span class="pl-k">Decoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
+
+    <span class="pl-k">let</span> res<span class="pl-k">:</span> (<span class="pl-k">u8</span><span class="pl-k">,</span> <span class="pl-k">String</span>) <span class="pl-k">=</span> <span class="pl-k">Decodable</span><span class="pl-k">::</span><span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+
+    assert_eq<span class="pl-k">!</span>((<span class="pl-c1">42u8</span><span class="pl-k">,</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>())<span class="pl-k">,</span> res)<span class="pl-k">;</span>
+}</pre></div>
+
+<p>RMP also allows to automatically serialize/deserialize custom structures using rustc_serialize
+reflection. To enable this feature, derive RustcEncodable and RustcDecodable attributes as
+shown in the following example:</p>
+
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack<span class="pl-k">;</span>
+<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize<span class="pl-k">;</span>
+
+<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span>{<span class="pl-k">Encodable</span><span class="pl-k">,</span> <span class="pl-k">Decodable</span>}<span class="pl-k">;</span>
+<span class="pl-k">use</span> msgpack<span class="pl-k">::</span>{<span class="pl-k">Encoder</span><span class="pl-k">,</span> <span class="pl-k">Decoder</span>}<span class="pl-k">;</span>
+
+<span class="pl-c">#[derive(RustcEncodable, RustcDecodable, PartialEq, Debug)]</span>
+<span class="pl-k">struct</span> <span class="pl-k">Custom</span> {
+    id<span class="pl-k">:</span> <span class="pl-k">u32</span><span class="pl-k">,</span>
+    key<span class="pl-k">:</span> <span class="pl-k">String</span><span class="pl-k">,</span>
+}
+
+<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">let</span> val <span class="pl-k">=</span> <span class="pl-k">Custom</span> { id<span class="pl-k">:</span> <span class="pl-c1">42u32</span><span class="pl-k">,</span> key<span class="pl-k">:</span> <span class="pl-s">"the Answer"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>() }<span class="pl-k">;</span>
+
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0u8</span><span class="pl-k">;</span> <span class="pl-c1">13</span>]<span class="pl-k">;</span>
+
+    val<span class="pl-k">.</span><span class="pl-c1">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">Encoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[<span class="pl-k">..</span>]))<span class="pl-k">;</span>
+
+    assert_eq<span class="pl-k">!</span>([<span class="pl-c1">0x92</span><span class="pl-k">,</span> <span class="pl-c1">0x2a</span><span class="pl-k">,</span> <span class="pl-c1">0xaa</span><span class="pl-k">,</span> <span class="pl-c1">0x74</span><span class="pl-k">,</span> <span class="pl-c1">0x68</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x20</span><span class="pl-k">,</span> <span class="pl-c1">0x41</span><span class="pl-k">,</span> <span class="pl-c1">0x6e</span><span class="pl-k">,</span> <span class="pl-c1">0x73</span><span class="pl-k">,</span> <span class="pl-c1">0x77</span><span class="pl-k">,</span> <span class="pl-c1">0x65</span><span class="pl-k">,</span> <span class="pl-c1">0x72</span>]<span class="pl-k">,</span> buf)<span class="pl-k">;</span>
+
+    <span class="pl-c">// Now try to unpack the buffer into the initial struct.</span>
+    <span class="pl-k">let</span> <span class="pl-k">mut</span> decoder <span class="pl-k">=</span> <span class="pl-k">Decoder</span><span class="pl-k">::</span><span class="pl-c1">new</span>(<span class="pl-k">&amp;</span>buf[<span class="pl-k">..</span>])<span class="pl-k">;</span>
+    <span class="pl-k">let</span> res<span class="pl-k">:</span> <span class="pl-k">Custom</span> <span class="pl-k">=</span> <span class="pl-k">Decodable</span><span class="pl-k">::</span><span class="pl-c1">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+
+    assert_eq<span class="pl-k">!</span>(val<span class="pl-k">,</span> res)<span class="pl-k">;</span>
+}</pre></div>
+
+<h6>
+<a id="user-content-versioning" class="anchor" href="#versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versioning</h6>
+
+<p>This project adheres to <a href="http://semver.org/">Semantic Versioning</a>. However until 1.0.0 comes there
+will be the following rules:</p>
+
+<ul>
+<li>Any API/ABI breaking changes will be notified in the changelog explicitly and results in minor
+version bumping.</li>
+<li>API extending features results in minor version bumping.</li>
+<li>Non-breaking bug fixes and performance improving results in patch version bumping.</li>
+</ul>
 </article>
   </div>
         </div>
