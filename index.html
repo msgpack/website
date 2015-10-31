@@ -5128,9 +5128,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
         
         <div id="qs-ludocode-mpack" class="qs"><h4><a href="https://github.com/ludocode/mpack" target="_blank">ludocode/mpack <span class="qs-url">https://github.com/ludocode/mpack</span></a></h4>
 <div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><p><a href="https://travis-ci.org/ludocode/mpack/branches"><img src="https://camo.githubusercontent.com/dabfb27ce58997332acdab1b1e8aaf85632af861/68747470733a2f2f7472617669732d63692e6f72672f6c75646f636f64652f6d7061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ludocode/mpack.svg?branch=master" style="max-width:100%;"></a></p>
-
-<h6>
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h6>
 <a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h6>
 
 <p>MPack is a C implementation of an encoder and decoder for the <a href="http://msgpack.org/">MessagePack</a> serialization format. It is intended to be:</p>
@@ -5149,7 +5147,25 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <p>MPack is written in the portable intersection of C99 and C++. In other words, it's written in C99, but if you are stuck using a certain popular compiler from a certain unpopular vendor that refuses to support C99, you can compile it as C++ instead.</p>
 
-<p><em>NOTE: MPack is beta software under development. The API occasionally changes, there are still some TODOs in the codebase, some security issues to fix, some MessagePack 1.0/1.1 compatibility and interoperability issues to sort out, some test suite portability issues to fix, and there is only around 65% unit test coverage.</em></p>
+<h6>
+<a id="user-content-build-status" class="anchor" href="#build-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build Status</h6>
+
+<p>MPack is beta software under development.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a href="https://travis-ci.org/">Travis-CI</a></th>
+<th align="center"><a href="https://coveralls.io/">Coveralls.io</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://travis-ci.org/ludocode/mpack/branches"><img src="https://camo.githubusercontent.com/dabfb27ce58997332acdab1b1e8aaf85632af861/68747470733a2f2f7472617669732d63692e6f72672f6c75646f636f64652f6d7061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ludocode/mpack.svg?branch=master" style="max-width:100%;"></a></td>
+<td align="center"><a href="https://coveralls.io/github/ludocode/mpack?branch=master"><img src="https://camo.githubusercontent.com/44c90ed886959cccd09afd3cfb1e095ae072c970/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6c75646f636f64652f6d7061636b2f62616467652e7376673f6272616e63683d6d617374657226736572766963653d676974687562" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/ludocode/mpack/badge.svg?branch=master&amp;service=github" style="max-width:100%;"></a></td>
+</tr>
+</tbody>
+</table>
 
 <h6>
 <a id="user-content-the-node-reader-api" class="anchor" href="#the-node-reader-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Node Reader API</h6>
@@ -5171,7 +5187,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
     <span class="pl-k">return</span>;
 }</pre></div>
 
-<p>Note that no additional error handling is needed in the above code. If the file is missing or corrupt, if map keys are missing or if nodes are not in the expected types, special "nil" nodes and false/zero values are returned and the tree is placed in an error state. An error check is only needed before using the data. Alternatively, the tree can be configured to longjmp in such cases if a handler is set.</p>
+<p>Note that no additional error handling is needed in the above code. If the file is missing or corrupt, if map keys are missing or if nodes are not in the expected types, special "nil" nodes and false/zero values are returned and the tree is placed in an error state. An error check is only needed before using the data.</p>
 
 <h6>
 <a id="user-content-the-write-api" class="anchor" href="#the-write-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Write API</h6>
@@ -5204,7 +5220,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <p>In the above example, we encode to a growable memory buffer. The writer can instead write to a pre-allocated or stack-allocated buffer, avoiding the need for memory allocation. The writer can also be provided with a flush function (such as a file or socket write function) to call when the buffer is full or when writing is done.</p>
 
-<p>If any error occurs, the writer is placed in an error state and can optionally longjmp if a handler is set. The writer will flag an error if too much data is written, if the wrong number of elements are written, if the data could not be flushed, etc. No additional error handling is needed in the above code; any subsequent writes are ignored when the writer is in an error state, so you don't need to check every write for errors.</p>
+<p>If any error occurs, the writer is placed in an error state. The writer will flag an error if too much data is written, if the wrong number of elements are written, if the data could not be flushed, etc. No additional error handling is needed in the above code; any subsequent writes are ignored when the writer is in an error state, so you don't need to check every write for errors.</p>
 
 <p>Note in particular that in debug mode, the <code>mpack_finish_map()</code> call above ensures that two key/value pairs were actually written as claimed, something that other MessagePack C/C++ libraries may not do.</p>
 
@@ -5215,7 +5231,7 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <ul>
 <li><p>Compound types such as strings, maps and arrays are delimited, so appropriate storage cannot be allocated upfront. The whole object must be parsed to determine its size.</p></li>
-<li><p>Strings are not stored in their native encoding. They cannot contain quotes or special characters, so they must be escaped when written and converted back when read.</p></li>
+<li><p>Strings are not stored in their native encoding. Special characters such as quotes and backslashes must be escaped when written and converted back when read.</p></li>
 <li><p>Numbers are particularly inefficient (especially when parsing back floats), making JSON inappropriate as a base format for structured data that contains lots of numbers.</p></li>
 <li><p>Binary data is not supported by JSON at all. Small binary blobs such as icons and thumbnails need to be Base64 encoded or passed out-of-band.</p></li>
 </ul>
