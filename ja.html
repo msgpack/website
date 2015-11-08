@@ -574,45 +574,10 @@ writing MessagePack data.</p>
 <p>When you can't use binary distribution, you need to install Visual Studio
 or Windows SDK on Windows.
 Without extension, using pure python implementation on CPython runs slowly.</p>
-<p>For Python 2.7, [Microsoft Visual C++ Compiler for Python 2.7](<a href="https://www.microsoft.com/en-us/download/details.aspx?id=44266">https://www.microsoft.com/en-us/download/details.aspx?id=44266</a>)
+<p>For Python 2.7, <a href="https://www.microsoft.com/en-us/download/details.aspx?id=44266">Microsoft Visual C++ Compiler for Python 2.7</a>
 is recommended solution.</p>
-<p>For Python 3.5, [Microsoft Visual Studio 2015](<a href="https://www.visualstudio.com/en-us/products/vs-2015-product-editions.aspx">https://www.visualstudio.com/en-us/products/vs-2015-product-editions.aspx</a>)
+<p>For Python 3.5, <a href="https://www.visualstudio.com/en-us/products/vs-2015-product-editions.aspx">Microsoft Visual Studio 2015</a>
 Community Edition or Express Edition can be used to build extension module.</p>
-<a name="user-content-notes"></a>
-<h6>
-<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h6>
-<a name="user-content-note-for-msgpack-2-0-support"></a>
-<h7>
-<a id="user-content-note-for-msgpack-20-support" class="anchor" href="#note-for-msgpack-20-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note for msgpack 2.0 support</h7>
-<p>msgpack 2.0 adds two types: <em>bin</em> and <em>ext</em>.</p>
-<p><em>raw</em> was bytes or string type like Python 2's <code>str</code>.
-To distinguish string and bytes, msgpack 2.0 adds <em>bin</em>.
-It is non-string binary like Python 3's <code>bytes</code>.</p>
-<p>To use <em>bin</em> type for packing <code>bytes</code>, pass <code>use_bin_type=True</code> to
-packer argument.</p>
-<pre lang="pycon">&gt;&gt;&gt; import msgpack
-&gt;&gt;&gt; packed = msgpack.packb([b'spam', u'egg'], use_bin_type=True)
-&gt;&gt;&gt; msgpack.unpackb(packed, encoding='utf-8')
-['spam', u'egg']
-</pre>
-<p>You shoud use it carefully. When you use <code>use_bin_type=True</code>, packed
-binary can be unpacked by unpackers supporting msgpack-2.0.</p>
-<p>To use <em>ext</em> type, pass <code>msgpack.ExtType</code> object to packer.</p>
-<pre lang="pycon">&gt;&gt;&gt; import msgpack
-&gt;&gt;&gt; packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
-&gt;&gt;&gt; msgpack.unpackb(packed)
-ExtType(code=42, data='xyzzy')
-</pre>
-<p>You can use it with <code>default</code> and <code>ext_hook</code>. See below.</p>
-<a name="user-content-note-for-msgpack-0-2-x-users"></a>
-<h7>
-<a id="user-content-note-for-msgpack-02x-users" class="anchor" href="#note-for-msgpack-02x-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note for msgpack 0.2.x users</h7>
-<p>The msgpack 0.3 have some incompatible changes.</p>
-<p>The default value of <code>use_list</code> keyword argument is <code>True</code> from 0.3.
-You should pass the argument explicitly for backward compatibility.</p>
-<p>Unpacker.unpack() and some unpack methods now raises OutOfData
-instead of StopIteration.
-StopIteration is used for iterator protocol only.</p>
 <a name="user-content-how-to-use"></a>
 <h6>
 <a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h6>
@@ -686,7 +651,7 @@ key-value pairs.</p>
 <a name="user-content-extended-types"></a>
 <h7>
 <a id="user-content-extended-types" class="anchor" href="#extended-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extended types</h7>
-<p>It is also possible to pack/unpack custom data types using the msgpack 2.0 feature.</p>
+<p>It is also possible to pack/unpack custom data types using the <strong>ext</strong> type.</p>
 <pre lang="pycon">&gt;&gt;&gt; import msgpack
 &gt;&gt;&gt; import array
 &gt;&gt;&gt; def default(obj):
@@ -731,6 +696,44 @@ callback function:</p>
         bytestream <span class="pl-k">=</span> BytesIO()
         unpacker.skip(bytestream.write)
         worker.send(bytestream.getvalue())</pre></div>
+<a name="user-content-notes"></a>
+<h6>
+<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h6>
+<a name="user-content-string-and-binary-type"></a>
+<h7>
+<a id="user-content-string-and-binary-type" class="anchor" href="#string-and-binary-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>string and binary type</h7>
+<p>In old days, msgpack doesn't distinguish string and binary types like Python 1.
+The type for represent string and binary types is named <strong>raw</strong>.</p>
+<p>msgpack can distinguish string and binary type for now.  But it is not like Python 2.
+Python 2 added unicode string.  But msgpack renamed <strong>raw</strong> to <strong>str</strong> and added <strong>bin</strong> type.
+It is because keep compatibility with data created by old libs. <strong>raw</strong> was used for text more than binary.</p>
+<p>Currently, while msgpack-python supports new <strong>bin</strong> type, default setting doesn't use it and
+decodes <strong>raw</strong> as bytes instead of unicode (str in Python 3).</p>
+<p>You can change this by using use_bin_type=True option in Packer and encoding="utf-8" option in Unpacker.</p>
+<pre lang="pycon">&gt;&gt;&gt; import msgpack
+&gt;&gt;&gt; packed = msgpack.packb([b'spam', u'egg'], use_bin_type=True)
+&gt;&gt;&gt; msgpack.unpackb(packed, encoding='utf-8')
+['spam', u'egg']
+</pre>
+<a name="user-content-ext-type"></a>
+<h7>
+<a id="user-content-ext-type" class="anchor" href="#ext-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext type</h7>
+<p>To use <strong>ext</strong> type, pass <code>msgpack.ExtType</code> object to packer.</p>
+<pre lang="pycon">&gt;&gt;&gt; import msgpack
+&gt;&gt;&gt; packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
+&gt;&gt;&gt; msgpack.unpackb(packed)
+ExtType(code=42, data='xyzzy')
+</pre>
+<p>You can use it with <code>default</code> and <code>ext_hook</code>. See below.</p>
+<a name="user-content-note-for-msgpack-python-0-2-x-users"></a>
+<h7>
+<a id="user-content-note-for-msgpack-python-02x-users" class="anchor" href="#note-for-msgpack-python-02x-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note for msgpack-python 0.2.x users</h7>
+<p>The msgpack-python 0.3 have some incompatible changes.</p>
+<p>The default value of <code>use_list</code> keyword argument is <code>True</code> from 0.3.
+You should pass the argument explicitly for backward compatibility.</p>
+<p>Unpacker.unpack() and some unpack methods now raises OutOfData
+instead of StopIteration.
+StopIteration is used for iterator protocol only.</p>
 <a name="user-content-note-about-performance"></a>
 <h6>
 <a id="user-content-note-about-performance" class="anchor" href="#note-about-performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note about performance</h6>
@@ -749,8 +752,10 @@ You can use <code>use_list=False</code> while unpacking when performance is impo
 <p>Python's dict can't use list as key and MessagePack allows array for key of mapping.
 <code>use_list=False</code> allows unpacking such message.
 Another way to unpacking such object is using <code>object_pairs_hook</code>.</p>
-<a name="user-content-test"></a>
+<a name="user-content-development"></a>
 <h6>
+<a id="user-content-development" class="anchor" href="#development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development</h6>
+<h6 id="user-content-test">
 <a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test</h6>
 <p>MessagePack uses pytest for testing.
 Run test with following command:</p>
