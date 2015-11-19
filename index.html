@@ -229,6 +229,10 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
@@ -2657,6 +2661,438 @@ Point{Float64}(<span class="pl-c1">2.5</span>,<span class="pl-c1">7.8</span>)</p
 different versions of Julia, or an instance of Julia with a different system
 image.</p>
 </blockquote>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a>
+<a href="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" target="_blank"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c">; =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming</h7>
+
+<ul>
+<li>
+<code>unpack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">InputStream</a>
+</li>
+<li>
+<code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+(<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
+
+(<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-output (<span class="pl-en">java.io.DataOutputStream.</span> o)]
+    (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
+
+(<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-input (<span class="pl-en">java.io.DataInputStream.</span> i)]
+    (<span class="pl-en">msg/unpack-stream</span> data-input)))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c">; =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a>
+<a href="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" target="_blank"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c">; =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming</h7>
+
+<ul>
+<li>
+<code>unpack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">InputStream</a>
+</li>
+<li>
+<code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+(<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
+
+(<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-output (<span class="pl-en">java.io.DataOutputStream.</span> o)]
+    (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
+
+(<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-input (<span class="pl-en">java.io.DataInputStream.</span> i)]
+    (<span class="pl-en">msg/unpack-stream</span> data-input)))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c">; =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
 </article>
   </div>
         </div>
