@@ -3506,39 +3506,39 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack5<span class="pl-pds">'</span></span>)() <span class="pl-c">// namespace our extensions</span>
   , a       <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyType</span>(<span class="pl-c1">2</span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>)
-  , encode  <span class="pl-k">=</span> msgpack.encode
-  , decode  <span class="pl-k">=</span> msgpack.decode
+  , encode  <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-smi">encode</span>
+  , decode  <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-smi">decode</span>
 
-msgpack.register(<span class="pl-c1">0x42</span>, MyType, mytipeEncode, mytipeDecode)
+<span class="pl-smi">msgpack</span>.<span class="pl-en">register</span>(<span class="pl-c1">0x42</span>, MyType, mytipeEncode, mytipeDecode)
 
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(encode({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> }).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">encode</span>({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> }).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
 <span class="pl-c">// 81a568656c6c6fa5776f726c64</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(decode(encode({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> })))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decode</span>(<span class="pl-en">encode</span>({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> })))
 <span class="pl-c">// { hello: 'world' }</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(encode(a).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">encode</span>(a).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
 <span class="pl-c">// d5426161</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(decode(encode(a)) <span class="pl-k">instanceof</span> MyType)
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decode</span>(<span class="pl-en">encode</span>(a)) <span class="pl-k">instanceof</span> MyType)
 <span class="pl-c">// true</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(decode(encode(a)))
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decode</span>(<span class="pl-en">encode</span>(a)))
 <span class="pl-c">// { value: 'a', size: 2 }</span>
 
 <span class="pl-k">function</span> <span class="pl-en">MyType</span>(<span class="pl-smi">size</span>, <span class="pl-smi">value</span>) {
-  <span class="pl-v">this</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> value
-  <span class="pl-v">this</span>.<span class="pl-c1">size</span>  <span class="pl-k">=</span> size
+  <span class="pl-smi">this</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> value
+  <span class="pl-smi">this</span>.<span class="pl-c1">size</span>  <span class="pl-k">=</span> size
 }
 
 <span class="pl-k">function</span> <span class="pl-en">mytipeEncode</span>(<span class="pl-smi">obj</span>) {
-  <span class="pl-k">var</span> buf <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Buffer</span>(obj.<span class="pl-c1">size</span>)
-  buf.fill(obj.<span class="pl-c1">value</span>)
+  <span class="pl-k">var</span> buf <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Buffer</span>(<span class="pl-smi">obj</span>.<span class="pl-c1">size</span>)
+  <span class="pl-smi">buf</span>.<span class="pl-en">fill</span>(<span class="pl-smi">obj</span>.<span class="pl-c1">value</span>)
   <span class="pl-k">return</span> buf
 }
 
 <span class="pl-k">function</span> <span class="pl-en">mytipeDecode</span>(<span class="pl-smi">data</span>) {
-  <span class="pl-k">var</span> result <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyType</span>(data.<span class="pl-c1">length</span>, data.<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>, <span class="pl-c1">1</span>))
+  <span class="pl-k">var</span> result <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyType</span>(<span class="pl-smi">data</span>.<span class="pl-c1">length</span>, <span class="pl-smi">data</span>.<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>, <span class="pl-c1">1</span>))
     , i
 
-  <span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> data.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
-    <span class="pl-k">if</span> (data.readUInt8(<span class="pl-c1">0</span>) <span class="pl-k">!=</span> data.readUInt8(i)) {
+  <span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">data</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+    <span class="pl-k">if</span> (<span class="pl-smi">data</span>.<span class="pl-en">readUInt8</span>(<span class="pl-c1">0</span>) <span class="pl-k">!=</span> <span class="pl-smi">data</span>.<span class="pl-en">readUInt8</span>(i)) {
       <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-en">Error</span>(<span class="pl-s"><span class="pl-pds">'</span>should all be the same<span class="pl-pds">'</span></span>)
     }
   }
@@ -3717,16 +3717,16 @@ the passed <code>Buffer</code>
 <a href="https://github.com/rvagg/node-levelup#leveluplocation-options-callback"><code>valueEncoding</code></a> straight away:</p>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> level <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>level<span class="pl-pds">'</span></span>)
-  , pack  <span class="pl-k">=</span> msgpack()
-  , db    <span class="pl-k">=</span> level(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>, {
+  , pack  <span class="pl-k">=</span> <span class="pl-en">msgpack</span>()
+  , db    <span class="pl-k">=</span> <span class="pl-en">level</span>(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>, {
       valueEncoding<span class="pl-k">:</span> pack
     })
   , obj   <span class="pl-k">=</span> { my<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>obj<span class="pl-pds">'</span></span> }
 
-db.put(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, obj, <span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
-  db.get(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
+<span class="pl-smi">db</span>.<span class="pl-en">put</span>(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, obj, <span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
+  <span class="pl-smi">db</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
     <span class="pl-en">console</span>.<span class="pl-c1">log</span>(result)
-    db.<span class="pl-c1">close</span>()
+    <span class="pl-smi">db</span>.<span class="pl-c1">close</span>()
   })
 })
 </pre></div>
@@ -5891,10 +5891,10 @@ msgInt, msgUint, msgNull
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 
 <span class="pl-c">// encode from JS Object to MessagePack (Buffer)</span>
-<span class="pl-k">var</span> buffer <span class="pl-k">=</span> msgpack.encode({<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
+<span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
 
 <span class="pl-c">// decode from MessagePack (Buffer) to JS Object</span>
-<span class="pl-k">var</span> data <span class="pl-k">=</span> msgpack.decode(buffer); <span class="pl-c">// =&gt; {"foo": "bar"}</span></pre></div>
+<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer); <span class="pl-c">// =&gt; {"foo": "bar"}</span></pre></div>
 
 <h7>
 <a id="user-content-writing-to-messagepack-stream" class="anchor" href="#writing-to-messagepack-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing to MessagePack Stream</h7>
@@ -5902,13 +5902,13 @@ msgInt, msgUint, msgNull
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>fs<span class="pl-pds">"</span></span>);
 <span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 
-<span class="pl-k">var</span> writeStream <span class="pl-k">=</span> fs.createWriteStream(<span class="pl-s"><span class="pl-pds">"</span>test.msp<span class="pl-pds">"</span></span>);
-<span class="pl-k">var</span> encodeStream <span class="pl-k">=</span> msgpack.createEncodeStream();
-encodeStream.pipe(writeStream);
+<span class="pl-k">var</span> writeStream <span class="pl-k">=</span> <span class="pl-smi">fs</span>.<span class="pl-en">createWriteStream</span>(<span class="pl-s"><span class="pl-pds">"</span>test.msp<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> encodeStream <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createEncodeStream</span>();
+<span class="pl-smi">encodeStream</span>.<span class="pl-en">pipe</span>(writeStream);
 
 <span class="pl-c">// send multiple objects to stream</span>
-encodeStream.<span class="pl-c1">write</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
-encodeStream.<span class="pl-c1">write</span>({baz<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>qux<span class="pl-pds">"</span></span>});</pre></div>
+<span class="pl-smi">encodeStream</span>.<span class="pl-c1">write</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
+<span class="pl-smi">encodeStream</span>.<span class="pl-c1">write</span>({baz<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>qux<span class="pl-pds">"</span></span>});</pre></div>
 
 <h7>
 <a id="user-content-reading-from-messagepack-stream" class="anchor" href="#reading-from-messagepack-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading from MessagePack Stream</h7>
@@ -5916,11 +5916,11 @@ encodeStream.<span class="pl-c1">write</span>({baz<span class="pl-k">:</span> <s
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>fs<span class="pl-pds">"</span></span>);
 <span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 
-<span class="pl-k">var</span> readStream <span class="pl-k">=</span> fs.createReadStream(<span class="pl-s"><span class="pl-pds">"</span>test.msp<span class="pl-pds">"</span></span>);
-<span class="pl-k">var</span> decodeStream <span class="pl-k">=</span> msgpack.createDecodeStream();
+<span class="pl-k">var</span> readStream <span class="pl-k">=</span> <span class="pl-smi">fs</span>.<span class="pl-en">createReadStream</span>(<span class="pl-s"><span class="pl-pds">"</span>test.msp<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> decodeStream <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createDecodeStream</span>();
 
 <span class="pl-c">// show multiple objects decoded from stream</span>
-readStream.pipe(decodeStream).on(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.warn);</pre></div>
+<span class="pl-smi">readStream</span>.<span class="pl-en">pipe</span>(decodeStream).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.<span class="pl-smi">warn</span>);</pre></div>
 
 <h7>
 <a id="user-content-command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line Interface</h7>
@@ -5963,11 +5963,11 @@ http://localhost:4000/__zuul</pre></div>
 &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://rawgithub.com/kawanet/msgpack-lite/master/dist/msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 <span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
 <span class="pl-s1"><span class="pl-c">// encode from JS Object to MessagePack (Uint8Array)</span></span>
-<span class="pl-s1"><span class="pl-k">var</span> buffer <span class="pl-k">=</span> msgpack.encode({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});</span>
+<span class="pl-s1"><span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c">// decode from MessagePack (Uint8Array) to JS Object</span></span>
 <span class="pl-s1"><span class="pl-k">var</span> array <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]);</span>
-<span class="pl-s1"><span class="pl-k">var</span> data <span class="pl-k">=</span> msgpack.decode(array);</span>
+<span class="pl-s1"><span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(array);</span>
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
 
 <h7>
