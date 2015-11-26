@@ -285,6 +285,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-michael-yuji-YSMessagePack',this)">Swift <span class="qs-sub">michael-yuji</span></a></li>
+          
         </ul>
       </div>
 
@@ -6459,6 +6461,94 @@ SOFTWARE.</p>
 </ul>
 
 <p>By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-michael-yuji-YSMessagePack" class="qs"><h4><a href="https://github.com/michael-yuji/YSMessagePack" target="_blank">michael-yuji/YSMessagePack <span class="qs-url">https://github.com/michael-yuji/YSMessagePack</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-ysmessagepack--for-swift-21" class="anchor" href="#ysmessagepack--for-swift-21" aria-hidden="true"><span class="octicon octicon-link"></span></a>YSMessagePack- for swift 2.1</h5>
+
+<p>YSMessagePack is a messagePack packer/unpacker written in swift 2.1. It is designed to be light and easy to use. YSMessagePack include following features:</p>
+
+<ul>
+<li>Pack and unpack multiple message-packed data regardless of types with only one line of code</li>
+<li>Specify how many items to unpack</li>
+<li>Packing options</li>
+<li>Get remaining bytes that were not message-packed</li>
+<li>Helper methods to cast NSData to desired types</li>
+</ul>
+
+<h6>
+<a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h6>
+
+<p>beta - 0.1</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Simply add files under the directory below to your project                                                                                                                                                                                                                                                                  </p>
+
+<pre lang="url"><code>MessagePack/src
+</code></pre>
+
+<h5>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h5>
+
+<h7>
+<a id="user-content-pack" class="anchor" href="#pack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pack:</h7>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
+<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
+
+<span class="pl-c">//use the method `packItems' to pack </span>
+<span class="pl-c">//this will be the packed data</span>
+<span class="pl-k">let</span> msgPackedBytes: NSData <span class="pl-k">=</span> packItems([exampleInt, exampleStr, exampleArray]) </pre></div>
+
+<p><strong>Or you can pack them individually and add them to a byte array manually (Which is also less expensive)</strong></p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
+<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
+
+<span class="pl-c">//Now pack them idividually</span>
+<span class="pl-k">let</span> packedInt <span class="pl-k">=</span> exampleInt<span class="pl-k">.</span>pack()
+
+<span class="pl-c">//if you didn't specifiy encoding, the default encoding will be ASCII</span>
+<span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr<span class="pl-k">.</span>pack(withEncoding: NSASCIIStringEncoding) 
+
+<span class="pl-k">let</span> packedArray <span class="pl-k">=</span> exampleArray<span class="pl-k">.</span>pack()
+<span class="pl-k">let</span> msgPackedBytes: NSData <span class="pl-k">=</span> packedInt<span class="pl-k">.</span>byte_array <span class="pl-k">+</span> packedStr<span class="pl-k">.</span>byte_array <span class="pl-k">+</span> packedArray<span class="pl-k">.</span>byte_array</pre></div>
+
+<h6>
+<a id="user-content-unpack" class="anchor" href="#unpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unpack</h6>
+
+<p>Unpack a messagePacked byte array is also very easy:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">do</span> {
+    <span class="pl-c">//The unpack method will return an array of NSData which each element is an unpacked object</span>
+    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes<span class="pl-k">.</span>unpack()
+    <span class="pl-c">//instead of casting the NSData to the type you want, you can call these `.castTo..` methods to do the job for you</span>
+    <span class="pl-k">let</span> int: <span class="pl-c1">Int</span> <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">0</span>]<span class="pl-k">.</span>castToInt()
+
+    <span class="pl-c">//Same as packing, you can also specify the encoding you want to use, default is ASCII</span>
+    <span class="pl-k">let</span> str: <span class="pl-c1">String</span> <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">1</span>]<span class="pl-k">.</span>castToString() 
+    <span class="pl-k">let</span> array: NSArray <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">2</span>]<span class="pl-k">.</span>castToArray() 
+} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
+    NSLog(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
+}</pre></div>
+
+<p><strong>If you don't want to unpack every single thing included in the message-pack byte array, you can also specify an amount to unpack, if you want to keep the remaining bytes, you can put <code>true</code> in the <code>returnRemainingBytes</code> argument, the remaining bytes will stored in the end of the <code>NSData</code> array.</strong></p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">do</span> {
+    <span class="pl-c">//Unpack only 2 objects, and we are not interested in remaining bytes</span>
+    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes<span class="pl-k">.</span>unpack(specific_amount: <span class="pl-c1">2</span>, returnRemainingBytes: <span class="pl-c1">false</span>)
+    <span class="pl-c1">print</span>(unpackedItems<span class="pl-k">.</span><span class="pl-c1">count</span>) <span class="pl-c">//will print 2</span>
+} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
+    NSLog(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
+}</pre></div>
 </article>
   </div>
         </div>
