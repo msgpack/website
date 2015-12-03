@@ -289,6 +289,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-michael-yuji-YSMessagePack',this)">Swift <span class="qs-sub">michael-yuji</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-caesay-MPack',this)">C# <span class="qs-sub">caesay</span></a></li>
+          
         </ul>
       </div>
 
@@ -6576,6 +6578,78 @@ SOFTWARE.</p>
 } <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
     NSLog(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
 }</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-caesay-MPack" class="qs"><h4><a href="https://github.com/caesay/MPack" target="_blank">caesay/MPack <span class="qs-url">https://github.com/caesay/MPack</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-mpack" class="anchor" href="#mpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MPack</h5>
+
+<p>This library is a lightweight implementation of the <a href="http://msgpack.org/">MessagePack</a> binary serialization format. MessagePack is a 1-to-1 binary representation of JSON, and the official specification can be found here: <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack...</a>.</p>
+
+<h6>
+<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h6>
+
+<p>This library is contained in one file, with the designed purpose of being a drop-in file to your solution instead of being an added dependancy.</p>
+
+<p>Its easiest to understand how this library works if you think in terms of json. The type <code>MPackMap</code> represents a dictionary, and the type <code>MPackArray</code> represents an array. Everything else can be created with the <code>MPack</code> type static methods (such as <code>MPack.FromString(string)</code>).</p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<p>Create a object model that can be represented as MsgPack. Here we are creating a dictionary, but really it can be anything:</p>
+
+<div class="highlight highlight-source-cs"><pre>MPackMap dictionary = <span class="pl-k">new</span> MPackMap
+{
+    {
+        <span class="pl-s"><span class="pl-pds">"</span>array1<span class="pl-pds">"</span></span>, MPack.FromArray(<span class="pl-k">new</span>[]
+        {
+            MPack.FromString(<span class="pl-s"><span class="pl-pds">"</span>array1_value1<span class="pl-pds">"</span></span>),
+            MPack.FromString(<span class="pl-s"><span class="pl-pds">"</span>array1_value2<span class="pl-pds">"</span></span>),
+            MPack.FromString(<span class="pl-s"><span class="pl-pds">"</span>array1_value3<span class="pl-pds">"</span></span>),
+        })
+    },
+    {<span class="pl-s"><span class="pl-pds">"</span>bool1<span class="pl-pds">"</span></span>, MPack.FromBool(<span class="pl-c1">true</span>)},
+    {<span class="pl-s"><span class="pl-pds">"</span>double1<span class="pl-pds">"</span></span>, MPack.FromDouble(<span class="pl-c1">50.5</span>)},
+    {<span class="pl-s"><span class="pl-pds">"</span>double2<span class="pl-pds">"</span></span>, MPack.FromDouble(<span class="pl-c1">15.2</span>)},
+    {<span class="pl-s"><span class="pl-pds">"</span>int1<span class="pl-pds">"</span></span>, MPack.FromInteger(<span class="pl-c1">50505</span>)},
+    {<span class="pl-s"><span class="pl-pds">"</span>int2<span class="pl-pds">"</span></span>, MPack.FromInteger(<span class="pl-c1">50</span>)}
+};</pre></div>
+
+<p>Serialize the data to a byte array or to a stream to be saved, transmitted, etc:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">byte</span>[] encodedBytes = dictionary.EncodeToBytes();
+<span class="pl-c">// -- or --</span>
+dictionary.EncodeToStream(stream);</pre></div>
+
+<p>Parse the binary data back into a MPack object model:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">var</span> reconstructed = MPack.ParseBytes(encodedBytes) <span class="pl-k">as</span> MPackMap;
+<span class="pl-c">// -- or --</span>
+<span class="pl-k">var</span> reconstructed = MPack.ParseStream(stream) <span class="pl-k">as</span> MPackMap;</pre></div>
+
+<p>Turn MPack objects back into types that we understand with the generic <code>To&lt;&gt;()</code> method. Since we know the types of everything here we can just call <code>To&lt;bool&gt;()</code> to reconstruct our bool, but if you don't know you can access the instance enum <code>MPack.ValueType</code> to know what kind of value it is:</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">bool</span> bool1 = reconstructed[<span class="pl-s"><span class="pl-pds">"</span>bool1<span class="pl-pds">"</span></span>].To&lt;<span class="pl-k">bool</span>&gt;();
+<span class="pl-k">var</span> array1 = reconstructed[<span class="pl-s"><span class="pl-pds">"</span>array1<span class="pl-pds">"</span></span>] <span class="pl-k">as</span> MPackArray;
+<span class="pl-k">var</span> array1_value1 = array1[<span class="pl-c1">0</span>];
+<span class="pl-k">double</span> double1 = reconstructed[<span class="pl-s"><span class="pl-pds">"</span>double1<span class="pl-pds">"</span></span>].To&lt;<span class="pl-k">double</span>&gt;();
+<span class="pl-c">//etc...</span></pre></div>
+
+<h6>
+<a id="user-content-credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h6>
+
+<p>The following people/projects have made this possible:</p>
+
+<ol>
+<li>Me, obviously :) (caelantsayler]at[gmail]dot[com)</li>
+<li>ymofen (ymofen]at[diocp]dot[org) for his work on <a href="https://github.com/ymofen/SimpleMsgPack.Net">https://github.com/ymofen/SimpleMsgPack.Net</a>
+</li>
+<li>All of the people that make MessagePack happen <a href="https://github.com/msgpack">https://github.com/msgpack</a>
+</li>
+</ol>
 </article>
   </div>
         </div>
