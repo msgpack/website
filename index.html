@@ -779,7 +779,7 @@ $ py.test</blockquote>
 <h6>
 <a id="user-content-prequisites-for-runtime" class="anchor" href="#prequisites-for-runtime" aria-hidden="true"><span class="octicon octicon-link"></span></a>prequisites for runtime</h6>
 
-<p><a href="http://erlang.org/">Erlang/OTP</a>, &gt;= R15B -- for older version, rebar won't work.
+<p><a href="http://erlang.org/">Erlang/OTP</a>, &gt;= 17.0
 Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000cc4a478f0dfbb5942ac54e9e/spec.md">the new msgpack spec 232a0d</a>.</p>
 
 <h6>
@@ -787,7 +787,7 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
 
 <div class="highlight highlight-source-erlang"><pre>{<span class="pl-c1">deps</span>, [
   {<span class="pl-c1">msgpack</span>, <span class="pl-s"><span class="pl-pds">"</span>.*<span class="pl-pds">"</span></span>,
-    {<span class="pl-c1">git</span>, <span class="pl-s"><span class="pl-pds">"</span>git://github.com/msgpack/msgpack-erlang.git<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>master<span class="pl-pds">"</span></span>}}
+    {<span class="pl-c1">git</span>, <span class="pl-s"><span class="pl-pds">"</span>git://github.com/msgpack/msgpack-erlang.git<span class="pl-pds">"</span></span>, {<span class="pl-c1">branch</span>, <span class="pl-s"><span class="pl-pds">"</span>master<span class="pl-pds">"</span></span>}}}
 ]}.</pre></div>
 
 <h6>
@@ -865,6 +865,26 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 
 <h5>
 <a id="user-content-release-notes" class="anchor" href="#release-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release Notes</h5>
+
+<h6>
+<a id="user-content-040" class="anchor" href="#040" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.4.0</h6>
+
+<ul>
+<li>Deprecate <code>nil</code>
+</li>
+<li>Moved to rebar3</li>
+<li>Promote default map unpacker as default format when OTP is &gt;= 17</li>
+</ul>
+
+<h6>
+<a id="user-content-035--034" class="anchor" href="#035--034" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.5 / 0.3.4</h6>
+
+<ul>
+<li>0.3 series will be the last versions that supports R16B or older
+versions of OTP.</li>
+<li>OTP 18.0 support</li>
+<li>Promote default map unpacker as default format when OTP is &gt;= 18</li>
+</ul>
 
 <h6>
 <a id="user-content-033" class="anchor" href="#033" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.3</h6>
@@ -6631,9 +6651,9 @@ dictionary.EncodeToStream(stream);</pre></div>
 
 <p>Parse the binary data back into a MPack object model:</p>
 
-<div class="highlight highlight-source-cs"><pre><span class="pl-k">var</span> reconstructed = MPack.ParseBytes(encodedBytes) <span class="pl-k">as</span> MPackMap;
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">var</span> reconstructed = MPack.ParseFromBytes(encodedBytes) <span class="pl-k">as</span> MPackMap;
 <span class="pl-c">// -- or --</span>
-<span class="pl-k">var</span> reconstructed = MPack.ParseStream(stream) <span class="pl-k">as</span> MPackMap;</pre></div>
+<span class="pl-k">var</span> reconstructed = MPack.ParseFromStream(stream) <span class="pl-k">as</span> MPackMap;</pre></div>
 
 <p>Turn MPack objects back into types that we understand with the generic <code>To&lt;&gt;()</code> method. Since we know the types of everything here we can just call <code>To&lt;bool&gt;()</code> to reconstruct our bool, but if you don't know you can access the instance enum <code>MPack.ValueType</code> to know what kind of value it is:</p>
 
