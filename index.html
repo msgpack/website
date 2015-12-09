@@ -3549,8 +3549,8 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 <span class="pl-c">// { value: 'a', size: 2 }</span>
 
 <span class="pl-k">function</span> <span class="pl-en">MyType</span>(<span class="pl-smi">size</span>, <span class="pl-smi">value</span>) {
-  <span class="pl-smi">this</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> value
-  <span class="pl-smi">this</span>.<span class="pl-c1">size</span>  <span class="pl-k">=</span> size
+  <span class="pl-v">this</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> value
+  <span class="pl-v">this</span>.<span class="pl-c1">size</span>  <span class="pl-k">=</span> size
 }
 
 <span class="pl-k">function</span> <span class="pl-en">mytipeEncode</span>(<span class="pl-smi">obj</span>) {
@@ -3797,17 +3797,17 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
 <p>This implementation defines an messagepack <code>Object</code> type, which is an instance of
 <code>Serialize</code> (from <a href="http://hackage.haskell.org/package/cereal">cereal</a> ):</p>
 
-<div class="highlight highlight-source-haskell"><pre><span class="pl-k">data</span> <span class="pl-c1">Object</span> = <span class="pl-c1">ObjectNil</span>
-            | <span class="pl-c1">ObjectUInt</span>   <span class="pl-c1">Word64</span>
-            | <span class="pl-c1">ObjectInt</span>    <span class="pl-c1">Int64</span>
-            | <span class="pl-c1">ObjectBool</span>   <span class="pl-c1">Bool</span>
-            | <span class="pl-c1">ObjectFloat</span>  <span class="pl-c1">Float</span>
-            | <span class="pl-c1">ObjectDouble</span> <span class="pl-c1">Double</span>
-            | <span class="pl-c1">ObjectString</span> <span class="pl-c1">ByteString</span>
-            | <span class="pl-c1">ObjectBinary</span> <span class="pl-c1">ByteString</span>
-            | <span class="pl-c1">ObjectArray</span>  [<span class="pl-c1">Object</span>]
-            | <span class="pl-c1">ObjectMap</span>    (<span class="pl-c1">M</span>.<span class="pl-c1">Map</span> <span class="pl-c1">Object</span> <span class="pl-c1">Object</span> )
-            | <span class="pl-c1">ObjectExt</span>    !<span class="pl-c1">Int8</span> <span class="pl-c1">BS</span>.<span class="pl-c1">ByteString</span>
+<div class="highlight highlight-source-haskell"><pre><span class="pl-k">data</span> <span class="pl-c1">Object</span> <span class="pl-k">=</span> <span class="pl-c1">ObjectNil</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectUInt</span>   <span class="pl-c1">Word64</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectInt</span>    <span class="pl-c1">Int64</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectBool</span>   <span class="pl-c1">Bool</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectFloat</span>  <span class="pl-c1">Float</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectDouble</span> <span class="pl-c1">Double</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectString</span> <span class="pl-c1">ByteString</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectBinary</span> <span class="pl-c1">ByteString</span>
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectArray</span>  [<span class="pl-c1">Object</span>]
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectMap</span>    (<span class="pl-c1">M</span><span class="pl-k">.</span><span class="pl-c1">Map</span> <span class="pl-c1">Object</span> <span class="pl-c1">Object</span> )
+            <span class="pl-k">|</span> <span class="pl-c1">ObjectExt</span>    <span class="pl-k">!</span><span class="pl-c1">Int8</span> <span class="pl-c1">BS</span><span class="pl-k">.</span><span class="pl-c1">ByteString</span>
     <span class="pl-k">deriving</span> (<span class="pl-e">Eq</span>, <span class="pl-e">Ord</span>, <span class="pl-e">Show</span>)
 
 <span class="pl-k">instance</span> <span class="pl-k">Serialize</span> <span class="pl-k">Object</span> <span class="pl-k">where</span>
@@ -6003,7 +6003,7 @@ $ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</spa
 
 <p>Run tests on browsers:</p>
 
-<div class="highlight highlight-source-shell"><pre>$ make <span class="pl-c1">test</span>-browser-local
+<div class="highlight highlight-source-shell"><pre>$ make test-browser-local
 open the following url <span class="pl-k">in</span> a browser:
 http://localhost:4000/__zuul</pre></div>
 
