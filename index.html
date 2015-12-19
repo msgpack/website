@@ -5934,13 +5934,13 @@ msgInt, msgUint, msgNull
 
 <ul>
 <li>Pure JavaScript only (No node-gyp nor gcc required)</li>
-<li>Faster than any other pure JavaScript libraries: <strong>5x faster</strong> encoding and <strong>50% faster</strong> decoding</li>
-<li>Even faster than C++ based <a href="https://www.npmjs.com/package/msgpack">msgpack</a> library: <strong>50% faster</strong> encoding and <strong>10% faster</strong> decoding</li>
+<li>Faster than any other pure JavaScript libraries on node.js v4</li>
+<li>Even faster than C++ based <a href="https://www.npmjs.com/package/msgpack">msgpack</a> library (<strong>90% faster</strong> on encoding)</li>
 <li>Streaming encoding and decoding interface is also available. It's more faster.</li>
 <li>
 <a href="https://saucelabs.com/u/msgpack-lite">Browsers</a> ready (Chrome, Firefox, Safari and even works on IE8)</li>
 <li>
-<a href="https://travis-ci.org/kawanet/msgpack-lite">Tested</a> on Node.js-v0.12, v0.10 and io.js-v3.3 and browsers</li>
+<a href="https://travis-ci.org/kawanet/msgpack-lite">Tested</a> on Node.js v0.10, v0.12 and v4.2 as well as browsers</li>
 </ul>
 
 <h7>
@@ -6037,21 +6037,23 @@ http://localhost:4000/__zuul</pre></div>
 
 <ul>
 <li>
-<a href="https://www.npmjs.com/package/msgpack">https://www.npmjs.com/package/msgpack</a> (0.2.6)</li>
+<a href="https://www.npmjs.com/package/msgpack">https://www.npmjs.com/package/msgpack</a> (1.0.2)</li>
 <li>
 <a href="https://www.npmjs.com/package/msgpack-js">https://www.npmjs.com/package/msgpack-js</a> (0.3.0)</li>
 <li>
 <a href="https://www.npmjs.com/package/msgpack-js-v5">https://www.npmjs.com/package/msgpack-js-v5</a> (0.3.0-v5)</li>
 <li>
-<a href="https://www.npmjs.com/package/msgpack5">https://www.npmjs.com/package/msgpack5</a> (3.1.0)</li>
-<li>
 <a href="https://www.npmjs.com/package/msgpack-unpack">https://www.npmjs.com/package/msgpack-unpack</a> (2.1.1)</li>
 <li>
 <a href="https://github.com/msgpack/msgpack-javascript">https://github.com/msgpack/msgpack-javascript</a> (msgpack.codec)</li>
+<li>
+<a href="https://www.npmjs.com/package/msgpack5">https://www.npmjs.com/package/msgpack5</a> (3.3.0)</li>
+<li>
+<a href="https://www.npmjs.com/package/notepack">https://www.npmjs.com/package/notepack</a> (0.0.2)</li>
 </ul>
 
 <h7>
-<a id="user-content-benchmark" class="anchor" href="#benchmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h7>
+<a id="user-content-benchmarks" class="anchor" href="#benchmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmarks</h7>
 
 <p>A benchmark tool <code>lib/benchmark.js</code> is available to compare encoding/decoding speed
 (operation per second) with other MessagePack modules.
@@ -6069,93 +6071,105 @@ It counts operations of <a href="https://github.com/kawanet/msgpack-lite/blob/ma
 <tbody>
 <tr>
 <td>buf = Buffer(JSON.stringify(obj));</td>
-<td align="right">261300</td>
-<td align="right">10002</td>
-<td align="right">26124</td>
+<td align="right">1055200</td>
+<td align="right">10000</td>
+<td align="right">105520</td>
 </tr>
 <tr>
 <td>obj = JSON.parse(buf);</td>
-<td align="right">259200</td>
-<td align="right">10013</td>
-<td align="right">25886</td>
+<td align="right">863800</td>
+<td align="right">10000</td>
+<td align="right">86380</td>
 </tr>
 <tr>
 <td>buf = require("msgpack-lite").encode(obj);</td>
-<td align="right">242800</td>
-<td align="right">10001</td>
-<td align="right">24277</td>
+<td align="right">969100</td>
+<td align="right">10000</td>
+<td align="right">96910</td>
 </tr>
 <tr>
 <td>obj = require("msgpack-lite").decode(buf);</td>
-<td align="right">212000</td>
-<td align="right">10002</td>
-<td align="right">21195</td>
+<td align="right">600300</td>
+<td align="right">10000</td>
+<td align="right">60030</td>
 </tr>
 <tr>
 <td>buf = require("msgpack").pack(obj);</td>
-<td align="right">162800</td>
-<td align="right">10009</td>
-<td align="right">16265</td>
+<td align="right">503500</td>
+<td align="right">10001</td>
+<td align="right">50344</td>
 </tr>
 <tr>
 <td>obj = require("msgpack").unpack(buf);</td>
-<td align="right">189800</td>
-<td align="right">10012</td>
-<td align="right">18957</td>
+<td align="right">560200</td>
+<td align="right">10001</td>
+<td align="right">56014</td>
 </tr>
 <tr>
 <td>buf = Buffer(require("msgpack.codec").msgpack.pack(obj));</td>
-<td align="right">46900</td>
-<td align="right">10006</td>
-<td align="right">4687</td>
+<td align="right">653500</td>
+<td align="right">10000</td>
+<td align="right">65349</td>
 </tr>
 <tr>
 <td>obj = require("msgpack.codec").msgpack.unpack(buf);</td>
-<td align="right">155900</td>
-<td align="right">10000</td>
-<td align="right">15590</td>
+<td align="right">367500</td>
+<td align="right">10001</td>
+<td align="right">36746</td>
 </tr>
 <tr>
 <td>buf = require("msgpack-js-v5").encode(obj);</td>
-<td align="right">45200</td>
-<td align="right">10017</td>
-<td align="right">4512</td>
+<td align="right">189500</td>
+<td align="right">10002</td>
+<td align="right">18946</td>
 </tr>
 <tr>
 <td>obj = require("msgpack-js-v5").decode(buf);</td>
-<td align="right">146700</td>
-<td align="right">10015</td>
-<td align="right">14648</td>
+<td align="right">408900</td>
+<td align="right">10000</td>
+<td align="right">40890</td>
 </tr>
 <tr>
 <td>buf = require("msgpack-js").encode(obj);</td>
-<td align="right">43000</td>
-<td align="right">10009</td>
-<td align="right">4296</td>
+<td align="right">189200</td>
+<td align="right">10000</td>
+<td align="right">18920</td>
 </tr>
 <tr>
 <td>obj = require("msgpack-js").decode(buf);</td>
-<td align="right">146400</td>
-<td align="right">10011</td>
-<td align="right">14623</td>
+<td align="right">375600</td>
+<td align="right">10002</td>
+<td align="right">37552</td>
 </tr>
 <tr>
 <td>buf = require("msgpack5")().encode(obj);</td>
-<td align="right">4500</td>
-<td align="right">10040</td>
-<td align="right">448</td>
+<td align="right">110500</td>
+<td align="right">10009</td>
+<td align="right">11040</td>
 </tr>
 <tr>
 <td>obj = require("msgpack5")().decode(buf);</td>
-<td align="right">18900</td>
-<td align="right">10025</td>
-<td align="right">1885</td>
+<td align="right">165500</td>
+<td align="right">10000</td>
+<td align="right">16550</td>
+</tr>
+<tr>
+<td>buf = require("notepack")().encode(obj);</td>
+<td align="right">847800</td>
+<td align="right">10000</td>
+<td align="right">84780</td>
+</tr>
+<tr>
+<td>obj = require("notepack")().decode(buf);</td>
+<td align="right">599800</td>
+<td align="right">10000</td>
+<td align="right">59980</td>
 </tr>
 <tr>
 <td>obj = require("msgpack-unpack").decode(buf);</td>
-<td align="right">1000</td>
-<td align="right">10343</td>
-<td align="right">96</td>
+<td align="right">48100</td>
+<td align="right">10002</td>
+<td align="right">4809</td>
 </tr>
 </tbody>
 </table>
@@ -6167,7 +6181,7 @@ This shows streaming encoding and decoding are super faster.</p>
 <table>
 <thead>
 <tr>
-<th>operation (1000000 x 3)</th>
+<th>operation (1000000 x 2)</th>
 <th align="right">op</th>
 <th align="right">ms</th>
 <th align="right">op/s</th>
@@ -6177,31 +6191,55 @@ This shows streaming encoding and decoding are super faster.</p>
 <tr>
 <td>stream.write(msgpack.encode(obj));</td>
 <td align="right">1000000</td>
-<td align="right">36072</td>
-<td align="right">27722</td>
+<td align="right">3027</td>
+<td align="right">330360</td>
+</tr>
+<tr>
+<td>stream.write(notepack.encode(obj));</td>
+<td align="right">1000000</td>
+<td align="right">2012</td>
+<td align="right">497017</td>
+</tr>
+<tr>
+<td>msgpack.Encoder().on("data",ondata).encode(obj);</td>
+<td align="right">1000000</td>
+<td align="right">2956</td>
+<td align="right">338294</td>
 </tr>
 <tr>
 <td>msgpack.createEncodeStream().write(obj);</td>
 <td align="right">1000000</td>
-<td align="right">6080</td>
-<td align="right">164473</td>
+<td align="right">1888</td>
+<td align="right">529661</td>
 </tr>
 <tr>
 <td>stream.write(msgpack.decode(buf));</td>
 <td align="right">1000000</td>
-<td align="right">9568</td>
-<td align="right">104515</td>
+<td align="right">2020</td>
+<td align="right">495049</td>
+</tr>
+<tr>
+<td>stream.write(notepack.decode(buf));</td>
+<td align="right">1000000</td>
+<td align="right">1794</td>
+<td align="right">557413</td>
+</tr>
+<tr>
+<td>msgpack.Decoder().on("data",ondata).decode(buf);</td>
+<td align="right">1000000</td>
+<td align="right">2744</td>
+<td align="right">364431</td>
 </tr>
 <tr>
 <td>msgpack.createDecodeStream().write(buf);</td>
 <td align="right">1000000</td>
-<td align="right">5681</td>
-<td align="right">176025</td>
+<td align="right">1341</td>
+<td align="right">745712</td>
 </tr>
 </tbody>
 </table>
 
-<p>Test environment: msgpack-lite 0.1.13 on Node v0.12.7</p>
+<p>Test environment: msgpack-lite 0.1.14, Node v4.2.3, Intel(R) Xeon(R) CPU E5-2666 v3 @ 2.90GHz</p>
 
 <h7>
 <a id="user-content-messagepack-mapping-table" class="anchor" href="#messagepack-mapping-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack Mapping Table</h7>
