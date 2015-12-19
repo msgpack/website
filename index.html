@@ -5952,7 +5952,9 @@ msgInt, msgUint, msgNull
 <span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
 
 <span class="pl-c">// decode from MessagePack (Buffer) to JS Object</span>
-<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer); <span class="pl-c">// =&gt; {"foo": "bar"}</span></pre></div>
+<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer); <span class="pl-c">// =&gt; {"foo": "bar"}</span>
+
+<span class="pl-c">// if encode/decode receives an invalid argument an error is thrown</span></pre></div>
 
 <h7>
 <a id="user-content-writing-to-messagepack-stream" class="anchor" href="#writing-to-messagepack-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing to MessagePack Stream</h7>
