@@ -6813,8 +6813,10 @@ You may change the default runtime by defining the <code>PHP_RUNTIME</code> envi
 
 <ul>
 <li>
-<code>MP_BENCH_TARGET</code> (pure_p, pure_u, pecl_p, pecl_u)</li>
-<li><code>MP_BENCH_SIZE</code></li>
+<code>MP_BENCH_TARGETS</code> (pure_p, pure_u, pecl_p, pecl_u)</li>
+<li>
+<code>MP_BENCH_SIZE</code>/<code>MP_BENCH_TIME</code>
+</li>
 <li><code>MP_BENCH_CYCLES</code></li>
 <li><code>MP_BENCH_TESTS</code></li>
 </ul>
@@ -6823,8 +6825,8 @@ You may change the default runtime by defining the <code>PHP_RUNTIME</code> envi
 
 <div class="highlight highlight-source-shell"><pre>$ <span class="pl-k">export</span> MP_BENCH_TARGET=pure_p
 $ <span class="pl-k">export</span> MP_BENCH_SIZE=1000000
-$ <span class="pl-k">export</span> MP_BENCH_CYCLES=1
-$ <span class="pl-k">export</span> MP_BENCH_TESTS=<span class="pl-s"><span class="pl-pds">'</span>complex array<span class="pl-pds">'</span></span>
+$ <span class="pl-k">export</span> MP_BENCH_CYCLES=2
+$ <span class="pl-k">export</span> MP_BENCH_TESTS=<span class="pl-s"><span class="pl-pds">'</span>complex array, complex map<span class="pl-pds">'</span></span>
 $ php tests/bench.php</pre></div>
 
 <h6>
