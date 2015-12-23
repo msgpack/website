@@ -6846,7 +6846,7 @@ You may change the default runtime by defining the <code>PHP_RUNTIME</code> envi
 <p>This command will output something like:</p>
 
 <div class="highlight highlight-source-shell"><pre>Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\N</span>ameFilter
-Cycles: 3
+Rounds: 3
 Iterations: 100000
 
 ====================================================================
@@ -6937,17 +6937,17 @@ Ignored                                0                           0</pre></div>
 <li>
 <code>MP_BENCH_TARGETS</code> (pure_p, pure_u, pecl_p, pecl_u)</li>
 <li>
-<code>MP_BENCH_SIZE</code>/<code>MP_BENCH_TIME</code>
+<code>MP_BENCH_ITERATIONS</code>/<code>MP_BENCH_DURATION</code>
 </li>
-<li><code>MP_BENCH_CYCLES</code></li>
+<li><code>MP_BENCH_ROUNDS</code></li>
 <li><code>MP_BENCH_TESTS</code></li>
 </ul>
 
 <p>For example:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ <span class="pl-k">export</span> MP_BENCH_TARGET=pure_p
-$ <span class="pl-k">export</span> MP_BENCH_SIZE=1000000
-$ <span class="pl-k">export</span> MP_BENCH_CYCLES=2
+$ <span class="pl-k">export</span> MP_BENCH_ITERATIONS=1000000
+$ <span class="pl-k">export</span> MP_BENCH_ROUNDS=5
 $ <span class="pl-k">export</span> MP_BENCH_TESTS=<span class="pl-s"><span class="pl-pds">'</span>complex array, complex map<span class="pl-pds">'</span></span>
 $ php tests/bench.php</pre></div>
 
@@ -6956,7 +6956,7 @@ $ php tests/bench.php</pre></div>
 <div class="highlight highlight-source-shell"><pre>$ MP_BENCH_TARGETS=pure_p,pure_u,pecl_p,pecl_u php tests/bench.php
 
 Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\N</span>ameFilter
-Cycles: 3
+Rounds: 3
 Iterations: 100000
 
 ==================================================================================================
