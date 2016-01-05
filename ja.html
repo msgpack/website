@@ -232,7 +232,7 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
           
@@ -287,6 +287,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-benoist-msgpack-crystal',this)">Crystal <span class="qs-sub">benoist</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kawanet-msgpack-lite',this)">JavaScript <span class="qs-sub">kawanet</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-rybakit-msgpack-php',this)">PHP <span class="qs-sub">rybakit</span></a></li>
           
@@ -2717,143 +2719,218 @@ image.</p>
   </div>
         </div>
         
-        <div id="qs-tkob-mlmsgpack" class="qs"><h4><a href="https://github.com/tkob/mlmsgpack" target="_blank">tkob/mlmsgpack <span class="qs-url">https://github.com/tkob/mlmsgpack</span></a></h4>
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-ml-messagepack" class="anchor" href="#ml-messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>ML-MessagePack</h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>clojure-msgpack</h5>
 
-<p>MessagePack implementation for Standard ML (SML)</p>
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
 
 <h6>
-<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
 
-<ul>
-<li>Portable: Depends only on the required components of the SML Basis Library specification.</li>
-<li>Composable: Composable combinators for encoding and decoding.</li>
-</ul>
+<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a>
+<a href="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" target="_blank"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a></p>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
 
-<h8>
-<a id="user-content-mlton-and-mlkit" class="anchor" href="#mlton-and-mlkit" aria-hidden="true"><span class="octicon octicon-link"></span></a>MLton and MLKit</h8>
-
-<p>Include mlmsgpack.mlb in your MLB file.</p>
-
-<h8>
-<a id="user-content-polyml" class="anchor" href="#polyml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Poly/ML</h8>
-
-<p>From the interactive shell, use .sml files in the following order.</p>
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic</h7>
 
 <ul>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-default.sml</li>
-<li>mlmsgpack.sml</li>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
 </ul>
 
-<h8>
-<a id="user-content-smlnj" class="anchor" href="#smlnj" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML/NJ</h8>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
 
-<p>Use mlmsgpack.cm.</p>
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c">; =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
 
-<h8>
-<a id="user-content-moscow-ml" class="anchor" href="#moscow-ml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moscow ML</h8>
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
 
-<p>From the interactive shell, use .sml files in the following order.</p>
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming</h7>
 
 <ul>
-<li>large.sml</li>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-fail.sml</li>
-<li>mlmsgpack.sml</li>
+<li>
+<code>unpack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">InputStream</a>
+</li>
+<li>
+<code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
+</li>
 </ul>
 
-<p>Makefile.mosml is also provided.</p>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+(<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
 
-<h8>
-<a id="user-content-hamlet" class="anchor" href="#hamlet" aria-hidden="true"><span class="octicon octicon-link"></span></a>HaMLet</h8>
+(<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-output (<span class="pl-en">java.io.DataOutputStream.</span> o)]
+    (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
 
-<p>From the interactive shell, use .sml files in the following order.</p>
+(<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-input (<span class="pl-en">java.io.DataInputStream.</span> i)]
+    (<span class="pl-en">msg/unpack-stream</span> data-input)))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
 
-<ul>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-fail.sml</li>
-<li>mlmsgpack.sml</li>
-</ul>
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core types</h7>
 
-<h8>
-<a id="user-content-alice-ml" class="anchor" href="#alice-ml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alice ML</h8>
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
 
-<p>Makefile.alice is provided.</p>
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
 
-<pre><code>make -f Makefile.alice
-alicerun mlmsgpack-test
-</code></pre>
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clojure types</h7>
 
-<h8>
-<a id="user-content-sml" class="anchor" href="#sml" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML#</h8>
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
 
-<p>For separate compilation, .smi files are provided. Require mlmsgpack.smi from your .smi file.</p>
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
 
-<p>From the interactive shell, use .sml files in the following order.</p>
+<p>With <code>msgpack.clojure-extensions</code>:</p>
 
-<ul>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-default.sml</li>
-<li>mlmsgpack.sml</li>
-</ul>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c">; =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
 
 <h6>
-<a id="user-content-tutorial" class="anchor" href="#tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tutorial</h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
-<p>See TUTORIAL.md.</p>
-
-<h6>
-<a id="user-content-known-problems" class="anchor" href="#known-problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known Problems</h6>
-
-<p>Our recommendation is MLton, MLKit, Poly/ML and SML#(&gt;=2.0.0) as all tests passed on them.
-SML/NJ and Moscow ML are fine if you don't use real values.</p>
-
-<h8>
-<a id="user-content-smlnj-1" class="anchor" href="#smlnj-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML/NJ</h8>
-
-<p>Packing real values fail or produces imprecise results in some cases.</p>
-
-<h8>
-<a id="user-content-moscow-ml-1" class="anchor" href="#moscow-ml-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moscow ML</h8>
-
-<p>Packing real values is not supported, since some components of the SML Basis Library are not provided.</p>
-
-<h8>
-<a id="user-content-hamlet-1" class="anchor" href="#hamlet-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>HaMLet</h8>
-
-<p>Packing real values is not supported, since some components of the SML Basis Library are not provided.
-Some functions are very slow, although they work properly. (We tested HaMLet compiled with MLton.)</p>
-
-<h8>
-<a id="user-content-alice-ml-1" class="anchor" href="#alice-ml-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alice ML</h8>
-
-<p>Packing real values is not supported, since some components of the SML Basis Library are not provided.
-Also, some unit tests fail.</p>
-
-<h8>
-<a id="user-content-sml-1" class="anchor" href="#sml-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML#</h8>
-
-<p>Most functions do not work properly because of bugs of SML# prior to version 2.0.0.</p>
-
-<h6>
-<a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h6>
-
-<p>There already exists another MessagePack implemenatation for SML, 
-called MsgPack-SML, which is targeted for MLton.</p>
-
-<p><a href="https://msgpacksml.codeplex.com/">https://msgpacksml.codeplex.com/</a></p>
-
-<p>ML-MessagePack is written from scratch and not a fork of MsgPack-SML.</p>
-
-<p>For information on MessagePack, see:</p>
-
-<p><a href="http://msgpack.org/">http://msgpack.org/</a></p>
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
 </article>
   </div>
         </div>
@@ -6419,6 +6496,99 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ludocode-msgpack-tools" class="qs"><h4><a href="https://github.com/ludocode/msgpack-tools" target="_blank">ludocode/msgpack-tools <span class="qs-url">https://github.com/ludocode/msgpack-tools</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h6>
+<a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h6>
+
+<p><strong>msgpack-tools</strong> contains simple command-line utilities for converting from <a href="http://msgpack.org/">MessagePack</a> to <a href="http://json.org/">JSON</a> and vice-versa. They support options for lax parsing, lossy conversions, pretty-printing, and base64 encoding.</p>
+
+<ul>
+<li>
+<code>msgpack2json</code> -- Convert MessagePack to JSON</li>
+<li>
+<code>json2msgpack</code> -- Convert JSON to MessagePack</li>
+</ul>
+
+<p>They can be used for dumping MessagePack from a file or web API to a human-readable format, or for converting hand-written or generated JSON to MessagePack. The lax parsing mode supports comments and trailing commas in JSON, making it possible to hand-write your app or game data in JSON and convert it at build-time to MessagePack.</p>
+
+<h6>
+<a id="user-content-build-status" class="anchor" href="#build-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build Status</h6>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a href="https://travis-ci.org/">Travis-CI</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://travis-ci.org/ludocode/msgpack-tools/branches"><img src="https://camo.githubusercontent.com/1a5411af15e873681bd3bd16d64b1a173dbde05d/68747470733a2f2f7472617669732d63692e6f72672f6c75646f636f64652f6d73677061636b2d746f6f6c732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ludocode/msgpack-tools.svg?branch=master" style="max-width:100%;"></a></td>
+</tr>
+</tbody>
+</table>
+
+<h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
+
+<p>To view a MessagePack file in a human-readable format for debugging purposes:</p>
+
+<pre><code>msgpack2json -di file.mp
+</code></pre>
+
+<p>To convert a hand-written JSON file to a MessagePack file, ignoring comments and trailing commas, and allowing embedded base64 with a <code>base64:</code> prefix:</p>
+
+<pre><code>json2msgpack -bli file.json -o file.mp
+</code></pre>
+
+<p>To fetch MessagePack from a web API and view it in a human-readable format:</p>
+
+<pre><code>curl 'http://example/api/url' | msgpack2json -d
+</code></pre>
+
+<p>To view the MessagePack-equivalent encoding of a JSON string:</p>
+
+<pre><code>$ echo '{"compact": true, "schema": 0}' | json2msgpack | hexdump -C
+00000000  82 a7 63 6f 6d 70 61 63  74 c3 a6 73 63 68 65 6d  |..compact..schem|
+00000010  61 00                                             |a.|
+00000012
+</code></pre>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>msgpack-tools currently must be built from source. The latest version of the msgpack-tools source archive can be downloaded from the releases page. This includes the library dependencies and has pre-generated man pages:</p>
+
+<p><a href="https://github.com/ludocode/msgpack-tools/releases">https://github.com/ludocode/msgpack-tools/releases</a></p>
+
+<p>msgpack-tools uses CMake. A <code>configure</code> wrapper is provided that calls CMake, so on Linux and Mac OS X, you can simply run the usual:</p>
+
+<pre><code>./configure &amp;&amp; make &amp;&amp; sudo make install
+</code></pre>
+
+<p>If you are building from the repository, you will need to fetch the dependencies and generate the man pages. These are done with the scripts under <code>tools/fetch.sh</code> and <code>tools/man.sh</code>. <a href="https://github.com/sunaku/md2man">md2man</a> is required to generate the man pages.</p>
+
+<h6>
+<a id="user-content-differences-between-messagepack-and-json" class="anchor" href="#differences-between-messagepack-and-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Differences between MessagePack and JSON</h6>
+
+<p>MessagePack is intended to be very close to JSON in supported features, so they can usually be transparently converted from one to the other. There are some differences, however, which can complicate conversions.</p>
+
+<p>These are the differences in what objects are representable in each format:</p>
+
+<ul>
+<li><p>JSON keys must be strings. MessagePack keys can be any type, including maps and arrays.</p></li>
+<li><p>JSON supports "bignums", i.e. integers of any size. MessagePack integers must fit within a 64-bit signed or unsigned integer.</p></li>
+<li><p>JSON real numbers are specified in decimal scientific notation and can have arbitrary precision. MessagePack real numbers are in IEEE 754 standard 32-bit or 64-bit binary.</p></li>
+<li><p>MessagePack supports binary and extension type objects. JSON does not support binary data. Binary data is often encoded into a base64 string to be embedded into a JSON document.</p></li>
+<li><p>The top-level object in a JSON document must be either an array or object (map). The top-level object in MessagePack can be any type.</p></li>
+<li><p>A JSON document must be entirely in one encoding. MessagePack does not specify encoding, and different strings in the same document can technically be in different encodings (though this is a really bad idea.)</p></li>
+</ul>
+
+<p>By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
 </article>
   </div>
         </div>
