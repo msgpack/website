@@ -204,8 +204,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
@@ -1529,72 +1527,6 @@ To report an issue or send a pull request, use the
 
 <p><code>msgpack-c</code> is licensed under the Boost Software License, Version 1.0. See
 the <a href="/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt"><code>LICENSE_1_0.txt</code></a> file for details.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack-for-ocaml" class="anchor" href="#msgpack-for-ocaml" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack for OCaml</h5>
-
-<h6>
-<a id="user-content-bulid" class="anchor" href="#bulid" aria-hidden="true"><span class="octicon octicon-link"></span></a>BULID</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ make
-$ sudo make install</pre></div>
-
-<h6>
-<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXAMPLE</h6>
-
-<h7>
-<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for Msgpack Object</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
-
-<h7>
-<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" href="#serializedeserialize-for-ocaml-types-with-meta_conv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
-
-<span class="pl-k">type</span> <span class="pl-k">t </span>= {
-  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
-  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
-} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
-
-<span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
-
-<p>See also, <code>examlpe/</code></p>
-
-<h6>
-<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEST</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ ocaml setup.ml -configure --enable-tests
-$ make <span class="pl-c1">test</span></pre></div>
-
-<h6>
-<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROOF</h6>
-
-<p>If you want to use msgpack at OCaml, you need not do this section.
-This section for user intrested in formal verification.</p>
-
-<p>You need Coq 8.4 and omake.</p>
-
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> proof
-$ make
-$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
 </article>
   </div>
         </div>
