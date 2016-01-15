@@ -201,8 +201,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
@@ -232,8 +230,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
           
@@ -286,6 +282,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-benoist-msgpack-crystal',this)">Crystal <span class="qs-sub">benoist</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kawanet-msgpack-lite',this)">JavaScript <span class="qs-sub">kawanet</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
@@ -622,7 +620,7 @@ buf.seek(<span class="pl-c1">0</span>)
 
 unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf)
 <span class="pl-k">for</span> unpacked <span class="pl-k">in</span> unpacker:
-    <span class="pl-k">print</span> unpacked</pre></div>
+    <span class="pl-c1">print</span> unpacked</pre></div>
 <a name="user-content-packing-unpacking-of-custom-data-type"></a>
 <h7>
 <a id="user-content-packingunpacking-of-custom-data-type" class="anchor" href="#packingunpacking-of-custom-data-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packing/unpacking of custom data type</h7>
@@ -638,18 +636,18 @@ useful_dict <span class="pl-k">=</span> {
 }
 
 <span class="pl-k">def</span> <span class="pl-en">decode_datetime</span>(<span class="pl-smi">obj</span>):
-    <span class="pl-k">if</span> b<span class="pl-s"><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span> <span class="pl-k">in</span> obj:
-        obj <span class="pl-k">=</span> datetime.datetime.strptime(obj[<span class="pl-s"><span class="pl-pds">"</span>as_str<span class="pl-pds">"</span></span>], <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%Y%m%d</span>T<span class="pl-c1">%H</span>:<span class="pl-c1">%M</span>:<span class="pl-c1">%S</span>.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)
+    <span class="pl-k">if</span> <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span> <span class="pl-k">in</span> obj:
+        obj <span class="pl-k">=</span> datetime.datetime.strptime(obj[<span class="pl-s"><span class="pl-pds">"</span>as_str<span class="pl-pds">"</span></span>], <span class="pl-s"><span class="pl-pds">"</span>%Y%m<span class="pl-c1">%d</span>T%H:%M:%S.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)
     <span class="pl-k">return</span> obj
 
 <span class="pl-k">def</span> <span class="pl-en">encode_datetime</span>(<span class="pl-smi">obj</span>):
     <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(obj, datetime.datetime):
-        <span class="pl-k">return</span> {<span class="pl-s"><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-pds">'</span>as_str<span class="pl-pds">'</span></span>: obj.strftime(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%Y%m%d</span>T<span class="pl-c1">%H</span>:<span class="pl-c1">%M</span>:<span class="pl-c1">%S</span>.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)}
+        <span class="pl-k">return</span> {<span class="pl-s"><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-pds">'</span>as_str<span class="pl-pds">'</span></span>: obj.strftime(<span class="pl-s"><span class="pl-pds">"</span>%Y%m<span class="pl-c1">%d</span>T%H:%M:%S.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)}
     <span class="pl-k">return</span> obj
 
 
-packed_dict <span class="pl-k">=</span> msgpack.packb(useful_dict, <span class="pl-smi">default</span><span class="pl-k">=</span>encode_datetime)
-this_dict_again <span class="pl-k">=</span> msgpack.unpackb(packed_dict, <span class="pl-smi">object_hook</span><span class="pl-k">=</span>decode_datetime)</pre></div>
+packed_dict <span class="pl-k">=</span> msgpack.packb(useful_dict, <span class="pl-v">default</span><span class="pl-k">=</span>encode_datetime)
+this_dict_again <span class="pl-k">=</span> msgpack.unpackb(packed_dict, <span class="pl-v">object_hook</span><span class="pl-k">=</span>decode_datetime)</pre></div>
 <p><code>Unpacker</code>'s <code>object_hook</code> callback receives a dict; the
 <code>object_pairs_hook</code> callback may instead be used to receive a list of
 key-value pairs.</p>
@@ -1526,72 +1524,6 @@ To report an issue or send a pull request, use the
 
 <p><code>msgpack-c</code> is licensed under the Boost Software License, Version 1.0. See
 the <a href="/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt"><code>LICENSE_1_0.txt</code></a> file for details.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack-for-ocaml" class="anchor" href="#msgpack-for-ocaml" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack for OCaml</h5>
-
-<h6>
-<a id="user-content-bulid" class="anchor" href="#bulid" aria-hidden="true"><span class="octicon octicon-link"></span></a>BULID</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ make
-$ sudo make install</pre></div>
-
-<h6>
-<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXAMPLE</h6>
-
-<h7>
-<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for Msgpack Object</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
-
-<h7>
-<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" href="#serializedeserialize-for-ocaml-types-with-meta_conv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
-
-<span class="pl-k">type</span> <span class="pl-k">t </span>= {
-  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
-  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
-} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
-
-<span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
-
-<p>See also, <code>examlpe/</code></p>
-
-<h6>
-<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEST</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ ocaml setup.ml -configure --enable-tests
-$ make <span class="pl-c1">test</span></pre></div>
-
-<h6>
-<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROOF</h6>
-
-<p>If you want to use msgpack at OCaml, you need not do this section.
-This section for user intrested in formal verification.</p>
-
-<p>You need Coq 8.4 and omake.</p>
-
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> proof
-$ make
-$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
 </article>
   </div>
         </div>
@@ -2568,73 +2500,73 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>Basic Example:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">import</span> umsgpack
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
+<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82\xa7</span>compact<span class="pl-cce">\xc3\xa6</span>schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpackb(_)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
 <p>A more complicated example:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb(
-        [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">0x</span>ffffffff, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: b<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb(
+        [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1"><span class="pl-k">0x</span>ffffffff</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
          <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01</span>\xc3\xc2\xce\xff\xff\xff\xff<span class="pl-cce">\x82</span>\xa3foo\xc4<span class="pl-cce">\x03\x80\x01</span><span class="pl-pds">'</span></span>
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x02</span>\xa3bar<span class="pl-cce">\x94\x01\x02\x03\x81</span>\xa1a<span class="pl-cce">\x94\x01\x02\x03\x80</span>\xff\xcb<span class="pl-pds">'</span></span>
-<span class="pl-s"><span class="pl-pds">'</span>@<span class="pl-cce">\x00</span>\xfc\xd3Z<span class="pl-cce">\x85\x87\x94</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpackb(_)
+<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01\xc3\xc2\xce\xff\xff\xff\xff\x82\xa3</span>foo<span class="pl-cce">\xc4\x03\x80\x01</span><span class="pl-pds">'</span></span>
+<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x02\xa3</span>bar<span class="pl-cce">\x94\x01\x02\x03\x81\xa1</span>a<span class="pl-cce">\x94\x01\x02\x03\x80\xff\xcb</span><span class="pl-pds">'</span></span>
+<span class="pl-s"><span class="pl-pds">'</span>@<span class="pl-cce">\x00\xfc\xd3</span>Z<span class="pl-cce">\x85\x87\x94</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpackb(_)
 [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">4294967295</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">'</span></span>,
  <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>]
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
 <p>Streaming serialization with file-like objects:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>], f)
-<span class="pl-k">&gt;&gt;&gt;</span> f.close()
-<span class="pl-k">&gt;&gt;&gt;</span> 
-<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpack(f)
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.pack({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>], f)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f.close()
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpack(f)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.unpack(f)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpack(f)
 [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>]
-<span class="pl-k">&gt;&gt;&gt;</span> f.close()
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f.close()
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
 <p>Encoding and decoding an application-defined ext type:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
-... foo <span class="pl-k">=</span> umsgpack.Ext(<span class="pl-c1">0x</span>05, b<span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">"</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
-b<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xadspecial stuff\xc7<span class="pl-cce">\x03\x05\x01\x02\x03</span>\xa7awesome\xc3<span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> bar <span class="pl-k">=</span> umsgpack.unpackb(_)
-<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">print</span>(bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>])
-Ext Object (Type: <span class="pl-c1">0x</span>05, Data: <span class="pl-c1">01</span> <span class="pl-c1">02</span> <span class="pl-c1">03</span>)
-<span class="pl-k">&gt;&gt;&gt;</span> bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].type
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
+<span class="pl-c1">...</span> foo <span class="pl-k">=</span> umsgpack.Ext(<span class="pl-c1"><span class="pl-k">0x</span>05</span>, <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">"</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">"</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x82\xad</span>special stuff<span class="pl-cce">\xc7\x03\x05\x01\x02\x03\xa7</span>awesome<span class="pl-cce">\xc3</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar <span class="pl-k">=</span> umsgpack.unpackb(_)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-c1">print</span>(bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>])
+Ext Object (Type: <span class="pl-c1"><span class="pl-k">0x</span>05</span>, Data: <span class="pl-c1">0<span class="pl-ii">1</span></span> <span class="pl-c1">0<span class="pl-ii">2</span></span> <span class="pl-c1">0<span class="pl-ii">3</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].type
 <span class="pl-c1">5</span>
-<span class="pl-k">&gt;&gt;&gt;</span> bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].data
-b<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].data
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
 <p>Python standard library style names <code>dump</code>, <code>dumps</code>, <code>load</code>, <code>loads</code> are also
 available:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-k">import</span> umsgpack
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.dumps({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82</span>\xa7compact\xc3\xa6schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.loads(_)
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">import</span> umsgpack
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.dumps({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
+<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82\xa7</span>compact<span class="pl-cce">\xc3\xa6</span>schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.loads(_)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> 
-<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.dump({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
-<span class="pl-k">&gt;&gt;&gt;</span> f.close()
-<span class="pl-k">&gt;&gt;&gt;</span> 
-<span class="pl-k">&gt;&gt;&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> umsgpack.load(f)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.dump({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f.close()
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.load(f)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
-<span class="pl-k">&gt;&gt;&gt;</span> </pre></div>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
 <h6>
 <a id="user-content-more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Information</h6>
@@ -2996,147 +2928,6 @@ types, load the <code>clojure-extensions</code> library.</p>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
 
 <p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-tkob-mlmsgpack" class="qs"><h4><a href="https://github.com/tkob/mlmsgpack" target="_blank">tkob/mlmsgpack <span class="qs-url">https://github.com/tkob/mlmsgpack</span></a></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-ml-messagepack" class="anchor" href="#ml-messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>ML-MessagePack</h5>
-
-<p>MessagePack implementation for Standard ML (SML)</p>
-
-<h6>
-<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h6>
-
-<ul>
-<li>Portable: Depends only on the required components of the SML Basis Library specification.</li>
-<li>Composable: Composable combinators for encoding and decoding.</li>
-</ul>
-
-<h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
-
-<h8>
-<a id="user-content-mlton-and-mlkit" class="anchor" href="#mlton-and-mlkit" aria-hidden="true"><span class="octicon octicon-link"></span></a>MLton and MLKit</h8>
-
-<p>Include mlmsgpack.mlb in your MLB file.</p>
-
-<h8>
-<a id="user-content-polyml" class="anchor" href="#polyml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Poly/ML</h8>
-
-<p>From the interactive shell, use .sml files in the following order.</p>
-
-<ul>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-default.sml</li>
-<li>mlmsgpack.sml</li>
-</ul>
-
-<h8>
-<a id="user-content-smlnj" class="anchor" href="#smlnj" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML/NJ</h8>
-
-<p>Use mlmsgpack.cm.</p>
-
-<h8>
-<a id="user-content-moscow-ml" class="anchor" href="#moscow-ml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moscow ML</h8>
-
-<p>From the interactive shell, use .sml files in the following order.</p>
-
-<ul>
-<li>large.sml</li>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-fail.sml</li>
-<li>mlmsgpack.sml</li>
-</ul>
-
-<p>Makefile.mosml is also provided.</p>
-
-<h8>
-<a id="user-content-hamlet" class="anchor" href="#hamlet" aria-hidden="true"><span class="octicon octicon-link"></span></a>HaMLet</h8>
-
-<p>From the interactive shell, use .sml files in the following order.</p>
-
-<ul>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-fail.sml</li>
-<li>mlmsgpack.sml</li>
-</ul>
-
-<h8>
-<a id="user-content-alice-ml" class="anchor" href="#alice-ml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alice ML</h8>
-
-<p>Makefile.alice is provided.</p>
-
-<pre><code>make -f Makefile.alice
-alicerun mlmsgpack-test
-</code></pre>
-
-<h8>
-<a id="user-content-sml" class="anchor" href="#sml" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML#</h8>
-
-<p>For separate compilation, .smi files are provided. Require mlmsgpack.smi from your .smi file.</p>
-
-<p>From the interactive shell, use .sml files in the following order.</p>
-
-<ul>
-<li>mlmsgpack-aux.sml</li>
-<li>realprinter-default.sml</li>
-<li>mlmsgpack.sml</li>
-</ul>
-
-<h6>
-<a id="user-content-tutorial" class="anchor" href="#tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tutorial</h6>
-
-<p>See TUTORIAL.md.</p>
-
-<h6>
-<a id="user-content-known-problems" class="anchor" href="#known-problems" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known Problems</h6>
-
-<p>Our recommendation is MLton, MLKit, Poly/ML and SML#(&gt;=2.0.0) as all tests passed on them.
-SML/NJ and Moscow ML are fine if you don't use real values.</p>
-
-<h8>
-<a id="user-content-smlnj-1" class="anchor" href="#smlnj-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML/NJ</h8>
-
-<p>Packing real values fail or produces imprecise results in some cases.</p>
-
-<h8>
-<a id="user-content-moscow-ml-1" class="anchor" href="#moscow-ml-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moscow ML</h8>
-
-<p>Packing real values is not supported, since some components of the SML Basis Library are not provided.</p>
-
-<h8>
-<a id="user-content-hamlet-1" class="anchor" href="#hamlet-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>HaMLet</h8>
-
-<p>Packing real values is not supported, since some components of the SML Basis Library are not provided.
-Some functions are very slow, although they work properly. (We tested HaMLet compiled with MLton.)</p>
-
-<h8>
-<a id="user-content-alice-ml-1" class="anchor" href="#alice-ml-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alice ML</h8>
-
-<p>Packing real values is not supported, since some components of the SML Basis Library are not provided.
-Also, some unit tests fail.</p>
-
-<h8>
-<a id="user-content-sml-1" class="anchor" href="#sml-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>SML#</h8>
-
-<p>Most functions do not work properly because of bugs of SML# prior to version 2.0.0.</p>
-
-<h6>
-<a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h6>
-
-<p>There already exists another MessagePack implemenatation for SML, 
-called MsgPack-SML, which is targeted for MLton.</p>
-
-<p><a href="https://msgpacksml.codeplex.com/">https://msgpacksml.codeplex.com/</a></p>
-
-<p>ML-MessagePack is written from scratch and not a fork of MsgPack-SML.</p>
-
-<p>For information on MessagePack, see:</p>
-
-<p><a href="http://msgpack.org/">http://msgpack.org/</a></p>
 </article>
   </div>
         </div>
@@ -4782,7 +4573,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 
 <span class="pl-k">class</span> <span class="pl-en">ComputePI</span>(<span class="pl-e">MsgpackRPCServer</span>):
 
-    <span class="pl-k">def</span> <span class="pl-en"><span class="pl-c1">__init__</span></span>(<span class="pl-smi">self</span>):
+    <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi">self</span>):
         <span class="pl-v">self</span>.waiting <span class="pl-k">=</span> defaultdict(<span class="pl-c1">list</span>)
         <span class="pl-v">self</span>.results <span class="pl-k">=</span> {}
 
@@ -4814,7 +4605,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
         <span class="pl-k">return</span> d
 
     <span class="pl-k">def</span> <span class="pl-en">computePI</span>(<span class="pl-smi">self</span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span>):
-        d <span class="pl-k">=</span> utils.getProcessOutputAndValue(<span class="pl-s"><span class="pl-pds">'</span>/usr/bin/python<span class="pl-pds">'</span></span>, <span class="pl-smi">args</span><span class="pl-k">=</span>(<span class="pl-s"><span class="pl-pds">'</span>-c<span class="pl-pds">'</span></span>, pi_chudovsky_bs, <span class="pl-c1">str</span>(digits)))
+        d <span class="pl-k">=</span> utils.getProcessOutputAndValue(<span class="pl-s"><span class="pl-pds">'</span>/usr/bin/python<span class="pl-pds">'</span></span>, <span class="pl-v">args</span><span class="pl-k">=</span>(<span class="pl-s"><span class="pl-pds">'</span>-c<span class="pl-pds">'</span></span>, pi_chudovsky_bs, <span class="pl-c1">str</span>(digits)))
 
         <span class="pl-k">def</span> <span class="pl-en">callback</span>((<span class="pl-smi">out</span>, <span class="pl-smi">err</span>, <span class="pl-smi">code</span>)):
             <span class="pl-k">if</span> code <span class="pl-k">==</span> <span class="pl-c1">0</span>:
@@ -4855,15 +4646,15 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 
         <span class="pl-k">from</span> txmsgpackrpc.client <span class="pl-k">import</span> connect
 
-        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect(<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-smi">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">900</span>)
+        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect(<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-v">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">900</span>)
 
         <span class="pl-k">def</span> <span class="pl-en">callback</span>(<span class="pl-smi">res</span>, <span class="pl-smi">digits</span>, <span class="pl-smi">start_time</span>):
             <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(res, failure.Failure):
-                <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places failed: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span>
-                      (digits, res.getErrorMessage()), end<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
+                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places failed: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span>
+                      (digits, res.getErrorMessage()), <span class="pl-v">end</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
             <span class="pl-k">else</span>:
-                <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places finished in <span class="pl-c1">%f</span> seconds<span class="pl-pds">'</span></span> <span class="pl-k">%</span>
-                      (digits, time.time() <span class="pl-k">-</span> start_time), end<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
+                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places finished in <span class="pl-c1">%f</span> seconds<span class="pl-pds">'</span></span> <span class="pl-k">%</span>
+                      (digits, time.time() <span class="pl-k">-</span> start_time), <span class="pl-v">end</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
             sys.stdout.flush()
 
         defers <span class="pl-k">=</span> []
@@ -4877,7 +4668,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 
         <span class="pl-k">yield</span> defer.DeferredList(defers)
 
-        <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>DONE<span class="pl-pds">'</span></span>)
+        <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>DONE<span class="pl-pds">'</span></span>)
 
     <span class="pl-k">except</span> <span class="pl-c1">Exception</span>:
         <span class="pl-k">import</span> traceback
@@ -4938,8 +4729,8 @@ $</pre></div>
 
 <span class="pl-k">def</span> <span class="pl-en">main</span>():
     server <span class="pl-k">=</span> EchoRPC()
-    reactor.listenMulticast(<span class="pl-c1">8000</span>, server.getMulticastProtocol(<span class="pl-s"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-smi">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>),
-                            <span class="pl-smi">listenMultiple</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+    reactor.listenMulticast(<span class="pl-c1">8000</span>, server.getMulticastProtocol(<span class="pl-s"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-v">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>),
+                            <span class="pl-v">listenMultiple</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
 
 <span class="pl-k">if</span> <span class="pl-c1">__name__</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
     reactor.callWhenRunning(main)
@@ -4957,7 +4748,7 @@ $</pre></div>
 
         <span class="pl-k">from</span> txmsgpackrpc.client <span class="pl-k">import</span> connect_multicast
 
-        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect_multicast(<span class="pl-s"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-smi">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>, <span class="pl-smi">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>)
+        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect_multicast(<span class="pl-s"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-v">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>, <span class="pl-v">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>)
 
         data <span class="pl-k">=</span> {
                     <span class="pl-s"><span class="pl-pds">'</span>firstName<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>John<span class="pl-pds">'</span></span>,
@@ -4989,12 +4780,12 @@ $</pre></div>
 
         <span class="pl-k">assert</span> <span class="pl-c1">isinstance</span>(results, <span class="pl-c1">tuple</span>)
 
-        <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Received results from <span class="pl-c1">%d</span> peers<span class="pl-pds">'</span></span> <span class="pl-k">%</span> <span class="pl-c1">len</span>(results))
+        <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Received results from <span class="pl-c1">%d</span> peers<span class="pl-pds">'</span></span> <span class="pl-k">%</span> <span class="pl-c1">len</span>(results))
 
         <span class="pl-k">for</span> i, result <span class="pl-k">in</span> <span class="pl-c1">enumerate</span>(results):
             <span class="pl-k">if</span> result <span class="pl-k">!=</span> data:
-                <span class="pl-k">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Result <span class="pl-c1">%d</span> mismatch<span class="pl-pds">'</span></span> <span class="pl-k">%</span> i)
-                <span class="pl-k">print</span>(result)
+                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Result <span class="pl-c1">%d</span> mismatch<span class="pl-pds">'</span></span> <span class="pl-k">%</span> i)
+                <span class="pl-c1">print</span>(result)
 
     <span class="pl-k">except</span> <span class="pl-c1">Exception</span>:
         <span class="pl-k">import</span> traceback
@@ -6646,6 +6437,99 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ludocode-msgpack-tools" class="qs"><h4><a href="https://github.com/ludocode/msgpack-tools" target="_blank">ludocode/msgpack-tools <span class="qs-url">https://github.com/ludocode/msgpack-tools</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h6>
+<a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h6>
+
+<p><strong>msgpack-tools</strong> contains simple command-line utilities for converting from <a href="http://msgpack.org/">MessagePack</a> to <a href="http://json.org/">JSON</a> and vice-versa. They support options for lax parsing, lossy conversions, pretty-printing, and base64 encoding.</p>
+
+<ul>
+<li>
+<code>msgpack2json</code> -- Convert MessagePack to JSON</li>
+<li>
+<code>json2msgpack</code> -- Convert JSON to MessagePack</li>
+</ul>
+
+<p>They can be used for dumping MessagePack from a file or web API to a human-readable format, or for converting hand-written or generated JSON to MessagePack. The lax parsing mode supports comments and trailing commas in JSON, making it possible to hand-write your app or game data in JSON and convert it at build-time to MessagePack.</p>
+
+<h6>
+<a id="user-content-build-status" class="anchor" href="#build-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build Status</h6>
+
+<table>
+<thead>
+<tr>
+<th align="center"><a href="https://travis-ci.org/">Travis-CI</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://travis-ci.org/ludocode/msgpack-tools/branches"><img src="https://camo.githubusercontent.com/1a5411af15e873681bd3bd16d64b1a173dbde05d/68747470733a2f2f7472617669732d63692e6f72672f6c75646f636f64652f6d73677061636b2d746f6f6c732e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ludocode/msgpack-tools.svg?branch=master" style="max-width:100%;"></a></td>
+</tr>
+</tbody>
+</table>
+
+<h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h6>
+
+<p>To view a MessagePack file in a human-readable format for debugging purposes:</p>
+
+<pre><code>msgpack2json -di file.mp
+</code></pre>
+
+<p>To convert a hand-written JSON file to a MessagePack file, ignoring comments and trailing commas, and allowing embedded base64 with a <code>base64:</code> prefix:</p>
+
+<pre><code>json2msgpack -bli file.json -o file.mp
+</code></pre>
+
+<p>To fetch MessagePack from a web API and view it in a human-readable format:</p>
+
+<pre><code>curl 'http://example/api/url' | msgpack2json -d
+</code></pre>
+
+<p>To view the MessagePack-equivalent encoding of a JSON string:</p>
+
+<pre><code>$ echo '{"compact": true, "schema": 0}' | json2msgpack | hexdump -C
+00000000  82 a7 63 6f 6d 70 61 63  74 c3 a6 73 63 68 65 6d  |..compact..schem|
+00000010  61 00                                             |a.|
+00000012
+</code></pre>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>msgpack-tools currently must be built from source. The latest version of the msgpack-tools source archive can be downloaded from the releases page. This includes the library dependencies and has pre-generated man pages:</p>
+
+<p><a href="https://github.com/ludocode/msgpack-tools/releases">https://github.com/ludocode/msgpack-tools/releases</a></p>
+
+<p>msgpack-tools uses CMake. A <code>configure</code> wrapper is provided that calls CMake, so on Linux and Mac OS X, you can simply run the usual:</p>
+
+<pre><code>./configure &amp;&amp; make &amp;&amp; sudo make install
+</code></pre>
+
+<p>If you are building from the repository, you will need to fetch the dependencies and generate the man pages. These are done with the scripts under <code>tools/fetch.sh</code> and <code>tools/man.sh</code>. <a href="https://github.com/sunaku/md2man">md2man</a> is required to generate the man pages.</p>
+
+<h6>
+<a id="user-content-differences-between-messagepack-and-json" class="anchor" href="#differences-between-messagepack-and-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Differences between MessagePack and JSON</h6>
+
+<p>MessagePack is intended to be very close to JSON in supported features, so they can usually be transparently converted from one to the other. There are some differences, however, which can complicate conversions.</p>
+
+<p>These are the differences in what objects are representable in each format:</p>
+
+<ul>
+<li><p>JSON keys must be strings. MessagePack keys can be any type, including maps and arrays.</p></li>
+<li><p>JSON supports "bignums", i.e. integers of any size. MessagePack integers must fit within a 64-bit signed or unsigned integer.</p></li>
+<li><p>JSON real numbers are specified in decimal scientific notation and can have arbitrary precision. MessagePack real numbers are in IEEE 754 standard 32-bit or 64-bit binary.</p></li>
+<li><p>MessagePack supports binary and extension type objects. JSON does not support binary data. Binary data is often encoded into a base64 string to be embedded into a JSON document.</p></li>
+<li><p>The top-level object in a JSON document must be either an array or object (map). The top-level object in MessagePack can be any type.</p></li>
+<li><p>A JSON document must be entirely in one encoding. MessagePack does not specify encoding, and different strings in the same document can technically be in different encodings (though this is a really bad idea.)</p></li>
+</ul>
+
+<p>By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
 </article>
   </div>
         </div>
