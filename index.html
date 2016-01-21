@@ -201,8 +201,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
@@ -1596,72 +1594,6 @@ $ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre>
   </div>
         </div>
         
-        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack-for-ocaml" class="anchor" href="#msgpack-for-ocaml" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack for OCaml</h5>
-
-<h6>
-<a id="user-content-bulid" class="anchor" href="#bulid" aria-hidden="true"><span class="octicon octicon-link"></span></a>BULID</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ make
-$ sudo make install</pre></div>
-
-<h6>
-<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXAMPLE</h6>
-
-<h7>
-<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for Msgpack Object</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
-
-<h7>
-<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" href="#serializedeserialize-for-ocaml-types-with-meta_conv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
-
-<span class="pl-k">type</span> <span class="pl-k">t </span>= {
-  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
-  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
-} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
-
-<span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
-
-<p>See also, <code>examlpe/</code></p>
-
-<h6>
-<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEST</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ ocaml setup.ml -configure --enable-tests
-$ make <span class="pl-c1">test</span></pre></div>
-
-<h6>
-<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROOF</h6>
-
-<p>If you want to use msgpack at OCaml, you need not do this section.
-This section for user intrested in formal verification.</p>
-
-<p>You need Coq 8.4 and omake.</p>
-
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> proof
-$ make
-$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -2652,7 +2584,7 @@ available:</p>
         <div id="qs-kmsquire-MsgPack-jl" class="qs"><h4><a href="https://github.com/kmsquire/MsgPack.jl" target="_blank">kmsquire/MsgPack.jl <span class="qs-url">https://github.com/kmsquire/MsgPack.jl</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack</h5>
+<a id="user-content-msgpack" class="anchor" href="#msgpack" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MsgPack</h5>
 
 <p><a href="https://travis-ci.org/kmsquire/MsgPack.jl"><img src="https://camo.githubusercontent.com/8a2893a403c22c2fa53ef926fa2a63aecff17e69/68747470733a2f2f7472617669732d63692e6f72672f6b6d7371756972652f4d73675061636b2e6a6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kmsquire/MsgPack.jl.svg?branch=master" style="max-width:100%;"></a></p>
 
@@ -2696,7 +2628,7 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 <p>I might change this at some point, and/or provide a way to control the unpacked types.</p>
 
 <h7>
-<a id="user-content-the-extension-type" class="anchor" href="#the-extension-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Extension Type</h7>
+<a id="user-content-the-extension-type" class="anchor" href="#the-extension-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Extension Type</h7>
 
 <p>The MsgPack spec <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#formats-ext">defines</a> the <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#types-extension-type">extension type</a> to be a tuple of <code>(typecode, bytearray)</code> where <code>typecode</code> is an application-specific identifier for the data in <code>bytearray</code>. MsgPack.jl provides support for the extension type through the <code>Ext</code> immutable.</p>
 
@@ -2749,7 +2681,7 @@ julia<span class="pl-k">&gt;</span> <span class="pl-c1">Ext</span>(<span class="
 MsgPack<span class="pl-k">.</span><span class="pl-c1">Ext</span>(<span class="pl-k">-</span><span class="pl-c1">43</span>,UInt8[<span class="pl-c1">0x01</span>,<span class="pl-c1">0x05</span>,<span class="pl-c1">0x03</span>,<span class="pl-c1">0x09</span>])</pre></div>
 
 <h8>
-<a id="user-content-serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h8>
+<a id="user-content-serialization" class="anchor" href="#serialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Serialization</h8>
 
 <p>MsgPack.jl also defines the <code>extserialize</code> and <code>extdeserialize</code> convenience functions. These functions can turn an arbitrary object into an <code>Ext</code> and vice-versa.</p>
 
@@ -4453,7 +4385,7 @@ if you find any bug, please contact me!
         <div id="qs-ymofen-thealchemist" class="qs"><h4><a href="https://github.com/ymofen/thealchemist" target="_blank">ymofen/thealchemist <span class="qs-url">https://github.com/ymofen/thealchemist</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-the-alchemist" class="anchor" href="#the-alchemist" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Alchemist</h5>
+<a id="user-content-the-alchemist" class="anchor" href="#the-alchemist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Alchemist</h5>
 
 <p><a href="https://travis-ci.org/vertexclique/thealchemist"><img src="https://camo.githubusercontent.com/0e934e21d804822bd49d2e7a616ca540397dba17/68747470733a2f2f7472617669732d63692e6f72672f766572746578636c697175652f746865616c6368656d6973742e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/vertexclique/thealchemist.svg?branch=master" style="max-width:100%;"></a></p>
 
@@ -4468,10 +4400,10 @@ if you find any bug, please contact me!
 <a href="http://badge.fury.io/gh/msgpack%2Fmsgpack-erlang"><img src="https://camo.githubusercontent.com/5168eb3d47691288e71bbc7342f91bdd15bd3205/68747470733a2f2f62616467652e667572792e696f2f67682f6d73677061636b2532466d73677061636b2d65726c616e672e737667" alt="GitHub version" data-canonical-src="https://badge.fury.io/gh/msgpack%2Fmsgpack-erlang.svg" style="max-width:100%;"></a></p>
 
 <h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h6>
 
 <h7>
-<a id="user-content-in-pure-elixir" class="anchor" href="#in-pure-elixir" aria-hidden="true"><span class="octicon octicon-link"></span></a> In pure elixir:</h7>
+<a id="user-content-in-pure-elixir" class="anchor" href="#in-pure-elixir" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> In pure elixir:</h7>
 
 <div class="highlight highlight-source-elixir"><pre><span class="pl-c"># pack</span>
 <span class="pl-c1">TheAlchemist</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
@@ -4487,22 +4419,22 @@ if you find any bug, please contact me!
 </pre></div>
 
 <h7>
-<a id="user-content-with-underlying-erlang" class="anchor" href="#with-underlying-erlang" aria-hidden="true"><span class="octicon octicon-link"></span></a> With underlying erlang:</h7>
+<a id="user-content-with-underlying-erlang" class="anchor" href="#with-underlying-erlang" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> With underlying erlang:</h7>
 
 <h8>
-<a id="user-content-deserialization" class="anchor" href="#deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deserialization</h8>
+<a id="user-content-deserialization" class="anchor" href="#deserialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deserialization</h8>
 
 <div class="highlight highlight-source-elixir"><pre>msgpacked <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.pack(<span class="pl-s"><span class="pl-pds">'</span>{"test":false}<span class="pl-pds">'</span></span>)
 <span class="pl-c1">TheAlchemistErl</span>.unpack(msgpacked)</pre></div>
 
 <h8>
-<a id="user-content-stream-deserialization" class="anchor" href="#stream-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream deserialization</h8>
+<a id="user-content-stream-deserialization" class="anchor" href="#stream-deserialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stream deserialization</h8>
 
 <div class="highlight highlight-source-elixir"><pre>mat <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.unpack_stream(data)
 <span class="pl-c1">TheAlchemistErl</span>.unpack_stream(elem(mat, <span class="pl-c1">1</span>)),</pre></div>
 
 <h8>
-<a id="user-content-string-type" class="anchor" href="#string-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>String type</h8>
+<a id="user-content-string-type" class="anchor" href="#string-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String type</h8>
 
 <p>Now this supports string type!</p>
 
@@ -4511,7 +4443,7 @@ if you find any bug, please contact me!
  <span class="pl-k">=&gt;</span> {<span class="pl-c1">:ok</span>, <span class="pl-s"><span class="pl-pds">"</span>埼玉kanji<span class="pl-pds">"</span></span>}</pre></div>
 
 <h8>
-<a id="user-content-map-style" class="anchor" href="#map-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Map Style</h8>
+<a id="user-content-map-style" class="anchor" href="#map-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Map Style</h8>
 
 <p>Since Erlang/OTP 17.0</p>
 
@@ -4523,7 +4455,7 @@ if you find any bug, please contact me!
 <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>([{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}], [{<span class="pl-c1">format</span>, <span class="pl-c1">jsx</span>}]).</pre></div>
 
 <h6>
-<a id="user-content-running-interactively" class="anchor" href="#running-interactively" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running interactively</h6>
+<a id="user-content-running-interactively" class="anchor" href="#running-interactively" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running interactively</h6>
 
 <p>Firstly <code>make all</code> to ensure all source files are compiled
 after that you can bring the <code>ERL shell</code> with</p>
@@ -6073,7 +6005,7 @@ msgInt, msgUint, msgNull
         <div id="qs-benoist-msgpack-crystal" class="qs"><h4><a href="https://github.com/benoist/msgpack-crystal" target="_blank">benoist/msgpack-crystal <span class="qs-url">https://github.com/benoist/msgpack-crystal</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-messagepack" class="anchor" href="#messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack</h5>
+<a id="user-content-messagepack" class="anchor" href="#messagepack" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MessagePack</h5>
 
 <p><a href="https://travis-ci.org/benoist/msgpack-crystal"><img src="https://camo.githubusercontent.com/cacf7aeb9bd1a8987b2708bdd8ba106c047a2fb9/68747470733a2f2f7472617669732d63692e6f72672f62656e6f6973742f6d73677061636b2d6372797374616c2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/benoist/msgpack-crystal.svg" style="max-width:100%;"></a></p>
 
@@ -6082,7 +6014,12 @@ msgInt, msgUint, msgNull
 <p>It supports Packing and Unpacking from a string or an IO</p>
 
 <h6>
-<a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright</h6>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h6>
+
+<p>Please see the examples folder for some packing and unpacking examples.</p>
+
+<h6>
+<a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright</h6>
 
 <p>Copyright 2015 Benoist Claassen</p>
 
