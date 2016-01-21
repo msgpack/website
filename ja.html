@@ -1302,14 +1302,14 @@ If you want to use ".NET 2.0 Subset" settings, you must use just only described 
         <div id="qs-msgpack-msgpack-c" class="qs"><h4><a href="https://github.com/msgpack/msgpack-c" target="_blank">msgpack/msgpack-c <span class="qs-url">https://github.com/msgpack/msgpack-c</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack-for-cc" class="anchor" href="#msgpack-for-cc" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>msgpack</code> for C/C++</h5>
+<a id="user-content-msgpack-for-cc" class="anchor" href="#msgpack-for-cc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>msgpack</code> for C/C++</h5>
 
 <p>Version 1.3.0 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a> <a href="https://ci.appveyor.com/project/redboltz/msgpack-c/branch/master"><img src="https://camo.githubusercontent.com/b9c03b99428de22ee2a2c1845ba060563e700a05/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f386b73746367743739716a3132336d772f6272616e63682f6d61737465723f7376673d74727565" alt="Build status" data-canonical-src="https://ci.appveyor.com/api/projects/status/8kstcgt79qj123mw/branch/master?svg=true" style="max-width:100%;"></a></p>
 
 <p>It's like JSON but small and fast.</p>
 
 <h6>
-<a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h6>
+<a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h6>
 
 <p><a href="http://msgpack.org/">MessagePack</a> is an efficient binary serialization
 format, which lets you exchange data among multiple languages like JSON,
@@ -1318,7 +1318,7 @@ single byte while typical short strings require only one extra byte in
 addition to the strings themselves.</p>
 
 <h6>
-<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h6>
 
 <p>In C:</p>
 
@@ -1404,28 +1404,30 @@ addition to the strings themselves.</p>
 <p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md"><code>QUICKSTART-CPP.md</code></a> for more details.</p>
 
 <h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h6>
 
 <h7>
-<a id="user-content-c-header-only-library" class="anchor" href="#c-header-only-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>C++ Header Only Library</h7>
+<a id="user-content-c-header-only-library" class="anchor" href="#c-header-only-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>C++ Header Only Library</h7>
 
 <p>When you use msgpack on C++03 and C++11, you can just add
 msgpack-c/include to your include path:</p>
 
-<pre><code>g++ -I msgpack-c/include your_source_file.cpp
+<pre><code>g++ -I msgpack-c/include -DMSGPACK_DISABLE_LEGACY_NIL your_source_file.cpp
 </code></pre>
+
+<p>See <a href="https://github.com/msgpack/msgpack-c/wiki/v1_1_cpp_configure#msgpack_disable_legacy_nil-since-140">MSGPACK_DISABLE_LEGACY_NIL</a>.</p>
 
 <p>If you want to use C version of msgpack, you need to build it. You can
 also install the C and C++ versions of msgpack.</p>
 
 <h7>
-<a id="user-content-building-and-installing" class="anchor" href="#building-and-installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building and Installing</h7>
+<a id="user-content-building-and-installing" class="anchor" href="#building-and-installing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building and Installing</h7>
 
 <h8>
-<a id="user-content-install-from-git-repository" class="anchor" href="#install-from-git-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install from git repository</h8>
+<a id="user-content-install-from-git-repository" class="anchor" href="#install-from-git-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install from git repository</h8>
 
 <h5>
-<a id="user-content-using-autotools" class="anchor" href="#using-autotools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using autotools</h5>
+<a id="user-content-using-autotools" class="anchor" href="#using-autotools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using autotools</h5>
 
 <p>You will need:</p>
 
@@ -1454,10 +1456,10 @@ $ make</pre></div>
 <div class="highlight highlight-source-shell"><pre>$ sudo make install</pre></div>
 
 <h5>
-<a id="user-content-using-cmake" class="anchor" href="#using-cmake" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using cmake</h5>
+<a id="user-content-using-cmake" class="anchor" href="#using-cmake" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using cmake</h5>
 
 <h6>
-<a id="user-content-using-the-terminal-cli" class="anchor" href="#using-the-terminal-cli" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the Terminal (CLI)</h6>
+<a id="user-content-using-the-terminal-cli" class="anchor" href="#using-the-terminal-cli" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the Terminal (CLI)</h6>
 
 <p>You will need:</p>
 
@@ -1485,7 +1487,7 @@ $ sudo make install
 </code></pre>
 
 <h5>
-<a id="user-content-gui-on-windows" class="anchor" href="#gui-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>GUI on Windows</h5>
+<a id="user-content-gui-on-windows" class="anchor" href="#gui-on-windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GUI on Windows</h5>
 
 <p>Clone msgpack-c git repository.</p>
 
@@ -1508,13 +1510,13 @@ the binaries:' text box.</p></li>
 </ol>
 
 <h7>
-<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h7>
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h7>
 
 <p>You can get addtional information on the
 <a href="https://github.com/msgpack/msgpack-c/wiki">wiki</a>.</p>
 
 <h6>
-<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h6>
+<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h6>
 
 <p><code>msgpack-c</code> is developed on GitHub at <a href="https://github.com/msgpack/msgpack-c">msgpack/msgpack-c</a>.
 To report an issue or send a pull request, use the
@@ -1523,7 +1525,7 @@ To report an issue or send a pull request, use the
 <p>Here's the list of <a href="https://github.com/msgpack/msgpack-c/graphs/contributors">great contributors</a>.</p>
 
 <h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h6>
 
 <p><code>msgpack-c</code> is licensed under the Boost Software License, Version 1.0. See
 the <a href="/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt"><code>LICENSE_1_0.txt</code></a> file for details.</p>
