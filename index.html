@@ -199,6 +199,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-c',this)">C/C++ <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
@@ -221,13 +223,13 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-lexmag-msgpax',this)">Elixir <span class="qs-sub">lexmag</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-lexmag-msgpax',this)">Elixir <span class="qs-sub">lexmag</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-jingweno-msgpack_rails',this)">Rails <span class="qs-sub">jingweno</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
           
@@ -1528,6 +1530,72 @@ the <a href="/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt"><code>LICENSE_1_0.t
   </div>
         </div>
         
+        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-for-ocaml" class="anchor" href="#msgpack-for-ocaml" aria-hidden="true"><span class="octicon octicon-link"></span></a>MsgPack for OCaml</h5>
+
+<h6>
+<a id="user-content-bulid" class="anchor" href="#bulid" aria-hidden="true"><span class="octicon octicon-link"></span></a>BULID</h6>
+
+<div class="highlight highlight-source-shell"><pre>$ make
+$ sudo make install</pre></div>
+
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXAMPLE</h6>
+
+<h7>
+<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for Msgpack Object</h7>
+
+<div class="highlight highlight-source-ocaml"><pre><span class="pl-c">(* serialize *)</span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
+
+<span class="pl-c">(* deserialize *)</span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
+
+<h7>
+<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" href="#serializedeserialize-for-ocaml-types-with-meta_conv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
+
+<div class="highlight highlight-source-ocaml"><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
+
+<span class="pl-k">type</span> <span class="pl-k">t </span>= {
+  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
+  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
+} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
+
+<span class="pl-c">(* serialize *)</span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
+
+<span class="pl-c">(* deserialize *)</span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
+
+<p>See also, <code>examlpe/</code></p>
+
+<h6>
+<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>TEST</h6>
+
+<div class="highlight highlight-source-shell"><pre>$ ocaml setup.ml -configure --enable-tests
+$ make <span class="pl-c1">test</span></pre></div>
+
+<h6>
+<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROOF</h6>
+
+<p>If you want to use msgpack at OCaml, you need not do this section.
+This section for user intrested in formal verification.</p>
+
+<p>You need Coq 8.4 and omake.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> proof
+$ make
+$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -2317,166 +2385,6 @@ file for more information and usage examples.</p>
   </div>
         </div>
         
-        <div id="qs-lexmag-msgpax" class="qs"><h4><a href="https://github.com/lexmag/msgpax" target="_blank">lexmag/msgpax <span class="qs-url">https://github.com/lexmag/msgpax</span></a></h4>
-<div id="readme" class="blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpax-" class="anchor" href="#msgpax-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Msgpax <a href="https://travis-ci.org/lexmag/msgpax"><img src="https://camo.githubusercontent.com/578c5f36cb5d8f123825ff693fc781f1dccfcff6/68747470733a2f2f7472617669732d63692e6f72672f6c65786d61672f6d73677061782e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/lexmag/msgpax.svg" style="max-width:100%;"></a>
-</h5>
-
-<p>This library provides an API for serializing and de-serializing Elixir terms using the <a href="http://msgpack.org/">MessagePack</a> format.</p>
-
-<h6>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
-
-<p>Add Msgpax as a dependency in your <code>mix.exs</code> file:</p>
-
-<div class="highlight highlight-source-elixir"><pre><span class="pl-k">def</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
-  [{<span class="pl-c1">:msgpax</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.8<span class="pl-pds">"</span></span>}]
-<span class="pl-k">end</span></pre></div>
-
-<p>After you are done, run <code>mix deps.get</code> in your shell to fetch the dependencies.</p>
-
-<h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
-
-<div class="highlight highlight-source-elixir"><pre>{<span class="pl-c1">:ok</span>, iodata} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack([<span class="pl-c1">300</span>, <span class="pl-s"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
-<span class="pl-c"># =&gt; {:ok, [&lt;&lt;146&gt;&gt;, [&lt;&lt;205, 1, 44&gt;&gt;, [&lt;&lt;168&gt;&gt;, "Spartans"]]]}</span>
-iodata <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack!([<span class="pl-c1">300</span>, <span class="pl-s"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
-<span class="pl-c"># ...</span>
-{<span class="pl-c1">:ok</span>, term} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack(iodata)
-<span class="pl-c"># =&gt; {:ok, [300, "Spartans"]}</span>
-term <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodata)
-<span class="pl-c"># =&gt; [300, "Spartans"]</span></pre></div>
-
-<h8>
-<a id="user-content-stream-oriented-deserialization" class="anchor" href="#stream-oriented-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream-oriented deserialization</h8>
-
-<div class="highlight highlight-source-elixir"><pre>{term1, rest} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack_slice!(buffer)
-<span class="pl-c"># =&gt; {[1,2,3], &lt;&lt;4&gt;&gt;}</span>
-{<span class="pl-c1">:ok</span>, term2, rest} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack_slice(rest)
-<span class="pl-c"># =&gt; {:ok, 4, ""}</span></pre></div>
-
-<h8>
-<a id="user-content-binary-type" class="anchor" href="#binary-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary type</h8>
-
-<div class="highlight highlight-source-elixir"><pre>msgbin <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.<span class="pl-c1">Bin</span>.new(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">3</span>, <span class="pl-c1">18</span>, <span class="pl-c1">122</span>, <span class="pl-c1">27</span>, <span class="pl-c1">115</span><span class="pl-k">&gt;&gt;</span>)
-<span class="pl-c"># =&gt; #Msgpax.Bin&lt;&lt;&lt;3, 18, 122, 27, 115&gt;&gt;&gt;</span>
-iodata <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack!(msgbin)
-<span class="pl-c"># =&gt; [&lt;&lt;196, 5&gt;&gt;, &lt;&lt;3, 18, 122, 27, 115&gt;&gt;]</span>
-<span class="pl-c"># ...</span>
-code <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodata, %{<span class="pl-c1">binary:</span> <span class="pl-c1">true</span>})
-<span class="pl-c"># =&gt; #Msgpax.Bin&lt;&lt;&lt;3, 18, 122, 27, 115&gt;&gt;&gt;</span></pre></div>
-
-<h8>
-<a id="user-content-extension-type" class="anchor" href="#extension-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extension type</h8>
-
-<p>See <a href="/lexmag/msgpax/blob/master/test/msgpax/ext_test.exs"><code>ext_test.exs</code></a>
-file for more information and usage examples.</p>
-
-<h8>
-<a id="user-content-packer-protocol-deriving" class="anchor" href="#packer-protocol-deriving" aria-hidden="true"><span class="octicon octicon-link"></span></a>Packer protocol deriving</h8>
-
-<div class="highlight highlight-source-elixir"><pre><span class="pl-k">defmodule</span> <span class="pl-en">User</span> <span class="pl-k">do</span>
-  <span class="pl-smi">@derive</span> [<span class="pl-c1">Msgpax</span>.<span class="pl-c1">Packer</span>]
-  <span class="pl-k">defstruct</span> [<span class="pl-c1">:name</span>]
-<span class="pl-k">end</span>
-
-<span class="pl-c1">Msgpax</span>.pack!(%<span class="pl-c1">User</span>{<span class="pl-c1">name:</span> <span class="pl-s"><span class="pl-pds">"</span>Lex<span class="pl-pds">"</span></span>})
-<span class="pl-c"># =&gt; [&lt;&lt;129&gt;&gt;, [[[&lt;&lt;164&gt;&gt;, "name"], [&lt;&lt;163&gt;&gt;, "Lex"]]]]</span></pre></div>
-
-<h6>
-<a id="user-content-data-conversion" class="anchor" href="#data-conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data conversion</h6>
-
-<table>
-<thead>
-<tr>
-<th>Elixir</th>
-<th>MessagePack</th>
-<th>Elixir</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>nil</code></td>
-<td>nil</td>
-<td><code>nil</code></td>
-</tr>
-<tr>
-<td><code>true</code></td>
-<td>boolean</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>false</code></td>
-<td>boolean</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>-1</code></td>
-<td>integer</td>
-<td><code>-1</code></td>
-</tr>
-<tr>
-<td><code>1.25</code></td>
-<td>float</td>
-<td><code>1.25</code></td>
-</tr>
-<tr>
-<td><code>:ok</code></td>
-<td>string</td>
-<td><code>"ok"</code></td>
-</tr>
-<tr>
-<td><code>Atom</code></td>
-<td>string</td>
-<td><code>"Elixir.Atom"</code></td>
-</tr>
-<tr>
-<td><code>"str"</code></td>
-<td>string</td>
-<td><code>"str"</code></td>
-</tr>
-<tr>
-<td><code>"\xFF\xFF"</code></td>
-<td>string</td>
-<td><code>"\xFF\xFF"</code></td>
-</tr>
-<tr>
-<td><code>#Msgpax.Bin&lt;"\xFF"&gt;</code></td>
-<td>binary</td>
-<td><code>"\xFF"</code></td>
-</tr>
-<tr>
-<td><code>%{foo: "bar"}</code></td>
-<td>map</td>
-<td><code>%{"foo" =&gt; "bar"}</code></td>
-</tr>
-<tr>
-<td><code>[foo: "bar"]</code></td>
-<td>map</td>
-<td><code>%{"foo" =&gt; "bar"}</code></td>
-</tr>
-<tr>
-<td><code>[1, true]</code></td>
-<td>array</td>
-<td><code>[1, true]</code></td>
-</tr>
-<tr>
-<td><code>#Msgpax.Ext&lt;4, "02:12"&gt;</code></td>
-<td>extension</td>
-<td><code>#Msgpax.Ext&lt;4, "02:12"&gt;</code></td>
-</tr>
-</tbody>
-</table>
-
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
-
-<p>This software is licensed under <a href="/lexmag/msgpax/blob/master/LICENSE">the ISC license</a>.</p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-jingweno-msgpack_rails" class="qs"><h4><a href="https://github.com/jingweno/msgpack_rails" target="_blank">jingweno/msgpack_rails <span class="qs-url">https://github.com/jingweno/msgpack_rails</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
@@ -2806,6 +2714,222 @@ Point{Float64}(<span class="pl-c1">2.5</span>,<span class="pl-c1">7.8</span>)</p
 different versions of Julia, or an instance of Julia with a different system
 image.</p>
 </blockquote>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><span class="octicon octicon-link"></span></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h6>
+
+<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a>
+<a href="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" target="_blank"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c">; =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming</h7>
+
+<ul>
+<li>
+<code>unpack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">InputStream</a>
+</li>
+<li>
+<code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+(<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
+
+(<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-output (<span class="pl-en">java.io.DataOutputStream.</span> o)]
+    (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
+
+(<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-k">let</span> [data-input (<span class="pl-en">java.io.DataInputStream.</span> i)]
+    (<span class="pl-en">msg/unpack-stream</span> data-input)))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c">; =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
 </article>
   </div>
         </div>
