@@ -6037,7 +6037,7 @@ msgInt, msgUint, msgNull
         <div id="qs-kawanet-msgpack-lite" class="qs"><h4><a href="https://www.npmjs.com/package/msgpack-lite" target="_blank">kawanet/msgpack-lite <span class="qs-url">https://www.npmjs.com/package/msgpack-lite</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-msgpack-lite--" class="anchor" href="#msgpack-lite--" aria-hidden="true"><span class="octicon octicon-link"></span></a>msgpack-lite <a href="http://badge.fury.io/js/msgpack-lite"><img src="https://camo.githubusercontent.com/2d47899edd34f109837021072113765774890b3d/68747470733a2f2f62616467652e667572792e696f2f6a732f6d73677061636b2d6c6974652e737667" alt="npm version" data-canonical-src="https://badge.fury.io/js/msgpack-lite.svg" style="max-width:100%;"></a> <a href="https://travis-ci.org/kawanet/msgpack-lite"><img src="https://camo.githubusercontent.com/5ca034a89cf672211032248ca1c874bbf63796a8/68747470733a2f2f7472617669732d63692e6f72672f6b6177616e65742f6d73677061636b2d6c6974652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kawanet/msgpack-lite.svg?branch=master" style="max-width:100%;"></a>
+<a id="user-content-msgpack-lite--" class="anchor" href="#msgpack-lite--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>msgpack-lite <a href="http://badge.fury.io/js/msgpack-lite"><img src="https://camo.githubusercontent.com/2d47899edd34f109837021072113765774890b3d/68747470733a2f2f62616467652e667572792e696f2f6a732f6d73677061636b2d6c6974652e737667" alt="npm version" data-canonical-src="https://badge.fury.io/js/msgpack-lite.svg" style="max-width:100%;"></a> <a href="https://travis-ci.org/kawanet/msgpack-lite"><img src="https://camo.githubusercontent.com/5ca034a89cf672211032248ca1c874bbf63796a8/68747470733a2f2f7472617669732d63692e6f72672f6b6177616e65742f6d73677061636b2d6c6974652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kawanet/msgpack-lite.svg?branch=master" style="max-width:100%;"></a>
 </h5>
 
 <p>Fast Pure JavaScript MessagePack Encoder and Decoder</p>
@@ -6047,7 +6047,7 @@ msgInt, msgUint, msgNull
 <p>Online demo: <a href="http://kawanet.github.io/msgpack-lite/">http://kawanet.github.io/msgpack-lite/</a></p>
 
 <h7>
-<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h7>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h7>
 
 <ul>
 <li>Pure JavaScript only (No node-gyp nor gcc required)</li>
@@ -6060,7 +6060,7 @@ msgInt, msgUint, msgNull
 </ul>
 
 <h7>
-<a id="user-content-encoding-and-decoding-messagepack" class="anchor" href="#encoding-and-decoding-messagepack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encoding and Decoding MessagePack</h7>
+<a id="user-content-encoding-and-decoding-messagepack" class="anchor" href="#encoding-and-decoding-messagepack" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Encoding and Decoding MessagePack</h7>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 
@@ -6073,7 +6073,7 @@ msgInt, msgUint, msgNull
 <span class="pl-c">// if encode/decode receives an invalid argument an error is thrown</span></pre></div>
 
 <h7>
-<a id="user-content-writing-to-messagepack-stream" class="anchor" href="#writing-to-messagepack-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing to MessagePack Stream</h7>
+<a id="user-content-writing-to-messagepack-stream" class="anchor" href="#writing-to-messagepack-stream" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing to MessagePack Stream</h7>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>fs<span class="pl-pds">"</span></span>);
 <span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
@@ -6084,10 +6084,13 @@ msgInt, msgUint, msgNull
 
 <span class="pl-c">// send multiple objects to stream</span>
 <span class="pl-smi">encodeStream</span>.<span class="pl-c1">write</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
-<span class="pl-smi">encodeStream</span>.<span class="pl-c1">write</span>({baz<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>qux<span class="pl-pds">"</span></span>});</pre></div>
+<span class="pl-smi">encodeStream</span>.<span class="pl-c1">write</span>({baz<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>qux<span class="pl-pds">"</span></span>});
+
+<span class="pl-c">// call this once you're done writing to the stream.</span>
+<span class="pl-smi">encodeStream</span>.<span class="pl-en">end</span>();</pre></div>
 
 <h7>
-<a id="user-content-reading-from-messagepack-stream" class="anchor" href="#reading-from-messagepack-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading from MessagePack Stream</h7>
+<a id="user-content-reading-from-messagepack-stream" class="anchor" href="#reading-from-messagepack-stream" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading from MessagePack Stream</h7>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>fs<span class="pl-pds">"</span></span>);
 <span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
@@ -6099,7 +6102,7 @@ msgInt, msgUint, msgNull
 <span class="pl-smi">readStream</span>.<span class="pl-en">pipe</span>(decodeStream).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.<span class="pl-smi">warn</span>);</pre></div>
 
 <h7>
-<a id="user-content-command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line Interface</h7>
+<a id="user-content-command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Line Interface</h7>
 
 <p>A CLI tool bin/msgpack converts data stream from JSON to MessagePack and vice versa.</p>
 
@@ -6110,12 +6113,12 @@ $ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</spa
 {<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>}</pre></div>
 
 <h7>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h7>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h7>
 
 <div class="highlight highlight-source-shell"><pre>$ npm install --save msgpack-lite</pre></div>
 
 <h7>
-<a id="user-content-tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h7>
+<a id="user-content-tests" class="anchor" href="#tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tests</h7>
 
 <p>Run tests on node.js:</p>
 
@@ -6128,7 +6131,7 @@ open the following url <span class="pl-k">in</span> a browser:
 http://localhost:4000/__zuul</pre></div>
 
 <h7>
-<a id="user-content-browser-build" class="anchor" href="#browser-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser Build</h7>
+<a id="user-content-browser-build" class="anchor" href="#browser-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser Build</h7>
 
 <p>Browser version <a href="https://rawgithub.com/kawanet/msgpack-lite/master/dist/msgpack.min.js">msgpack.min.js</a> is also available. 37KB minified, 11KB gziped.</p>
 
@@ -6147,7 +6150,7 @@ http://localhost:4000/__zuul</pre></div>
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
 
 <h7>
-<a id="user-content-interoperability" class="anchor" href="#interoperability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interoperability</h7>
+<a id="user-content-interoperability" class="anchor" href="#interoperability" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interoperability</h7>
 
 <p>It is tested to have basic compatibility with other Node.js MessagePack modules below:</p>
 
@@ -6169,7 +6172,7 @@ http://localhost:4000/__zuul</pre></div>
 </ul>
 
 <h7>
-<a id="user-content-benchmarks" class="anchor" href="#benchmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmarks</h7>
+<a id="user-content-benchmarks" class="anchor" href="#benchmarks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Benchmarks</h7>
 
 <p>A benchmark tool <code>lib/benchmark.js</code> is available to compare encoding/decoding speed
 (operation per second) with other MessagePack modules.
@@ -6363,7 +6366,7 @@ This shows streaming encoding and decoding are super faster.</p>
 <p>Test environment: msgpack-lite 0.1.14, Node v4.2.3, Intel(R) Xeon(R) CPU E5-2666 v3 @ 2.90GHz</p>
 
 <h7>
-<a id="user-content-messagepack-mapping-table" class="anchor" href="#messagepack-mapping-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack Mapping Table</h7>
+<a id="user-content-messagepack-mapping-table" class="anchor" href="#messagepack-mapping-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MessagePack Mapping Table</h7>
 
 <p>The following table shows how JavaScript objects (value) will be mapped to 
 <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack formats</a>
@@ -6430,7 +6433,7 @@ and vice versa.</p>
 This means <code>undefined</code> value will be <em>upgraded</em> to <code>null</code> in other words.</p>
 
 <h7>
-<a id="user-content-extension-types" class="anchor" href="#extension-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extension Types</h7>
+<a id="user-content-extension-types" class="anchor" href="#extension-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extension Types</h7>
 
 <p>The MessagePack specification allows 128 application-specific extension types. 
 The library uses the following types to make round-trip conversion possible
@@ -6548,21 +6551,21 @@ for JavaScript native objects.</p>
 <p>Other extension types are mapped to internal ExtBuffer object.</p>
 
 <h7>
-<a id="user-content-repository" class="anchor" href="#repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository</h7>
+<a id="user-content-repository" class="anchor" href="#repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repository</h7>
 
 <ul>
 <li><a href="https://github.com/kawanet/msgpack-lite">https://github.com/kawanet/msgpack-lite</a></li>
 </ul>
 
 <h7>
-<a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h7>
+<a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>See Also</h7>
 
 <ul>
 <li><a href="http://msgpack.org/">http://msgpack.org/</a></li>
 </ul>
 
 <h7>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h7>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h7>
 
 <p>The MIT License (MIT)</p>
 
