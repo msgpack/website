@@ -775,20 +775,20 @@ $ py.test</blockquote>
         <div id="qs-msgpack-msgpack-erlang" class="qs"><h4><a href="https://github.com/msgpack/msgpack-erlang" target="_blank">msgpack/msgpack-erlang <span class="qs-url">https://github.com/msgpack/msgpack-erlang</span></a></h4>
 <div id="readme" class="blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
-<a id="user-content-messagepack-erlang" class="anchor" href="#messagepack-erlang" aria-hidden="true"><span class="octicon octicon-link"></span></a>MessagePack Erlang</h5>
+<a id="user-content-messagepack-erlang" class="anchor" href="#messagepack-erlang" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MessagePack Erlang</h5>
 
-<p><a href="https://camo.githubusercontent.com/9358d19573c928c5d79db88cd634c79abd46ff2c/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d65726c616e672e706e67" target="_blank"><img src="https://camo.githubusercontent.com/9358d19573c928c5d79db88cd634c79abd46ff2c/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d65726c616e672e706e67" alt="Travis" data-canonical-src="https://secure.travis-ci.org/msgpack/msgpack-erlang.png" style="max-width:100%;"></a></p>
+<p><a href="https://travis-ci.org/msgpack/msgpack-erlang"><img src="https://camo.githubusercontent.com/9358d19573c928c5d79db88cd634c79abd46ff2c/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d65726c616e672e706e67" alt="Travis" data-canonical-src="https://secure.travis-ci.org/msgpack/msgpack-erlang.png" style="max-width:100%;"></a></p>
 
-<p><a href="https://camo.githubusercontent.com/439f5da74417a319e6daddaaa3455f9e9f03bced/68747470733a2f2f64726f6e652e696f2f6769746875622e636f6d2f6d73677061636b2f6d73677061636b2d65726c616e672f7374617475732e706e67" target="_blank"><img src="https://camo.githubusercontent.com/439f5da74417a319e6daddaaa3455f9e9f03bced/68747470733a2f2f64726f6e652e696f2f6769746875622e636f6d2f6d73677061636b2f6d73677061636b2d65726c616e672f7374617475732e706e67" alt="Drone.io" data-canonical-src="https://drone.io/github.com/msgpack/msgpack-erlang/status.png" style="max-width:100%;"></a></p>
+<p><a href="https://drone.io/github.com/msgpack/msgpack-erlang"><img src="https://camo.githubusercontent.com/439f5da74417a319e6daddaaa3455f9e9f03bced/68747470733a2f2f64726f6e652e696f2f6769746875622e636f6d2f6d73677061636b2f6d73677061636b2d65726c616e672f7374617475732e706e67" alt="Drone.io" data-canonical-src="https://drone.io/github.com/msgpack/msgpack-erlang/status.png" style="max-width:100%;"></a></p>
 
 <h6>
-<a id="user-content-prequisites-for-runtime" class="anchor" href="#prequisites-for-runtime" aria-hidden="true"><span class="octicon octicon-link"></span></a>prequisites for runtime</h6>
+<a id="user-content-prequisites-for-runtime" class="anchor" href="#prequisites-for-runtime" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>prequisites for runtime</h6>
 
 <p><a href="http://erlang.org/">Erlang/OTP</a>, &gt;= 17.0
 Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000cc4a478f0dfbb5942ac54e9e/spec.md">the new msgpack spec 232a0d</a>.</p>
 
 <h6>
-<a id="user-content-edit-rebarconfig-to-use-in-your-application" class="anchor" href="#edit-rebarconfig-to-use-in-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>edit rebar.config to use in your application</h6>
+<a id="user-content-edit-rebarconfig-to-use-in-your-application" class="anchor" href="#edit-rebarconfig-to-use-in-your-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>edit rebar.config to use in your application</h6>
 
 <div class="highlight highlight-source-erlang"><pre>{<span class="pl-c1">deps</span>, [
   {<span class="pl-c1">msgpack</span>, <span class="pl-s"><span class="pl-pds">"</span>.*<span class="pl-pds">"</span></span>,
@@ -796,20 +796,20 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
 ]}.</pre></div>
 
 <h6>
-<a id="user-content-simple-deserialization" class="anchor" href="#simple-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple deserialization</h6>
+<a id="user-content-simple-deserialization" class="anchor" href="#simple-deserialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple deserialization</h6>
 
 <div class="highlight highlight-source-erlang"><pre><span class="pl-smi">Ham</span> <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-smi">Spam</span>),
 {<span class="pl-c1">ok</span>, <span class="pl-smi">Spam</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-smi">Ham</span>).</pre></div>
 
 <h6>
-<a id="user-content-stream-deserialization" class="anchor" href="#stream-deserialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream deserialization</h6>
+<a id="user-content-stream-deserialization" class="anchor" href="#stream-deserialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stream deserialization</h6>
 
 <div class="highlight highlight-source-erlang"><pre>{<span class="pl-smi">Term0</span>, <span class="pl-smi">Rest0</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack_stream</span>(<span class="pl-smi">Binary</span>),
 {<span class="pl-smi">Term1</span>, <span class="pl-smi">Rest1</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack_stream</span>(<span class="pl-smi">Rest0</span>),
 ...</pre></div>
 
 <h6>
-<a id="user-content-string-type" class="anchor" href="#string-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>String type</h6>
+<a id="user-content-string-type" class="anchor" href="#string-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String type</h6>
 
 <p>Now this supports string type!</p>
 
@@ -821,7 +821,7 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
 See <code>msgpack:options()</code> in <code>msgpack.hrl</code>.</p>
 
 <h6>
-<a id="user-content-map-style" class="anchor" href="#map-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Map Style</h6>
+<a id="user-content-map-style" class="anchor" href="#map-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Map Style</h6>
 
 <p>Since Erlang/OTP 17.0</p>
 
@@ -833,7 +833,7 @@ See <code>msgpack:options()</code> in <code>msgpack.hrl</code>.</p>
 <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>([{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}], [{<span class="pl-c1">format</span>, <span class="pl-c1">jsx</span>}]).</pre></div>
 
 <h6>
-<a id="user-content-ext-type" class="anchor" href="#ext-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ext type</h6>
+<a id="user-content-ext-type" class="anchor" href="#ext-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ext type</h6>
 
 <p>Now msgpack-erlang supports ext type. Now you can serialize everything
 with your original (de)serializer. That will enable us to handle
@@ -849,7 +849,7 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 <p>This is still experimental feature, so I'm waiting for your feedback.</p>
 
 <h6>
-<a id="user-content-compatibility-mode" class="anchor" href="#compatibility-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compatibility mode</h6>
+<a id="user-content-compatibility-mode" class="anchor" href="#compatibility-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compatibility mode</h6>
 
 <p>To use as same with <a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">old spec</a>:</p>
 
@@ -859,20 +859,20 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 <p>Since 0.2.3 now it's <strong>false by default</strong>.</p>
 
 <h6>
-<a id="user-content-further-tests" class="anchor" href="#further-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further tests</h6>
+<a id="user-content-further-tests" class="anchor" href="#further-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Further tests</h6>
 
 <p>See <a href="http://github.com/kuenishi/msgpack-erlang-tests">msgpack-erlang-tests</a> for further tests</p>
 
 <h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h6>
 
 <p>Apache License 2.0</p>
 
 <h5>
-<a id="user-content-release-notes" class="anchor" href="#release-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release Notes</h5>
+<a id="user-content-release-notes" class="anchor" href="#release-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Release Notes</h5>
 
 <h6>
-<a id="user-content-040" class="anchor" href="#040" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.4.0</h6>
+<a id="user-content-040" class="anchor" href="#040" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.4.0</h6>
 
 <ul>
 <li>Deprecate <code>nil</code>
@@ -884,7 +884,7 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 </ul>
 
 <h6>
-<a id="user-content-035--034" class="anchor" href="#035--034" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.5 / 0.3.4</h6>
+<a id="user-content-035--034" class="anchor" href="#035--034" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.3.5 / 0.3.4</h6>
 
 <ul>
 <li>0.3 series will be the last versions that supports R16B or older
@@ -894,7 +894,7 @@ versions of OTP.</li>
 </ul>
 
 <h6>
-<a id="user-content-033" class="anchor" href="#033" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.3</h6>
+<a id="user-content-033" class="anchor" href="#033" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.3.3</h6>
 
 <ul>
 <li>Add OTP 17 series to Travis-CI tests</li>
@@ -905,7 +905,7 @@ versions of OTP.</li>
 </ul>
 
 <h6>
-<a id="user-content-032" class="anchor" href="#032" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.2</h6>
+<a id="user-content-032" class="anchor" href="#032" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.3.2</h6>
 
 <ul>
 <li>set back default style as jiffy</li>
@@ -913,7 +913,7 @@ versions of OTP.</li>
 </ul>
 
 <h6>
-<a id="user-content-030" class="anchor" href="#030" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.3.0</h6>
+<a id="user-content-030" class="anchor" href="#030" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.3.0</h6>
 
 <ul>
 <li>supports map new in 17.0</li>
@@ -922,7 +922,7 @@ versions of OTP.</li>
 </ul>
 
 <h6>
-<a id="user-content-028" class="anchor" href="#028" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.2.8</h6>
+<a id="user-content-028" class="anchor" href="#028" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.2.8</h6>
 
 <p>0.2 series works with OTP 17.0, R16, R15, and with MessagePack's new
 and old format. But does not support <code>map</code> type introduced in
