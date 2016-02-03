@@ -2529,12 +2529,12 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>Streaming serialization with file-like objects:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>wb<span class="pl-pds">'</span></span>)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.pack({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>], f)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f.close()
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpack(f)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpack(f)
@@ -2566,11 +2566,11 @@ available:</p>
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.loads(_)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>wb<span class="pl-pds">'</span></span>)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.dump({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>}, f)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f.close()
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f <span class="pl-k">=</span> <span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">'</span>test.bin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>rb<span class="pl-pds">'</span></span>)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.load(f)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
