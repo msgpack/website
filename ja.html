@@ -200,6 +200,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-cli',this)">C# <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-c',this)">C/C++ <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
@@ -1293,6 +1295,240 @@ If you want to use ".NET 2.0 Subset" settings, you must use just only described 
 <li> Mono xbuild reference : <a href="http://www.mono-project.com/Microsoft.Build">http://www.mono-project.com/Microsoft.Build</a>
 </li>
 </ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-c" class="qs"><h4><a href="https://github.com/msgpack/msgpack-c" target="_blank">msgpack/msgpack-c <span class="qs-url">https://github.com/msgpack/msgpack-c</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-msgpack-for-cc" class="anchor" href="#msgpack-for-cc" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>msgpack</code> for C/C++</h5>
+
+<p>Version 1.4.0 <a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a> <a href="https://ci.appveyor.com/project/redboltz/msgpack-c/branch/master"><img src="https://camo.githubusercontent.com/b9c03b99428de22ee2a2c1845ba060563e700a05/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f386b73746367743739716a3132336d772f6272616e63682f6d61737465723f7376673d74727565" alt="Build status" data-canonical-src="https://ci.appveyor.com/api/projects/status/8kstcgt79qj123mw/branch/master?svg=true" style="max-width:100%;"></a></p>
+
+<p>It's like JSON but small and fast.</p>
+
+<h6>
+<a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Overview</h6>
+
+<p><a href="http://msgpack.org/">MessagePack</a> is an efficient binary serialization
+format, which lets you exchange data among multiple languages like JSON,
+except that it's faster and smaller. Small integers are encoded into a
+single byte while typical short strings require only one extra byte in
+addition to the strings themselves.</p>
+
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Example</h6>
+
+<p>In C:</p>
+
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+    <span class="pl-c">/* msgpack::sbuffer is a simple buffer implementation. */</span>
+    msgpack_sbuffer sbuf;
+    <span class="pl-c1">msgpack_sbuffer_init</span>(&amp;sbuf);
+
+    <span class="pl-c">/* serialize values into the buffer using msgpack_sbuffer_write callback function. */</span>
+    msgpack_packer pk;
+    <span class="pl-c1">msgpack_packer_init</span>(&amp;pk, &amp;sbuf, msgpack_sbuffer_write);
+
+    <span class="pl-c1">msgpack_pack_array</span>(&amp;pk, <span class="pl-c1">3</span>);
+    <span class="pl-c1">msgpack_pack_int</span>(&amp;pk, <span class="pl-c1">1</span>);
+    <span class="pl-c1">msgpack_pack_true</span>(&amp;pk);
+    <span class="pl-c1">msgpack_pack_str</span>(&amp;pk, <span class="pl-c1">7</span>);
+    <span class="pl-c1">msgpack_pack_str_body</span>(&amp;pk, <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>, <span class="pl-c1">7</span>);
+
+    <span class="pl-c">/* deserialize the buffer into msgpack_object instance. */</span>
+    <span class="pl-c">/* deserialized object is valid during the msgpack_zone instance alive. */</span>
+    msgpack_zone mempool;
+    <span class="pl-c1">msgpack_zone_init</span>(&amp;mempool, <span class="pl-c1">2048</span>);
+
+    msgpack_object deserialized;
+    <span class="pl-c1">msgpack_unpack</span>(sbuf.<span class="pl-smi">data</span>, sbuf.<span class="pl-smi">size</span>, <span class="pl-c1">NULL</span>, &amp;mempool, &amp;deserialized);
+
+    <span class="pl-c">/* print the deserialized object. */</span>
+    <span class="pl-c1">msgpack_object_print</span>(stdout, deserialized);
+    <span class="pl-c1">puts</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>);
+
+    <span class="pl-c1">msgpack_zone_destroy</span>(&amp;mempool);
+    <span class="pl-c1">msgpack_sbuffer_destroy</span>(&amp;sbuf);
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-C.md"><code>QUICKSTART-C.md</code></a> for more details.</p>
+
+<p>In C++:</p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>sstream<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+    msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; <span class="pl-c1">src</span>(<span class="pl-c1">1</span>, <span class="pl-c1">true</span>, <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>);
+
+    <span class="pl-c">// serialize the object into the buffer.</span>
+    <span class="pl-c">// any classes that implements write(const char*,size_t) can be a buffer.</span>
+    std::stringstream buffer;
+    <span class="pl-c1">msgpack::pack</span>(buffer, src);
+
+    <span class="pl-c">// send the buffer ...</span>
+    buffer.<span class="pl-c1">seekg</span>(<span class="pl-c1">0</span>);
+
+    <span class="pl-c">// deserialize the buffer into msgpack::object instance.</span>
+    std::string <span class="pl-smi">str</span>(buffer.<span class="pl-c1">str</span>());
+
+    msgpack::unpacked result;
+
+    <span class="pl-c1">msgpack::unpack</span>(result, str.<span class="pl-c1">data</span>(), str.<span class="pl-c1">size</span>());
+
+    <span class="pl-c">// deserialized object is valid during the msgpack::unpacked instance alive.</span>
+    msgpack::object deserialized = result.<span class="pl-c1">get</span>();
+
+    <span class="pl-c">// msgpack::object supports ostream.</span>
+    std::cout &lt;&lt; deserialized &lt;&lt; std::endl;
+
+    <span class="pl-c">// convert msgpack::object instance into the original type.</span>
+    <span class="pl-c">// if the type is mismatched, it throws msgpack::type_error exception.</span>
+    msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; dst;
+    deserialized.<span class="pl-c1">convert</span>(dst);
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md"><code>QUICKSTART-CPP.md</code></a> for more details.</p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Usage</h6>
+
+<h7>
+<a id="user-content-c-header-only-library" class="anchor" href="#c-header-only-library" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>C++ Header Only Library</h7>
+
+<p>When you use msgpack on C++03 and C++11, you can just add
+msgpack-c/include to your include path:</p>
+
+<pre><code>g++ -I msgpack-c/include -DMSGPACK_DISABLE_LEGACY_NIL -DMSGPACK_DISABLE_LEGACY_CONVERT your_source_file.cpp
+</code></pre>
+
+<p>See <a href="https://github.com/msgpack/msgpack-c/wiki/v1_1_cpp_configure#msgpack_disable_legacy_nil-since-140">MSGPACK_DISABLE_LEGACY_NIL</a> and <a href="https://github.com/msgpack/msgpack-c/wiki/v1_1_cpp_configure#msgpack_disable_legacy_convert-since-140">MSGPACK_DISABLE_LEGACY_CONVERT</a>.</p>
+
+<p>If you want to use C version of msgpack, you need to build it. You can
+also install the C and C++ versions of msgpack.</p>
+
+<h7>
+<a id="user-content-building-and-installing" class="anchor" href="#building-and-installing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Building and Installing</h7>
+
+<h8>
+<a id="user-content-install-from-git-repository" class="anchor" href="#install-from-git-repository" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Install from git repository</h8>
+
+<h5>
+<a id="user-content-using-autotools" class="anchor" href="#using-autotools" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Using autotools</h5>
+
+<p>You will need:</p>
+
+<ul>
+<li>
+<code>gcc &gt;= 4.1.0</code> or <code>clang &gt;= 3.3.0</code>
+</li>
+<li><code>autoconf &gt;= 2.60</code></li>
+<li><code>automake &gt;= 1.10</code></li>
+<li><code>libtool &gt;= 2.2.4</code></li>
+</ul>
+
+<p>The build steps below are for C and C++03. If compiling for C++11,
+add <code>-std=c++11</code> to the environmental variable <code>CXXFLAGS</code> with
+<code>export CXXFLAGS="$CXXFLAGS -std=c++11"</code> prior to following the
+directions below.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/msgpack/msgpack-c
+$ <span class="pl-c1">cd</span> msgpack-c
+$ ./bootstrap
+$ ./configure
+$ make</pre></div>
+
+<p>You can install the resulting library like this:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo make install</pre></div>
+
+<h5>
+<a id="user-content-using-cmake" class="anchor" href="#using-cmake" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Using cmake</h5>
+
+<h6>
+<a id="user-content-using-the-terminal-cli" class="anchor" href="#using-the-terminal-cli" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Using the Terminal (CLI)</h6>
+
+<p>You will need:</p>
+
+<ul>
+<li><code>gcc &gt;= 4.1.0</code></li>
+<li><code>cmake &gt;= 2.8.0</code></li>
+</ul>
+
+<p>C and C++03:</p>
+
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+$ cd msgpack-c
+$ cmake .
+$ make
+$ sudo make install
+</code></pre>
+
+<p>If you want to setup C++11 version of msgpack instead,
+execute the following commands:</p>
+
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+$ cd msgpack-c
+$ cmake -DMSGPACK_CXX11=ON .
+$ sudo make install
+</code></pre>
+
+<h5>
+<a id="user-content-gui-on-windows" class="anchor" href="#gui-on-windows" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>GUI on Windows</h5>
+
+<p>Clone msgpack-c git repository.</p>
+
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+</code></pre>
+
+<p>or using GUI git client.</p>
+
+<p>e.g.) tortoise git <a href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
+
+<ol>
+<li><p>Launch <a href="http://www.cmake.org/cmake/resources/software.html">cmake GUI client</a>.</p></li>
+<li><p>Set 'Where is the source code:' text box and 'Where to build
+the binaries:' text box.</p></li>
+<li><p>Click 'Configure' button.</p></li>
+<li><p>Choose your Visual Studio version.</p></li>
+<li><p>Click 'Generate' button.</p></li>
+<li><p>Open the created msgpack.sln on Visual Studio.</p></li>
+<li><p>Build all.</p></li>
+</ol>
+
+<h7>
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Documentation</h7>
+
+<p>You can get addtional information on the
+<a href="https://github.com/msgpack/msgpack-c/wiki">wiki</a>.</p>
+
+<h6>
+<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Contributing</h6>
+
+<p><code>msgpack-c</code> is developed on GitHub at <a href="https://github.com/msgpack/msgpack-c">msgpack/msgpack-c</a>.
+To report an issue or send a pull request, use the
+<a href="https://github.com/msgpack/msgpack-c/issues">issue tracker</a>.</p>
+
+<p>Here's the list of <a href="https://github.com/msgpack/msgpack-c/graphs/contributors">great contributors</a>.</p>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>License</h6>
+
+<p><code>msgpack-c</code> is licensed under the Boost Software License, Version 1.0. See
+the <a href="/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt"><code>LICENSE_1_0.txt</code></a> file for details.</p>
 </article>
   </div>
         </div>
