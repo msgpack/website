@@ -293,6 +293,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-caesay-MPack',this)">C# <span class="qs-sub">caesay</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-HEADS-project-arduino_msgpck',this)">Arduino C <span class="qs-sub">HEADS-project</span></a></li>
+          
         </ul>
       </div>
 
@@ -7347,6 +7349,53 @@ dictionary.EncodeToStream(stream);</pre></div>
 <li>All of the people that make MessagePack happen: <a href="https://github.com/msgpack">https://github.com/msgpack</a>
 </li>
 </ol>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-HEADS-project-arduino_msgpck" class="qs"><h4><a href="https://github.com/HEADS-project/arduino_msgpck" target="_blank">HEADS-project/arduino_msgpck <span class="qs-url">https://github.com/HEADS-project/arduino_msgpck</span></a></h4>
+<div id="readme" class="blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h5>
+<a id="user-content-arduino_msgpck" class="anchor" href="#arduino_msgpck" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>arduino_msgpck</h5>
+
+<p>This Arduino library provides a light weight serializer and parser for messagepack.</p>
+
+<h6>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Install</h6>
+
+<p>Download the zip, and import it with your Arduino IDE: <em>Sketch&gt;Include Library&gt;Add .zip library</em></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Usage</h6>
+
+<p>See the either the <code>.h</code> file, or the examples (<code>led_controller</code> and <code>test_uno_writer</code>).</p>
+
+<p>In short:</p>
+
+<ul>
+<li>functions like <code>msgpck_what_next(Stream * s);</code> watch the next type of data without reading it (without advancing the buffer of Stream <code>s</code>).</li>
+<li>functions like <code>msgpck_read_bool(Stream * s, bool *b)</code> read a value from Stream <code>s</code>.</li>
+<li>functions like <code>msgpck_write_bool(Stream * s, bool b)</code> write a value on Stream <code>s</code>.</li>
+</ul>
+
+<p>Notes:</p>
+
+<ul>
+<li>Stream are used as much as possible in order not to add to much overhead with buffers. Therefore you should be able to store the minimum number of value at a given time.</li>
+<li>Map and Array related functions concern only their headers. Ex: If you want to write an array containing two elements you should write the array header, then write the two elements.</li>
+</ul>
+
+<h6>
+<a id="user-content-limitations" class="anchor" href="#limitations" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Limitations</h6>
+
+<p>Currently the library does <strong>not</strong> support:</p>
+
+<ul>
+<li>8 bytes float (floats are anyway not recommended on Arduino)</li>
+<li>2^32 char long (or longer) strings</li>
+<li>2^32 byte long (or longer) bins</li>
+<li>extention types.</li>
+</ul>
 </article>
   </div>
         </div>
