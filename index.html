@@ -4722,11 +4722,11 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 
 <span class="pl-k">class</span> <span class="pl-en">ComputePI</span>(<span class="pl-e">MsgpackRPCServer</span>):
 
-    <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi">self</span>):
+    <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
         <span class="pl-v">self</span>.waiting <span class="pl-k">=</span> defaultdict(<span class="pl-c1">list</span>)
         <span class="pl-v">self</span>.results <span class="pl-k">=</span> {}
 
-    <span class="pl-k">def</span> <span class="pl-en">remote_PI</span>(<span class="pl-smi">self</span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
+    <span class="pl-k">def</span> <span class="pl-en">remote_PI</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
         <span class="pl-k">if</span> digits <span class="pl-k">in</span> <span class="pl-v">self</span>.results:
             <span class="pl-k">return</span> defer.succeed(<span class="pl-v">self</span>.results[digits])
 
@@ -4753,7 +4753,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 
         <span class="pl-k">return</span> d
 
-    <span class="pl-k">def</span> <span class="pl-en">computePI</span>(<span class="pl-smi">self</span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span>):
+    <span class="pl-k">def</span> <span class="pl-en">computePI</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span>):
         d <span class="pl-k">=</span> utils.getProcessOutputAndValue(<span class="pl-s"><span class="pl-pds">'</span>/usr/bin/python<span class="pl-pds">'</span></span>, <span class="pl-v">args</span><span class="pl-k">=</span>(<span class="pl-s"><span class="pl-pds">'</span>-c<span class="pl-pds">'</span></span>, pi_chudovsky_bs, <span class="pl-c1">str</span>(digits)))
 
         <span class="pl-k">def</span> <span class="pl-en">callback</span>((<span class="pl-smi">out</span>, <span class="pl-smi">err</span>, <span class="pl-smi">code</span>)):
@@ -4870,7 +4870,7 @@ $</pre></div>
 <span class="pl-k">class</span> <span class="pl-en">EchoRPC</span>(<span class="pl-e">MsgpackRPCServer</span>):
 
     <span class="pl-en">@defer.inlineCallbacks</span>
-    <span class="pl-k">def</span> <span class="pl-en">remote_echo</span>(<span class="pl-smi">self</span>, <span class="pl-smi">value</span>, <span class="pl-smi">delay</span><span class="pl-k">=</span><span class="pl-c1">None</span>, <span class="pl-smi">msgid</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
+    <span class="pl-k">def</span> <span class="pl-en">remote_echo</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">value</span>, <span class="pl-smi">delay</span><span class="pl-k">=</span><span class="pl-c1">None</span>, <span class="pl-smi">msgid</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
         <span class="pl-k">if</span> delay <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:
             <span class="pl-k">yield</span> task.deferLater(reactor, delay, <span class="pl-k">lambda</span>: <span class="pl-c1">None</span>)
         defer.returnValue(value)
@@ -6105,7 +6105,7 @@ msgInt, msgUint, msgNull
 <span class="pl-k">var</span> decodeStream <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createDecodeStream</span>();
 
 <span class="pl-c">// show multiple objects decoded from stream</span>
-<span class="pl-smi">readStream</span>.<span class="pl-en">pipe</span>(decodeStream).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.<span class="pl-smi">warn</span>);</pre></div>
+<span class="pl-smi">readStream</span>.<span class="pl-en">pipe</span>(decodeStream).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.warn);</pre></div>
 
 <h7>
 <a id="user-content-command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Command Line Interface</h7>
