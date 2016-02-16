@@ -293,6 +293,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-caesay-MPack',this)">C# <span class="qs-sub">caesay</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-jonathonl-goodform',this)">c++11 <span class="qs-sub">jonathonl</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-HEADS-project-arduino_msgpck',this)">Arduino C <span class="qs-sub">HEADS-project</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-polyglotted-msgpack-python',this)">Python <span class="qs-sub">polyglotted</span></a></li>
@@ -6474,6 +6476,26 @@ for JavaScript native objects.</p>
 <p>Other extension types are mapped to internal ExtBuffer object.</p>
 
 <h7>
+<a id="user-content-custom-extension-types-codecs" class="anchor" href="#custom-extension-types-codecs" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Custom Extension Types (Codecs)</h7>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
+
+<span class="pl-k">var</span> codec <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>();
+<span class="pl-smi">codec</span>.<span class="pl-en">addExtPacker</span>(<span class="pl-c1">0x3F</span>, MyClass, myClassPacker);
+<span class="pl-smi">codec</span>.<span class="pl-en">addExtUnpacker</span>(<span class="pl-c1">0x3F</span>, myClassUnpacker);
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(data, {codec<span class="pl-k">:</span> codec});</pre></div>
+
+<p>The first argument of <code>addExtPacker</code> and <code>addExtUnpacker</code> should be an integer within the range of 0 and 127 (0x0 and 0x7F). <code>myClassPacker</code> is a function that accepts an instance of <code>MyClass</code>, and should return a buffer representing that instance. <code>myClassUnpacker</code> is the opposite: it accepts a buffer and should return an instance of <code>MyClass</code>.</p>
+
+<p>If you pass an array of functions to <code>addExtPacker</code> or <code>addExtUnpacker</code>, the value to be encoded/decoded will pass through each one in order. This allows you to do things like this:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">codec</span>.<span class="pl-en">addExtPacker</span>(<span class="pl-c1">0x00</span>, <span class="pl-c1">Date</span>, [<span class="pl-c1">Number</span>, <span class="pl-smi">msgpack</span>.<span class="pl-smi">encode</span>]);</pre></div>
+
+<p>You can also pass the <code>codec</code> option to <code>msgpack.Decoder(options)</code>, <code>msgpack.Encoder(options)</code>, <code>msgpack.createEncodeStream(options)</code>, and <code>msgpack.createDecodeStream(options)</code>.</p>
+
+<p>If you wish to modify the default built-in codec, you can access it at <code>msgpack.codec.preset</code>.</p>
+
+<h7>
 <a id="user-content-repository" class="anchor" href="#repository" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Repository</h7>
 
 <ul>
@@ -7268,6 +7290,100 @@ dictionary.EncodeToStream(stream);</pre></div>
 <li>All of the people that make MessagePack happen: <a href="https://github.com/msgpack">https://github.com/msgpack</a>
 </li>
 </ol>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-jonathonl-goodform" class="qs"><h4><a href="https://github.com/jonathonl/goodform" target="_blank">jonathonl/goodform <span class="qs-url">https://github.com/jonathonl/goodform</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-goodform" class="anchor" href="#goodform" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>GoodForm</h5>
+
+<p>Form validation library. Includes MsgPack and JSON serializer/deserializer.</p>
+
+<h5>
+<a id="user-content-msgpack-usage" class="anchor" href="#msgpack-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>MsgPack Usage</h5>
+
+<div class="highlight highlight-source-c++"><pre>std::stringstream ss;
+goodform::variant var, var2;
+var = goodform::object
+  {
+    {<span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>},
+    {<span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>, <span class="pl-c1">0</span>}
+  };
+
+<span class="pl-en">goodform::msgpack::serialize</span>(var, ss);
+<span class="pl-en">goodform::msgpack::deserialize</span>(ss, var2);
+
+goodform::form <span class="pl-en">form</span>(var2);
+
+<span class="pl-k">struct</span>
+{
+  <span class="pl-k">bool</span> compact;
+  std::<span class="pl-c1">int32_t</span> schema;
+} mpack;
+
+mpack.compact = form.at(<span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>).boolean().val();
+mpack.schema = form.at(<span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>).uint32().val();
+
+<span class="pl-k">if</span> (form.is_good())
+{
+  std::cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>{ <span class="pl-cce">\"</span>compact<span class="pl-cce">\"</span>: <span class="pl-pds">"</span></span> &lt;&lt; std::boolalpha &lt;&lt; mpack.<span class="pl-smi">compact</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>, <span class="pl-cce">\"</span>schema<span class="pl-cce">\"</span>: <span class="pl-pds">"</span></span> &lt;&lt; mpack.<span class="pl-smi">schema</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> }<span class="pl-pds">"</span></span> &lt;&lt; std::endl;
+}</pre></div>
+
+<h5>
+<a id="user-content-json-usage" class="anchor" href="#json-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>JSON Usage</h5>
+
+<div class="highlight highlight-source-c++"><pre>goodform::variant var;
+std::stringstream ss;
+ss &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>{<span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span>first_name<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>John<span class="pl-cce">\"</span>, // This is a comment<span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span>last_name<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>Smith<span class="pl-cce">\"</span>, <span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span>age<span class="pl-cce">\"</span>: 23,<span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span>gpa<span class="pl-cce">\"</span>: 4.0,<span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span>email<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>john.smith@example.com<span class="pl-cce">\"</span>,<span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span>password_hash<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>5f4dcc3b5aa765d61d8327deb882cf99<span class="pl-cce">\"</span>,<span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span>interests<span class="pl-cce">\"</span>: [<span class="pl-cce">\"</span>sailing<span class="pl-cce">\"</span>,<span class="pl-cce">\"</span>swimming<span class="pl-cce">\"</span>,<span class="pl-cce">\"</span>yoga<span class="pl-cce">\"</span>]<span class="pl-pds">"</span></span> &lt;&lt; std::endl
+  &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>}<span class="pl-pds">"</span></span> &lt;&lt; std::endl;
+
+<span class="pl-en">goodform::json::deserialize</span>(ss, var);
+
+goodform::form <span class="pl-en">form</span>(var);
+
+<span class="pl-k">struct</span>
+{
+  std::string first_name;
+  std::string last_name;
+  std::<span class="pl-c1">uint8_t</span> age;
+  <span class="pl-k">float</span> gpa;
+  std::string email;
+  std::string password_hash;
+  <span class="pl-k">bool</span> subscribe_to_email_marketing;
+  std::list&lt;std::string&gt; interests;
+} form_data;
+
+
+form_data.first_name = form.at(<span class="pl-s"><span class="pl-pds">"</span>first_name<span class="pl-pds">"</span></span>).string().match(std::regex(<span class="pl-s"><span class="pl-pds">"</span>^[a-zA-Z ]{1,64}$<span class="pl-pds">"</span></span>)).val();
+form_data.last_name = form.at(<span class="pl-s"><span class="pl-pds">"</span>last_name<span class="pl-pds">"</span></span>).string().match(std::regex(<span class="pl-s"><span class="pl-pds">"</span>^[a-zA-Z ]{1,64}$<span class="pl-pds">"</span></span>)).val();
+form_data.age = form.at(<span class="pl-s"><span class="pl-pds">"</span>age<span class="pl-pds">"</span></span>).uint8().val();
+form_data.gpa = form.at(<span class="pl-s"><span class="pl-pds">"</span>gpa<span class="pl-pds">"</span></span>).float32().gte(<span class="pl-c1">0</span>).lte(<span class="pl-c1">4.0</span>).val();
+form_data.email = form.at(<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span>).string().match(std::regex(<span class="pl-s"><span class="pl-pds">"</span>^.{3,256}$<span class="pl-pds">"</span></span>)).val();
+form_data.password_hash = form.at(<span class="pl-s"><span class="pl-pds">"</span>password_hash<span class="pl-pds">"</span></span>).string().match(std::regex(<span class="pl-s"><span class="pl-pds">"</span>^[a-fA-F0-9]{32}$<span class="pl-pds">"</span></span>)).val();
+form_data.subscribe_to_email_marketing = form.at(<span class="pl-s"><span class="pl-pds">"</span>subscribe_to_email_marketing<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>).boolean().val(); <span class="pl-c">// Optional field defaults to true.</span>
+
+form.at(<span class="pl-s"><span class="pl-pds">"</span>interests<span class="pl-pds">"</span></span>).array().for_each([&amp;form_data](goodform::sub_form&amp; sf, std::<span class="pl-c1">size_t</span> i)
+{
+  form_data.<span class="pl-smi">interests</span>.<span class="pl-c1">push_back</span>(sf.<span class="pl-c1">string</span>().<span class="pl-c1">val</span>());
+});
+
+<span class="pl-k">if</span> (form.is_good())
+{
+  <span class="pl-c">// Use validated form_data.</span>
+}
+<span class="pl-k">else</span>
+{
+  <span class="pl-c">// Handle error.</span>
+}</pre></div>
 </article>
   </div>
         </div>
