@@ -5939,14 +5939,50 @@ msgInt, msgUint, msgNull
 
 <p><a href="https://travis-ci.org/benoist/msgpack-crystal"><img src="https://camo.githubusercontent.com/cacf7aeb9bd1a8987b2708bdd8ba106c047a2fb9/68747470733a2f2f7472617669732d63692e6f72672f62656e6f6973742f6d73677061636b2d6372797374616c2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/benoist/msgpack-crystal.svg" style="max-width:100%;"></a></p>
 
-<p>In implementation of the MessagePack spec for crystal.</p>
-
-<p>It supports Packing and Unpacking from a string or an IO</p>
+<p>MessagePack implementation in Crystal. It supports Packing and Unpacking from a string or an IO, Mappings, to_msgpack-from_msgpack methods.</p>
 
 <h6>
-<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Installation</h6>
 
-<p>Please see the examples folder for some packing and unpacking examples.</p>
+<p>Add this to your application's <code>shard.yml</code>:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">dependencies:</span></span>
+  <span class="pl-s"><span class="pl-ent">msgpack:</span></span>
+    <span class="pl-s"><span class="pl-ent">github:</span> <span class="pl-s">benoist/msgpack</span></span></pre></div>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Usage</h6>
+
+<div class="highlight highlight-source-crystal"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack<span class="pl-pds">"</span></span>
+
+<span class="pl-k">class</span> <span class="pl-en">Location</span>
+  <span class="pl-c1">MessagePack</span>.mapping({
+    <span class="pl-c1">lat:</span> <span class="pl-c1">Float64</span>,
+    <span class="pl-c1">lng:</span> <span class="pl-c1">Float64</span>,
+  })
+<span class="pl-k">end</span>
+
+<span class="pl-k">class</span> <span class="pl-en">House</span>
+  <span class="pl-c1">MessagePack</span>.mapping({
+    <span class="pl-c1">address:</span>  <span class="pl-c1">String</span>,
+    <span class="pl-c1">location:</span> {<span class="pl-c1">type:</span> <span class="pl-c1">Location</span>, <span class="pl-c1">nilable:</span> <span class="pl-c1">true</span>},
+  })
+<span class="pl-k">end</span>
+
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Road12<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>location<span class="pl-pds">"</span></span> =&gt; {<span class="pl-s"><span class="pl-pds">"</span>lat<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">12.3</span>, <span class="pl-s"><span class="pl-pds">"</span>lng<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">34.5</span>}}.to_msgpack)
+<span class="pl-c1">p</span> house <span class="pl-c"># &lt;House:0x1b06de0 @address="Road12", @location=#&lt;Location:0x1b06dc0 @lat=12.3, @lng=34.5&gt;&gt;</span>
+
+house.address <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Something<span class="pl-pds">"</span></span>
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(house.to_msgpack)
+<span class="pl-c1">p</span> house <span class="pl-c"># #&lt;House:0x13f0d80 @address="Something", @location=#&lt;Location:0x13f0d60 @lat=12.3, @lng=34.5&gt;&gt;</span>
+
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Crystal Road 1234<span class="pl-pds">"</span></span>}.to_msgpack)
+<span class="pl-c1">p</span> house <span class="pl-c"># &lt;House:0x1b06d80 @address="Crystal Road 1234", @location=nil&gt;</span></pre></div>
+
+<h6>
+<a id="user-content-more-examples" class="anchor" href="#more-examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>More Examples</h6>
+
+<p>(<a href="https://github.com/benoist/msgpack-crystal/tree/master/examples">examples</a>)</p>
 
 <h6>
 <a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Copyright</h6>
