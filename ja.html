@@ -6066,6 +6066,20 @@ house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(
 <span class="pl-smi">readStream</span>.<span class="pl-en">pipe</span>(decodeStream).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.warn);</pre></div>
 
 <h7>
+<a id="user-content-decoding-messagepack-bytes-array" class="anchor" href="#decoding-messagepack-bytes-array" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Decoding MessagePack Bytes Array</h7>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">// decode() accepts Buffer instance per default</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-en">Buffer</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]));
+
+<span class="pl-c">// decode() also accepts Array instance</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]);
+
+<span class="pl-c">// decode() accepts raw Uint8Array instance as well</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]));</pre></div>
+
+<h7>
 <a id="user-content-command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Command Line Interface</h7>
 
 <p>A CLI tool bin/msgpack converts data stream from JSON to MessagePack and vice versa.</p>
@@ -6112,6 +6126,38 @@ http://localhost:4000/__zuul</pre></div>
 <span class="pl-s1"><span class="pl-k">var</span> array <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]);</span>
 <span class="pl-s1"><span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(array);</span>
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h7>
+<a id="user-content-messagepack-with-browserify" class="anchor" href="#messagepack-with-browserify" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>MessagePack With Browserify</h7>
+
+<p>Step #1: write some code at first.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
+<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer);
+<span class="pl-en">console</span>.<span class="pl-c1">warn</span>(data); <span class="pl-c">// =&gt; {"foo": "bar"}</span></pre></div>
+
+<p>Step #2: add <code>browser</code> property on <code>package.json</code> in your project if you prefer faster compilation time. This refers the global <code>msgpack</code> object instead of including whole of <code>msgpack-lite</code> source code.</p>
+
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>
+  },
+  <span class="pl-s"><span class="pl-pds">"</span>browser<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>msgpack-lite/global<span class="pl-pds">"</span></span>
+  }
+}</pre></div>
+
+<p>Step #3: compile it with <a href="https://www.npmjs.com/package/browserify">browserify</a> and <a href="https://www.npmjs.com/package/uglify-js">uglifyjs</a>.</p>
+
+<div class="highlight highlight-source-shell"><pre>browserify src/main.js -o tmp/main.browserify.js -s main
+uglifyjs tmp/main.browserify.js -m -c -o js/main.min.js
+cp node_modules/msgpack-lite/dist/msgpack.min.js js/msgpack.min.js</pre></div>
+
+<p>Step #4: load <a href="https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js">msgpack.min.js</a> before your code.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>js/msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>js/main.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 
 <h7>
 <a id="user-content-interoperability" class="anchor" href="#interoperability" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Interoperability</h7>
