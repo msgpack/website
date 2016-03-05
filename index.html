@@ -7538,10 +7538,10 @@ form.at(<span class="pl-s"><span class="pl-pds">"</span>interests<span class="pl
 </ul>
 
 <h6>
-<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Examples</h6>
+<a id="user-content-basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Basic Usage</h6>
 
 <h7>
-<a id="user-content-basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Basic Usage</h7>
+<a id="user-content-serialize-and-deserialize" class="anchor" href="#serialize-and-deserialize" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Serialize and Deserialize</h7>
 
 <p>The usage of MsgPack class is very simple. You need create an object and call read and write methods.</p>
 
@@ -7563,15 +7563,67 @@ form.at(<span class="pl-s"><span class="pl-pds">"</span>interests<span class="pl
 <p>Currently there are three flags which you may use to initialize a MsgPack object:</p>
 
 <ul>
-<li>MsgPackFlags.READ_STRING_AS_BYTE_ARRAY: message pack string data is read as byte array instead of string;</li>
-<li>MsgPackFlags.ACCEPT_LITTLE_ENDIAN: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).</li>
-<li>MsgPackFlags.SPEC2013_COMPATIBILITY: MsgPack will run in backwards compatibility mode.</li>
+<li>
+<code>MsgPackFlags.READ_STRING_AS_BYTE_ARRAY</code>: message pack string data is read as byte array instead of string;</li>
+<li>
+<code>MsgPackFlags.ACCEPT_LITTLE_ENDIAN</code>: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).</li>
+<li>
+<code>MsgPackFlags.SPEC2013_COMPATIBILITY</code>: MsgPack will run in backwards compatibility mode.</li>
 </ul>
 
 <div class="highlight highlight-source-actionscript-3"><pre><span class="pl-k">var</span> msg<span class="pl-k">:</span>MsgPack<span class="pl-k">;</span>
 
 <span class="pl-c">// use logical operator OR to set the flags.</span>
-msgpack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack(MsgPackFlags<span class="pl-k">.</span><span class="pl-c1">READ_RAW_AS_BYTE_ARRAY</span> <span class="pl-k">|</span> MsgPackFlags<span class="pl-k">.</span><span class="pl-c1">ACCEPT_LITTLE_ENDIAN</span>)<span class="pl-k">;</span></pre></div>
+msgpack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack(MsgPackFlags<span class="pl-k">.</span><span class="pl-c1">READ_STRING_AS_BYTE_ARRAY</span> <span class="pl-k">|</span> MsgPackFlags<span class="pl-k">.</span><span class="pl-c1">ACCEPT_LITTLE_ENDIAN</span>)<span class="pl-k">;</span></pre></div>
+
+<h6>
+<a id="user-content-advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Advanced Usage</h6>
+
+<h7>
+<a id="user-content-extensions" class="anchor" href="#extensions" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Extensions</h7>
+
+<p>You can create your own Extension Workers by extending the <code>ExtensionWorker</code> Class and then assigning it to the MsgPack Factory.</p>
+
+<p>The following example assigns a custom worker which extends the <code>ExtensionWorker</code> Class.</p>
+
+<div class="highlight highlight-source-actionscript-3"><pre><span class="pl-k">var</span> msgpack<span class="pl-k">:</span>MsgPack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack()<span class="pl-k">;</span>
+
+<span class="pl-c">// Assign the new worker to the factory.</span>
+msgpack<span class="pl-k">.</span><span class="pl-c1">factory</span><span class="pl-k">.</span>assign(<span class="pl-k">new</span> CustomWorker())<span class="pl-k">;</span></pre></div>
+
+<p>For more information regarding Extensions refer to the MessagePack specification.</p>
+
+<h7>
+<a id="user-content-priorities" class="anchor" href="#priorities" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Priorities</h7>
+
+<p>Worker priority behaves similar to how the Adobe Event Dispatcher priorities work. In MessagePack, deciding which worker will be use for serializing/deserializing depends on two(2) factors.</p>
+
+<ol>
+<li>The order in which the worker was assigned to the factory.</li>
+<li>The priority of the worker. Higher values take precedence.</li>
+</ol>
+
+<p>All workers have a default priority of 0.</p>
+
+<p>In the following example <code>workerB</code> will never be used because it's assign after <code>workerA</code></p>
+
+<div class="highlight highlight-source-actionscript-3"><pre><span class="pl-k">var</span> msgpack<span class="pl-k">:</span>MsgPack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack()<span class="pl-k">;</span>
+
+<span class="pl-k">var</span> workerA<span class="pl-k">:</span>StringWorker <span class="pl-k">=</span> <span class="pl-k">new</span> StringWorker()<span class="pl-k">;</span>
+<span class="pl-k">var</span> workerB<span class="pl-k">:</span>DifferentStringWorker <span class="pl-k">=</span> <span class="pl-k">new</span> DifferentStringWorker()<span class="pl-k">;</span>
+
+msgpack<span class="pl-k">.</span><span class="pl-c1">factory</span><span class="pl-k">.</span>assign(workerA)<span class="pl-k">;</span>
+msgpack<span class="pl-k">.</span><span class="pl-c1">factory</span><span class="pl-k">.</span>assign(workerB)<span class="pl-k">;</span></pre></div>
+
+<p>However if we adjust the priority of <code>workerB</code>, then <code>workerA</code> will never be used.</p>
+
+<div class="highlight highlight-source-actionscript-3"><pre><span class="pl-k">var</span> msgpack<span class="pl-k">:</span>MsgPack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack()<span class="pl-k">;</span>
+
+<span class="pl-k">var</span> workerA<span class="pl-k">:</span>StringWorker <span class="pl-k">=</span> <span class="pl-k">new</span> StringWorker()<span class="pl-k">;</span>
+<span class="pl-k">var</span> workerB<span class="pl-k">:</span>DifferentStringWorker <span class="pl-k">=</span> <span class="pl-k">new</span> DifferentStringWorker(<span class="pl-c1">null</span>, <span class="pl-c1">1</span>)<span class="pl-k">;</span>
+
+msgpack<span class="pl-k">.</span><span class="pl-c1">factory</span><span class="pl-k">.</span>assign(workerA)<span class="pl-k">;</span>
+msgpack<span class="pl-k">.</span><span class="pl-c1">factory</span><span class="pl-k">.</span>assign(workerB)<span class="pl-k">;</span></pre></div>
 
 <h6>
 <a id="user-content-credits" class="anchor" href="#credits" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Credits</h6>
