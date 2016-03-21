@@ -1390,12 +1390,11 @@ addition to the strings themselves.</p>
     <span class="pl-c">// deserialize the buffer into msgpack::object instance.</span>
     std::string <span class="pl-smi">str</span>(buffer.<span class="pl-c1">str</span>());
 
-    msgpack::unpacked result;
+    msgpack::object_handle oh =
+        <span class="pl-c1">msgpack::unpack</span>(str.<span class="pl-c1">data</span>(), str.<span class="pl-c1">size</span>());
 
-    <span class="pl-c1">msgpack::unpack</span>(result, str.<span class="pl-c1">data</span>(), str.<span class="pl-c1">size</span>());
-
-    <span class="pl-c">// deserialized object is valid during the msgpack::unpacked instance alive.</span>
-    msgpack::object deserialized = result.<span class="pl-c1">get</span>();
+    <span class="pl-c">// deserialized object is valid during the msgpack::object_handle instance is alive.</span>
+    msgpack::object deserialized = oh.<span class="pl-c1">get</span>();
 
     <span class="pl-c">// msgpack::object supports ostream.</span>
     std::cout &lt;&lt; deserialized &lt;&lt; std::endl;
