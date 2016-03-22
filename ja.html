@@ -789,10 +789,10 @@ $ py.test</blockquote>
 <p><a href="https://drone.io/github.com/msgpack/msgpack-erlang"><img src="https://camo.githubusercontent.com/439f5da74417a319e6daddaaa3455f9e9f03bced/68747470733a2f2f64726f6e652e696f2f6769746875622e636f6d2f6d73677061636b2f6d73677061636b2d65726c616e672f7374617475732e706e67" alt="Drone.io" data-canonical-src="https://drone.io/github.com/msgpack/msgpack-erlang/status.png" style="max-width:100%;"></a></p>
 
 <h6>
-<a id="user-content-prequisites-for-runtime" class="anchor" href="#prequisites-for-runtime" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>prequisites for runtime</h6>
+<a id="user-content-prerequisites-for-runtime" class="anchor" href="#prerequisites-for-runtime" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Prerequisites for runtime</h6>
 
-<p><a href="http://erlang.org/">Erlang/OTP</a>, &gt;= 17.0
-Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000cc4a478f0dfbb5942ac54e9e/spec.md">the new msgpack spec 232a0d</a>.</p>
+<p><a href="http://erlang.org/">Erlang/OTP</a>, &gt;= 17.0 Also based on
+<a href="https://github.com/msgpack/msgpack/blob/0b8f5ac67cdd130f4d4d4fe6afb839b989fdb86a/spec.md">the new msgpack spec 0b8f5a</a>.</p>
 
 <h6>
 <a id="user-content-edit-rebarconfig-to-use-in-your-application" class="anchor" href="#edit-rebarconfig-to-use-in-your-application" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>edit rebar.config to use in your application</h6>
@@ -801,6 +801,12 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
   {<span class="pl-c1">msgpack</span>, <span class="pl-s"><span class="pl-pds">"</span>.*<span class="pl-pds">"</span></span>,
     {<span class="pl-c1">git</span>, <span class="pl-s"><span class="pl-pds">"</span>git://github.com/msgpack/msgpack-erlang.git<span class="pl-pds">"</span></span>, {<span class="pl-c1">branch</span>, <span class="pl-s"><span class="pl-pds">"</span>master<span class="pl-pds">"</span></span>}}}
 ]}.</pre></div>
+
+<p>Or as it is <a href="https://hex.pm/packages/msgpack">now published at hex.pm</a>, just</p>
+
+<div class="highlight highlight-source-erlang"><pre>{<span class="pl-c1">deps</span>, [<span class="pl-c1">msgpack</span>]}.</pre></div>
+
+<p>might work.</p>
 
 <h6>
 <a id="user-content-simple-deserialization" class="anchor" href="#simple-deserialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Simple deserialization</h6>
@@ -816,31 +822,109 @@ Also based on <a href="https://github.com/msgpack/msgpack/blob/232a0d14c6057000c
 ...</pre></div>
 
 <h6>
-<a id="user-content-string-type" class="anchor" href="#string-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>String type</h6>
+<a id="user-content-options-for-packing-and-unpacking" class="anchor" href="#options-for-packing-and-unpacking" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Options, for packing and unpacking</h6>
 
-<p>Now this supports string type!</p>
+<h7>
+<a id="user-content-spec-newold" class="anchor" href="#spec-newold" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{spec, new|old}</code>
+</h7>
 
-<div class="highlight highlight-source-erlang"><pre><span class="pl-smi">Opt</span> <span class="pl-k">=</span> [{<span class="pl-c1">enable_str</span>, <span class="pl-c1">true</span>}]
-{<span class="pl-c1">ok</span>, <span class="pl-s"><span class="pl-pds">"</span>埼玉<span class="pl-pds">"</span></span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-s"><span class="pl-pds">"</span>埼玉<span class="pl-pds">"</span></span>, <span class="pl-smi">Opt</span>), <span class="pl-smi">Opt</span>).
- <span class="pl-k">=&gt;</span> {<span class="pl-c1">ok</span>,[<span class="pl-c1">22524</span>,<span class="pl-c1">29577</span>]}</pre></div>
+<p>Both for packing and unpacking. Default is <code>new</code>. Major difference
+between old and new spec is:</p>
 
-<p>There are several options for <code>msgpack:pack/2</code> and <code>msgpack:unpack/2</code> .
-See <code>msgpack:options()</code> in <code>msgpack.hrl</code>.</p>
+<ul>
+<li>raw family (<code>0xa0~0xbf</code>, <code>0xda</code>, <code>0xdb</code>) becomes new str family</li>
+<li>
+<code>0xd9</code> is new as str8</li>
+<li>new bin space (<code>0xc4, 0xc5, 0xc6</code> as bin8, bin16, bin32)</li>
+<li>new ext space (<code>0xc7, 0xc8, 0xc9</code> as ext8, ext16, ext32)</li>
+<li>new fixext space (<code>0xd4, 0xd5, 0xd6, 0xd7, 0xd8</code> as fixext1, fixext2, fixext4, fixext8, fixext16),</li>
+</ul>
 
-<h6>
-<a id="user-content-map-style" class="anchor" href="#map-style" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Map Style</h6>
+<p>The default is new spec. Old spec mode does not handle these new types but
+returns error. To use
+<a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">old spec</a>
+mode, this option is explicitly added.</p>
 
-<p>Since Erlang/OTP 17.0</p>
+<div class="highlight highlight-source-erlang"><pre><span class="pl-smi">OldHam</span> <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-smi">Spam</span>, [{<span class="pl-c1">spec</span>, <span class="pl-c1">old</span>}]),
+{<span class="pl-c1">ok</span>, <span class="pl-smi">Spam</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-smi">OldHam</span>, [{<span class="pl-c1">spec</span>, <span class="pl-c1">old</span>}]).</pre></div>
 
-<div class="highlight highlight-source-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(#{ &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt; <span class="pl-k">=&gt;</span> &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt; }, [{<span class="pl-c1">format</span>, <span class="pl-c1">map</span>}]).</pre></div>
+<h7>
+<a id="user-content-allow_atom-nonepack" class="anchor" href="#allow_atom-nonepack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{allow_atom, none|pack}</code>
+</h7>
 
-<p>Or use old jiffy/jsx style</p>
+<p>Only in packing. Atoms are packed as binaries. Default value is <code>pack</code>.
+Otherwise, any term including atoms throws badarg.</p>
 
-<div class="highlight highlight-source-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>({[{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}]}, [{<span class="pl-c1">format</span>, <span class="pl-c1">jiffy</span>}]),
+<h7>
+<a id="user-content-known_atoms-atom" class="anchor" href="#known_atoms-atom" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{known_atoms, [atom()]}</code>
+</h7>
+
+<p>Both in packing and unpacking. In packing, if an atom is in this list
+a binary is encoded as a binary. In unpacking, msgpacked binaries are
+decoded as atoms with <code>erlang:binary_to_existing_atom/2</code> with encoding
+<code>utf8</code>. Default value is an empty list.</p>
+
+<p>Even if <code>allow_atom</code> is <code>none</code>, known atoms are packed.</p>
+
+<h7>
+<a id="user-content-unpack_str-as_binaryas_list" class="anchor" href="#unpack_str-as_binaryas_list" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{unpack_str, as_binary|as_list}</code>
+</h7>
+
+<p>A switch to choose decoded term style of <code>str</code> type when <em>unpacking</em>.
+Only available at new spec. Default is <code>as_list</code>.</p>
+
+<pre><code>mode        as_binary    as_list
+-----------+------------+-------
+bin         binary()     binary()
+str         binary()     string()
+</code></pre>
+
+<h7>
+<a id="user-content-validate_string-boolean" class="anchor" href="#validate_string-boolean" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{validate_string, boolean()}</code>
+</h7>
+
+<p>Only in unpacking, UTF-8 validation at unpacking from <code>str</code> type will
+be enabled. Default value is <code>false</code>.</p>
+
+<h7>
+<a id="user-content-pack_str-from_binaryfrom_listnone" class="anchor" href="#pack_str-from_binaryfrom_listnone" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{pack_str, from_binary|from_list|none}</code>
+</h7>
+
+<p>A switch to choose packing of <code>string()</code> when packing. Only available
+at new spec. Default is <code>from_list</code> for symmetry with <code>unpack_str</code>
+option.</p>
+
+<pre><code>mode        from_list    from_binary    none
+-----------+------------+--------------+-----------------
+binary()    bin          str*/bin       bin
+string()    str*/array   array of int   array of int
+list()      array        array          array
+</code></pre>
+
+<p>But the default option pays the cost of performance for symmetry. If
+the overhead of UTF-8 validation is unacceptable, choosing <code>none</code> as
+the option would be the best.</p>
+
+<ul>
+<li>* Tries to pack as <code>str</code> if it is a valid <code>string()</code>.</li>
+</ul>
+
+<h7>
+<a id="user-content-map_format-mapsjiffyjsx" class="anchor" href="#map_format-mapsjiffyjsx" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{map_format, maps|jiffy|jsx}</code>
+</h7>
+
+<p>Both at packing and unpacking. Default value is <code>maps</code>.</p>
+
+<div class="highlight highlight-source-erlang"><pre><span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(#{ &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt; <span class="pl-k">=&gt;</span> &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt; }, []).
+<span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>({[{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}]}, [{<span class="pl-c1">format</span>, <span class="pl-c1">jiffy</span>}]),
 <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>([{&lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>key<span class="pl-pds">"</span></span>&gt;&gt;, &lt;&lt;<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>&gt;&gt;}], [{<span class="pl-c1">format</span>, <span class="pl-c1">jsx</span>}]).</pre></div>
 
-<h6>
-<a id="user-content-ext-type" class="anchor" href="#ext-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Ext type</h6>
+<h7>
+<a id="user-content-ext-msgpack_ext_packer-msgpack_ext_unpackermodule" class="anchor" href="#ext-msgpack_ext_packer-msgpack_ext_unpackermodule" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a><code>{ext, {msgpack_ext_packer(), msgpack_ext_unpacker()}|module()}</code>
+</h7>
+
+<p>At both. The default behaviour in case of facing ext data at decoding
+is to ignore them as its length is known.</p>
 
 <p>Now msgpack-erlang supports ext type. Now you can serialize everything
 with your original (de)serializer. That will enable us to handle
@@ -853,23 +937,6 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 <span class="pl-smi">Opt</span> <span class="pl-k">=</span> [{<span class="pl-c1">ext</span>,{<span class="pl-smi">Packer</span>,<span class="pl-smi">Unpacker</span>}}],
 {<span class="pl-c1">ok</span>, {<span class="pl-c1">ref</span>, <span class="pl-smi">Ref</span>}} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>({<span class="pl-c1">ref</span>, <span class="pl-smi">Ref</span>}, <span class="pl-smi">Opt</span>), <span class="pl-smi">Opt</span>).</pre></div>
 
-<p>This is still experimental feature, so I'm waiting for your feedback.</p>
-
-<h6>
-<a id="user-content-compatibility-mode" class="anchor" href="#compatibility-mode" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Compatibility mode</h6>
-
-<p>To use as same with <a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">old spec</a>:</p>
-
-<div class="highlight highlight-source-erlang"><pre><span class="pl-smi">OldHam</span> <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">pack</span>(<span class="pl-smi">Spam</span>, [{<span class="pl-c1">enable_str</span>,<span class="pl-c1">false</span>}]),
-{<span class="pl-c1">ok</span>, <span class="pl-smi">Spam</span>} <span class="pl-k">=</span> <span class="pl-en">msgpack</span>:<span class="pl-en">unpack</span>(<span class="pl-smi">OldHam</span>, [{<span class="pl-c1">enable_str</span>,<span class="pl-c1">false</span>}]).</pre></div>
-
-<p>Since 0.2.3 now it's <strong>false by default</strong>.</p>
-
-<h6>
-<a id="user-content-further-tests" class="anchor" href="#further-tests" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Further tests</h6>
-
-<p>See <a href="http://github.com/kuenishi/msgpack-erlang-tests">msgpack-erlang-tests</a> for further tests</p>
-
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>License</h6>
 
@@ -877,6 +944,14 @@ erlang- native types like <code>pid()</code>, <code>ref()</code> contained in <c
 
 <h5>
 <a id="user-content-release-notes" class="anchor" href="#release-notes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Release Notes</h5>
+
+<h6>
+<a id="user-content-050" class="anchor" href="#050" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>0.5.0</h6>
+
+<ul>
+<li>Renewed optional arguments to pack/unpack interface. This is
+incompatible change from 0.4 series.</li>
+</ul>
 
 <h6>
 <a id="user-content-040" class="anchor" href="#040" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>0.4.0</h6>
