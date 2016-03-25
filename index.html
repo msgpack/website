@@ -1492,10 +1492,8 @@ addition to the strings themselves.</p>
 <p>When you use msgpack on C++03 and C++11, you can just add
 msgpack-c/include to your include path:</p>
 
-<pre><code>g++ -I msgpack-c/include -DMSGPACK_DISABLE_LEGACY_NIL -DMSGPACK_DISABLE_LEGACY_CONVERT your_source_file.cpp
+<pre><code>g++ -I msgpack-c/include your_source_file.cpp
 </code></pre>
-
-<p>See <a href="https://github.com/msgpack/msgpack-c/wiki/v1_1_cpp_configure#msgpack_disable_legacy_nil-since-140">MSGPACK_DISABLE_LEGACY_NIL</a> and <a href="https://github.com/msgpack/msgpack-c/wiki/v1_1_cpp_configure#msgpack_disable_legacy_convert-since-140">MSGPACK_DISABLE_LEGACY_CONVERT</a>.</p>
 
 <p>If you want to use C version of msgpack, you need to build it. You can
 also install the C and C++ versions of msgpack.</p>
