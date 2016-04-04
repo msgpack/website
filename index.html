@@ -7352,33 +7352,35 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Installation</h6>
 
-<p>Simply add files under the directory below to your project                                                                                                                                                                                                              ```url
-MessagePack/src</p>
+<p>Simply add files under the directory below to your project</p>
 
-<pre><code>
-# Usage 
-### Pack:
+<pre lang="url"><code>MessagePack/src
+</code></pre>
 
-```swift
-struct MyStruct: Packable {  //Confirm to this protocol
-    var name: String
-    var index: Int
-    func packFormat() -&gt; [AnyObject] { //protocol function
-        return [name, index] //pack order
+<h5>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Usage</h5>
+
+<h7>
+<a id="user-content-pack" class="anchor" href="#pack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Pack:</h7>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">struct</span> MyStruct: Packable {  <span class="pl-c">//Confirm to this protocol</span>
+    <span class="pl-k">var</span> name: <span class="pl-c1">String</span>
+    <span class="pl-k">var</span> index: <span class="pl-c1">Int</span>
+    <span class="pl-k">func</span> <span class="pl-en">packFormat</span>() <span class="pl-k">-&gt;</span> [<span class="pl-c1">AnyObject</span>] { <span class="pl-c">//protocol function</span>
+        <span class="pl-k">return</span> [name, index] <span class="pl-c">//pack order</span>
     }
 }
 
-let exampleInt: Int = 1
-let exampleStr: String = "Hello World"
-let exampleArray: [Int] = [1, 2, 3, 4, 5, 6]
-let bool: Bool = true
-let foo = MyStruct(name: "foo", index: 626)
+<span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
+<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
+<span class="pl-k">let</span> bool: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
+<span class="pl-k">let</span> foo <span class="pl-k">=</span> MyStruct(name: <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, index: <span class="pl-c1">626</span>)
 
-//use the method `packItems` to pack 
-//For primitive types (and boolean) or your custom type, use `Mask(foo)` in the array
-//this will be the packed data
-let msgPackedBytes: NSData = packItems([Mask(foo), Mask(foo), exampleInt, exampleStr, exampleArray]) 
-</code></pre>
+<span class="pl-c">//use the method `packItems` to pack </span>
+<span class="pl-c">//For primitive types (and boolean) or your custom type, use `Mask(foo)` in the array</span>
+<span class="pl-c">//this will be the packed data</span>
+<span class="pl-k">let</span> msgPackedBytes: NSData <span class="pl-k">=</span> packItems([Mask(bool), Mask(foo), exampleInt, exampleStr, exampleArray]) </pre></div>
 
 <p><strong>Or you can pack them individually and add them to a byte array manually (Which is also less expensive)</strong></p>
 
