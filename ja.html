@@ -6677,9 +6677,27 @@ for JavaScript native objects.</p>
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 
 <span class="pl-k">var</span> codec <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>();
-<span class="pl-smi">codec</span>.<span class="pl-en">addExtPacker</span>(<span class="pl-c1">0x3F</span>, MyClass, myClassPacker);
-<span class="pl-smi">codec</span>.<span class="pl-en">addExtUnpacker</span>(<span class="pl-c1">0x3F</span>, myClassUnpacker);
-<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(data, {codec<span class="pl-k">:</span> codec});</pre></div>
+<span class="pl-smi">codec</span>.<span class="pl-en">addExtPacker</span>(<span class="pl-c1">0x3F</span>, MyVector, myVectorPacker);
+<span class="pl-smi">codec</span>.<span class="pl-en">addExtUnpacker</span>(<span class="pl-c1">0x3F</span>, myVectorUnpacker);
+
+<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyVector</span>(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>);
+<span class="pl-k">var</span> encoded <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(data, {codec<span class="pl-k">:</span> codec});
+<span class="pl-k">var</span> decoded <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(encoded, {codec<span class="pl-k">:</span> codec});
+
+<span class="pl-k">function</span> <span class="pl-en">MyVector</span>(<span class="pl-smi">x</span>, <span class="pl-smi">y</span>) {
+  <span class="pl-v">this</span>.<span class="pl-c1">x</span> <span class="pl-k">=</span> x;
+  <span class="pl-v">this</span>.<span class="pl-c1">y</span> <span class="pl-k">=</span> y;
+}
+
+<span class="pl-k">function</span> <span class="pl-en">myVectorPacker</span>(<span class="pl-smi">vector</span>) {
+  <span class="pl-k">var</span> array <span class="pl-k">=</span> [<span class="pl-smi">vector</span>.<span class="pl-c1">x</span>, <span class="pl-smi">vector</span>.<span class="pl-c1">y</span>];
+  <span class="pl-k">return</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(array); <span class="pl-c">// return Buffer serialized</span>
+}
+
+<span class="pl-k">function</span> <span class="pl-en">myVectorUnpacker</span>(<span class="pl-smi">buffer</span>) {
+  <span class="pl-k">var</span> array <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer);
+  <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">MyVector</span>(array[<span class="pl-c1">0</span>], array[<span class="pl-c1">1</span>]); <span class="pl-c">// return Object deserialized</span>
+}</pre></div>
 
 <p>The first argument of <code>addExtPacker</code> and <code>addExtUnpacker</code> should be an integer within the range of 0 and 127 (0x0 and 0x7F). <code>myClassPacker</code> is a function that accepts an instance of <code>MyClass</code>, and should return a buffer representing that instance. <code>myClassUnpacker</code> is the opposite: it accepts a buffer and should return an instance of <code>MyClass</code>.</p>
 
@@ -6690,6 +6708,47 @@ for JavaScript native objects.</p>
 <p>You can also pass the <code>codec</code> option to <code>msgpack.Decoder(options)</code>, <code>msgpack.Encoder(options)</code>, <code>msgpack.createEncodeStream(options)</code>, and <code>msgpack.createDecodeStream(options)</code>.</p>
 
 <p>If you wish to modify the default built-in codec, you can access it at <code>msgpack.codec.preset</code>.</p>
+
+<h7>
+<a id="user-content-custom-codec-options" class="anchor" href="#custom-codec-options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Custom Codec Options</h7>
+
+<p><code>msgpack.createCodec()</code> function accepts some options.</p>
+
+<p>It does NOT have the preset extension types defined per default.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> codec <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>();</pre></div>
+
+<p><code>preset</code>: It has the preset extension types described above.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> codec <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>({preset<span class="pl-k">:</span> <span class="pl-c1">true</span>});</pre></div>
+
+<p><code>safe</code>: It runs a validation of the value before writing it into buffer. This is the default behavior for some old browsers which do not support <code>ArrayBuffer</code> object.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> codec <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>({safe<span class="pl-k">:</span> <span class="pl-c1">true</span>});</pre></div>
+
+<p><code>useraw</code>: It uses <code>raw</code> formats instead of <code>bin</code> and <code>str</code>.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> codec <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>({useraw<span class="pl-k">:</span> <span class="pl-c1">true</span>});</pre></div>
+
+<h7>
+<a id="user-content-compatibility-mode" class="anchor" href="#compatibility-mode" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Compatibility Mode</h7>
+
+<p>The <a href="https://github.com/kawanet/msgpack-lite/issues/22">compatibility mode</a> respects for <a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">msgpack's old spec</a>. Set <code>true</code> to <code>useraw</code>.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// default: str and bin formats available individually</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-s"><span class="pl-pds">"</span>Aa<span class="pl-pds">"</span></span>); <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (str format)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c">// =&gt; &lt;Buffer c4 02 41 61&gt; (bin format)</span>
+
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c">// =&gt; 'Aa' (String)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xc4</span>, <span class="pl-c1">0x02</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c">// =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
+
+<span class="pl-c">// compatibility mode: raw format used both for String and Buffer</span>
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {codec<span class="pl-k">:</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>({useraw<span class="pl-k">:</span> <span class="pl-c1">true</span>})};
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-s"><span class="pl-pds">"</span>Aa<span class="pl-pds">"</span></span>, options); <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options); <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
+
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options); <span class="pl-c">// =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options).<span class="pl-c1">toString</span>(); <span class="pl-c">// =&gt; 'Aa' (String)</span></pre></div>
 
 <h7>
 <a id="user-content-repository" class="anchor" href="#repository" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Repository</h7>
