@@ -2742,8 +2742,8 @@ dependencies.</p>
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Installation</h6>
 
-<p>Get it from clojars: <a href="https://clojars.org/clojure-msgpack">https://clojars.org/clojure-msgpack</a>
-<a href="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" target="_blank"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a></p>
+<p><a href="https://clojars.org/clojure-msgpack"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/edma2/clojure-msgpack"><img src="https://camo.githubusercontent.com/1bc6fc12bcbde68e4bfd66192eddce3b02b2c578/68747470733a2f2f7472617669732d63692e6f72672f65646d61322f636c6f6a7572652d6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/edma2/clojure-msgpack.svg?branch=master" style="max-width:100%;"></a></p>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Usage</h6>
@@ -2770,25 +2770,28 @@ dependencies.</p>
 <h7>
 <a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Streaming</h7>
 
-<ul>
-<li>
-<code>unpack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">InputStream</a>
-</li>
-<li>
-<code>pack-stream</code>: Takes a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a> as an argument. Usually you wrap this around an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">OutputStream</a>
-</li>
-</ul>
+<p><code>clojure-msgpack</code> provides a streaming API for situations where it is more
+convenient or efficient to work with byte streams instead of fixed byte arrays
+(e.g. size of object is not known ahead of time).</p>
+
+<p>The streaming counterpart to <code>msgpack.core/pack</code> is <code>msgpack.core/pack-stream</code>
+which returns nil and accepts either
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">java.io.OutputStream</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a>
+as an additional argument.</p>
+
+<p><code>msgpack.core/unpack</code> is in "streaming mode" when the argument is of type
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">java.io.InputStream</a>.</p>
 
 <div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
-(<span class="pl-k">import</span> '(java.io.DataOutputStream) '(java.io.DataInputStream))
 
-(<span class="pl-en">with-open</span> [o (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
-  (<span class="pl-k">let</span> [data-output (<span class="pl-en">java.io.DataOutputStream.</span> o)]
-    (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} data-output)))
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
 
-(<span class="pl-en">with-open</span> [i (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
-  (<span class="pl-k">let</span> [data-input (<span class="pl-en">java.io.DataInputStream.</span> i)]
-    (<span class="pl-en">msg/unpack-stream</span> data-input)))
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
 <span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
 
 <h7>
