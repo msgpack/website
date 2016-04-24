@@ -6299,7 +6299,7 @@ cp node_modules/msgpack-lite/dist/msgpack.min.js js/msgpack.min.js</pre></div>
 It counts operations of <a href="https://github.com/kawanet/msgpack-lite/blob/master/test/example.json">1KB JSON document</a> in 10 seconds.</p>
 
 <div class="highlight highlight-source-shell"><pre>$ npm install msgpack msgpack-js msgpack-js-v5 msgpack-unpack msgpack5 notepack
-$ node lib/benchmark.js 10</pre></div>
+$ npm run benchmark 10</pre></div>
 
 <table>
 <thead>
@@ -6420,7 +6420,7 @@ $ node lib/benchmark.js 10</pre></div>
 It counts milliseconds for 1,000,000 operations of 30 bytes fluentd msgpack fragment.
 This shows streaming encoding and decoding are super faster.</p>
 
-<div class="highlight highlight-source-shell"><pre>$ node lib/benchmark-stream.js 2</pre></div>
+<div class="highlight highlight-source-shell"><pre>$ npm run benchmark-stream 2</pre></div>
 
 <table>
 <thead>
