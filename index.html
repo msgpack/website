@@ -303,6 +303,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-st3v0-msgpack-as3',this)">ActionScript3 <span class="qs-sub">st3v0</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-antonmes-MessagePack',this)">Swift 3 <span class="qs-sub">antonmes</span></a></li>
+          
         </ul>
       </div>
 
@@ -7882,6 +7884,47 @@ msgpack<span class="pl-k">.</span><span class="pl-c1">factory</span><span class=
 <p>Project: as3-msgpack <a href="https://github.com/loteixeira/as3-msgpack">https://github.com/loteixeira/as3-msgpack</a><br>
 Copyright (C) 2013 Lucas Teixeira<br>
 License (Apache V2.0) <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>  </p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-antonmes-MessagePack" class="qs"><h4><a href="https://github.com/antonmes/MessagePack" target="_blank">antonmes/MessagePack <span class="qs-url">https://github.com/antonmes/MessagePack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack" class="anchor" href="#messagepack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>MessagePack</h5>
+
+<p><a href="https://swift.org"><img src="https://camo.githubusercontent.com/0727f3687a1e263cac101c5387df41048641339c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53776966742d332e302d6f72616e67652e7376673f7374796c653d666c6174" alt="Swift" data-canonical-src="https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://swift.org"><img src="https://camo.githubusercontent.com/dff6c9fec72231eb0699c91658786c728318e78b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506c6174666f726d732d4f53253230582532302d2d2532304c696e75782d677265656e2e7376673f7374796c653d666c6174" alt="Platform" data-canonical-src="https://img.shields.io/badge/Platforms-OS%20X%20--%20Linux-green.svg?style=flat" style="max-width:100%;"></a>
+<a href="https://tldrlegal.com/license/mit-license"><img src="https://camo.githubusercontent.com/807f2e6bb17781145382190701fe8802832f6183/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d626c75652e7376673f7374796c653d666c6174" alt="License" data-canonical-src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" style="max-width:100%;"></a></p>
+
+<p><strong>MessagePack</strong> is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. But it's faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
+
+<h6>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>TODO:</h6>
+
+<ul>
+<li>tests</li>
+<li>unpack as <code>Packable</code>
+</li>
+<li>documentation</li>
+<li>benchmark</li>
+</ul>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Installation</h6>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">import</span> <span class="pl-c1">PackageDescription</span>
+
+<span class="pl-k">let</span> package <span class="pl-k">=</span> Package(
+    dependencies: [
+        <span class="pl-k">.</span>Package(url: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/antonmes/MessagePack.git<span class="pl-pds">"</span></span>, majorVersion: <span class="pl-c1">0</span>, minor: <span class="pl-c1">1</span>),
+    ]
+)</pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>License</h6>
+
+<p>This project is released under the MIT license. See <a href="/antonmes/MessagePack/blob/master/LICENSE">LICENSE</a> for details.</p>
 </article>
   </div>
         </div>
