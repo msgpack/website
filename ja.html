@@ -2325,72 +2325,27 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 <p><a href="http://hexdocs.pm/msgpax">Documentation is available online</a>.</p>
 
 <h6>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Features</h6>
+
+<ul>
+<li>Packing and unpacking Elixir terms via <a href="http://hexdocs.pm/msgpax/Msgpax.html#pack/1"><code>Msgpax.pack/1</code></a> and <a href="http://hexdocs.pm/msgpax/Msgpax.html#unpack/1"><code>Msgpax.unpack/1</code></a> (and their <code>!</code> bang variants).</li>
+<li>Unpacking of partial slices of MessagePack-encoded terms via <a href="http://hexdocs.pm/msgpax/Msgpax.html#unpack_slice/1"><code>Msgpax.unpack_slice/1</code></a>.</li>
+<li>Support for "Binary" and "Extension" MessagePack types via <a href="http://hexdocs.pm/msgpax/Msgpax.Bin.html"><code>Msgpax.Bin</code></a> and <a href="http://hexdocs.pm/msgpax/Msgpax.Ext.html"><code>Msgpax.Ext</code></a>, respectively.</li>
+<li>Protocol-based packing through the <a href="http://hexdocs.pm/msgpax/Msgpax.Packer.html"><code>Msgpax.Packer</code></a> protocol, that can be derived for user-defined structs.</li>
+</ul>
+
+<p>A detailed table that shows the relationship between Elixir types and MessagePack types can be found in the <a href="https://hexdocs.pm/msgpax/Msgpax.html">documentation for the <code>Msgpax</code> module</a>.</p>
+
+<h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Installation</h6>
 
-<p>Add Msgpax as a dependency in your <code>mix.exs</code> file:</p>
+<p>Add <code>:msgpax</code> as a dependency in your <code>mix.exs</code> file:</p>
 
 <div class="highlight highlight-source-elixir"><pre><span class="pl-k">def</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
   [{<span class="pl-c1">:msgpax</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.8<span class="pl-pds">"</span></span>}]
 <span class="pl-k">end</span></pre></div>
 
 <p>After you are done, run <code>mix deps.get</code> in your shell to fetch the dependencies.</p>
-
-<h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Usage</h6>
-
-<div class="highlight highlight-source-elixir"><pre>{<span class="pl-c1">:ok</span>, iodata} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack([<span class="pl-c1">300</span>, <span class="pl-s"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
-<span class="pl-c"># =&gt; {:ok, [&lt;&lt;146&gt;&gt;, [&lt;&lt;205, 1, 44&gt;&gt;, [&lt;&lt;168&gt;&gt;, "Spartans"]]]}</span>
-iodata <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack!([<span class="pl-c1">300</span>, <span class="pl-s"><span class="pl-pds">"</span>Spartans<span class="pl-pds">"</span></span>])
-<span class="pl-c"># ...</span>
-{<span class="pl-c1">:ok</span>, term} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack(iodata)
-<span class="pl-c"># =&gt; {:ok, [300, "Spartans"]}</span>
-term <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodata)
-<span class="pl-c"># =&gt; [300, "Spartans"]</span></pre></div>
-
-<h8>
-<a id="user-content-partial-deserialization" class="anchor" href="#partial-deserialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Partial deserialization</h8>
-
-<div class="highlight highlight-source-elixir"><pre>{term1, rest} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack_slice!(buffer)
-<span class="pl-c"># =&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span>
-{<span class="pl-c1">:ok</span>, term2, rest} <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack_slice(rest)
-<span class="pl-c"># =&gt; {:ok, 4, ""}</span></pre></div>
-
-<h8>
-<a id="user-content-support-for-the-binary-and-extension-types" class="anchor" href="#support-for-the-binary-and-extension-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Support for the "Binary" and "Extension" types</h8>
-
-<p>The "Binary" and the "Extension" types are supported through the <a href="http://hexdocs.pm/msgpax/Msgpax.Bin.html"><code>Msgpax.Bin</code></a> and <a href="http://hexdocs.pm/msgpax/Msgpax.Ext.html"><code>Msgpax.Ext</code></a> structs, respectively.</p>
-
-<p>An example of usage for <code>Msgpax.Bin</code>:</p>
-
-<div class="highlight highlight-source-elixir"><pre>msgbin <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.<span class="pl-c1">Bin</span>.new(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">3</span>, <span class="pl-c1">18</span>, <span class="pl-c1">122</span>, <span class="pl-c1">27</span>, <span class="pl-c1">115</span><span class="pl-k">&gt;&gt;</span>)
-<span class="pl-c"># =&gt; #Msgpax.Bin&lt;&lt;&lt;3, 18, 122, 27, 115&gt;&gt;&gt;</span>
-iodata <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.pack!(msgbin)
-<span class="pl-c"># =&gt; [&lt;&lt;196, 5&gt;&gt;, &lt;&lt;3, 18, 122, 27, 115&gt;&gt;]</span>
-<span class="pl-c"># ...</span>
-code <span class="pl-k">=</span> <span class="pl-c1">Msgpax</span>.unpack!(iodata, %{<span class="pl-c1">binary:</span> <span class="pl-c1">true</span>})
-<span class="pl-c"># =&gt; #Msgpax.Bin&lt;&lt;&lt;3, 18, 122, 27, 115&gt;&gt;&gt;</span></pre></div>
-
-<h8>
-<a id="user-content-deriving-of-the-msgpaxpacker-protocol" class="anchor" href="#deriving-of-the-msgpaxpacker-protocol" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Deriving of the <code>Msgpax.Packer</code> protocol</h8>
-
-<div class="highlight highlight-source-elixir"><pre><span class="pl-k">defmodule</span> <span class="pl-en">User</span> <span class="pl-k">do</span>
-  <span class="pl-smi">@derive</span> [<span class="pl-c1">Msgpax</span>.<span class="pl-c1">Packer</span>]
-  <span class="pl-k">defstruct</span> [<span class="pl-c1">:name</span>]
-<span class="pl-k">end</span>
-
-<span class="pl-c1">Msgpax</span>.pack!(%<span class="pl-c1">User</span>{<span class="pl-c1">name:</span> <span class="pl-s"><span class="pl-pds">"</span>Juri<span class="pl-pds">"</span></span>})
-<span class="pl-c"># =&gt; [&lt;&lt;129&gt;&gt;, [[[&lt;&lt;164&gt;&gt;, "name"], [&lt;&lt;164&gt;&gt;, "Juri"]]]]</span></pre></div>
-
-<p>In the example above, information about the <code>User</code> struct is lost when decoding back to Elixir terms:</p>
-
-<div class="highlight highlight-source-elixir"><pre>%<span class="pl-c1">User</span>{<span class="pl-c1">name:</span> <span class="pl-s"><span class="pl-pds">"</span>Juri<span class="pl-pds">"</span></span>} <span class="pl-k">|</span><span class="pl-k">&gt;</span> <span class="pl-c1">Msgpax</span>.pack!() <span class="pl-k">|</span><span class="pl-k">&gt;</span> <span class="pl-c1">Msgpax</span>.unpack!()
-<span class="pl-c"># =&gt; %{"name" =&gt; "Juri"}</span></pre></div>
-
-<p>You can overcome this by using something like <a href="https://github.com/whatyouhide/maptu">Maptu</a>:</p>
-
-<div class="highlight highlight-source-elixir"><pre>map <span class="pl-k">=</span> %<span class="pl-c1">User</span>{<span class="pl-c1">name:</span> <span class="pl-s"><span class="pl-pds">"</span>Juri<span class="pl-pds">"</span></span>} <span class="pl-k">|</span><span class="pl-k">&gt;</span> <span class="pl-c1">Msgpax</span>.pack!() <span class="pl-k">|</span><span class="pl-k">&gt;</span> <span class="pl-c1">Msgpax</span>.unpack!()
-<span class="pl-c1">Maptu</span>.struct!(<span class="pl-c1">User</span>, map)
-<span class="pl-c"># =&gt; %User{name: "Juri"}</span></pre></div>
 
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>License</h6>
