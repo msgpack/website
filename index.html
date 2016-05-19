@@ -7056,12 +7056,12 @@ To do this, you need to create a transformer, that converts your type to a type,
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">transform</span>(<span class="pl-smi">$value</span>)</span>
 <span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$value</span><span class="pl-k">-&gt;</span>getTimestamp();</span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$value</span><span class="pl-k">-&gt;</span>format(<span class="pl-c1">\DateTime</span><span class="pl-k">::</span><span class="pl-c1">RFC3339</span>);</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">reverseTransform</span>(<span class="pl-smi">$timestamp</span>)</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">reverseTransform</span>(<span class="pl-smi">$data</span>)</span>
 <span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">\DateTime</span>(<span class="pl-s"><span class="pl-pds">'</span>@<span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$timestamp</span>);</span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">\DateTime</span>(<span class="pl-smi">$data</span>);</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1">}</span></pre></div>
 
