@@ -7382,15 +7382,16 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-ysmessagepack--for-swift-3" class="anchor" href="#ysmessagepack--for-swift-3" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>YSMessagePack- for swift 3</h5>
 
-<p>YSMessagePack is a messagePack packer/unpacker written in swift (swift 3 ready). It is designed to be light and easy to use. YSMessagePack include following features:</p>
+<p>YSMessagePack is a messagePack packer/unpacker written in swift (swift 3 ready). It is designed to be fast and easy to use. YSMessagePack include following features:</p>
 
 <ul>
-<li>(new) Pack custom structs and classes</li>
+<li>(new) Pack custom structs and classes / unpack objects by groups and apply handler to each group (easier to re-construct your struct)</li>
 <li>Pack and unpack multiple message-packed data regardless of types with only one line of code</li>
 <li>Specify how many items to unpack</li>
-<li>Packing options</li>
-<li>Get remaining bytes that were not message-packed</li>
+<li>Get remaining bytes that were not message-packed ; start packing from some index -- so you can mix messagepack with other protocol!!! </li>
 <li>Helper methods to cast NSData to desired types</li>
+<li>Operator +^ and +^= to join NSData </li>
+<li>Packing options</li>
 </ul>
 
 <h6>
@@ -7412,18 +7413,19 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
 <h7>
 <a id="user-content-pack" class="anchor" href="#pack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Pack:</h7>
 
-<div class="highlight highlight-source-swift"><pre><span class="pl-k">struct</span> MyStruct: Packable {  <span class="pl-c">//Confirm to this protocol</span>
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
+<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
+<span class="pl-k">let</span> bool: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
+
+<span class="pl-c">//To make your struct / class packable</span>
+<span class="pl-k">struct</span> MyStruct: Packable {  <span class="pl-c">//Confirm to this protocol</span>
     <span class="pl-k">var</span> name: <span class="pl-c1">String</span>
     <span class="pl-k">var</span> index: <span class="pl-c1">Int</span>
     <span class="pl-k">func</span> <span class="pl-en">packFormat</span>() <span class="pl-k">-&gt;</span> [<span class="pl-c1">AnyObject</span>] { <span class="pl-c">//protocol function</span>
         <span class="pl-k">return</span> [name, index] <span class="pl-c">//pack order</span>
     }
 }
-
-<span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
-<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
-<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
-<span class="pl-k">let</span> bool: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
 <span class="pl-k">let</span> foo <span class="pl-k">=</span> MyStruct(name: <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, index: <span class="pl-c1">626</span>)
 
 <span class="pl-c">//use the method `packItems` to pack </span>
