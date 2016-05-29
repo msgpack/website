@@ -6793,31 +6793,56 @@ SOFTWARE.</p>
 
 <p>To view a MessagePack file in a human-readable format for debugging purposes:</p>
 
-<pre><code>msgpack2json -di file.mp
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>msgpack2json -di file.mp</pre></div>
 
 <p>To convert a hand-written JSON file to a MessagePack file, ignoring comments and trailing commas, and allowing embedded base64 with a <code>base64:</code> prefix:</p>
 
-<pre><code>json2msgpack -bli file.json -o file.mp
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>json2msgpack -bli file.json -o file.mp</pre></div>
 
 <p>To fetch MessagePack from a web API and view it in a human-readable format:</p>
 
-<pre><code>curl 'http://example/api/url' | msgpack2json -d
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>curl <span class="pl-s"><span class="pl-pds">'</span>http://example/api/url<span class="pl-pds">'</span></span> <span class="pl-k">|</span> msgpack2json -d</pre></div>
 
 <p>To view the MessagePack-equivalent encoding of a JSON string:</p>
 
-<pre><code>$ echo '{"compact": true, "schema": 0}' | json2msgpack | hexdump -C
-00000000  82 a7 63 6f 6d 70 61 63  74 c3 a6 73 63 68 65 6d  |..compact..schem|
-00000010  61 00                                             |a.|
-00000012
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>{"compact": true, "schema": 0}<span class="pl-pds">'</span></span> <span class="pl-k">|</span> json2msgpack <span class="pl-k">|</span> hexdump -C
+00000000  82 a7 63 6f 6d 70 61 63  74 c3 a6 73 63 68 65 6d  <span class="pl-k">|</span>..compact..schem<span class="pl-k">|</span>
+00000010  61 00                                             <span class="pl-k">|</span>a.<span class="pl-k">|</span>
+00000012</pre></div>
+
+<p>To test a <a href="https://github.com/msgpack-rpc/msgpack-rpc">MessagePack-RPC</a> server via netcat:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>[0,0,"sum",[1,2]]<span class="pl-pds">'</span></span> <span class="pl-k">|</span> json2msgpack <span class="pl-k">|</span> nc -q1 localhost 18800 <span class="pl-k">|</span> msgpack2json -d
+[
+    1,
+    0,
+    null,
+    3
+]</pre></div>
 
 <h6>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Installation</h6>
 
-<p>msgpack-tools currently must be built from source. The latest version of the msgpack-tools source archive can be downloaded from the releases page. This includes the library dependencies and has pre-generated man pages:</p>
+<h7>
+<a id="user-content-arch-linux" class="anchor" href="#arch-linux" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Arch Linux</h7>
+
+<p>msgpack-tools is available in the <a href="https://aur.archlinux.org/packages/msgpack-tools/">AUR</a>. It can be installed with <code>makepkg</code> or with any AUR helper:</p>
+
+<pre><code>yaourt -S msgpack-tools
+</code></pre>
+
+<h7>
+<a id="user-content-os-x" class="anchor" href="#os-x" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>OS X</h7>
+
+<p>A Homebrew formula for msgpack-tools is <a href="https://github.com/ludocode/msgpack-tools/blob/master/tools/msgpack-tools.rb">included</a> in the repository. This requires <a href="http://brew.sh/">Homebrew</a>.</p>
+
+<pre><code>brew install https://raw.githubusercontent.com/ludocode/msgpack-tools/master/tools/msgpack-tools.rb
+</code></pre>
+
+<h7>
+<a id="user-content-other" class="anchor" href="#other" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Other</h7>
+
+<p>For other platforms, msgpack-tools currently must be built from source. The latest version of the msgpack-tools source archive should be downloaded from the releases page. This includes the library dependencies and has pre-generated man pages:</p>
 
 <p><a href="https://github.com/ludocode/msgpack-tools/releases">https://github.com/ludocode/msgpack-tools/releases</a></p>
 
@@ -6826,7 +6851,7 @@ SOFTWARE.</p>
 <pre><code>./configure &amp;&amp; make &amp;&amp; sudo make install
 </code></pre>
 
-<p>If you are building from the repository, you will need to fetch the dependencies and generate the man pages. These are done with the scripts under <code>tools/fetch.sh</code> and <code>tools/man.sh</code>. <a href="https://github.com/sunaku/md2man">md2man</a> is required to generate the man pages.</p>
+<p>If you are building from a clone of the repository, you will need to fetch the dependencies and generate the man pages. These are done with the scripts under <code>tools/fetch.sh</code> and <code>tools/man.sh</code>. <a href="https://github.com/sunaku/md2man">md2man</a> is required to generate the man pages.</p>
 
 <h6>
 <a id="user-content-differences-between-messagepack-and-json" class="anchor" href="#differences-between-messagepack-and-json" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Differences between MessagePack and JSON</h6>
@@ -6841,7 +6866,7 @@ SOFTWARE.</p>
 <li><p>JSON real numbers are specified in decimal scientific notation and can have arbitrary precision. MessagePack real numbers are in IEEE 754 standard 32-bit or 64-bit binary.</p></li>
 <li><p>MessagePack supports binary and extension type objects. JSON does not support binary data. Binary data is often encoded into a base64 string to be embedded into a JSON document.</p></li>
 <li><p>The top-level object in a JSON document must be either an array or object (map). The top-level object in MessagePack can be any type.</p></li>
-<li><p>A JSON document must be entirely in one encoding. MessagePack does not specify encoding, and different strings in the same document can technically be in different encodings (though this is a really bad idea.)</p></li>
+<li><p>A JSON document can be encoded in UTF-8, UTF-16 or UTF-32, and the entire document must be in the same encoding. MessagePack strings are required to be UTF-8, although this is not enforced by many encoding/decoding libraries.</p></li>
 </ul>
 
 <p>By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
