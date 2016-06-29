@@ -7161,7 +7161,7 @@ You may change the default runtime by defining the <code>PHP_RUNTIME</code> envi
 
 <p>This command will output something like:</p>
 
-<div class="highlight highlight-source-shell"><pre>Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\N</span>ameFilter
+<div class="highlight highlight-source-shell"><pre>Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\L</span>istFilter
 Rounds: 3
 Iterations: 100000
 
@@ -7265,14 +7265,17 @@ Ignored                                0                           0</pre></div>
 <div class="highlight highlight-source-shell"><pre>$ <span class="pl-k">export</span> MP_BENCH_TARGETS=pure_p
 $ <span class="pl-k">export</span> MP_BENCH_ITERATIONS=1000000
 $ <span class="pl-k">export</span> MP_BENCH_ROUNDS=5
+$ <span class="pl-c"># a comma separated list of test names</span>
 $ <span class="pl-k">export</span> MP_BENCH_TESTS=<span class="pl-s"><span class="pl-pds">'</span>complex array, complex map<span class="pl-pds">'</span></span>
+$ <span class="pl-c"># or an regexp</span>
+$ <span class="pl-c"># export MP_BENCH_TESTS='/complex (array|map)/'</span>
 $ php tests/bench.php</pre></div>
 
 <p>Another example, benchmarking both the library and <a href="https://pecl.php.net/package/msgpack">msgpack pecl extension</a>:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ MP_BENCH_TARGETS=pure_p,pure_u,pecl_p,pecl_u php tests/bench.php
 
-Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\N</span>ameFilter
+Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\L</span>istFilter
 Rounds: 3
 Iterations: 100000
 
