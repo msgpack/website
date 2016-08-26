@@ -1982,16 +1982,16 @@ in the following example:</p>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
 
 <div class="highlight highlight-source-elixir"><pre><span class="pl-c"># pack</span>
-<span class="pl-c1">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
-<span class="pl-c1">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
+<span class="pl-en">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
+<span class="pl-en">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
 
 <span class="pl-c"># unpack</span>
-<span class="pl-c1">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
-<span class="pl-c1">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
+<span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
+<span class="pl-en">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
 
 <span class="pl-c"># unpack_once</span>
-<span class="pl-c1">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
-<span class="pl-c1">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
+<span class="pl-en">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
+<span class="pl-en">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
 
 <h6>
 <a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h6>
@@ -2002,11 +2002,11 @@ in the following example:</p>
 
 <p>Support string type. This options is <code>false</code> by default.</p>
 
-<div class="highlight highlight-source-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
+<div class="highlight highlight-source-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
 {<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-c1">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
+iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
 {<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-c1">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
+iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
 {<span class="pl-c1">:error</span>, {<span class="pl-c1">:invalid_string</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}}</pre></div>
 
 <ul>
@@ -3771,7 +3771,7 @@ the passed <code>Buffer</code>
   , obj   <span class="pl-k">=</span> { my<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>obj<span class="pl-pds">'</span></span> }
 
 <span class="pl-smi">db</span>.<span class="pl-en">put</span>(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, obj, <span class="pl-k">function</span>(<span class="pl-smi">err</span>) {
-  <span class="pl-smi">db</span>.<span class="pl-en">get</span>(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
+  <span class="pl-smi">db</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
     <span class="pl-en">console</span>.<span class="pl-c1">log</span>(result)
     <span class="pl-smi">db</span>.<span class="pl-c1">close</span>()
   })
@@ -3818,20 +3818,20 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
 <p>This implementation defines an messagepack <code>Object</code> type, which is an instance of
 <code>Serialize</code> (from <a href="http://hackage.haskell.org/package/cereal">cereal</a> ):</p>
 
-<div class="highlight highlight-source-haskell"><pre><span class="pl-k">data</span> <span class="pl-c1">Object</span> <span class="pl-k">=</span> <span class="pl-c1">ObjectNil</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectUInt</span>   <span class="pl-c1">Word64</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectInt</span>    <span class="pl-c1">Int64</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectBool</span>   <span class="pl-c1">Bool</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectFloat</span>  <span class="pl-c1">Float</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectDouble</span> <span class="pl-c1">Double</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectString</span> <span class="pl-c1">ByteString</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectBinary</span> <span class="pl-c1">ByteString</span>
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectArray</span>  [<span class="pl-c1">Object</span>]
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectMap</span>    (<span class="pl-c1">M</span><span class="pl-k">.</span><span class="pl-c1">Map</span> <span class="pl-c1">Object</span> <span class="pl-c1">Object</span> )
-            <span class="pl-k">|</span> <span class="pl-c1">ObjectExt</span>    <span class="pl-k">!</span><span class="pl-c1">Int8</span> <span class="pl-c1">BS</span><span class="pl-k">.</span><span class="pl-c1">ByteString</span>
+<div class="highlight highlight-source-haskell"><pre><span class="pl-k">data</span> <span class="pl-en">Object</span> <span class="pl-k">=</span> <span class="pl-ent">ObjectNil</span>
+            | <span class="pl-ent">ObjectUInt</span>   <span class="pl-en">Word64</span>
+            | <span class="pl-ent">ObjectInt</span>    <span class="pl-en">Int64</span>
+            | <span class="pl-ent">ObjectBool</span>   <span class="pl-en"><span class="pl-c1">Bool</span></span>
+            | <span class="pl-ent">ObjectFloat</span>  <span class="pl-en"><span class="pl-c1">Float</span></span>
+            | <span class="pl-ent">ObjectDouble</span> <span class="pl-en"><span class="pl-c1">Double</span></span>
+            | <span class="pl-ent">ObjectString</span> <span class="pl-en">ByteString</span>
+            | <span class="pl-ent">ObjectBinary</span> <span class="pl-en">ByteString</span>
+            | <span class="pl-ent">ObjectArray</span>  [<span class="pl-en">Object</span>]
+            | <span class="pl-ent">ObjectMap</span>    (<span class="pl-en">M</span>.<span class="pl-ent">Map</span> <span class="pl-en">Object</span> <span class="pl-en">Object</span> )
+            | <span class="pl-ent">ObjectExt</span>    !<span class="pl-ent">Int8</span> <span class="pl-en"><span class="pl-c1">BS.</span>ByteString</span>
     <span class="pl-k">deriving</span> (<span class="pl-e">Eq</span>, <span class="pl-e">Ord</span>, <span class="pl-e">Show</span>)
 
-<span class="pl-k">instance</span> <span class="pl-k">Serialize</span> <span class="pl-k">Object</span> <span class="pl-k">where</span>
+<span class="pl-k">instance</span> <span class="pl-en">Serialize</span> <span class="pl-en">Object</span> <span class="pl-k">where</span>
     <span class="pl-c">-- ...</span></pre></div>
 
 <p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p>
@@ -4400,16 +4400,16 @@ if you find any bug, please contact me!
 <a id="user-content-in-pure-elixir" class="anchor" href="#in-pure-elixir" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> In pure elixir:</h7>
 
 <div class="highlight highlight-source-elixir"><pre><span class="pl-c"># pack</span>
-<span class="pl-c1">TheAlchemist</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
-<span class="pl-c1">TheAlchemist</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
+<span class="pl-en">TheAlchemist</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
+<span class="pl-en">TheAlchemist</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
 
 <span class="pl-c"># unpack</span>
-<span class="pl-c1">TheAlchemist</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
-<span class="pl-c1">TheAlchemist</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
+<span class="pl-en">TheAlchemist</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
+<span class="pl-en">TheAlchemist</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
 
 <span class="pl-c"># unpack_once</span>
-<span class="pl-c1">TheAlchemist</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
-<span class="pl-c1">TheAlchemist</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span>
+<span class="pl-en">TheAlchemist</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
+<span class="pl-en">TheAlchemist</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span>
 </pre></div>
 
 <h7>
@@ -4418,14 +4418,14 @@ if you find any bug, please contact me!
 <h8>
 <a id="user-content-deserialization" class="anchor" href="#deserialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deserialization</h8>
 
-<div class="highlight highlight-source-elixir"><pre>msgpacked <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.pack(<span class="pl-s"><span class="pl-pds">'</span>{"test":false}<span class="pl-pds">'</span></span>)
-<span class="pl-c1">TheAlchemistErl</span>.unpack(msgpacked)</pre></div>
+<div class="highlight highlight-source-elixir"><pre>msgpacked <span class="pl-k">=</span> <span class="pl-en">TheAlchemistErl</span>.pack(<span class="pl-s"><span class="pl-pds">'</span>{"test":false}<span class="pl-pds">'</span></span>)
+<span class="pl-en">TheAlchemistErl</span>.unpack(msgpacked)</pre></div>
 
 <h8>
 <a id="user-content-stream-deserialization" class="anchor" href="#stream-deserialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stream deserialization</h8>
 
-<div class="highlight highlight-source-elixir"><pre>mat <span class="pl-k">=</span> <span class="pl-c1">TheAlchemistErl</span>.unpack_stream(data)
-<span class="pl-c1">TheAlchemistErl</span>.unpack_stream(elem(mat, <span class="pl-c1">1</span>)),</pre></div>
+<div class="highlight highlight-source-elixir"><pre>mat <span class="pl-k">=</span> <span class="pl-en">TheAlchemistErl</span>.unpack_stream(data)
+<span class="pl-en">TheAlchemistErl</span>.unpack_stream(elem(mat, <span class="pl-c1">1</span>)),</pre></div>
 
 <h8>
 <a id="user-content-string-type" class="anchor" href="#string-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>String type</h8>
@@ -4433,7 +4433,7 @@ if you find any bug, please contact me!
 <p>Now this supports string type!</p>
 
 <div class="highlight highlight-source-elixir"><pre>opt <span class="pl-k">=</span> [{<span class="pl-c1">:enable_str</span>, <span class="pl-c1">true</span>}]
-<span class="pl-c1">TheAlchemistErl</span>.unpack(<span class="pl-c1">TheAlchemistErl</span>.pack(<span class="pl-s"><span class="pl-pds">"</span>埼玉kanji<span class="pl-pds">"</span></span>, opt), opt)
+<span class="pl-en">TheAlchemistErl</span>.unpack(<span class="pl-en">TheAlchemistErl</span>.pack(<span class="pl-s"><span class="pl-pds">"</span>埼玉kanji<span class="pl-pds">"</span></span>, opt), opt)
  <span class="pl-k">=&gt;</span> {<span class="pl-c1">:ok</span>, <span class="pl-s"><span class="pl-pds">"</span>埼玉kanji<span class="pl-pds">"</span></span>}</pre></div>
 
 <h8>
@@ -6013,9 +6013,9 @@ msgInt, msgUint, msgNull
 
 <p>Add this to your application's <code>shard.yml</code>:</p>
 
-<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">dependencies:</span></span>
-  <span class="pl-s"><span class="pl-ent">msgpack:</span></span>
-    <span class="pl-s"><span class="pl-ent">github:</span> <span class="pl-s">benoist/msgpack-crystal</span></span></pre></div>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">dependencies:</span>
+  <span class="pl-ent">msgpack:</span>
+    <span class="pl-ent">github:</span> <span class="pl-s">benoist/msgpack-crystal</span></pre></div>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
@@ -7940,9 +7940,9 @@ License (Apache V2.0) <a href="http://www.apache.org/licenses/LICENSE-2.0">http:
 
 <p>Add this to your application's <code>shard.yml</code>:</p>
 
-<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">dependencies:</span></span>
-  <span class="pl-s"><span class="pl-ent">msgpack:</span></span>
-    <span class="pl-s"><span class="pl-ent">github:</span> <span class="pl-s">steakknife/msgpack.cr</span></span></pre></div>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">dependencies:</span>
+  <span class="pl-ent">msgpack:</span>
+    <span class="pl-ent">github:</span> <span class="pl-s">steakknife/msgpack.cr</span></pre></div>
 
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
