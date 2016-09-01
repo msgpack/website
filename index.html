@@ -201,8 +201,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
@@ -230,6 +228,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
           
@@ -1680,72 +1680,6 @@ $ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre>
   </div>
         </div>
         
-        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-msgpack-for-ocaml" class="anchor" href="#msgpack-for-ocaml" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MsgPack for OCaml</h5>
-
-<h6>
-<a id="user-content-bulid" class="anchor" href="#bulid" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>BULID</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ make
-$ sudo make install</pre></div>
-
-<h6>
-<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EXAMPLE</h6>
-
-<h7>
-<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialize/Deserialize for Msgpack Object</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
-
-<h7>
-<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" href="#serializedeserialize-for-ocaml-types-with-meta_conv" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
-
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
-
-<span class="pl-k">type</span> <span class="pl-k">t </span>= {
-  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
-  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
-} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
-
-<span class="pl-c">(* serialize *)</span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
-
-<span class="pl-c">(* deserialize *)</span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
-
-<p>See also, <code>examlpe/</code></p>
-
-<h6>
-<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TEST</h6>
-
-<div class="highlight highlight-source-shell"><pre>$ ocaml setup.ml -configure --enable-tests
-$ make <span class="pl-c1">test</span></pre></div>
-
-<h6>
-<a id="user-content-proof" class="anchor" href="#proof" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PROOF</h6>
-
-<p>If you want to use msgpack at OCaml, you need not do this section.
-This section for user intrested in formal verification.</p>
-
-<p>You need Coq 8.4 and omake.</p>
-
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> proof
-$ make
-$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -2748,6 +2682,244 @@ Point{Float64}(<span class="pl-c1">2.5</span>,<span class="pl-c1">7.8</span>)</p
 different versions of Julia, or an instance of Julia with a different system
 image.</p>
 </blockquote>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<p><a href="https://clojars.org/clojure-msgpack"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/edma2/clojure-msgpack"><img src="https://camo.githubusercontent.com/1bc6fc12bcbde68e4bfd66192eddce3b02b2c578/68747470733a2f2f7472617669732d63692e6f72672f65646d61322f636c6f6a7572652d6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/edma2/clojure-msgpack.svg?branch=master" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c">; =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming</h7>
+
+<p><code>clojure-msgpack</code> provides a streaming API for situations where it is more
+convenient or efficient to work with byte streams instead of fixed byte arrays
+(e.g. size of object is not known ahead of time).</p>
+
+<p>The streaming counterpart to <code>msgpack.core/pack</code> is <code>msgpack.core/pack-stream</code>
+which returns nil and accepts either
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">java.io.OutputStream</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a>
+as an additional argument.</p>
+
+<p><code>msgpack.core/unpack</code> is in "streaming mode" when the argument is of type
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">java.io.InputStream</a>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
+<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c">; =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h7>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h7>
+
+<p>All pack and unpack functions take an optional map of options:</p>
+
+<ul>
+<li>
+<p><code>:compatibility-mode</code>
+Serialize/deserialize strings and bytes using the raw-type defined here:
+<a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">https://github.com/msgpack/msgpack/blob/master/spec-old.md</a></p>
+
+<p>Note: No error is thrown if an unpacked value is reserved under the old spec
+but defined under the new spec. We always deserialize something if we can
+regardless of <code>compatibility-mode</code>.</p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
 </article>
   </div>
         </div>
@@ -6994,63 +7166,63 @@ You may change the default runtime by defining the <code>PHP_RUNTIME</code> envi
 
 <p>This command will output something like:</p>
 
-<div class="highlight highlight-source-shell"><pre>Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\L</span>istFilter
+<pre><code>Filter: MessagePack\Tests\Perf\Filter\ListFilter
 Rounds: 3
 Iterations: 100000
 
 ====================================================================
-Test/Target           MessagePack<span class="pl-cce">\P</span>acker  MessagePack<span class="pl-cce">\B</span>ufferUnpacker
+Test/Target           MessagePack\Packer  MessagePack\BufferUnpacker
 --------------------------------------------------------------------
 nil ............................. 0.0092 .................... 0.0267
-<span class="pl-c1">false</span> ........................... 0.0089 .................... 0.0271
-<span class="pl-c1">true</span> ............................ 0.0083 .................... 0.0248
-7-bit uint <span class="pl-c">#1 ................... 0.0091 .................... 0.0204</span>
-7-bit uint <span class="pl-c">#2 ................... 0.0113 .................... 0.0208</span>
-7-bit uint <span class="pl-c">#3 ................... 0.0108 .................... 0.0206</span>
-5-bit sint <span class="pl-c">#1 ................... 0.0097 .................... 0.0247</span>
-5-bit sint <span class="pl-c">#2 ................... 0.0119 .................... 0.0253</span>
-5-bit sint <span class="pl-c">#3 ................... 0.0101 .................... 0.0239</span>
-8-bit uint <span class="pl-c">#1 ................... 0.0132 .................... 0.0431</span>
-8-bit uint <span class="pl-c">#2 ................... 0.0143 .................... 0.0468</span>
-8-bit uint <span class="pl-c">#3 ................... 0.0146 .................... 0.0471</span>
-16-bit uint <span class="pl-c">#1 .................. 0.0173 .................... 0.0557</span>
-16-bit uint <span class="pl-c">#2 .................. 0.0199 .................... 0.0565</span>
-16-bit uint <span class="pl-c">#3 .................. 0.0184 .................... 0.0568</span>
-32-bit uint <span class="pl-c">#1 .................. 0.0211 .................... 0.0699</span>
-32-bit uint <span class="pl-c">#2 .................. 0.0234 .................... 0.0695</span>
-32-bit uint <span class="pl-c">#3 .................. 0.0232 .................... 0.0737</span>
-64-bit uint <span class="pl-c">#1 .................. 0.0348 .................... 0.0839</span>
-64-bit uint <span class="pl-c">#2 .................. 0.0357 .................... 0.0804</span>
-8-bit int <span class="pl-c">#1 .................... 0.0137 .................... 0.0492</span>
-8-bit int <span class="pl-c">#2 .................... 0.0144 .................... 0.0500</span>
-8-bit int <span class="pl-c">#3 .................... 0.0142 .................... 0.0534</span>
-16-bit int <span class="pl-c">#1 ................... 0.0186 .................... 0.0615</span>
-16-bit int <span class="pl-c">#2 ................... 0.0188 .................... 0.0589</span>
-16-bit int <span class="pl-c">#3 ................... 0.0173 .................... 0.0602</span>
-32-bit int <span class="pl-c">#1 ................... 0.0200 .................... 0.0778</span>
-32-bit int <span class="pl-c">#2 ................... 0.0214 .................... 0.0789</span>
-32-bit int <span class="pl-c">#3 ................... 0.0205 .................... 0.0765</span>
-64-bit int <span class="pl-c">#1 ................... 0.0363 .................... 0.0886</span>
-64-bit int <span class="pl-c">#2 ................... 0.0355 .................... 0.0839</span>
-64-bit int <span class="pl-c">#3 ................... 0.0328 .................... 0.0849</span>
-64-bit float <span class="pl-c">#1 ................. 0.0284 .................... 0.0731</span>
-64-bit float <span class="pl-c">#2 ................. 0.0292 .................... 0.0717</span>
-64-bit float <span class="pl-c">#3 ................. 0.0317 .................... 0.0727</span>
-fix string <span class="pl-c">#1 ................... 0.0238 .................... 0.0245</span>
-fix string <span class="pl-c">#2 ................... 0.0265 .................... 0.0427</span>
-fix string <span class="pl-c">#3 ................... 0.0253 .................... 0.0436</span>
-fix string <span class="pl-c">#4 ................... 0.0270 .................... 0.0431</span>
-8-bit string <span class="pl-c">#1 ................. 0.0299 .................... 0.0687</span>
-8-bit string <span class="pl-c">#2 ................. 0.0348 .................... 0.0692</span>
-8-bit string <span class="pl-c">#3 ................. 0.0426 .................... 0.0701</span>
-16-bit string <span class="pl-c">#1 ................ 0.0464 .................... 0.0813</span>
-16-bit string <span class="pl-c">#2 ................ 3.2061 .................... 0.3372</span>
+false ........................... 0.0089 .................... 0.0271
+true ............................ 0.0083 .................... 0.0248
+7-bit uint #1 ................... 0.0091 .................... 0.0204
+7-bit uint #2 ................... 0.0113 .................... 0.0208
+7-bit uint #3 ................... 0.0108 .................... 0.0206
+5-bit sint #1 ................... 0.0097 .................... 0.0247
+5-bit sint #2 ................... 0.0119 .................... 0.0253
+5-bit sint #3 ................... 0.0101 .................... 0.0239
+8-bit uint #1 ................... 0.0132 .................... 0.0431
+8-bit uint #2 ................... 0.0143 .................... 0.0468
+8-bit uint #3 ................... 0.0146 .................... 0.0471
+16-bit uint #1 .................. 0.0173 .................... 0.0557
+16-bit uint #2 .................. 0.0199 .................... 0.0565
+16-bit uint #3 .................. 0.0184 .................... 0.0568
+32-bit uint #1 .................. 0.0211 .................... 0.0699
+32-bit uint #2 .................. 0.0234 .................... 0.0695
+32-bit uint #3 .................. 0.0232 .................... 0.0737
+64-bit uint #1 .................. 0.0348 .................... 0.0839
+64-bit uint #2 .................. 0.0357 .................... 0.0804
+8-bit int #1 .................... 0.0137 .................... 0.0492
+8-bit int #2 .................... 0.0144 .................... 0.0500
+8-bit int #3 .................... 0.0142 .................... 0.0534
+16-bit int #1 ................... 0.0186 .................... 0.0615
+16-bit int #2 ................... 0.0188 .................... 0.0589
+16-bit int #3 ................... 0.0173 .................... 0.0602
+32-bit int #1 ................... 0.0200 .................... 0.0778
+32-bit int #2 ................... 0.0214 .................... 0.0789
+32-bit int #3 ................... 0.0205 .................... 0.0765
+64-bit int #1 ................... 0.0363 .................... 0.0886
+64-bit int #2 ................... 0.0355 .................... 0.0839
+64-bit int #3 ................... 0.0328 .................... 0.0849
+64-bit float #1 ................. 0.0284 .................... 0.0731
+64-bit float #2 ................. 0.0292 .................... 0.0717
+64-bit float #3 ................. 0.0317 .................... 0.0727
+fix string #1 ................... 0.0238 .................... 0.0245
+fix string #2 ................... 0.0265 .................... 0.0427
+fix string #3 ................... 0.0253 .................... 0.0436
+fix string #4 ................... 0.0270 .................... 0.0431
+8-bit string #1 ................. 0.0299 .................... 0.0687
+8-bit string #2 ................. 0.0348 .................... 0.0692
+8-bit string #3 ................. 0.0426 .................... 0.0701
+16-bit string #1 ................ 0.0464 .................... 0.0813
+16-bit string #2 ................ 3.2061 .................... 0.3372
 32-bit string ................... 3.2552 .................... 0.3571
-wide char string <span class="pl-c">#1 ............. 0.0289 .................... 0.0436</span>
-wide char string <span class="pl-c">#2 ............. 0.0928 .................... 0.0746</span>
-8-bit binary <span class="pl-c">#1 ................. 0.0287 .................... 0.0606</span>
-8-bit binary <span class="pl-c">#2 ................. 0.0309 .................... 0.0611</span>
-8-bit binary <span class="pl-c">#3 ................. 0.0303 .................... 0.0616</span>
+wide char string #1 ............. 0.0289 .................... 0.0436
+wide char string #2 ............. 0.0928 .................... 0.0746
+8-bit binary #1 ................. 0.0287 .................... 0.0606
+8-bit binary #2 ................. 0.0309 .................... 0.0611
+8-bit binary #3 ................. 0.0303 .................... 0.0616
 16-bit binary ................... 0.0356 .................... 0.0703
 32-bit binary ................... 0.3777 .................... 0.3491
 fixext 1 ........................ 0.0246 .................... 0.0909
@@ -7061,25 +7233,26 @@ fixext 16 ....................... 0.0286 .................... 0.0903
 8-bit ext ....................... 0.0373 .................... 0.1111
 16-bit ext ...................... 0.0408 .................... 0.1166
 32-bit ext ...................... 0.3914 .................... 0.3922
-fix array <span class="pl-c">#1 .................... 0.0239 .................... 0.0265</span>
-fix array <span class="pl-c">#2 .................... 0.0889 .................... 0.1134</span>
-16-bit array <span class="pl-c">#1 ................. 0.2424 .................... 0.3572</span>
-16-bit array <span class="pl-c">#2 ...................... S ......................... S</span>
+fix array #1 .................... 0.0239 .................... 0.0265
+fix array #2 .................... 0.0889 .................... 0.1134
+16-bit array #1 ................. 0.2424 .................... 0.3572
+16-bit array #2 ...................... S ......................... S
 32-bit array ......................... S ......................... S
 complex array ................... 0.3504 .................... 0.5266
-fix map <span class="pl-c">#1 ...................... 0.1637 .................... 0.2390</span>
-fix map <span class="pl-c">#2 ...................... 0.0675 .................... 0.0878</span>
-fix map <span class="pl-c">#3 ...................... 0.0852 .................... 0.1392</span>
-fix map <span class="pl-c">#4 ...................... 0.0763 .................... 0.1125</span>
-16-bit map <span class="pl-c">#1 ................... 0.4346 .................... 0.6158</span>
-16-bit map <span class="pl-c">#2 ........................ S ......................... S</span>
+fix map #1 ...................... 0.1637 .................... 0.2390
+fix map #2 ...................... 0.0675 .................... 0.0878
+fix map #3 ...................... 0.0852 .................... 0.1392
+fix map #4 ...................... 0.0763 .................... 0.1125
+16-bit map #1 ................... 0.4346 .................... 0.6158
+16-bit map #2 ........................ S ......................... S
 32-bit map ........................... S ......................... S
 complex map ..................... 0.5015 .................... 0.6511
 ====================================================================
 Total                            10.6590                      7.7424
 Skipped                                4                           4
 Failed                                 0                           0
-Ignored                                0                           0</pre></div>
+Ignored                                0                           0
+</code></pre>
 
 <p>You may change default benchmark settings by defining the following environment variables:</p>
 
@@ -7106,65 +7279,65 @@ $ php tests/bench.php</pre></div>
 
 <p>Another example, benchmarking both the library and <a href="https://pecl.php.net/package/msgpack">msgpack pecl extension</a>:</p>
 
-<div class="highlight highlight-source-shell"><pre>$ MP_BENCH_TARGETS=pure_p,pure_u,pecl_p,pecl_u php tests/bench.php
+<pre><code>$ MP_BENCH_TARGETS=pure_p,pure_u,pecl_p,pecl_u php tests/bench.php
 
-Filter: MessagePack<span class="pl-cce">\T</span>ests<span class="pl-cce">\P</span>erf<span class="pl-cce">\F</span>ilter<span class="pl-cce">\L</span>istFilter
+Filter: MessagePack\Tests\Perf\Filter\ListFilter
 Rounds: 3
 Iterations: 100000
 
 ==================================================================================================
-Test/Target           MessagePack<span class="pl-cce">\P</span>acker  MessagePack<span class="pl-cce">\B</span>ufferUnpacker  msgpack_pack  msgpack_unpack
+Test/Target           MessagePack\Packer  MessagePack\BufferUnpacker  msgpack_pack  msgpack_unpack
 --------------------------------------------------------------------------------------------------
 nil ............................. 0.0078 .................... 0.0246 ...... 0.0072 ........ 0.0070
-<span class="pl-c1">false</span> ........................... 0.0103 .................... 0.0237 ...... 0.0077 ........ 0.0056
-<span class="pl-c1">true</span> ............................ 0.0090 .................... 0.0268 ...... 0.0091 ........ 0.0062
-7-bit uint <span class="pl-c">#1 ................... 0.0116 .................... 0.0204 ...... 0.0084 ........ 0.0056</span>
-7-bit uint <span class="pl-c">#2 ................... 0.0090 .................... 0.0219 ...... 0.0080 ........ 0.0059</span>
-7-bit uint <span class="pl-c">#3 ................... 0.0102 .................... 0.0190 ...... 0.0081 ........ 0.0055</span>
-5-bit sint <span class="pl-c">#1 ................... 0.0099 .................... 0.0243 ...... 0.0082 ........ 0.0061</span>
-5-bit sint <span class="pl-c">#2 ................... 0.0099 .................... 0.0242 ...... 0.0077 ........ 0.0060</span>
-5-bit sint <span class="pl-c">#3 ................... 0.0101 .................... 0.0247 ...... 0.0081 ........ 0.0054</span>
-8-bit uint <span class="pl-c">#1 ................... 0.0148 .................... 0.0445 ...... 0.0070 ........ 0.0063</span>
-8-bit uint <span class="pl-c">#2 ................... 0.0136 .................... 0.0459 ...... 0.0100 ........ 0.0076</span>
-8-bit uint <span class="pl-c">#3 ................... 0.0148 .................... 0.0486 ...... 0.0070 ........ 0.0081</span>
-16-bit uint <span class="pl-c">#1 .................. 0.0172 .................... 0.0533 ...... 0.0092 ........ 0.0062</span>
-16-bit uint <span class="pl-c">#2 .................. 0.0183 .................... 0.0552 ...... 0.0081 ........ 0.0064</span>
-16-bit uint <span class="pl-c">#3 .................. 0.0193 .................... 0.0537 ...... 0.0091 ........ 0.0060</span>
-32-bit uint <span class="pl-c">#1 .................. 0.0230 .................... 0.0695 ...... 0.0083 ........ 0.0076</span>
-32-bit uint <span class="pl-c">#2 .................. 0.0209 .................... 0.0713 ...... 0.0092 ........ 0.0059</span>
-32-bit uint <span class="pl-c">#3 .................. 0.0218 .................... 0.0672 ...... 0.0082 ........ 0.0064</span>
-64-bit uint <span class="pl-c">#1 .................. 0.0331 .................... 0.0808 ...... 0.0081 ........ 0.0065</span>
-64-bit uint <span class="pl-c">#2 .................. 0.0335 .................... 0.0858 ...... 0.0080 ........ 0.0075</span>
-8-bit int <span class="pl-c">#1 .................... 0.0122 .................... 0.0516 ...... 0.0083 ........ 0.0077</span>
-8-bit int <span class="pl-c">#2 .................... 0.0137 .................... 0.0499 ...... 0.0090 ........ 0.0074</span>
-8-bit int <span class="pl-c">#3 .................... 0.0121 .................... 0.0502 ...... 0.0080 ........ 0.0064</span>
-16-bit int <span class="pl-c">#1 ................... 0.0172 .................... 0.0567 ...... 0.0082 ........ 0.0065</span>
-16-bit int <span class="pl-c">#2 ................... 0.0174 .................... 0.0601 ...... 0.0089 ........ 0.0063</span>
-16-bit int <span class="pl-c">#3 ................... 0.0185 .................... 0.0599 ...... 0.0076 ........ 0.0089</span>
-32-bit int <span class="pl-c">#1 ................... 0.0211 .................... 0.0765 ...... 0.0083 ........ 0.0086</span>
-32-bit int <span class="pl-c">#2 ................... 0.0214 .................... 0.0804 ...... 0.0090 ........ 0.0064</span>
-32-bit int <span class="pl-c">#3 ................... 0.0209 .................... 0.0773 ...... 0.0081 ........ 0.0066</span>
-64-bit int <span class="pl-c">#1 ................... 0.0337 .................... 0.0877 ...... 0.0099 ........ 0.0064</span>
-64-bit int <span class="pl-c">#2 ................... 0.0362 .................... 0.0888 ...... 0.0080 ........ 0.0062</span>
-64-bit int <span class="pl-c">#3 ................... 0.0329 .................... 0.0879 ...... 0.0097 ........ 0.0063</span>
-64-bit float <span class="pl-c">#1 ................. 0.0289 .................... 0.0726 ...... 0.0091 ........ 0.0072</span>
-64-bit float <span class="pl-c">#2 ................. 0.0284 .................... 0.0726 ...... 0.0083 ........ 0.0069</span>
-64-bit float <span class="pl-c">#3 ................. 0.0333 .................... 0.0751 ...... 0.0080 ........ 0.0064</span>
-fix string <span class="pl-c">#1 ................... 0.0240 .................... 0.0268 ...... 0.0083 ........ 0.0069</span>
-fix string <span class="pl-c">#2 ................... 0.0260 .................... 0.0415 ...... 0.0095 ........ 0.0081</span>
-fix string <span class="pl-c">#3 ................... 0.0253 .................... 0.0425 ...... 0.0114 ........ 0.0092</span>
-fix string <span class="pl-c">#4 ................... 0.0269 .................... 0.0404 ...... 0.0084 ........ 0.0077</span>
-8-bit string <span class="pl-c">#1 ................. 0.0318 .................... 0.0658 ...... 0.0078 ........ 0.0072</span>
-8-bit string <span class="pl-c">#2 ................. 0.0369 .................... 0.0693 ...... 0.0086 ........ 0.0079</span>
-8-bit string <span class="pl-c">#3 ................. 0.0427 .................... 0.0713 ...... 0.0141 ........ 0.0089</span>
-16-bit string <span class="pl-c">#1 ................ 0.0472 .................... 0.0799 ...... 0.0130 ........ 0.0104</span>
-16-bit string <span class="pl-c">#2 ................ 3.2651 .................... 0.3395 ...... 0.3499 ........ 0.2647</span>
+false ........................... 0.0103 .................... 0.0237 ...... 0.0077 ........ 0.0056
+true ............................ 0.0090 .................... 0.0268 ...... 0.0091 ........ 0.0062
+7-bit uint #1 ................... 0.0116 .................... 0.0204 ...... 0.0084 ........ 0.0056
+7-bit uint #2 ................... 0.0090 .................... 0.0219 ...... 0.0080 ........ 0.0059
+7-bit uint #3 ................... 0.0102 .................... 0.0190 ...... 0.0081 ........ 0.0055
+5-bit sint #1 ................... 0.0099 .................... 0.0243 ...... 0.0082 ........ 0.0061
+5-bit sint #2 ................... 0.0099 .................... 0.0242 ...... 0.0077 ........ 0.0060
+5-bit sint #3 ................... 0.0101 .................... 0.0247 ...... 0.0081 ........ 0.0054
+8-bit uint #1 ................... 0.0148 .................... 0.0445 ...... 0.0070 ........ 0.0063
+8-bit uint #2 ................... 0.0136 .................... 0.0459 ...... 0.0100 ........ 0.0076
+8-bit uint #3 ................... 0.0148 .................... 0.0486 ...... 0.0070 ........ 0.0081
+16-bit uint #1 .................. 0.0172 .................... 0.0533 ...... 0.0092 ........ 0.0062
+16-bit uint #2 .................. 0.0183 .................... 0.0552 ...... 0.0081 ........ 0.0064
+16-bit uint #3 .................. 0.0193 .................... 0.0537 ...... 0.0091 ........ 0.0060
+32-bit uint #1 .................. 0.0230 .................... 0.0695 ...... 0.0083 ........ 0.0076
+32-bit uint #2 .................. 0.0209 .................... 0.0713 ...... 0.0092 ........ 0.0059
+32-bit uint #3 .................. 0.0218 .................... 0.0672 ...... 0.0082 ........ 0.0064
+64-bit uint #1 .................. 0.0331 .................... 0.0808 ...... 0.0081 ........ 0.0065
+64-bit uint #2 .................. 0.0335 .................... 0.0858 ...... 0.0080 ........ 0.0075
+8-bit int #1 .................... 0.0122 .................... 0.0516 ...... 0.0083 ........ 0.0077
+8-bit int #2 .................... 0.0137 .................... 0.0499 ...... 0.0090 ........ 0.0074
+8-bit int #3 .................... 0.0121 .................... 0.0502 ...... 0.0080 ........ 0.0064
+16-bit int #1 ................... 0.0172 .................... 0.0567 ...... 0.0082 ........ 0.0065
+16-bit int #2 ................... 0.0174 .................... 0.0601 ...... 0.0089 ........ 0.0063
+16-bit int #3 ................... 0.0185 .................... 0.0599 ...... 0.0076 ........ 0.0089
+32-bit int #1 ................... 0.0211 .................... 0.0765 ...... 0.0083 ........ 0.0086
+32-bit int #2 ................... 0.0214 .................... 0.0804 ...... 0.0090 ........ 0.0064
+32-bit int #3 ................... 0.0209 .................... 0.0773 ...... 0.0081 ........ 0.0066
+64-bit int #1 ................... 0.0337 .................... 0.0877 ...... 0.0099 ........ 0.0064
+64-bit int #2 ................... 0.0362 .................... 0.0888 ...... 0.0080 ........ 0.0062
+64-bit int #3 ................... 0.0329 .................... 0.0879 ...... 0.0097 ........ 0.0063
+64-bit float #1 ................. 0.0289 .................... 0.0726 ...... 0.0091 ........ 0.0072
+64-bit float #2 ................. 0.0284 .................... 0.0726 ...... 0.0083 ........ 0.0069
+64-bit float #3 ................. 0.0333 .................... 0.0751 ...... 0.0080 ........ 0.0064
+fix string #1 ................... 0.0240 .................... 0.0268 ...... 0.0083 ........ 0.0069
+fix string #2 ................... 0.0260 .................... 0.0415 ...... 0.0095 ........ 0.0081
+fix string #3 ................... 0.0253 .................... 0.0425 ...... 0.0114 ........ 0.0092
+fix string #4 ................... 0.0269 .................... 0.0404 ...... 0.0084 ........ 0.0077
+8-bit string #1 ................. 0.0318 .................... 0.0658 ...... 0.0078 ........ 0.0072
+8-bit string #2 ................. 0.0369 .................... 0.0693 ...... 0.0086 ........ 0.0079
+8-bit string #3 ................. 0.0427 .................... 0.0713 ...... 0.0141 ........ 0.0089
+16-bit string #1 ................ 0.0472 .................... 0.0799 ...... 0.0130 ........ 0.0104
+16-bit string #2 ................ 3.2651 .................... 0.3395 ...... 0.3499 ........ 0.2647
 32-bit string ................... 3.2639 .................... 0.3556 ...... 0.3450 ........ 0.2709
-wide char string <span class="pl-c">#1 ............. 0.0326 .................... 0.0436 ...... 0.0083 ........ 0.0077</span>
-wide char string <span class="pl-c">#2 ............. 0.0886 .................... 0.0728 ...... 0.0081 ........ 0.0078</span>
-8-bit binary <span class="pl-c">#1 ...................... I ......................... I ........... F ............. I</span>
-8-bit binary <span class="pl-c">#2 ...................... I ......................... I ........... F ............. I</span>
-8-bit binary <span class="pl-c">#3 ...................... I ......................... I ........... F ............. I</span>
+wide char string #1 ............. 0.0326 .................... 0.0436 ...... 0.0083 ........ 0.0077
+wide char string #2 ............. 0.0886 .................... 0.0728 ...... 0.0081 ........ 0.0078
+8-bit binary #1 ...................... I ......................... I ........... F ............. I
+8-bit binary #2 ...................... I ......................... I ........... F ............. I
+8-bit binary #3 ...................... I ......................... I ........... F ............. I
 16-bit binary ........................ I ......................... I ........... F ............. I
 32-bit binary ........................ I ......................... I ........... F ............. I
 fixext 1 ............................. I ......................... I ........... F ............. F
@@ -7175,25 +7348,26 @@ fixext 16 ............................ I ......................... I ...........
 8-bit ext ............................ I ......................... I ........... F ............. F
 16-bit ext ........................... I ......................... I ........... F ............. F
 32-bit ext ........................... I ......................... I ........... F ............. F
-fix array <span class="pl-c">#1 .................... 0.0239 .................... 0.0284 ...... 0.0169 ........ 0.0096</span>
-fix array <span class="pl-c">#2 .................... 0.0807 .................... 0.1063 ...... 0.0224 ........ 0.0210</span>
-16-bit array <span class="pl-c">#1 ................. 0.2406 .................... 0.3337 ...... 0.0407 ........ 0.0504</span>
-16-bit array <span class="pl-c">#2 ...................... S ......................... S ........... S ............. S</span>
+fix array #1 .................... 0.0239 .................... 0.0284 ...... 0.0169 ........ 0.0096
+fix array #2 .................... 0.0807 .................... 0.1063 ...... 0.0224 ........ 0.0210
+16-bit array #1 ................. 0.2406 .................... 0.3337 ...... 0.0407 ........ 0.0504
+16-bit array #2 ...................... S ......................... S ........... S ............. S
 32-bit array ......................... S ......................... S ........... S ............. S
 complex array ........................ I ......................... I ........... F ............. F
-fix map <span class="pl-c">#1 ........................... I ......................... I ........... F ............. I</span>
-fix map <span class="pl-c">#2 ...................... 0.0692 .................... 0.0855 ...... 0.0198 ........ 0.0188</span>
-fix map <span class="pl-c">#3 ........................... I ......................... I ........... F ............. I</span>
-fix map <span class="pl-c">#4 ........................... I ......................... I ........... F ............. I</span>
-16-bit map <span class="pl-c">#1 ................... 0.4437 .................... 0.5810 ...... 0.0421 ........ 0.0677</span>
-16-bit map <span class="pl-c">#2 ........................ S ......................... S ........... S ............. S</span>
+fix map #1 ........................... I ......................... I ........... F ............. I
+fix map #2 ...................... 0.0692 .................... 0.0855 ...... 0.0198 ........ 0.0188
+fix map #3 ........................... I ......................... I ........... F ............. I
+fix map #4 ........................... I ......................... I ........... F ............. I
+16-bit map #1 ................... 0.4437 .................... 0.5810 ...... 0.0421 ........ 0.0677
+16-bit map #2 ........................ S ......................... S ........... S ............. S
 32-bit map ........................... S ......................... S ........... S ............. S
 complex map ..................... 0.5008 .................... 0.6394 ...... 0.0723 ........ 0.0780
 ==================================================================================================
 Total                             8.9357                      4.9563        1.2997          1.0949
 Skipped                                4                           4             4               4
 Failed                                 0                           0            17               9
-Ignored                               17                          17             0               8</pre></div>
+Ignored                               17                          17             0               8
+</code></pre>
 
 <blockquote>
 <p>Note, that this is not a fair comparison as the msgpack extension (0.5.2+, 2.0) doesn't
