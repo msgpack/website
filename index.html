@@ -1587,14 +1587,14 @@ $ sudo make install
 <p>e.g.) tortoise git <a href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
 
 <ol>
-<li>Launch <a href="http://www.cmake.org/cmake/resources/software.html">cmake GUI client</a>.</li>
-<li>Set 'Where is the source code:' text box and 'Where to build
-the binaries:' text box.</li>
-<li>Click 'Configure' button.</li>
-<li>Choose your Visual Studio version.</li>
-<li>Click 'Generate' button.</li>
-<li>Open the created msgpack.sln on Visual Studio.</li>
-<li>Build all.</li>
+<li><p>Launch <a href="http://www.cmake.org/cmake/resources/software.html">cmake GUI client</a>.</p></li>
+<li><p>Set 'Where is the source code:' text box and 'Where to build
+the binaries:' text box.</p></li>
+<li><p>Click 'Configure' button.</p></li>
+<li><p>Choose your Visual Studio version.</p></li>
+<li><p>Click 'Generate' button.</p></li>
+<li><p>Open the created msgpack.sln on Visual Studio.</p></li>
+<li><p>Build all.</p></li>
 </ol>
 
 <h7>
@@ -2204,8 +2204,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 <pre><code>git clone https://github.com/suzukaze/mruby-msgpack.git
 </code></pre>
 </li>
-<li>Add config.gem line to <code>build_config.rb</code>
-</li>
+<li><p>Add config.gem line to <code>build_config.rb</code></p></li>
 </ol>
 
 <div class="highlight highlight-source-ruby"><pre><span class="pl-c1">MRuby</span>::<span class="pl-c1">Build</span>.<span class="pl-k">new</span> <span class="pl-k">do </span>|<span class="pl-smi">conf</span>|
@@ -4046,30 +4045,30 @@ welcome to report bug
 <a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>changes:</h6>
 
 <ul>
-<li>first release
- 2014-08-15 13:05:13</li>
-<li>add array support
- 2014-08-19 12:18:47</li>
-<li>add andriod support
- 2014-09-08 00:45:27</li>
-<li>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
- 2014-11-09 22:35:27</li>
-<li>add EncodeToFile/DecodeFromFile
- 2014-11-13 12:30:58</li>
-<li>fix  asVariant = null (thanks for cyw(26890954))
- 2014-11-14 09:05:52</li>
-<li>fix AsInteger = -1 bug (thanks for cyw(26890954))
- 2014-11-14 12:15:52</li>
-<li>fix AsInteger = -127 bug
+<li><p>first release
+ 2014-08-15 13:05:13</p></li>
+<li><p>add array support
+ 2014-08-19 12:18:47</p></li>
+<li><p>add andriod support
+ 2014-09-08 00:45:27</p></li>
+<li><p>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
+ 2014-11-09 22:35:27</p></li>
+<li><p>add EncodeToFile/DecodeFromFile
+ 2014-11-13 12:30:58</p></li>
+<li><p>fix  asVariant = null (thanks for cyw(26890954))
+ 2014-11-14 09:05:52</p></li>
+<li><p>fix AsInteger = -1 bug (thanks for cyw(26890954))
+ 2014-11-14 12:15:52</p></li>
+<li><p>fix AsInteger = -127 bug
  check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
- 2014-11-14 12:30:38</li>
-<li>fix AsFloat = 2.507182 bug
+ 2014-11-14 12:30:38</p></li>
+<li><p>fix AsFloat = 2.507182 bug
  thanks fo [珠海]-芒果  1939331207
- 2014-11-21 12:37:04</li>
-<li>add AddArrayChild func
- 2015-03-25 17:47:28</li>
-<li>add remove/removeFromParent/Delete function
- 2015-08-29 22:37:48</li>
+ 2014-11-21 12:37:04</p></li>
+<li><p>add AddArrayChild func
+ 2015-03-25 17:47:28</p></li>
+<li><p>add remove/removeFromParent/Delete function
+ 2015-08-29 22:37:48</p></li>
 </ul>
 
 <h7>
@@ -5562,10 +5561,10 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <p>Conceptually, MessagePack stores data similarly to JSON: they are both composed of simple values such as numbers and strings, stored hierarchically in maps and arrays. So why not just use JSON instead? The main reason is that JSON is designed to be human-readable, so it is not as efficient as a binary serialization format:</p>
 
 <ul>
-<li>Compound types such as strings, maps and arrays are delimited, so appropriate storage cannot be allocated upfront. The whole object must be parsed to determine its size.</li>
-<li>Strings are not stored in their native encoding. Special characters such as quotes and backslashes must be escaped when written and converted back when read.</li>
-<li>Numbers are particularly inefficient (especially when parsing back floats), making JSON inappropriate as a base format for structured data that contains lots of numbers.</li>
-<li>Binary data is not supported by JSON at all. Small binary blobs such as icons and thumbnails need to be Base64 encoded or passed out-of-band.</li>
+<li><p>Compound types such as strings, maps and arrays are delimited, so appropriate storage cannot be allocated upfront. The whole object must be parsed to determine its size.</p></li>
+<li><p>Strings are not stored in their native encoding. Special characters such as quotes and backslashes must be escaped when written and converted back when read.</p></li>
+<li><p>Numbers are particularly inefficient (especially when parsing back floats), making JSON inappropriate as a base format for structured data that contains lots of numbers.</p></li>
+<li><p>Binary data is not supported by JSON at all. Small binary blobs such as icons and thumbnails need to be Base64 encoded or passed out-of-band.</p></li>
 </ul>
 
 <p>The above issues greatly increase the complexity of the decoder. Full-featured JSON decoders are quite large, and minimal decoders tend to leave out such features as string unescaping and float parsing, instead leaving these up to the user or platform. This can lead to hard-to-find platform-specific and locale-specific bugs, as well as a greater potential for security vulnerabilites. This also significantly decreases performance, making JSON unattractive for use in applications such as mobile games.</p>
@@ -7030,15 +7029,9 @@ SOFTWARE.</p>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
 
 <ul>
-<li>
-<strong>Arch Linux</strong>: <a href="https://aur.archlinux.org/packages/msgpack-tools/">msgpack-tools in the AUR</a>, e.g. <code>yaourt -S msgpack-tools</code>
-</li>
-<li>
-<strong>Mac OS X</strong> (<a href="http://brew.sh/">Homebrew</a>): <code>brew install https://ludocode.github.io/msgpack-tools.rb</code>
-</li>
-<li>
-<strong>Debian (Ubuntu, etc.)</strong>: <code>.deb</code> package for x86_64 in the <a href="https://github.com/ludocode/msgpack-tools/releases/latest">latest release</a>; install with <code>dpkg</code>
-</li>
+<li><p><strong>Arch Linux</strong>: <a href="https://aur.archlinux.org/packages/msgpack-tools/">msgpack-tools in the AUR</a>, e.g. <code>yaourt -S msgpack-tools</code></p></li>
+<li><p><strong>Mac OS X</strong> (<a href="http://brew.sh/">Homebrew</a>): <code>brew install https://ludocode.github.io/msgpack-tools.rb</code></p></li>
+<li><p><strong>Debian (Ubuntu, etc.)</strong>: <code>.deb</code> package for x86_64 in the <a href="https://github.com/ludocode/msgpack-tools/releases/latest">latest release</a>; install with <code>dpkg</code></p></li>
 </ul>
 
 <p>For other platforms, msgpack-tools must be built from source. Download the msgpack-tools tarball from the <a href="https://github.com/ludocode/msgpack-tools/releases/latest">latest release page</a> (not the "source code" archive generated by GitHub, but the actual release package.)</p>
@@ -7058,11 +7051,11 @@ SOFTWARE.</p>
 <p>These are the differences in what objects are representable in each format:</p>
 
 <ul>
-<li>JSON keys must be strings. MessagePack keys can be any type, including maps and arrays.</li>
-<li>JSON supports "bignums", i.e. integers of any size. MessagePack integers must fit within a 64-bit signed or unsigned integer.</li>
-<li>JSON real numbers are specified in decimal scientific notation and can have arbitrary precision. MessagePack real numbers are in IEEE 754 standard 32-bit or 64-bit binary.</li>
-<li>MessagePack supports binary and extension type objects. JSON does not support binary data. Binary data is often encoded into a base64 string to be embedded into a JSON document.</li>
-<li>A JSON document can be encoded in UTF-8, UTF-16 or UTF-32, and the entire document must be in the same encoding. MessagePack strings are required to be UTF-8, although this is not enforced by many encoding/decoding libraries.</li>
+<li><p>JSON keys must be strings. MessagePack keys can be any type, including maps and arrays.</p></li>
+<li><p>JSON supports "bignums", i.e. integers of any size. MessagePack integers must fit within a 64-bit signed or unsigned integer.</p></li>
+<li><p>JSON real numbers are specified in decimal scientific notation and can have arbitrary precision. MessagePack real numbers are in IEEE 754 standard 32-bit or 64-bit binary.</p></li>
+<li><p>MessagePack supports binary and extension type objects. JSON does not support binary data. Binary data is often encoded into a base64 string to be embedded into a JSON document.</p></li>
+<li><p>A JSON document can be encoded in UTF-8, UTF-16 or UTF-32, and the entire document must be in the same encoding. MessagePack strings are required to be UTF-8, although this is not enforced by many encoding/decoding libraries.</p></li>
 </ul>
 
 <p>By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
