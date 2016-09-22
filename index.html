@@ -7193,13 +7193,13 @@ First, create a container:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ ./dockerfile.sh <span class="pl-k">|</span> docker build -t msgpack -</pre></div>
 
-<p>The command above will create a container named <code>msgpack</code> with PHP 5.6 runtime.
+<p>The command above will create a container named <code>msgpack</code> with PHP 7.0 runtime.
 You may change the default runtime by defining the <code>PHP_RUNTIME</code> environment variable:</p>
 
-<div class="highlight highlight-source-shell"><pre>$ PHP_RUNTIME=<span class="pl-s"><span class="pl-pds">'</span>php:7.0-cli<span class="pl-pds">'</span></span> ./dockerfile.sh <span class="pl-k">|</span> docker build -t msgpack -</pre></div>
+<div class="highlight highlight-source-shell"><pre>$ PHP_RUNTIME=<span class="pl-s"><span class="pl-pds">'</span>php:7.1-cli<span class="pl-pds">'</span></span> ./dockerfile.sh <span class="pl-k">|</span> docker build -t msgpack -</pre></div>
 
 <blockquote>
-<p>See a list of various runtimes <a href="/rybakit/msgpack.php/blob/master/.travis.yml#L9-L15">here</a>.</p>
+<p>See a list of various runtimes <a href="/rybakit/msgpack.php/blob/master/.travis.yml#L9-L16">here</a>.</p>
 </blockquote>
 
 <p>Then run the unit tests:</p>
