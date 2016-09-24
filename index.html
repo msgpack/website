@@ -6915,7 +6915,7 @@ including <strong>bin</strong>, <strong>str</strong> and <strong>ext</strong> ty
 </li>
 <li>Supports <a href="#custom-types">object serialization</a>
 </li>
-<li>Works with PHP 5.4-7.0 and HHVM</li>
+<li>Works with PHP 5.4-7.x and HHVM</li>
 <li><a href="https://travis-ci.org/rybakit/msgpack.php">Fully tested</a></li>
 <li><a href="#performance">Relatively fast</a></li>
 </ul>
@@ -7025,10 +7025,9 @@ from running the auto detection routine:</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span>);</span>
 <span class="pl-s1"><span class="pl-c">// or</span></span>
+<span class="pl-s1"><span class="pl-c">// $packer-&gt;setTypeDetectionMode(Packer::FORCE_STR);</span></span>
 <span class="pl-s1"><span class="pl-k">...</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span>);</span>
-<span class="pl-s1"><span class="pl-k">...</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack(<span class="pl-smi">$utf8string</span>);</span></pre></div>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-smi">$utf8string1</span>, <span class="pl-smi">$utf8string2</span>]);</span></pre></div>
 
 <p>Available modes are:</p>
 
