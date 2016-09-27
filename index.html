@@ -307,6 +307,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-pierre-vigier-Perl6-Data-MessagePack',this)">Perl 6 <span class="qs-sub">pierre-vigier</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-tagomoris-msgpack-inspect',this)">msgpack-inspect <span class="qs-sub">tagomoris</span></a></li>
+          
         </ul>
       </div>
 
@@ -8132,6 +8134,97 @@ $unpacker.tap( -&gt; $value {
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h5>
 
 <p>Artistic License 2.0</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-tagomoris-msgpack-inspect" class="qs"><h4><a href="https://github.com/tagomoris/msgpack-inspect" target="_blank">tagomoris/msgpack-inspect <span class="qs-url">https://github.com/tagomoris/msgpack-inspect</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack-inspect" class="anchor" href="#msgpack-inspect" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack-inspect</h5>
+
+<p>This is a command line tool to inspect/show a data serialized by <a href="http://msgpack.org/">MessagePack</a>.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<p>Executable binary files are available from <a href="https://github.com/tagomoris/msgpack-inspect/releases">releases</a>. Download a file for your platform, and use it.</p>
+
+<p>Otherwise, you can install rubygem version on your CRuby runtime:</p>
+
+<pre><code>$ gem install msgpack-inspect
+</code></pre>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<pre><code>Usage: msgpack-inspect [options] FILE
+
+Options:
+
+    -f, --format FORMAT              output format of inspection result (yaml/json) [default: yaml]
+    -r, --require LIB                ruby file path to require (to load ext type definitions)
+    -h, --help                       Show this message
+</code></pre>
+
+<p><code>-r</code> option is available with rubygem version, and unavailable with mruby binary release.</p>
+
+<p>FILE is a file which msgpack binary stored. Specify <code>-</code> to inspect data from STDIN.
+This command shows the all data contained in specified format (YAML in default).</p>
+
+<pre><code>---
+- :format: :false
+  :header: c2
+  :data: c2
+  :value: false
+- :format: :true
+  :header: c3
+  :data: c3
+  :value: true
+</code></pre>
+
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h6>
+
+<p>This is a example to inspect a data from STDIN.
+The data corresponds to <code>{"compact":true,"schema":0}</code> in JSON.</p>
+
+<pre><code>$ printf "\x82\xa7compact\xc3\xa6schema\x00" | msgpack-inspect -
+---
+- :format: :fixmap
+  :header: '82'
+  :length: 2
+  :children:
+  - :key:
+      :format: :fixstr
+      :header: a7
+      :length: 7
+      :data: 636f6d70616374
+      :value: compact
+    :value:
+      :format: :true
+      :header: c3
+      :data: c3
+      :value: true
+  - :key:
+      :format: :fixstr
+      :header: a6
+      :length: 6
+      :data: 736368656d61
+      :value: schema
+    :value:
+      :format: :fixint
+      :header: '00'
+      :data: '00'
+      :value: 0
+</code></pre>
+
+<p>TODO: show more example</p>
+
+<h6>
+<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h6>
+
+<p>Bug reports and pull requests are welcome on GitHub at [<a href="https://github.com/tagomoris/msgpack-inspect">https://github.com/tagomoris/msgpack-inspect</a>].</p>
 </article>
   </div>
         </div>
