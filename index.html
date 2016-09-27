@@ -305,6 +305,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-steakknife-msgpack-cr',this)">Crystal <span class="qs-sub">steakknife</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ar90n-msgpack11',this)">C++11 <span class="qs-sub">ar90n</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-pierre-vigier-Perl6-Data-MessagePack',this)">Perl 6 <span class="qs-sub">pierre-vigier</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tagomoris-msgpack-inspect',this)">msgpack-inspect <span class="qs-sub">tagomoris</span></a></li>
@@ -8055,6 +8057,61 @@ License (Apache V2.0) <a href="http://www.apache.org/licenses/LICENSE-2.0">http:
 <a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright</h6>
 
 <p>2016 (c) Copyright Barry Allard</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ar90n-msgpack11" class="qs"><h4><a href="https://github.com/ar90n/msgpack11" target="_blank">ar90n/msgpack11 <span class="qs-url">https://github.com/ar90n/msgpack11</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><p><a href="https://travis-ci.org/ar90n/msgpack11"><img src="https://camo.githubusercontent.com/c3c03f2c22de81aa64f964275a4c52ee8039e7ae/68747470733a2f2f7472617669732d63692e6f72672f617239306e2f6d73677061636b31312e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ar90n/msgpack11.svg?branch=master" style="max-width:100%;"></a></p>
+
+<h5>
+<a id="user-content-what-is-msgpack11-" class="anchor" href="#what-is-msgpack11-" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is msgpack11 ?</h5>
+
+<p>msgpack11 is a tiny MsgPack library for C++11, providing MsgPack parsing and serialization.<br>
+This library is inspired by <a href="https://github.com/dropbox/json11">json11</a>.<br>
+The API of msgpack11 is designed to be similar with json11.</p>
+
+<h5>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h5>
+
+<pre><code>git clone git@github.com:ar90n/msgpack11.git
+mkdir build
+cd build
+cmake ../sdviz
+make &amp;&amp; make install
+</code></pre>
+
+<h5>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h5>
+
+<pre><code>MsgPack my_msgpack = MsgPack::object {
+    { "key1", "value1" },
+    { "key2", false },
+    { "key3", MsgPack::array { 1, 2, 3 } },
+};
+std::string msgpack_bytes = my_msgpack.dump();
+</code></pre>
+
+<h5>
+<a id="user-content-feature" class="anchor" href="#feature" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Feature</h5>
+
+<ul>
+<li>Support serialization and deserialization.</li>
+</ul>
+
+<h5>
+<a id="user-content-acknowledgement" class="anchor" href="#acknowledgement" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Acknowledgement</h5>
+
+<ul>
+<li><a href="https://github.com/dropbox/json11">json11</a></li>
+<li><a href="https://github.com/msgpack/msgpack-c">msgpack-c</a></li>
+</ul>
+
+<h5>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h5>
+
+<p>This software is released under the MIT License, see LICENSE.txt.</p>
 </article>
   </div>
         </div>
