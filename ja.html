@@ -5083,37 +5083,53 @@ $</pre></div>
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-messagepackswift" class="anchor" href="#messagepackswift" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack.swift</h5>
 
+<p><a href="https://travis-ci.org/a2/MessagePack.swift"><img src="https://camo.githubusercontent.com/904651aa267553d5fe6f8344b5322d9e1a80707b/687474703a2f2f696d672e736869656c64732e696f2f7472617669732f61322f4d6573736167655061636b2e73776966742e7376673f7374796c653d666c6174" alt="CI Status" data-canonical-src="http://img.shields.io/travis/a2/MessagePack.swift.svg?style=flat" style="max-width:100%;"></a>
+<a href="http://cocoapods.org/pods/MessagePack.swift"><img src="https://camo.githubusercontent.com/e549c84798d417d8089d80bbfecae2191e0f8c4a/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f762f4d6573736167655061636b2e73776966742e7376673f7374796c653d666c6174" alt="Version" data-canonical-src="https://img.shields.io/cocoapods/v/MessagePack.swift.svg?style=flat" style="max-width:100%;"></a>
+<a href="http://cocoapods.org/pods/MessagePack.swift"><img src="https://camo.githubusercontent.com/b0f6a88c691d89c58f96fd96bbca5aab6f7a6e7e/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f6c2f4d6573736167655061636b2e73776966742e7376673f7374796c653d666c6174" alt="License" data-canonical-src="https://img.shields.io/cocoapods/l/MessagePack.swift.svg?style=flat" style="max-width:100%;"></a>
+<a href="http://cocoapods.org/pods/Oberholz"><img src="https://camo.githubusercontent.com/ab4a55d3bd8eecba734e94348b174cbb629cbbd8/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f702f4d6573736167655061636b2e73776966742e7376673f7374796c653d666c6174" alt="Platform" data-canonical-src="https://img.shields.io/cocoapods/p/MessagePack.swift.svg?style=flat" style="max-width:100%;"></a></p>
+
+<p>A fast, zero-dependency MessagePack implementation written in Swift 3. Supports Apple platforms and Linux.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<h7>
+<a id="user-content-cococapods" class="anchor" href="#cococapods" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CococaPods</h7>
+
+<p>To use CocoaPods, add the following to your Podfile:</p>
+
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>MessagePack.swift<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 2.0.0<span class="pl-pds">'</span></span></pre></div>
+
+<h7>
+<a id="user-content-spm-swift-package-manager" class="anchor" href="#spm-swift-package-manager" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SPM (Swift Package Manager)</h7>
+
+<p>You can easily integrate MessagePack.swift in your app with SPM. Just add MessagePack.swift as a dependency:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">import</span> <span class="pl-c1">PackageDescription</span>
+
+<span class="pl-k">let</span> package <span class="pl-k">=</span> Package(
+    name: <span class="pl-s"><span class="pl-pds">"</span>MyAwesomeApp<span class="pl-pds">"</span></span>,
+    dependencies: [
+        <span class="pl-k">.</span>Package(url: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/a2/MessagePack.swift.git<span class="pl-pds">"</span></span>, majorVersion: <span class="pl-c1">2</span>, minor: <span class="pl-c1">0</span>),
+    ]
+)</pre></div>
+
+<h6>
+<a id="user-content-version" class="anchor" href="#version" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Version</h6>
+
+<p>2.0.0 + Swift 3</p>
+
+<p>Support for Swift 2 was dropped after <a href="https://github.com/a2/MessagePack.swift/releases/tag/1.2.0">1.2.0</a>.</p>
+
+<h6>
+<a id="user-content-authors" class="anchor" href="#authors" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AUTHORS</h6>
+
+<p>Alexsander Akers, <a href="mailto:me@a2.io">me@a2.io</a></p>
+
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 
-<p>MessagePack.swift is released under the <a href="https://github.com/a2/MessagePack.swift/blob/master/LICENSE">MIT license</a>, which is reproduced below in its entirety:</p>
-
-<blockquote>
-<p>Copyright (c) 2015 Alexsander Akers</p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</p>
-</blockquote>
-
-<h6>
-<a id="user-content-availability" class="anchor" href="#availability" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Availability</h6>
-
-<p>MessagePack.swift is intended for use with Swift 2.0. Compatibility with past and future versions is not guaranteed.</p>
+<p>MessagePack.swift is available under the MIT license. See the LICENSE file for more info.</p>
 </article>
   </div>
         </div>
