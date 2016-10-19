@@ -2457,7 +2457,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">import</span> umsgpack
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82\xa7</span>compact<span class="pl-cce">\xc3\xa6</span>schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x82\xa7</span>compact<span class="pl-cce">\xc3\xa6</span>schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpackb(_)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
@@ -2465,13 +2465,13 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <p>A more complicated example:</p>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb(
-        [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1"><span class="pl-k">0x</span>ffffffff</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
-         <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x97\x01\xc3\xc2\xce\xff\xff\xff\xff\x82\xa3</span>foo<span class="pl-cce">\xc4\x03\x80\x01</span><span class="pl-pds">'</span></span>
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x02\xa3</span>bar<span class="pl-cce">\x94\x01\x02\x03\x81\xa1</span>a<span class="pl-cce">\x94\x01\x02\x03\x80\xff\xcb</span><span class="pl-pds">'</span></span>
-<span class="pl-s"><span class="pl-pds">'</span>@<span class="pl-cce">\x00\xfc\xd3</span>Z<span class="pl-cce">\x85\x87\x94</span><span class="pl-pds">'</span></span>
+<span class="pl-c1">...</span>     [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1"><span class="pl-k">0x</span>ffffffff</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">"</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">"</span></span>,
+<span class="pl-c1">...</span>      <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x97\x01\xc3\xc2\xce\xff\xff\xff\xff\x82\xa3</span>foo<span class="pl-cce">\xc4\x03\x80\x01</span><span class="pl-c1">\</span></span>
+<span class="pl-s"><span class="pl-cce">\x02\xa3</span>bar<span class="pl-cce">\x94\x01\x02\x03\x81\xa1</span>a<span class="pl-cce">\x94\x01\x02\x03\x80\xff\xcb</span><span class="pl-c1">\</span></span>
+<span class="pl-s">@<span class="pl-cce">\x00\xfc\xd3</span>Z<span class="pl-cce">\x85\x87\x94</span><span class="pl-pds">'</span></span>
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpackb(_)
-[<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">4294967295</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">'</span></span>,
+[<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">4294967295</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x80\x01\x02</span><span class="pl-pds">'</span></span>, \
  <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {}]}]}, <span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>]
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
@@ -2490,27 +2490,51 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> f.close()
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
-<p>Encoding and decoding an application-defined ext type:</p>
+<p>Serializing and deserializing a raw Ext type:</p>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
 <span class="pl-c1">...</span> foo <span class="pl-k">=</span> umsgpack.Ext(<span class="pl-c1"><span class="pl-k">0x</span>05</span>, <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">"</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">"</span></span>)
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
-<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x82\xad</span>special stuff<span class="pl-cce">\xc7\x03\x05\x01\x02\x03\xa7</span>awesome<span class="pl-cce">\xc3</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x82\xa5</span>stuff<span class="pl-cce">\xc7\x03\x05\x01\x02\x03\xa7</span>awesome<span class="pl-cce">\xc3</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar <span class="pl-k">=</span> umsgpack.unpackb(_)
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-c1">print</span>(bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>])
-Ext Object (Type: <span class="pl-c1"><span class="pl-k">0x</span>05</span>, Data: <span class="pl-c1">0<span class="pl-ii">1</span></span> <span class="pl-c1">0<span class="pl-ii">2</span></span> <span class="pl-c1">0<span class="pl-ii">3</span></span>)
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].type
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-c1">print</span>(bar[<span class="pl-s"><span class="pl-pds">'</span>stuff<span class="pl-pds">'</span></span>])
+Ext Object (Type: <span class="pl-c1"><span class="pl-k">0x</span>05</span>, Data: <span class="pl-c1"><span class="pl-k">0x</span>01</span> <span class="pl-c1"><span class="pl-k">0x</span>02</span> <span class="pl-c1"><span class="pl-k">0x</span>03</span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar[<span class="pl-s"><span class="pl-pds">'</span>stuff<span class="pl-pds">'</span></span>].type
 <span class="pl-c1">5</span>
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar[<span class="pl-s"><span class="pl-pds">"</span>special stuff<span class="pl-pds">"</span></span>].data
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> bar[<span class="pl-s"><span class="pl-pds">'</span>stuff<span class="pl-pds">'</span></span>].data
 <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
+
+<p>Serializing and deserializing application-defined types with Ext handlers:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb([<span class="pl-c1">complex</span>(<span class="pl-c1">1</span>,<span class="pl-c1">2</span>), datetime.datetime.now()],
+<span class="pl-c1">...</span>     <span class="pl-v">ext_handlers</span> <span class="pl-k">=</span> {
+<span class="pl-c1">...</span>         <span class="pl-c1">complex</span>: <span class="pl-k">lambda</span> <span class="pl-smi">obj</span>: umsgpack.Ext(<span class="pl-c1"><span class="pl-k">0x</span>30</span>,
+<span class="pl-c1">...</span>             struct.pack(<span class="pl-s"><span class="pl-pds">"</span>ff<span class="pl-pds">"</span></span>, obj.real, obj.imag)),
+<span class="pl-c1">...</span>         datetime.datetime: <span class="pl-k">lambda</span> <span class="pl-smi">obj</span>: umsgpack.Ext(<span class="pl-c1"><span class="pl-k">0x</span>40</span>,
+<span class="pl-c1">...</span>             obj.strftime(<span class="pl-s"><span class="pl-pds">"</span>%Y%m<span class="pl-c1">%d</span>T%H:%M:%S.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>).encode()),
+<span class="pl-c1">...</span>     })
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x92\xd7</span>0<span class="pl-cce">\x00\x00\x80</span>?<span class="pl-cce">\x00\x00\x00</span>@<span class="pl-cce">\xc7\x18</span>@20161017T00:12:53.7<span class="pl-pds">'</span></span>
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>19377<span class="pl-pds">'</span></span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.unpackb(_,
+<span class="pl-c1">...</span>     <span class="pl-v">ext_handlers</span> <span class="pl-k">=</span> {
+<span class="pl-c1">...</span>         <span class="pl-c1"><span class="pl-k">0x</span>30</span>: <span class="pl-k">lambda</span> <span class="pl-smi">ext</span>:
+<span class="pl-c1">...</span>                 <span class="pl-c1">complex</span>(<span class="pl-k">*</span>struct.unpack(<span class="pl-s"><span class="pl-pds">"</span>ff<span class="pl-pds">"</span></span>, ext.data)),
+<span class="pl-c1">...</span>         <span class="pl-c1"><span class="pl-k">0x</span>40</span>: <span class="pl-k">lambda</span> <span class="pl-smi">ext</span>:
+<span class="pl-c1">...</span>                 datetime.datetime.strptime(
+<span class="pl-c1">...</span>                     ext.data.decode(),
+<span class="pl-c1">...</span>                     <span class="pl-s"><span class="pl-pds">"</span>%Y%m<span class="pl-c1">%d</span>T%H:%M:%S.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>
+<span class="pl-c1">...</span>                 ),
+<span class="pl-c1">...</span>     })
+[(<span class="pl-c1">1</span><span class="pl-k">+</span><span class="pl-c1">2<span class="pl-k">j</span></span>), datetime.datetime(<span class="pl-c1">2016</span>, <span class="pl-c1">10</span>, <span class="pl-c1">17</span>, <span class="pl-c1">0</span>, <span class="pl-c1">12</span>, <span class="pl-c1">53</span>, <span class="pl-c1">719377</span>)]
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> </pre></div>
 
 <p>Python standard library style names <code>dump</code>, <code>dumps</code>, <code>load</code>, <code>loads</code> are also
 available:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">import</span> umsgpack
-<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.dumps({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
-<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\x82\xa7</span>compact<span class="pl-cce">\xc3\xa6</span>schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.dumps({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>})
+<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x82\xa7</span>compact<span class="pl-cce">\xc3\xa6</span>schema<span class="pl-cce">\x00</span><span class="pl-pds">'</span></span>
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.loads(_)
 {<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>compact<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>schema<span class="pl-pds">'</span></span>: <span class="pl-c1">0</span>}
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> 
