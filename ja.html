@@ -5097,12 +5097,12 @@ $</pre></div>
 
 <p>You can easily integrate MessagePack.swift in your app with SPM. Just add MessagePack.swift as a dependency:</p>
 
-<div class="highlight highlight-source-swift"><pre><span class="pl-k">import</span> <span class="pl-c1">PackageDescription</span>
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">import</span> <span class="pl-en">PackageDescription</span>
 
-<span class="pl-k">let</span> package <span class="pl-k">=</span> Package(
-    name: <span class="pl-s"><span class="pl-pds">"</span>MyAwesomeApp<span class="pl-pds">"</span></span>,
-    dependencies: [
-        <span class="pl-k">.</span>Package(url: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/a2/MessagePack.swift.git<span class="pl-pds">"</span></span>, majorVersion: <span class="pl-c1">2</span>, minor: <span class="pl-c1">0</span>),
+<span class="pl-k">let</span> package <span class="pl-k">=</span> <span class="pl-c1">Package</span>(
+    <span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>MyAwesomeApp<span class="pl-pds">"</span></span>,
+    <span class="pl-c1">dependencies</span>: [
+        .<span class="pl-c1">Package</span>(<span class="pl-c1">url</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/a2/MessagePack.swift.git<span class="pl-pds">"</span></span>, <span class="pl-c1">majorVersion</span>: <span class="pl-c1">2</span>, <span class="pl-c1">minor</span>: <span class="pl-c1">0</span>),
     ]
 )</pre></div>
 
@@ -6066,7 +6066,7 @@ msgInt, msgUint, msgNull
   })
 <span class="pl-k">end</span>
 
-house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Road12<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>location<span class="pl-pds">"</span></span> =&gt; {<span class="pl-s"><span class="pl-pds">"</span>lat<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">12</span>.<span class="pl-c1">3</span>, <span class="pl-s"><span class="pl-pds">"</span>lng<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">34</span>.<span class="pl-c1">5</span>}}.to_msgpack)
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Road12<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>location<span class="pl-pds">"</span></span> =&gt; {<span class="pl-s"><span class="pl-pds">"</span>lat<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">12.3</span>, <span class="pl-s"><span class="pl-pds">"</span>lng<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">34.5</span>}}.to_msgpack)
 <span class="pl-c1">p</span> house <span class="pl-c"># &lt;House:0x1b06de0 @address="Road12", @location=#&lt;Location:0x1b06dc0 @lat=12.3, @lng=34.5&gt;&gt;</span>
 
 house.address <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Something<span class="pl-pds">"</span></span>
@@ -7526,63 +7526,63 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
 <h7>
 <a id="user-content-pack" class="anchor" href="#pack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pack:</h7>
 
-<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
-<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
-<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
-<span class="pl-k">let</span> bool: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> exampleInt<span class="pl-k">:</span> <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-k">let</span> exampleStr<span class="pl-k">:</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
+<span class="pl-k">let</span> exampleArray<span class="pl-k">:</span> [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
+<span class="pl-k">let</span> bool<span class="pl-k">:</span> <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
 
 <span class="pl-c">// To pack items, just put all of them in a single array</span>
 <span class="pl-c">// and call the `pack(items:)` function</span>
-
+<span class="pl-c"></span>
 <span class="pl-c">//this will be the packed data</span>
-<span class="pl-k">let</span> msgPackedBytes: NSData <span class="pl-k">=</span> pack(items: [<span class="pl-c1">true</span>, foo, exampleInt, exampleStr, exampleArray]) 
+<span class="pl-c"></span><span class="pl-k">let</span> msgPackedBytes<span class="pl-k">:</span> NSData <span class="pl-k">=</span> <span class="pl-c1">pack</span>(<span class="pl-c1">items</span>: [<span class="pl-c1">true</span>, foo, exampleInt, exampleStr, exampleArray]) 
 
 <span class="pl-c">// Now your payload is ready to send!!!</span>
-</pre></div>
+<span class="pl-c"></span></pre></div>
 
 <p>But what if we have some custom data structure to send?</p>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-c">//To make your struct / class packable</span>
-<span class="pl-k">struct</span> MyStruct: Packable {  <span class="pl-c">//Confirm to this protocol</span>
-    <span class="pl-k">var</span> name: <span class="pl-c1">String</span>
-    <span class="pl-k">var</span> index: <span class="pl-c1">Int</span>
+<span class="pl-c"></span><span class="pl-k">struct</span> <span class="pl-en">MyStruct</span>: <span class="pl-e">Packable </span>{  <span class="pl-c">//Confirm to this protocol</span>
+<span class="pl-c"></span>    <span class="pl-k">var</span> name<span class="pl-k">:</span> <span class="pl-c1">String</span>
+    <span class="pl-k">var</span> index<span class="pl-k">:</span> <span class="pl-c1">Int</span>
     <span class="pl-k">func</span> <span class="pl-en">packFormat</span>() <span class="pl-k">-&gt;</span> [Packable] { <span class="pl-c">//protocol function</span>
-        <span class="pl-k">return</span> [name, index] <span class="pl-c">//pack order</span>
-    }
+<span class="pl-c"></span>        <span class="pl-k">return</span> [name, index] <span class="pl-c">//pack order</span>
+<span class="pl-c"></span>    }
 
     <span class="pl-k">func</span> <span class="pl-en">msgtype</span>() <span class="pl-k">-&gt;</span> MsgPackTypes {
-        <span class="pl-k">return</span> <span class="pl-k">.</span>Custom
+        <span class="pl-k">return</span> .<span class="pl-smi">Custom</span>
     }
 }
 
-<span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
-<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
-<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>]
-<span class="pl-k">let</span> bool: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
+<span class="pl-k">let</span> exampleInt<span class="pl-k">:</span> <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-k">let</span> exampleStr<span class="pl-k">:</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
+<span class="pl-k">let</span> exampleArray<span class="pl-k">:</span> [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>]
+<span class="pl-k">let</span> bool<span class="pl-k">:</span> <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
 
-<span class="pl-k">let</span> foo <span class="pl-k">=</span> MyStruct(name: <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, index: <span class="pl-c1">626</span>)
+<span class="pl-k">let</span> foo <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">626</span>)
 
-<span class="pl-k">let</span> msgPackedBytes <span class="pl-k">=</span> pack(items: [bool, foo, exampleInt, exampleStr, exampleArray])
+<span class="pl-k">let</span> msgPackedBytes <span class="pl-k">=</span> <span class="pl-c1">pack</span>(<span class="pl-c1">items</span>: [bool, foo, exampleInt, exampleStr, exampleArray])
 </pre></div>
 
 <p><strong>Or you can pack them individually and add them to a byte array manually (Which is also less expensive)</strong></p>
 
-<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
-<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
-<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> exampleInt<span class="pl-k">:</span> <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-k">let</span> exampleStr<span class="pl-k">:</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
+<span class="pl-k">let</span> exampleArray<span class="pl-k">:</span> [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
 
 <span class="pl-c">//Now pack them individually</span>
-<span class="pl-k">let</span> packedInt <span class="pl-k">=</span> exampleInt<span class="pl-k">.</span>packed()
+<span class="pl-c"></span><span class="pl-k">let</span> packedInt <span class="pl-k">=</span> exampleInt.<span class="pl-c1">packed</span>()
 
 <span class="pl-c">//if you didn't specific encoding, the default encoding will be ASCII</span>
-#<span class="pl-k">if</span> swift(<span class="pl-k">&gt;=</span><span class="pl-c1">3</span>)
-<span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr<span class="pl-k">.</span>packed(withEncoding: NSASCIIStringEncoding) 
+<span class="pl-c"></span>#<span class="pl-k">if</span> <span class="pl-k">swift</span>(<span class="pl-k">&gt;=</span><span class="pl-c1">3</span>)
+<span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr.<span class="pl-c1">packed</span>(<span class="pl-c1">withEncoding</span>: NSASCIIStringEncoding) 
 #<span class="pl-k">else</span>
-<span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr<span class="pl-k">.</span>packed(withEncoding: <span class="pl-k">.</span>ascii)
-#endif
-<span class="pl-k">let</span> packedArray <span class="pl-k">=</span> exampleArray<span class="pl-k">.</span>packed()
+<span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr.<span class="pl-c1">packed</span>(<span class="pl-c1">withEncoding</span>: .<span class="pl-smi">ascii</span>)
+#<span class="pl-k">endif</span>
+<span class="pl-k">let</span> packedArray <span class="pl-k">=</span> exampleArray.<span class="pl-c1">packed</span>()
 <span class="pl-c">//You can use this operator +^ the join the data on rhs to the end of data on lhs</span>
-<span class="pl-k">let</span> msgPackedBytes: NSData <span class="pl-k">=</span> packedInt <span class="pl-k">+^</span> packedStr <span class="pl-k">+^</span> packedArray</pre></div>
+<span class="pl-c"></span><span class="pl-k">let</span> msgPackedBytes<span class="pl-k">:</span> NSData <span class="pl-k">=</span> packedInt <span class="pl-k">+^</span> packedStr <span class="pl-k">+^</span> packedArray</pre></div>
 
 <h6>
 <a id="user-content-unpack" class="anchor" href="#unpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unpack</h6>
@@ -7593,45 +7593,45 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">do</span> {
     <span class="pl-c">//The unpack method will return an array of NSData which each element is an unpacked object</span>
-    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes<span class="pl-k">.</span>itemsUnpacked()
+<span class="pl-c"></span>    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes.<span class="pl-c1">itemsUnpacked</span>()
     <span class="pl-c">//instead of casting the NSData to the type you want, you can call these `.castTo..` methods to do the job for you</span>
-    <span class="pl-k">let</span> int: <span class="pl-c1">Int</span> <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">2</span>]<span class="pl-k">.</span>castToInt()
+<span class="pl-c"></span>    <span class="pl-k">let</span> int<span class="pl-k">:</span> <span class="pl-c1">Int</span> <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">2</span>].<span class="pl-c1">castToInt</span>()
 
     <span class="pl-c">//Same as packing, you can also specify the encoding you want to use, default is ASCII</span>
-    <span class="pl-k">let</span> str: <span class="pl-c1">String</span> <span class="pl-k">=</span> unpackedItem[<span class="pl-c1">3</span>]<span class="pl-k">.</span>castToString() 
-    <span class="pl-k">let</span> array: NSArray <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">4</span>]<span class="pl-k">.</span>castToArray() 
+<span class="pl-c"></span>    <span class="pl-k">let</span> str<span class="pl-k">:</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> unpackedItem[<span class="pl-c1">3</span>].<span class="pl-c1">castToString</span>() 
+    <span class="pl-k">let</span> array<span class="pl-k">:</span> NSArray <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">4</span>].<span class="pl-c1">castToArray</span>() 
 } <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
-    NSLog(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
 }
 
 <span class="pl-c">//Remember how to pack your struct? Here is a better way to unpack a stream of bytes formatted in specific format</span>
- <span class="pl-k">let</span> testObj1 <span class="pl-k">=</span> MyStruct(name: <span class="pl-s"><span class="pl-pds">"</span>TestObject1<span class="pl-pds">"</span></span>, index: <span class="pl-c1">1</span>)
- <span class="pl-k">let</span> testObj2 <span class="pl-k">=</span> MyStruct(name: <span class="pl-s"><span class="pl-pds">"</span>TestObject2<span class="pl-pds">"</span></span>, index: <span class="pl-c1">2</span>)
- <span class="pl-k">let</span> testObj3 <span class="pl-k">=</span> MyStruct(name: <span class="pl-s"><span class="pl-pds">"</span>TestObject3<span class="pl-pds">"</span></span>, index: <span class="pl-c1">3</span>)
+<span class="pl-c"></span> <span class="pl-k">let</span> testObj1 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject1<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">1</span>)
+ <span class="pl-k">let</span> testObj2 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject2<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">2</span>)
+ <span class="pl-k">let</span> testObj3 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject3<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">3</span>)
 
- <span class="pl-k">let</span> packed <span class="pl-k">=</span> packCustomObjects(testObj1, testObj2, testObj3) <span class="pl-c">//This is an other method that can pack your own struct easier</span>
-
+ <span class="pl-k">let</span> packed <span class="pl-k">=</span> <span class="pl-c1">packCustomObjects</span>(testObj1, testObj2, testObj3) <span class="pl-c">//This is an other method that can pack your own struct easier</span>
+<span class="pl-c"></span>
  <span class="pl-k">let</span> nobjsInOneGroup <span class="pl-k">=</span> <span class="pl-c1">2</span>
 
- <span class="pl-k">try</span><span class="pl-k">!</span> packed<span class="pl-k">.</span>unpackByGroupsWith(nobjsInOneGroup) {
+ <span class="pl-k">try</span><span class="pl-k">!</span> packed.<span class="pl-c1">unpackByGroupsWith</span>(nobjsInOneGroup) {
      (unpackedData, isLast) <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
 
      <span class="pl-c">//you can also involve additional args like number of groups to unpack</span>
-     <span class="pl-k">guard</span> <span class="pl-k">let</span> name <span class="pl-k">=</span> unpackedData[<span class="pl-c1">0</span>]<span class="pl-k">.</span>castToString() <span class="pl-k">else</span> {<span class="pl-k">return</span> <span class="pl-c1">false</span>} <span class="pl-c">//abort unpacking hen something wrong</span>
-     <span class="pl-k">let</span> index <span class="pl-k">=</span> unpackedData[<span class="pl-c1">1</span>]
-     <span class="pl-k">let</span> testObj <span class="pl-k">=</span> MyStruct(name: name, index: index) <span class="pl-c">// assembly      </span>
-     <span class="pl-k">return</span> <span class="pl-c1">true</span> <span class="pl-c">//proceed unpacking, or return false to abort</span>
- } 
+<span class="pl-c"></span>     <span class="pl-k">guard</span> <span class="pl-k">let</span> name <span class="pl-k">=</span> unpackedData[<span class="pl-c1">0</span>].<span class="pl-c1">castToString</span>() <span class="pl-k">else</span> {<span class="pl-k">return</span> <span class="pl-c1">false</span>} <span class="pl-c">//abort unpacking hen something wrong</span>
+<span class="pl-c"></span>     <span class="pl-k">let</span> index <span class="pl-k">=</span> unpackedData[<span class="pl-c1">1</span>]
+     <span class="pl-k">let</span> testObj <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: name, <span class="pl-c1">index</span>: index) <span class="pl-c">// assembly      </span>
+<span class="pl-c"></span>     <span class="pl-k">return</span> <span class="pl-c1">true</span> <span class="pl-c">//proceed unpacking, or return false to abort</span>
+<span class="pl-c"></span> } 
 </pre></div>
 
 <p><strong>If you don't want to unpack every single thing included in the message-pack byte array, you can also specify an amount to unpack, if you want to keep the remaining bytes, you can put <code>true</code> in the <code>returnRemainingBytes</code> argument, the remaining bytes will stored in the end of the <code>NSData</code> array.</strong></p>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">do</span> {
     <span class="pl-c">//Unpack only 2 objects, and we are not interested in remaining bytes</span>
-    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes<span class="pl-k">.</span>itemsUnpacked(specific_amount: <span class="pl-c1">2</span>, returnRemainingBytes: <span class="pl-c1">false</span>)
-    <span class="pl-c1">print</span>(unpackedItems<span class="pl-k">.</span><span class="pl-c1">count</span>) <span class="pl-c">//will print 2</span>
-} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
-    NSLog(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
+<span class="pl-c"></span>    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes.<span class="pl-c1">itemsUnpacked</span>(<span class="pl-c1">specific_amount</span>: <span class="pl-c1">2</span>, <span class="pl-c1">returnRemainingBytes</span>: <span class="pl-c1">false</span>)
+    <span class="pl-c1">print</span>(unpackedItems.<span class="pl-c1">count</span>) <span class="pl-c">//will print 2</span>
+<span class="pl-c"></span>} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
 }</pre></div>
 </article>
   </div>
@@ -8014,7 +8014,7 @@ License (Apache V2.0) <a href="http://www.apache.org/licenses/LICENSE-2.0">http:
 <span class="pl-c1">1</span>.to_msgpack <span class="pl-c"># =&gt; Slice[210, 0, 0, 0, 1]</span>
 
 <span class="pl-c"># write 2_i32 to file foo.msgpack</span>
-<span class="pl-c1">File</span>.<span class="pl-c1">open</span>(<span class="pl-s"><span class="pl-pds">"</span>foo.msgpack<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w<span class="pl-pds">"</span></span>) { |<span class="pl-smi">f</span>| f.write(<span class="pl-c1">2</span>.to_msgpack) }
+<span class="pl-c1">File</span>.open(<span class="pl-s"><span class="pl-pds">"</span>foo.msgpack<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w<span class="pl-pds">"</span></span>) { |<span class="pl-smi">f</span>| f.write(<span class="pl-c1">2</span>.to_msgpack) }
 </pre></div>
 
 <h6>
