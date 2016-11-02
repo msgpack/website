@@ -610,16 +610,14 @@ msgpack provides <code>dumps</code> and <code>loads</code> as alias for compatib
 <code>json</code> and <code>pickle</code>.</p>
 <p><code>pack</code> and <code>dump</code> packs to file-like object.
 <code>unpack</code> and <code>load</code> unpacks from file-like object.</p>
-<pre lang="pycon">&gt;&gt;&gt; import msgpack
-&gt;&gt;&gt; msgpack.packb([1, 2, 3])
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; msgpack.packb([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>])
 '\x93\x01\x02\x03'
 &gt;&gt;&gt; msgpack.unpackb(_)
-[1, 2, 3]
-</pre>
+[1, 2, 3]</pre></div>
 <p><code>unpack</code> unpacks msgpack's array to Python's list, but can unpack to tuple:</p>
-<pre lang="pycon">&gt;&gt;&gt; msgpack.unpackb(b'\x93\x01\x02\x03', use_list=False)
-(1, 2, 3)
-</pre>
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; msgpack.unpackb(<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x93\x01\x02\x03</span><span class="pl-pds">'</span></span>, <span class="pl-v">use_list</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+(1, 2, 3)</pre></div>
 <p>You should always pass the <code>use_list</code> keyword argument. See performance issues relating to <a href="#use-list-option">use_list option</a> below.</p>
 <p>Read the docstring for other options.</p>
 <a name="user-content-streaming-unpacking"></a>
@@ -673,26 +671,25 @@ key-value pairs.</p>
 <h7>
 <a id="user-content-extended-types" class="anchor" href="#extended-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extended types</h7>
 <p>It is also possible to pack/unpack custom data types using the <strong>ext</strong> type.</p>
-<pre lang="pycon">&gt;&gt;&gt; import msgpack
-&gt;&gt;&gt; import array
-&gt;&gt;&gt; def default(obj):
-...     if isinstance(obj, array.array) and obj.typecode == 'd':
-...         return msgpack.ExtType(42, obj.tostring())
-...     raise TypeError("Unknown type: %r" % (obj,))
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; <span class="pl-k">import</span> array
+&gt;&gt;&gt; <span class="pl-k">def</span> <span class="pl-en">default</span>(<span class="pl-smi">obj</span>):
+...     <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(obj, array.array) <span class="pl-k">and</span> obj.typecode <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>:
+...         <span class="pl-k">return</span> msgpack.ExtType(<span class="pl-c1">42</span>, obj.tostring())
+...     <span class="pl-k">raise</span> <span class="pl-c1">TypeError</span>(<span class="pl-s"><span class="pl-pds">"</span>Unknown type: <span class="pl-c1">%r</span><span class="pl-pds">"</span></span> <span class="pl-k">%</span> (obj,))
 ...
-&gt;&gt;&gt; def ext_hook(code, data):
-...     if code == 42:
-...         a = array.array('d')
+&gt;&gt;&gt; <span class="pl-k">def</span> <span class="pl-en">ext_hook</span>(<span class="pl-smi">code</span>, <span class="pl-smi">data</span>):
+...     <span class="pl-k">if</span> code <span class="pl-k">==</span> <span class="pl-c1">42</span>:
+...         a <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>)
 ...         a.fromstring(data)
-...         return a
-...     return ExtType(code, data)
+...         <span class="pl-k">return</span> a
+...     <span class="pl-k">return</span> ExtType(code, data)
 ...
-&gt;&gt;&gt; data = array.array('d', [1.2, 3.4])
-&gt;&gt;&gt; packed = msgpack.packb(data, default=default)
-&gt;&gt;&gt; unpacked = msgpack.unpackb(packed, ext_hook=ext_hook)
-&gt;&gt;&gt; data == unpacked
-True
-</pre>
+&gt;&gt;&gt; data <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>, [<span class="pl-c1">1.2</span>, <span class="pl-c1">3.4</span>])
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(data, <span class="pl-v">default</span><span class="pl-k">=</span>default)
+&gt;&gt;&gt; unpacked <span class="pl-k">=</span> msgpack.unpackb(packed, <span class="pl-v">ext_hook</span><span class="pl-k">=</span>ext_hook)
+&gt;&gt;&gt; data <span class="pl-k">==</span> unpacked
+True</pre></div>
 <a name="user-content-advanced-unpacking-control"></a>
 <h7>
 <a id="user-content-advanced-unpacking-control" class="anchor" href="#advanced-unpacking-control" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced unpacking control</h7>
@@ -731,20 +728,18 @@ It is because keep compatibility with data created by old libs. <strong>raw</str
 <p>Currently, while msgpack-python supports new <strong>bin</strong> type, default setting doesn't use it and
 decodes <strong>raw</strong> as bytes instead of unicode (str in Python 3).</p>
 <p>You can change this by using use_bin_type=True option in Packer and encoding="utf-8" option in Unpacker.</p>
-<pre lang="pycon">&gt;&gt;&gt; import msgpack
-&gt;&gt;&gt; packed = msgpack.packb([b'spam', u'egg'], use_bin_type=True)
-&gt;&gt;&gt; msgpack.unpackb(packed, encoding='utf-8')
-['spam', u'egg']
-</pre>
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>egg<span class="pl-pds">'</span></span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+&gt;&gt;&gt; msgpack.unpackb(packed, <span class="pl-v">encoding</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>utf-8<span class="pl-pds">'</span></span>)
+['spam', u'egg']</pre></div>
 <a name="user-content-ext-type"></a>
 <h7>
 <a id="user-content-ext-type" class="anchor" href="#ext-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ext type</h7>
 <p>To use <strong>ext</strong> type, pass <code>msgpack.ExtType</code> object to packer.</p>
-<pre lang="pycon">&gt;&gt;&gt; import msgpack
-&gt;&gt;&gt; packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(msgpack.ExtType(<span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>xyzzy<span class="pl-pds">'</span></span>))
 &gt;&gt;&gt; msgpack.unpackb(packed)
-ExtType(code=42, data='xyzzy')
-</pre>
+ExtType(code=42, data='xyzzy')</pre></div>
 <p>You can use it with <code>default</code> and <code>ext_hook</code>. See below.</p>
 <a name="user-content-note-for-msgpack-python-0-2-x-users"></a>
 <h7>
