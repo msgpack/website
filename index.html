@@ -177,15 +177,27 @@
 
         <ul class="qslist">
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-java',this)">Java <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-d',this)">D <span class="qs-sub">msgpack</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-python',this)">Python <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-erlang',this)">Erlang <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ruby',this)">Ruby <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-scala',this)">Scala <span class="qs-sub">msgpack</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-haskell',this)">Haskell <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-MessagePack',this)">Ruby/C++ <span class="qs-sub">mneumann</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-aaulia-msgpack-haxe',this)">Haxe <span class="qs-sub">aaulia</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-cli',this)">C# <span class="qs-sub">msgpack</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-c',this)">C/C++ <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
@@ -193,7 +205,11 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-php',this)">PHP <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-fperrad-lua-MessagePack',this)">Lua <span class="qs-sub">fperrad</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
           
@@ -304,6 +320,60 @@
         <div id="quickstart" class="qsholder"></div>
         <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md#how-to-list-up-your-project-on-msgpackorg">List your implementation here!</a></p>
 
+        
+        <div id="qs-msgpack-msgpack-java" class="qs"><h4><a href="https://github.com/msgpack/msgpack-java" target="_blank">msgpack/msgpack-java <span class="qs-url">https://github.com/msgpack/msgpack-java</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-for-java" class="anchor" href="#messagepack-for-java" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Java</h5>
+
+<p>QuickStart for msgpack-java is available <a href="https://github.com/msgpack/msgpack-java/wiki/QuickStart">here</a>.</p>
+
+<h6>
+<a id="user-content-how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to install</h6>
+
+<p>You can install msgpack via maven:</p>
+
+<pre><code>&lt;dependencies&gt;
+  ...
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.msgpack&lt;/groupId&gt;
+    &lt;artifactId&gt;msgpack&lt;/artifactId&gt;
+    &lt;version&gt;${msgpack.version}&lt;/version&gt;
+  &lt;/dependency&gt;
+  ...
+&lt;/dependencies&gt;
+</code></pre>
+
+<h6>
+<a id="user-content-simple-serializationdeserializationduck-typing-using-value" class="anchor" href="#simple-serializationdeserializationduck-typing-using-value" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simple Serialization/Deserialization/Duck Typing using Value</h6>
+
+<pre><code>// Create serialize objects.
+List&lt;String&gt; src = new ArrayList&lt;String&gt;();
+src.add("msgpack");
+src.add("kumofs");
+src.add("viver");
+
+MessagePack msgpack = new MessagePack();
+// Serialize
+byte[] raw = msgpack.write(src);
+
+// Deserialize directly using a template
+List&lt;String&gt; dst1 = msgpack.read(raw, Templates.tList(Templates.TString));
+System.out.println(dst1.get(0));
+System.out.println(dst1.get(1));
+System.out.println(dst1.get(2));
+
+// Or, Deserialze to Value then convert type.
+Value dynamic = msgpack.read(raw);
+List&lt;String&gt; dst2 = new Converter(dynamic)
+    .read(Templates.tList(Templates.TString));
+System.out.println(dst2.get(0));
+System.out.println(dst2.get(1));
+System.out.println(dst2.get(2));
+</code></pre>
+</article>
+  </div>
+        </div>
         
         <div id="qs-msgpack-msgpack-d" class="qs"><h4><a href="https://github.com/msgpack/msgpack-d" target="_blank">msgpack/msgpack-d <span class="qs-url">https://github.com/msgpack/msgpack-d</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
@@ -476,6 +546,238 @@ typed as a base class object.</p>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h5>
 
 <p>Distributed under the <a href="http://www.boost.org/users/license.html">Boost Software License, Version 1.0</a>.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-python" class="qs"><h4><a href="https://github.com/msgpack/msgpack-python" target="_blank">msgpack/msgpack-python <span class="qs-url">https://github.com/msgpack/msgpack-python</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-for-python" class="anchor" href="#messagepack-for-python" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Python</h5>
+<table frame="void" rules="none">
+
+
+<tbody valign="top">
+<tr>
+<th>Author:</th>
+<td>INADA Naoki</td>
+</tr>
+<tr>
+<th>Version:</th>
+<td>0.4.6</td>
+</tr>
+<tr>
+<th>Date:</th>
+<td>2015-03-13</td>
+</tr>
+</tbody>
+</table>
+<a href="https://travis-ci.org/#!/msgpack/msgpack-python"><img src="https://camo.githubusercontent.com/15331596dd0895f7ce58ed2df7f49a6efeb592f6/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d707974686f6e2e737667" data-canonical-src="https://secure.travis-ci.org/msgpack/msgpack-python.svg" style="max-width:100%;">
+</a>
+<a name="user-content-what-s-this"></a>
+<h6>
+<a id="user-content-whats-this" class="anchor" href="#whats-this" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What's this</h6>
+<p><a href="http://msgpack.org/">MessagePack</a> is a fast, compact binary serialization format, suitable for
+similar data to JSON. This package provides CPython bindings for reading and
+writing MessagePack data.</p>
+<a name="user-content-install"></a>
+<h6>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h6>
+<pre>$ pip install msgpack-python
+</pre>
+<a name="user-content-pypy"></a>
+<h7>
+<a id="user-content-pypy" class="anchor" href="#pypy" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PyPy</h7>
+<p>msgpack-python provides pure python implementation.  PyPy can use this.</p>
+<a name="user-content-windows"></a>
+<h7>
+<a id="user-content-windows" class="anchor" href="#windows" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Windows</h7>
+<p>When you can't use binary distribution, you need to install Visual Studio
+or Windows SDK on Windows.
+Without extension, using pure python implementation on CPython runs slowly.</p>
+<p>For Python 2.7, <a href="https://www.microsoft.com/en-us/download/details.aspx?id=44266">Microsoft Visual C++ Compiler for Python 2.7</a>
+is recommended solution.</p>
+<p>For Python 3.5, <a href="https://www.visualstudio.com/en-us/products/vs-2015-product-editions.aspx">Microsoft Visual Studio 2015</a>
+Community Edition or Express Edition can be used to build extension module.</p>
+<a name="user-content-how-to-use"></a>
+<h6>
+<a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to use</h6>
+<a name="user-content-one-shot-pack-unpack"></a>
+<h7>
+<a id="user-content-one-shot-pack--unpack" class="anchor" href="#one-shot-pack--unpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>One-shot pack &amp; unpack</h7>
+<p>Use <code>packb</code> for packing and <code>unpackb</code> for unpacking.
+msgpack provides <code>dumps</code> and <code>loads</code> as alias for compatibility with
+<code>json</code> and <code>pickle</code>.</p>
+<p><code>pack</code> and <code>dump</code> packs to file-like object.
+<code>unpack</code> and <code>load</code> unpacks from file-like object.</p>
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; msgpack.packb([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>])
+'\x93\x01\x02\x03'
+&gt;&gt;&gt; msgpack.unpackb(_)
+[1, 2, 3]</pre></div>
+<p><code>unpack</code> unpacks msgpack's array to Python's list, but can unpack to tuple:</p>
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; msgpack.unpackb(<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x93\x01\x02\x03</span><span class="pl-pds">'</span></span>, <span class="pl-v">use_list</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+(1, 2, 3)</pre></div>
+<p>You should always pass the <code>use_list</code> keyword argument. See performance issues relating to <a href="#use-list-option">use_list option</a> below.</p>
+<p>Read the docstring for other options.</p>
+<a name="user-content-streaming-unpacking"></a>
+<h7>
+<a id="user-content-streaming-unpacking" class="anchor" href="#streaming-unpacking" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming unpacking</h7>
+<p><code>Unpacker</code> is a "streaming unpacker". It unpacks multiple objects from one
+stream (or from bytes provided through its <code>feed</code> method).</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> msgpack
+<span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
+
+buf <span class="pl-k">=</span> BytesIO()
+<span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">100</span>):
+   buf.write(msgpack.packb(<span class="pl-c1">range</span>(i)))
+
+buf.seek(<span class="pl-c1">0</span>)
+
+unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf)
+<span class="pl-k">for</span> unpacked <span class="pl-k">in</span> unpacker:
+    <span class="pl-c1">print</span> unpacked</pre></div>
+<a name="user-content-packing-unpacking-of-custom-data-type"></a>
+<h7>
+<a id="user-content-packingunpacking-of-custom-data-type" class="anchor" href="#packingunpacking-of-custom-data-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packing/unpacking of custom data type</h7>
+<p>It is also possible to pack/unpack custom data types. Here is an example for
+<code>datetime.datetime</code>.</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> datetime
+
+<span class="pl-k">import</span> msgpack
+
+useful_dict <span class="pl-k">=</span> {
+    <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-c1">1</span>,
+    <span class="pl-s"><span class="pl-pds">"</span>created<span class="pl-pds">"</span></span>: datetime.datetime.now(),
+}
+
+<span class="pl-k">def</span> <span class="pl-en">decode_datetime</span>(<span class="pl-smi">obj</span>):
+    <span class="pl-k">if</span> <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span> <span class="pl-k">in</span> obj:
+        obj <span class="pl-k">=</span> datetime.datetime.strptime(obj[<span class="pl-s"><span class="pl-pds">"</span>as_str<span class="pl-pds">"</span></span>], <span class="pl-s"><span class="pl-pds">"</span>%Y%m<span class="pl-c1">%d</span>T%H:%M:%S.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)
+    <span class="pl-k">return</span> obj
+
+<span class="pl-k">def</span> <span class="pl-en">encode_datetime</span>(<span class="pl-smi">obj</span>):
+    <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(obj, datetime.datetime):
+        <span class="pl-k">return</span> {<span class="pl-s"><span class="pl-pds">'</span>__datetime__<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>, <span class="pl-s"><span class="pl-pds">'</span>as_str<span class="pl-pds">'</span></span>: obj.strftime(<span class="pl-s"><span class="pl-pds">"</span>%Y%m<span class="pl-c1">%d</span>T%H:%M:%S.<span class="pl-c1">%f</span><span class="pl-pds">"</span></span>)}
+    <span class="pl-k">return</span> obj
+
+
+packed_dict <span class="pl-k">=</span> msgpack.packb(useful_dict, <span class="pl-v">default</span><span class="pl-k">=</span>encode_datetime)
+this_dict_again <span class="pl-k">=</span> msgpack.unpackb(packed_dict, <span class="pl-v">object_hook</span><span class="pl-k">=</span>decode_datetime)</pre></div>
+<p><code>Unpacker</code>'s <code>object_hook</code> callback receives a dict; the
+<code>object_pairs_hook</code> callback may instead be used to receive a list of
+key-value pairs.</p>
+<a name="user-content-extended-types"></a>
+<h7>
+<a id="user-content-extended-types" class="anchor" href="#extended-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extended types</h7>
+<p>It is also possible to pack/unpack custom data types using the <strong>ext</strong> type.</p>
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; <span class="pl-k">import</span> array
+&gt;&gt;&gt; <span class="pl-k">def</span> <span class="pl-en">default</span>(<span class="pl-smi">obj</span>):
+...     <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(obj, array.array) <span class="pl-k">and</span> obj.typecode <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>:
+...         <span class="pl-k">return</span> msgpack.ExtType(<span class="pl-c1">42</span>, obj.tostring())
+...     <span class="pl-k">raise</span> <span class="pl-c1">TypeError</span>(<span class="pl-s"><span class="pl-pds">"</span>Unknown type: <span class="pl-c1">%r</span><span class="pl-pds">"</span></span> <span class="pl-k">%</span> (obj,))
+...
+&gt;&gt;&gt; <span class="pl-k">def</span> <span class="pl-en">ext_hook</span>(<span class="pl-smi">code</span>, <span class="pl-smi">data</span>):
+...     <span class="pl-k">if</span> code <span class="pl-k">==</span> <span class="pl-c1">42</span>:
+...         a <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>)
+...         a.fromstring(data)
+...         <span class="pl-k">return</span> a
+...     <span class="pl-k">return</span> ExtType(code, data)
+...
+&gt;&gt;&gt; data <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>, [<span class="pl-c1">1.2</span>, <span class="pl-c1">3.4</span>])
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(data, <span class="pl-v">default</span><span class="pl-k">=</span>default)
+&gt;&gt;&gt; unpacked <span class="pl-k">=</span> msgpack.unpackb(packed, <span class="pl-v">ext_hook</span><span class="pl-k">=</span>ext_hook)
+&gt;&gt;&gt; data <span class="pl-k">==</span> unpacked
+True</pre></div>
+<a name="user-content-advanced-unpacking-control"></a>
+<h7>
+<a id="user-content-advanced-unpacking-control" class="anchor" href="#advanced-unpacking-control" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced unpacking control</h7>
+<p>As an alternative to iteration, <code>Unpacker</code> objects provide <code>unpack</code>,
+<code>skip</code>, <code>read_array_header</code> and <code>read_map_header</code> methods. The former two
+read an entire message from the stream, respectively deserialising and returning
+the result, or ignoring it. The latter two methods return the number of elements
+in the upcoming container, so that each element in an array, or key-value pair
+in a map, can be unpacked or skipped individually.</p>
+<p>Each of these methods may optionally write the packed data it reads to a
+callback function:</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> io <span class="pl-k">import</span> BytesIO
+
+<span class="pl-k">def</span> <span class="pl-en">distribute</span>(<span class="pl-smi">unpacker</span>, <span class="pl-smi">get_worker</span>):
+    nelems <span class="pl-k">=</span> unpacker.read_map_header()
+    <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(nelems):
+        <span class="pl-c"># Select a worker for the given key</span>
+        key <span class="pl-k">=</span> unpacker.unpack()
+        worker <span class="pl-k">=</span> get_worker(key)
+
+        <span class="pl-c"># Send the value as a packed message to worker</span>
+        bytestream <span class="pl-k">=</span> BytesIO()
+        unpacker.skip(bytestream.write)
+        worker.send(bytestream.getvalue())</pre></div>
+<a name="user-content-notes"></a>
+<h6>
+<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notes</h6>
+<a name="user-content-string-and-binary-type"></a>
+<h7>
+<a id="user-content-string-and-binary-type" class="anchor" href="#string-and-binary-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>string and binary type</h7>
+<p>In old days, msgpack doesn't distinguish string and binary types like Python 1.
+The type for represent string and binary types is named <strong>raw</strong>.</p>
+<p>msgpack can distinguish string and binary type for now.  But it is not like Python 2.
+Python 2 added unicode string.  But msgpack renamed <strong>raw</strong> to <strong>str</strong> and added <strong>bin</strong> type.
+It is because keep compatibility with data created by old libs. <strong>raw</strong> was used for text more than binary.</p>
+<p>Currently, while msgpack-python supports new <strong>bin</strong> type, default setting doesn't use it and
+decodes <strong>raw</strong> as bytes instead of unicode (str in Python 3).</p>
+<p>You can change this by using use_bin_type=True option in Packer and encoding="utf-8" option in Unpacker.</p>
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>egg<span class="pl-pds">'</span></span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+&gt;&gt;&gt; msgpack.unpackb(packed, <span class="pl-v">encoding</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>utf-8<span class="pl-pds">'</span></span>)
+['spam', u'egg']</pre></div>
+<a name="user-content-ext-type"></a>
+<h7>
+<a id="user-content-ext-type" class="anchor" href="#ext-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ext type</h7>
+<p>To use <strong>ext</strong> type, pass <code>msgpack.ExtType</code> object to packer.</p>
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(msgpack.ExtType(<span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>xyzzy<span class="pl-pds">'</span></span>))
+&gt;&gt;&gt; msgpack.unpackb(packed)
+ExtType(code=42, data='xyzzy')</pre></div>
+<p>You can use it with <code>default</code> and <code>ext_hook</code>. See below.</p>
+<a name="user-content-note-for-msgpack-python-0-2-x-users"></a>
+<h7>
+<a id="user-content-note-for-msgpack-python-02x-users" class="anchor" href="#note-for-msgpack-python-02x-users" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Note for msgpack-python 0.2.x users</h7>
+<p>The msgpack-python 0.3 have some incompatible changes.</p>
+<p>The default value of <code>use_list</code> keyword argument is <code>True</code> from 0.3.
+You should pass the argument explicitly for backward compatibility.</p>
+<p>Unpacker.unpack() and some unpack methods now raises OutOfData
+instead of StopIteration.
+StopIteration is used for iterator protocol only.</p>
+<a name="user-content-note-about-performance"></a>
+<h6>
+<a id="user-content-note-about-performance" class="anchor" href="#note-about-performance" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Note about performance</h6>
+<a name="user-content-gc"></a>
+<h7>
+<a id="user-content-gc" class="anchor" href="#gc" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GC</h7>
+<p>CPython's GC starts when growing allocated object.
+This means unpacking may cause useless GC.
+You can use <code>gc.disable()</code> when unpacking large message.</p>
+<a name="user-content-use-list-option"></a>
+<h7>
+<a id="user-content-use_list-option" class="anchor" href="#use_list-option" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>use_list option</h7>
+<p>List is the default sequence type of Python.
+But tuple is lighter than list.
+You can use <code>use_list=False</code> while unpacking when performance is important.</p>
+<p>Python's dict can't use list as key and MessagePack allows array for key of mapping.
+<code>use_list=False</code> allows unpacking such message.
+Another way to unpacking such object is using <code>object_pairs_hook</code>.</p>
+<a name="user-content-development"></a>
+<h6>
+<a id="user-content-development" class="anchor" href="#development" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Development</h6>
+<h6 id="user-content-test">
+<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test</h6>
+<p>MessagePack uses pytest for testing.
+Run test with following command:</p>
+<blockquote>
+$ py.test</blockquote>
+
 </article>
   </div>
         </div>
@@ -723,6 +1025,64 @@ OTP 17.0.</p>
   </div>
         </div>
         
+        <div id="qs-msgpack-msgpack-ruby" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ruby" target="_blank">msgpack/msgpack-ruby <span class="qs-url">https://github.com/msgpack/msgpack-ruby</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-for-ruby" class="anchor" href="#messagepack-for-ruby" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Ruby</h5>
+
+<pre><code>require 'msgpack'
+msg = [1,2,3].to_msgpack  #=&gt; "\x93\x01\x02\x03"
+MessagePack.unpack(msg)   #=&gt; [1,2,3]
+</code></pre>
+
+<h6>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h6>
+
+<pre><code>gem install msgpack
+</code></pre>
+
+<h6>
+<a id="user-content-use-cases" class="anchor" href="#use-cases" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use cases</h6>
+
+<ul>
+<li>Create REST API returing MessagePack using Rails + <a href="https://github.com/nesquena/rabl">RABL</a>
+</li>
+<li>Store objects efficiently in memcached or Redis</li>
+<li>Upload data in efficient format from mobile devices. See also MessagePack for <a href="https://github.com/msgpack/msgpack-objectivec">Objective-C</a> and <a href="https://github.com/msgpack/msgpack-java">Java</a>
+</li>
+</ul>
+
+<h6>
+<a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links</h6>
+
+<ul>
+<li><a href="https://github.com/msgpack/msgpack-ruby">Github</a></li>
+<li><a href="http://ruby.msgpack.org/">API document</a></li>
+</ul>
+
+<h6>
+<a id="user-content-streaming-api" class="anchor" href="#streaming-api" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming API</h6>
+
+<pre><code># serialize a 2-element array [e1, e2]
+pk = MessagePack::Packer.new(io)
+pk.write_array_header(2).write(e1).write(e2).flush
+</code></pre>
+
+<pre><code># deserialize objects from an IO
+u = MessagePack::Unpacker.new(io)
+u.each { |obj| ... }
+</code></pre>
+
+<pre><code># event-driven deserialization
+def on_read(data)
+  @u ||= MessagePack::Unpacker.new
+  @u.feed_each(data) { |obj| ... }
+end
+</code></pre>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-msgpack-msgpack-scala" class="qs"><h4><a href="https://github.com/msgpack/msgpack-scala" target="_blank">msgpack/msgpack-scala <span class="qs-url">https://github.com/msgpack/msgpack-scala</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -796,6 +1156,42 @@ obj.age <span class="pl-k">=</span> <span class="pl-c1">22</span>
   </div>
         </div>
         
+        <div id="qs-msgpack-msgpack-haskell" class="qs"><h4><a href="https://github.com/msgpack/msgpack-haskell" target="_blank">msgpack/msgpack-haskell <span class="qs-url">https://github.com/msgpack/msgpack-haskell</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-for-haskell" class="anchor" href="#messagepack-for-haskell" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Haskell</h5>
+
+<p>This is an implementation of msgpack for Haskell.</p>
+
+<p>It containes:</p>
+
+<ul>
+<li>Serializer/Deserializer</li>
+<li>RPC</li>
+</ul>
+
+<h5>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h5>
+
+<p>Execute following instructions:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ cabal update
+$ cabal install msgpack
+$ cabal install msgpack-rpc</pre></div>
+
+<h5>
+<a id="user-content-document" class="anchor" href="#document" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Document</h5>
+
+<p>There are Haddoc documents on Hackage Database.</p>
+
+<ul>
+<li><a href="http://hackage.haskell.org/package/msgpack">http://hackage.haskell.org/package/msgpack</a></li>
+<li><a href="http://hackage.haskell.org/package/msgpack-rpc">http://hackage.haskell.org/package/msgpack-rpc</a></li>
+</ul>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-mneumann-MessagePack" class="qs"><h4><a href="https://github.com/mneumann/MessagePack" target="_blank">mneumann/MessagePack <span class="qs-url">https://github.com/mneumann/MessagePack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -852,6 +1248,344 @@ obj.age <span class="pl-k">=</span> <span class="pl-c1">22</span>
         <span class="pl-k">trace</span>(o);
     }
 }</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-cli" class="qs"><h4><a href="https://github.com/msgpack/msgpack-cli" target="_blank">msgpack/msgpack-cli <span class="qs-url">https://github.com/msgpack/msgpack-cli</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-for-cli" class="anchor" href="#messagepack-for-cli" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for CLI</h5>
+
+<h6>
+<a id="user-content-what-is-it" class="anchor" href="#what-is-it" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is it?</h6>
+
+<p>This is MessagePack serialization/deserialization for CLI (Common Language Infrastructure) implementations such as .NET Framework, Silverlight, Mono (including Moonlight.)
+This library can be used from ALL CLS compliant languages such as C#, F#, Visual Basic, Iron Python, Iron Ruby, PowerShell, C++/CLI or so.</p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<p>You can serialize/deserialize objects as following:
+1. Create serializer via <code>MessagePackSerializer.Create</code> generic method. This method creates dependent types serializers as well.
+1. Invoke serializer as following:
+** <code>Pack</code> method with destination <code>Stream</code> and target object for serialization.
+** <code>Unpack</code> method with source <code>Stream</code>.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// Creates serializer.</span>
+<span class="pl-k">var</span> serializer = SerializationContext.Default.GetSerializer&lt;T&gt;();
+<span class="pl-c">// Pack obj to stream.</span>
+serializer.Pack(stream, obj);
+<span class="pl-c">// Unpack from stream.</span>
+<span class="pl-k">var</span> unpackedObject = serializer.Unpack(stream);</pre></div>
+
+<div class="highlight highlight-source-vbnet"><pre><span class="pl-c">' Creates serializer.</span>
+<span class="pl-k">Dim</span> serializer <span class="pl-k">=</span> SerializationContext<span class="pl-k">.</span><span class="pl-k">Default</span><span class="pl-k">.</span>GetSerializer(<span class="pl-k">Of </span>T)()
+<span class="pl-c">' Pack obj to stream.</span>
+serializer<span class="pl-k">.</span>Pack(stream, obj)
+<span class="pl-c">' Unpack from stream.</span>
+<span class="pl-k">Dim</span> unpackedObject <span class="pl-k">=</span> serializer<span class="pl-k">.</span>Unpack(stream)</pre></div>
+
+<h6>
+<a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h6>
+
+<ul>
+<li>Fast and interoperable binary format serialization with simple API.</li>
+<li>Generating pre-compiled assembly for rapid start up.</li>
+<li>Flexible MessagePackObject which represents MessagePack type system naturally.</li>
+</ul>
+
+<h6>
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation</h6>
+
+<p>See <a href="https://github.com/msgpack/msgpack-cli/wiki">wiki</a></p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<ul>
+<li>Binary files distributed via the NuGet package <a href="http://www.nuget.org/packages/MsgPack.Cli/">MsgPack.Cli</a>.</li>
+<li>You can extract binary (DLL) file as following:
+
+<ol>
+<li>Download *.zip file from <a href="https://github.com/msgpack/msgpack-cli/releases/">GitHub Release page</a>.</li>
+<li>Extract it.</li>
+<li>Under the <code>bin</code> directory, binaries are there!
+
+<ul>
+<li>For mono, you can use <code>net461</code> or <code>net35</code> drops as you run with.</li>
+<li>For Unity, <code>unity3d</code> drop is suitable.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+<h6>
+<a id="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to build</h6>
+
+<h7>
+<a id="user-content-for-net-framework" class="anchor" href="#for-net-framework" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For .NET Framework</h7>
+
+<ol>
+<li>Install recent Windows SDK (at least, .NET Framework 4 Client Profile and MSBuild is needed.) <br>
+Or install Visual Studio or Visual Studio Express.
+
+<ol>
+<li>If you want to build unit test assemblies, install NuGet and then restore NUnit packages.</li>
+</ol>
+</li>
+<li>
+<p>Run:</p>
+
+<p>msbuild MsgPack.sln</p>
+
+<p>Or (for .NET 3.5 drops and Unity 3D drops):</p>
+
+<p>msbuild MsgPack.compats.sln</p>
+
+<p>Or (for Windows Runtime/Phone drops and Silverlight 5 drops):</p>
+
+<p>msbuild MsgPack.Windows.sln</p>
+
+<p>Or (for Xamarin drops, you must have Xamarin Business or upper license and Mac machine on the LAN to build on Windows):</p>
+
+<p>msbuild MsgPack.Xamarin.sln</p>
+</li>
+</ol>
+
+<p>Or open one of above solution files in your IDE and run build command in it.</p>
+
+<h7>
+<a id="user-content-for-mono" class="anchor" href="#for-mono" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For Mono</h7>
+
+<p>Open MsgPack.mono.sln with MonoDevelop and then click <strong>Build</strong> menu item.
+(Of cource, you can build via xbuild.)</p>
+
+<h7>
+<a id="user-content-own-unity-3d-build" class="anchor" href="#own-unity-3d-build" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Own Unity 3D Build</h7>
+
+<p>First of all, there are binary drops on github release page, you should use it to save your time. 
+Because we will not guarantee source code organization compatibilities, we might add/remove non-public types or members, which should break source code build.
+If you want to import sources, you must include just only described on MsgPack.Unity3D.csproj.
+If you want to use ".NET 2.0 Subset" settings, you must use just only described on MsgPack.Unity3D.CorLibOnly.csproj file, and define <code>CORLIB_ONLY</code> compiler constants.</p>
+
+<h6>
+<a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also</h6>
+
+<ul>
+<li> GitHub Page           : <a href="http://cli.msgpack.org/">http://cli.msgpack.org/</a>
+</li>
+<li> Wiki (documentation)  : <a href="https://github.com/msgpack/msgpack-cli/wiki">https://github.com/msgpack/msgpack-cli/wiki</a>
+</li>
+<li> API Reference         : <a href="http://cli.msgpack.org/doc/top.html">http://cli.msgpack.org/doc/top.html</a>
+</li>
+<li> Issue tracker         : <a href="https://github.com/msgpack/msgpack-cli/issues">https://github.com/msgpack/msgpack-cli/issues</a>
+</li>
+<li> MSBuild reference     : <a href="http://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx">http://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx</a>
+</li>
+<li> Mono xbuild reference : <a href="http://www.mono-project.com/Microsoft.Build">http://www.mono-project.com/Microsoft.Build</a>
+</li>
+</ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-c" class="qs"><h4><a href="https://github.com/msgpack/msgpack-c" target="_blank">msgpack/msgpack-c <span class="qs-url">https://github.com/msgpack/msgpack-c</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack-for-cc" class="anchor" href="#msgpack-for-cc" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>msgpack</code> for C/C++</h5>
+
+<p>Version 2.0.0 (under development)<a href="https://travis-ci.org/msgpack/msgpack-c"><img src="https://camo.githubusercontent.com/3165c63f585cb4407878cac19434ff79dfd6f3bc/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d632e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-c.svg?branch=master" style="max-width:100%;"></a> <a href="https://ci.appveyor.com/project/redboltz/msgpack-c/branch/master"><img src="https://camo.githubusercontent.com/b9c03b99428de22ee2a2c1845ba060563e700a05/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f386b73746367743739716a3132336d772f6272616e63682f6d61737465723f7376673d74727565" alt="Build status" data-canonical-src="https://ci.appveyor.com/api/projects/status/8kstcgt79qj123mw/branch/master?svg=true" style="max-width:100%;"></a></p>
+
+<p>It's like JSON but small and fast.</p>
+
+<h6>
+<a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h6>
+
+<p><a href="http://msgpack.org/">MessagePack</a> is an efficient binary serialization
+format, which lets you exchange data among multiple languages like JSON,
+except that it's faster and smaller. Small integers are encoded into a
+single byte while typical short strings require only one extra byte in
+addition to the strings themselves.</p>
+
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h6>
+
+<p>In C:</p>
+
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+    <span class="pl-c">/* msgpack::sbuffer is a simple buffer implementation. */</span>
+    msgpack_sbuffer sbuf;
+    <span class="pl-c1">msgpack_sbuffer_init</span>(&amp;sbuf);
+
+    <span class="pl-c">/* serialize values into the buffer using msgpack_sbuffer_write callback function. */</span>
+    msgpack_packer pk;
+    <span class="pl-c1">msgpack_packer_init</span>(&amp;pk, &amp;sbuf, msgpack_sbuffer_write);
+
+    <span class="pl-c1">msgpack_pack_array</span>(&amp;pk, <span class="pl-c1">3</span>);
+    <span class="pl-c1">msgpack_pack_int</span>(&amp;pk, <span class="pl-c1">1</span>);
+    <span class="pl-c1">msgpack_pack_true</span>(&amp;pk);
+    <span class="pl-c1">msgpack_pack_str</span>(&amp;pk, <span class="pl-c1">7</span>);
+    <span class="pl-c1">msgpack_pack_str_body</span>(&amp;pk, <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>, <span class="pl-c1">7</span>);
+
+    <span class="pl-c">/* deserialize the buffer into msgpack_object instance. */</span>
+    <span class="pl-c">/* deserialized object is valid during the msgpack_zone instance alive. */</span>
+    msgpack_zone mempool;
+    <span class="pl-c1">msgpack_zone_init</span>(&amp;mempool, <span class="pl-c1">2048</span>);
+
+    msgpack_object deserialized;
+    <span class="pl-c1">msgpack_unpack</span>(sbuf.<span class="pl-smi">data</span>, sbuf.<span class="pl-smi">size</span>, <span class="pl-c1">NULL</span>, &amp;mempool, &amp;deserialized);
+
+    <span class="pl-c">/* print the deserialized object. */</span>
+    <span class="pl-c1">msgpack_object_print</span>(stdout, deserialized);
+    <span class="pl-c1">puts</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>);
+
+    <span class="pl-c1">msgpack_zone_destroy</span>(&amp;mempool);
+    <span class="pl-c1">msgpack_sbuffer_destroy</span>(&amp;sbuf);
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-C.md"><code>QUICKSTART-C.md</code></a> for more details.</p>
+
+<p>In C++:</p>
+
+<div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>sstream<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
+{
+    msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; <span class="pl-c1">src</span>(<span class="pl-c1">1</span>, <span class="pl-c1">true</span>, <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>);
+
+    <span class="pl-c">// serialize the object into the buffer.</span>
+    <span class="pl-c">// any classes that implements write(const char*,size_t) can be a buffer.</span>
+    std::stringstream buffer;
+    <span class="pl-c1">msgpack::pack</span>(buffer, src);
+
+    <span class="pl-c">// send the buffer ...</span>
+    buffer.<span class="pl-c1">seekg</span>(<span class="pl-c1">0</span>);
+
+    <span class="pl-c">// deserialize the buffer into msgpack::object instance.</span>
+    std::string <span class="pl-smi">str</span>(buffer.<span class="pl-c1">str</span>());
+
+    msgpack::object_handle oh =
+        <span class="pl-c1">msgpack::unpack</span>(str.<span class="pl-c1">data</span>(), str.<span class="pl-c1">size</span>());
+
+    <span class="pl-c">// deserialized object is valid during the msgpack::object_handle instance is alive.</span>
+    msgpack::object deserialized = oh.<span class="pl-c1">get</span>();
+
+    <span class="pl-c">// msgpack::object supports ostream.</span>
+    std::cout &lt;&lt; deserialized &lt;&lt; std::endl;
+
+    <span class="pl-c">// convert msgpack::object instance into the original type.</span>
+    <span class="pl-c">// if the type is mismatched, it throws msgpack::type_error exception.</span>
+    msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; dst;
+    deserialized.<span class="pl-c1">convert</span>(dst);
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md"><code>QUICKSTART-CPP.md</code></a> for more details.</p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<h7>
+<a id="user-content-c-header-only-library" class="anchor" href="#c-header-only-library" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>C++ Header Only Library</h7>
+
+<p>When you use msgpack on C++03 and C++11, you can just add
+msgpack-c/include to your include path:</p>
+
+<pre><code>g++ -I msgpack-c/include your_source_file.cpp
+</code></pre>
+
+<p>If you want to use C version of msgpack, you need to build it. You can
+also install the C and C++ versions of msgpack.</p>
+
+<h7>
+<a id="user-content-building-and-installing" class="anchor" href="#building-and-installing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building and Installing</h7>
+
+<h8>
+<a id="user-content-install-from-git-repository" class="anchor" href="#install-from-git-repository" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install from git repository</h8>
+
+<h5>
+<a id="user-content-using-the-terminal-cli" class="anchor" href="#using-the-terminal-cli" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the Terminal (CLI)</h5>
+
+<p>You will need:</p>
+
+<ul>
+<li><code>gcc &gt;= 4.1.0</code></li>
+<li><code>cmake &gt;= 2.8.0</code></li>
+</ul>
+
+<p>C and C++03:</p>
+
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+$ cd msgpack-c
+$ cmake .
+$ make
+$ sudo make install
+</code></pre>
+
+<p>If you want to setup C++11 version of msgpack instead,
+execute the following commands:</p>
+
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+$ cd msgpack-c
+$ cmake -DMSGPACK_CXX11=ON .
+$ sudo make install
+</code></pre>
+
+<h8>
+<a id="user-content-gui-on-windows" class="anchor" href="#gui-on-windows" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GUI on Windows</h8>
+
+<p>Clone msgpack-c git repository.</p>
+
+<pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
+</code></pre>
+
+<p>or using GUI git client.</p>
+
+<p>e.g.) tortoise git <a href="https://code.google.com/p/tortoisegit/">https://code.google.com/p/tortoisegit/</a></p>
+
+<ol>
+<li><p>Launch <a href="http://www.cmake.org/cmake/resources/software.html">cmake GUI client</a>.</p></li>
+<li><p>Set 'Where is the source code:' text box and 'Where to build
+the binaries:' text box.</p></li>
+<li><p>Click 'Configure' button.</p></li>
+<li><p>Choose your Visual Studio version.</p></li>
+<li><p>Click 'Generate' button.</p></li>
+<li><p>Open the created msgpack.sln on Visual Studio.</p></li>
+<li><p>Build all.</p></li>
+</ol>
+
+<h7>
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation</h7>
+
+<p>You can get addtional information on the
+<a href="https://github.com/msgpack/msgpack-c/wiki">wiki</a>.</p>
+
+<h6>
+<a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h6>
+
+<p><code>msgpack-c</code> is developed on GitHub at <a href="https://github.com/msgpack/msgpack-c">msgpack/msgpack-c</a>.
+To report an issue or send a pull request, use the
+<a href="https://github.com/msgpack/msgpack-c/issues">issue tracker</a>.</p>
+
+<p>Here's the list of <a href="https://github.com/msgpack/msgpack-c/graphs/contributors">great contributors</a>.</p>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p><code>msgpack-c</code> is licensed under the Boost Software License, Version 1.0. See
+the <a href="/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt"><code>LICENSE_1_0.txt</code></a> file for details.</p>
 </article>
   </div>
         </div>
@@ -1042,6 +1776,64 @@ Get started: <a href="http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/">h
   </div>
         </div>
         
+        <div id="qs-msgpack-msgpack-php" class="qs"><h4><a href="https://github.com/msgpack/msgpack-php" target="_blank">msgpack/msgpack-php <span class="qs-url">https://github.com/msgpack/msgpack-php</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack-for-php" class="anchor" href="#msgpack-for-php" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Msgpack for PHP</h5>
+
+<p><a href="https://travis-ci.org/msgpack/msgpack-php"><img src="https://camo.githubusercontent.com/875634a635cca813cf3c16de575dfb96917e2ca9/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d7068702e706e67" alt="Build Status" data-canonical-src="https://secure.travis-ci.org/msgpack/msgpack-php.png" style="max-width:100%;"></a></p>
+
+<p>This extension provide API for communicating with MessagePack serialization. </p>
+
+<p>MessagePack is a binary-based efficient object serialization library.
+It enables to exchange structured objects between many languages like JSON.
+But unlike JSON, it is very fast and small.</p>
+
+<h6>
+<a id="user-content-requirement" class="anchor" href="#requirement" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirement</h6>
+
+<ul>
+<li>PHP 5.0 +</li>
+</ul>
+
+<h6>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h6>
+
+<h7>
+<a id="user-content-install-from-pecl" class="anchor" href="#install-from-pecl" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install from PECL</h7>
+
+<p>Msgpack is an PECL extension, thus you can simply install it by:</p>
+
+<pre><code>pecl install msgpack
+</code></pre>
+
+<h7>
+<a id="user-content-compile-msgpack-from-source" class="anchor" href="#compile-msgpack-from-source" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compile Msgpack from source</h7>
+
+<pre><code>$/path/to/phpize
+$./configure 
+$make &amp;&amp; make install
+</code></pre>
+
+<h7>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h7>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$data</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-c1">0</span><span class="pl-k">=&gt;</span><span class="pl-c1">1</span>,<span class="pl-c1">1</span><span class="pl-k">=&gt;</span><span class="pl-c1">2</span>,<span class="pl-c1">2</span><span class="pl-k">=&gt;</span><span class="pl-c1">3</span>);</span>
+<span class="pl-s1"><span class="pl-smi">$msg</span> <span class="pl-k">=</span> msgpack_pack(<span class="pl-smi">$data</span>);</span>
+<span class="pl-s1"><span class="pl-smi">$data</span> <span class="pl-k">=</span> msgpack_unpack(<span class="pl-smi">$msg</span>);</span>
+<span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
+
+<h5>
+<a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resources</h5>
+
+<ul>
+<li><a href="http://msgpack.org/">msgpack</a></li>
+</ul>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-fperrad-lua-MessagePack" class="qs"><h4><a href="http://fperrad.github.io/lua-MessagePack/" target="_blank">fperrad/lua-MessagePack <span class="qs-url">http://fperrad.github.io/lua-MessagePack/</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -1085,6 +1877,63 @@ data <span class="pl-k">=</span> mp.<span class="pl-c1">unpack</span>(mpac)</pre
 <p>Copyright (c) 2012-2016 Francois Perrad <a href="https://www.openhub.net/accounts/4780"><img src="https://camo.githubusercontent.com/b6b47de1fd31badb4c9a48713018c6124e3f1757/68747470733a2f2f7777772e6f70656e6875622e6e65742f6163636f756e74732f343738302f776964676574732f6163636f756e745f72616e6b2e676966" alt="rank" data-canonical-src="https://www.openhub.net/accounts/4780/widgets/account_rank.gif" style="max-width:100%;"></a></p>
 
 <p>This library is licensed under the terms of the MIT/X11 license, like Lua itself.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-mneumann-rust-msgpack" class="qs"><h4><a href="https://github.com/mneumann/rust-msgpack" target="_blank">mneumann/rust-msgpack <span class="qs-url">https://github.com/mneumann/rust-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-rust-msgpack-" class="anchor" href="#rust-msgpack-" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>rust-msgpack <a href="https://travis-ci.org/mneumann/rust-msgpack"><img src="https://camo.githubusercontent.com/7e21da06b68bdd23b5f10b72637cc1a5d5ca2d8a/68747470733a2f2f7472617669732d63692e6f72672f6d6e65756d616e6e2f727573742d6d73677061636b2e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/mneumann/rust-msgpack.png?branch=master" style="max-width:100%;"></a>
+</h5>
+
+<p><a href="http://www.msgpack.org">Msgpack</a> implementation for <a href="http://www.rust-lang.org">Rust</a> language.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<p>Simply include the rust-msgpack in your Cargo dependencies.</p>
+
+<div class="highlight highlight-source-toml"><pre>[<span class="pl-en">dependencies</span>.<span class="pl-en">msgpack</span>]
+
+<span class="pl-smi">git</span> = <span class="pl-s"><span class="pl-pds">"</span>git@github.com:mneumann/rust-msgpack.git<span class="pl-pds">"</span></span></pre></div>
+
+<h6>
+<a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quickstart</h6>
+
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> msgpack<span class="pl-k">;</span>
+
+<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
+  <span class="pl-k">let</span> arr <span class="pl-k">=</span> vec<span class="pl-k">!</span>[<span class="pl-s">"str1"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()<span class="pl-k">,</span> <span class="pl-s">"str2"</span><span class="pl-k">.</span><span class="pl-c1">to_string</span>()]<span class="pl-k">;</span>
+  <span class="pl-k">let</span> <span class="pl-k">str</span> <span class="pl-k">=</span> msgpack<span class="pl-k">::</span><span class="pl-k">Encoder</span><span class="pl-k">::</span><span class="pl-c1">to_msgpack</span>(<span class="pl-k">&amp;</span>arr)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+  println<span class="pl-k">!</span>(<span class="pl-s">"Encoded: {}"</span><span class="pl-k">,</span> <span class="pl-k">str</span>)<span class="pl-k">;</span>
+
+  <span class="pl-k">let</span> dec<span class="pl-k">:</span> <span class="pl-k">Vec</span><span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span> <span class="pl-k">=</span> msgpack<span class="pl-k">::</span><span class="pl-c1">from_msgpack</span>(<span class="pl-k">str</span>)<span class="pl-k">.</span><span class="pl-c1">ok</span>()<span class="pl-k">.</span><span class="pl-c1">unwrap</span>()<span class="pl-k">;</span>
+  println<span class="pl-k">!</span>(<span class="pl-s">"Decoded: {}"</span><span class="pl-k">,</span> dec)<span class="pl-k">;</span>
+}</pre></div>
+
+<p>To enable your own data structures to be automatically serialized from and to
+msgpack, derive from <code>Encodable</code> and <code>Decodable</code> as shown
+in the following example:</p>
+
+<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> serialize<span class="pl-k">;</span>
+
+<span class="pl-c">#[deriving(Encodable,Decodable)]</span>
+<span class="pl-k">struct</span> <span class="pl-k">MyStruct</span> {
+  a<span class="pl-k">:</span> <span class="pl-k">Vec</span><span class="pl-k">&lt;</span><span class="pl-k">u32</span><span class="pl-k">&gt;,</span>
+  s<span class="pl-k">:</span> <span class="pl-k">String</span>
+}</pre></div>
+
+<h6>
+<a id="user-content-testing" class="anchor" href="#testing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testing</h6>
+
+<pre><code>cargo test
+</code></pre>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p>This code licensed under the same terms as Rust itself: dual MIT/Apache2 license options.</p>
 </article>
   </div>
         </div>
