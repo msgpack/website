@@ -439,19 +439,19 @@ Note that <code>Unpacker</code> will raise an exception if a loss of precision o
 {
     S input = S(<span class="pl-c1">10</span>, <span class="pl-c1">25.5</span>, <span class="pl-s"><span class="pl-pds">"</span>message<span class="pl-pds">"</span></span>);
 
-    <span class="pl-c">// serialize data</span>
+    <span class="pl-c"><span class="pl-c">//</span> serialize data</span>
     <span class="pl-k">ubyte</span>[] inData = pack(input);
 
-    <span class="pl-c">// write data to a file</span>
+    <span class="pl-c"><span class="pl-c">//</span> write data to a file</span>
     write(<span class="pl-s"><span class="pl-pds">"</span>file.dat<span class="pl-pds">"</span></span>, inData);
 
-    <span class="pl-c">// read data from a file</span>
+    <span class="pl-c"><span class="pl-c">//</span> read data from a file</span>
     <span class="pl-k">ubyte</span>[] outData = <span class="pl-k">cast</span>(<span class="pl-k">ubyte</span>[])read(<span class="pl-s"><span class="pl-pds">"</span>file.dat<span class="pl-pds">"</span></span>);
 
-    <span class="pl-c">// unserialize the data</span>
+    <span class="pl-c"><span class="pl-c">//</span> unserialize the data</span>
     S target = outData.unpack<span class="pl-k">!</span>S();
 
-    <span class="pl-c">// verify data is the same</span>
+    <span class="pl-c"><span class="pl-c">//</span> verify data is the same</span>
     <span class="pl-k">assert</span>(target.x <span class="pl-k">==</span> input.x);
     <span class="pl-k">assert</span>(target.y <span class="pl-k">==</span> input.y);
     <span class="pl-k">assert</span>(target.z <span class="pl-k">==</span> input.z);
@@ -465,7 +465,7 @@ Note that <code>Unpacker</code> will raise an exception if a loss of precision o
 <div class="highlight highlight-source-d"><pre><span class="pl-k">struct</span> <span class="pl-en">User</span>
 {
     <span class="pl-c1">string</span> name;
-    @nonPacked <span class="pl-k">int</span> level;  <span class="pl-c">// pack / unpack will ignore the 'level' field</span>
+    @nonPacked <span class="pl-k">int</span> level;  <span class="pl-c"><span class="pl-c">//</span> pack / unpack will ignore the 'level' field</span>
 }</pre></div>
 
 <h7>
@@ -482,7 +482,7 @@ typed as a base class object.</p>
 <span class="pl-k">class</span> <span class="pl-en">XmlDocument</span> : <span class="pl-e">Document</span>
 {
     <span class="pl-en">this</span>() { }
-    <span class="pl-en">this</span>(<span class="pl-c1">string</span> name) { <span class="pl-v">this</span>.name = name; }
+    <span class="pl-en">this</span>(<span class="pl-c1">string</span> name) { <span class="pl-c1">this</span>.name = name; }
     <span class="pl-c1">string</span> name;
 }
 
@@ -498,17 +498,17 @@ typed as a base class object.</p>
 
 <span class="pl-k">void</span> <span class="pl-en">main</span>()
 {
-    <span class="pl-c">/// Register the 'xmlPackHandler' and 'xmlUnpackHandler' routines for</span>
-    <span class="pl-c">/// XmlDocument object instances.</span>
+    <span class="pl-c"><span class="pl-c">//</span>/ Register the 'xmlPackHandler' and 'xmlUnpackHandler' routines for</span>
+    <span class="pl-c"><span class="pl-c">//</span>/ XmlDocument object instances.</span>
     registerPackHandler<span class="pl-k">!</span>(XmlDocument, xmlPackHandler);
     registerUnpackHandler<span class="pl-k">!</span>(XmlDocument, xmlUnpackHandler);
 
-    <span class="pl-c">/// Now we can serialize/deserialize XmlDocument object instances via a</span>
-    <span class="pl-c">/// base class reference.</span>
+    <span class="pl-c"><span class="pl-c">//</span>/ Now we can serialize/deserialize XmlDocument object instances via a</span>
+    <span class="pl-c"><span class="pl-c">//</span>/ base class reference.</span>
     <span class="pl-c1">Document</span> doc = <span class="pl-k">new</span> XmlDocument(<span class="pl-s"><span class="pl-pds">"</span>test.xml<span class="pl-pds">"</span></span>);
     <span class="pl-k">auto</span> data = pack(doc);
     XmlDocument xml = unpack<span class="pl-k">!</span>XmlDocument(data);
-    <span class="pl-k">assert</span>(xml.name <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>test.xml<span class="pl-pds">"</span></span>);  <span class="pl-c">// xml.name is "test.xml"</span>
+    <span class="pl-k">assert</span>(xml.name <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>test.xml<span class="pl-pds">"</span></span>);  <span class="pl-c"><span class="pl-c">//</span> xml.name is "test.xml"</span>
 }</pre></div>
 
 <h6>
@@ -709,11 +709,11 @@ callback function:</p>
 <span class="pl-k">def</span> <span class="pl-en">distribute</span>(<span class="pl-smi">unpacker</span>, <span class="pl-smi">get_worker</span>):
     nelems <span class="pl-k">=</span> unpacker.read_map_header()
     <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(nelems):
-        <span class="pl-c"># Select a worker for the given key</span>
+        <span class="pl-c"><span class="pl-c">#</span> Select a worker for the given key</span>
         key <span class="pl-k">=</span> unpacker.unpack()
         worker <span class="pl-k">=</span> get_worker(key)
 
-        <span class="pl-c"># Send the value as a packed message to worker</span>
+        <span class="pl-c"><span class="pl-c">#</span> Send the value as a packed message to worker</span>
         bytestream <span class="pl-k">=</span> BytesIO()
         unpacker.skip(bytestream.write)
         worker.send(bytestream.getvalue())</pre></div>
@@ -1155,7 +1155,7 @@ end
 <div class="highlight highlight-source-scala"><pre><span class="pl-k">import</span> <span class="pl-v">org.msgpack.annotation.</span><span class="pl-v">Message</span>
 <span class="pl-k">import</span> <span class="pl-v">org.msgpack.</span><span class="pl-v">ScalaMessagePack</span>
 
-<span class="pl-k">@</span><span class="pl-en">Message</span> <span class="pl-c">// Don't forget to add Message annotation.</span>
+<span class="pl-k">@</span><span class="pl-en">Message</span> <span class="pl-c"><span class="pl-c">//</span> Don't forget to add Message annotation.</span>
 <span class="pl-k">class</span> <span class="pl-en">YourClass</span>{
   <span class="pl-k">var</span> <span class="pl-en">name</span> <span class="pl-k">:</span> <span class="pl-k">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
   <span class="pl-k">var</span> <span class="pl-en">age</span> <span class="pl-k">:</span> <span class="pl-k">Int</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>
@@ -1439,11 +1439,11 @@ addition to the strings themselves.</p>
 
 <span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>)
 {
-    <span class="pl-c">/* msgpack::sbuffer is a simple buffer implementation. */</span>
+    <span class="pl-c"><span class="pl-c">/*</span> msgpack::sbuffer is a simple buffer implementation. <span class="pl-c">*/</span></span>
     msgpack_sbuffer sbuf;
     <span class="pl-c1">msgpack_sbuffer_init</span>(&amp;sbuf);
 
-    <span class="pl-c">/* serialize values into the buffer using msgpack_sbuffer_write callback function. */</span>
+    <span class="pl-c"><span class="pl-c">/*</span> serialize values into the buffer using msgpack_sbuffer_write callback function. <span class="pl-c">*/</span></span>
     msgpack_packer pk;
     <span class="pl-c1">msgpack_packer_init</span>(&amp;pk, &amp;sbuf, msgpack_sbuffer_write);
 
@@ -1453,15 +1453,15 @@ addition to the strings themselves.</p>
     <span class="pl-c1">msgpack_pack_str</span>(&amp;pk, <span class="pl-c1">7</span>);
     <span class="pl-c1">msgpack_pack_str_body</span>(&amp;pk, <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>, <span class="pl-c1">7</span>);
 
-    <span class="pl-c">/* deserialize the buffer into msgpack_object instance. */</span>
-    <span class="pl-c">/* deserialized object is valid during the msgpack_zone instance alive. */</span>
+    <span class="pl-c"><span class="pl-c">/*</span> deserialize the buffer into msgpack_object instance. <span class="pl-c">*/</span></span>
+    <span class="pl-c"><span class="pl-c">/*</span> deserialized object is valid during the msgpack_zone instance alive. <span class="pl-c">*/</span></span>
     msgpack_zone mempool;
     <span class="pl-c1">msgpack_zone_init</span>(&amp;mempool, <span class="pl-c1">2048</span>);
 
     msgpack_object deserialized;
     <span class="pl-c1">msgpack_unpack</span>(sbuf.<span class="pl-smi">data</span>, sbuf.<span class="pl-smi">size</span>, <span class="pl-c1">NULL</span>, &amp;mempool, &amp;deserialized);
 
-    <span class="pl-c">/* print the deserialized object. */</span>
+    <span class="pl-c"><span class="pl-c">/*</span> print the deserialized object. <span class="pl-c">*/</span></span>
     <span class="pl-c1">msgpack_object_print</span>(stdout, deserialized);
     <span class="pl-c1">puts</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>);
 
@@ -1484,28 +1484,28 @@ addition to the strings themselves.</p>
 {
     msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; <span class="pl-c1">src</span>(<span class="pl-c1">1</span>, <span class="pl-c1">true</span>, <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span>);
 
-    <span class="pl-c">// serialize the object into the buffer.</span>
-    <span class="pl-c">// any classes that implements write(const char*,size_t) can be a buffer.</span>
+    <span class="pl-c"><span class="pl-c">//</span> serialize the object into the buffer.</span>
+    <span class="pl-c"><span class="pl-c">//</span> any classes that implements write(const char*,size_t) can be a buffer.</span>
     std::stringstream buffer;
     <span class="pl-c1">msgpack::pack</span>(buffer, src);
 
-    <span class="pl-c">// send the buffer ...</span>
+    <span class="pl-c"><span class="pl-c">//</span> send the buffer ...</span>
     buffer.<span class="pl-c1">seekg</span>(<span class="pl-c1">0</span>);
 
-    <span class="pl-c">// deserialize the buffer into msgpack::object instance.</span>
+    <span class="pl-c"><span class="pl-c">//</span> deserialize the buffer into msgpack::object instance.</span>
     std::string <span class="pl-smi">str</span>(buffer.<span class="pl-c1">str</span>());
 
     msgpack::object_handle oh =
         <span class="pl-c1">msgpack::unpack</span>(str.<span class="pl-c1">data</span>(), str.<span class="pl-c1">size</span>());
 
-    <span class="pl-c">// deserialized object is valid during the msgpack::object_handle instance is alive.</span>
+    <span class="pl-c"><span class="pl-c">//</span> deserialized object is valid during the msgpack::object_handle instance is alive.</span>
     msgpack::object deserialized = oh.<span class="pl-c1">get</span>();
 
-    <span class="pl-c">// msgpack::object supports ostream.</span>
+    <span class="pl-c"><span class="pl-c">//</span> msgpack::object supports ostream.</span>
     std::cout &lt;&lt; deserialized &lt;&lt; std::endl;
 
-    <span class="pl-c">// convert msgpack::object instance into the original type.</span>
-    <span class="pl-c">// if the type is mismatched, it throws msgpack::type_error exception.</span>
+    <span class="pl-c"><span class="pl-c">//</span> convert msgpack::object instance into the original type.</span>
+    <span class="pl-c"><span class="pl-c">//</span> if the type is mismatched, it throws msgpack::type_error exception.</span>
     msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; dst;
     deserialized.<span class="pl-c1">convert</span>(dst);
 
@@ -1627,11 +1627,11 @@ $ sudo make install</pre></div>
 <h7>
 <a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" href="#serializedeserialize-for-msgpack-object" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialize/Deserialize for Msgpack Object</h7>
 
-<div class="highlight highlight-source-ocaml"><pre><span class="pl-c">(* serialize *)</span>
+<div class="highlight highlight-source-ocaml"><pre><span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
 <span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
   <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
 
-<span class="pl-c">(* deserialize *)</span>
+<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
 <span class="pl-k">let</span> obj <span class="pl-k">=</span>
   <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
 
@@ -1645,11 +1645,11 @@ $ sudo make install</pre></div>
   <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
 } <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
 
-<span class="pl-c">(* serialize *)</span>
+<span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
 <span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
   <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
 
-<span class="pl-c">(* deserialize *)</span>
+<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
 <span class="pl-k">let</span> obj <span class="pl-k">=</span>
   t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
 
@@ -1977,17 +1977,17 @@ in the following example:</p>
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
 
-<div class="highlight highlight-source-elixir"><pre><span class="pl-c"># pack</span>
-<span class="pl-en">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
-<span class="pl-en">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-c"><span class="pl-c">#</span> pack</span>
+<span class="pl-en">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
+<span class="pl-en">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
 
-<span class="pl-c"># unpack</span>
-<span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
-<span class="pl-en">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
+<span class="pl-c"><span class="pl-c">#</span> unpack</span>
+<span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, [1,2,3] }</span>
+<span class="pl-en">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; [1,2,3]</span>
 
-<span class="pl-c"># unpack_once</span>
-<span class="pl-en">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
-<span class="pl-en">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
+<span class="pl-c"><span class="pl-c">#</span> unpack_once</span>
+<span class="pl-en">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
+<span class="pl-en">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
 
 <h6>
 <a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h6>
@@ -2192,9 +2192,9 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <p>Typical usage:</p>
 
-<div class="highlight highlight-source-go"><pre>    <span class="pl-c">// create and use decoder/encoder</span>
+<div class="highlight highlight-source-go"><pre>    <span class="pl-c"><span class="pl-c">//</span> create and use decoder/encoder</span>
     <span class="pl-c1">var</span> (
-        v <span class="pl-k">interface</span>{} <span class="pl-c">// value to decode/encode into</span>
+        v <span class="pl-k">interface</span>{} <span class="pl-c"><span class="pl-c">//</span> value to decode/encode into</span>
         r io.<span class="pl-smi">Reader</span>
         w io.<span class="pl-smi">Writer</span>
         b []<span class="pl-k">byte</span>
@@ -2209,20 +2209,20 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
     enc = codec.<span class="pl-c1">NewEncoderBytes</span>(&amp;b, &amp;mh)
     err = enc.<span class="pl-c1">Encode</span>(v)
 
-    <span class="pl-c">//RPC Server</span>
+    <span class="pl-c"><span class="pl-c">//</span>RPC Server</span>
     <span class="pl-k">go</span> <span class="pl-k">func</span>() {
         <span class="pl-k">for</span> {
             <span class="pl-smi">conn</span>, <span class="pl-smi">err</span> <span class="pl-k">:=</span> listener.<span class="pl-c1">Accept</span>()
             <span class="pl-smi">rpcCodec</span> <span class="pl-k">:=</span> codec.<span class="pl-smi">GoRpc</span>.<span class="pl-c1">ServerCodec</span>(conn, h)
-            <span class="pl-c">//OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)</span>
+            <span class="pl-c"><span class="pl-c">//</span>OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)</span>
             rpc.<span class="pl-c1">ServeCodec</span>(rpcCodec)
         }
     }()
 
-    <span class="pl-c">//RPC Communication (client side)</span>
+    <span class="pl-c"><span class="pl-c">//</span>RPC Communication (client side)</span>
     conn, err = net.<span class="pl-c1">Dial</span>(<span class="pl-s"><span class="pl-pds">"</span>tcp<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>localhost:5555<span class="pl-pds">"</span></span>)
     <span class="pl-smi">rpcCodec</span> <span class="pl-k">:=</span> codec.<span class="pl-smi">GoRpc</span>.<span class="pl-c1">ClientCodec</span>(conn, h)
-    <span class="pl-c">//OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span>
+    <span class="pl-c"><span class="pl-c">//</span>OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span>
     <span class="pl-smi">client</span> <span class="pl-k">:=</span> rpc.<span class="pl-c1">NewClientWithCodec</span>(rpcCodec)</pre></div>
 </article>
   </div>
@@ -2239,8 +2239,8 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <p>MessagePack for mruby is MessagePack implimented in mruby language.</p>
 
-<div class="highlight highlight-source-ruby"><pre>msg <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].to_msgpack  <span class="pl-c">#=&gt; "\x93\x01\x02\x03"</span>
-<span class="pl-c1">MessagePack</span>.unpack(msg)     <span class="pl-c">#=&gt; [1, 2, 3]</span></pre></div>
+<div class="highlight highlight-source-ruby"><pre>msg <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].to_msgpack  <span class="pl-c"><span class="pl-c">#</span>=&gt; "\x93\x01\x02\x03"</span>
+<span class="pl-c1">MessagePack</span>.unpack(msg)     <span class="pl-c"><span class="pl-c">#</span>=&gt; [1, 2, 3]</span></pre></div>
 
 <p>This is early vesion. Please check the methods that work in test foloder.</p>
 
@@ -2264,7 +2264,7 @@ Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">htt
 
 <div class="highlight highlight-source-ruby"><pre><span class="pl-c1">MRuby</span>::<span class="pl-c1">Build</span>.<span class="pl-k">new</span> <span class="pl-k">do </span>|<span class="pl-smi">conf</span>|
 
-  <span class="pl-c"># ...(snip)...</span>
+  <span class="pl-c"><span class="pl-c">#</span> ...(snip)...</span>
   conf.<span class="pl-k">gem</span> <span class="pl-c1">:git</span> =&gt; <span class="pl-s"><span class="pl-pds">'</span>https://github.com/suzukaze/mruby-msgpack.git<span class="pl-pds">'</span></span>
 <span class="pl-k">end</span></pre></div>
 
@@ -2417,8 +2417,8 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 <span class="pl-smi">@contact</span>.awesome <span class="pl-k">=</span> <span class="pl-c1">true</span>
 <span class="pl-smi">@contact</span>.preferences <span class="pl-k">=</span> { <span class="pl-s"><span class="pl-pds">'</span>shows<span class="pl-pds">'</span></span> =&gt; <span class="pl-s"><span class="pl-pds">'</span>anime<span class="pl-pds">'</span></span> }
 
-<span class="pl-smi">@contact</span>.to_msgpack                <span class="pl-c"># =&gt; msgpack output</span>
-<span class="pl-smi">@contact</span>.to_msgpack(<span class="pl-c1">:root</span> =&gt; <span class="pl-c1">true</span>) <span class="pl-c"># =&gt; include root in msgpack output</span></pre></div>
+<span class="pl-smi">@contact</span>.to_msgpack                <span class="pl-c"><span class="pl-c">#</span> =&gt; msgpack output</span>
+<span class="pl-smi">@contact</span>.to_msgpack(<span class="pl-c1">:root</span> =&gt; <span class="pl-c1">true</span>) <span class="pl-c"><span class="pl-c">#</span> =&gt; include root in msgpack output</span></pre></div>
 
 <h6>
 <a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h6>
@@ -2504,7 +2504,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 <p>Serializing and deserializing a raw Ext type:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-c"># Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-c"><span class="pl-c">#</span> Create an Ext object with type 0x05 and data b"\x01\x02\x03"</span>
 <span class="pl-c1">...</span> foo <span class="pl-k">=</span> umsgpack.Ext(<span class="pl-c1"><span class="pl-k">0x</span>05</span>, <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">"</span><span class="pl-cce">\x01\x02\x03</span><span class="pl-pds">"</span></span>)
 <span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> umsgpack.packb({<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>stuff<span class="pl-pds">"</span></span>: foo, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">"</span>awesome<span class="pl-pds">"</span></span>: <span class="pl-c1">True</span>})
 <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x82\xa5</span>stuff<span class="pl-cce">\xc7\x03\x05\x01\x02\x03\xa7</span>awesome<span class="pl-cce">\xc3</span><span class="pl-pds">'</span></span>
@@ -2740,10 +2740,10 @@ dependencies.</p>
 (<span class="pl-k">require</span> 'msgpack.clojure-extensions)
 
 (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
-<span class="pl-c">; =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
 
 (<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
-<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
 
 <h7>
 <a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming</h7>
@@ -2770,7 +2770,7 @@ or
   (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
 
 (<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
-<span class="pl-c">; =&gt; {:schema 0, :compact true}</span></pre></div>
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
 
 <h7>
 <a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core types</h7>
@@ -2890,14 +2890,14 @@ types, load the <code>clojure-extensions</code> library.</p>
 
 <div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
 (<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
-<span class="pl-c">; =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
 
 <p>Without <code>msgpack.clojure-extensions</code>:</p>
 
 <div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
-<span class="pl-c">; =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
-<span class="pl-c">; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
-<span class="pl-c">; clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+<span class="pl-c"><span class="pl-c">;</span> =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c"><span class="pl-c">;</span> protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c"><span class="pl-c">;</span> clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
 
 <h7>
 <a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="user-content-application-types">Application types</a>
@@ -2916,7 +2916,7 @@ types, load the <code>clojure-extensions</code> library.</p>
   [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
 
 (<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
-<span class="pl-c">; =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+<span class="pl-c"><span class="pl-c">;</span> =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
 
 <h7>
 <a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h7>
@@ -3162,7 +3162,7 @@ examples included with the msgpack-c project.</p>
     <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_array</span>(&amp;cmp, &amp;array_size))
         <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
 
-    <span class="pl-c">/* You can read the str byte size and then read str bytes... */</span>
+    <span class="pl-c"><span class="pl-c">/*</span> You can read the str byte size and then read str bytes... <span class="pl-c">*/</span></span>
 
     <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str_size</span>(&amp;cmp, &amp;str_size))
         <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
@@ -3173,10 +3173,10 @@ examples included with the msgpack-c project.</p>
     <span class="pl-k">if</span> (!<span class="pl-c1">read_bytes</span>(hello, str_size, fh))
         <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
 
-    <span class="pl-c">/*</span>
+    <span class="pl-c"><span class="pl-c">/*</span></span>
 <span class="pl-c">     * ...or you can set the maximum number of bytes to read and do it all in</span>
 <span class="pl-c">     * one call</span>
-<span class="pl-c">     */</span>
+<span class="pl-c">     <span class="pl-c">*/</span></span>
 
     str_size = <span class="pl-k">sizeof</span>(message_pack);
     <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str</span>(&amp;cmp, message_pack, &amp;str_size))
@@ -3303,7 +3303,7 @@ do the following:</p>
     <span class="pl-k">String</span> kind;
     <span class="pl-k">Map</span><span class="pl-k">&lt;</span><span class="pl-k">String</span>, Object<span class="pl-k">&gt;</span> data;
 
-    NotificationFrame(<span class="pl-v">this</span>.kind, <span class="pl-v">this</span>.data);
+    NotificationFrame(<span class="pl-c1">this</span>.kind, <span class="pl-c1">this</span>.data);
 
     <span class="pl-k">static</span> NotificationFrame fromList(<span class="pl-k">List</span> f) <span class="pl-k">=</span><span class="pl-k">&gt;</span> <span class="pl-k">new</span> NotificationFrame(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
     <span class="pl-k">List</span> toList() <span class="pl-k">=</span><span class="pl-k">&gt;</span> [kind, data];
@@ -3548,8 +3548,8 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 <div class="highlight highlight-source-objc"><pre><span class="pl-c1">id</span> obj = [MPMessagePackReader <span class="pl-c1">readData:</span>data <span class="pl-c1">error:</span>&amp;error];</pre></div>
 
 <div class="highlight highlight-source-objc"><pre>MPMessagePackReader *reader = [[MPMessagePackReader <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithData:</span>data];
-<span class="pl-c1">id</span> obj1 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c">// Read an object</span>
-<span class="pl-c1">id</span> obj2 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c">// Read another object</span></pre></div>
+<span class="pl-c1">id</span> obj1 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c"><span class="pl-c">//</span> Read an object</span>
+<span class="pl-c1">id</span> obj2 = [reader <span class="pl-c1">read</span>:&amp;error]; <span class="pl-c"><span class="pl-c">//</span> Read another object</span></pre></div>
 </article>
   </div>
         </div>
@@ -3570,7 +3570,7 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 <h6>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack5<span class="pl-pds">'</span></span>)() <span class="pl-c">// namespace our extensions</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack5<span class="pl-pds">'</span></span>)() <span class="pl-c"><span class="pl-c">//</span> namespace our extensions</span>
   , a       <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyType</span>(<span class="pl-c1">2</span>, <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>)
   , encode  <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-smi">encode</span>
   , decode  <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-smi">decode</span>
@@ -3578,19 +3578,19 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 <span class="pl-smi">msgpack</span>.<span class="pl-en">register</span>(<span class="pl-c1">0x42</span>, MyType, mytipeEncode, mytipeDecode)
 
 <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">encode</span>({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> }).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
-<span class="pl-c">// 81a568656c6c6fa5776f726c64</span>
+<span class="pl-c"><span class="pl-c">//</span> 81a568656c6c6fa5776f726c64</span>
 <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decode</span>(<span class="pl-en">encode</span>({ <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>world<span class="pl-pds">'</span></span> })))
-<span class="pl-c">// { hello: 'world' }</span>
+<span class="pl-c"><span class="pl-c">//</span> { hello: 'world' }</span>
 <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">encode</span>(a).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>))
-<span class="pl-c">// d5426161</span>
+<span class="pl-c"><span class="pl-c">//</span> d5426161</span>
 <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decode</span>(<span class="pl-en">encode</span>(a)) <span class="pl-k">instanceof</span> MyType)
-<span class="pl-c">// true</span>
+<span class="pl-c"><span class="pl-c">//</span> true</span>
 <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decode</span>(<span class="pl-en">encode</span>(a)))
-<span class="pl-c">// { value: 'a', size: 2 }</span>
+<span class="pl-c"><span class="pl-c">//</span> { value: 'a', size: 2 }</span>
 
 <span class="pl-k">function</span> <span class="pl-en">MyType</span>(<span class="pl-smi">size</span>, <span class="pl-smi">value</span>) {
-  <span class="pl-v">this</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> value
-  <span class="pl-v">this</span>.<span class="pl-c1">size</span>  <span class="pl-k">=</span> size
+  <span class="pl-c1">this</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> value
+  <span class="pl-c1">this</span>.<span class="pl-c1">size</span>  <span class="pl-k">=</span> size
 }
 
 <span class="pl-k">function</span> <span class="pl-en">mytipeEncode</span>(<span class="pl-smi">obj</span>) {
@@ -3853,7 +3853,7 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
     <span class="pl-k">deriving</span> (<span class="pl-e">Eq</span>, <span class="pl-e">Ord</span>, <span class="pl-e">Show</span>)
 
 <span class="pl-k">instance</span> <span class="pl-en">Serialize</span> <span class="pl-en">Object</span> <span class="pl-k">where</span>
-    <span class="pl-c">-- ...</span></pre></div>
+    <span class="pl-c"><span class="pl-c">--</span> ...</span></pre></div>
 
 <p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p>
 </article>
@@ -3927,16 +3927,16 @@ welcome to report bug
   <span class="pl-k">begin</span>
     lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] := ExtractFileName(dlgOpen.FileName);
 
-    <span class="pl-c">// file binary data</span>
+    <span class="pl-c"><span class="pl-c">//</span> file binary data</span>
     lvMsg.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).LoadBinaryFromFile(dlgOpen.FileName);
   <span class="pl-k">end</span>;
 
-  <span class="pl-c">//</span>
+  <span class="pl-c"><span class="pl-c">//</span></span>
   lvBytes := lvMsg.EncodeToBytes;
 
   lvMsg2 := TSimpleMsgPack.Create;
   lvMsg2.DecodeFromBytes(lvBytes);
-  <span class="pl-c">//</span>
+  <span class="pl-c"><span class="pl-c">//</span></span>
   Memo1.Lines.Add(lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>]);
   <span class="pl-k">if</span> lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] &lt;&gt; <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">then</span>
   <span class="pl-k">begin</span>
@@ -4003,12 +4003,12 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
   lvMsg := TQMsgPack.Create;
   lvMsg.ForcePath(<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>).AsString := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
 
-  <span class="pl-c">//</span>
+  <span class="pl-c"><span class="pl-c">//</span></span>
   lvBytes := lvMsg.Encode;
 
   lvMsg2 := TQMsgPack.Create;
   lvMsg2.Parse(lvBytes);
-  <span class="pl-c">//</span>
+  <span class="pl-c"><span class="pl-c">//</span></span>
   showMessage(lvMsg.ForcePath(<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>).AsString);
   ....
 </pre></div>
@@ -4050,11 +4050,11 @@ QByteArray array = MsgPack::pack(list);</pre></div>
 
 <p>Streaming API:</p>
 
-<div class="highlight highlight-source-c++"><pre><span class="pl-c">// packing</span>
+<div class="highlight highlight-source-c++"><pre><span class="pl-c"><span class="pl-c">//</span> packing</span>
 MsgPackStream <span class="pl-en">stream</span>(&amp;ba, QIODevice::WriteOnly);
 stream &lt;&lt; <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">2.3</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>some string<span class="pl-pds">"</span></span>;
 
-<span class="pl-c">// unpacking</span>
+<span class="pl-c"><span class="pl-c">//</span> unpacking</span>
 MsgPackStream <span class="pl-en">stream</span>(ba);
 <span class="pl-k">int</span> a;
 <span class="pl-k">double</span> b;
@@ -4094,7 +4094,7 @@ stream &gt;&gt; a &gt;&gt; b &gt;&gt; s;</pre></div>
 
 <p>In a source file, include the following directive:</p>
 
-<div class="highlight highlight-source-go"><pre><span class="pl-c">//go:generate msgp</span></pre></div>
+<div class="highlight highlight-source-go"><pre><span class="pl-c"><span class="pl-c">//</span>go:generate msgp</span></pre></div>
 
 <p>The <code>msgp</code> command will generate serialization methods for all exported type declarations in the file.</p>
 
@@ -4109,8 +4109,8 @@ stream &gt;&gt; a &gt;&gt; b &gt;&gt; s;</pre></div>
     <span class="pl-v">Name</span>       <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"name"<span class="pl-pds">`</span></span>
     <span class="pl-v">Address</span>    <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"address"<span class="pl-pds">`</span></span>
     <span class="pl-v">Age</span>        <span class="pl-k">int</span>    <span class="pl-s"><span class="pl-pds">`</span>msg:"age"<span class="pl-pds">`</span></span>
-    <span class="pl-v">Hidden</span>     <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"-"<span class="pl-pds">`</span></span> <span class="pl-c">// this field is ignored</span>
-    unexported <span class="pl-k">bool</span>             <span class="pl-c">// this field is also ignored</span>
+    <span class="pl-v">Hidden</span>     <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"-"<span class="pl-pds">`</span></span> <span class="pl-c"><span class="pl-c">//</span> this field is ignored</span>
+    unexported <span class="pl-k">bool</span>             <span class="pl-c"><span class="pl-c">//</span> this field is also ignored</span>
 }</pre></div>
 
 <p>By default, the code generator will satisfy <code>msgp.Sizer</code>, <code>msgp.Encodable</code>, <code>msgp.Decodable</code>, 
@@ -4420,17 +4420,17 @@ if you find any bug, please contact me!
 <h7>
 <a id="user-content-in-pure-elixir" class="anchor" href="#in-pure-elixir" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a> In pure elixir:</h7>
 
-<div class="highlight highlight-source-elixir"><pre><span class="pl-c"># pack</span>
-<span class="pl-en">TheAlchemist</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
-<span class="pl-en">TheAlchemist</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c">#=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-c"><span class="pl-c">#</span> pack</span>
+<span class="pl-en">TheAlchemist</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
+<span class="pl-en">TheAlchemist</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
 
-<span class="pl-c"># unpack</span>
-<span class="pl-en">TheAlchemist</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; { :ok, [1,2,3] }</span>
-<span class="pl-en">TheAlchemist</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; [1,2,3]</span>
+<span class="pl-c"><span class="pl-c">#</span> unpack</span>
+<span class="pl-en">TheAlchemist</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, [1,2,3] }</span>
+<span class="pl-en">TheAlchemist</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; [1,2,3]</span>
 
-<span class="pl-c"># unpack_once</span>
-<span class="pl-en">TheAlchemist</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
-<span class="pl-en">TheAlchemist</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c">#=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span>
+<span class="pl-c"><span class="pl-c">#</span> unpack_once</span>
+<span class="pl-en">TheAlchemist</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
+<span class="pl-en">TheAlchemist</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span>
 </pre></div>
 
 <h7>
@@ -4732,21 +4732,21 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 <span class="pl-k">class</span> <span class="pl-en">ComputePI</span>(<span class="pl-e">MsgpackRPCServer</span>):
 
     <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-        <span class="pl-v">self</span>.waiting <span class="pl-k">=</span> defaultdict(<span class="pl-c1">list</span>)
-        <span class="pl-v">self</span>.results <span class="pl-k">=</span> {}
+        <span class="pl-c1">self</span>.waiting <span class="pl-k">=</span> defaultdict(<span class="pl-c1">list</span>)
+        <span class="pl-c1">self</span>.results <span class="pl-k">=</span> {}
 
     <span class="pl-k">def</span> <span class="pl-en">remote_PI</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
-        <span class="pl-k">if</span> digits <span class="pl-k">in</span> <span class="pl-v">self</span>.results:
-            <span class="pl-k">return</span> defer.succeed(<span class="pl-v">self</span>.results[digits])
+        <span class="pl-k">if</span> digits <span class="pl-k">in</span> <span class="pl-c1">self</span>.results:
+            <span class="pl-k">return</span> defer.succeed(<span class="pl-c1">self</span>.results[digits])
 
         d <span class="pl-k">=</span> defer.Deferred()
 
-        <span class="pl-k">if</span> digits <span class="pl-k">not</span> <span class="pl-k">in</span> <span class="pl-v">self</span>.waiting:
-            subprocessDeferred <span class="pl-k">=</span> <span class="pl-v">self</span>.computePI(digits, timeout)
+        <span class="pl-k">if</span> digits <span class="pl-k">not</span> <span class="pl-k">in</span> <span class="pl-c1">self</span>.waiting:
+            subprocessDeferred <span class="pl-k">=</span> <span class="pl-c1">self</span>.computePI(digits, timeout)
 
             <span class="pl-k">def</span> <span class="pl-en">callWaiting</span>(<span class="pl-smi">res</span>):
-                waiting <span class="pl-k">=</span> <span class="pl-v">self</span>.waiting[digits]
-                <span class="pl-k">del</span> <span class="pl-v">self</span>.waiting[digits]
+                waiting <span class="pl-k">=</span> <span class="pl-c1">self</span>.waiting[digits]
+                <span class="pl-k">del</span> <span class="pl-c1">self</span>.waiting[digits]
 
                 <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(res, failure.Failure):
                     func <span class="pl-k">=</span> <span class="pl-k">lambda</span> <span class="pl-smi">d</span>: d.errback(res)
@@ -4758,7 +4758,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
 
             subprocessDeferred.addBoth(callWaiting)
 
-        <span class="pl-v">self</span>.waiting[digits].append(d)
+        <span class="pl-c1">self</span>.waiting[digits].append(d)
 
         <span class="pl-k">return</span> d
 
@@ -4768,7 +4768,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
         <span class="pl-k">def</span> <span class="pl-en">callback</span>((<span class="pl-smi">out</span>, <span class="pl-smi">err</span>, <span class="pl-smi">code</span>)):
             <span class="pl-k">if</span> code <span class="pl-k">==</span> <span class="pl-c1">0</span>:
                 pi <span class="pl-k">=</span> <span class="pl-c1">int</span>(out)
-                <span class="pl-v">self</span>.results[digits] <span class="pl-k">=</span> pi
+                <span class="pl-c1">self</span>.results[digits] <span class="pl-k">=</span> pi
                 <span class="pl-k">return</span> pi
             <span class="pl-k">else</span>:
                 <span class="pl-k">return</span> failure.Failure(<span class="pl-c1">RuntimeError</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation failed: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> err))
@@ -4821,7 +4821,7 @@ pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-p
                 d <span class="pl-k">=</span> c.createRequest(<span class="pl-s"><span class="pl-pds">'</span>PI<span class="pl-pds">'</span></span>, digits, <span class="pl-c1">600</span>)
                 d.addBoth(callback, digits, time.time())
                 defers.append(d)
-            <span class="pl-c"># wait for 30 seconds</span>
+            <span class="pl-c"><span class="pl-c">#</span> wait for 30 seconds</span>
             <span class="pl-k">yield</span> task.deferLater(reactor, <span class="pl-c1">30</span>, <span class="pl-k">lambda</span>: <span class="pl-c1">None</span>)
 
         <span class="pl-k">yield</span> defer.DeferredList(defers)
@@ -4849,11 +4849,11 @@ errors. If no responses are received, protocol errbacks with TimeoutError.</p>
 <p>Because there is no common way to determine number of peers in group,
 MsgpackMulticastDatagramProtocol always wait for responses until waitTimeout
 expires.</p>
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c"># setup multicast routing</span>
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c"><span class="pl-c">#</span> setup multicast routing</span>
 $ ip route add 224.0.0.0/4 dev eth0
 $ <span class="pl-c1">echo</span> 1 <span class="pl-k">&gt;</span> /proc/sys/net/ipv4/ip_forward
 $
-$ <span class="pl-c"># start servers listening on port 8000</span>
+$ <span class="pl-c"><span class="pl-c">#</span> start servers listening on port 8000</span>
 $ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
 [1] 3584
 $ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
@@ -4865,7 +4865,7 @@ $ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
 $ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
 [5] 3588
 $
-$ <span class="pl-c"># execute client</span>
+$ <span class="pl-c"><span class="pl-c">#</span> execute client</span>
 $ python examples/tx_rpc_client_udp_multicast.py
 Received results from 5 peers
 $</pre></div>
@@ -5177,36 +5177,36 @@ $ nimble install msgpack</pre></div>
 <div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> msgpack
 <span class="pl-k">import</span> streams
 
-<span class="pl-c"># You can use any stream subclasses to serialize/deserialize</span>
-<span class="pl-c"># messages. e.g. FileStream</span>
+<span class="pl-c"><span class="pl-c"># </span>You can use any stream subclasses to serialize/deserialize</span>
+<span class="pl-c"><span class="pl-c"># </span>messages. e.g. FileStream</span>
 <span class="pl-k">let</span> st: Stream = <span class="pl-c1">newStringStream</span>()
 
 <span class="pl-c1">assert</span>(st.getPosition == <span class="pl-c1">0</span>)
 
-<span class="pl-c"># Type checking protects you from making trivial mistakes.</span>
-<span class="pl-c"># Now we pack {"a":[5,-3], "b":[1,2,3]} but more complex</span>
-<span class="pl-c"># combination of any Msg types is allowed.</span>
-<span class="pl-c">#</span>
-<span class="pl-c"># In xs we can mix specific conversion (PFixNum) and generic</span>
-<span class="pl-c"># conversion (unwrap).</span>
+<span class="pl-c"><span class="pl-c"># </span>Type checking protects you from making trivial mistakes.</span>
+<span class="pl-c"><span class="pl-c"># </span>Now we pack {"a":[5,-3], "b":[1,2,3]} but more complex</span>
+<span class="pl-c"><span class="pl-c"># </span>combination of any Msg types is allowed.</span>
+<span class="pl-c"><span class="pl-c">#</span></span>
+<span class="pl-c"><span class="pl-c"># </span>In xs we can mix specific conversion (PFixNum) and generic</span>
+<span class="pl-c"><span class="pl-c"># </span>conversion (unwrap).</span>
 <span class="pl-k">let</span> xs: Msg = <span class="pl-c1">wrap</span>(@[<span class="pl-c1">PFixNum</span>(<span class="pl-c1">5</span>), (<span class="pl-k">-</span><span class="pl-c1">3</span>)<span class="pl-k">.</span>wrap])
 <span class="pl-k">let</span> ys: Msg = <span class="pl-c1">wrap</span>(@[(<span class="pl-s">"a"</span><span class="pl-k">.</span>wrap, xs.wrap), (<span class="pl-s">"b"</span><span class="pl-k">.</span>wrap, @[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>].wrap)])
-st.<span class="pl-c1">pack</span>(ys.wrap) <span class="pl-c"># Serialize!</span>
+st.<span class="pl-c1">pack</span>(ys.wrap) <span class="pl-c"><span class="pl-c"># </span>Serialize!</span>
 
-<span class="pl-c"># We need to reset the cursor to the beginning of the target</span>
-<span class="pl-c"># byte sequence.</span>
+<span class="pl-c"><span class="pl-c"># </span>We need to reset the cursor to the beginning of the target</span>
+<span class="pl-c"><span class="pl-c"># </span>byte sequence.</span>
 st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
-<span class="pl-k">let</span> msg = st.unpack <span class="pl-c"># Deserialize!</span>
+<span class="pl-k">let</span> msg = st.unpack <span class="pl-c"><span class="pl-c"># </span>Deserialize!</span>
 
-<span class="pl-c"># output:</span>
-<span class="pl-c"># a</span>
-<span class="pl-c"># 5</span>
-<span class="pl-c"># -3</span>
-<span class="pl-c"># b</span>
-<span class="pl-c"># 1</span>
-<span class="pl-c"># 2</span>
-<span class="pl-c"># 3</span>
+<span class="pl-c"><span class="pl-c"># </span>output:</span>
+<span class="pl-c"><span class="pl-c"># </span>a</span>
+<span class="pl-c"><span class="pl-c"># </span>5</span>
+<span class="pl-c"><span class="pl-c"># </span>-3</span>
+<span class="pl-c"><span class="pl-c"># </span>b</span>
+<span class="pl-c"><span class="pl-c"># </span>1</span>
+<span class="pl-c"><span class="pl-c"># </span>2</span>
+<span class="pl-c"><span class="pl-c"># </span>3</span>
 <span class="pl-k">for</span> e <span class="pl-k">in</span> msg.unwrapMap:
   <span class="pl-c1">echo</span> e.key.unwrapStr
   <span class="pl-k">for</span> e <span class="pl-k">in</span> e.val.unwrapArray:
@@ -5280,16 +5280,16 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <p>The Node API parses a chunk of MessagePack data into an immutable tree of dynamically-typed nodes. A series of helper functions can be used to extract data of specific types from each node.</p>
 
-<div class="highlight highlight-source-c"><pre><span class="pl-c">// parse a file into a node tree</span>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span> parse a file into a node tree</span>
 <span class="pl-c1">mpack_tree_t</span> tree;
 <span class="pl-en">mpack_tree_init_file</span>(&amp;tree, <span class="pl-s"><span class="pl-pds">"</span>homepage-example.mp<span class="pl-pds">"</span></span>, <span class="pl-c1">0</span>);
 <span class="pl-c1">mpack_node_t</span> root = mpack_tree_root(&amp;tree);
 
-<span class="pl-c">// extract the example data on the msgpack homepage</span>
+<span class="pl-c"><span class="pl-c">//</span> extract the example data on the msgpack homepage</span>
 <span class="pl-k">bool</span> compact = mpack_node_bool(mpack_node_map_cstr(root, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>));
 <span class="pl-k">int</span> schema = mpack_node_i32(mpack_node_map_cstr(root, <span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>));
 
-<span class="pl-c">// clean up and check for errors</span>
+<span class="pl-c"><span class="pl-c">//</span> clean up and check for errors</span>
 <span class="pl-k">if</span> (mpack_tree_destroy(tree) != mpack_ok) {
     <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>An error occurred decoding the data!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
     <span class="pl-k">return</span>;
@@ -5304,13 +5304,13 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 
 <p>The MPack Write API encodes structured data to MessagePack.</p>
 
-<div class="highlight highlight-source-c"><pre><span class="pl-c">// encode to memory buffer</span>
+<div class="highlight highlight-source-c"><pre><span class="pl-c"><span class="pl-c">//</span> encode to memory buffer</span>
 <span class="pl-k">char</span>* data;
 <span class="pl-c1">size_t</span> size;
 <span class="pl-c1">mpack_writer_t</span> writer;
 <span class="pl-en">mpack_writer_init_growable</span>(&amp;writer, &amp;data, &amp;size);
 
-<span class="pl-c">// write the example on the msgpack homepage</span>
+<span class="pl-c"><span class="pl-c">//</span> write the example on the msgpack homepage</span>
 <span class="pl-en">mpack_start_map</span>(&amp;writer, <span class="pl-c1">2</span>);
 <span class="pl-en">mpack_write_cstr</span>(&amp;writer, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>);
 <span class="pl-en">mpack_write_bool</span>(&amp;writer, <span class="pl-c1">true</span>);
@@ -5318,13 +5318,13 @@ st.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <span class="pl-en">mpack_write_uint</span>(&amp;writer, <span class="pl-c1">0</span>);
 <span class="pl-en">mpack_finish_map</span>(&amp;writer);
 
-<span class="pl-c">// finish writing</span>
+<span class="pl-c"><span class="pl-c">//</span> finish writing</span>
 <span class="pl-k">if</span> (mpack_writer_destroy(&amp;writer) != mpack_ok) {
     <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span>An error occurred encoding the data!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
     <span class="pl-k">return</span>;
 }
 
-<span class="pl-c">// use the data</span>
+<span class="pl-c"><span class="pl-c">//</span> use the data</span>
 <span class="pl-en">do_something_with_data</span>(data, size);
 <span class="pl-en">free</span>(data);</pre></div>
 
@@ -5644,7 +5644,7 @@ version bumping.</li>
 <div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> msgpack, streams
 
 <span class="pl-k">type</span>
-  <span class="pl-c">#lets try with a rather complex object</span>
+  <span class="pl-c"><span class="pl-c">#</span>lets try with a rather complex object</span>
   CustomType = <span class="pl-k">object</span>
     count: <span class="pl-k">int</span>
     content: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
@@ -5662,14 +5662,14 @@ version bumping.</li>
   result.ok = <span class="pl-c1">false</span>
 
 <span class="pl-k">var</span> x = <span class="pl-c1">initCustomType</span>()
-<span class="pl-c">#you can use another stream compatible</span>
-<span class="pl-c">#class here e.g. FileStream</span>
+<span class="pl-c"><span class="pl-c">#</span>you can use another stream compatible</span>
+<span class="pl-c"><span class="pl-c">#</span>class here e.g. FileStream</span>
 <span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>()
-s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#here the magic happened</span>
+s.<span class="pl-c1">pack</span>(x) <span class="pl-c"><span class="pl-c">#</span>here the magic happened</span>
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <span class="pl-k">var</span> xx: CustomType
-s.<span class="pl-c1">unpack</span>(xx) <span class="pl-c">#and here too</span>
+s.<span class="pl-c1">unpack</span>(xx) <span class="pl-c"><span class="pl-c">#</span>and here too</span>
 
 assert xx == x
 <span class="pl-c1">echo</span> <span class="pl-s">"OK "</span>, xx.name</pre></div>
@@ -5688,17 +5688,17 @@ assert xx == x
 by defining your own handler pack_type/unpack_type</p>
 
 <div class="highlight highlight-source-nim"><pre><span class="pl-k">type</span>
-  <span class="pl-c">#not really complex, just for example</span>
+  <span class="pl-c"><span class="pl-c">#</span>not really complex, just for example</span>
   mycomplexobject = <span class="pl-k">object</span>
     a: someSimpleType
     b: someSimpleType
 
-<span class="pl-c">#help the compiler to decide</span>
+<span class="pl-c"><span class="pl-c">#</span>help the compiler to decide</span>
 <span class="pl-k">proc</span> <span class="pl-en">pack_type</span><span class="pl-k">*</span>(s: Stream, x: mycomplexobject) <span class="pl-k">=</span>
-  s.<span class="pl-c1">pack</span>(x.a) <span class="pl-c"># let the compiler decide</span>
-  s.<span class="pl-c1">pack</span>(x.b) <span class="pl-c"># let the compiler decide</span>
+  s.<span class="pl-c1">pack</span>(x.a) <span class="pl-c"><span class="pl-c"># </span>let the compiler decide</span>
+  s.<span class="pl-c1">pack</span>(x.b) <span class="pl-c"><span class="pl-c"># </span>let the compiler decide</span>
 
-<span class="pl-c">#help the compiler to decide</span>
+<span class="pl-c"><span class="pl-c">#</span>help the compiler to decide</span>
 <span class="pl-k">proc</span> <span class="pl-en">unpack_type</span><span class="pl-k">*</span>(s: Stream, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
   s.<span class="pl-c1">unpack</span>(x.a)
   s.<span class="pl-c1">unpack</span>(x.b)
@@ -5706,10 +5706,10 @@ by defining your own handler pack_type/unpack_type</p>
 <span class="pl-k">var</span> s: <span class="pl-c1">newStringStream</span>()
 <span class="pl-k">var</span> x: mycomplexobject
 
-s.<span class="pl-c1">pack</span>(x) <span class="pl-c">#pack as usual</span>
+s.<span class="pl-c1">pack</span>(x) <span class="pl-c"><span class="pl-c">#</span>pack as usual</span>
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
-s.<span class="pl-c1">unpack</span>(x) <span class="pl-c">#unpack as usual</span></pre></div>
+s.<span class="pl-c1">unpack</span>(x) <span class="pl-c"><span class="pl-c">#</span>unpack as usual</span></pre></div>
 
 <h6>
 <a id="user-content-data-conversion" class="anchor" href="#data-conversion" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data Conversion</h6>
@@ -5872,8 +5872,8 @@ altough detecting circular reference is not too difficult(using set of pointers)
 a = b
 
 <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(a))
-<span class="pl-c">#produces "[ ]" or "{ }"</span>
-<span class="pl-c">#not "[ 0 ]" or '{ "f" : 0 }'</span></pre></div>
+<span class="pl-c"><span class="pl-c">#</span>produces "[ ]" or "{ }"</span>
+<span class="pl-c"><span class="pl-c">#</span>not "[ 0 ]" or '{ "f" : 0 }'</span></pre></div>
 
 <h8>
 <a id="user-content-limitation" class="anchor" href="#limitation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>limitation:</strong>
@@ -5922,9 +5922,9 @@ because data conversion did not preserve original data types, the following code
 <span class="pl-k">var</span> stallion = <span class="pl-c1">initHorse</span>()
 <span class="pl-k">var</span> tom: Cat
 
-<span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(stallion) <span class="pl-c">#pack a Horse here</span>
+<span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(stallion) <span class="pl-c"><span class="pl-c">#</span>pack a Horse here</span>
 <span class="pl-c1">unpack</span>(buf, tom)
-<span class="pl-c">#abracadabra, it will unpack into a Cat</span>
+<span class="pl-c"><span class="pl-c">#</span>abracadabra, it will unpack into a Cat</span>
 
 <span class="pl-c1">echo</span> <span class="pl-s">"legs: "</span>, <span class="pl-k">$</span>tom.legs
 <span class="pl-c1">echo</span> <span class="pl-s">"kittens: "</span>, <span class="pl-k">$</span>tom.kittens
@@ -5947,8 +5947,8 @@ because data conversion did not preserve original data types, the following code
 
   <span class="pl-k">var</span> kk = <span class="pl-c1">KEF</span>()
   <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(kk))
-  <span class="pl-c"># will produce "{ "eee" : 0, "fff" : 0, "ccc" : 0, "ddd" : 0, "aaa" : 0, "bbb" : 0 }"</span>
-  <span class="pl-c"># not "{ "aaa" : 0, "bbb" : 0, "ccc" : 0, "ddd" : 0, "eee" : 0, "fff" : 0 }"</span></pre></div>
+  <span class="pl-c"><span class="pl-c"># </span>will produce "{ "eee" : 0, "fff" : 0, "ccc" : 0, "ddd" : 0, "aaa" : 0, "bbb" : 0 }"</span>
+  <span class="pl-c"><span class="pl-c"># </span>not "{ "aaa" : 0, "bbb" : 0, "ccc" : 0, "ddd" : 0, "eee" : 0, "fff" : 0 }"</span></pre></div>
 
 <h6>
 <a id="user-content-bin-and-ext-format" class="anchor" href="#bin-and-ext-format" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bin and ext format</h6>
@@ -5972,12 +5972,12 @@ because data conversion did not preserve original data types, the following code
 s.<span class="pl-c1">pack_ext</span>(body.<span class="pl-c1">len</span>, exttype0)
 s.<span class="pl-c1">write</span>(body)
 
-<span class="pl-c">#the same goes to bin format</span>
+<span class="pl-c"><span class="pl-c">#</span>the same goes to bin format</span>
 s.<span class="pl-c1">pack_bin</span>(body.<span class="pl-c1">len</span>)
 s.<span class="pl-c1">write</span>(body)
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
-<span class="pl-c">#unpack_ext return tuple[exttype:uint8, len: int]</span>
+<span class="pl-c"><span class="pl-c">#</span>unpack_ext return tuple[exttype:uint8, len: int]</span>
 <span class="pl-k">let</span> (extype, extlen) = s.<span class="pl-c1">unpack_ext</span>()
 <span class="pl-k">var</span> extbody = s.<span class="pl-c1">readStr</span>(extlen)
 
@@ -6084,14 +6084,14 @@ msgInt, msgUint, msgNull
 <span class="pl-k">end</span>
 
 house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Road12<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>location<span class="pl-pds">"</span></span> =&gt; {<span class="pl-s"><span class="pl-pds">"</span>lat<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">12.3</span>, <span class="pl-s"><span class="pl-pds">"</span>lng<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">34.5</span>}}.to_msgpack)
-<span class="pl-c1">p</span> house <span class="pl-c"># &lt;House:0x1b06de0 @address="Road12", @location=#&lt;Location:0x1b06dc0 @lat=12.3, @lng=34.5&gt;&gt;</span>
+<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> &lt;House:0x1b06de0 @address="Road12", @location=#&lt;Location:0x1b06dc0 @lat=12.3, @lng=34.5&gt;&gt;</span>
 
 house.address <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Something<span class="pl-pds">"</span></span>
 house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(house.to_msgpack)
-<span class="pl-c1">p</span> house <span class="pl-c"># #&lt;House:0x13f0d80 @address="Something", @location=#&lt;Location:0x13f0d60 @lat=12.3, @lng=34.5&gt;&gt;</span>
+<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> #&lt;House:0x13f0d80 @address="Something", @location=#&lt;Location:0x13f0d60 @lat=12.3, @lng=34.5&gt;&gt;</span>
 
 house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Crystal Road 1234<span class="pl-pds">"</span></span>}.to_msgpack)
-<span class="pl-c1">p</span> house <span class="pl-c"># &lt;House:0x1b06d80 @address="Crystal Road 1234", @location=nil&gt;</span></pre></div>
+<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> &lt;House:0x1b06d80 @address="Crystal Road 1234", @location=nil&gt;</span></pre></div>
 
 <h6>
 <a id="user-content-more-examples" class="anchor" href="#more-examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More Examples</h6>
@@ -6142,13 +6142,13 @@ house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 
-<span class="pl-c">// encode from JS Object to MessagePack (Buffer)</span>
+<span class="pl-c"><span class="pl-c">//</span> encode from JS Object to MessagePack (Buffer)</span>
 <span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
 
-<span class="pl-c">// decode from MessagePack (Buffer) to JS Object</span>
-<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer); <span class="pl-c">// =&gt; {"foo": "bar"}</span>
+<span class="pl-c"><span class="pl-c">//</span> decode from MessagePack (Buffer) to JS Object</span>
+<span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer); <span class="pl-c"><span class="pl-c">//</span> =&gt; {"foo": "bar"}</span>
 
-<span class="pl-c">// if encode/decode receives an invalid argument an error is thrown</span></pre></div>
+<span class="pl-c"><span class="pl-c">//</span> if encode/decode receives an invalid argument an error is thrown</span></pre></div>
 
 <h7>
 <a id="user-content-writing-to-messagepack-stream" class="anchor" href="#writing-to-messagepack-stream" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writing to MessagePack Stream</h7>
@@ -6160,11 +6160,11 @@ house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(
 <span class="pl-k">var</span> encodeStream <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createEncodeStream</span>();
 <span class="pl-smi">encodeStream</span>.<span class="pl-en">pipe</span>(writeStream);
 
-<span class="pl-c">// send multiple objects to stream</span>
+<span class="pl-c"><span class="pl-c">//</span> send multiple objects to stream</span>
 <span class="pl-smi">encodeStream</span>.<span class="pl-c1">write</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
 <span class="pl-smi">encodeStream</span>.<span class="pl-c1">write</span>({baz<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>qux<span class="pl-pds">"</span></span>});
 
-<span class="pl-c">// call this once you're done writing to the stream.</span>
+<span class="pl-c"><span class="pl-c">//</span> call this once you're done writing to the stream.</span>
 <span class="pl-smi">encodeStream</span>.<span class="pl-en">end</span>();</pre></div>
 
 <h7>
@@ -6176,7 +6176,7 @@ house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(
 <span class="pl-k">var</span> readStream <span class="pl-k">=</span> <span class="pl-smi">fs</span>.<span class="pl-en">createReadStream</span>(<span class="pl-s"><span class="pl-pds">"</span>test.msp<span class="pl-pds">"</span></span>);
 <span class="pl-k">var</span> decodeStream <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createDecodeStream</span>();
 
-<span class="pl-c">// show multiple objects decoded from stream</span>
+<span class="pl-c"><span class="pl-c">//</span> show multiple objects decoded from stream</span>
 <span class="pl-smi">readStream</span>.<span class="pl-en">pipe</span>(decodeStream).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">"</span>data<span class="pl-pds">"</span></span>, <span class="pl-en">console</span>.<span class="pl-smi">warn</span>);</pre></div>
 
 <h7>
@@ -6184,13 +6184,13 @@ house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 
-<span class="pl-c">// decode() accepts Buffer instance per default</span>
+<span class="pl-c"><span class="pl-c">//</span> decode() accepts Buffer instance per default</span>
 <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-en">Buffer</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]));
 
-<span class="pl-c">// decode() also accepts Array instance</span>
+<span class="pl-c"><span class="pl-c">//</span> decode() also accepts Array instance</span>
 <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]);
 
-<span class="pl-c">// decode() accepts raw Uint8Array instance as well</span>
+<span class="pl-c"><span class="pl-c">//</span> decode() accepts raw Uint8Array instance as well</span>
 <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]));</pre></div>
 
 <h7>
@@ -6227,16 +6227,16 @@ http://localhost:4000/__zuul</pre></div>
 
 <p>Browser version <a href="https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js">msgpack.min.js</a> is also available. 50KB minified, 14KB gziped.</p>
 
-<div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!--[if lte IE 9]&gt;</span>
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-c"><span class="pl-c">&lt;!--</span>[if lte IE 9]&gt;</span>
 <span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.10/es5-shim.min.js"&gt;&lt;/script&gt;</span>
 <span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"&gt;&lt;/script&gt;</span>
-<span class="pl-c">&lt;![endif]--&gt;</span>
+<span class="pl-c">&lt;![endif]<span class="pl-c">--&gt;</span></span>
 &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 <span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
-<span class="pl-s1"><span class="pl-c">// encode from JS Object to MessagePack (Uint8Array)</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> encode from JS Object to MessagePack (Uint8Array)</span></span>
 <span class="pl-s1"><span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c">// decode from MessagePack (Uint8Array) to JS Object</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> decode from MessagePack (Uint8Array) to JS Object</span></span>
 <span class="pl-s1"><span class="pl-k">var</span> array <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]);</span>
 <span class="pl-s1"><span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(array);</span>
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
@@ -6249,7 +6249,7 @@ http://localhost:4000/__zuul</pre></div>
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>msgpack-lite<span class="pl-pds">"</span></span>);
 <span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});
 <span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer);
-<span class="pl-en">console</span>.<span class="pl-c1">warn</span>(data); <span class="pl-c">// =&gt; {"foo": "bar"}</span></pre></div>
+<span class="pl-en">console</span>.<span class="pl-c1">warn</span>(data); <span class="pl-c"><span class="pl-c">//</span> =&gt; {"foo": "bar"}</span></pre></div>
 
 <p>Proceed to the next steps if you prefer faster browserify compilation time.</p>
 
@@ -6697,18 +6697,18 @@ for JavaScript native objects.</p>
 <span class="pl-k">var</span> decoded <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(encoded, {codec<span class="pl-k">:</span> codec});
 
 <span class="pl-k">function</span> <span class="pl-en">MyVector</span>(<span class="pl-smi">x</span>, <span class="pl-smi">y</span>) {
-  <span class="pl-v">this</span>.<span class="pl-c1">x</span> <span class="pl-k">=</span> x;
-  <span class="pl-v">this</span>.<span class="pl-c1">y</span> <span class="pl-k">=</span> y;
+  <span class="pl-c1">this</span>.<span class="pl-c1">x</span> <span class="pl-k">=</span> x;
+  <span class="pl-c1">this</span>.<span class="pl-c1">y</span> <span class="pl-k">=</span> y;
 }
 
 <span class="pl-k">function</span> <span class="pl-en">myVectorPacker</span>(<span class="pl-smi">vector</span>) {
   <span class="pl-k">var</span> array <span class="pl-k">=</span> [<span class="pl-smi">vector</span>.<span class="pl-c1">x</span>, <span class="pl-smi">vector</span>.<span class="pl-c1">y</span>];
-  <span class="pl-k">return</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(array); <span class="pl-c">// return Buffer serialized</span>
+  <span class="pl-k">return</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(array); <span class="pl-c"><span class="pl-c">//</span> return Buffer serialized</span>
 }
 
 <span class="pl-k">function</span> <span class="pl-en">myVectorUnpacker</span>(<span class="pl-smi">buffer</span>) {
   <span class="pl-k">var</span> array <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(buffer);
-  <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">MyVector</span>(array[<span class="pl-c1">0</span>], array[<span class="pl-c1">1</span>]); <span class="pl-c">// return Object deserialized</span>
+  <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">MyVector</span>(array[<span class="pl-c1">0</span>], array[<span class="pl-c1">1</span>]); <span class="pl-c"><span class="pl-c">//</span> return Object deserialized</span>
 }</pre></div>
 
 <p>The first argument of <code>addExtPacker</code> and <code>addExtUnpacker</code> should be an integer within the range of 0 and 127 (0x0 and 0x7F). <code>myClassPacker</code> is a function that accepts an instance of <code>MyClass</code>, and should return a buffer representing that instance. <code>myClassUnpacker</code> is the opposite: it accepts a buffer and should return an instance of <code>MyClass</code>.</p>
@@ -6764,20 +6764,20 @@ MessagePack map elements.</p>
 
 <p>The <a href="https://github.com/kawanet/msgpack-lite/issues/22">compatibility mode</a> respects for <a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">msgpack's old spec</a>. Set <code>true</code> to <code>useraw</code>.</p>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-c">// default mode handles both str and bin formats individually</span>
-<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-s"><span class="pl-pds">"</span>Aa<span class="pl-pds">"</span></span>); <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (str format)</span>
-<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c">// =&gt; &lt;Buffer c4 02 41 61&gt; (bin format)</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> default mode handles both str and bin formats individually</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-s"><span class="pl-pds">"</span>Aa<span class="pl-pds">"</span></span>); <span class="pl-c"><span class="pl-c">//</span> =&gt; &lt;Buffer a2 41 61&gt; (str format)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c"><span class="pl-c">//</span> =&gt; &lt;Buffer c4 02 41 61&gt; (bin format)</span>
 
-<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c">// =&gt; 'Aa' (String)</span>
-<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xc4</span>, <span class="pl-c1">0x02</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c">// =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c"><span class="pl-c">//</span> =&gt; 'Aa' (String)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xc4</span>, <span class="pl-c1">0x02</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>])); <span class="pl-c"><span class="pl-c">//</span> =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
 
-<span class="pl-c">// compatibility mode handles only raw format both for String and Buffer</span>
+<span class="pl-c"><span class="pl-c">//</span> compatibility mode handles only raw format both for String and Buffer</span>
 <span class="pl-k">var</span> options <span class="pl-k">=</span> {codec<span class="pl-k">:</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">createCodec</span>({useraw<span class="pl-k">:</span> <span class="pl-c1">true</span>})};
-<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-s"><span class="pl-pds">"</span>Aa<span class="pl-pds">"</span></span>, options); <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
-<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options); <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-s"><span class="pl-pds">"</span>Aa<span class="pl-pds">"</span></span>, options); <span class="pl-c"><span class="pl-c">//</span> =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options); <span class="pl-c"><span class="pl-c">//</span> =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
 
-<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options); <span class="pl-c">// =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
-<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options).<span class="pl-c1">toString</span>(); <span class="pl-c">// =&gt; 'Aa' (String)</span></pre></div>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options); <span class="pl-c"><span class="pl-c">//</span> =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
+<span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>([<span class="pl-c1">0xa2</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x61</span>]), options).<span class="pl-c1">toString</span>(); <span class="pl-c"><span class="pl-c">//</span> =&gt; 'Aa' (String)</span></pre></div>
 
 <h7>
 <a id="user-content-repository" class="anchor" href="#repository" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Repository</h7>
@@ -7025,28 +7025,28 @@ MessagePack format defines <code>map</code> and <code>array</code> types, which 
 type in PHP. By default, the packer will pack a PHP array as a MessagePack array if it
 has sequential numeric keys, starting from <code>0</code> and as a MessagePack map otherwise:</p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpArr1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);                   <span class="pl-c">// MP array [1, 2]</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpArr2</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">1</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>]);         <span class="pl-c">// MP array [1, 2]</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpMap1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">2</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">3</span>]);         <span class="pl-c">// MP map {0: 1, 2: 3}</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpMap2</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">1</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>, <span class="pl-c1">2</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">3</span>]);         <span class="pl-c">// MP map {1: 2, 2: 3}</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpMap3</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>]); <span class="pl-c">// MP map {foo: 1, bar: 2}</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpArr1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);                   <span class="pl-c"><span class="pl-c">//</span> MP array [1, 2]</span></span>
+<span class="pl-s1"><span class="pl-smi">$mpArr2</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">1</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP array [1, 2]</span></span>
+<span class="pl-s1"><span class="pl-smi">$mpMap1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">2</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">3</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP map {0: 1, 2: 3}</span></span>
+<span class="pl-s1"><span class="pl-smi">$mpMap2</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">1</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>, <span class="pl-c1">2</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">3</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP map {1: 2, 2: 3}</span></span>
+<span class="pl-s1"><span class="pl-smi">$mpMap3</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>]); <span class="pl-c"><span class="pl-c">//</span> MP map {foo: 1, bar: 2}</span></span></pre></div>
 
 <p>However, sometimes you need to pack a sequential array as a MessagePack map.
 To do this, use the <code>packMap</code> method:</p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpMap</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]); <span class="pl-c">// {0: 1, 1: 2}</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpMap</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]); <span class="pl-c"><span class="pl-c">//</span> {0: 1, 1: 2}</span></span></pre></div>
 
 <p>Here is a list of all low-level packer methods:</p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packNil();                   <span class="pl-c">// MP nil</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBool(<span class="pl-c1">true</span>);              <span class="pl-c">// MP bool</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packArray([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);           <span class="pl-c">// MP array</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);             <span class="pl-c">// MP map</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packExt(<span class="pl-k">new</span> <span class="pl-c1">Ext</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>)); <span class="pl-c">// MP ext</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packFloat(<span class="pl-c1">4.2</span>);              <span class="pl-c">// MP float</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packInt(<span class="pl-c1">42</span>);                 <span class="pl-c">// MP int</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packStr(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>);              <span class="pl-c">// MP str</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBin(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\x80</span><span class="pl-pds">"</span></span>);             <span class="pl-c">// MP bin</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packNil();                   <span class="pl-c"><span class="pl-c">//</span> MP nil</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBool(<span class="pl-c1">true</span>);              <span class="pl-c"><span class="pl-c">//</span> MP bool</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packArray([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);           <span class="pl-c"><span class="pl-c">//</span> MP array</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);             <span class="pl-c"><span class="pl-c">//</span> MP map</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packExt(<span class="pl-k">new</span> <span class="pl-c1">Ext</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>)); <span class="pl-c"><span class="pl-c">//</span> MP ext</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packFloat(<span class="pl-c1">4.2</span>);              <span class="pl-c"><span class="pl-c">//</span> MP float</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packInt(<span class="pl-c1">42</span>);                 <span class="pl-c"><span class="pl-c">//</span> MP int</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packStr(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>);              <span class="pl-c"><span class="pl-c">//</span> MP str</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBin(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\x80</span><span class="pl-pds">"</span></span>);             <span class="pl-c"><span class="pl-c">//</span> MP bin</span></span></pre></div>
 
 <blockquote>
 <p>Check <a href="#custom-types">"Custom Types"</a> section below on how to pack arbitrary PHP objects.</p>
@@ -7062,8 +7062,8 @@ eliminate this overhead by forcing the packer to use the appropriate type, which
 from running the auto detection routine:</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span>);</span>
-<span class="pl-s1"><span class="pl-c">// or</span></span>
-<span class="pl-s1"><span class="pl-c">// $packer-&gt;setTypeDetectionMode(Packer::FORCE_STR);</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> or</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> $packer-&gt;setTypeDetectionMode(Packer::FORCE_STR);</span></span>
 <span class="pl-s1"><span class="pl-k">...</span></span>
 <span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-smi">$utf8string1</span>, <span class="pl-smi">$utf8string2</span>]);</span></pre></div>
 
@@ -7076,13 +7076,13 @@ from running the auto detection routine:</p>
 
 <p>Of course, you can combine modes:</p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// convert PHP strings to MP strings, PHP arrays to MP maps</span></span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> convert PHP strings to MP strings, PHP arrays to MP maps</span></span>
 <span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_MAP</span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c">// convert PHP strings to MP binaries, PHP arrays to MP arrays</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> convert PHP strings to MP binaries, PHP arrays to MP arrays</span></span>
 <span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_BIN</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_ARR</span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c">// this will throw \InvalidArgumentException</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> this will throw \InvalidArgumentException</span></span>
 <span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_BIN</span>);</span>
 <span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_MAP</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_ARR</span>);</span></pre></div>
 
@@ -7145,8 +7145,8 @@ the library will throw a <code>IntegerOverflowException</code>.</p>
 <span class="pl-s1"><span class="pl-smi">$packerd</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">Packer</span>())<span class="pl-k">-&gt;</span>pack(<span class="pl-k">new</span> <span class="pl-c1">Ext</span>(<span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>));</span>
 <span class="pl-s1"><span class="pl-smi">$ext</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">Unpacker</span>())<span class="pl-k">-&gt;</span>unpack(<span class="pl-smi">$packed</span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$extType</span> <span class="pl-k">=</span> <span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span>getType(); <span class="pl-c">// 42</span></span>
-<span class="pl-s1"><span class="pl-smi">$extData</span> <span class="pl-k">=</span> <span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span>getData(); <span class="pl-c">// "\xaa"</span></span></pre></div>
+<span class="pl-s1"><span class="pl-smi">$extType</span> <span class="pl-k">=</span> <span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span>getType(); <span class="pl-c"><span class="pl-c">//</span> 42</span></span>
+<span class="pl-s1"><span class="pl-smi">$extData</span> <span class="pl-k">=</span> <span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span>getData(); <span class="pl-c"><span class="pl-c">//</span> "\xaa"</span></span></pre></div>
 
 <h7>
 <a id="user-content-custom-types" class="anchor" href="#custom-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom Types</h7>
@@ -7197,7 +7197,7 @@ To do this, you need to create a transformer, that converts your type to a type,
 <span class="pl-s1"><span class="pl-smi">$unpacker</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">BufferUnpacker</span>();</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$coll</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Collection</span>([<span class="pl-k">new</span> <span class="pl-c1">DateTimeTransformer</span>(<span class="pl-c1">5</span>)]);</span>
-<span class="pl-s1"><span class="pl-c">// $coll-&gt;add(new AnotherTypeTransformer(42));</span></span>
+<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> $coll-&gt;add(new AnotherTypeTransformer(42));</span></span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTransformers(<span class="pl-smi">$coll</span>);</span>
 <span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setTransformers(<span class="pl-smi">$coll</span>);</span>
@@ -7357,10 +7357,10 @@ Ignored                     0               0
 <div class="highlight highlight-source-shell"><pre>$ <span class="pl-k">export</span> MP_BENCH_TARGETS=pure_p
 $ <span class="pl-k">export</span> MP_BENCH_ITERATIONS=1000000
 $ <span class="pl-k">export</span> MP_BENCH_ROUNDS=5
-$ <span class="pl-c"># a comma separated list of test names</span>
+$ <span class="pl-c"><span class="pl-c">#</span> a comma separated list of test names</span>
 $ <span class="pl-k">export</span> MP_BENCH_TESTS=<span class="pl-s"><span class="pl-pds">'</span>complex array, complex map<span class="pl-pds">'</span></span>
-$ <span class="pl-c"># or an regexp</span>
-$ <span class="pl-c"># export MP_BENCH_TESTS='/complex (array|map)/'</span>
+$ <span class="pl-c"><span class="pl-c">#</span> or an regexp</span>
+$ <span class="pl-c"><span class="pl-c">#</span> export MP_BENCH_TESTS='/complex (array|map)/'</span>
 $ php tests/bench.php</pre></div>
 
 <p>Another example, benchmarking both the library and <a href="https://pecl.php.net/package/msgpack">msgpack pecl extension</a>:</p>
@@ -7548,23 +7548,23 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
 <span class="pl-k">let</span> exampleArray<span class="pl-k">:</span> [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
 <span class="pl-k">let</span> bool<span class="pl-k">:</span> <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
 
-<span class="pl-c">// To pack items, just put all of them in a single array</span>
-<span class="pl-c">// and call the `pack(items:)` function</span>
+<span class="pl-c"><span class="pl-c">//</span> To pack items, just put all of them in a single array</span>
+<span class="pl-c"><span class="pl-c">//</span> and call the `pack(items:)` function</span>
 <span class="pl-c"></span>
-<span class="pl-c">//this will be the packed data</span>
+<span class="pl-c"><span class="pl-c">//</span>this will be the packed data</span>
 <span class="pl-c"></span><span class="pl-k">let</span> msgPackedBytes<span class="pl-k">:</span> NSData <span class="pl-k">=</span> <span class="pl-c1">pack</span>(<span class="pl-c1">items</span>: [<span class="pl-c1">true</span>, foo, exampleInt, exampleStr, exampleArray]) 
 
-<span class="pl-c">// Now your payload is ready to send!!!</span>
+<span class="pl-c"><span class="pl-c">//</span> Now your payload is ready to send!!!</span>
 <span class="pl-c"></span></pre></div>
 
 <p>But what if we have some custom data structure to send?</p>
 
-<div class="highlight highlight-source-swift"><pre><span class="pl-c">//To make your struct / class packable</span>
-<span class="pl-c"></span><span class="pl-k">struct</span> <span class="pl-en">MyStruct</span>: <span class="pl-e">Packable </span>{  <span class="pl-c">//Confirm to this protocol</span>
+<div class="highlight highlight-source-swift"><pre><span class="pl-c"><span class="pl-c">//</span>To make your struct / class packable</span>
+<span class="pl-c"></span><span class="pl-k">struct</span> <span class="pl-en">MyStruct</span>: <span class="pl-e">Packable </span>{  <span class="pl-c"><span class="pl-c">//</span>Confirm to this protocol</span>
 <span class="pl-c"></span>    <span class="pl-k">var</span> name<span class="pl-k">:</span> <span class="pl-c1">String</span>
     <span class="pl-k">var</span> index<span class="pl-k">:</span> <span class="pl-c1">Int</span>
-    <span class="pl-k">func</span> <span class="pl-en">packFormat</span>() <span class="pl-k">-&gt;</span> [Packable] { <span class="pl-c">//protocol function</span>
-<span class="pl-c"></span>        <span class="pl-k">return</span> [name, index] <span class="pl-c">//pack order</span>
+    <span class="pl-k">func</span> <span class="pl-en">packFormat</span>() <span class="pl-k">-&gt;</span> [Packable] { <span class="pl-c"><span class="pl-c">//</span>protocol function</span>
+<span class="pl-c"></span>        <span class="pl-k">return</span> [name, index] <span class="pl-c"><span class="pl-c">//</span>pack order</span>
 <span class="pl-c"></span>    }
 
     <span class="pl-k">func</span> <span class="pl-en">msgtype</span>() <span class="pl-k">-&gt;</span> MsgPackTypes {
@@ -7588,17 +7588,17 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
 <span class="pl-k">let</span> exampleStr<span class="pl-k">:</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
 <span class="pl-k">let</span> exampleArray<span class="pl-k">:</span> [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
 
-<span class="pl-c">//Now pack them individually</span>
+<span class="pl-c"><span class="pl-c">//</span>Now pack them individually</span>
 <span class="pl-c"></span><span class="pl-k">let</span> packedInt <span class="pl-k">=</span> exampleInt.<span class="pl-c1">packed</span>()
 
-<span class="pl-c">//if you didn't specific encoding, the default encoding will be ASCII</span>
+<span class="pl-c"><span class="pl-c">//</span>if you didn't specific encoding, the default encoding will be ASCII</span>
 <span class="pl-c"></span>#<span class="pl-k">if</span> <span class="pl-k">swift</span>(<span class="pl-k">&gt;=</span><span class="pl-c1">3</span>)
 <span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr.<span class="pl-c1">packed</span>(<span class="pl-c1">withEncoding</span>: NSASCIIStringEncoding) 
 #<span class="pl-k">else</span>
 <span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr.<span class="pl-c1">packed</span>(<span class="pl-c1">withEncoding</span>: .<span class="pl-smi">ascii</span>)
 #<span class="pl-k">endif</span>
 <span class="pl-k">let</span> packedArray <span class="pl-k">=</span> exampleArray.<span class="pl-c1">packed</span>()
-<span class="pl-c">//You can use this operator +^ the join the data on rhs to the end of data on lhs</span>
+<span class="pl-c"><span class="pl-c">//</span>You can use this operator +^ the join the data on rhs to the end of data on lhs</span>
 <span class="pl-c"></span><span class="pl-k">let</span> msgPackedBytes<span class="pl-k">:</span> NSData <span class="pl-k">=</span> packedInt <span class="pl-k">+^</span> packedStr <span class="pl-k">+^</span> packedArray</pre></div>
 
 <h6>
@@ -7609,44 +7609,44 @@ resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl
 <p>To unpack a messagepacked bytearray is pretty easy:</p>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">do</span> {
-    <span class="pl-c">//The unpack method will return an array of NSData which each element is an unpacked object</span>
+    <span class="pl-c"><span class="pl-c">//</span>The unpack method will return an array of NSData which each element is an unpacked object</span>
 <span class="pl-c"></span>    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes.<span class="pl-c1">itemsUnpacked</span>()
-    <span class="pl-c">//instead of casting the NSData to the type you want, you can call these `.castTo..` methods to do the job for you</span>
+    <span class="pl-c"><span class="pl-c">//</span>instead of casting the NSData to the type you want, you can call these `.castTo..` methods to do the job for you</span>
 <span class="pl-c"></span>    <span class="pl-k">let</span> int<span class="pl-k">:</span> <span class="pl-c1">Int</span> <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">2</span>].<span class="pl-c1">castToInt</span>()
 
-    <span class="pl-c">//Same as packing, you can also specify the encoding you want to use, default is ASCII</span>
+    <span class="pl-c"><span class="pl-c">//</span>Same as packing, you can also specify the encoding you want to use, default is ASCII</span>
 <span class="pl-c"></span>    <span class="pl-k">let</span> str<span class="pl-k">:</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> unpackedItem[<span class="pl-c1">3</span>].<span class="pl-c1">castToString</span>() 
     <span class="pl-k">let</span> array<span class="pl-k">:</span> NSArray <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">4</span>].<span class="pl-c1">castToArray</span>() 
 } <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
     <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
 }
 
-<span class="pl-c">//Remember how to pack your struct? Here is a better way to unpack a stream of bytes formatted in specific format</span>
+<span class="pl-c"><span class="pl-c">//</span>Remember how to pack your struct? Here is a better way to unpack a stream of bytes formatted in specific format</span>
 <span class="pl-c"></span> <span class="pl-k">let</span> testObj1 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject1<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">1</span>)
  <span class="pl-k">let</span> testObj2 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject2<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">2</span>)
  <span class="pl-k">let</span> testObj3 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject3<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">3</span>)
 
- <span class="pl-k">let</span> packed <span class="pl-k">=</span> <span class="pl-c1">packCustomObjects</span>(testObj1, testObj2, testObj3) <span class="pl-c">//This is an other method that can pack your own struct easier</span>
+ <span class="pl-k">let</span> packed <span class="pl-k">=</span> <span class="pl-c1">packCustomObjects</span>(testObj1, testObj2, testObj3) <span class="pl-c"><span class="pl-c">//</span>This is an other method that can pack your own struct easier</span>
 <span class="pl-c"></span>
  <span class="pl-k">let</span> nobjsInOneGroup <span class="pl-k">=</span> <span class="pl-c1">2</span>
 
  <span class="pl-k">try</span><span class="pl-k">!</span> packed.<span class="pl-c1">unpackByGroupsWith</span>(nobjsInOneGroup) {
      (unpackedData, isLast) <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
 
-     <span class="pl-c">//you can also involve additional args like number of groups to unpack</span>
-<span class="pl-c"></span>     <span class="pl-k">guard</span> <span class="pl-k">let</span> name <span class="pl-k">=</span> unpackedData[<span class="pl-c1">0</span>].<span class="pl-c1">castToString</span>() <span class="pl-k">else</span> {<span class="pl-k">return</span> <span class="pl-c1">false</span>} <span class="pl-c">//abort unpacking hen something wrong</span>
+     <span class="pl-c"><span class="pl-c">//</span>you can also involve additional args like number of groups to unpack</span>
+<span class="pl-c"></span>     <span class="pl-k">guard</span> <span class="pl-k">let</span> name <span class="pl-k">=</span> unpackedData[<span class="pl-c1">0</span>].<span class="pl-c1">castToString</span>() <span class="pl-k">else</span> {<span class="pl-k">return</span> <span class="pl-c1">false</span>} <span class="pl-c"><span class="pl-c">//</span>abort unpacking hen something wrong</span>
 <span class="pl-c"></span>     <span class="pl-k">let</span> index <span class="pl-k">=</span> unpackedData[<span class="pl-c1">1</span>]
-     <span class="pl-k">let</span> testObj <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: name, <span class="pl-c1">index</span>: index) <span class="pl-c">// assembly      </span>
-<span class="pl-c"></span>     <span class="pl-k">return</span> <span class="pl-c1">true</span> <span class="pl-c">//proceed unpacking, or return false to abort</span>
+     <span class="pl-k">let</span> testObj <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: name, <span class="pl-c1">index</span>: index) <span class="pl-c"><span class="pl-c">//</span> assembly      </span>
+<span class="pl-c"></span>     <span class="pl-k">return</span> <span class="pl-c1">true</span> <span class="pl-c"><span class="pl-c">//</span>proceed unpacking, or return false to abort</span>
 <span class="pl-c"></span> } 
 </pre></div>
 
 <p><strong>If you don't want to unpack every single thing included in the message-pack byte array, you can also specify an amount to unpack, if you want to keep the remaining bytes, you can put <code>true</code> in the <code>returnRemainingBytes</code> argument, the remaining bytes will stored in the end of the <code>NSData</code> array.</strong></p>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">do</span> {
-    <span class="pl-c">//Unpack only 2 objects, and we are not interested in remaining bytes</span>
+    <span class="pl-c"><span class="pl-c">//</span>Unpack only 2 objects, and we are not interested in remaining bytes</span>
 <span class="pl-c"></span>    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes.<span class="pl-c1">itemsUnpacked</span>(<span class="pl-c1">specific_amount</span>: <span class="pl-c1">2</span>, <span class="pl-c1">returnRemainingBytes</span>: <span class="pl-c1">false</span>)
-    <span class="pl-c1">print</span>(unpackedItems.<span class="pl-c1">count</span>) <span class="pl-c">//will print 2</span>
+    <span class="pl-c1">print</span>(unpackedItems.<span class="pl-c1">count</span>) <span class="pl-c"><span class="pl-c">//</span>will print 2</span>
 <span class="pl-c"></span>} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
     <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
 }</pre></div>
@@ -7813,7 +7813,7 @@ form_data.age = form.at(<span class="pl-s"><span class="pl-pds">"</span>age<span
 form_data.gpa = form.at(<span class="pl-s"><span class="pl-pds">"</span>gpa<span class="pl-pds">"</span></span>).float32().gte(<span class="pl-c1">0</span>).lte(<span class="pl-c1">4.0</span>).val();
 form_data.email = form.at(<span class="pl-s"><span class="pl-pds">"</span>email<span class="pl-pds">"</span></span>).string().match(std::regex(<span class="pl-s"><span class="pl-pds">"</span>^.{3,256}$<span class="pl-pds">"</span></span>)).val();
 form_data.password_hash = form.at(<span class="pl-s"><span class="pl-pds">"</span>password_hash<span class="pl-pds">"</span></span>).string().match(std::regex(<span class="pl-s"><span class="pl-pds">"</span>^[a-fA-F0-9]{32}$<span class="pl-pds">"</span></span>)).val();
-form_data.subscribe_to_email_marketing = form.at(<span class="pl-s"><span class="pl-pds">"</span>subscribe_to_email_marketing<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>).boolean().val(); <span class="pl-c">// Optional field defaults to true.</span>
+form_data.subscribe_to_email_marketing = form.at(<span class="pl-s"><span class="pl-pds">"</span>subscribe_to_email_marketing<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>).boolean().val(); <span class="pl-c"><span class="pl-c">//</span> Optional field defaults to true.</span>
 
 form.at(<span class="pl-s"><span class="pl-pds">"</span>interests<span class="pl-pds">"</span></span>).array().for_each([&amp;form_data](goodform::sub_form&amp; sf, std::<span class="pl-c1">size_t</span> i)
 {
@@ -7822,11 +7822,11 @@ form.at(<span class="pl-s"><span class="pl-pds">"</span>interests<span class="pl
 
 <span class="pl-k">if</span> (form.is_good())
 {
-  <span class="pl-c">// Use validated form_data.</span>
+  <span class="pl-c"><span class="pl-c">//</span> Use validated form_data.</span>
 }
 <span class="pl-k">else</span>
 {
-  <span class="pl-c">// Handle error.</span>
+  <span class="pl-c"><span class="pl-c">//</span> Handle error.</span>
 }</pre></div>
 </article>
   </div>
@@ -8028,9 +8028,9 @@ License (Apache V2.0) <a href="http://www.apache.org/licenses/LICENSE-2.0">http:
 
 <div class="highlight highlight-source-crystal"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack<span class="pl-pds">"</span></span>
 
-<span class="pl-c1">1</span>.to_msgpack <span class="pl-c"># =&gt; Slice[210, 0, 0, 0, 1]</span>
+<span class="pl-c1">1</span>.to_msgpack <span class="pl-c"><span class="pl-c">#</span> =&gt; Slice[210, 0, 0, 0, 1]</span>
 
-<span class="pl-c"># write 2_i32 to file foo.msgpack</span>
+<span class="pl-c"><span class="pl-c">#</span> write 2_i32 to file foo.msgpack</span>
 <span class="pl-c1">File</span>.open(<span class="pl-s"><span class="pl-pds">"</span>foo.msgpack<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w<span class="pl-pds">"</span></span>) { |<span class="pl-smi">f</span>| f.write(<span class="pl-c1">2</span>.to_msgpack) }
 </pre></div>
 
