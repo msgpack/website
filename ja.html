@@ -580,9 +580,10 @@ typed as a base class object.</p>
 <a name="user-content-what-s-this"></a>
 <h6>
 <a id="user-content-whats-this" class="anchor" href="#whats-this" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What's this</h6>
-<p><a href="http://msgpack.org/">MessagePack</a> is a fast, compact binary serialization format, suitable for
-similar data to JSON. This package provides CPython bindings for reading and
-writing MessagePack data.</p>
+<p><a href="http://msgpack.org/">MessagePack</a> is an efficient binary serialization format.
+It lets you exchange data among multiple languages like JSON.
+But it's faster and smaller.
+This package provides CPython bindings for reading and writing MessagePack data.</p>
 <a name="user-content-install"></a>
 <h6>
 <a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h6>
@@ -698,7 +699,7 @@ True</pre></div>
 <a id="user-content-advanced-unpacking-control" class="anchor" href="#advanced-unpacking-control" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced unpacking control</h7>
 <p>As an alternative to iteration, <code>Unpacker</code> objects provide <code>unpack</code>,
 <code>skip</code>, <code>read_array_header</code> and <code>read_map_header</code> methods. The former two
-read an entire message from the stream, respectively deserialising and returning
+read an entire message from the stream, respectively de-serialising and returning
 the result, or ignoring it. The latter two methods return the number of elements
 in the upcoming container, so that each element in an array, or key-value pair
 in a map, can be unpacked or skipped individually.</p>
