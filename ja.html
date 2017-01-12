@@ -218,6 +218,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ktakashi-r6rs-msgpack',this)">Scheme <span class="qs-sub">ktakashi</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ktakashi-r6rs-msgpack',this)">Scheme <span class="qs-sub">ktakashi</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ugorji-go',this)">Go <span class="qs-sub">ugorji</span></a></li>
@@ -255,8 +257,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-rodrigosetti-messagepack',this)">Haskell <span class="qs-sub">rodrigosetti</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-chinawsb-qmsgpack-delphi',this)">Delphi <span class="qs-sub">chinawsb</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-romixlab-qmsgpack',this)">Qt <span class="qs-sub">romixlab</span></a></li>
           
@@ -2018,6 +2018,118 @@ iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 
 <p>MIT</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ktakashi-r6rs-msgpack" class="qs"><h4><a href="https://github.com/ktakashi/r6rs-msgpack" target="_blank">ktakashi/r6rs-msgpack <span class="qs-url">https://github.com/ktakashi/r6rs-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-for-r6rs-scheme" class="anchor" href="#messagepack-for-r6rs-scheme" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for R6RS Scheme</h5>
+
+<p>This is an implementation of <a href="http://msgpack.org/">MessagePack</a> for 
+R6RS Scheme.</p>
+
+<h6>
+<a id="user-content-api-references" class="anchor" href="#api-references" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API references</h6>
+
+<p><em>Function</em> (pack! bv message)<br>
+<em>Function</em> (pack! bv message offset)   </p>
+
+<p>Pack <em>message</em> to message pack format bytevector and put it into the
+<em>bv</em> destructively. Given <em>bv</em> must have enough length to hold the message.</p>
+
+<p>Optional argument <em>offset</em> indicates where to start with, default is 0.  </p>
+
+<p><em>Function</em> (pack message)   </p>
+
+<p>The same as <strong>pack!</strong> but this one creates a new bytevector.</p>
+
+<p><em>Function</em> (pack-size message)</p>
+
+<p>Calculate the converted message size.</p>
+
+<p><em>Function</em> (unpack bv)<br>
+<em>Function</em> (unpack bv offset)  </p>
+
+<p>Unpack the given message format bytevector to Scheme object.</p>
+
+<p>Optional argument <em>offset</em> indicates where to start with, default is 0.  </p>
+
+<p><em>Function</em> (get-unpack in)</p>
+
+<p>Unpack the given binary input port to Scheme object.</p>
+
+<h6>
+<a id="user-content-conversion-rules" class="anchor" href="#conversion-rules" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conversion rules</h6>
+
+<p>As you already know, Scheme doesn't have static types so the conversion of
+Scheme objects to message pack data might cause unexpected results. To avoid
+it, I will describe how conversion works.</p>
+
+<h7>
+<a id="user-content-scheme-to-message-pack" class="anchor" href="#scheme-to-message-pack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scheme to message pack</h7>
+
+<h8>
+<a id="user-content-integer-conversion" class="anchor" href="#integer-conversion" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Integer conversion</h8>
+
+<p>The library automatically decides proper size. More specifically, if it
+can fit to message pack's fixnum then library uses it, so are uint8-64.
+If the number is too big, then an error is raised. Users must know it tries
+to use uint as much as possible. If the given number was negative then
+sint will be used.</p>
+
+<h8>
+<a id="user-content-floating-point-conversion" class="anchor" href="#floating-point-conversion" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Floating point conversion</h8>
+
+<p>Unfortunately R6RS doesn't have difference between float and double. So
+when flonum is given then it always converts to double number.</p>
+
+<h8>
+<a id="user-content-collection-conversion" class="anchor" href="#collection-conversion" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Collection conversion</h8>
+
+<p>Message pack has collections which are map and array. And these are associated
+with alist (association list) and vector respectively. When you want to convert
+alist to message pack data, then you need to make sure the <em>cdr</em> part will be
+the data and if you put <em>(("key" "value))_</em> then it will be converted to nested
+map.</p>
+
+<p>The collection size calculation is done automatically. It tries to use the
+smallest size.</p>
+
+<h7>
+<a id="user-content-message-pack-to-scheme" class="anchor" href="#message-pack-to-scheme" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Message pack to Scheme</h7>
+
+<p>The other way around is easy, it can simply restore the byte data to Scheme
+object. Following describes the conversion rules;</p>
+
+<p>Positive fixnum -&gt; integer<br>
+Negative fixnum -&gt; integer<br>
+uint8, uint16, uint32, uint64 -&gt; integer<br>
+sint8, sint16, sint32, sint64 -&gt; integer<br>
+Map -&gt; alist<br>
+Array -&gt; vector<br>
+fixstr, str8, str16, str32 -&gt; string
+bit8, bit16, bit32 -&gt; bytevector</p>
+
+<h6>
+<a id="user-content-tested-scheme-implementations" class="anchor" href="#tested-scheme-implementations" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tested Scheme implementations</h6>
+
+<p><a href="http://code.google.com/p/sagittarius-scheme/">Sagittarius Scheme</a></p>
+
+<p><a href="http://code.google.com/p/mosh-scheme/">Mosh Scheme</a></p>
+
+<p><a href="http://code.google.com/p/ypsilon/">Ypsilon</a></p>
+
+<p>Your contributions are always welcome.</p>
+
+<h6>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TODO</h6>
+
+<ul>
+<li>More testing</li>
+<li>Extended type handling</li>
+</ul>
 </article>
   </div>
         </div>
@@ -3952,72 +4064,6 @@ welcome to report bug
     Memo1.Lines.Add(s);
     lvMsg2.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).SaveBinaryToFile(s);    
   <span class="pl-k">end</span>;
-</pre></div>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-chinawsb-qmsgpack-delphi" class="qs"><h4><a href="http://www.qdac.cc" target="_blank">chinawsb/qmsgpack-delphi <span class="qs-url">http://www.qdac.cc</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h7>
-<a id="user-content-qmsgpack-messagepack-for-delphic-builder" class="anchor" href="#qmsgpack-messagepack-for-delphic-builder" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>QMsgPack-Messagepack for Delphi/C++ Builder</h7>
-
-<p>QMsgPack is a simple and powerful Delphi &amp; C++ Builder implementation for messagepack protocol.
-QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http://sourceforge.net/p/qdac3">http://sourceforge.net/p/qdac3</a>).</p>
-
-<h7>
-<a id="user-content-feathers" class="anchor" href="#feathers" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Feathers</h7>
-
-<p>· Full types support,include messagepack extension type</p>
-
-<p>· Full open source,free for used in ANY PURPOSE</p>
-
-<p>· Quick and simple interface</p>
-
-<p>· RTTI support include</p>
-
-<h7>
-<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h7>
-
-<p>QMsgPack is not a desgin time package.So just place QMsgPack files into search path and add to your project.</p>
-
-<h7>
-<a id="user-content-support" class="anchor" href="#support" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Support</h7>
-
-<p>· Topic in Website (<a href="http://www.qdac.cc/?cat=44">http://www.qdac.cc/?cat=44</a>) ,CHINESE only</p>
-
-<p>· Mail to author (<a href="mailto:chinawsb@sina.com">chinawsb@sina.com</a>)</p>
-
-<p>· Post in forum (<a href="http://tieba.baidu.com/f?kw=qdac">http://tieba.baidu.com/f?kw=qdac</a>)</p>
-
-<p>· QQ Group No：250530692 (<a href="http://jq.qq.com/?_wv=1027&amp;k=ZH6mZR">http://jq.qq.com/?_wv=1027&amp;k=ZH6mZR</a>)</p>
-
-<h7>
-<a id="user-content-source-check-out" class="anchor" href="#source-check-out" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source check out</h7>
-
-<p>· HTTP (<a href="http://svn.code.sf.net/p/qdac3/code/">http://svn.code.sf.net/p/qdac3/code/</a>)</p>
-
-<p>· SVN (svn://svn.code.sf.net/p/qdac3/code/)</p>
-
-<h7>
-<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h7>
-
-<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
-  lvMsg, lvMsg2:TQMsgPack;
-  lvBytes:TBytes;
-  s:string;
-<span class="pl-k">begin</span>
-  lvMsg := TQMsgPack.Create;
-  lvMsg.ForcePath(<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>).AsString := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
-
-  <span class="pl-c"><span class="pl-c">//</span></span>
-  lvBytes := lvMsg.Encode;
-
-  lvMsg2 := TQMsgPack.Create;
-  lvMsg2.Parse(lvBytes);
-  <span class="pl-c"><span class="pl-c">//</span></span>
-  showMessage(lvMsg.ForcePath(<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>).AsString);
-  ....
 </pre></div>
 </article>
   </div>
