@@ -8355,7 +8355,7 @@ The data corresponds to <code>{"compact":true,"schema":0}</code> in JSON.</p>
 <p>You can find this code and more in <a href="https://github.com/tris-foundation/examples">examples</a>.</p>
 
 <div class="highlight highlight-source-swift"><pre>    <span class="pl-k">let</span> hey <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>(<span class="pl-s"><span class="pl-pds">"</span>hey there!<span class="pl-pds">"</span></span>)
-    <span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">serialize</span>(string)
+    <span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">serialize</span>(hey)
     <span class="pl-k">let</span> original <span class="pl-k">=</span> <span class="pl-c1">String</span>(MessagePack.<span class="pl-c1">deserialize</span>(<span class="pl-c1">bytes</span>: bytes))</pre></div>
 
 <div class="highlight highlight-source-swift"><pre>    <span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">serialize</span>(.<span class="pl-c1">array</span>([.<span class="pl-c1">int</span>(<span class="pl-c1">1</span>), .<span class="pl-c1">string</span>(<span class="pl-s"><span class="pl-pds">"</span>two<span class="pl-pds">"</span></span>)]))</pre></div>
