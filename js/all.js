@@ -1,31 +1,14 @@
 function changeQuickStart(targetId, selected) {
-    var holder = document.getElementById("quickstart");
-    var title = document.getElementById("language");
-    var target = document.getElementById(targetId);
-
-    if(target == null) {
+    var $target = $('#' + targetId);
+    if($target.length == 0) {
         return false;
     }
 
-    /* remove all elements from the holder and title */
-    var lastChild;
-    while((lastChild = holder.lastChild) != null) {
-        holder.removeChild(lastChild);
-    }
-    while((lastChild = title.lastChild) != null) {
-        title.removeChild(lastChild);
-    }
+    var $preTarget = $('.current-language');
+    $preTarget.hide();
 
-    var children = target.childNodes;
-    var childrenLength = children.length;
-
-    /* copy first element from target to title */
-    title.appendChild(children[0].cloneNode(true));
-
-    /* copy remaining elements from target to holder */
-    for(var i=1; i < childrenLength; i++) {
-        holder.appendChild(children[i].cloneNode(true));
-    }
+    $target.show();
+    $target.addClass('current-language');
 
     /* set css */
     var selectedNodes = document.getElementsByName("selected");

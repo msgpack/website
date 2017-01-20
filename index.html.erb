@@ -188,15 +188,12 @@
 
       <div id="api">
         <h3 class="i18n_head"><%= t 'api' %></h3>
-        <h4 id="language">&nbsp;</h4>
-        <div id="quickstart" class="qsholder"></div>
-        <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md#how-to-list-up-your-project-on-msgpackorg"><%= t 'list_your_impl' %></a></p>
-
         <% repos.each_with_index do |repo,i| %>
-        <div id="qs-<%= repo[:msgpack_repo_id] %>" class="qs"><h4><a href="<%= repo[:msgpack_repo_homepage] %>" target="_blank"><%= repo[:full_name] %> <span class="qs-url"><%= repo[:msgpack_repo_homepage] %></span></a></h4>
-<%= repo[:msgpack_quickstart_html] %>
+        <div id="qs-<%= repo[:msgpack_repo_id] %>" class="qs"><h4 class="language"><a href="<%= repo[:msgpack_repo_homepage] %>" target="_blank"><%= repo[:full_name] %> <span class="qs-url"><%= repo[:msgpack_repo_homepage] %></span></a></h4>
+        <div class="qsholder"><%= repo[:msgpack_quickstart_html] %></div>
         </div>
         <% end %>
+        <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md#how-to-list-up-your-project-on-msgpackorg"><%= t 'list_your_impl' %></a></p>
       </div>
     </section>
 
