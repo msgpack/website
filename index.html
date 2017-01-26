@@ -233,6 +233,10 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
@@ -252,10 +256,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-rodrigosetti-messagepack',this)">Haskell <span class="qs-sub">rodrigosetti</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-chinawsb-qmsgpack-delphi',this)">Delphi <span class="qs-sub">chinawsb</span></a></li>
           
@@ -2703,6 +2703,482 @@ image.</p>
   </div>
         </div>
         
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<p><a href="https://clojars.org/clojure-msgpack"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/edma2/clojure-msgpack"><img src="https://camo.githubusercontent.com/1bc6fc12bcbde68e4bfd66192eddce3b02b2c578/68747470733a2f2f7472617669732d63692e6f72672f65646d61322f636c6f6a7572652d6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/edma2/clojure-msgpack.svg?branch=master" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming</h7>
+
+<p><code>clojure-msgpack</code> provides a streaming API for situations where it is more
+convenient or efficient to work with byte streams instead of fixed byte arrays
+(e.g. size of object is not known ahead of time).</p>
+
+<p>The streaming counterpart to <code>msgpack.core/pack</code> is <code>msgpack.core/pack-stream</code>
+which returns nil and accepts either
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">java.io.OutputStream</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a>
+as an additional argument.</p>
+
+<p><code>msgpack.core/unpack</code> is in "streaming mode" when the argument is of type
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">java.io.InputStream</a>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c"><span class="pl-c">;</span> protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c"><span class="pl-c">;</span> clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h7>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h7>
+
+<p>All pack and unpack functions take an optional map of options:</p>
+
+<ul>
+<li>
+<p><code>:compatibility-mode</code>
+Serialize/deserialize strings and bytes using the raw-type defined here:
+<a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">https://github.com/msgpack/msgpack/blob/master/spec-old.md</a></p>
+
+<p>Note: No error is thrown if an unpacked value is reserved under the old spec
+but defined under the new spec. We always deserialize something if we can
+regardless of <code>compatibility-mode</code>.</p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<p><a href="https://clojars.org/clojure-msgpack"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/edma2/clojure-msgpack"><img src="https://camo.githubusercontent.com/1bc6fc12bcbde68e4bfd66192eddce3b02b2c578/68747470733a2f2f7472617669732d63692e6f72672f65646d61322f636c6f6a7572652d6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/edma2/clojure-msgpack.svg?branch=master" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming</h7>
+
+<p><code>clojure-msgpack</code> provides a streaming API for situations where it is more
+convenient or efficient to work with byte streams instead of fixed byte arrays
+(e.g. size of object is not known ahead of time).</p>
+
+<p>The streaming counterpart to <code>msgpack.core/pack</code> is <code>msgpack.core/pack-stream</code>
+which returns nil and accepts either
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">java.io.OutputStream</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a>
+as an additional argument.</p>
+
+<p><code>msgpack.core/unpack</code> is in "streaming mode" when the argument is of type
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">java.io.InputStream</a>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c"><span class="pl-c">;</span> protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c"><span class="pl-c">;</span> clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h7>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h7>
+
+<p>All pack and unpack functions take an optional map of options:</p>
+
+<ul>
+<li>
+<p><code>:compatibility-mode</code>
+Serialize/deserialize strings and bytes using the raw-type defined here:
+<a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">https://github.com/msgpack/msgpack/blob/master/spec-old.md</a></p>
+
+<p>Note: No error is thrown if an unpacked value is reserved under the old spec
+but defined under the new spec. We always deserialize something if we can
+regardless of <code>compatibility-mode</code>.</p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-tkob-mlmsgpack" class="qs"><h4><a href="https://github.com/tkob/mlmsgpack" target="_blank">tkob/mlmsgpack <span class="qs-url">https://github.com/tkob/mlmsgpack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -3614,186 +4090,6 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
     <span class="pl-c"><span class="pl-c">--</span> ...</span></pre></div>
 
 <p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-ymofen-msgpack-delphi" class="qs"><h4><a href="https://github.com/ymofen/msgpack-delphi" target="_blank">ymofen/msgpack-delphi <span class="qs-url">https://github.com/ymofen/msgpack-delphi</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-msgpack-for-delphi" class="anchor" href="#msgpack-for-delphi" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Msgpack for Delphi</h5>
-
-<p>It's like JSON but small and fast.</p>
-
-<pre><code>unit Owner: D10.Mofen, qdac.swish
-contact:
-       qq:185511468, 
-    email:185511468@qq.com
-welcome to report bug
-</code></pre>
-
-<h6>
-<a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Works with</h6>
-
-<ul>
-<li>Delphi 7 (tested)</li>
-<li>Delphi 2007 (tested)</li>
-<li>XE5, XE6, XE7, FMX (tested)</li>
-</ul>
-
-<h6>
-<a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>changes:</h6>
-
-<ul>
-<li><p>first release
- 2014-08-15 13:05:13</p></li>
-<li><p>add array support
- 2014-08-19 12:18:47</p></li>
-<li><p>add andriod support
- 2014-09-08 00:45:27</p></li>
-<li><p>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
- 2014-11-09 22:35:27</p></li>
-<li><p>add EncodeToFile/DecodeFromFile
- 2014-11-13 12:30:58</p></li>
-<li><p>fix  asVariant = null (thanks for cyw(26890954))
- 2014-11-14 09:05:52</p></li>
-<li><p>fix AsInteger = -1 bug (thanks for cyw(26890954))
- 2014-11-14 12:15:52</p></li>
-<li><p>fix AsInteger = -127 bug
- check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
- 2014-11-14 12:30:38</p></li>
-<li><p>fix AsFloat = 2.507182 bug
- thanks fo [珠海]-芒果  1939331207
- 2014-11-21 12:37:04</p></li>
-<li><p>add AddArrayChild func
- 2015-03-25 17:47:28</p></li>
-<li><p>add remove/removeFromParent/Delete function
- 2015-08-29 22:37:48</p></li>
-</ul>
-
-<h7>
-<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code Example</h7>
-
-<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
-  lvMsg, lvMsg2:TSimpleMsgPack;
-  lvBytes:TBytes;
-  s:string;
-<span class="pl-k">begin</span>
-  lvMsg := TSimpleMsgPack.Create;
-  lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>] := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
-  <span class="pl-k">if</span> dlgOpen.Execute <span class="pl-k">then</span>
-  <span class="pl-k">begin</span>
-    lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] := ExtractFileName(dlgOpen.FileName);
-
-    <span class="pl-c"><span class="pl-c">//</span> file binary data</span>
-    lvMsg.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).LoadBinaryFromFile(dlgOpen.FileName);
-  <span class="pl-k">end</span>;
-
-  <span class="pl-c"><span class="pl-c">//</span></span>
-  lvBytes := lvMsg.EncodeToBytes;
-
-  lvMsg2 := TSimpleMsgPack.Create;
-  lvMsg2.DecodeFromBytes(lvBytes);
-  <span class="pl-c"><span class="pl-c">//</span></span>
-  Memo1.Lines.Add(lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>]);
-  <span class="pl-k">if</span> lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] &lt;&gt; <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">then</span>
-  <span class="pl-k">begin</span>
-    s := ExtractFilePath(ParamStr(<span class="pl-c1">0</span>)) + lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>];
-    Memo1.Lines.Add(<span class="pl-s"><span class="pl-pds">'</span>file saved<span class="pl-pds">'</span></span>);
-    Memo1.Lines.Add(s);
-    lvMsg2.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).SaveBinaryToFile(s);    
-  <span class="pl-k">end</span>;
-</pre></div>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-ymofen-msgpack-delphi" class="qs"><h4><a href="https://github.com/ymofen/msgpack-delphi" target="_blank">ymofen/msgpack-delphi <span class="qs-url">https://github.com/ymofen/msgpack-delphi</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-msgpack-for-delphi" class="anchor" href="#msgpack-for-delphi" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Msgpack for Delphi</h5>
-
-<p>It's like JSON but small and fast.</p>
-
-<pre><code>unit Owner: D10.Mofen, qdac.swish
-contact:
-       qq:185511468, 
-    email:185511468@qq.com
-welcome to report bug
-</code></pre>
-
-<h6>
-<a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Works with</h6>
-
-<ul>
-<li>Delphi 7 (tested)</li>
-<li>Delphi 2007 (tested)</li>
-<li>XE5, XE6, XE7, FMX (tested)</li>
-</ul>
-
-<h6>
-<a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>changes:</h6>
-
-<ul>
-<li><p>first release
- 2014-08-15 13:05:13</p></li>
-<li><p>add array support
- 2014-08-19 12:18:47</p></li>
-<li><p>add andriod support
- 2014-09-08 00:45:27</p></li>
-<li><p>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
- 2014-11-09 22:35:27</p></li>
-<li><p>add EncodeToFile/DecodeFromFile
- 2014-11-13 12:30:58</p></li>
-<li><p>fix  asVariant = null (thanks for cyw(26890954))
- 2014-11-14 09:05:52</p></li>
-<li><p>fix AsInteger = -1 bug (thanks for cyw(26890954))
- 2014-11-14 12:15:52</p></li>
-<li><p>fix AsInteger = -127 bug
- check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
- 2014-11-14 12:30:38</p></li>
-<li><p>fix AsFloat = 2.507182 bug
- thanks fo [珠海]-芒果  1939331207
- 2014-11-21 12:37:04</p></li>
-<li><p>add AddArrayChild func
- 2015-03-25 17:47:28</p></li>
-<li><p>add remove/removeFromParent/Delete function
- 2015-08-29 22:37:48</p></li>
-</ul>
-
-<h7>
-<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code Example</h7>
-
-<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
-  lvMsg, lvMsg2:TSimpleMsgPack;
-  lvBytes:TBytes;
-  s:string;
-<span class="pl-k">begin</span>
-  lvMsg := TSimpleMsgPack.Create;
-  lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>] := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
-  <span class="pl-k">if</span> dlgOpen.Execute <span class="pl-k">then</span>
-  <span class="pl-k">begin</span>
-    lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] := ExtractFileName(dlgOpen.FileName);
-
-    <span class="pl-c"><span class="pl-c">//</span> file binary data</span>
-    lvMsg.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).LoadBinaryFromFile(dlgOpen.FileName);
-  <span class="pl-k">end</span>;
-
-  <span class="pl-c"><span class="pl-c">//</span></span>
-  lvBytes := lvMsg.EncodeToBytes;
-
-  lvMsg2 := TSimpleMsgPack.Create;
-  lvMsg2.DecodeFromBytes(lvBytes);
-  <span class="pl-c"><span class="pl-c">//</span></span>
-  Memo1.Lines.Add(lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>]);
-  <span class="pl-k">if</span> lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] &lt;&gt; <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">then</span>
-  <span class="pl-k">begin</span>
-    s := ExtractFilePath(ParamStr(<span class="pl-c1">0</span>)) + lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>];
-    Memo1.Lines.Add(<span class="pl-s"><span class="pl-pds">'</span>file saved<span class="pl-pds">'</span></span>);
-    Memo1.Lines.Add(s);
-    lvMsg2.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).SaveBinaryToFile(s);    
-  <span class="pl-k">end</span>;
-</pre></div>
 </article>
   </div>
         </div>
