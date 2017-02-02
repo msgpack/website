@@ -233,11 +233,11 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kmsquire-MsgPack-jl',this)">Julia <span class="qs-sub">kmsquire</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
           
@@ -2702,6 +2702,482 @@ image.</p>
   </div>
         </div>
         
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<p><a href="https://clojars.org/clojure-msgpack"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/edma2/clojure-msgpack"><img src="https://camo.githubusercontent.com/1bc6fc12bcbde68e4bfd66192eddce3b02b2c578/68747470733a2f2f7472617669732d63692e6f72672f65646d61322f636c6f6a7572652d6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/edma2/clojure-msgpack.svg?branch=master" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming</h7>
+
+<p><code>clojure-msgpack</code> provides a streaming API for situations where it is more
+convenient or efficient to work with byte streams instead of fixed byte arrays
+(e.g. size of object is not known ahead of time).</p>
+
+<p>The streaming counterpart to <code>msgpack.core/pack</code> is <code>msgpack.core/pack-stream</code>
+which returns nil and accepts either
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">java.io.OutputStream</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a>
+as an additional argument.</p>
+
+<p><code>msgpack.core/unpack</code> is in "streaming mode" when the argument is of type
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">java.io.InputStream</a>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c"><span class="pl-c">;</span> protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c"><span class="pl-c">;</span> clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h7>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h7>
+
+<p>All pack and unpack functions take an optional map of options:</p>
+
+<ul>
+<li>
+<p><code>:compatibility-mode</code>
+Serialize/deserialize strings and bytes using the raw-type defined here:
+<a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">https://github.com/msgpack/msgpack/blob/master/spec-old.md</a></p>
+
+<p>Note: No error is thrown if an unpacked value is reserved under the old spec
+but defined under the new spec. We always deserialize something if we can
+regardless of <code>compatibility-mode</code>.</p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" href="#clojure-msgpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>clojure-msgpack</h5>
+
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+
+<p><a href="https://clojars.org/clojure-msgpack"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/edma2/clojure-msgpack"><img src="https://camo.githubusercontent.com/1bc6fc12bcbde68e4bfd66192eddce3b02b2c578/68747470733a2f2f7472617669732d63692e6f72672f65646d61322f636c6f6a7572652d6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/edma2/clojure-msgpack.svg?branch=master" style="max-width:100%;"></a></p>
+
+<h6>
+<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+
+<h7>
+<a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic</h7>
+
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-streaming" class="anchor" href="#streaming" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming</h7>
+
+<p><code>clojure-msgpack</code> provides a streaming API for situations where it is more
+convenient or efficient to work with byte streams instead of fixed byte arrays
+(e.g. size of object is not known ahead of time).</p>
+
+<p>The streaming counterpart to <code>msgpack.core/pack</code> is <code>msgpack.core/pack-stream</code>
+which returns nil and accepts either
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html">java.io.OutputStream</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html">java.io.DataOutput</a>
+as an additional argument.</p>
+
+<p><code>msgpack.core/unpack</code> is in "streaming mode" when the argument is of type
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html">java.io.DataInput</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html">java.io.InputStream</a>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+
+<h7>
+<a id="user-content-core-types" class="anchor" href="#core-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core types</h7>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+
+<h7>
+<a id="user-content-clojure-types" class="anchor" href="#clojure-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clojure types</h7>
+
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c"><span class="pl-c">;</span> protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c"><span class="pl-c">;</span> clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+
+<h7>
+<a id="user-content-application-types" class="anchor" href="#application-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="user-content-application-types">Application types</a>
+</h7>
+
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> Person [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+
+<h7>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h7>
+
+<p>All pack and unpack functions take an optional map of options:</p>
+
+<ul>
+<li>
+<p><code>:compatibility-mode</code>
+Serialize/deserialize strings and bytes using the raw-type defined here:
+<a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">https://github.com/msgpack/msgpack/blob/master/spec-old.md</a></p>
+
+<p>Note: No error is thrown if an unpacked value is reserved under the old spec
+but defined under the new spec. We always deserialize something if we can
+regardless of <code>compatibility-mode</code>.</p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-tkob-mlmsgpack" class="qs"><h4><a href="https://github.com/tkob/mlmsgpack" target="_blank">tkob/mlmsgpack <span class="qs-url">https://github.com/tkob/mlmsgpack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -2839,418 +3315,6 @@ called MsgPack-SML, which is targeted for MLton.</p>
 <p>For information on MessagePack, see:</p>
 
 <p><a href="http://msgpack.org/">http://msgpack.org/</a></p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-camgunz-cmp" class="qs"><h4><a href="https://github.com/camgunz/cmp" target="_blank">camgunz/cmp <span class="qs-url">https://github.com/camgunz/cmp</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-cmp" class="anchor" href="#cmp" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>cmp</h5>
-
-<p>CMP is a C implementation of the MessagePack serialization format.  It
-currently implements version 5 of the <a href="http://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack
-Spec</a>.</p>
-
-<p>CMP's goal is to be lightweight and straightforward, forcing nothing on the
-programmer.</p>
-
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
-
-<p>While I'm a big believer in the GPL, I license CMP under the MIT license.</p>
-
-<h6>
-<a id="user-content-example-usage" class="anchor" href="#example-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Usage</h6>
-
-<p>The following examples use a file as the backend, and are modeled after the
-examples included with the msgpack-c project.</p>
-
-<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdbool.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdint.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdlib.h<span class="pl-pds">&gt;</span></span>
-
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>cmp.h<span class="pl-pds">"</span></span>
-
-<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">read_bytes</span>(<span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> sz, <span class="pl-c1">FILE</span> *fh) {
-    <span class="pl-k">return</span> <span class="pl-c1">fread</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>), sz, fh) == (sz * <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>));
-}
-
-<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">file_reader</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> limit) {
-    <span class="pl-k">return</span> <span class="pl-c1">read_bytes</span>(data, limit, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
-}
-
-<span class="pl-k">static</span> <span class="pl-c1">size_t</span> <span class="pl-en">file_writer</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-k">const</span> <span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> count) {
-    <span class="pl-k">return</span> <span class="pl-c1">fwrite</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>), count, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
-}
-
-<span class="pl-k">void</span> <span class="pl-en">error_and_exit</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *msg) {
-    <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n\n</span><span class="pl-pds">"</span></span>, msg);
-    <span class="pl-c1">exit</span>(EXIT_FAILURE);
-}
-
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>) {
-    <span class="pl-c1">FILE</span> *fh = <span class="pl-c1">NULL</span>;
-    <span class="pl-c1">cmp_ctx_t</span> cmp;
-    <span class="pl-c1">uint32_t</span> array_size = <span class="pl-c1">0</span>;
-    <span class="pl-c1">uint32_t</span> str_size = <span class="pl-c1">0</span>;
-    <span class="pl-k">char</span> hello[<span class="pl-c1">6</span>] = {<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>};
-    <span class="pl-k">char</span> message_pack[<span class="pl-c1">12</span>] = {<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>};
-
-    fh = <span class="pl-c1">fopen</span>(<span class="pl-s"><span class="pl-pds">"</span>cmp_data.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w+b<span class="pl-pds">"</span></span>);
-
-    <span class="pl-k">if</span> (fh == <span class="pl-c1">NULL</span>)
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-s"><span class="pl-pds">"</span>Error opening data.dat<span class="pl-pds">"</span></span>);
-
-    <span class="pl-c1">cmp_init</span>(&amp;cmp, fh, file_reader, file_writer);
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_array</span>(&amp;cmp, <span class="pl-c1">2</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_str</span>(&amp;cmp, <span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>, <span class="pl-c1">5</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_str</span>(&amp;cmp, <span class="pl-s"><span class="pl-pds">"</span>MessagePack<span class="pl-pds">"</span></span>, <span class="pl-c1">11</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c1">rewind</span>(fh);
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_array</span>(&amp;cmp, &amp;array_size))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c"><span class="pl-c">/*</span> You can read the str byte size and then read str bytes... <span class="pl-c">*/</span></span>
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str_size</span>(&amp;cmp, &amp;str_size))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-k">if</span> (str_size &gt; (<span class="pl-k">sizeof</span>(hello) - <span class="pl-c1">1</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-s"><span class="pl-pds">"</span>Packed 'hello' length too long<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">read_bytes</span>(hello, str_size, fh))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c"><span class="pl-c">/*</span></span>
-<span class="pl-c">     * ...or you can set the maximum number of bytes to read and do it all in</span>
-<span class="pl-c">     * one call</span>
-<span class="pl-c">     <span class="pl-c">*/</span></span>
-
-    str_size = <span class="pl-k">sizeof</span>(message_pack);
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str</span>(&amp;cmp, message_pack, &amp;str_size))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Array Length: <span class="pl-c1">%zu</span>.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, array_size);
-    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>[<span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>, <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>]<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, hello, message_pack);
-
-    <span class="pl-c1">fclose</span>(fh);
-
-    <span class="pl-k">return</span> EXIT_SUCCESS;
-}</pre></div>
-
-<h6>
-<a id="user-content-advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced Usage</h6>
-
-<p>See the <code>examples</code> folder.</p>
-
-<h6>
-<a id="user-content-fast-lightweight-flexible-and-robust" class="anchor" href="#fast-lightweight-flexible-and-robust" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fast, Lightweight, Flexible, and Robust</h6>
-
-<p>CMP uses no internal buffers; conversions, encoding and decoding are done on
-the fly.</p>
-
-<p>CMP's source and header file together are ~3,300 LOC.</p>
-
-<p>CMP makes no heap allocations.</p>
-
-<p>CMP uses standardized types rather than declaring its own, and it depends only
-on <code>stdbool.h</code>, <code>stdint.h</code> and <code>string.h</code>.  It has no link-time dependencies,
-not even the C Standard Library.</p>
-
-<p>CMP is written using C89 (ANSI C), aside, of course, from its use of
-fixed-width integer types and <code>bool</code>.</p>
-
-<p>On the other hand, CMP's test suite depends upon the C Standard Library and
-requires C99.</p>
-
-<p>CMP only requires the programmer supply a read function and a write function.
-In this way, the programmer can use CMP on memory, files, sockets, etc.</p>
-
-<p>CMP is portable.  It uses fixed-width integer types, and checks the endianness
-of the machine at runtime before swapping bytes (MessagePack is big-endian).</p>
-
-<p>CMP provides a fairly comprehensive error reporting mechanism modeled after
-<code>errno</code> and <code>strerror</code>.</p>
-
-<p>CMP is threadsafe; while contexts cannot be shared between threads, each thread
-may use its own context freely.</p>
-
-<p>CMP is tested using the MessagePack test suite as well as a large set of custom
-test cases.  Its small test program is compiled with clang using <code>-Wall -Werror
--Wextra ...</code> along with several other flags, and generates no compilation
-errors.</p>
-
-<p>CMP's source is written as readably as possible, using explicit, descriptive
-variable names and a consistent, clear style.</p>
-
-<p>CMP's source is written to be as secure as possible.  Its testing suite checks
-for invalid values, and data is always treated as suspect before it passes
-validation.</p>
-
-<p>CMP's API is designed to be clear, convenient and unsurprising.  Strings are
-null-terminated, binary data is not, error codes are clear, and so on.</p>
-
-<p>CMP provides optional backwards compatibility for use with other MessagePack
-implementations that only implement version 4 of the spec.</p>
-
-<h6>
-<a id="user-content-building" class="anchor" href="#building" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h6>
-
-<p>There is no build system for CMP.  The programmer can drop <code>cmp.c</code> and <code>cmp.h</code>
-in their source tree and modify as necessary.  No special compiler settings are
-required to build it, and it generates no compilation errors in either clang or
-gcc.</p>
-
-<h6>
-<a id="user-content-backwards-compatibility" class="anchor" href="#backwards-compatibility" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Backwards Compatibility</h6>
-
-<p>Version 4 of the MessagePack spec has no <code>BIN</code> type, and provides no <code>STR8</code>
-marker.  In order to remain backwards compatible with version 4 of MessagePack,
-do the following:</p>
-
-<p>Avoid these functions:</p>
-
-<ul>
-<li><code>cmp_write_bin</code></li>
-<li><code>cmp_write_bin_marker</code></li>
-<li><code>cmp_write_str8_marker</code></li>
-<li><code>cmp_write_str8</code></li>
-<li><code>cmp_write_bin8_marker</code></li>
-<li><code>cmp_write_bin8</code></li>
-<li><code>cmp_write_bin16_marker</code></li>
-<li><code>cmp_write_bin16</code></li>
-<li><code>cmp_write_bin32_marker</code></li>
-<li><code>cmp_write_bin32</code></li>
-</ul>
-
-<p>Use these functions in lieu of their v5 counterparts:</p>
-
-<ul>
-<li>
-<code>cmp_write_str_marker_v4</code> instead of <code>cmp_write_str_marker</code>
-</li>
-<li>
-<code>cmp_write_str_v4</code> instead of <code>cmp_write_str</code>
-</li>
-<li>
-<code>cmp_write_object_v4</code> instead of <code>cmp_write_object</code>
-</li>
-</ul>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-camgunz-cmp" class="qs"><h4><a href="https://github.com/camgunz/cmp" target="_blank">camgunz/cmp <span class="qs-url">https://github.com/camgunz/cmp</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-cmp" class="anchor" href="#cmp" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>cmp</h5>
-
-<p>CMP is a C implementation of the MessagePack serialization format.  It
-currently implements version 5 of the <a href="http://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack
-Spec</a>.</p>
-
-<p>CMP's goal is to be lightweight and straightforward, forcing nothing on the
-programmer.</p>
-
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
-
-<p>While I'm a big believer in the GPL, I license CMP under the MIT license.</p>
-
-<h6>
-<a id="user-content-example-usage" class="anchor" href="#example-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Usage</h6>
-
-<p>The following examples use a file as the backend, and are modeled after the
-examples included with the msgpack-c project.</p>
-
-<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdbool.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdint.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdlib.h<span class="pl-pds">&gt;</span></span>
-
-#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>cmp.h<span class="pl-pds">"</span></span>
-
-<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">read_bytes</span>(<span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> sz, <span class="pl-c1">FILE</span> *fh) {
-    <span class="pl-k">return</span> <span class="pl-c1">fread</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>), sz, fh) == (sz * <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>));
-}
-
-<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">file_reader</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> limit) {
-    <span class="pl-k">return</span> <span class="pl-c1">read_bytes</span>(data, limit, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
-}
-
-<span class="pl-k">static</span> <span class="pl-c1">size_t</span> <span class="pl-en">file_writer</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-k">const</span> <span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> count) {
-    <span class="pl-k">return</span> <span class="pl-c1">fwrite</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>), count, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
-}
-
-<span class="pl-k">void</span> <span class="pl-en">error_and_exit</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *msg) {
-    <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n\n</span><span class="pl-pds">"</span></span>, msg);
-    <span class="pl-c1">exit</span>(EXIT_FAILURE);
-}
-
-<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>) {
-    <span class="pl-c1">FILE</span> *fh = <span class="pl-c1">NULL</span>;
-    <span class="pl-c1">cmp_ctx_t</span> cmp;
-    <span class="pl-c1">uint32_t</span> array_size = <span class="pl-c1">0</span>;
-    <span class="pl-c1">uint32_t</span> str_size = <span class="pl-c1">0</span>;
-    <span class="pl-k">char</span> hello[<span class="pl-c1">6</span>] = {<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>};
-    <span class="pl-k">char</span> message_pack[<span class="pl-c1">12</span>] = {<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>};
-
-    fh = <span class="pl-c1">fopen</span>(<span class="pl-s"><span class="pl-pds">"</span>cmp_data.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w+b<span class="pl-pds">"</span></span>);
-
-    <span class="pl-k">if</span> (fh == <span class="pl-c1">NULL</span>)
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-s"><span class="pl-pds">"</span>Error opening data.dat<span class="pl-pds">"</span></span>);
-
-    <span class="pl-c1">cmp_init</span>(&amp;cmp, fh, file_reader, file_writer);
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_array</span>(&amp;cmp, <span class="pl-c1">2</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_str</span>(&amp;cmp, <span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>, <span class="pl-c1">5</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_str</span>(&amp;cmp, <span class="pl-s"><span class="pl-pds">"</span>MessagePack<span class="pl-pds">"</span></span>, <span class="pl-c1">11</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c1">rewind</span>(fh);
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_array</span>(&amp;cmp, &amp;array_size))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c"><span class="pl-c">/*</span> You can read the str byte size and then read str bytes... <span class="pl-c">*/</span></span>
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str_size</span>(&amp;cmp, &amp;str_size))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-k">if</span> (str_size &gt; (<span class="pl-k">sizeof</span>(hello) - <span class="pl-c1">1</span>))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-s"><span class="pl-pds">"</span>Packed 'hello' length too long<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
-
-    <span class="pl-k">if</span> (!<span class="pl-c1">read_bytes</span>(hello, str_size, fh))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c"><span class="pl-c">/*</span></span>
-<span class="pl-c">     * ...or you can set the maximum number of bytes to read and do it all in</span>
-<span class="pl-c">     * one call</span>
-<span class="pl-c">     <span class="pl-c">*/</span></span>
-
-    str_size = <span class="pl-k">sizeof</span>(message_pack);
-    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str</span>(&amp;cmp, message_pack, &amp;str_size))
-        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
-
-    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Array Length: <span class="pl-c1">%zu</span>.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, array_size);
-    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>[<span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>, <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>]<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, hello, message_pack);
-
-    <span class="pl-c1">fclose</span>(fh);
-
-    <span class="pl-k">return</span> EXIT_SUCCESS;
-}</pre></div>
-
-<h6>
-<a id="user-content-advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced Usage</h6>
-
-<p>See the <code>examples</code> folder.</p>
-
-<h6>
-<a id="user-content-fast-lightweight-flexible-and-robust" class="anchor" href="#fast-lightweight-flexible-and-robust" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fast, Lightweight, Flexible, and Robust</h6>
-
-<p>CMP uses no internal buffers; conversions, encoding and decoding are done on
-the fly.</p>
-
-<p>CMP's source and header file together are ~3,300 LOC.</p>
-
-<p>CMP makes no heap allocations.</p>
-
-<p>CMP uses standardized types rather than declaring its own, and it depends only
-on <code>stdbool.h</code>, <code>stdint.h</code> and <code>string.h</code>.  It has no link-time dependencies,
-not even the C Standard Library.</p>
-
-<p>CMP is written using C89 (ANSI C), aside, of course, from its use of
-fixed-width integer types and <code>bool</code>.</p>
-
-<p>On the other hand, CMP's test suite depends upon the C Standard Library and
-requires C99.</p>
-
-<p>CMP only requires the programmer supply a read function and a write function.
-In this way, the programmer can use CMP on memory, files, sockets, etc.</p>
-
-<p>CMP is portable.  It uses fixed-width integer types, and checks the endianness
-of the machine at runtime before swapping bytes (MessagePack is big-endian).</p>
-
-<p>CMP provides a fairly comprehensive error reporting mechanism modeled after
-<code>errno</code> and <code>strerror</code>.</p>
-
-<p>CMP is threadsafe; while contexts cannot be shared between threads, each thread
-may use its own context freely.</p>
-
-<p>CMP is tested using the MessagePack test suite as well as a large set of custom
-test cases.  Its small test program is compiled with clang using <code>-Wall -Werror
--Wextra ...</code> along with several other flags, and generates no compilation
-errors.</p>
-
-<p>CMP's source is written as readably as possible, using explicit, descriptive
-variable names and a consistent, clear style.</p>
-
-<p>CMP's source is written to be as secure as possible.  Its testing suite checks
-for invalid values, and data is always treated as suspect before it passes
-validation.</p>
-
-<p>CMP's API is designed to be clear, convenient and unsurprising.  Strings are
-null-terminated, binary data is not, error codes are clear, and so on.</p>
-
-<p>CMP provides optional backwards compatibility for use with other MessagePack
-implementations that only implement version 4 of the spec.</p>
-
-<h6>
-<a id="user-content-building" class="anchor" href="#building" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h6>
-
-<p>There is no build system for CMP.  The programmer can drop <code>cmp.c</code> and <code>cmp.h</code>
-in their source tree and modify as necessary.  No special compiler settings are
-required to build it, and it generates no compilation errors in either clang or
-gcc.</p>
-
-<h6>
-<a id="user-content-backwards-compatibility" class="anchor" href="#backwards-compatibility" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Backwards Compatibility</h6>
-
-<p>Version 4 of the MessagePack spec has no <code>BIN</code> type, and provides no <code>STR8</code>
-marker.  In order to remain backwards compatible with version 4 of MessagePack,
-do the following:</p>
-
-<p>Avoid these functions:</p>
-
-<ul>
-<li><code>cmp_write_bin</code></li>
-<li><code>cmp_write_bin_marker</code></li>
-<li><code>cmp_write_str8_marker</code></li>
-<li><code>cmp_write_str8</code></li>
-<li><code>cmp_write_bin8_marker</code></li>
-<li><code>cmp_write_bin8</code></li>
-<li><code>cmp_write_bin16_marker</code></li>
-<li><code>cmp_write_bin16</code></li>
-<li><code>cmp_write_bin32_marker</code></li>
-<li><code>cmp_write_bin32</code></li>
-</ul>
-
-<p>Use these functions in lieu of their v5 counterparts:</p>
-
-<ul>
-<li>
-<code>cmp_write_str_marker_v4</code> instead of <code>cmp_write_str_marker</code>
-</li>
-<li>
-<code>cmp_write_str_v4</code> instead of <code>cmp_write_str</code>
-</li>
-<li>
-<code>cmp_write_object_v4</code> instead of <code>cmp_write_object</code>
-</li>
-</ul>
 </article>
   </div>
         </div>
