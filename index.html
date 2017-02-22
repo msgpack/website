@@ -7122,7 +7122,7 @@ the library will throw a <code>IntegerOverflowException</code>.</p>
 
 <p>You can change this default behavior to unpack <code>uint64</code> integer to a string:</p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setIntOverflowMode(<span class="pl-c1">BufferUnpacker</span><span class="pl-k">::</span><span class="pl-c1">INT_AS_STRING</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setIntOverflowMode(<span class="pl-c1">BufferUnpacker</span><span class="pl-k">::</span><span class="pl-c1">INT_AS_STR</span>);</span></pre></div>
 
 <p>Or to a <code>Gmp</code> number (make sure that <a href="http://php.net/manual/en/book.gmp.php">gmp</a> extension is enabled):</p>
 
