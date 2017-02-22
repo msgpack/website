@@ -2623,7 +2623,7 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 
 <p>It is defined like so</p>
 
-<div class="highlight highlight-source-julia"><pre><span class="pl-k">immutable</span> <span class="pl-en">Ext</span>
+<div class="highlight highlight-source-julia"><pre><span class="pl-k">immutable</span> Ext
     typecode<span class="pl-c1">::Int8</span>
     data<span class="pl-c1">::Vector{Uint8}</span>
 <span class="pl-k">end</span></pre></div>
@@ -2674,7 +2674,7 @@ MsgPack<span class="pl-k">.</span><span class="pl-c1">Ext</span>(<span class="pl
 
 <p>MsgPack.jl also defines the <code>extserialize</code> and <code>extdeserialize</code> convenience functions. These functions can turn an arbitrary object into an <code>Ext</code> and vice-versa.</p>
 
-<div class="highlight highlight-source-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-k">type</span> <span class="pl-en">Point</span>{T}
+<div class="highlight highlight-source-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-k">type</span> Point{T}
         x<span class="pl-c1">::T</span>
         y<span class="pl-c1">::T</span>
        <span class="pl-k">end</span>
