@@ -8359,38 +8359,31 @@ The data corresponds to <code>{"compact":true,"schema":0}</code> in JSON.</p>
 <p>You can find this code and more in <a href="https://github.com/tris-foundation/examples">examples</a>.</p>
 
 <h7>
-<a id="user-content-encode" class="anchor" href="#encode" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Encode</h7>
+<a id="user-content-convenience-api" class="anchor" href="#convenience-api" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Convenience API</h7>
 
-<div class="highlight highlight-source-swift"><pre>    <span class="pl-k">let</span> hey <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>(<span class="pl-s"><span class="pl-pds">"</span>hey there!<span class="pl-pds">"</span></span>)
-    <span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">encode</span>(hey)
-    <span class="pl-k">let</span> original <span class="pl-k">=</span> <span class="pl-c1">String</span>(MessagePack.<span class="pl-c1">decode</span>(<span class="pl-c1">bytes</span>: bytes))</pre></div>
-
-<div class="highlight highlight-source-swift"><pre>    <span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">encode</span>(.<span class="pl-c1">array</span>([.<span class="pl-c1">int</span>(<span class="pl-c1">1</span>), .<span class="pl-c1">string</span>(<span class="pl-s"><span class="pl-pds">"</span>two<span class="pl-pds">"</span></span>)]))</pre></div>
-
-<div class="highlight highlight-source-swift"><pre>    <span class="pl-k">var</span> encoder <span class="pl-k">=</span> <span class="pl-c1">Encoder</span>()
-    encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">string</span>(<span class="pl-s"><span class="pl-pds">"</span>one<span class="pl-pds">"</span></span>))
-    encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">int</span>(<span class="pl-c1">2</span>))
-    encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">double</span>(<span class="pl-c1">3.0</span>))
-
-    <span class="pl-k">let</span> bytes <span class="pl-k">=</span> encoder.<span class="pl-smi">bytes</span></pre></div>
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> hey <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>(<span class="pl-s"><span class="pl-pds">"</span>hey there!<span class="pl-pds">"</span></span>)
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">encode</span>(hey)
+<span class="pl-k">let</span> original <span class="pl-k">=</span> <span class="pl-c1">String</span>(<span class="pl-k">try</span> MessagePack.<span class="pl-c1">decode</span>(<span class="pl-c1">bytes</span>: bytes))</pre></div>
 
 <h7>
-<a id="user-content-decode" class="anchor" href="#decode" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decode</h7>
+<a id="user-content-performance-optimized" class="anchor" href="#performance-optimized" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance optimized</h7>
 
-<div class="highlight highlight-source-swift"><pre>    <span class="pl-k">var</span> decoder <span class="pl-k">=</span> <span class="pl-c1">Decoder</span>(<span class="pl-c1">bytes</span>: [<span class="pl-c1">UInt8</span>](<span class="pl-k">..</span>))
-
-    <span class="pl-c"><span class="pl-c">//</span> throws on invalid data</span>
-<span class="pl-c"></span>    <span class="pl-k">let</span> value <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> MessagePack
-    <span class="pl-c"><span class="pl-c">//</span> you can avoid extra MessagePack object creation</span>
-<span class="pl-c"></span>    <span class="pl-c"><span class="pl-c">//</span> if you know the data structure</span>
-<span class="pl-c"></span>    <span class="pl-c"><span class="pl-c">//</span> throws on wrong type</span>
-<span class="pl-c"></span>    <span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> <span class="pl-c1">UInt8</span>
-    <span class="pl-k">let</span> string <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> <span class="pl-c1">String</span>
-    <span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> <span class="pl-c1">Double</span>
-</pre></div>
-
-<div class="highlight highlight-source-swift"><pre>    <span class="pl-k">var</span> unsafe <span class="pl-k">=</span> <span class="pl-c1">Decoder</span>(<span class="pl-c1">bytesNoCopy</span>: <span class="pl-c1">UnsafeBufferPointer</span><span class="pl-k">&lt;</span><span class="pl-c1">UInt8</span><span class="pl-k">&gt;</span>(<span class="pl-k">..</span>))
-    <span class="pl-k">var</span> unsafe <span class="pl-k">=</span> <span class="pl-c1">Decoder</span>(<span class="pl-c1">bytesNoCopy</span>: <span class="pl-c1">UnsafePointer</span><span class="pl-k">&lt;</span><span class="pl-c1">UInt8</span><span class="pl-k">&gt;</span>(<span class="pl-k">..</span>), <span class="pl-c1">count</span>: N)</pre></div>
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">var</span> encoder <span class="pl-k">=</span> <span class="pl-c1">Encoder</span>()
+encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">int</span>(<span class="pl-c1">2</span>))
+encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">string</span>(<span class="pl-s"><span class="pl-pds">"</span>one<span class="pl-pds">"</span></span>))
+encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">double</span>(<span class="pl-c1">3.0</span>))
+<span class="pl-k">let</span> encoded <span class="pl-k">=</span> encoder.<span class="pl-smi">bytes</span>
+<span class="pl-c"><span class="pl-c">//</span> be careful, we use raw pointer here</span>
+<span class="pl-c"></span><span class="pl-k">var</span> decoder <span class="pl-k">=</span> <span class="pl-c1">Decoder</span>(<span class="pl-c1">bytes</span>: encoded, <span class="pl-c1">count</span>: encoded.<span class="pl-c1">count</span>)
+<span class="pl-c"><span class="pl-c">//</span> throws on invalid data</span>
+<span class="pl-c"></span><span class="pl-k">let</span> value <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> MessagePack
+<span class="pl-c"><span class="pl-c">//</span> reuse decoder</span>
+<span class="pl-c"></span>decoder.<span class="pl-c1">rewind</span>()
+<span class="pl-c"><span class="pl-c">//</span> you can avoid extra MessagePack object if you sure about structure</span>
+<span class="pl-c"><span class="pl-c">//</span> throws on wrong type</span>
+<span class="pl-c"></span><span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> <span class="pl-c1">UInt8</span>
+<span class="pl-k">let</span> string <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> <span class="pl-c1">String</span>
+<span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>() <span class="pl-k">as</span> <span class="pl-c1">Double</span></pre></div>
 </article>
   </div>
         </div>
