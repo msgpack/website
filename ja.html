@@ -5488,21 +5488,6 @@ deserializing Rust structs.</p>
 </table>
 
 <h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
-
-<p>To use <code>rmp</code>, first add this to your <code>Cargo.toml</code>:</p>
-
-<div class="highlight highlight-source-toml"><pre>[<span class="pl-en">dependencies</span>]
-<span class="pl-smi">rmp</span> = <span class="pl-s"><span class="pl-pds">"</span>0.8<span class="pl-pds">"</span></span></pre></div>
-
-<p>For <a href="https://github.com/rust-lang-nursery/rustc-serialize">rustc-serialize</a> serialization support, add <code>rmp-serialize = "0.7"</code> to your
-dependencies. For <a href="https://github.com/serde-rs/serde">Serde</a> serialization, add <code>rmp-serde = "0.10"</code>.</p>
-
-<p>Then, add this to your crate root:</p>
-
-<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp <span class="pl-k">as</span> msgpack; <span class="pl-c">// Or just `rmp`.</span></pre></div>
-
-<h6>
 <a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h6>
 
 <ul>
@@ -5532,79 +5517,6 @@ static checks guarantees that the data will be valid until buffer lives.</p>
 existing functionality.</p>
 </li>
 </ul>
-
-<h6>
-<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples</h6>
-
-<p>Let's try to encode a tuple of int and string. These examples assume you are
-using the <code>rustc-serialize</code> serialization crate.</p>
-
-<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack;
-<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize;
-
-<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span>Encodable;
-<span class="pl-k">use</span> msgpack<span class="pl-k">::</span>Encoder;
-
-<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
-    <span class="pl-k">let</span> val <span class="pl-k">=</span> (<span class="pl-c1">42u8</span>, <span class="pl-s">"the Answer"</span>);
-
-    <span class="pl-c">// The encoder borrows the bytearray buffer.</span>
-    <span class="pl-k">let</span> <span class="pl-k">mut</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0u8</span>; <span class="pl-c1">13</span>];
-
-    val.<span class="pl-en">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> Encoder<span class="pl-k">::</span><span class="pl-en">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[..]));
-
-    <span class="pl-c1">assert_eq!</span>([<span class="pl-c1">0x92</span>, <span class="pl-c1">0x2a</span>, <span class="pl-c1">0xaa</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x20</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x6e</span>, <span class="pl-c1">0x73</span>, <span class="pl-c1">0x77</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x72</span>], buf);
-}</pre></div>
-
-<p>Now we have an encoded buffer, which we can decode the same way:</p>
-
-<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack;
-<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize;
-
-<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span>Decodable;
-<span class="pl-k">use</span> msgpack<span class="pl-k">::</span>Decoder;
-
-<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
-    <span class="pl-k">let</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0x92</span>, <span class="pl-c1">0x2a</span>, <span class="pl-c1">0xaa</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x20</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x6e</span>, <span class="pl-c1">0x73</span>, <span class="pl-c1">0x77</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x72</span>];
-
-    <span class="pl-k">let</span> <span class="pl-k">mut</span> decoder <span class="pl-k">=</span> Decoder<span class="pl-k">::</span><span class="pl-en">new</span>(<span class="pl-k">&amp;</span>buf[..]);
-
-    <span class="pl-k">let</span> res: (<span class="pl-k">u8</span>, <span class="pl-k">String</span>) <span class="pl-k">=</span> Decodable<span class="pl-k">::</span><span class="pl-en">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder).<span class="pl-en">unwrap</span>();
-
-    <span class="pl-c1">assert_eq!</span>((<span class="pl-c1">42u8</span>, <span class="pl-s">"the Answer"</span>.<span class="pl-en">to_string</span>()), res);
-}</pre></div>
-
-<p>RMP also allows to automatically serialize/deserialize custom structures using rustc_serialize
-reflection. To enable this feature, derive RustcEncodable and RustcDecodable attributes as
-shown in the following example:</p>
-
-<div class="highlight highlight-source-rust"><pre><span class="pl-k">extern</span> <span class="pl-k">crate</span> rmp_serialize <span class="pl-k">as</span> msgpack;
-<span class="pl-k">extern</span> <span class="pl-k">crate</span> rustc_serialize;
-
-<span class="pl-k">use</span> rustc_serialize<span class="pl-k">::</span>{Encodable, Decodable};
-<span class="pl-k">use</span> msgpack<span class="pl-k">::</span>{Encoder, Decoder};
-
-#[derive(RustcEncodable, RustcDecodable, PartialEq, Debug)]
-<span class="pl-k">struct</span> <span class="pl-en">Custom</span> {
-    id: <span class="pl-k">u32</span>,
-    key: <span class="pl-k">String</span>,
-}
-
-<span class="pl-k">fn</span> <span class="pl-en">main</span>() {
-    <span class="pl-k">let</span> val <span class="pl-k">=</span> Custom { id: <span class="pl-c1">42u32</span>, key: <span class="pl-s">"the Answer"</span>.<span class="pl-en">to_string</span>() };
-
-    <span class="pl-k">let</span> <span class="pl-k">mut</span> buf <span class="pl-k">=</span> [<span class="pl-c1">0u8</span>; <span class="pl-c1">13</span>];
-
-    val.<span class="pl-en">encode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> Encoder<span class="pl-k">::</span><span class="pl-en">new</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> <span class="pl-k">&amp;</span><span class="pl-k">mut</span> buf[..]));
-
-    <span class="pl-c1">assert_eq!</span>([<span class="pl-c1">0x92</span>, <span class="pl-c1">0x2a</span>, <span class="pl-c1">0xaa</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x20</span>, <span class="pl-c1">0x41</span>, <span class="pl-c1">0x6e</span>, <span class="pl-c1">0x73</span>, <span class="pl-c1">0x77</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x72</span>], buf);
-
-    <span class="pl-c">// Now try to unpack the buffer into the initial struct.</span>
-    <span class="pl-k">let</span> <span class="pl-k">mut</span> decoder <span class="pl-k">=</span> Decoder<span class="pl-k">::</span><span class="pl-en">new</span>(<span class="pl-k">&amp;</span>buf[..]);
-    <span class="pl-k">let</span> res: Custom <span class="pl-k">=</span> Decodable<span class="pl-k">::</span><span class="pl-en">decode</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> decoder).<span class="pl-en">ok</span>().<span class="pl-en">unwrap</span>();
-
-    <span class="pl-c1">assert_eq!</span>(val, res);
-}</pre></div>
 
 <h6>
 <a id="user-content-versioning" class="anchor" href="#versioning" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Versioning</h6>
