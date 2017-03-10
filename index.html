@@ -7096,7 +7096,7 @@ from running the auto detection routine:</p>
 <span class="pl-s1"><span class="pl-smi">$unpacked</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpack();</span></pre></div>
 
 <p>If the packed data is received in chunks (e.g. when reading from a stream), use the <code>tryUnpack</code>
-method, which will try to unpack data and return an array of unpacked data instead of throwing a <code>InsufficientDataException</code>:</p>
+method, which will try to unpack data and return an array of unpacked data instead of throwing an <code>InsufficientDataException</code>:</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>append(<span class="pl-smi">$chunk1</span>);</span>
 <span class="pl-s1"><span class="pl-smi">$unpackedBlocks</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>tryUnpack();</span>
