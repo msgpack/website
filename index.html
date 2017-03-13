@@ -8527,7 +8527,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <h6>
 <a id="user-content-object-serialization" class="anchor" href="#object-serialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Object Serialization</h6>
 
-<p>MessagePack for C# can serialze your own <code>Class</code> or <code>Struct</code>. Serialization target must marks <code>[MessagePackObject]</code> and <code>[Key]</code>. Key type can choose int or string. If key type is int, serialized format is used array. If key type is string, serialized format is used map. If you define <code>[MessagePackObject(keyAsPropertyName: true)]</code>, does not require <code>KeyAttribute</code>.</p>
+<p>MessagePack for C# can serialze your own public <code>Class</code> or <code>Struct</code>. Serialization target must marks <code>[MessagePackObject]</code> and <code>[Key]</code>. Key type can choose int or string. If key type is int, serialized format is used array. If key type is string, serialized format is used map. If you define <code>[MessagePackObject(keyAsPropertyName: true)]</code>, does not require <code>KeyAttribute</code>.</p>
 
 <div class="highlight highlight-source-cs"><pre>[MessagePackObject]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Sample1</span>
@@ -8569,6 +8569,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 
 <p>All patterns serialization target are public instance member(field or property). If you want to avoid serialization target, you can add <code>[IgnoreMember]</code> to target member.</p>
 
+<blockquote>
+<p>target class must be public, does not allows private, internal class.</p>
+</blockquote>
+
 <p>Which should uses int key or string key? I recommend use int key because faster and compact than string key. But string key has key name information, it is useful for debugging.</p>
 
 <p>MessagePackSerializer requests target must put attribute is for robustness. If class is grown, you need to be conscious of versioning. MessagePackSerializer uses default value if key does not exists. If uses int key, should be start from 0 and should be sequential. If unnecessary properties come out, please make a missing number. Reuse is bad. Also, if Int Key's jump number is too large, it affects binary size.</p>
@@ -8598,6 +8602,8 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 
 <span class="pl-c">// {"MyProperty1":99,"MyProperty2":9999}</span>
 <span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin));</pre></div>
+
+<p>ContractlessStandardResolver can serialize anonymous type.</p>
 
 <p>Resolver is key customize point of MessagePack for C#. Details, please see <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">extension point</a>.</p>
 
