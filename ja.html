@@ -322,6 +322,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-clwi-CWPack',this)">C <span class="qs-sub">clwi</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-neuecc-MessagePack-CSharp',this)">C# <span class="qs-sub">neuecc</span></a></li>
+          
         </ul>
       </div>
 
@@ -8409,6 +8411,979 @@ files in your own build.</p>
 <a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test</h6>
 
 <p>Included in the test folder are a module test and a performance test and shell scripts to run them.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-neuecc-MessagePack-CSharp" class="qs"><h4><a href="https://github.com/neuecc/MessagePack-CSharp" target="_blank">neuecc/MessagePack-CSharp <span class="qs-url">https://github.com/neuecc/MessagePack-CSharp</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-for-cnet-net-core-unity-xamarin" class="anchor" href="#messagepack-for-cnet-net-core-unity-xamarin" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for C#(.NET, .NET Core, Unity, Xamarin)</h5>
+
+<p>Extremely fast <a href="http://msgpack.org/">MessagePack</a> serializer for C#, x10 faster than MsgPack-Cli and acquires best performance compared with all the other C# serializers. MessagePack for C# has built-in LZ4 compression which can achieve super fast and small binary size.  Performance is always important! for Game, Distributed Computing, MicroServices, Store Data to Redis, etc.</p>
+
+<p><a href="https://cloud.githubusercontent.com/assets/46207/23835716/89c8ab08-07af-11e7-9183-9e9415bdc87f.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/46207/23835716/89c8ab08-07af-11e7-9183-9e9415bdc87f.png" alt="image" style="max-width:100%;"></a></p>
+
+<p>MessagePack has compact binary size and full set of general purpose expression. Please see the <a href="https://github.com/neuecc/MessagePack-CSharp#compare-with-protobuf-json-zeroformatter">comparison with JSON, protobuf, ZeroFormatter section</a>. If you want to know why MessagePack C# is fastest, please see <a href="https://github.com/neuecc/MessagePack-CSharp#performance">performance section</a>.</p>
+
+<h6>
+<a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h6>
+
+<p>The library provides in NuGet except for Unity.</p>
+
+<p>Standard library for .NET, .NET Core, Xamarin.</p>
+
+<pre><code>Install-Package MessagePack
+</code></pre>
+
+<p>Visual Studio Analyzer to help object definition</p>
+
+<pre><code>Install-Package MessagePackAnalyzer
+</code></pre>
+
+<p>Extension Packages(info is see <a href="https://github.com/neuecc/MessagePack-CSharp#extensions">extensions section</a>).</p>
+
+<pre><code>Install-Package MessagePack.ImmutableCollection
+Install-Package MessagePack.ReactiveProperty
+Install-Package MessagePack.UnityShims
+Install-Package MessagePack.AspNetCoreMvcFormatter
+</code></pre>
+
+<p>for Unity, download from <a href="https://github.com/neuecc/MessagePack-CSharp/releases">releases</a> page, providing <code>.unitypackage</code>. Unity IL2CPP or Xamarin AOT Environment, check the <a href="https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports">pre-code generation section</a>.</p>
+
+<h6>
+<a id="user-content-quick-start" class="anchor" href="#quick-start" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quick Start</h6>
+
+<p>Define class and mark as <code>[MessagePackObject]</code> and public members(property or field) mark <code>[Key]</code>, call <code>MessagePackSerializer.Serialize&lt;T&gt;/Deserialize&lt;T&gt;</code>. <code>ToJson</code> helps dump binary.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// mark MessagePackObjectAttribute</span>
+[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyClass</span>
+{
+    <span class="pl-c">// Key is serialization index, it is important for versioning.</span>
+    [Key(<span class="pl-c1">0</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Age</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+    [Key(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">FirstName</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+    [Key(<span class="pl-c1">2</span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">LastName</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+    <span class="pl-c">// public members and does not serialize target, mark IgnoreMemberttribute</span>
+    [IgnoreMember]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">FullName</span> { <span class="pl-k">get</span> { <span class="pl-k">return</span> FirstName + LastName; } }
+}
+
+<span class="pl-k">class</span> <span class="pl-en">Program</span>
+{
+    <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">Main</span>(<span class="pl-k">string</span>[] <span class="pl-smi">args</span>)
+    {
+        <span class="pl-k">var</span> <span class="pl-en">mc </span>= <span class="pl-k">new</span> <span class="pl-en">MyClass</span>
+        {
+            Age = <span class="pl-c1">99</span>,
+            FirstName = <span class="pl-s"><span class="pl-pds">"</span>hoge<span class="pl-pds">"</span></span>,
+            LastName = <span class="pl-s"><span class="pl-pds">"</span>huga<span class="pl-pds">"</span></span>,
+        };
+
+        <span class="pl-c">// call Serialize/Deserialize, that's all.</span>
+        <span class="pl-k">var</span> <span class="pl-en">bytes </span>= MessagePackSerializer.Serialize(mc);
+        <span class="pl-k">var</span> <span class="pl-en">mc2 </span>= MessagePackSerializer.Deserialize&lt;MyClass&gt;(<span class="pl-en">bytes</span>);
+
+        <span class="pl-c">// you can dump msgpack binary to human readable json.</span>
+        <span class="pl-c">// In default, MeesagePack for C# reduce property name information.</span>
+        <span class="pl-c">// [99,"hoge","huga"]</span>
+        <span class="pl-k">var</span> <span class="pl-en">json </span>= MessagePackSerializer.ToJson(bytes);
+        Console.WriteLine(json);
+    }
+}</pre></div>
+
+<p>By default the attribute is required. Optionally it can be unnecessary, see <a href="https://github.com/neuecc/MessagePack-CSharp#object-serialization">Object Serialization section</a> and <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">Formatter Resolver section</a> for details.</p>
+
+<h6>
+<a id="user-content-analyzer" class="anchor" href="#analyzer" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Analyzer</h6>
+
+<p>MessagePackAnalyzer helps object definition. Attributes, accessibility etc are detected and it becomes a compiler error.</p>
+
+<p><a href="https://cloud.githubusercontent.com/assets/46207/23837445/ce734eae-07cb-11e7-9758-d69f0f095bc1.gif" target="_blank"><img src="https://cloud.githubusercontent.com/assets/46207/23837445/ce734eae-07cb-11e7-9758-d69f0f095bc1.gif" alt="analyzergif" style="max-width:100%;"></a></p>
+
+<p>If you want to allow a specific type (for example, when registering a custom type), put <code>MessagePackAnalyzer.json</code> at the project root and make the Build Action to <code>AdditionalFiles</code>.</p>
+
+<p><a href="https://cloud.githubusercontent.com/assets/46207/23837427/8a8d507c-07cb-11e7-9277-5a566eb0bfde.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/46207/23837427/8a8d507c-07cb-11e7-9277-5a566eb0bfde.png" alt="image" style="max-width:100%;"></a></p>
+
+<p>This is a sample of the contents of MessagePackAnalyzer.json. </p>
+
+<pre><code>[ "MyNamespace.FooClass", "MyNameSpace.BarStruct" ]
+</code></pre>
+
+<h6>
+<a id="user-content-built-in-support-types" class="anchor" href="#built-in-support-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Built-in support types</h6>
+
+<p>These types can serialize by default.</p>
+
+<p>Primitives(<code>int</code>, <code>string</code>, etc...), <code>Enum</code>, <code>Nullable&lt;&gt;</code>,  <code>TimeSpan</code>,  <code>DateTime</code>, <code>DateTimeOffset</code>, <code>Nil</code>, <code>Guid</code>, <code>Uri</code>, <code>Version</code>, <code>StringBuilder</code>, <code>BitArray</code>, <code>ArraySegment&lt;&gt;</code>, <code>BigInteger</code>, <code>Complext</code>, <code>Task</code>, <code>Array[]</code>, <code>Array[,]</code>, <code>Array[,,]</code>, <code>Array[,,,]</code>, <code>KeyValuePair&lt;,&gt;</code>, <code>Tuple&lt;,...&gt;</code>, <code>ValueTuple&lt;,...&gt;</code>, <code>List&lt;&gt;</code>, <code>LinkedList&lt;&gt;</code>, <code>Queue&lt;&gt;</code>, <code>Stack&lt;&gt;</code>, <code>HashSet&lt;&gt;</code>, <code>ReadOnlyCollection&lt;&gt;</code>, <code>IList&lt;&gt;</code>, <code>ICollection&lt;&gt;</code>, <code>IEnumerable&lt;&gt;</code>, <code>Dictionary&lt;,&gt;</code>, <code>IDictionary&lt;,&gt;</code>, <code>SortedDictionary&lt;,&gt;</code>, <code>SortedList&lt;,&gt;</code>, <code>ILookup&lt;,&gt;</code>, <code>IGrouping&lt;,&gt;</code>, <code>ObservableCollection&lt;&gt;</code>, <code>ReadOnlyOnservableCollection&lt;&gt;</code>, <code>IReadOnlyList&lt;&gt;</code>, <code>IReadOnlyCollection&lt;&gt;</code>, <code>ISet&lt;&gt;</code>, <code>ConcurrentBag&lt;&gt;</code>, <code>ConcurrentQueue&lt;&gt;</code>, <code>ConcurrentStack&lt;&gt;</code>, <code>ReadOnlyDictionary&lt;,&gt;</code>, <code>IReadOnlyDictionary&lt;,&gt;</code>, <code>ConcurrentDictionary&lt;,&gt;</code>, <code>Lazy&lt;&gt;</code>, <code>Task&lt;&gt;</code> and custom inherited <code>ICollection&lt;&gt;</code> or <code>IDictionary&lt;,&gt;</code> with paramterless constructor.</p>
+
+<p>You can add custom type support and has some official extension package. for ImmutableCollections(<code>ImmutableList&lt;&gt;</code>, etc), for ReactiveProperty and for Unity(<code>Vector3</code>, <code>Quaternion</code>, etc...). Please see <a href="https://github.com/neuecc/MessagePack-CSharp#extensions">extensions section</a>.</p>
+
+<p><code>MessagePack.Nil</code> is built-in null/void/unit representation type of MessagePack for C#.</p>
+
+<h6>
+<a id="user-content-object-serialization" class="anchor" href="#object-serialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Object Serialization</h6>
+
+<p>MessagePack for C# can serialze your own <code>Class</code> or <code>Struct</code>. Serialization target must marks <code>[MessagePackObject]</code> and <code>[Key]</code>. Key type can choose int or string. If key type is int, serialized format is used array. If key type is string, serialized format is used map. If you define <code>[MessagePackObject(keyAsPropertyName: true)]</code>, does not require <code>KeyAttribute</code>.</p>
+
+<div class="highlight highlight-source-cs"><pre>[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Sample1</span>
+{
+    [Key(<span class="pl-c1">0</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Foo</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [Key(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Bar</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Sample2</span>
+{
+    [Key(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Foo</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [Key(<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Bar</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+[MessagePackObject(keyAsPropertyName: <span class="pl-c1">true</span>)]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Sample3</span>
+{
+    <span class="pl-c">// no needs KeyAttribute</span>
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Foo</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+    <span class="pl-c">// If ignore public member, you can use IgnoreMemberAttribute</span>
+    [IgnoreMember]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Bar</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+<span class="pl-c">// [10,20]</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(<span class="pl-en">new</span> <span class="pl-smi">Sample1</span> { Foo = 10, <span class="pl-en">Bar</span> = <span class="pl-c1">20</span> }));
+
+<span class="pl-c">// {"foo":10,"bar":20}</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(<span class="pl-en">new</span> <span class="pl-smi">Sample2</span> { Foo = 10, <span class="pl-en">Bar</span> = <span class="pl-c1">20</span> }));
+
+<span class="pl-c">// {"Foo":10}</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(<span class="pl-en">new</span> <span class="pl-smi">Sample3</span> { Foo = 10, <span class="pl-en">Bar</span> = <span class="pl-c1">20</span> }));</pre></div>
+
+<p>All patterns serialization target are public instance member(field or property). If you want to avoid serialization target, you can add <code>[IgnoreMember]</code> to target member.</p>
+
+<p>Which should uses int key or string key? I recommend use int key because faster and compact than string key. But string key has key name information, it is useful for debugging.</p>
+
+<p>MessagePackSerializer requests target must put attribute is for robustness. If class is grown, you need to be conscious of versioning. MessagePackSerializer uses default value if key does not exists. If uses int key, should be start from 0 and should be sequential. If unnecessary properties come out, please make a missing number. Reuse is bad. Also, if Int Key's jump number is too large, it affects binary size.</p>
+
+<div class="highlight highlight-source-cs"><pre>[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IntKeySample</span>
+{
+    [Key(<span class="pl-c1">3</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">A</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [Key(<span class="pl-c1">10</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">B</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+<span class="pl-c">// [null,null,null,0,null,null,null,null,null,null,0]</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(<span class="pl-en">new</span> <span class="pl-smi">IntKeySample</span>()));</pre></div>
+
+<p>I want to use like JSON.NET! I don't want to put attribute! If you think that way, you can use a contractless resolver.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ContractlessSample</span>
+{
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">MyProperty1</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">MyProperty2</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+<span class="pl-k">var</span> <span class="pl-en">data </span>= <span class="pl-k">new</span> <span class="pl-en">ContractlessSample</span> { MyProperty1 = 99, <span class="pl-en">MyProperty2</span> = <span class="pl-c1">9999</span> };
+<span class="pl-k">var</span> <span class="pl-en">bin </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(data, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+
+<span class="pl-c">// {"MyProperty1":99,"MyProperty2":9999}</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin));</pre></div>
+
+<p>Resolver is key customize point of MessagePack for C#. Details, please see <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">extension point</a>.</p>
+
+<h6>
+<a id="user-content-serialize-immutableobjectserializationconstructor" class="anchor" href="#serialize-immutableobjectserializationconstructor" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialize ImmutableObject(SerializationConstructor)</h6>
+
+<p>MessagePack for C# supports serialize immutable object. This struct can serialize naturally.</p>
+
+<div class="highlight highlight-source-cs"><pre>[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Point</span>
+{
+    [Key(<span class="pl-c1">0</span>)]
+    <span class="pl-k">public readonly </span><span class="pl-k">int</span> <span class="pl-en">X</span>;
+    [Key(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public readonly </span><span class="pl-k">int</span> <span class="pl-en">Y</span>;
+
+    <span class="pl-k">public</span> <span class="pl-en">Point</span>(int x, int y)
+    {
+        <span class="pl-c1">this</span>.X = x;
+        <span class="pl-c1">this</span>.Y = y;
+    }
+}
+
+<span class="pl-k">var</span> <span class="pl-en">data </span>= <span class="pl-k">new</span> <span class="pl-en">Point</span>(<span class="pl-c1">99</span>, 9999);
+<span class="pl-k">var</span> <span class="pl-en">bin </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(data);
+
+<span class="pl-c">// [99,9999]</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin));</pre></div>
+
+<p>MessagePackSerializer choose constructor with the least argument and match index if key in integer or match name(ignore case) if key is string.</p>
+
+<p>If can not match automatically, you can specify to use constructor manually by <code>[SerializationConstructorAttribute]</code>.</p>
+
+<div class="highlight highlight-source-cs"><pre>[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Point</span>
+{
+    [Key(<span class="pl-c1">0</span>)]
+    <span class="pl-k">public readonly </span><span class="pl-k">int</span> <span class="pl-en">X</span>;
+    [Key(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public readonly </span><span class="pl-k">int</span> <span class="pl-en">Y</span>;
+
+    <span class="pl-c">// can't find matched constructor parameter, parameterType mismatch. type:Point parameterIndex:0 paramterType:ValueTuple`2</span>
+    <span class="pl-k">public</span> <span class="pl-en">Point</span>((int, int) p)
+    {
+        X = p.Item1;
+        Y = p.Item2;
+    }
+
+    [SerializationConstructor]
+    <span class="pl-k">public</span> <span class="pl-en">Point</span>(int x, int y)
+    {
+        <span class="pl-c1">this</span>.X = x;
+        <span class="pl-c1">this</span>.Y = y;
+    }
+}</pre></div>
+
+<h6>
+<a id="user-content-union" class="anchor" href="#union" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Union</h6>
+
+<p>MessagePack for C# supports serialize interface. It is like <code>XmlInclude</code> or <code>ProtoInclude</code>. MessagePack for C# there called <em>Union</em>. <code>UnionAttribute</code> can only attach to interface. It requires discriminated integer key and sub-type.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// mark inheritance types</span>
+[MessagePack.Union(<span class="pl-c1">0</span>, typeof(FooClass))]
+[MessagePack.Union(<span class="pl-c1">1</span>, typeof(BarClass))]
+<span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">IUnionSample</span>
+{
+}
+
+[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FooClass</span> : <span class="pl-en">IUnionSample</span>
+{
+    [Key(<span class="pl-c1">0</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">XYZ</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">BarClass</span> : <span class="pl-en">IUnionSample</span>
+{
+    [Key(<span class="pl-c1">0</span>)]
+    <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">OPQ</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+<span class="pl-c">// ---</span>
+
+<span class="pl-en">IUnionSample</span> <span class="pl-en">data</span> = <span class="pl-k">new</span> <span class="pl-en">FooClass</span>() { XYZ = <span class="pl-c1">999</span> };
+
+<span class="pl-c">// serialize interface.</span>
+<span class="pl-k">var</span> <span class="pl-en">bin </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(data);
+
+<span class="pl-c">// deserialize interface.</span>
+<span class="pl-k">var</span> <span class="pl-en">reData </span>= <span class="pl-en">MessagePackSerializer.Deserialize</span>&lt;<span class="pl-en">IUnionSample</span>&gt;(bin);
+
+<span class="pl-c">// use type-switch of C# 7.0</span>
+<span class="pl-k">switch</span> (<span class="pl-en">reData</span>)
+{
+    <span class="pl-k">case</span> FooClass x:
+        Console.WriteLine(x.XYZ);
+        <span class="pl-k">break</span>;
+    <span class="pl-k">case</span> BarClass x:
+        Console.WriteLine(x.OPQ);
+        <span class="pl-k">break</span>;
+    <span class="pl-k">default</span>:
+        <span class="pl-k">break</span>;
+}</pre></div>
+
+<p>C# 7.0 type-switch is best match for Union. Union is serialized to two-length array.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-en">IUnionSample</span> <span class="pl-en">data</span> = <span class="pl-k">new</span> <span class="pl-en">BarClass</span> { OPQ = <span class="pl-s"><span class="pl-pds">"</span>FooBar<span class="pl-pds">"</span></span> };
+
+<span class="pl-k">var</span> <span class="pl-en">bin </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(data);
+
+<span class="pl-c">// Union is serialized to two-length array, [key, object]</span>
+<span class="pl-c">// [1,["FooBar"]]</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin));</pre></div>
+
+<h6>
+<a id="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance</h6>
+
+<p>Benchmarks comparing to other serializers run on <code>Windows 10 Pro x64 Intel Core i7-6700K 4.00GHz, 32GB RAM</code>. Benchmark code is <a href="https://github.com/neuecc/ZeroFormatter/tree/master/sandbox/PerformanceComparison">here</a>, ZeroFormatter and <a href="https://google.github.io/flatbuffers/">FlatBuffers</a> has infinitely fast deserializer so ignore deserialize performance.</p>
+
+<p><a href="https://cloud.githubusercontent.com/assets/46207/23835765/55fe494e-07b0-11e7-98be-5e7a9411da40.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/46207/23835765/55fe494e-07b0-11e7-98be-5e7a9411da40.png" alt="image" style="max-width:100%;"></a></p>
+
+<p>MessagePack for C# uses many techniques for improve performance.</p>
+
+<ul>
+<li>Serializer uses only ref byte[] and int offset, don't use (Memory)Stream(call Stream api has overhead)</li>
+<li>High-level API uses internal memory pool, don't allocate working memory under 64K</li>
+<li>Don't create intermediate utility instance(XxxWriter/Reader, XxxContext, etc...)</li>
+<li>Avoid boxing all codes, all platforms(include Unity/IL2CPP)</li>
+<li>Getting cached generated formatter on static generic field(don't use dictinary-cache because dictionary lookup is overhead): <a href="https://github.com/neuecc/MessagePack-CSharp/tree/209f301e2e595ed366408624011ba2e856d23429/src/MessagePack/Resolvers">see:Resolvers</a>
+</li>
+<li>Heavyly tuned dynamic il code generation: <a href="https://github.com/neuecc/MessagePack-CSharp/blob/209f301e2e595ed366408624011ba2e856d23429/src/MessagePack/Resolvers/DynamicObjectResolver.cs#L142-L754">see:DynamicObjectTypeBuilder</a>
+</li>
+<li>Call PrimitiveAPI directly when il code generation knows target is primitive</li>
+<li>Reduce branch of variable length format when il code generation knows target(integer/string) range</li>
+<li>Don't use <code>IEnumerable&lt;T&gt;</code> abstraction on iterate collection, <a href="https://github.com/neuecc/MessagePack-CSharp/blob/209f301e2e595ed366408624011ba2e856d23429/src/MessagePack/Formatters/CollectionFormatter.cs#L192-L355">see:CollectionFormatterBase</a> and inherited collection formatters</li>
+<li>Uses pre generated lookup table to reduce check messagepack type, <a href="https://github.com/neuecc/MessagePack-CSharp/blob/209f301e2e595ed366408624011ba2e856d23429/src/MessagePack/MessagePackBinary.cs#L15-L212">see: MessagePackBinary</a>
+</li>
+</ul>
+
+<p>Before creating this library, I implemented a fast fast serializer with <a href="https://github.com/neuecc/ZeroFormatter#performance">ZeroFormatter#Performance</a>. And this is a further evolved implementation. MessagePack for C# is always fast, optimized for all types(primitive, small struct, large object, any collections).</p>
+
+<h6>
+<a id="user-content-lz4-compression" class="anchor" href="#lz4-compression" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LZ4 Compression</h6>
+
+<p>MessagePack is a fast and <em>compact</em> format but it is not compression. <a href="https://github.com/lz4/lz4">LZ4</a> is extremely fast compression algorithm, with MessagePack for C# can achive extremely fast perfrormance and extremely compact binary size!</p>
+
+<p>MessagePack for C# has built-in LZ4 support. You can use <code>LZ4MessagePackSerializer</code> instead of <code>MessagePackSerializer</code>. Builtin support is special, I've created serialize-compression pipeline and special tuned for the pipeline so share the working memory, don't allocate, don't resize until finished.</p>
+
+<p>Serialized binary is not simply compressed lz4 binary. Serialized binary is valid MessagePack binary used ext-format and custom typecode(99).</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">var</span> <span class="pl-en">array</span>= <span class="pl-en">Enumerable.Range</span>(1, 100).<span class="pl-en">Select</span>(x =&gt; <span class="pl-en">new</span> <span class="pl-smi">MyClass</span> { Age = 5, <span class="pl-en">FirstName</span> = <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, LastName = <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> }).<span class="pl-en">ToArray</span>();
+
+<span class="pl-c">// call LZ4MessagePackSerializer instead of MessagePackSerializer, api is completely same</span>
+<span class="pl-k">var</span> <span class="pl-en">lz4Bytes </span>= <span class="pl-en">LZ4MessagePackSerializer.Serialize</span>(array);
+<span class="pl-k">var</span> <span class="pl-en">mc2 </span>= <span class="pl-en">LZ4MessagePackSerializer.Deserialize</span>&lt;<span class="pl-en">MyClass</span>[]&gt;(lz4Bytes);
+
+<span class="pl-c">// you can dump lz4 message pack</span>
+<span class="pl-c">// [[5,"hoge","huga"],[5,"hoge","huga"],....]</span>
+<span class="pl-k">var</span> <span class="pl-en">json </span>= <span class="pl-en">LZ4MessagePackSerializer.ToJson</span>(lz4Bytes);
+<span class="pl-en">Console.WriteLine</span>(json);
+
+<span class="pl-c">// lz4Bytes is valid MessagePack, it is using ext-format( [TypeCode:99, SourceLength|CompressedBinary] )</span>
+<span class="pl-c">// [99,"0gAAA+vf3ABkkwWjZm9vo2JhcgoA////yVBvo2Jhcg=="]</span>
+<span class="pl-k">var</span> <span class="pl-en">rawJson </span>= <span class="pl-en">MessagePackSerializer.ToJson</span>(lz4Bytes);
+<span class="pl-en">Console.WriteLine</span>(rawJson);</pre></div>
+
+<p>built-in LZ4 support uses primitive LZ4 API. The LZ4 API is more efficient if you know the size of original source length. Therefore, size is written on the top.</p>
+
+<blockquote>
+<p>Compression speed is not always fast. Depending on the target binary, it may be short or longer. However, even at worst, it is about twice, but it is still often faster than other uncompressed serializers.</p>
+</blockquote>
+
+<p>If target binary size under 50 bytes, LZ4MessagePackSerialzier does not compress to optimize small size serialization.</p>
+
+<h6>
+<a id="user-content-compare-with-protobuf-json-zeroformatter" class="anchor" href="#compare-with-protobuf-json-zeroformatter" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compare with protobuf, JSON, ZeroFormatter</h6>
+
+<p><a href="https://github.com/mgravell/protobuf-net">protbuf-net</a> is major, most used binary-format library on .NET. I love protobuf-net and respect that great work. But if uses protobuf-net for general-purpose serialization format, you may encounts annoying issue.</p>
+
+<div class="highlight highlight-source-cs"><pre>[ProtoContract]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Parent</span>
+{
+    [ProtoMember(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Primitive</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [ProtoMember(<span class="pl-c1">2</span>)]
+    <span class="pl-k">public </span><span class="pl-en">Child</span> <span class="pl-en">Prop</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [ProtoMember(<span class="pl-c1">3</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span>[] <span class="pl-en">Array</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+[ProtoContract]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Child</span>
+{
+    [ProtoMember(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">Number</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}
+
+<span class="pl-k">using</span> (<span class="pl-en">var</span> ms = <span class="pl-en">new</span> <span class="pl-en">MemoryStream</span>())
+{
+    <span class="pl-c">// serialize null.</span>
+    <span class="pl-en">ProtoBuf.Serializer.Serialize</span>&lt;<span class="pl-en">Parent</span>&gt;(<span class="pl-en">ms</span>, <span class="pl-en">null</span>);
+
+    <span class="pl-en">ms.Position</span> = 0;
+    <span class="pl-k">var</span> <span class="pl-en">result </span>= <span class="pl-en">ProtoBuf.Serializer.Deserialize</span>&lt;<span class="pl-en">Parent</span>&gt;(ms);
+
+    <span class="pl-en">Console.WriteLine</span>(result != null); <span class="pl-c">// True, not null. but all property are zero formatted.</span>
+    <span class="pl-en">Console.WriteLine</span>(result.Primitive); <span class="pl-c">// 0</span>
+    <span class="pl-en">Console.WriteLine</span>(result.Prop); <span class="pl-c">// null</span>
+    <span class="pl-en">Console.WriteLine</span>(result.Array); <span class="pl-c">// null</span>
+}
+
+<span class="pl-k">using</span> (<span class="pl-en">var</span> ms = <span class="pl-en">new</span> <span class="pl-en">MemoryStream</span>())
+{
+    <span class="pl-c">// serialize empty array.</span>
+    <span class="pl-en">ProtoBuf.Serializer.Serialize</span>&lt;<span class="pl-en">Parent</span>&gt;(<span class="pl-en">ms</span>, <span class="pl-en">new</span> <span class="pl-en">Parent</span> { <span class="pl-en">Array</span> = <span class="pl-en">new</span> <span class="pl-en">int</span>[<span class="pl-en">0</span>] });
+
+    <span class="pl-en">ms.Position</span> = 0;
+    <span class="pl-k">var</span> <span class="pl-en">result </span>= <span class="pl-en">ProtoBuf.Serializer.Deserialize</span>&lt;<span class="pl-en">Parent</span>&gt;(ms);
+
+    <span class="pl-en">Console.WriteLine</span>(result.Array == null); <span class="pl-c">// True, null!</span>
+}</pre></div>
+
+<p>protobuf(-net) can not handle null and empty collection correctly. Because protobuf has no <code>null</code> representation( <a href="http://stackoverflow.com/questions/21631428/protobuf-net-deserializes-empty-collection-to-null-when-the-collection-is-a-prop">this</a> is the protobuf-net authors answer).</p>
+
+<p><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a> can completely serialize C# type system. This is the reason to recommend MessagePack over protobuf. </p>
+
+<p>Protocol Buffers has good IDL and <a href="http://www.grpc.io/">gRPC</a>, that is a much good point than MessagePack. If you want to use IDL, I recommend <a href="https://github.com/google/protobuf/tree/master/csharp/src/Google.Protobuf">Google.Protobuf</a> than MessagePack.</p>
+
+<p>JSON is good general-purpose format. It is perfect, simple and enough spec. But it's text. Text can not avoid the overhead of UTF-8 conversion. <a href="https://github.com/kevin-montrose/Jil">Jil</a> is wonderful, but can not exceed the difference in wire format specifications.</p>
+
+<p><a href="https://github.com/neuecc/ZeroFormatter/">ZeroFormatter</a> is similar as <a href="https://google.github.io/flatbuffers/">FlatBuffers</a> but specialized to C#. It is special. Deserialization is infinitely fast but instead the binary size is large. And ZeroFormatter's caching algorithm requires additional memory.</p>
+
+<p>Again, ZeroFormatter is special. When situation matches with ZeroFormatter, it demonstrates power of format. But for many common uses, MessagePack for C# would be better.</p>
+
+<h6>
+<a id="user-content-extensions" class="anchor" href="#extensions" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h6>
+
+<p>MessagePack for C# has extension point and you can add external type's serialization support. There are official extension support.</p>
+
+<pre><code>Install-Package MessagePack.ImmutableCollection
+Install-Package MessagePack.ReactiveProperty
+Install-Package MessagePack.UnityShims
+Install-Package MessagePack.AspNetCoreMvcFormatter
+</code></pre>
+
+<p><code>MessagePack.ImmutableCollection</code> package add support for <a href="https://www.nuget.org/packages/System.Collections.Immutable/">System.Collections.Immutable</a> library. It adds <code>ImmutableArray&lt;&gt;</code>, <code>ImmutableList&lt;&gt;</code>, <code>ImmutableDictionary&lt;,&gt;</code>, <code>ImmutableHashSet&lt;&gt;</code>, <code>ImmutableSortedDictionary&lt;,&gt;</code>, <code>ImmutableSortedSet&lt;&gt;</code>, <code>ImmutableQueue&lt;&gt;</code>, <code>ImmutableStack&lt;&gt;</code>, <code>IImmutableList&lt;&gt;</code>, <code>IImmutableDictionary&lt;,&gt;</code>, <code>IImmutableQueue&lt;&gt;</code>, <code>IImmutableSet&lt;&gt;</code>, <code>IImmutableStack&lt;&gt;</code> serialization support.</p>
+
+<p><code>MessagePack.ReactiveProperty</code> package add support for <a href="https://github.com/runceel/ReactiveProperty">ReactiveProperty</a> library. It adds <code>ReactiveProperty&lt;&gt;</code>, <code>IReactiveProperty&lt;&gt;</code>, <code>IReadOnlyReactiveProperty&lt;&gt;</code>, <code>ReactiveCollection&lt;&gt;</code>, <code>Unit</code> serialization support. It is useful for save viewmodel state.</p>
+
+<p><code>MessagePack.UnityShims</code> package provides shim of <a href="https://unity3d.com/">Unity</a>'s standard struct(<code>Vector2</code>, <code>Vector3</code>, <code>Vector4</code>, <code>Quaternion</code>, <code>Color</code>, <code>Bounds</code>, <code>Rect</code>) and there formatter. It can enable to commnicate between server and Unity client.</p>
+
+<p>After install, extension package must enable by configuration. Here is sample of enable all extension.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// set extensions to default resolver.</span>
+<span class="pl-en">MessagePack.Resolvers.CompositeResolver.RegisterAndSetAsDefault</span>(
+    <span class="pl-c">// enable extension packages first</span>
+    ImmutableCollectionResolver.Instance,
+    ReactivePropertyResolver.Instance,
+    MessagePack.Unity.Extension.UnityBlitResolver.Instance,
+    MessagePack.Unity.UnityResolver.Instance,
+
+    <span class="pl-c">// finaly use standard(default) resolver</span>
+    StandardResolver.Instance);
+);</pre></div>
+
+<p>Configuration details, see:<a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">Extension Point section</a>.</p>
+
+<p><code>MessagePack.AspNetCoreMvcFormatter</code> is add-on of <a href="https://github.com/aspnet/Mvc">ASP.NET Core MVC</a>'s serialization to boostup performance. This is configuration sample.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">ConfigureServices</span>(<span class="pl-en">IServiceCollection</span> <span class="pl-smi">services</span>)
+{
+    services.AddMvc().AddMvcOptions(option =&gt;
+    {
+        <span class="pl-c">// ContractlessStandardResolver supports anonymous type, or use your custom composite resolver.</span>
+        option.OutputFormatters.Clear();
+        option.OutputFormatters.Add(<span class="pl-k">new</span> <span class="pl-en">MessagePackOutputFormatter</span>(ContractlessStandardResolver.Instance));
+        option.InputFormatters.Clear();
+        option.InputFormatters.Add(<span class="pl-k">new</span> <span class="pl-en">MessagePackInputFormatter</span>(ContractlessStandardResolver.Instance));
+    });
+}</pre></div>
+
+<p>Author is creating other extension packages, too.</p>
+
+<ul>
+<li>
+<a href="https://github.com/neuecc/MasterMemory">MasterMemory</a> - Embedded Readonly In-Memory Document Database</li>
+<li>
+<a href="https://github.com/neuecc/MagicOnion">MagicOnion</a> - gRPC based HTTP/2 RPC Streaming Framework</li>
+</ul>
+
+<p>You can make your own extension serializers, let's create them and share it!</p>
+
+<h6>
+<a id="user-content-high-level-apimessagepackserializer" class="anchor" href="#high-level-apimessagepackserializer" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>High-Level API(MessagePackSerializer)</h6>
+
+<p><code>MessagePackSerializer</code> is the entry point of MessagePack for C#. Its static methods are main API of MessagePack for C#.</p>
+
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DefaultResolver</code></td>
+<td>FormatterResolver that used resolver less overloads. If does not set it, used StandardResolver.</td>
+</tr>
+<tr>
+<td><code>SetDefaultResolver</code></td>
+<td>Set default resolver of MessagePackSerializer APIs.</td>
+</tr>
+<tr>
+<td><code>Serialize&lt;T&gt;</code></td>
+<td>Convert object to byte[] or write to stream. There has IFormatterResolver overload, used specified resolver.</td>
+</tr>
+<tr>
+<td><code>SerializeUnsafe&lt;T&gt;</code></td>
+<td>Same as <code>Serialize&lt;T&gt;</code> but return <code>ArraySegement&lt;byte&gt;</code>. The result of ArraySegment is contains internal buffer pool, it can not share across thread and can not hold, so use quickly.</td>
+</tr>
+<tr>
+<td><code>Deserialize&lt;T&gt;</code></td>
+<td>Convert byte[] or stream to object. There has IFormatterResolver overload, used specified resolver.</td>
+</tr>
+<tr>
+<td><code>NonGeneric.*</code></td>
+<td>NonGeneric APIs of Serialize/Deserialize. There accept type parameter at first argument. This API is bit slower than generic API but useful for framework integration such as ASP.NET formatter.</td>
+</tr>
+<tr>
+<td><code>ToJson</code></td>
+<td>Dump message-pack binary to JSON string. It is useful for debugging.</td>
+</tr>
+</tbody>
+</table>
+
+<p>MessagePack for C# operates at the byte[] level, so byte[] API is faster than Stream API.</p>
+
+<p>High-Level API uses memory pool internaly to avoid unnecessary memory allocation. If result size is under 64K, allocates GC memory only for the return bytes.</p>
+
+<p><code>LZ4MessagePackSerializer</code> has same api with <code>MessagePackSerializer</code> and <code>DefaultResolver</code> is shared. <code>LZ4MessagePackSerializer</code> has additional <code>SerializeToBlock</code> method.</p>
+
+<h6>
+<a id="user-content-low-level-apiimessagepackformatter" class="anchor" href="#low-level-apiimessagepackformatter" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Low-Level API(IMessagePackFormatter)</h6>
+
+<p>IMessagePackFormatter is serializer by each type. For example <code>Int32Formatter : IMessagePackFormatter&lt;Int32&gt;</code> represents Int32 MessagePack serializer.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt;
+{
+    <span class="pl-k">int</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-k">byte</span>[] <span class="pl-smi">bytes</span>, <span class="pl-k">int</span> <span class="pl-smi">offset</span>, <span class="pl-en">T</span> <span class="pl-smi">value</span>, <span class="pl-en">IFormatterResolver</span> <span class="pl-smi">formatterResolver</span>);
+    <span class="pl-en">T</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">byte</span>[] <span class="pl-smi">bytes</span>, <span class="pl-k">int</span> <span class="pl-smi">offset</span>, <span class="pl-en">IFormatterResolver</span> <span class="pl-smi">formatterResolver</span>, <span class="pl-k">out</span> <span class="pl-k">int</span> <span class="pl-smi">readSize</span>);
+}</pre></div>
+
+<p>All api works on byte[] level, no use Stream, no use Writer/Reader so improve performance. Many builtin formatters exists under <code>MessagePack.Formatters</code>. You can get sub type serializer by <code>formatterResolver.GetFormatter&lt;T&gt;</code>. Here is sample of write own formatter.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// serialize fileinfo as string fullpath.</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FileInfoFormatter</span>&lt;<span class="pl-en">T</span>&gt; : <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">FileInfo</span>&gt;
+{
+    <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-k">byte</span>[] <span class="pl-smi">bytes</span>, <span class="pl-k">int</span> <span class="pl-smi">offset</span>, <span class="pl-en">FileInfo</span> <span class="pl-smi">value</span>, <span class="pl-en">IFormatterResolver</span> <span class="pl-smi">formatterResolver</span>)
+    {
+        <span class="pl-k">if</span> (<span class="pl-k">value</span> == <span class="pl-c1">null</span>)
+        {
+            <span class="pl-k">return</span> MessagePackBinary.WriteNil(ref bytes, offset);
+        }
+
+        <span class="pl-k">return</span> MessagePackBinary.WriteString(ref bytes, offset, <span class="pl-k">value</span>.FullName);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-en">FileInfo</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">byte</span>[] <span class="pl-smi">bytes</span>, <span class="pl-k">int</span> <span class="pl-smi">offset</span>, <span class="pl-en">IFormatterResolver</span> <span class="pl-smi">formatterResolver</span>, <span class="pl-k">out</span> <span class="pl-k">int</span> <span class="pl-smi">readSize</span>)
+    {
+        <span class="pl-k">if</span> (MessagePackBinary.IsNil(bytes, offset))
+        {
+            readSize = <span class="pl-c1">1</span>;
+            <span class="pl-k">return</span> <span class="pl-c1">null</span>;
+        }
+
+        <span class="pl-k">var</span> <span class="pl-en">path </span>= MessagePackBinary.ReadString(bytes, offset, out readSize);
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">FileInfo</span>(<span class="pl-en">path</span>);
+    }
+}</pre></div>
+
+<p>Created formatter needs to register to <code>IFormatterResolver</code>. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">Extension Point section</a>.</p>
+
+<p>You can see many other samples from <a href="https://github.com/neuecc/MessagePack-CSharp/tree/master/src/MessagePack/Formatters">builtin formatters</a>.</p>
+
+<h6>
+<a id="user-content-primitive-apimessagepackbinary" class="anchor" href="#primitive-apimessagepackbinary" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Primitive API(MessagePackBinary)</h6>
+
+<p><code>MessagePackBinary</code> is most low-level API like <code>Reader/Writer</code> of other serializers. <code>MessagePackBinary</code> is static class because avoid create <code>Reader/Writer</code> allocation.</p>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ReadNext</td>
+<td>Skip MessagePackFormat binary block, returns read size.</td>
+</tr>
+<tr>
+<td>ReadNextBlock</td>
+<td>Skip MessagePackFormat binary block with sub structures(array/map), returns read size. This is useful for create deserializer.</td>
+</tr>
+<tr>
+<td>Write/ReadMapHeader</td>
+<td>Write/Read map format header(element length).</td>
+</tr>
+<tr>
+<td>Write/ReadArrayHeader</td>
+<td>Write/Read array format header(element length).</td>
+</tr>
+<tr>
+<td>Write/Read***</td>
+<td>*** is primitive type name(<code>Int32</code>, <code>Single</code>, <code>String</code>, etc...)</td>
+</tr>
+<tr>
+<td>Write/ReadBytes</td>
+<td>Write/Read byte[] to use bin format.</td>
+</tr>
+<tr>
+<td>Write/ReadExtensionFormat</td>
+<td>Write/Read ext format header(Length + TypeCode) and content byte[].</td>
+</tr>
+<tr>
+<td>Write/ReadExtensionFormatHeader</td>
+<td>Write/Read ext format, header(Length + TypeCode) only.</td>
+</tr>
+<tr>
+<td>IsNil</td>
+<td>Is TypeCode Nil?</td>
+</tr>
+<tr>
+<td>IsMessagePackPrimitive</td>
+<td>Is Type can become MessagePack Primitive(Sbyte, Byte, Int16, Int32, Int64, UInt16,UInt32, UInt64, Single, Double, Boolean,  DateTime, Char, Byte[], String)?</td>
+</tr>
+<tr>
+<td>GetMessagePackType</td>
+<td>Return MessagePackType of target MessagePack bianary position.</td>
+</tr>
+<tr>
+<td>EnsureCapacity</td>
+<td>Resize if byte can not fill.</td>
+</tr>
+<tr>
+<td>FastResize</td>
+<td>Buffer.BlockCopy version of Array.Resize.</td>
+</tr>
+<tr>
+<td>FastCloneWithResize</td>
+<td>Same as FastResize but return copied byte[].</td>
+</tr>
+</tbody>
+</table>
+
+<p>Read API returns deserialized primitive and read size. Write API returns write size and guranteed auto ensure ref byte[].</p>
+
+<p>DateTime is serialized to <a href="https://github.com/msgpack/msgpack/pull/209">new MessagePack extension spec proposal</a>.</p>
+
+<p><code>MessagePackType</code> means <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#serialization-type-to-format-conversion">msgpack spec of source types</a>.</p>
+
+<p><code>MessagePackCode</code> means <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#overview">msgpack format of first byte</a>. Its static class has <code>ToMessagePackType</code> and <code>ToFormatName</code> utility methods.</p>
+
+<p><code>MessagePackRange</code> means Min-Max fix range of msgpack format.</p>
+
+<h6>
+<a id="user-content-extension-pointiformatterresolver" class="anchor" href="#extension-pointiformatterresolver" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extension Point(IFormatterResolver)</h6>
+
+<p><code>IFormatterResolver</code> is storage of typed serializers. Serializer api accepts resolver and can customize serialization.</p>
+
+<table>
+<thead>
+<tr>
+<th>Resovler Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BuiltinResolver</td>
+<td>Builtin primitive and standard classes resolver. It includes primitive(int, bool, string...) and there nullable, array and list. and some extra builtin types(Guid, Uri, BigInteger, etc...).</td>
+</tr>
+<tr>
+<td>StandardResolver</td>
+<td>Composited resolver . It resolves in the following order <code>builtin -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object</code>. This is the default of MessagePackSerializer.</td>
+</tr>
+<tr>
+<td>ContractlessStandardResolver</td>
+<td>Composited <code>StandardResolver</code> -&gt; <code>DynamicContractlessObjectResolver</code>. It enables contractless serialization.</td>
+</tr>
+<tr>
+<td>CompositeResolver</td>
+<td>Singleton helper of setup custom resolvers. You can use <code>Register</code> or <code>RegisterAndSetAsDefault</code> API.</td>
+</tr>
+<tr>
+<td>DynamicEnumResolver</td>
+<td>Resolver of enum and there nullable, serialize there underlying type. It uses dynamic code generation to avoid boxing and boostup performance serialize there name.</td>
+</tr>
+<tr>
+<td>DynamicEnumAsStringResolver</td>
+<td>Resolver of enum and there nullable.  It uses reflection call for resolve nullable at first time.</td>
+</tr>
+<tr>
+<td>DynamicGenericResolver</td>
+<td>Resolver of generic type(<code>Tuple&lt;&gt;</code>, <code>List&lt;&gt;</code>, <code>Dictionary&lt;,&gt;</code>, <code>Array</code>, etc). It uses reflection call for resolve generic argument at first time.</td>
+</tr>
+<tr>
+<td>DynamicUnionResolver</td>
+<td>Resolver of interface marked by UnionAttribute. It uses dynamic code generation to create dynamic formatter.</td>
+</tr>
+<tr>
+<td>DynamicObjectResolver</td>
+<td>Resolver of class and struct maked by MessagePackObjectAttribute. It uses dynamic code generation to create dynamic formatter.</td>
+</tr>
+<tr>
+<td>DynamicContractlessObjectResolver</td>
+<td>Resolver of all classes and structs. It does not needs MessagePackObjectAttribute and serialized key as string(same as marked [MessagePackObject(true)]).</td>
+</tr>
+</tbody>
+</table>
+
+<p>It is the only configuration point to assemble the resolver's priority. In most cases, it is sufficient to have one custom resolver globally. CompositeResolver will be its helper.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// use global-singleton CompositeResolver.</span>
+<span class="pl-c">// This method initialize CompositeResolver and set to default MessagePackSerializer</span>
+<span class="pl-en">CompositeResolver.RegisterAndSetAsDefault</span>(
+    <span class="pl-c">// resolver custom types first</span>
+    ImmutableCollectionResolver.Instance,
+    ReactivePropertyResolver.Instance,
+    MessagePack.Unity.Extension.UnityBlitResolver.Instance,
+    MessagePack.Unity.UnityResolver.Instance,
+
+    <span class="pl-c">// finaly use standard resolver</span>
+    StandardResolver.Instance);</pre></div>
+
+<p>Here is sample of use DynamicEnumAsStringResolver with DynamicContractlessObjectResolver(It is JSON.NET-like lightweight setting.)</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// composite same as StandardResolver</span>
+<span class="pl-en">CompositeResolver.RegisterAndSetAsDefault</span>(
+    MessagePack.Resolvers.BuiltinResolver.Instance,
+
+    <span class="pl-c">// replace enum resolver</span>
+    MessagePack.Resolvers.DynamicEnumAsStringResolver.Instance,
+
+    MessagePack.Resolvers.DynamicGenericResolver.Instance,
+    MessagePack.Resolvers.DynamicUnionResolver.Instance,
+    MessagePack.Resolvers.DynamicObjectResolver.Instance,
+
+    <span class="pl-c">// final fallback(last priority)</span>
+    MessagePack.Resolvers.DynamicContractlessObjectResolver.Instance
+);</pre></div>
+
+<p>If you want to write custom composite resolver, you can write like following.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CustomCompositeResolver</span> : <span class="pl-en">IFormatterResolver</span>
+{
+    <span class="pl-k">public static </span><span class="pl-en">IFormatterResolver</span> <span class="pl-en">Instance</span> = <span class="pl-k">new</span> <span class="pl-en">CustomCompositeResolver</span>();
+
+    <span class="pl-k">static readonly </span><span class="pl-en">IFormatterResolver</span>[] <span class="pl-en">resolvers</span> = new[]
+    {
+        // resolver custom types first
+        ImmutableCollectionResolver.Instance,
+        ReactivePropertyResolver.Instance,
+        MessagePack.Unity.Extension.UnityBlitResolver.Instance,
+        MessagePack.Unity.UnityResolver.Instance,
+
+        // finaly use standard resolver
+        StandardResolver.Instance
+    };
+
+    <span class="pl-en">CustomCompositeResolver</span>()
+    {
+    }
+
+    <span class="pl-k">public</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">GetFormatter</span>&lt;<span class="pl-en">T</span>&gt;()
+    {
+        <span class="pl-k">return</span> FormatterCache&lt;T&gt;.formatter;
+    }
+
+    <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">FormatterCache</span>&lt;<span class="pl-en">T</span>&gt;
+    {
+        <span class="pl-k">public static readonly </span><span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">formatter</span>;
+
+        <span class="pl-k">static</span> <span class="pl-en">FormatterCache</span>()
+        {
+            <span class="pl-k">foreach</span> (var item <span class="pl-k">in</span> resolvers)
+            {
+                <span class="pl-k">var</span> <span class="pl-en">f </span>= item.GetFormatter&lt;T&gt;();
+                <span class="pl-k">if</span> (f != <span class="pl-c1">null</span>)
+                {
+                    formatter = f;
+                    <span class="pl-k">return</span>;
+                }
+            }
+        }
+    }
+}</pre></div>
+
+<p><code>IFormatterResolver</code> can use per serialize/deserialize method.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-en">MessagePackSerializer.Serialize</span>(data, CustomCompositeResolver.Instance);</pre></div>
+
+<p>If you want to make your extension package, you need to make formatter and resolver. <code>IMessagePackFormatter</code> accepts <code>IFormatterResolver</code> on every request of serialize/deserialize. You can get child-type serialize on resolver.<code>GetFormatterWithVerify&lt;T&gt;</code>.</p>
+
+<p>Here is sample of own resolver.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SampleCustomResolver</span> : <span class="pl-en">IFormatterResolver</span>
+{
+    <span class="pl-c">// Resolver should be singleton.</span>
+    <span class="pl-k">public static </span><span class="pl-en">IFormatterResolver</span> <span class="pl-en">Instance</span> = <span class="pl-k">new</span> <span class="pl-en">SampleCustomResolver</span>();
+
+    <span class="pl-en">SampleCustomResolver</span>()
+    {
+    }
+
+    <span class="pl-c">// GetFormatter&lt;T&gt;'s get cost should be minimized so use type cache.</span>
+    <span class="pl-k">public</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">GetFormatter</span>&lt;<span class="pl-en">T</span>&gt;()
+    {
+        <span class="pl-k">return</span> FormatterCache&lt;T&gt;.formatter;
+    }
+
+    <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">FormatterCache</span>&lt;<span class="pl-en">T</span>&gt;
+    {
+        <span class="pl-k">public static readonly </span><span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">formatter</span>;
+
+        <span class="pl-c">// generic's static constructor should be minimized for reduce type generation size!</span>
+        <span class="pl-c">// use outer helper method.</span>
+        <span class="pl-k">static</span> <span class="pl-en">FormatterCache</span>()
+        {
+            formatter = (IMessagePackFormatter&lt;T&gt;)SampleCustomResolverGetFormatterHelper.GetFormatter(<span class="pl-k">typeof</span>(<span class="pl-en">T</span>));
+        }
+    }
+}
+
+<span class="pl-k">internal</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">SampleCustomResolverGetFormatterHelper</span>
+{
+    <span class="pl-c">// If type is concrete type, use type-formatter map</span>
+    <span class="pl-k">static readonly </span><span class="pl-en">Dictionary</span>&lt;<span class="pl-en">Type</span>, <span class="pl-k">object</span>&gt; <span class="pl-en">formatterMap</span> = <span class="pl-k">new</span> <span class="pl-en">Dictionary</span>&lt;Type, <span class="pl-k">object</span>&gt;()
+    {
+        {typeof(FileInfo), new FileInfoFormatter()}
+        // add more your own custom serializers.
+    };
+
+    <span class="pl-k">internal</span> <span class="pl-k">static</span> <span class="pl-k">object</span> <span class="pl-en">GetFormatter</span>(<span class="pl-en">Type</span> <span class="pl-smi">t</span>)
+    {
+        <span class="pl-k">object</span> <span class="pl-en">formatter</span>;
+        <span class="pl-k">if</span> (formatterMap.TryGetValue(t, out formatter))
+        {
+            <span class="pl-k">return</span> formatter;
+        }
+
+        <span class="pl-c">// If target type is generics, use MakeGenericType.</span>
+        <span class="pl-k">if</span> (t.IsGenericParameter &amp;&amp; t.GetGenericTypeDefinition() == <span class="pl-k">typeof</span>(<span class="pl-en">ValueTuple</span>&lt;,&gt;))
+        {
+            <span class="pl-k">return</span> Activator.CreateInstance(<span class="pl-k">typeof</span>(<span class="pl-en">ValueTupleFormatter</span>&lt;,&gt;).MakeGenericType(t.GenericTypeArguments));
+        }
+
+        <span class="pl-c">// If type can not get, must return null for fallback mecanism.</span>
+        <span class="pl-k">return</span> <span class="pl-c1">null</span>;
+    }
+}</pre></div>
+
+<h6>
+<a id="user-content-for-unity" class="anchor" href="#for-unity" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for Unity</h6>
+
+<p>You can install by package and includes source code. If build target as PC, you can use as is but if build target uses IL2CPP, you can not use <code>Dynamic***Resolver</code> so use pre-code generation. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports">pre-code generation section</a>.</p>
+
+<p>In Unity, MessagePackSerializer can serialize <code>Vector2</code>, <code>Vector3</code>, <code>Quaternion</code>, <code>Color</code>, <code>Bounds</code>, <code>Rect</code> and there nullable by built-in extension <code>UnityResolver</code>. It is included StandardResolver by default.</p>
+
+<p>If you want to use LZ4 compression support, you must enables unsafe option and define additional symbols. At first, write <code>-unsafe</code> on <code>smcs.rsp</code>, <code>gmcs.rsp</code> etc. And define <code>ENABLE_UNSAFE_MSGPACK</code> symbol.</p>
+
+<p><a href="https://cloud.githubusercontent.com/assets/46207/23837456/fc01c828-07cb-11e7-92bf-f23eb2575115.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/46207/23837456/fc01c828-07cb-11e7-92bf-f23eb2575115.png" alt="image" style="max-width:100%;"></a></p>
+
+<p>So you can use <code>LZ4MessagePackSerialzer</code>. And also additional unsafe extension of MessagePack for C# can use.</p>
+
+<p><code>UnsafeBlitResolver</code> is special resolver for extremely fast unsafe serialization/deserialization for struct array.</p>
+
+<p><a href="https://cloud.githubusercontent.com/assets/46207/23837633/76589924-07ce-11e7-8b26-e50eab548938.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/46207/23837633/76589924-07ce-11e7-8b26-e50eab548938.png" alt="image" style="max-width:100%;"></a></p>
+
+<p>x20 faster Vector3[] serialization than native JsonUtility. If use <code>UnsafeBlitResolver</code>, serialize special format(ext:typecode 30~39)  <code>Vector2[]</code>, <code>Vector3[]</code>, <code>Quaternion[]</code>, <code>Color[]</code>, <code>Bounds[]</code>, <code>Rect[]</code>. If use <code>UnityBlitWithPrimitiveArrayResolver</code>, supports <code>int[]</code>, <code>float[]</code>, <code>double[]</code> too. This special feature is useful for serialize Mesh(many Vector3[]) or many transform position.</p>
+
+<p>Here is sample of configuration.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-en">Resolvers.CompositeResolver.RegisterAndSetAsDefault</span>(
+    MessagePack.Unity.UnityResolver.Instance,
+    MessagePack.Unity.Extension.UnityBlitWithPrimitiveArrayResolver.Instance,
+
+    <span class="pl-c">// If PC, use StandardResolver</span>
+    <span class="pl-c">// MessagePack.Resolvers.StandardResolver.Instance,</span>
+
+    <span class="pl-c">// If IL2CPP, Builtin + GeneratedResolver.</span>
+    <span class="pl-c">// MessagePack.Resolvers.BuiltinResolver.Instance,</span>
+);</pre></div>
+
+<p><code>MessagePack.UnityShims</code> NuGet package is for .NET ServerSide serialization support to communicate with Unity. It includes shim of Vector3 etc and Safe/Unsafe serialization extension.</p>
+
+<p>If you want to share class between Unity and Server, you can use <code>SharedProject</code> or <code>Reference as Link</code> or new MSBuild(VS2017)'s wildcard reference etc. Anyway you need to source-code level share.</p>
+
+<h6>
+<a id="user-content-pre-code-generationunityxamarin-supports" class="anchor" href="#pre-code-generationunityxamarin-supports" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre Code Generation(Unity/Xamarin Supports)</h6>
+
+<p>MessagePack for C# generates object formatter dynamically by <a href="https://msdn.microsoft.com/en-us/library/system.reflection.emit.ilgenerator.aspx">ILGenerator</a>. It is fast and transparently generated at run time. But it needs generate cost at first time and it does not work on AOT environment(Xamarin, Unity IL2CPP, etc.).</p>
+
+<blockquote>
+<p>Note: If Unity's build target as PC, does not need code generation. It works well.</p>
+</blockquote>
+
+<p>If you want to avoid generate cost or run on Xamarin or Unity, you need pre-code generation. <code>mpc.exe</code>(MessagePackCompiler) is code generator of MessagePack for C#. mpc is located in <code>packages\MessagePack.*.*.*\tools\mpc.exe</code> or includes for unity's package. mpc is using <a href="https://github.com/dotnet/roslyn">Roslyn</a> so analyze source code.</p>
+
+<pre><code>mpc arguments help:
+  -i, --input              [required]Input path of analyze csproj
+  -o, --output             [required]Output file path
+  -c, --conditionalsymbol  [optional, default=empty]conditional compiler symbol
+  -r, --resolvername       [optional, default=GeneratedResolver]Set resolver name
+  -n, --namespace          [optional, default=MessagePack]Set namespace root name
+</code></pre>
+
+<pre><code>// Simple Sample:
+mpc.exe -i "..\src\Sandbox.Shared.csproj" -o "MessagePackGenerated.cs"
+</code></pre>
+
+<p>If you create DLL by msbuild project, you can use Pre/Post build event.</p>
+
+<pre><code>&lt;PropertyGroup&gt;
+    &lt;PreBuildEvent&gt;
+        mpc.exe, here is useful for analyze/generate target is self project.
+    &lt;/PreBuildEvent&gt;
+    &lt;PostBuildEvent&gt;
+        mpc.exe, here is useful for analyze target is another project.
+    &lt;/PostBuildEvent&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+
+<p>In default, <code>mpc.exe</code> generates resolver to <code>MessagePack.Resolvers.GeneratedResolver</code> and formatters generates to <code>MessagePack.Formatters.***</code>. And application launch, you need to set Resolver at first.</p>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// CompositeResolver is singleton helper for use custom resolver.</span>
+<span class="pl-c">// Ofcourse you can also make custom resolver.</span>
+<span class="pl-en">MessagePack.Resolvers.CompositeResolver.RegisterAndSetAsDefault</span>(
+    <span class="pl-c">// use generated resolver first, and combine many other generated/custom resolvers</span>
+    MessagePack.Resolvers.GeneratedResolver.Instance,
+
+    <span class="pl-c">// finally, use builtin resolver(don't use StandardResolver, it includes dynamic generation)</span>
+    MessagePack.Resolvers.BuiltinResolver.Instance
+);</pre></div>
+
+<blockquote>
+<p>Note: mpc.exe is currently only run on Windows. It is .NET Core's Roslyn workspace API limitation and <a href="https://github.com/dotnet/roslyn/issues/17439">not supported yet</a>. But I want to implements to all platforms...</p>
+</blockquote>
+
+<h6>
+<a id="user-content-rpc" class="anchor" href="#rpc" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RPC</h6>
+
+<p>MessagePack advocated <a href="https://github.com/msgpack-rpc/msgpack-rpc">MessagePack RPC</a>, but formulation is stopped and it is not widely used. I've created gRPC based MessagePack HTTP/2 RPC streaming framework called <a href="https://github.com/neuecc/MagicOnion">MagicOnion</a>. gRPC usually communicates with Protocol Buffers using IDL. But MagicOnion uses MessagePack for C# and does not needs IDL. If communicates C# to C#, schemaless(C# classes as schema) is better than IDL.</p>
+
+<h6>
+<a id="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to Build</h6>
+
+<p>Open <code>MessagePack.sln</code> on Visual Studio 2017.</p>
+
+<p>Unity Project is using symbolic link. At first, run <code>make_unity_symlink.bat</code> so linked under Unity project. You can open <code>src\MessagePack.UnityClient</code> on Unity Editor.</p>
+
+<h6>
+<a id="user-content-author-info" class="anchor" href="#author-info" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Author Info</h6>
+
+<p>Yoshifumi Kawai(a.k.a. neuecc) is a software developer in Japan.<br>
+He is the Director/CTO at Grani, Inc.<br>
+Grani is a mobile game developer company in Japan and well known for using C#.<br>
+He is awarding Microsoft MVP for Visual C# since 2011.<br>
+He is known as the creator of <a href="http://github.com/neuecc/UniRx/">UniRx</a>(Reactive Extensions for Unity)  </p>
+
+<p>Blog: <a href="https://medium.com/@neuecc">https://medium.com/@neuecc</a> (English)<br>
+Blog: <a href="http://neue.cc/">http://neue.cc/</a> (Japanese)<br>
+Twitter: <a href="https://twitter.com/neuecc">https://twitter.com/neuecc</a> (Japanese)   </p>
+
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+
+<p>This library is under the MIT License.</p>
+
+<p>lz4 compression support is using Milosz Krajewski's <a href="https://github.com/MiloszKrajewski/lz4net">lz4net</a> code with some modified.</p>
 </article>
   </div>
         </div>
