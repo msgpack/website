@@ -7673,7 +7673,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tbody>
 </table>
 <p>Read API returns deserialized primitive and read size. Write API returns write size and guranteed auto ensure ref byte[].</p>
-<p>DateTime is serialized to <a href="https://github.com/msgpack/msgpack/pull/209">new MessagePack extension spec proposal</a>.</p>
+<p>DateTime is serialized to <a href="https://github.com/msgpack/msgpack/pull/209">new MessagePack extension spec proposal</a>, it serialize/deserialize UTC and loses <code>Kind</code> info. If you use<code>NativeDateTimeResolver</code> serialized native DateTime binary format and it can keep <code>Kind</code> info but cannot communicate other platforms.</p>
 <p><code>MessagePackType</code> means <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#serialization-type-to-format-conversion">msgpack spec of source types</a>.</p>
 <p><code>MessagePackCode</code> means <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#overview">msgpack format of first byte</a>. Its static class has <code>ToMessagePackType</code> and <code>ToFormatName</code> utility methods.</p>
 <p><code>MessagePackRange</code> means Min-Max fix range of msgpack format.</p>
@@ -7703,6 +7703,14 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>CompositeResolver</td>
 <td>Singleton helper of setup custom resolvers. You can use <code>Register</code> or <code>RegisterAndSetAsDefault</code> API.</td>
+</tr>
+<tr>
+<td>NativeDateTimeResolver</td>
+<td>Serialize by .NET native DateTime binary format.</td>
+</tr>
+<tr>
+<td>OldSpecResolver</td>
+<td>str and bin serialize/deserialize follows old messagepack spec(use raw format)</td>
 </tr>
 <tr>
 <td>DynamicEnumResolver</td>
