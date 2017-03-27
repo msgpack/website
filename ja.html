@@ -7897,7 +7897,32 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
     <span class="pl-c">// MessagePack.Resolvers.BuiltinResolver.Instance,</span>
 );</pre></div>
 <p><code>MessagePack.UnityShims</code> NuGet package is for .NET ServerSide serialization support to communicate with Unity. It includes shim of Vector3 etc and Safe/Unsafe serialization extension.</p>
-<p>If you want to share class between Unity and Server, you can use <code>SharedProject</code> or <code>Reference as Link</code> or new MSBuild(VS2017)'s wildcard reference etc. Anyway you need to source-code level share.</p>
+<p>If you want to share class between Unity and Server, you can use <code>SharedProject</code> or <code>Reference as Link</code> or new MSBuild(VS2017)'s wildcard reference etc. Anyway you need to source-code level share. This is sample project structure of use SharedProject.</p>
+<ul>
+<li>SharedProject(source code sharing)
+<ul>
+<li>Source codes of server-client shared</li>
+</ul>
+</li>
+<li>ServerProject(.NET 4.6/.NET Core/.NET Standard)
+<ul>
+<li>[SharedProject]</li>
+<li>[MessagePack]</li>
+<li>[MessagePack.UnityShims]</li>
+</ul>
+</li>
+<li>ClientDllProject(.NET 3.5)
+<ul>
+<li>[SharedProject]</li>
+<li>[MessagePack](not dll, use MessagePack.unitypackage's sourcecodes)</li>
+</ul>
+</li>
+<li>Unity
+<ul>
+<li>[Builded ClientDll]</li>
+</ul>
+</li>
+</ul>
 <h6>
 <a id="user-content-pre-code-generationunityxamarin-supports" class="anchor" href="#pre-code-generationunityxamarin-supports" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre Code Generation(Unity/Xamarin Supports)</h6>
 <p>MessagePack for C# generates object formatter dynamically by <a href="https://msdn.microsoft.com/en-us/library/system.reflection.emit.ilgenerator.aspx">ILGenerator</a>. It is fast and transparently generated at run time. But it needs generate cost at first time and it does not work on AOT environment(Xamarin, Unity IL2CPP, etc.).</p>
