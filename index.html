@@ -7652,6 +7652,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <td>*** is primitive type name(<code>Int32</code>, <code>Single</code>, <code>String</code>, etc...)</td>
 </tr>
 <tr>
+<td>Write***Force***Block</td>
+<td>*** is primitive integer name(<code>Byte</code>, <code>Int32</code>, <code>UInt64</code>, etc...), acquire strict block and write code</td>
+</tr>
+<tr>
 <td>Write/ReadBytes</td>
 <td>Write/Read byte[] to use bin format.</td>
 </tr>
@@ -7707,11 +7711,15 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 <tr>
 <td>StandardResolver</td>
-<td>Composited resolver . It resolves in the following order <code>builtin -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object</code>. This is the default of MessagePackSerializer.</td>
+<td>Composited resolver . It resolves in the following order <code>builtin -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; primitive object</code>. This is the default of MessagePackSerializer.</td>
 </tr>
 <tr>
 <td>ContractlessStandardResolver</td>
 <td>Composited <code>StandardResolver</code> -&gt; <code>DynamicContractlessObjectResolver</code>. It enables contractless serialization.</td>
+</tr>
+<tr>
+<td>PrimitiveObjectResolver</td>
+<td>MessagePack primitive object resolver. It is used fallback in <code>object</code> type and supports <code>bool</code>, <code>char</code>, <code>sbyte</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>ushort</code>, <code>uint</code>, <code>ulong</code>, <code>float</code>, <code>double</code>, <code>DateTime</code>, <code>string</code>, <code>byte[]</code>, <code>ICollection</code>, <code>IDictionary</code>.</td>
 </tr>
 <tr>
 <td>CompositeResolver</td>
@@ -7774,6 +7782,8 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
     MessagePack.Resolvers.DynamicGenericResolver.Instance,
     MessagePack.Resolvers.DynamicUnionResolver.Instance,
     MessagePack.Resolvers.DynamicObjectResolver.Instance,
+
+    MessagePack.Resolvers.PrimitiveObjectResolver.Instance,
 
     <span class="pl-c">// final fallback(last priority)</span>
     MessagePack.Resolvers.DynamicContractlessObjectResolver.Instance
@@ -7966,8 +7976,9 @@ mpc.exe -i "..\src\Sandbox.Shared.csproj" -o "MessagePackGenerated.cs" -m
     <span class="pl-c">// use generated resolver first, and combine many other generated/custom resolvers</span>
     MessagePack.Resolvers.GeneratedResolver.Instance,
 
-    <span class="pl-c">// finally, use builtin resolver(don't use StandardResolver, it includes dynamic generation)</span>
-    MessagePack.Resolvers.BuiltinResolver.Instance
+    <span class="pl-c">// finally, use builtin/primitive resolver(don't use StandardResolver, it includes dynamic generation)</span>
+    MessagePack.Resolvers.BuiltinResolver.Instance,
+    MessagePack.Resolvers.PrimitiveObjectResolver.Instance
 );</pre></div>
 <blockquote>
 <p>Note: mpc.exe is currently only run on Windows. It is .NET Core's Roslyn workspace API limitation and <a href="https://github.com/dotnet/roslyn/issues/17439">not supported yet</a>. But I want to implements to all platforms...</p>
