@@ -326,6 +326,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-pocketberserker-MessagePack-FSharpExtensions',this)">F# <span class="qs-sub">pocketberserker</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-jpf91-msgpack-ll',this)">D <span class="qs-sub">jpf91</span></a></li>
+          
         </ul>
       </div>
 
@@ -8044,6 +8046,145 @@ CompositeResolver.RegisterAndSetAsDefault(
   printfn <span class="pl-s"><span class="pl-pds">"</span>%d<span class="pl-pds">"</span></span> x
 <span class="pl-k">|</span> Bar xs <span class="pl-k">-&gt;</span>
   printfn <span class="pl-s"><span class="pl-pds">"</span>%A<span class="pl-pds">"</span></span> xs</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-jpf91-msgpack-ll" class="qs"><h4><a href="https://github.com/jpf91/msgpack-ll" target="_blank">jpf91/msgpack-ll <span class="qs-url">https://github.com/jpf91/msgpack-ll</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack-ll" class="anchor" href="#msgpack-ll" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack-ll</h5>
+<p><a href="https://coveralls.io/github/jpf91/msgpack-ll?branch=master"><img src="https://camo.githubusercontent.com/f3302fbeb768f5ef0730c9e6529ed35a5d661658/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f6a706639312f6d73677061636b2d6c6c2f62616467652e7376673f6272616e63683d6d6173746572" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/jpf91/msgpack-ll/badge.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/jpf91/msgpack-ll"><img src="https://camo.githubusercontent.com/419948a0a48465f7b94e2df5a9c85edea46ea9fe/68747470733a2f2f7472617669732d63692e6f72672f6a706639312f6d73677061636b2d6c6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/jpf91/msgpack-ll.svg?branch=master" style="max-width:100%;"></a></p>
+<p>This is a low-level <code>@nogc</code>, <code>nothrow</code>, <code>@safe</code>, <code>pure</code> and <code>betterC</code> compatible
+<a href="http://msgpack.org/">MessagePack</a> serializer and deserializer. The
+library was designed to avoid any external dependencies and handle the low-level protocol
+details only. As a result the library doesn't have to do any error handling or
+buffer management. This library does never dynamically allocate memory.</p>
+<p>The API documentation is available <a href="https://jpf91.github.io/msgpack-ll/msgpack_ll.html">here</a>.</p>
+<h6>
+<a id="user-content-a-simple-example-showing-the-complete-api" class="anchor" href="#a-simple-example-showing-the-complete-api" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A simple example showing the complete API</h6>
+<div class="highlight highlight-source-d"><pre><span class="pl-k">import</span> msgpack_ll;
+
+<span class="pl-c"><span class="pl-c">//</span> Buffer allocation is not handled by the library</span>
+<span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer;
+
+
+<span class="pl-c"><span class="pl-c">//</span> The MsgpackType enum contains all low-level MessagePack types</span>
+<span class="pl-k">enum</span> type = MsgpackType.uint8;
+
+<span class="pl-c"><span class="pl-c">//</span> The DataSize!(MsgpackType) function returns the size of serialized data</span>
+<span class="pl-c"><span class="pl-c">//</span> for a certain type.</span>
+
+<span class="pl-c"><span class="pl-c">//</span> The formatter and parser use ref ubyte[DataSize!type] types. This</span>
+<span class="pl-c"><span class="pl-c">//</span> forces the compiler to do array length checks at compile time and avoid</span>
+<span class="pl-c"><span class="pl-c">//</span> any runtime bounds checking.</span>
+
+<span class="pl-c"><span class="pl-c">//</span> Format the number 42 as a uint8 type. This will require</span>
+<span class="pl-c"><span class="pl-c">//</span> DataSize!(MsgpackType.uint8) == 2 bytes storage.</span>
+formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+
+<span class="pl-c"><span class="pl-c">//</span> To deserialize we have to somehow get the data type at runtime</span>
+<span class="pl-c"><span class="pl-c">//</span> Then verify the type is as expected.</span>
+<span class="pl-k">assert</span>(getType(buffer[<span class="pl-c1">0</span>]) <span class="pl-k">==</span> type);
+
+<span class="pl-c"><span class="pl-c">//</span> Now deserialize. Here we have to specify the MsgpackType</span>
+<span class="pl-c"><span class="pl-c">//</span> as a compile time value.</span>
+<span class="pl-k">const</span> result = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+<span class="pl-k">assert</span>(result <span class="pl-k">==</span> <span class="pl-c1">42</span>);</pre></div>
+<h6>
+<a id="user-content-a-quick-view-at-the-generated-code-for-this-library" class="anchor" href="#a-quick-view-at-the-generated-code-for-this-library" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A quick view at the generated code for this library</h6>
+<h7>
+<a id="user-content-serializing-an-8-bit-integer" class="anchor" href="#serializing-an-8-bit-integer" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serializing an 8 bit integer</h7>
+<div class="highlight highlight-source-d"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.uint8;
+    formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+}</pre></div>
+<p>Because of clever typing there's no runtime bounds checking but all bounds
+checks are performed at compile time by type checking.</p>
+<div class="highlight highlight-source-assembly"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">52</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-c1">42</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7>
+<a id="user-content-serializing-a-small-negative-integer-into-one-byte" class="anchor" href="#serializing-a-small-negative-integer-into-one-byte" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serializing a small negative integer into one byte</h7>
+<div class="highlight highlight-source-d"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
+    formatType<span class="pl-k">!</span>(type)(<span class="pl-k">-</span><span class="pl-c1">11</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+}</pre></div>
+<p>The MessagePack format is cleverly designed, so encoding the type is actually free
+in this case.</p>
+<div class="highlight highlight-source-assembly"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">11</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7>
+<a id="user-content-deserializing-an-expected-type" class="anchor" href="#deserializing-an-expected-type" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deserializing an expected type</h7>
+<div class="highlight highlight-source-d"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
+    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
+    <span class="pl-k">if</span>(rtType <span class="pl-k">!=</span> type)
+        <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+
+    value = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+    <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+}</pre></div>
+<p>The compiler will inline functions and can see through the switch block in
+<code>getType</code>. If you explicitly ask for one type, the compiler will reduce the
+code to a simple explicit <code>if</code> check for this type!</p>
+<div class="highlight highlight-source-assembly"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
+<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L58</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">dl</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span>
+<span class="pl-en">.L58:</span>
+<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7>
+<a id="user-content-deserializing-one-of-multiple-types" class="anchor" href="#deserializing-one-of-multiple-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deserializing one of multiple types</h7>
+<div class="highlight highlight-source-d"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
+{
+    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
+    <span class="pl-k">switch</span>(rtType)
+    {
+        <span class="pl-k">case</span> MsgpackType.negFixInt:
+            value = parseType<span class="pl-k">!</span>(MsgpackType.negFixInt)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.negFixInt)]);
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        <span class="pl-k">case</span> MsgpackType.int8:
+            value = parseType<span class="pl-k">!</span>(MsgpackType.int8)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.int8)]);
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        <span class="pl-k">default</span>:
+            <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+    }
+}</pre></div>
+<p>The generated code is obviously slighly more complex. The interesting part here
+is that type checking is directly done using the raw type value and not the
+enum values returned by <code>getType</code>. Even manually written ASM probably can't do
+much better here.</p>
+<div class="highlight highlight-source-assembly"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">191</span>
+<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L55</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
+<span class="pl-en">        </span><span class="pl-k">jg</span><span class="pl-en">      .L56</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">208</span>
+<span class="pl-en">        </span><span class="pl-k">jne</span><span class="pl-en">     .L60</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">al</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">.L55:</span>
+<span class="pl-en">        </span><span class="pl-k">rep</span><span class="pl-c">; ret</span>
+<span class="pl-en">.L56:</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">cl</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span>
+<span class="pl-en">.L60:</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
 </article>
   </div>
         </div>
