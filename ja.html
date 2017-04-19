@@ -218,8 +218,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ktakashi-r6rs-msgpack',this)">Scheme <span class="qs-sub">ktakashi</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
@@ -257,6 +255,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-rodrigosetti-messagepack',this)">Haskell <span class="qs-sub">rodrigosetti</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
@@ -1668,54 +1668,6 @@ in the following example:</p>
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 <p>This code licensed under the same terms as Rust itself: dual MIT/Apache2 license options.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-mururu-msgpack-elixir" class="qs"><h4><a href="https://github.com/mururu/msgpack-elixir" target="_blank">mururu/msgpack-elixir <span class="qs-url">https://github.com/mururu/msgpack-elixir</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-messagepack-for-elixir" class="anchor" href="#messagepack-for-elixir" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Elixir</h5>
-<p><a href="https://travis-ci.org/mururu/msgpack-elixir"><img src="https://camo.githubusercontent.com/09452907bf3009b0bf9ac3ecb8e3b5ce6bfb4ce6/68747470733a2f2f7472617669732d63692e6f72672f6d75727572752f6d73677061636b2d656c697869722e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/mururu/msgpack-elixir.png?branch=master" style="max-width:100%;"></a></p>
-<h6>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
-<p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
-<div class="highlight highlight-source-elixir"><pre><span class="pl-k">defp</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
-  [{<span class="pl-c1">:message_pack</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.2.0<span class="pl-pds">"</span></span>}]
-<span class="pl-k">end</span></pre></div>
-<h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-elixir"><pre><span class="pl-c"><span class="pl-c">#</span> pack</span>
-<span class="pl-en">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
-<span class="pl-en">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
-
-<span class="pl-c"><span class="pl-c">#</span> unpack</span>
-<span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, [1,2,3] }</span>
-<span class="pl-en">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; [1,2,3]</span>
-
-<span class="pl-c"><span class="pl-c">#</span> unpack_once</span>
-<span class="pl-en">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
-<span class="pl-en">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
-<h6>
-<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h6>
-<ul>
-<li><code>enable_string</code></li>
-</ul>
-<p>Support string type. This options is <code>false</code> by default.</p>
-<div class="highlight highlight-source-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
-{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
-{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
-{<span class="pl-c1">:error</span>, {<span class="pl-c1">:invalid_string</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}}</pre></div>
-<ul>
-<li><code>ext</code></li>
-</ul>
-<p>Support extention type.</p>
-<p>See <code>test/message_pack_ext_test.exs</code>.</p>
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
-<p>MIT</p>
 </article>
   </div>
         </div>
@@ -3190,6 +3142,112 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
 <span class="pl-k">instance</span> <span class="pl-en">Serialize</span> <span class="pl-en">Object</span> <span class="pl-k">where</span>
     <span class="pl-c"><span class="pl-c">--</span> ...</span></pre></div>
 <p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ymofen-msgpack-delphi" class="qs"><h4><a href="https://github.com/ymofen/msgpack-delphi" target="_blank">ymofen/msgpack-delphi <span class="qs-url">https://github.com/ymofen/msgpack-delphi</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack-for-delphi" class="anchor" href="#msgpack-for-delphi" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Msgpack for Delphi</h5>
+<p>It's like JSON but small and fast.</p>
+<pre><code>unit Owner: D10.Mofen, qdac.swish
+contact:
+       qq:185511468, 
+    email:185511468@qq.com
+welcome to report bug
+</code></pre>
+<h6>
+<a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Works with</h6>
+<ul>
+<li>Delphi 7 (tested)</li>
+<li>Delphi 2007 (tested)</li>
+<li>XE5, XE6, XE7, FMX (tested)</li>
+</ul>
+<h6>
+<a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>changes:</h6>
+<ul>
+<li>
+<p>first release
+2014-08-15 13:05:13</p>
+</li>
+<li>
+<p>add array support
+2014-08-19 12:18:47</p>
+</li>
+<li>
+<p>add andriod support
+2014-09-08 00:45:27</p>
+</li>
+</ul>
+<ul>
+<li>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
+2014-11-09 22:35:27</li>
+</ul>
+<ul>
+<li>add EncodeToFile/DecodeFromFile
+2014-11-13 12:30:58</li>
+</ul>
+<ul>
+<li>
+<p>fix  asVariant = null (thanks for cyw(26890954))
+2014-11-14 09:05:52</p>
+</li>
+<li>
+<p>fix AsInteger = -1 bug (thanks for cyw(26890954))
+2014-11-14 12:15:52</p>
+</li>
+<li>
+<p>fix AsInteger = -127 bug
+check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
+2014-11-14 12:30:38</p>
+</li>
+<li>
+<p>fix AsFloat = 2.507182 bug
+thanks fo [珠海]-芒果  1939331207
+2014-11-21 12:37:04</p>
+</li>
+<li>
+<p>add AddArrayChild func
+2015-03-25 17:47:28</p>
+</li>
+<li>
+<p>add remove/removeFromParent/Delete function
+2015-08-29 22:37:48</p>
+</li>
+</ul>
+<h7>
+<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code Example</h7>
+<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
+  lvMsg, lvMsg2:TSimpleMsgPack;
+  lvBytes:TBytes;
+  s:string;
+<span class="pl-k">begin</span>
+  lvMsg := TSimpleMsgPack.Create;
+  lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>] := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
+  <span class="pl-k">if</span> dlgOpen.Execute <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] := ExtractFileName(dlgOpen.FileName);
+    
+    <span class="pl-c"><span class="pl-c">//</span> file binary data</span>
+    lvMsg.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).LoadBinaryFromFile(dlgOpen.FileName);
+  <span class="pl-k">end</span>;
+  
+  <span class="pl-c"><span class="pl-c">//</span></span>
+  lvBytes := lvMsg.EncodeToBytes;
+
+  lvMsg2 := TSimpleMsgPack.Create;
+  lvMsg2.DecodeFromBytes(lvBytes);
+  <span class="pl-c"><span class="pl-c">//</span></span>
+  Memo1.Lines.Add(lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>]);
+  <span class="pl-k">if</span> lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] &lt;&gt; <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    s := ExtractFilePath(ParamStr(<span class="pl-c1">0</span>)) + lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>];
+    Memo1.Lines.Add(<span class="pl-s"><span class="pl-pds">'</span>file saved<span class="pl-pds">'</span></span>);
+    Memo1.Lines.Add(s);
+    lvMsg2.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).SaveBinaryToFile(s);    
+  <span class="pl-k">end</span>;
+  </pre></div>
 </article>
   </div>
         </div>
