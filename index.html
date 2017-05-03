@@ -1178,24 +1178,20 @@ serializer<span class="pl-k">.</span>Pack(stream, obj)
 <a id="user-content-for-net-framework" class="anchor" href="#for-net-framework" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For .NET Framework</h7>
 <ol>
 <li>
-<p>Install recent Windows SDK (at least, .NET Framework 4 Client Profile and MSBuild is needed.) <br>
-Or install Visual Studio or Visual Studio Express.</p>
-<ol>
-<li>If you want to build unit test assemblies, install NuGet and then restore NUnit packages.</li>
-</ol>
+<p>Install Visual Studio 2017 (Community edition is OK) and 2015 (for MsgPack.Windows.sln).</p>
 </li>
 <li>
-<p>Run:</p>
+<p>Run with Visual Studio Developer Command Prompt:</p>
 <p>msbuild MsgPack.sln</p>
 </li>
 </ol>
-<p>Or (for .NET 3.5 drops and Unity 3D drops):</p>
+<p>Or (for Unity 3D drops):</p>
 <pre><code>msbuild MsgPack.compats.sln
 </code></pre>
 <p>Or (for Windows Runtime/Phone drops and Silverlight 5 drops):</p>
 <pre><code>msbuild MsgPack.Windows.sln
 </code></pre>
-<p>Or (for Xamarin drops, you must have Xamarin Business or upper license and Mac machine on the LAN to build on Windows):</p>
+<p>Or (for Xamarin unit testing, you must have Xamarin Business or upper license and Mac machine on the LAN to build on Windows):</p>
 <pre><code>msbuild MsgPack.Xamarin.sln
 </code></pre>
 <p>Or open one of above solution files in your IDE and run build command in it.</p>
