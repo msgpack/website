@@ -215,8 +215,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ktakashi-r6rs-msgpack',this)">Scheme <span class="qs-sub">ktakashi</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
@@ -254,6 +252,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-rodrigosetti-messagepack',this)">Haskell <span class="qs-sub">rodrigosetti</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-msgpack-delphi',this)">Pascal <span class="qs-sub">ymofen</span></a></li>
           
@@ -1574,11 +1574,11 @@ $make &amp;&amp; make install
 </code></pre>
 <h7>
 <a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h7>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$data</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-c1">0</span><span class="pl-k">=&gt;</span><span class="pl-c1">1</span>,<span class="pl-c1">1</span><span class="pl-k">=&gt;</span><span class="pl-c1">2</span>,<span class="pl-c1">2</span><span class="pl-k">=&gt;</span><span class="pl-c1">3</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$msg</span> <span class="pl-k">=</span> msgpack_pack(<span class="pl-smi">$data</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$data</span> <span class="pl-k">=</span> msgpack_unpack(<span class="pl-smi">$msg</span>);</span>
-<span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-ii">&lt;</span>?php
+$data = array(0=&gt;1,1=&gt;2,2=&gt;3);
+$msg = msgpack_pack($data);
+$data = msgpack_unpack($msg);
+?&gt;</pre></div>
 <h5>
 <a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resources</h5>
 <ul>
@@ -1663,54 +1663,6 @@ in the following example:</p>
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 <p>This code licensed under the same terms as Rust itself: dual MIT/Apache2 license options.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-mururu-msgpack-elixir" class="qs"><h4><a href="https://github.com/mururu/msgpack-elixir" target="_blank">mururu/msgpack-elixir <span class="qs-url">https://github.com/mururu/msgpack-elixir</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-messagepack-for-elixir" class="anchor" href="#messagepack-for-elixir" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Elixir</h5>
-<p><a href="https://travis-ci.org/mururu/msgpack-elixir"><img src="https://camo.githubusercontent.com/09452907bf3009b0bf9ac3ecb8e3b5ce6bfb4ce6/68747470733a2f2f7472617669732d63692e6f72672f6d75727572752f6d73677061636b2d656c697869722e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/mururu/msgpack-elixir.png?branch=master" style="max-width:100%;"></a></p>
-<h6>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
-<p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
-<div class="highlight highlight-source-elixir"><pre><span class="pl-k">defp</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
-  [{<span class="pl-c1">:message_pack</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.2.0<span class="pl-pds">"</span></span>}]
-<span class="pl-k">end</span></pre></div>
-<h6>
-<a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-elixir"><pre><span class="pl-c"><span class="pl-c">#</span> pack</span>
-<span class="pl-en">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
-<span class="pl-en">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
-
-<span class="pl-c"><span class="pl-c">#</span> unpack</span>
-<span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, [1,2,3] }</span>
-<span class="pl-en">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; [1,2,3]</span>
-
-<span class="pl-c"><span class="pl-c">#</span> unpack_once</span>
-<span class="pl-en">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
-<span class="pl-en">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
-<h6>
-<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h6>
-<ul>
-<li><code>enable_string</code></li>
-</ul>
-<p>Support string type. This options is <code>false</code> by default.</p>
-<div class="highlight highlight-source-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
-{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
-{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
-iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
-{<span class="pl-c1">:error</span>, {<span class="pl-c1">:invalid_string</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}}</pre></div>
-<ul>
-<li><code>ext</code></li>
-</ul>
-<p>Support extention type.</p>
-<p>See <code>test/message_pack_ext_test.exs</code>.</p>
-<h6>
-<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
-<p>MIT</p>
 </article>
   </div>
         </div>
@@ -2441,7 +2393,7 @@ types, load the <code>clojure-extensions</code> library.</p>
 <p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
 <div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
 
-(<span class="pl-k">defrecord</span> Person [name])
+(<span class="pl-k">defrecord</span> <span class="pl-e">Person</span> [name])
 
 (<span class="pl-en">extend-msgpack</span>
   Person
@@ -3185,6 +3137,112 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
 <span class="pl-k">instance</span> <span class="pl-en">Serialize</span> <span class="pl-en">Object</span> <span class="pl-k">where</span>
     <span class="pl-c"><span class="pl-c">--</span> ...</span></pre></div>
 <p>Thus, you can use cereal's <code>encode</code> and <code>decode</code> to pack and unpack objects.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ymofen-msgpack-delphi" class="qs"><h4><a href="https://github.com/ymofen/msgpack-delphi" target="_blank">ymofen/msgpack-delphi <span class="qs-url">https://github.com/ymofen/msgpack-delphi</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack-for-delphi" class="anchor" href="#msgpack-for-delphi" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Msgpack for Delphi</h5>
+<p>It's like JSON but small and fast.</p>
+<pre><code>unit Owner: D10.Mofen, qdac.swish
+contact:
+       qq:185511468, 
+    email:185511468@qq.com
+welcome to report bug
+</code></pre>
+<h6>
+<a id="user-content-works-with" class="anchor" href="#works-with" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Works with</h6>
+<ul>
+<li>Delphi 7 (tested)</li>
+<li>Delphi 2007 (tested)</li>
+<li>XE5, XE6, XE7, FMX (tested)</li>
+</ul>
+<h6>
+<a id="user-content-changes" class="anchor" href="#changes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>changes:</h6>
+<ul>
+<li>
+<p>first release
+2014-08-15 13:05:13</p>
+</li>
+<li>
+<p>add array support
+2014-08-19 12:18:47</p>
+</li>
+<li>
+<p>add andriod support
+2014-09-08 00:45:27</p>
+</li>
+</ul>
+<ul>
+<li>fixed int32, int64 parse bug&lt; integer, int64 parse zero&gt;
+2014-11-09 22:35:27</li>
+</ul>
+<ul>
+<li>add EncodeToFile/DecodeFromFile
+2014-11-13 12:30:58</li>
+</ul>
+<ul>
+<li>
+<p>fix  asVariant = null (thanks for cyw(26890954))
+2014-11-14 09:05:52</p>
+</li>
+<li>
+<p>fix AsInteger = -1 bug (thanks for cyw(26890954))
+2014-11-14 12:15:52</p>
+</li>
+<li>
+<p>fix AsInteger = -127 bug
+check int64/integer/cardinal/word/shortint/smallint/byte assign, encode,decode, read
+2014-11-14 12:30:38</p>
+</li>
+<li>
+<p>fix AsFloat = 2.507182 bug
+thanks fo [珠海]-芒果  1939331207
+2014-11-21 12:37:04</p>
+</li>
+<li>
+<p>add AddArrayChild func
+2015-03-25 17:47:28</p>
+</li>
+<li>
+<p>add remove/removeFromParent/Delete function
+2015-08-29 22:37:48</p>
+</li>
+</ul>
+<h7>
+<a id="user-content-code-example" class="anchor" href="#code-example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Code Example</h7>
+<div class="highlight highlight-source-pascal"><pre><span class="pl-k">var</span>
+  lvMsg, lvMsg2:TSimpleMsgPack;
+  lvBytes:TBytes;
+  s:string;
+<span class="pl-k">begin</span>
+  lvMsg := TSimpleMsgPack.Create;
+  lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>] := <span class="pl-s"><span class="pl-pds">'</span>汉字,ascii<span class="pl-pds">'</span></span>;
+  <span class="pl-k">if</span> dlgOpen.Execute <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    lvMsg.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] := ExtractFileName(dlgOpen.FileName);
+    
+    <span class="pl-c"><span class="pl-c">//</span> file binary data</span>
+    lvMsg.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).LoadBinaryFromFile(dlgOpen.FileName);
+  <span class="pl-k">end</span>;
+  
+  <span class="pl-c"><span class="pl-c">//</span></span>
+  lvBytes := lvMsg.EncodeToBytes;
+
+  lvMsg2 := TSimpleMsgPack.Create;
+  lvMsg2.DecodeFromBytes(lvBytes);
+  <span class="pl-c"><span class="pl-c">//</span></span>
+  Memo1.Lines.Add(lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.obj<span class="pl-pds">'</span></span>]);
+  <span class="pl-k">if</span> lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>] &lt;&gt; <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">then</span>
+  <span class="pl-k">begin</span>
+    s := ExtractFilePath(ParamStr(<span class="pl-c1">0</span>)) + lvMsg2.S[<span class="pl-s"><span class="pl-pds">'</span>key.image.name<span class="pl-pds">'</span></span>];
+    Memo1.Lines.Add(<span class="pl-s"><span class="pl-pds">'</span>file saved<span class="pl-pds">'</span></span>);
+    Memo1.Lines.Add(s);
+    lvMsg2.ForcePathObject(<span class="pl-s"><span class="pl-pds">'</span>key.image.data<span class="pl-pds">'</span></span>).SaveBinaryToFile(s);    
+  <span class="pl-k">end</span>;
+  </pre></div>
 </article>
   </div>
         </div>
@@ -4671,7 +4729,7 @@ version bumping.</li>
 
 <span class="pl-k">type</span>
   <span class="pl-c"><span class="pl-c">#</span>lets try with a rather complex object</span>
-  CustomType = <span class="pl-k">object</span>
+  <span class="pl-c1">CustomType</span> = <span class="pl-k">object</span>
     count: <span class="pl-k">int</span>
     content: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
     name: <span class="pl-k">string</span>
@@ -4679,7 +4737,7 @@ version bumping.</li>
     attr: <span class="pl-k">array</span>[<span class="pl-c1">0</span>..<span class="pl-c1">5</span>, <span class="pl-k">int</span>]
     ok: <span class="pl-k">bool</span>
 
-<span class="pl-k">proc</span> <span class="pl-en">initCustomType</span>()<span class="pl-k">:</span> CustomType <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">initCustomType</span>()<span class="pl-k">:</span> <span class="pl-c1">CustomType</span> <span class="pl-k">=</span>
   result.count = -<span class="pl-c1">1</span>
   result.content = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]
   result.name = <span class="pl-s">"custom"</span>
@@ -4694,18 +4752,18 @@ version bumping.</li>
 s.<span class="pl-c1">pack</span>(x) <span class="pl-c"><span class="pl-c">#</span>here the magic happened</span>
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
-<span class="pl-k">var</span> xx: CustomType
+<span class="pl-k">var</span> xx: <span class="pl-c1">CustomType</span>
 s.<span class="pl-c1">unpack</span>(xx) <span class="pl-c"><span class="pl-c">#</span>and here too</span>
 
-assert xx == x
-<span class="pl-c1">echo</span> <span class="pl-s">"OK "</span>, xx.name</pre></div>
+<span class="pl-k">assert</span> xx == x
+<span class="pl-k">echo</span> <span class="pl-s">"OK "</span>, xx.name</pre></div>
 <p>see? you only need to call 'pack' and 'unpack', and the compiler do the hard work for you. Very easy, convenient, and works well</p>
 <p>if you think setting up a StringStream too much for you, you can simply call pack(yourobject) and it will return a string containing msgpack data.</p>
 <div class="highlight highlight-source-nim"><pre>  <span class="pl-k">var</span> a = @[<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>,<span class="pl-c1">5</span>,<span class="pl-c1">6</span>,<span class="pl-c1">7</span>,<span class="pl-c1">8</span>,<span class="pl-c1">9</span>,<span class="pl-c1">0</span>]
   <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(a)
   <span class="pl-k">var</span> aa: <span class="pl-k">seq</span>[<span class="pl-k">int</span>]
   <span class="pl-c1">unpack</span>(buf, aa)
-  <span class="pl-c1">assert</span> a == aa</pre></div>
+  <span class="pl-k">assert</span> a == aa</pre></div>
 <p>in case the compiler cannot decide how to serialize or deserialize your very very complex object, you can help it in easy way
 by defining your own handler pack_type/unpack_type</p>
 <div class="highlight highlight-source-nim"><pre><span class="pl-k">type</span>
@@ -4715,12 +4773,12 @@ by defining your own handler pack_type/unpack_type</p>
     b: someSimpleType
 
 <span class="pl-c"><span class="pl-c">#</span>help the compiler to decide</span>
-<span class="pl-k">proc</span> <span class="pl-en">pack_type</span><span class="pl-k">*</span>(s: Stream, x: mycomplexobject) <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">pack_type</span><span class="pl-k">*</span>(s: <span class="pl-c1">Stream</span>, x: mycomplexobject) <span class="pl-k">=</span>
   s.<span class="pl-c1">pack</span>(x.a) <span class="pl-c"><span class="pl-c"># </span>let the compiler decide</span>
   s.<span class="pl-c1">pack</span>(x.b) <span class="pl-c"><span class="pl-c"># </span>let the compiler decide</span>
 
 <span class="pl-c"><span class="pl-c">#</span>help the compiler to decide</span>
-<span class="pl-k">proc</span> <span class="pl-en">unpack_type</span><span class="pl-k">*</span>(s: Stream, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">unpack_type</span><span class="pl-k">*</span>(s: <span class="pl-c1">Stream</span>, x: <span class="pl-k">var</span> complexobject) <span class="pl-k">=</span>
   s.<span class="pl-c1">unpack</span>(x.a)
   s.<span class="pl-c1">unpack</span>(x.b)
 
@@ -4880,18 +4938,18 @@ For objects their type is <strong>not</strong> serialized. This means essentiall
 <div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> streams, msgpack4nim
 
 <span class="pl-k">type</span>
-  TA = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
-  TB = <span class="pl-k">object</span> <span class="pl-k">of</span> TA
+  <span class="pl-c1">TA</span> = <span class="pl-k">object</span> <span class="pl-k">of</span> <span class="pl-c1">RootObj</span>
+  <span class="pl-c1">TB</span> = <span class="pl-k">object</span> <span class="pl-k">of</span> <span class="pl-c1">TA</span>
     f: <span class="pl-k">int</span>
 
 <span class="pl-k">var</span>
-  a: <span class="pl-k">ref</span> TA
-  b: <span class="pl-k">ref</span> TB
+  a: <span class="pl-k">ref</span> <span class="pl-c1">TA</span>
+  b: <span class="pl-k">ref</span> <span class="pl-c1">TB</span>
 
-<span class="pl-c1">new</span>(b)
+<span class="pl-k">new</span>(b)
 a = b
 
-<span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(a))
+<span class="pl-k">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(a))
 <span class="pl-c"><span class="pl-c">#</span>produces "[ ]" or "{ }"</span>
 <span class="pl-c"><span class="pl-c">#</span>not "[ 0 ]" or '{ "f" : 0 }'</span></pre></div>
 <h8>
@@ -4914,17 +4972,17 @@ because data conversion did not preserve original data types, the following code
 <div class="highlight highlight-source-nim"><pre><span class="pl-k">import</span> msgpack4nim, streams, tables, sets, strtabs
 
 <span class="pl-k">type</span>
-  Horse = <span class="pl-k">object</span>
+  <span class="pl-c1">Horse</span> = <span class="pl-k">object</span>
     legs: <span class="pl-k">int</span>
     foals: <span class="pl-k">seq</span>[<span class="pl-k">string</span>]
-    attr: Table[<span class="pl-k">string</span>, <span class="pl-k">string</span>]
+    attr: <span class="pl-c1">Table</span>[<span class="pl-k">string</span>, <span class="pl-k">string</span>]
 
-  Cat = <span class="pl-k">object</span>
+  <span class="pl-c1">Cat</span> = <span class="pl-k">object</span>
     legs: <span class="pl-k">uint8</span>
-    kittens: HashSet[<span class="pl-k">string</span>]
-    traits: StringTableRef
+    kittens: <span class="pl-c1">HashSet</span>[<span class="pl-k">string</span>]
+    traits: <span class="pl-c1">StringTableRef</span>
 
-<span class="pl-k">proc</span> <span class="pl-en">initHorse</span>()<span class="pl-k">:</span> Horse <span class="pl-k">=</span>
+<span class="pl-k">proc</span> <span class="pl-en">initHorse</span>()<span class="pl-k">:</span> <span class="pl-c1">Horse</span> <span class="pl-k">=</span>
   result.legs = <span class="pl-c1">4</span>
   result.foals = @[<span class="pl-s">"jilly"</span>, <span class="pl-s">"colt"</span>]
   result.attr = <span class="pl-c1">initTable</span>[<span class="pl-k">string</span>, <span class="pl-k">string</span>]()
@@ -4932,31 +4990,31 @@ because data conversion did not preserve original data types, the following code
   result.attr[<span class="pl-s">"speed"</span>] <span class="pl-k">=</span> <span class="pl-s">"120mph"</span>
 
 <span class="pl-k">var</span> stallion = <span class="pl-c1">initHorse</span>()
-<span class="pl-k">var</span> tom: Cat
+<span class="pl-k">var</span> tom: <span class="pl-c1">Cat</span>
 
 <span class="pl-k">var</span> buf = <span class="pl-c1">pack</span>(stallion) <span class="pl-c"><span class="pl-c">#</span>pack a Horse here</span>
 <span class="pl-c1">unpack</span>(buf, tom)
 <span class="pl-c"><span class="pl-c">#</span>abracadabra, it will unpack into a Cat</span>
 
-<span class="pl-c1">echo</span> <span class="pl-s">"legs: "</span>, <span class="pl-k">$</span>tom.legs
-<span class="pl-c1">echo</span> <span class="pl-s">"kittens: "</span>, <span class="pl-k">$</span>tom.kittens
-<span class="pl-c1">echo</span> <span class="pl-s">"traits: "</span>, <span class="pl-k">$</span>tom.traits</pre></div>
+<span class="pl-k">echo</span> <span class="pl-s">"legs: "</span>, <span class="pl-k">$</span>tom.legs
+<span class="pl-k">echo</span> <span class="pl-s">"kittens: "</span>, <span class="pl-k">$</span>tom.kittens
+<span class="pl-k">echo</span> <span class="pl-s">"traits: "</span>, <span class="pl-k">$</span>tom.traits</pre></div>
 <p>another gotcha:</p>
 <div class="highlight highlight-source-nim"><pre>  <span class="pl-k">type</span>
-    KAB = <span class="pl-k">object</span> <span class="pl-k">of</span> RootObj
+    <span class="pl-c1">KAB</span> = <span class="pl-k">object</span> <span class="pl-k">of</span> <span class="pl-c1">RootObj</span>
       aaa: <span class="pl-k">int</span>
       bbb: <span class="pl-k">int</span>
 
-    KCD = <span class="pl-k">object</span> <span class="pl-k">of</span> KAB
+    <span class="pl-c1">KCD</span> = <span class="pl-k">object</span> <span class="pl-k">of</span> <span class="pl-c1">KAB</span>
       ccc: <span class="pl-k">int</span>
       ddd: <span class="pl-k">int</span>
 
-    KEF = <span class="pl-k">object</span> <span class="pl-k">of</span> KCD
+    <span class="pl-c1">KEF</span> = <span class="pl-k">object</span> <span class="pl-k">of</span> <span class="pl-c1">KCD</span>
       eee: <span class="pl-k">int</span>
       fff: <span class="pl-k">int</span>
 
   <span class="pl-k">var</span> kk = <span class="pl-c1">KEF</span>()
-  <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(kk))
+  <span class="pl-k">echo</span> <span class="pl-c1">stringify</span>(<span class="pl-c1">pack</span>(kk))
   <span class="pl-c"><span class="pl-c"># </span>will produce "{ "eee" : 0, "fff" : 0, "ccc" : 0, "ddd" : 0, "aaa" : 0, "bbb" : 0 }"</span>
   <span class="pl-c"><span class="pl-c"># </span>not "{ "aaa" : 0, "bbb" : 0, "ccc" : 0, "ddd" : 0, "eee" : 0, "fff" : 0 }"</span></pre></div>
 <h6>
@@ -4975,11 +5033,11 @@ because data conversion did not preserve original data types, the following code
 <span class="pl-k">var</span> s = <span class="pl-c1">newStringStream</span>()
 <span class="pl-k">var</span> body = <span class="pl-s">"this is the body"</span>
 
-s.<span class="pl-c1">pack_ext</span>(body.<span class="pl-c1">len</span>, exttype0)
+s.<span class="pl-c1">pack_ext</span>(body.<span class="pl-k">len</span>, exttype0)
 s.<span class="pl-c1">write</span>(body)
 
 <span class="pl-c"><span class="pl-c">#</span>the same goes to bin format</span>
-s.<span class="pl-c1">pack_bin</span>(body.<span class="pl-c1">len</span>)
+s.<span class="pl-c1">pack_bin</span>(body.<span class="pl-k">len</span>)
 s.<span class="pl-c1">write</span>(body)
 
 s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
@@ -4987,17 +5045,17 @@ s.<span class="pl-c1">setPosition</span>(<span class="pl-c1">0</span>)
 <span class="pl-k">let</span> (extype, extlen) = s.<span class="pl-c1">unpack_ext</span>()
 <span class="pl-k">var</span> extbody = s.<span class="pl-c1">readStr</span>(extlen)
 
-assert extbody == body
+<span class="pl-k">assert</span> extbody == body
 
 <span class="pl-k">let</span> binlen = s.<span class="pl-c1">unpack_bin</span>()
 <span class="pl-k">var</span> binbody = s.<span class="pl-c1">readStr</span>(binlen)
 
-assert binbody == body</pre></div>
+<span class="pl-k">assert</span> binbody == body</pre></div>
 <h6>
 <a id="user-content-stringify" class="anchor" href="#stringify" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stringify</h6>
 <p>you can convert msgpack data to readable string using stringify function</p>
 <div class="highlight highlight-source-nim"><pre>  <span class="pl-k">type</span>
-    Horse = <span class="pl-k">object</span>
+    <span class="pl-c1">Horse</span> = <span class="pl-k">object</span>
       legs: <span class="pl-k">int</span>
       speed: <span class="pl-k">int</span>
       color: <span class="pl-k">string</span>
@@ -5005,7 +5063,7 @@ assert binbody == body</pre></div>
 
   <span class="pl-k">var</span> cc = <span class="pl-c1">Horse</span>(legs:<span class="pl-c1">4</span>, speed:<span class="pl-c1">150</span>, color:<span class="pl-s">"black"</span>, name:<span class="pl-s">"stallion"</span>)
   <span class="pl-k">var</span> zz = <span class="pl-c1">pack</span>(cc)
-  <span class="pl-c1">echo</span> <span class="pl-c1">stringify</span>(zz)</pre></div>
+  <span class="pl-k">echo</span> <span class="pl-c1">stringify</span>(zz)</pre></div>
 <p>the result will be:</p>
 <div class="highlight highlight-source-json"><pre>default:
 [ <span class="pl-c1">4</span>, <span class="pl-c1">150</span>, <span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>stallion<span class="pl-pds">"</span></span> ]
@@ -5025,16 +5083,16 @@ msgInt, msgUint, msgNull
 </code></pre>
 <p>for example, <strong>msg</strong> is a <em>msgpack</em> data with content [1, "hello", {"a": "b"}], you can interrogate it like this:</p>
 <div class="highlight highlight-source-nim"><pre><span class="pl-k">var</span> a = msg.<span class="pl-c1">toAny</span>()
-<span class="pl-c1">assert</span> a.msgType == msgArray
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">0</span>].msgType == msgInt
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">0</span>].intVal == <span class="pl-c1">1</span>
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">1</span>].msgType == msgString
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">1</span>].stringVal == <span class="pl-s">"hello"</span>
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].msgType == msgMap
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].key.msgType == msgString
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].key.stringVal == <span class="pl-s">"a"</span>
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.msgType == msgString
-<span class="pl-c1">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.stringVal == <span class="pl-s">"b"</span></pre></div>
+<span class="pl-k">assert</span> a.msgType == msgArray
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">0</span>].msgType == msgInt
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">0</span>].intVal == <span class="pl-c1">1</span>
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">1</span>].msgType == msgString
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">1</span>].stringVal == <span class="pl-s">"hello"</span>
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">2</span>].msgType == msgMap
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].key.msgType == msgString
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].key.stringVal == <span class="pl-s">"a"</span>
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.msgType == msgString
+<span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.stringVal == <span class="pl-s">"b"</span></pre></div>
 <p>enjoy it, happy nim-ing</p>
 </article>
   </div>
@@ -5186,14 +5244,14 @@ http://localhost:4000/__zuul</pre></div>
 <span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"&gt;&lt;/script&gt;</span>
 <span class="pl-c">&lt;![endif]<span class="pl-c">--&gt;</span></span>
 &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
-<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+&lt;<span class="pl-ent">script</span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> encode from JS Object to MessagePack (Uint8Array)</span></span>
 <span class="pl-s1"><span class="pl-k">var</span> buffer <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">encode</span>({foo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>});</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> decode from MessagePack (Uint8Array) to JS Object</span></span>
 <span class="pl-s1"><span class="pl-k">var</span> array <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>([<span class="pl-c1">0x81</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x66</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0xA3</span>, <span class="pl-c1">0x62</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x72</span>]);</span>
 <span class="pl-s1"><span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">decode</span>(array);</span>
-<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+<span class="pl-s1"></span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre></div>
 <h7>
 <a id="user-content-messagepack-with-browserify" class="anchor" href="#messagepack-with-browserify" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack With Browserify</h7>
 <p>Step #1: write some code at first.</p>
@@ -5509,7 +5567,7 @@ for JavaScript native objects.</p>
 <tr>
 <td>0x00</td>
 <td></td>
-<td></td>
+<td>0x10</td>
 <td></td>
 </tr>
 <tr>
@@ -5551,20 +5609,20 @@ for JavaScript native objects.</p>
 <tr>
 <td>0x07</td>
 <td></td>
-<td></td>
-<td></td>
+<td>0x17</td>
+<td>Float32Array</td>
 </tr>
 <tr>
 <td>0x08</td>
 <td></td>
-<td></td>
-<td></td>
+<td>0x18</td>
+<td>Float64Array</td>
 </tr>
 <tr>
 <td>0x09</td>
 <td></td>
-<td></td>
-<td></td>
+<td>0x19</td>
+<td>Uint8ClampedArray</td>
 </tr>
 <tr>
 <td>0x0A</td>
@@ -5868,36 +5926,36 @@ including <strong>bin</strong>, <strong>str</strong> and <strong>ext</strong> ty
 <h7>
 <a id="user-content-packing" class="anchor" href="#packing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packing</h7>
 <p>To pack values use the <code>Packer</code> class:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>();</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-k">...</span></span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack(<span class="pl-smi">$value</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>use MessagePack\Packer;
+
+$packer = new Packer();
+
+...
+
+$packed = $packer-&gt;pack($value);</pre></div>
 <p>In the example above, the method <code>pack</code> automatically pack a value depending on its type.
 But not all PHP types can be uniquely translated to MessagePack types. For example,
 MessagePack format defines <code>map</code> and <code>array</code> types, which are represented by a single <code>array</code>
 type in PHP. By default, the packer will pack a PHP array as a MessagePack array if it
 has sequential numeric keys, starting from <code>0</code> and as a MessagePack map otherwise:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpArr1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);                   <span class="pl-c"><span class="pl-c">//</span> MP array [1, 2]</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpArr2</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">1</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP array [1, 2]</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpMap1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">2</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">3</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP map {0: 1, 2: 3}</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpMap2</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">1</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>, <span class="pl-c1">2</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">3</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP map {1: 2, 2: 3}</span></span>
-<span class="pl-s1"><span class="pl-smi">$mpMap3</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>]); <span class="pl-c"><span class="pl-c">//</span> MP map {foo: 1, bar: 2}</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>$mpArr1 = $packer-&gt;pack([1, 2]);                   // MP array [1, 2]
+$mpArr2 = $packer-&gt;pack([0 =&gt; 1, 1 =&gt; 2]);         // MP array [1, 2]
+$mpMap1 = $packer-&gt;pack([0 =&gt; 1, 2 =&gt; 3]);         // MP map {0: 1, 2: 3}
+$mpMap2 = $packer-&gt;pack([1 =&gt; 2, 2 =&gt; 3]);         // MP map {1: 2, 2: 3}
+$mpMap3 = $packer-&gt;pack(['foo' =&gt; 1, 'bar' =&gt; 2]); // MP map {foo: 1, bar: 2}</pre></div>
 <p>However, sometimes you need to pack a sequential array as a MessagePack map.
 To do this, use the <code>packMap</code> method:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpMap</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]); <span class="pl-c"><span class="pl-c">//</span> {0: 1, 1: 2}</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>$mpMap = $packer-&gt;packMap([1, 2]); // {0: 1, 1: 2}</pre></div>
 <p>Here is a list of all low-level packer methods:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packNil();                   <span class="pl-c"><span class="pl-c">//</span> MP nil</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBool(<span class="pl-c1">true</span>);              <span class="pl-c"><span class="pl-c">//</span> MP bool</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packArray([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);           <span class="pl-c"><span class="pl-c">//</span> MP array</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);             <span class="pl-c"><span class="pl-c">//</span> MP map</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packExt(<span class="pl-k">new</span> <span class="pl-c1">Ext</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>)); <span class="pl-c"><span class="pl-c">//</span> MP ext</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packFloat(<span class="pl-c1">4.2</span>);              <span class="pl-c"><span class="pl-c">//</span> MP float</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packInt(<span class="pl-c1">42</span>);                 <span class="pl-c"><span class="pl-c">//</span> MP int</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packStr(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>);              <span class="pl-c"><span class="pl-c">//</span> MP str</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBin(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\x80</span><span class="pl-pds">"</span></span>);             <span class="pl-c"><span class="pl-c">//</span> MP bin</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>$packer-&gt;packNil();                   // MP nil
+$packer-&gt;packBool(true);              // MP bool
+$packer-&gt;packArray([1, 2]);           // MP array
+$packer-&gt;packMap([1, 2]);             // MP map
+$packer-&gt;packExt(new Ext(1, "\xaa")); // MP ext
+$packer-&gt;packFloat(4.2);              // MP float
+$packer-&gt;packInt(42);                 // MP int
+$packer-&gt;packStr('foo');              // MP str
+$packer-&gt;packBin("\x80");             // MP bin</pre></div>
 <blockquote>
 <p>Check <a href="#custom-types">"Custom Types"</a> section below on how to pack arbitrary PHP objects.</p>
 </blockquote>
@@ -5908,124 +5966,124 @@ when you pack large (16- and 32-bit) arrays or strings. However, if you know the
 in advance (for example, you only work with utf-8 strings or/and associative arrays), you can
 eliminate this overhead by forcing the packer to use the appropriate type, which will save it
 from running the auto detection routine:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span>);</span>
-<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> or</span></span>
-<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> $packer-&gt;setTypeDetectionMode(Packer::FORCE_STR);</span></span>
-<span class="pl-s1"><span class="pl-k">...</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-smi">$utf8string1</span>, <span class="pl-smi">$utf8string2</span>]);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>$packer = new Packer(Packer::FORCE_STR);
+// or
+// $packer-&gt;setTypeDetectionMode(Packer::FORCE_STR);
+...
+$packer-&gt;pack([$utf8string1, $utf8string2]);</pre></div>
 <p>Available modes are:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span></span>
-<span class="pl-s1"><span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_BIN</span></span>
-<span class="pl-s1"><span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_ARR</span></span>
-<span class="pl-s1"><span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_MAP</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>Packer::FORCE_STR
+Packer::FORCE_BIN
+Packer::FORCE_ARR
+Packer::FORCE_MAP</pre></div>
 <p>Of course, you can combine modes:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> convert PHP strings to MP strings, PHP arrays to MP maps</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_MAP</span>);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> convert PHP strings to MP binaries, PHP arrays to MP arrays</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_BIN</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_ARR</span>);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> this will throw \InvalidArgumentException</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_BIN</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTypeDetectionMode(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_MAP</span> <span class="pl-k">|</span> <span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_ARR</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>// convert PHP strings to MP strings, PHP arrays to MP maps
+$packer-&gt;setTypeDetectionMode(Packer::FORCE_STR | Packer::FORCE_MAP);
+
+// convert PHP strings to MP binaries, PHP arrays to MP arrays
+$packer-&gt;setTypeDetectionMode(Packer::FORCE_BIN | Packer::FORCE_ARR);
+
+// this will throw \InvalidArgumentException
+$packer-&gt;setTypeDetectionMode(Packer::FORCE_STR | Packer::FORCE_BIN);
+$packer-&gt;setTypeDetectionMode(Packer::FORCE_MAP | Packer::FORCE_ARR);</pre></div>
 <h7>
 <a id="user-content-unpacking" class="anchor" href="#unpacking" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unpacking</h7>
 <p>To unpack data use the <code>BufferUnpacker</code> class:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\BufferUnpacker</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$unpacker</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">BufferUnpacker</span>();</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-k">...</span></span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>reset(<span class="pl-smi">$data</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$unpacked</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpack();</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>use MessagePack\BufferUnpacker;
+
+$unpacker = new BufferUnpacker();
+
+...
+
+$unpacker-&gt;reset($data);
+$unpacked = $unpacker-&gt;unpack();</pre></div>
 <p>If the packed data is received in chunks (e.g. when reading from a stream), use the <code>tryUnpack</code>
 method, which will try to unpack data and return an array of unpacked data instead of throwing an <code>InsufficientDataException</code>:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>append(<span class="pl-smi">$chunk1</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$unpackedBlocks</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>tryUnpack();</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>append(<span class="pl-smi">$chunk2</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$unpackedBlocks</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>tryUnpack();</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>$unpacker-&gt;append($chunk1);
+$unpackedBlocks = $unpacker-&gt;tryUnpack();
+
+$unpacker-&gt;append($chunk2);
+$unpackedBlocks = $unpacker-&gt;tryUnpack();</pre></div>
 <p>To save some keystrokes, the library ships with a syntax sugar class <code>Unpacker</code>, which
 is no more than a tiny wrapper around <code>BufferUnpacker</code> with a single method <code>unpack</code>:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Unpacker</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-k">...</span></span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$unpacked</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">Unpacker</span>())<span class="pl-k">-&gt;</span>unpack(<span class="pl-smi">$data</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>use MessagePack\Unpacker;
+
+...
+
+$unpacked = (new Unpacker())-&gt;unpack($data);</pre></div>
 <h8>
 <a id="user-content-unsigned-64-bit-integers" class="anchor" href="#unsigned-64-bit-integers" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unsigned 64-bit Integers</h8>
 <p>The binary MessagePack format has unsigned 64-bit as its largest integer data type,
 but PHP does not support such integers. By default, while unpacking <code>uint64</code> value
 the library will throw a <code>IntegerOverflowException</code>.</p>
 <p>You can change this default behavior to unpack <code>uint64</code> integer to a string:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setIntOverflowMode(<span class="pl-c1">BufferUnpacker</span><span class="pl-k">::</span><span class="pl-c1">INT_AS_STR</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>$unpacker-&gt;setIntOverflowMode(BufferUnpacker::INT_AS_STR);</pre></div>
 <p>Or to a <code>Gmp</code> number (make sure that <a href="http://php.net/manual/en/book.gmp.php">gmp</a> extension is enabled):</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setIntOverflowMode(<span class="pl-c1">BufferUnpacker</span><span class="pl-k">::</span><span class="pl-c1">INT_AS_GMP</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>$unpacker-&gt;setIntOverflowMode(BufferUnpacker::INT_AS_GMP);</pre></div>
 <h7>
 <a id="user-content-extensions" class="anchor" href="#extensions" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h7>
 <p>To define application-specific types use the <code>Ext</code> class:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Ext</span>;</span>
-<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
-<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Unpacker</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packerd</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">Packer</span>())<span class="pl-k">-&gt;</span>pack(<span class="pl-k">new</span> <span class="pl-c1">Ext</span>(<span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>));</span>
-<span class="pl-s1"><span class="pl-smi">$ext</span> <span class="pl-k">=</span> (<span class="pl-k">new</span> <span class="pl-c1">Unpacker</span>())<span class="pl-k">-&gt;</span>unpack(<span class="pl-smi">$packed</span>);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$extType</span> <span class="pl-k">=</span> <span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span>getType(); <span class="pl-c"><span class="pl-c">//</span> 42</span></span>
-<span class="pl-s1"><span class="pl-smi">$extData</span> <span class="pl-k">=</span> <span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span>getData(); <span class="pl-c"><span class="pl-c">//</span> "\xaa"</span></span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>use MessagePack\Ext;
+use MessagePack\Packer;
+use MessagePack\Unpacker;
+
+$packerd = (new Packer())-&gt;pack(new Ext(42, "\xaa"));
+$ext = (new Unpacker())-&gt;unpack($packed);
+
+$extType = $ext-&gt;getType(); // 42
+$extData = $ext-&gt;getData(); // "\xaa"</pre></div>
 <h7>
 <a id="user-content-custom-types" class="anchor" href="#custom-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom Types</h7>
 <p>In addition to <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#type-system">the basic types</a>,
 the library provides the functionality to serialize and deserialize arbitrary types.
 To do this, you need to create a transformer, that converts your type to a type, which can be handled by MessagePack.</p>
 <p>For example, the code below shows how to add <code>DateTime</code> object support:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\TypeTransformer\TypeTransformer</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">DateTimeTransformer</span> <span class="pl-k">implements</span> <span class="pl-e">TypeTransformer</span></span>
-<span class="pl-s1">{</span>
-<span class="pl-s1">    <span class="pl-k">private</span> <span class="pl-smi">$id</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-c1">__construct</span>(<span class="pl-smi">$id</span>)</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">id</span> <span class="pl-k">=</span> <span class="pl-smi">$id</span>;</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">getId</span>()</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">id</span>;</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">supports</span>(<span class="pl-smi">$value</span>)</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$value</span> <span class="pl-k">instanceof</span> <span class="pl-c1">\DateTime</span>;</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">transform</span>(<span class="pl-smi">$value</span>)</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$value</span><span class="pl-k">-&gt;</span>format(<span class="pl-c1">\DateTime</span><span class="pl-k">::</span><span class="pl-c1">RFC3339</span>);</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">reverseTransform</span>(<span class="pl-smi">$data</span>)</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">\DateTime</span>(<span class="pl-smi">$data</span>);</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1">}</span></pre></div>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\BufferUnpacker</span>;</span>
-<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
-<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\TypeTransformer\Collection</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>();</span>
-<span class="pl-s1"><span class="pl-smi">$unpacker</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">BufferUnpacker</span>();</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$coll</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Collection</span>([<span class="pl-k">new</span> <span class="pl-c1">DateTimeTransformer</span>(<span class="pl-c1">5</span>)]);</span>
-<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> $coll-&gt;add(new AnotherTypeTransformer(42));</span></span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTransformers(<span class="pl-smi">$coll</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setTransformers(<span class="pl-smi">$coll</span>);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-k">new</span> <span class="pl-c1">DateTime</span>(), <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>baz<span class="pl-pds">'</span></span>]);</span>
-<span class="pl-s1"><span class="pl-smi">$raw</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>reset(<span class="pl-smi">$packed</span>)<span class="pl-k">-&gt;</span>unpack();</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre>use MessagePack\TypeTransformer\TypeTransformer;
+
+class DateTimeTransformer implements TypeTransformer
+{
+    private $id;
+
+    public function __construct($id)
+    {
+        $this-&gt;id = $id;
+    }
+
+    public function getId()
+    {
+        return $this-&gt;id;
+    }
+
+    public function supports($value)
+    {
+        return $value instanceof \DateTime;
+    }
+
+    public function transform($value)
+    {
+        return $value-&gt;format(\DateTime::RFC3339);
+    }
+
+    public function reverseTransform($data)
+    {
+        return new \DateTime($data);
+    }
+}</pre></div>
+<div class="highlight highlight-text-html-php"><pre>use MessagePack\BufferUnpacker;
+use MessagePack\Packer;
+use MessagePack\TypeTransformer\Collection;
+
+$packer = new Packer();
+$unpacker = new BufferUnpacker();
+
+$coll = new Collection([new DateTimeTransformer(5)]);
+// $coll-&gt;add(new AnotherTypeTransformer(42));
+
+$packer-&gt;setTransformers($coll);
+$unpacker-&gt;setTransformers($coll);
+
+$packed = $packer-&gt;pack(['foo' =&gt; new DateTime(), 'bar' =&gt; 'baz']);
+$raw = $unpacker-&gt;reset($packed)-&gt;unpack();</pre></div>
 <h6>
 <a id="user-content-exceptions" class="anchor" href="#exceptions" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exceptions</h6>
 <p>If an error occurs during packing/unpacking, a <code>PackingFailedException</code> or <code>UnpackingFailedException</code>
@@ -8061,9 +8119,9 @@ CompositeResolver.RegisterAndSetAsDefault(
 
 <span class="pl-k">match</span> MessagePackSerializer.Deserialize<span class="pl-k">&lt;</span>UnionSample<span class="pl-k">&gt;</span>(bin) <span class="pl-k">with</span>
 <span class="pl-k">|</span> Foo x <span class="pl-k">-&gt;</span>
-  printfn <span class="pl-s"><span class="pl-pds">"</span>%d<span class="pl-pds">"</span></span> x
+  printfn <span class="pl-pds">"</span><span class="pl-s"><span class="pl-c1">%d</span></span><span class="pl-pds">"</span> x
 <span class="pl-k">|</span> Bar xs <span class="pl-k">-&gt;</span>
-  printfn <span class="pl-s"><span class="pl-pds">"</span>%A<span class="pl-pds">"</span></span> xs</pre></div>
+  printfn <span class="pl-pds">"</span><span class="pl-s"><span class="pl-c1">%A</span></span><span class="pl-pds">"</span> xs</pre></div>
 </article>
   </div>
         </div>
