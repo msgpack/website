@@ -2571,7 +2571,8 @@ called MsgPack-SML, which is targeted for MLton.</p>
         <div id="qs-camgunz-cmp" class="qs"><h4><a href="https://github.com/camgunz/cmp" target="_blank">camgunz/cmp <span class="qs-url">https://github.com/camgunz/cmp</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-cmp" class="anchor" href="#cmp" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>cmp</h5>
+<a id="user-content-cmp" class="anchor" href="#cmp" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CMP</h5>
+<p><a href="https://travis-ci.org/camgunz/cmp"><img src="https://camo.githubusercontent.com/97f858756020e3e55899a30e812e643aeb7e86ef/68747470733a2f2f7472617669732d63692e6f72672f63616d67756e7a2f636d702e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/camgunz/cmp.svg?branch=master" style="max-width:100%;"></a> <a href="https://coveralls.io/github/camgunz/cmp?branch=develop"><img src="https://camo.githubusercontent.com/a630624d6ec4ab93afdea8815a23fd5ce920808d/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f63616d67756e7a2f636d702f62616467652e7376673f6272616e63683d646576656c6f70" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/camgunz/cmp/badge.svg?branch=develop" style="max-width:100%;"></a></p>
 <p>CMP is a C implementation of the MessagePack serialization format.  It
 currently implements version 5 of the <a href="http://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack
 Spec</a>.</p>
@@ -2599,6 +2600,10 @@ examples included with the msgpack-c project.</p>
     <span class="pl-k">return</span> <span class="pl-c1">read_bytes</span>(data, limit, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
 }
 
+<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">file_skipper</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-c1">size_t</span> count) {
+    <span class="pl-k">return</span> <span class="pl-c1">fseek</span>((<span class="pl-c1">FILE</span> *)ctx-&gt;buf, count, SEEK_CUR);
+}
+
 <span class="pl-k">static</span> <span class="pl-c1">size_t</span> <span class="pl-en">file_writer</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-k">const</span> <span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> count) {
     <span class="pl-k">return</span> <span class="pl-c1">fwrite</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>), count, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
 }
@@ -2621,7 +2626,7 @@ examples included with the msgpack-c project.</p>
     <span class="pl-k">if</span> (fh == <span class="pl-c1">NULL</span>)
         <span class="pl-c1">error_and_exit</span>(<span class="pl-s"><span class="pl-pds">"</span>Error opening data.dat<span class="pl-pds">"</span></span>);
 
-    <span class="pl-c1">cmp_init</span>(&amp;cmp, fh, file_reader, file_writer);
+    <span class="pl-c1">cmp_init</span>(&amp;cmp, fh, file_reader, file_skipper, file_writer);
 
     <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_array</span>(&amp;cmp, <span class="pl-c1">2</span>))
         <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
@@ -2657,13 +2662,14 @@ examples included with the msgpack-c project.</p>
     <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str</span>(&amp;cmp, message_pack, &amp;str_size))
         <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
 
-    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Array Length: <span class="pl-c1">%zu</span>.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, array_size);
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Array Length: <span class="pl-c1">%u</span>.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, array_size);
     <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>[<span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>, <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>]<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, hello, message_pack);
 
     <span class="pl-c1">fclose</span>(fh);
 
     <span class="pl-k">return</span> EXIT_SUCCESS;
-}</pre></div>
+}
+</pre></div>
 <h6>
 <a id="user-content-advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced Usage</h6>
 <p>See the <code>examples</code> folder.</p>
@@ -2671,26 +2677,25 @@ examples included with the msgpack-c project.</p>
 <a id="user-content-fast-lightweight-flexible-and-robust" class="anchor" href="#fast-lightweight-flexible-and-robust" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fast, Lightweight, Flexible, and Robust</h6>
 <p>CMP uses no internal buffers; conversions, encoding and decoding are done on
 the fly.</p>
-<p>CMP's source and header file together are ~3,300 LOC.</p>
+<p>CMP's source and header file together are ~4k LOC.</p>
 <p>CMP makes no heap allocations.</p>
 <p>CMP uses standardized types rather than declaring its own, and it depends only
-on <code>stdbool.h</code>, <code>stdint.h</code> and <code>string.h</code>.  It has no link-time dependencies,
-not even the C Standard Library.</p>
+on <code>stdbool.h</code>, <code>stdint.h</code> and <code>string.h</code>.</p>
 <p>CMP is written using C89 (ANSI C), aside, of course, from its use of
 fixed-width integer types and <code>bool</code>.</p>
-<p>On the other hand, CMP's test suite depends upon the C Standard Library and
-requires C99.</p>
-<p>CMP only requires the programmer supply a read function and a write function.
-In this way, the programmer can use CMP on memory, files, sockets, etc.</p>
+<p>On the other hand, CMP's test suite requires C99.</p>
+<p>CMP only requires the programmer supply a read function, a write function, and
+an optional skip function.  In this way, the programmer can use CMP on memory,
+files, sockets, etc.</p>
 <p>CMP is portable.  It uses fixed-width integer types, and checks the endianness
 of the machine at runtime before swapping bytes (MessagePack is big-endian).</p>
 <p>CMP provides a fairly comprehensive error reporting mechanism modeled after
 <code>errno</code> and <code>strerror</code>.</p>
-<p>CMP is threadsafe; while contexts cannot be shared between threads, each thread
-may use its own context freely.</p>
+<p>CMP is thread aware; while contexts cannot be shared between threads, each
+thread may use its own context freely.</p>
 <p>CMP is tested using the MessagePack test suite as well as a large set of custom
 test cases.  Its small test program is compiled with clang using <code>-Wall -Werror -Wextra ...</code> along with several other flags, and generates no compilation
-errors.</p>
+errors in either Clang or GCC.</p>
 <p>CMP's source is written as readably as possible, using explicit, descriptive
 variable names and a consistent, clear style.</p>
 <p>CMP's source is written to be as secure as possible.  Its testing suite checks
