@@ -4858,11 +4858,11 @@ you can tell the compiler to convert it to map by supplying --define:msgpack_obj
 <div class="highlight highlight-source-shell"><pre>nim c --define:msgpack_obj_to_map yourfile.nim</pre></div>
 <p>or --define:msgpack_obj_to_stream to convert object/tuple fields <em>value</em> into stream of msgpack objects</p>
 <div class="highlight highlight-source-shell"><pre>nim c --define:msgpack_obj_to_stream yourfile.nim</pre></div>
-<p>What this means? It means by default, every one object/tuple will be converted to one <code>msgpack array</code> contains
+<p>What this means? It means by default, each object/tuple will be converted to one <code>msgpack array</code> contains
 field(s) value only without their field(s) name.</p>
-<p>If you specify that the object/tuple will be converted to <code>msgpack map</code>, then every one object/tuple will be
+<p>If you specify that the object/tuple will be converted to <code>msgpack map</code>, then each object/tuple will be
 converted to one <code>msgpack map</code> contains key-value pairs. The key will be field name, and the value will be field value.</p>
-<p>If you specify that the object/tuple will be converted to msgpack stream, then every one object/tuple will be converted
+<p>If you specify that the object/tuple will be converted to msgpack stream, then each object/tuple will be converted
 into one or more msgpack's type for each object's field and then the resulted stream will be concatenated
 to the msgpack stream buffer.</p>
 <p>Which one should I use?</p>
