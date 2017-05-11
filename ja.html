@@ -214,6 +214,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-php',this)">PHP <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-vmihailenco-msgpack',this)">Go <span class="qs-sub">vmihailenco</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-fperrad-lua-MessagePack',this)">Lua <span class="qs-sub">fperrad</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
@@ -1586,6 +1588,75 @@ $make &amp;&amp; make install
 <a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resources</h5>
 <ul>
 <li><a href="http://msgpack.org/">msgpack</a></li>
+</ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-vmihailenco-msgpack" class="qs"><h4><a href="http://godoc.org/gopkg.in/vmihailenco/msgpack.v2#pkg-examples" target="_blank">vmihailenco/msgpack <span class="qs-url">http://godoc.org/gopkg.in/vmihailenco/msgpack.v2#pkg-examples</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-encoding-for-golang" class="anchor" href="#messagepack-encoding-for-golang" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack encoding for Golang</h5>
+<p><a href="https://travis-ci.org/vmihailenco/msgpack"><img src="https://camo.githubusercontent.com/a9a3b69151f8598cb97221282ddcbfc1abb75d60/68747470733a2f2f7472617669732d63692e6f72672f766d696861696c656e636f2f6d73677061636b2e7376673f6272616e63683d7632" alt="Build Status" data-canonical-src="https://travis-ci.org/vmihailenco/msgpack.svg?branch=v2" style="max-width:100%;"></a>
+<a href="https://godoc.org/github.com/vmihailenco/msgpack"><img src="https://camo.githubusercontent.com/ef5a55c9fb026c17be88f6a46a057fd34de46f62/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f766d696861696c656e636f2f6d73677061636b3f7374617475732e737667" alt="GoDoc" data-canonical-src="https://godoc.org/github.com/vmihailenco/msgpack?status.svg" style="max-width:100%;"></a></p>
+<p>Supports:</p>
+<ul>
+<li>Primitives, arrays, maps, structs, time.Time and interface{}.</li>
+<li>Appengine *datastore.Key and datastore.Cursor.</li>
+<li>
+<a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#example-CustomEncoder">CustomEncoder</a>/CustomDecoder interfaces for custom encoding.</li>
+<li>
+<a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#example-RegisterExt">Extensions</a> to encode type information.</li>
+<li>Renaming fields via <code>msgpack:"my_field_name"</code>.</li>
+<li>Inlining struct fields via <code>msgpack:",inline"</code>.</li>
+<li>Omitting empty fields via <code>msgpack:",omitempty"</code>.</li>
+<li>
+<a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#Encoder.SortMapKeys">Map keys sorting</a>.</li>
+<li>Encoding/decoding all <a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#Encoder.StructAsArray">structs as arrays</a> or <a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#example-Marshal--AsArray">individual structs</a>.</li>
+<li>Simple but very fast and efficient <a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#example-Decoder-Query">queries</a>.</li>
+</ul>
+<p>API docs: <a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2">https://godoc.org/gopkg.in/vmihailenco/msgpack.v2</a>.
+Examples: <a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#pkg-examples">https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#pkg-examples</a>.</p>
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+<p>Install:</p>
+<div class="highlight highlight-source-shell"><pre>go get gopkg.in/vmihailenco/msgpack.v2</pre></div>
+<h6>
+<a id="user-content-quickstart" class="anchor" href="#quickstart" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quickstart</h6>
+<div class="highlight highlight-source-go"><pre><span class="pl-k">func</span> <span class="pl-en">ExampleMarshal</span>() {
+	<span class="pl-k">type</span> Item <span class="pl-k">struct</span> {
+		Foo <span class="pl-k">string</span>
+	}
+
+	<span class="pl-smi">b</span>, <span class="pl-smi">err</span> <span class="pl-k">:=</span> msgpack.<span class="pl-c1">Marshal</span>(&amp;Item{Foo: <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>})
+	<span class="pl-k">if</span> err != <span class="pl-c1">nil</span> {
+		<span class="pl-c1">panic</span>(err)
+	}
+
+	<span class="pl-k">var</span> <span class="pl-smi">item</span> Item
+	err = msgpack.<span class="pl-c1">Unmarshal</span>(b, &amp;item)
+	<span class="pl-k">if</span> err != <span class="pl-c1">nil</span> {
+		<span class="pl-c1">panic</span>(err)
+	}
+	fmt.<span class="pl-c1">Println</span>(item.<span class="pl-smi">Foo</span>)
+	<span class="pl-c"><span class="pl-c">//</span> Output: bar</span>
+}</pre></div>
+<h6>
+<a id="user-content-benchmark" class="anchor" href="#benchmark" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benchmark</h6>
+<pre><code>BenchmarkStructVmihailencoMsgpack-4   	  200000	     12814 ns/op	    2128 B/op	      26 allocs/op
+BenchmarkStructUgorjiGoMsgpack-4      	  100000	     17678 ns/op	    3616 B/op	      70 allocs/op
+BenchmarkStructUgorjiGoCodec-4        	  100000	     19053 ns/op	    7346 B/op	      23 allocs/op
+BenchmarkStructJSON-4                 	   20000	     69438 ns/op	    7864 B/op	      26 allocs/op
+BenchmarkStructGOB-4                  	   10000	    104331 ns/op	   14664 B/op	     278 allocs/op
+</code></pre>
+<h6>
+<a id="user-content-howto" class="anchor" href="#howto" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Howto</h6>
+<p>Please go through <a href="https://godoc.org/gopkg.in/vmihailenco/msgpack.v2#pkg-examples">examples</a> to get an idea how to use this package.</p>
+<h6>
+<a id="user-content-see-also" class="anchor" href="#see-also" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also</h6>
+<ul>
+<li><a href="https://github.com/go-pg/pg">Golang PostgreSQL ORM</a></li>
+<li><a href="https://github.com/go-msgqueue/msgqueue">Golang message task queue</a></li>
 </ul>
 </article>
   </div>
