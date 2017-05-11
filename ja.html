@@ -8290,7 +8290,69 @@ much better here.</p>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-msgpack-response" class="anchor" href="#msgpack-response" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack-response</h5>
-<p>ExpressJS msgpack response middleware / msgpack.org[Node]</p>
+<p><a href="https://travis-ci.org/MobiltronInc/msgpack-response"><img src="https://camo.githubusercontent.com/598821581bcfc6ea2fa6e1ae55a461962073623e/68747470733a2f2f7472617669732d63692e6f72672f4d6f62696c74726f6e496e632f6d73677061636b2d726573706f6e73652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/MobiltronInc/msgpack-response.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://github.com/MobiltronInc/msgpack-response"><img src="https://camo.githubusercontent.com/234db94cc26629a773aac68ccf77456ac524b20a/68747470733a2f2f64617669642d646d2e6f72672f696d6f62696c74726f6e696e632f6d73677061636b2d726573706f6e73652e737667" alt="Dependency Status" data-canonical-src="https://david-dm.org/imobiltroninc/msgpack-response.svg" style="max-width:100%;"></a></p>
+<p>An implementation of <a href="http://msgpack.org/">Message Pack</a> middleware for <a href="https://expressjs.com/">ExpressJS</a>.</p>
+<p><strong>Features</strong></p>
+<ul>
+<li>Automatic Message Pack detection (from the HTTP headers) and encoding of all JSON messages to Message Pack.</li>
+<li>Extension of the current ExpressJS API; Introducing the <code>Response.msgPack(jsObject)</code> method on the standard <a href="https://expressjs.com/en/4x/api.html#res">ExpressJS Response</a> object.</li>
+</ul>
+<h6>
+<a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h6>
+<p>With auto-detection and transformation enabled, the middleware detects automatically the HTTP header <code>Accept: application/x-msgpack</code> and piggybacks the <code>Response.json()</code> method of the ExpressJS API, to encode the JSON response as Message Pack. This method is usefull, when you have existing applications that need use the middleware, without changing the codebase very much.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">msgpackResponse</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack-response<span class="pl-pds">'</span></span>);
+
+<span class="pl-smi">app</span>.<span class="pl-en">use</span>(<span class="pl-en">msgpackResponse</span>({auto_detect<span class="pl-k">:</span> <span class="pl-c1">true</span>}));
+
+<span class="pl-smi">app</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/test_json<span class="pl-pds">'</span></span>, (req, res) {
+	<span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">200</span>).<span class="pl-en">json</span>({<span class="pl-s"><span class="pl-pds">'</span>messsage<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>a true test<span class="pl-pds">'</span></span>});
+})</pre></div>
+<blockquote>
+<p>Note: Remember the add the header <code>Accept: application/x-msgpack</code> in the request.</p>
+</blockquote>
+<p>Also it can have auto detection and transformation disabled. The middleware extends the <code>Response</code> object of the ExpressJS framework, by adding the <code>msgPack()</code> method to it. Then to return an encoded response, you just use the <code>Response.msgPack()</code> method that accepts the Javascript object as parameter. For example,</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">msgpackResponse</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack-response<span class="pl-pds">'</span></span>);
+
+<span class="pl-smi">app</span>.<span class="pl-en">use</span>(<span class="pl-en">msgpackResponse</span>({auto_detect<span class="pl-k">:</span> <span class="pl-c1">false</span>}));
+<span class="pl-c"><span class="pl-c">//</span>or</span>
+<span class="pl-smi">app</span>.<span class="pl-en">use</span>(<span class="pl-en">msgpackResponse</span>());
+
+<span class="pl-smi">app</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/test_msgpack<span class="pl-pds">'</span></span>, (req, res) {
+	<span class="pl-smi">res</span>.<span class="pl-c1">status</span>(<span class="pl-c1">200</span>).<span class="pl-en">msgPack</span>({<span class="pl-s"><span class="pl-pds">'</span>messsage<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>a true test<span class="pl-pds">'</span></span>});
+});</pre></div>
+<blockquote>
+<p>Note: Intialize the middleware before the actual routes in the middleware chain to properly extend the <code>Response</code> Object.</p>
+</blockquote>
+<h6>
+<a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h6>
+<p>Node.js &gt;= 6.0</p>
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+<p>With <a href="https://www.npmjs.com/">npm</a> do:</p>
+<div class="highlight highlight-source-shell"><pre>npm install msgpack-response -save</pre></div>
+<h6>
+<a id="user-content-about" class="anchor" href="#about" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>About</h6>
+<p><a href="http://mobiltron.com/"><img src="https://github.com/mobiltroninc/Foundation/raw/master/ASSETS/mobiltron_square.png?raw=true" width="70" style="max-width:100%;"></a></p>
+<p>This project is funded and maintained by <a href="http://mobiltron.com">Mobiltron, Inc.</a>. We <g-emoji alias="heart" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2764.png" ios-version="6.0">❤️</g-emoji> open source software!</p>
+<p>Check out our other <a href="https://github.com/mobiltroninc/">open source projects</a> or say <g-emoji alias="wave" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44b.png" ios-version="6.0">👋</g-emoji> on twitter <a href="https://twitter.com/mobiltron">@mobiltron</a>.</p>
+<h6>
+<a id="user-content-contribute" class="anchor" href="#contribute" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contribute</h6>
+<p>Contributions are welcome <g-emoji alias="metal" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f918.png" ios-version="9.1">🤘</g-emoji> We encourage developers like you to help us improve the projects we've shared with the community. Please see the <a href="https://github.com/mobiltroninc/Foundation/blob/master/CONTRIBUTING.md">Contributing Guide</a> and the <a href="https://github.com/mobiltroninc/Foundation/blob/master/CONDUCT.md">Code of Conduct</a>.</p>
+<h6>
+<a id="user-content-authors" class="anchor" href="#authors" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authors</h6>
+<ul>
+<li>
+<strong>Stavros Schizas</strong> - <em>Initial work</em> - <a href="http://mobiltron.com">Mobiltron, Inc.</a>
+</li>
+<li>
+<strong>Vassilios Karakoidas</strong> - <em>Initial work</em> - <a href="http://mobiltron.com">Mobiltron, Inc.</a>
+</li>
+</ul>
+<p>See also the list of <a href="https://github.com/MobiltronInc/msgpack-response/contributors">contributors</a> who participated in this project.</p>
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+<p>msgpack-response is available under the MIT license. See the <a href="/MobiltronInc/msgpack-response/blob/master/LICENSE.md">LICENSE</a> file for more info.</p>
 </article>
   </div>
         </div>
