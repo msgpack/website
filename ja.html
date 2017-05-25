@@ -2824,14 +2824,14 @@ do the following:</p>
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-dart-msgpack" class="anchor" href="#dart-msgpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dart-msgpack</h5>
 <p>This is a very early release of my MessagePack library for Dart. Currently, message classes must be written by hand. For example:</p>
-<div class="highlight highlight-source-dart"><pre><span class="pl-k">class</span> NotificationFrame <span class="pl-k">extends</span> Message {
-    <span class="pl-k">String</span> kind;
-    <span class="pl-k">Map</span><span class="pl-k">&lt;</span><span class="pl-k">String</span>, Object<span class="pl-k">&gt;</span> data;
+<div class="highlight highlight-source-dart"><pre><span class="pl-k">class</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-k">extends</span> <span class="pl-c1">Message</span> {
+    <span class="pl-c1">String</span> kind;
+    <span class="pl-c1">Map</span><span class="pl-k">&lt;</span><span class="pl-c1">String</span>, <span class="pl-c1">Object</span><span class="pl-k">&gt;</span> data;
 
-    NotificationFrame(<span class="pl-c1">this</span>.kind, <span class="pl-c1">this</span>.data);
+    <span class="pl-c1">NotificationFrame</span>(<span class="pl-c1">this</span>.kind, <span class="pl-c1">this</span>.data);
 
-    <span class="pl-k">static</span> NotificationFrame fromList(<span class="pl-k">List</span> f) <span class="pl-k">=</span><span class="pl-k">&gt;</span> <span class="pl-k">new</span> NotificationFrame(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
-    <span class="pl-k">List</span> toList() <span class="pl-k">=</span><span class="pl-k">&gt;</span> [kind, data];
+    <span class="pl-k">static</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-en">fromList</span>(<span class="pl-c1">List</span> f) <span class="pl-k">=</span><span class="pl-k">&gt;</span> <span class="pl-k">new</span> <span class="pl-c1">NotificationFrame</span>(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
+    <span class="pl-c1">List</span> <span class="pl-en">toList</span>() <span class="pl-k">=</span><span class="pl-k">&gt;</span> [kind, data];
 }</pre></div>
 <p>For each class you need to define the <code>fromList</code> and <code>toList</code> methods, which convert from and to a list of fields respectively.</p>
 <p>For example usage, see the unit tests.</p>
