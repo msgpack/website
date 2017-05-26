@@ -289,6 +289,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-benoist-msgpack-crystal',this)">Crystal <span class="qs-sub">benoist</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-Asmod4n-mruby-simplemsgpack',this)">mruby <span class="qs-sub">Asmod4n</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-kawanet-msgpack-lite',this)">JavaScript <span class="qs-sub">kawanet</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
@@ -5164,6 +5166,84 @@ house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(
 <p><em>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License You may obtain a copy of the License at</em></p>
 <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 <p><em>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</em></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-Asmod4n-mruby-simplemsgpack" class="qs"><h4><a href="https://github.com/Asmod4n/mruby-simplemsgpack" target="_blank">Asmod4n/mruby-simplemsgpack <span class="qs-url">https://github.com/Asmod4n/mruby-simplemsgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><p><a href="https://travis-ci.org/Asmod4n/mruby-simplemsgpack"><img src="https://camo.githubusercontent.com/3e63cfb1ac2acd1aaaba43f3964cead233180438/68747470733a2f2f7472617669732d63692e6f72672f41736d6f64346e2f6d727562792d73696d706c656d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/Asmod4n/mruby-simplemsgpack.svg?branch=master" style="max-width:100%;"></a></p>
+<h5>
+<a id="user-content-mruby-simplemsgpack" class="anchor" href="#mruby-simplemsgpack" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mruby-simplemsgpack</h5>
+<h5>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h5>
+<p>First get a working copy of <a href="https://github.com/mruby/mruby">mruby</a> then add</p>
+<div class="highlight highlight-source-ruby"><pre>  conf.<span class="pl-k">gem</span> <span class="pl-c1">mgem:</span> <span class="pl-s"><span class="pl-pds">'</span>mruby-simplemsgpack<span class="pl-pds">'</span></span></pre></div>
+<p>to the build_conf.rb of the mruby directory</p>
+<p>mruby-simplemsgpack searches for msgpack-c on your system, if it can find it it links against it, there is also a bundled version of msgpack-c included if you don't have it installed in your system.
+You need at least msgpack-c 1.
+If you are on debian you can find it in testing, debian stable ships a version of msgpack-c which is incompatible.</p>
+<h6>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h6>
+<p>Objects can be packed with <code>Object#to_msgpack</code> or <code>MessagePack.pack</code>:</p>
+<div class="highlight highlight-source-ruby"><pre>packed_hash <span class="pl-k">=</span> { <span class="pl-c1">a:</span> <span class="pl-s"><span class="pl-pds">'</span>hash<span class="pl-pds">'</span></span>, <span class="pl-c1">with:</span> [<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>embedded<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>array<span class="pl-pds">'</span></span>] }.to_msgpack
+packed_string <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>.pack(<span class="pl-s"><span class="pl-pds">'</span>bye<span class="pl-pds">'</span></span>)
+
+packed_hash   <span class="pl-c"><span class="pl-c">#</span> =&gt; "\x82\xA1a\xA4hash\xA4with\x93\x01\xA8embedded\xA5array"</span>
+packed_string <span class="pl-c"><span class="pl-c">#</span> =&gt; "\xA3bye"</span></pre></div>
+<p>They are unpacked with <code>MessagePack.unpack</code>:</p>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">MessagePack</span>.unpack(packed_hash)   <span class="pl-c"><span class="pl-c">#</span> =&gt; { a: 'hash', with: [1, 'embedded', 'array'] }</span>
+<span class="pl-c1">MessagePack</span>.unpack(packed_string) <span class="pl-c"><span class="pl-c">#</span> =&gt; 'bye'</span></pre></div>
+<p>A string with multiple packed values can be unpacked by handing a block to
+<code>MessagePack.unpack</code>:</p>
+<div class="highlight highlight-source-ruby"><pre>packed <span class="pl-k">=</span> packed_string <span class="pl-k">+</span> packed_hash
+unpacked <span class="pl-k">=</span> []
+<span class="pl-c1">MessagePack</span>.unpack(packed) <span class="pl-k">do </span>|<span class="pl-smi">result</span>|
+  unpacked <span class="pl-k">&lt;&lt;</span> result
+<span class="pl-k">end</span>
+unpacked <span class="pl-c"><span class="pl-c">#</span> =&gt; ['bye', { a: 'hash', with: [1, 'embedded', 'array'] }]</span></pre></div>
+<p>When using <code>MessagePack.unpack</code> with a block and passing it a incomplete packed Message
+it returns the number of bytes it was able to unpack, if it was able to unpack the howl Message it returns self.
+This is helpful if the given data contains an incomplete
+last object and we want to continue unpacking after we have more data.</p>
+<div class="highlight highlight-source-ruby"><pre>packed <span class="pl-k">=</span> packed_string <span class="pl-k">+</span> packed_hash.slice(<span class="pl-c1">0</span>, packed_hash.length<span class="pl-k">/</span><span class="pl-c1">2</span>)
+unpacked <span class="pl-k">=</span> []
+unpacked_length <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>.unpack(packed) <span class="pl-k">do </span>|<span class="pl-smi">result</span>|
+  unpacked <span class="pl-k">&lt;&lt;</span> result
+<span class="pl-k">end</span>
+unpacked_length <span class="pl-c"><span class="pl-c">#</span> =&gt; 4 (length of packed_string)</span>
+unpacked <span class="pl-c"><span class="pl-c">#</span> =&gt; ['bye']</span></pre></div>
+<h5>
+<a id="user-content-procs-blocks-or-lambdas" class="anchor" href="#procs-blocks-or-lambdas" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Procs, Blocks or Lambdas</h5>
+<p>mruby allows you to serialize the body of a code block, this wrapper does this via the means of a extension type.
+The type number used by default is 127 (the highest number msgpack allows for extension types), you can change it in mrbgem.rake of this gem.
+To be able to unpack them you need to compile mruby with <code>#define MRB_USE_ETEXT_EDATA</code>, setable in include/mrbconf.h of your mruby directory.</p>
+<h6>
+<a id="user-content-extension-types" class="anchor" href="#extension-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extension Types</h6>
+<p>To customize how objects are packed, define an <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#types-extension-type">extension type</a>.</p>
+<p>By default, MessagePack packs symbols as strings and does not convert them
+back when unpacking them. Symbols can be preserved by registering an extension
+type for them:</p>
+<div class="highlight highlight-source-ruby"><pre>sym_ext_type <span class="pl-k">=</span> <span class="pl-c1">0</span>
+<span class="pl-c1">MessagePack</span>.register_pack_type(sym_ext_type, <span class="pl-c1">Symbol</span>) { |<span class="pl-smi">symbol</span>| symbol.to_s }
+<span class="pl-c1">MessagePack</span>.register_unpack_type(sym_ext_type) { |<span class="pl-smi">data</span>| data.to_sym }
+
+<span class="pl-c1">MessagePack</span>.unpack(<span class="pl-c1">:symbol</span>.to_msgpack) <span class="pl-c"><span class="pl-c">#</span> =&gt; :symbol</span></pre></div>
+<p>Other objects like classes can also be preserved:</p>
+<div class="highlight highlight-source-ruby"><pre>cls_ext_type <span class="pl-k">=</span> <span class="pl-c1">1</span>
+<span class="pl-c1">MessagePack</span>.register_pack_type(cls_ext_type, <span class="pl-c1">Class</span>) { |<span class="pl-smi">cls</span>| cls.to_s }
+<span class="pl-c1">MessagePack</span>.register_unpack_type(cls_ext_type) { |<span class="pl-smi">data</span>| data.constantize }
+<span class="pl-c1">MessagePack</span>.unpack(<span class="pl-c1">Object</span>.to_msgpack) <span class="pl-c"><span class="pl-c">#</span> =&gt; Object</span></pre></div>
+<p>For nil, true, false, Fixnum, Float, String, Array and Hash a registered
+ext type is ignored. They are always packed according to the <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack
+specification</a>.</p>
+<h6>
+<a id="user-content-acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Acknowledgements</h6>
+<p>This is using code from <a href="https://github.com/msgpack/msgpack-c">https://github.com/msgpack/msgpack-c</a></p>
+<p>Copyright (C) 2008-2015 FURUHASHI Sadayuki</p>
+<p>Distributed under the Boost Software License, Version 1.0.
+(See accompanying file LICENSE_1_0.txt or copy at
+<a href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>)</p>
 </article>
   </div>
         </div>
