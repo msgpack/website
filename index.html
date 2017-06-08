@@ -7902,7 +7902,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 <tr>
 <td>StandardResolver</td>
-<td>Composited resolver . It resolves in the following order <code>builtin -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; primitive object</code>. This is the default of MessagePackSerializer.</td>
+<td>Composited resolver . It resolves in the following order <code>builtin -&gt; attribute -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; primitive object</code>. This is the default of MessagePackSerializer.</td>
 </tr>
 <tr>
 <td>ContractlessStandardResolver</td>
@@ -7911,6 +7911,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>PrimitiveObjectResolver</td>
 <td>MessagePack primitive object resolver. It is used fallback in <code>object</code> type and supports <code>bool</code>, <code>char</code>, <code>sbyte</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>ushort</code>, <code>uint</code>, <code>ulong</code>, <code>float</code>, <code>double</code>, <code>DateTime</code>, <code>string</code>, <code>byte[]</code>, <code>ICollection</code>, <code>IDictionary</code>.</td>
+</tr>
+<tr>
+<td>AttributeFormatterResolver</td>
+<td>Get formatter from <code>[MessagePackFormatter]</code> attribute.</td>
 </tr>
 <tr>
 <td>CompositeResolver</td>
@@ -8083,6 +8087,35 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
     }
 }</pre></div>
 <h6>
+<a id="user-content-messaegpackformatterattribute" class="anchor" href="#messaegpackformatterattribute" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessaegPackFormatterAttribute</h6>
+<p>MessaegPackFormatterAttribute is lightweight extension point of class, struct, interface, enum. This is like JSON.NET's JsonConverterAttribute. For example, serialize private field.</p>
+<div class="highlight highlight-source-cs"><pre>[MessagePackFormatter(typeof(CustomObjectFormatter))]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CustomObject</span>
+{
+    <span class="pl-k">string</span> <span class="pl-en">internalId</span>;
+
+    <span class="pl-k">public</span> <span class="pl-en">CustomObject</span>()
+    {
+        <span class="pl-c1">this</span>.internalId = Guid.NewGuid().ToString();
+    }
+
+    <span class="pl-c">// serialize/deserialize internal field.</span>
+    <span class="pl-k">class</span> <span class="pl-en">CustomObjectFormatter</span> : <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">CustomObject</span>&gt;
+    {
+        <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-k">byte</span>[] <span class="pl-smi">bytes</span>, <span class="pl-k">int</span> <span class="pl-smi">offset</span>, <span class="pl-en">CustomObject</span> <span class="pl-smi">value</span>, <span class="pl-en">IFormatterResolver</span> <span class="pl-smi">formatterResolver</span>)
+        {
+            <span class="pl-k">return</span> formatterResolver.GetFormatterWithVerify&lt;<span class="pl-k">string</span>&gt;().Serialize(ref bytes, offset, <span class="pl-k">value</span>.internalId, formatterResolver);
+        }
+
+        <span class="pl-k">public</span> <span class="pl-en">CustomObject</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">byte</span>[] <span class="pl-smi">bytes</span>, <span class="pl-k">int</span> <span class="pl-smi">offset</span>, <span class="pl-en">IFormatterResolver</span> <span class="pl-smi">formatterResolver</span>, <span class="pl-k">out</span> <span class="pl-k">int</span> <span class="pl-smi">readSize</span>)
+        {
+            <span class="pl-k">var</span> <span class="pl-en">id </span>= formatterResolver.GetFormatterWithVerify&lt;<span class="pl-k">string</span>&gt;().Deserialize(bytes, offset, formatterResolver, out readSize);
+            <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">CustomObject</span> { internalId = id };
+        }
+    }
+}</pre></div>
+<p>Formatter is retrieved by <code>AttributeFormatterResolver</code>, it is included in <code>StandardResolver</code>.</p>
+<h6>
 <a id="user-content-for-unity" class="anchor" href="#for-unity" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for Unity</h6>
 <p>You can install by package and includes source code. If build target as PC, you can use as is but if build target uses IL2CPP, you can not use <code>Dynamic***Resolver</code> so use pre-code generation. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports">pre-code generation section</a>.</p>
 <p>In Unity, MessagePackSerializer can serialize <code>Vector2</code>, <code>Vector3</code>, <code>Quaternion</code>, <code>Color</code>, <code>Bounds</code>, <code>Rect</code> and there nullable by built-in extension <code>UnityResolver</code>. It is included StandardResolver by default.</p>
@@ -8169,6 +8202,7 @@ mpc.exe -i "..\src\Sandbox.Shared.csproj" -o "MessagePackGenerated.cs" -m
 
     <span class="pl-c">// finally, use builtin/primitive resolver(don't use StandardResolver, it includes dynamic generation)</span>
     MessagePack.Resolvers.BuiltinResolver.Instance,
+    AttributeFormatterResolver.Instance,
     MessagePack.Resolvers.PrimitiveObjectResolver.Instance
 );</pre></div>
 <blockquote>
