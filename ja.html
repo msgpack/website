@@ -226,8 +226,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-ugorji-go',this)">Go <span class="qs-sub">ugorji</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-suzukaze-mruby-msgpack',this)">mruby <span class="qs-sub">suzukaze</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-lexmag-msgpax',this)">Elixir <span class="qs-sub">lexmag</span></a></li>
@@ -1903,52 +1901,6 @@ deserializer.deserialize([](std::unique_ptr&lt;MsgPack::Element&gt; parsed) {
 <h6>
 <a id="user-content-read-more" class="anchor" href="#read-more" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Read More</h6>
 <p><a href="https://github.com/Lichtso/netLink/wiki/MsgPack">Tutorial</a></p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-ugorji-go" class="qs"><h4><a href="https://github.com/ugorji/go" target="_blank">ugorji/go <span class="qs-url">https://github.com/ugorji/go</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><p><strong>MessagePack and <a href="http://github.com/ugorji/binc">Binc</a> Codec for <a href="http://golang.org">Go</a> Language.</strong></p>
-<p><em>A High Performance, Feature-Rich, Idiomatic encode/decode and rpc library</em>.</p>
-<p>To install:</p>
-<pre><code>go get github.com/ugorji/go/codec
-</code></pre>
-<p>Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
-Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec">http://godoc.org/github.com/ugorji/go/codec</a>]</p>
-<p>Typical usage:</p>
-<div class="highlight highlight-source-go"><pre>    <span class="pl-c"><span class="pl-c">//</span> create and use decoder/encoder</span>
-    <span class="pl-c1">var</span> (
-        v <span class="pl-k">interface</span>{} <span class="pl-c"><span class="pl-c">//</span> value to decode/encode into</span>
-        r io.<span class="pl-smi">Reader</span>
-        w io.<span class="pl-smi">Writer</span>
-        b []<span class="pl-k">byte</span>
-        mh codec.<span class="pl-smi">MsgpackHandle</span>
-    )
-    
-    dec = codec.<span class="pl-c1">NewDecoder</span>(r, &amp;mh)
-    dec = codec.<span class="pl-c1">NewDecoderBytes</span>(b, &amp;mh)
-    err = dec.<span class="pl-c1">Decode</span>(&amp;v) 
-    
-    enc = codec.<span class="pl-c1">NewEncoder</span>(w, &amp;mh)
-    enc = codec.<span class="pl-c1">NewEncoderBytes</span>(&amp;b, &amp;mh)
-    err = enc.<span class="pl-c1">Encode</span>(v)
-    
-    <span class="pl-c"><span class="pl-c">//</span>RPC Server</span>
-    <span class="pl-k">go</span> <span class="pl-k">func</span>() {
-        <span class="pl-k">for</span> {
-            <span class="pl-smi">conn</span>, <span class="pl-smi">err</span> <span class="pl-k">:=</span> listener.<span class="pl-c1">Accept</span>()
-            <span class="pl-smi">rpcCodec</span> <span class="pl-k">:=</span> codec.<span class="pl-smi">GoRpc</span>.<span class="pl-c1">ServerCodec</span>(conn, h)
-            <span class="pl-c"><span class="pl-c">//</span>OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)</span>
-            rpc.<span class="pl-c1">ServeCodec</span>(rpcCodec)
-        }
-    }()
-    
-    <span class="pl-c"><span class="pl-c">//</span>RPC Communication (client side)</span>
-    conn, err = net.<span class="pl-c1">Dial</span>(<span class="pl-s"><span class="pl-pds">"</span>tcp<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>localhost:5555<span class="pl-pds">"</span></span>)
-    <span class="pl-smi">rpcCodec</span> <span class="pl-k">:=</span> codec.<span class="pl-smi">GoRpc</span>.<span class="pl-c1">ClientCodec</span>(conn, h)
-    <span class="pl-c"><span class="pl-c">//</span>OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span>
-    <span class="pl-smi">client</span> <span class="pl-k">:=</span> rpc.<span class="pl-c1">NewClientWithCodec</span>(rpcCodec)</pre></div>
 </article>
   </div>
         </div>
