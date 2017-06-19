@@ -2772,7 +2772,7 @@ of the machine at runtime before swapping bytes (MessagePack is big-endian).</p>
 thread may use its own context freely.</p>
 <p>CMP is tested using the MessagePack test suite as well as a large set of custom
 test cases.  Its small test program is compiled with clang using <code>-Wall -Werror -Wextra ...</code> along with several other flags, and generates no compilation
-errors in either Clang or GCC.</p>
+errors in either clang or GCC.</p>
 <p>CMP's source is written as readably as possible, using explicit, descriptive
 variable names and a consistent, clear style.</p>
 <p>CMP's source is written to be as secure as possible.  Its testing suite checks
@@ -2788,6 +2788,18 @@ implementations that only implement version 4 of the spec.</p>
 in their source tree and modify as necessary.  No special compiler settings are
 required to build it, and it generates no compilation errors in either clang or
 gcc.</p>
+<h6>
+<a id="user-content-versioning" class="anchor" href="#versioning" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Versioning</h6>
+<p>CMP's versions are single integers.  I don't use semantic versioning because
+I don't guarantee that any version is completely compatible with any other.  In
+general, semantic versioning provides a false sense of security.  You should be
+evaluating compatibility yourself, not relying on some stranger's versioning
+convention.</p>
+<h6>
+<a id="user-content-stability" class="anchor" href="#stability" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stability</h6>
+<p>I only guarantee stability for versions released on
+<a href="/camgunz/cmp/releases">the releases page</a>.  While rare, both <code>master</code> and <code>develop</code>
+branches may have errors or mismatched versions.</p>
 <h6>
 <a id="user-content-backwards-compatibility" class="anchor" href="#backwards-compatibility" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Backwards Compatibility</h6>
 <p>Version 4 of the MessagePack spec has no <code>BIN</code> type, and provides no <code>STR8</code>
