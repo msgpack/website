@@ -7739,6 +7739,8 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <a href="https://github.com/neuecc/MasterMemory">MasterMemory</a> - Embedded Readonly In-Memory Document Database</li>
 <li>
 <a href="https://github.com/neuecc/MagicOnion">MagicOnion</a> - gRPC based HTTP/2 RPC Streaming Framework</li>
+<li>
+<a href="https://github.com/neuecc/DatadogSharp">DatadogSharp</a> - C# Datadog client</li>
 </ul>
 <p>You can make your own extension serializers, let's create them and share it!</p>
 <ul>
@@ -7984,6 +7986,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <div class="highlight highlight-source-cs"><pre><span class="pl-c">// composite same as StandardResolver</span>
 <span class="pl-en">CompositeResolver.RegisterAndSetAsDefault</span>(
     MessagePack.Resolvers.BuiltinResolver.Instance,
+    MessagePack.Resolvers.AttributeFormatterResolver.Instance,
 
     <span class="pl-c">// replace enum resolver</span>
     MessagePack.Resolvers.DynamicEnumAsStringResolver.Instance,
