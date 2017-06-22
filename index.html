@@ -7783,6 +7783,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <td><code>ToJson</code></td>
 <td>Dump message-pack binary to JSON string. It is useful for debugging.</td>
 </tr>
+<tr>
+<td><code>FromJson</code></td>
+<td>From Json string to MessagePack binary.</td>
+</tr>
 </tbody>
 </table>
 <p>MessagePack for C# operates at the byte[] level, so byte[] API is faster than Stream API.</p>
@@ -7848,8 +7852,16 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <td>Write/Read map format header(element length).</td>
 </tr>
 <tr>
+<td>WriteMapHeaderForceMap32Block</td>
+<td>Write map format header, always use map32 format(length is fixed, 5).</td>
+</tr>
+<tr>
 <td>Write/ReadArrayHeader</td>
 <td>Write/Read array format header(element length).</td>
+</tr>
+<tr>
+<td>WriteArrayHeaderForceArray32Block</td>
+<td>Write array format header, always use array32 format(length is fixed, 5).</td>
 </tr>
 <tr>
 <td>Write/Read***</td>
@@ -7870,6 +7882,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>Write/ReadExtensionFormatHeader</td>
 <td>Write/Read ext format, header(Length + TypeCode) only.</td>
+</tr>
+<tr>
+<td>WriteExtensionFormatHeaderForceExt32Block</td>
+<td>Write ext format header, always use ext32 format(length is fixed, 6).</td>
 </tr>
 <tr>
 <td>IsNil</td>
@@ -7919,11 +7935,15 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 <tr>
 <td>ContractlessStandardResolver</td>
-<td>Composited <code>StandardResolver</code> -&gt; <code>DynamicContractlessObjectResolver</code>. It enables contractless serialization.</td>
+<td>Composited <code>StandardResolver</code>(except primitive) -&gt; <code>DynamicContractlessObjectResolver</code> -&gt; <code>DynamicObjectTypeFallbackResolver</code>. It enables contractless serialization.</td>
 </tr>
 <tr>
 <td>PrimitiveObjectResolver</td>
 <td>MessagePack primitive object resolver. It is used fallback in <code>object</code> type and supports <code>bool</code>, <code>char</code>, <code>sbyte</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>ushort</code>, <code>uint</code>, <code>ulong</code>, <code>float</code>, <code>double</code>, <code>DateTime</code>, <code>string</code>, <code>byte[]</code>, <code>ICollection</code>, <code>IDictionary</code>.</td>
+</tr>
+<tr>
+<td>DynamicObjectTypeFallbackResolver</td>
+<td>It is used fallback in <code>object</code> type and resolve primitive object -&gt; dynamic contractless object</td>
 </tr>
 <tr>
 <td>AttributeFormatterResolver</td>
