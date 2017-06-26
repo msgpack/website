@@ -7802,7 +7802,8 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 </tbody>
 </table>
-<p>MessagePack for C# operates at the byte[] level, so byte[] API is faster than Stream API.</p>
+<p>MessagePack for C# operates at the byte[] level, so byte[] API is faster than Stream API. If byte [] can be used for I/O, I recommend using the byte [] API.</p>
+<p><code>Deserialize&lt;T&gt;(Stream)</code> has <code>bool readStrict</code> overload. It means read byte[] from stream strictly size. The default is false, it reads all stream data, it is faster than <code>readStrict</code> but if the data is contiguous, you can use readStrict = true.</p>
 <p>High-Level API uses memory pool internaly to avoid unnecessary memory allocation. If result size is under 64K, allocates GC memory only for the return bytes.</p>
 <p><code>LZ4MessagePackSerializer</code> has same api with <code>MessagePackSerializer</code> and <code>DefaultResolver</code> is shared. <code>LZ4MessagePackSerializer</code> has additional <code>SerializeToBlock</code> method.</p>
 <h6>
@@ -7859,6 +7860,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>ReadNextBlock</td>
 <td>Skip MessagePackFormat binary block with sub structures(array/map), returns read size. This is useful for create deserializer.</td>
+</tr>
+<tr>
+<td>ReadMessageBlockFromStreamUnsafe</td>
+<td>Read binary block from Stream, if readOnlySingleMessage = false then read sub structures(array/map).</td>
 </tr>
 <tr>
 <td>Write/ReadMapHeader</td>
@@ -7922,7 +7927,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 </tbody>
 </table>
-<p>Read API returns deserialized primitive and read size. Write API returns write size and guranteed auto ensure ref byte[].</p>
+<p>Read API returns deserialized primitive and read size. Write API returns write size and guranteed auto ensure ref byte[]. Write/Read API has <code>byte[]</code> overload and <code>Stream</code> overload, basically the byte[] API is faster.</p>
 <p>DateTime is serialized to <a href="https://github.com/msgpack/msgpack/pull/209">new MessagePack extension spec proposal</a>, it serialize/deserialize UTC and loses <code>Kind</code> info. If you use<code>NativeDateTimeResolver</code> serialized native DateTime binary format and it can keep <code>Kind</code> info but cannot communicate other platforms.</p>
 <p><code>MessagePackType</code> means <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#serialization-type-to-format-conversion">msgpack spec of source types</a>.</p>
 <p><code>MessagePackCode</code> means <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#overview">msgpack format of first byte</a>. Its static class has <code>ToMessagePackType</code> and <code>ToFormatName</code> utility methods.</p>
