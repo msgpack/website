@@ -7432,6 +7432,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <span class="pl-c">// serializable.</span>
 <span class="pl-k">var</span> <span class="pl-en">bin2 </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(data);</pre></div>
 <p>ContractlessStandardResolver can serialize anonymous type, too.</p>
+<p>I don't need type, I want to use like BinaryFormatter! You can use as typeless resolver and helpers. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#typeless">Typeless</a> section.</p>
 <p>Resolver is key customize point of MessagePack for C#. Details, please see <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">extension point</a>.</p>
 <h6>
 <a id="user-content-serialize-immutableobjectserializationconstructor" class="anchor" href="#serialize-immutableobjectserializationconstructor" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialize ImmutableObject(SerializationConstructor)</h6>
@@ -7610,6 +7611,27 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <span class="pl-en">Console.WriteLine</span>(dynamicModel["Name"]); <span class="pl-c">// foobar</span>
 <span class="pl-en">Console.WriteLine</span>(dynamicModel["Items"][2]); <span class="pl-c">// 100</span></pre></div>
 <p>So you can access indexer for msgpack map and array.</p>
+<h6>
+<a id="user-content-typeless" class="anchor" href="#typeless" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Typeless</h6>
+<p>Typeless API is like <code>BinaryFormatter</code>, embed type information to binary so no needs type to deserialize.</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">object</span> <span class="pl-en">mc</span> = <span class="pl-k">new</span> <span class="pl-en">Sandbox</span>.<span class="pl-en">MyClass</span>()
+{
+    Age = <span class="pl-c1">10</span>,
+    FirstName = <span class="pl-s"><span class="pl-pds">"</span>hoge<span class="pl-pds">"</span></span>,
+    LastName = <span class="pl-s"><span class="pl-pds">"</span>huga<span class="pl-pds">"</span></span>
+};
+
+<span class="pl-c">// serialize to typeless</span>
+<span class="pl-k">var</span> <span class="pl-en">bin </span>= <span class="pl-en">MessagePackSerializer.Typeless.Serialize</span>(mc);
+
+<span class="pl-c">// binary data is embeded type-assembly information.</span>
+<span class="pl-c">// ["Sandbox.MyClass, Sandbox",10,"hoge","huga"]</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin));
+
+<span class="pl-c">// can deserialize to MyClass with typeless</span>
+<span class="pl-k">var</span> <span class="pl-en">objModel </span>= <span class="pl-en">MessagePackSerializer.Typeless.Deserialize</span>(bin) as MyClass;</pre></div>
+<p>Type information is serialized by mspgack <code>ext</code> format, typecode is 100.</p>
+<p><code>MessagePackSerializer.Typeless</code> is shortcut of <code>Serialize/Deserialize&lt;object&gt;(TypelessContractlessStandardResolver.Instance)</code>. If you want to configure default typeless resolver, you can set by <code>MessagePackSerializer.Typeless.RegisterDefaultResolver</code>.</p>
 <h6>
 <a id="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance</h6>
 <p>Benchmarks comparing to other serializers run on <code>Windows 10 Pro x64 Intel Core i7-6700K 4.00GHz, 32GB RAM</code>. Benchmark code is <a href="https://github.com/neuecc/ZeroFormatter/tree/master/sandbox/PerformanceComparison">here</a> - and there <a href="https://github.com/neuecc/ZeroFormatter/blob/bc63cb925d/sandbox/PerformanceComparison/packages.config">version info</a>, ZeroFormatter and <a href="https://google.github.io/flatbuffers/">FlatBuffers</a> has infinitely fast deserializer so ignore deserialize performance.</p>
@@ -7949,7 +7971,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 <tr>
 <td>StandardResolver</td>
-<td>Composited resolver . It resolves in the following order <code>builtin -&gt; attribute -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; primitive object</code>. This is the default of MessagePackSerializer.</td>
+<td>Composited resolver. It resolves in the following order <code>builtin -&gt; attribute -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; primitive object</code>. This is the default of MessagePackSerializer.</td>
 </tr>
 <tr>
 <td>ContractlessStandardResolver</td>
@@ -8002,6 +8024,15 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>DynamicContractlessObjectResolver</td>
 <td>Resolver of all classes and structs. It does not needs MessagePackObjectAttribute and serialized key as string(same as marked [MessagePackObject(true)]).</td>
+</tr>
+<tr>
+<td>TypelessObjectResolver</td>
+<td>Used for <code>object</code>, embed .NET type in binary by <code>ext(100)</code> format so no need to pass type in deserilization.</td>
+</tr>
+<tr>
+<td>TypelessContractlessStandardResolver</td>
+<td>Composited resolver. It resolves in the following order <code>nativedatetime -&gt; builtin -&gt; attribute -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; dynamiccontractless -&gt; typeless</code>. This is the default of <code>MessagePackSerializer.Typeless</code>
+</td>
 </tr>
 </tbody>
 </table>
