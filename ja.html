@@ -7438,6 +7438,11 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <p>I don't need type, I want to use like BinaryFormatter! You can use as typeless resolver and helpers. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#typeless">Typeless section</a>.</p>
 <p>Resolver is key customize point of MessagePack for C#. Details, please see <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">extension point</a>.</p>
 <h6>
+<a id="user-content-datacontract-compatibility" class="anchor" href="#datacontract-compatibility" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DataContract compatibility</h6>
+<p>You can use <code>[DataContract]</code> instead of <code>[MessagePackObject]</code>. If type is marked DataContract, you can use <code>[DataMember]</code> instead of <code>[Key]</code> and <code>[Ignore]</code> instead of <code>[IgnoreDataMember]</code>.</p>
+<p><code>[DataMember(Order = int)]</code> is same as <code>[Key(int)]</code>, <code>[DataMember(Name = string)]</code> is same as <code>[Key(string)]</code>. If use <code>[DataMember]</code>, same as <code>[Key(nameof(propertyname)]</code>.</p>
+<p>Using DataContract makes it a shared class library and you do not have to refer to MessagePack for C#. However, it is not included in analysis by Analyzer or code generation by <code>mpc.exe</code>. Also, functions like <code>UnionAttribute</code>, <code>MessagePackFormatterAttribute</code>, <code>SerializationConstructorAttribute</code> etc can not be used. For this reason, I recommend that you use the MessagePack for C# attribute basically.</p>
+<h6>
 <a id="user-content-serialize-immutableobjectserializationconstructor" class="anchor" href="#serialize-immutableobjectserializationconstructor" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialize ImmutableObject(SerializationConstructor)</h6>
 <p>MessagePack for C# supports deserialize immutable object. For example, this struct can serialize/deserialize naturally.</p>
 <div class="highlight highlight-source-cs"><pre>[MessagePackObject]
@@ -8207,6 +8212,85 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
     }
 }</pre></div>
 <p>Formatter is retrieved by <code>AttributeFormatterResolver</code>, it is included in <code>StandardResolver</code>.</p>
+<h6>
+<a id="user-content-reserved-extension-types" class="anchor" href="#reserved-extension-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reserved Extension Types</h6>
+<p>MessagePack for C# already used some messagepack ext type codes, be careful to use same ext code.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th>Use by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>DateTime</td>
+<td>msgpack-spec reserved for timestamp</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Vector2[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Vector3[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Vector4[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Quaternion[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Color[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Bounds[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Rect[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Int[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Float[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Double[]</td>
+<td>for Unity, UnsafeBlitFormatter</td>
+</tr>
+<tr>
+<td>99</td>
+<td>All</td>
+<td>LZ4MessagePackSerializer</td>
+</tr>
+<tr>
+<td>100</td>
+<td>object</td>
+<td>TypelessFormatter</td>
+</tr>
+</tbody>
+</table>
 <h6>
 <a id="user-content-for-unity" class="anchor" href="#for-unity" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for Unity</h6>
 <p>You can install by package and includes source code. If build target as PC, you can use as is but if build target uses IL2CPP, you can not use <code>Dynamic***Resolver</code> so use pre-code generation. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports">pre-code generation section</a>.</p>
