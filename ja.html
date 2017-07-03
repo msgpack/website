@@ -336,6 +336,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-retrofit-converter-msgpack',this)">Retrofit converter (Java) <span class="qs-sub">komamitsu</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-patriksimek-msgpack-postgres',this)">PostgreSQL <span class="qs-sub">patriksimek</span></a></li>
+          
         </ul>
       </div>
 
@@ -8663,6 +8665,47 @@ much better here.</p>
     .addConverterFactory(MessagePackConverterFactory.create())
     .build();
 </code></pre>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-patriksimek-msgpack-postgres" class="qs"><h4><a href="https://github.com/patriksimek/msgpack-postgres" target="_blank">patriksimek/msgpack-postgres <span class="qs-url">https://github.com/patriksimek/msgpack-postgres</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack-postgres-" class="anchor" href="#msgpack-postgres-" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack-postgres <a href="https://travis-ci.org/patriksimek/msgpack-postgres"><img src="https://camo.githubusercontent.com/3fa8d26f0b9e5ceb2b7505e415a0007941beda14/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f70617472696b73696d656b2f6d73677061636b2d706f7374677265732f6d61737465722e7376673f7374796c653d666c61742d737175617265266c6162656c3d756e6974" alt="Travis CI" data-canonical-src="https://img.shields.io/travis/patriksimek/msgpack-postgres/master.svg?style=flat-square&amp;label=unit" style="max-width:100%;"></a>
+</h5>
+<p>MessagePack implementation for PostgreSQL written in PL/pgSQL.</p>
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+<p>Execute <code>src/encode.sql</code> or/and <code>src/decode.sql</code> on your database server.</p>
+<h6>
+<a id="user-content-quick-example" class="anchor" href="#quick-example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quick Example</h6>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">select</span> msgpack_encode(<span class="pl-s"><span class="pl-pds">'</span>{"hello": "world"}<span class="pl-pds">'</span></span>::jsonb);
+<span class="pl-c"><span class="pl-c">--</span> returns 0x81a568656c6c6fa5776f726c64</span>
+
+<span class="pl-k">select</span> msgpack_decode(decode(<span class="pl-s"><span class="pl-pds">'</span>81a568656c6c6fa5776f726c64<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>));
+<span class="pl-c"><span class="pl-c">--</span> returns '{"hello": "world"}'</span></pre></div>
+<h6>
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation</h6>
+<p><code>msgpack_encode(jsonb)</code></p>
+<p>Encodes <code>jsonb</code> object into <code>bytea</code> string.</p>
+<p><code>msgpack_decode(jsonb)</code></p>
+<p>Decodes <code>jsonb</code> object from <code>bytea</code> string.</p>
+<h6>
+<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TODO</h6>
+<ul>
+<li>Float support</li>
+</ul>
+<h6>
+<a id="user-content-sponsors" class="anchor" href="#sponsors" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sponsors</h6>
+<p>Development is sponsored by <a href="https://www.integromat.com/en/integrations/postgres">Integromat</a>.</p>
+<h6>
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+<p>Copyright (c) 2017 Patrik Simek</p>
+<p>The MIT License</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </article>
   </div>
         </div>
