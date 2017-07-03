@@ -7313,7 +7313,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
     <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">LastName</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 
     <span class="pl-c">// public members and does not serialize target, mark IgnoreMemberttribute</span>
-	[IgnoreMember]
+    [IgnoreMember]
     <span class="pl-k">public </span><span class="pl-k">string</span> <span class="pl-en">FullName</span> { <span class="pl-k">get</span> { <span class="pl-k">return</span> FirstName + LastName; } }
 }
 
@@ -7435,7 +7435,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <p>Resolver is key customize point of MessagePack for C#. Details, please see <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">extension point</a>.</p>
 <h6>
 <a id="user-content-datacontract-compatibility" class="anchor" href="#datacontract-compatibility" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DataContract compatibility</h6>
-<p>You can use <code>[DataContract]</code> instead of <code>[MessagePackObject]</code>. If type is marked DataContract, you can use <code>[DataMember]</code> instead of <code>[Key]</code> and <code>[Ignore]</code> instead of <code>[IgnoreDataMember]</code>.</p>
+<p>You can use <code>[DataContract]</code> instead of <code>[MessagePackObject]</code>. If type is marked DataContract, you can use <code>[DataMember]</code> instead of <code>[Key]</code> and <code>[IgnoreDataMember]</code> instead of <code>[IgnoreMember]</code>.</p>
 <p><code>[DataMember(Order = int)]</code> is same as <code>[Key(int)]</code>, <code>[DataMember(Name = string)]</code> is same as <code>[Key(string)]</code>. If use <code>[DataMember]</code>, same as <code>[Key(nameof(propertyname)]</code>.</p>
 <p>Using DataContract makes it a shared class library and you do not have to refer to MessagePack for C#. However, it is not included in analysis by Analyzer or code generation by <code>mpc.exe</code>. Also, functions like <code>UnionAttribute</code>, <code>MessagePackFormatterAttribute</code>, <code>SerializationConstructorAttribute</code> etc can not be used. For this reason, I recommend that you use the MessagePack for C# attribute basically.</p>
 <h6>
@@ -7506,7 +7506,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 }</pre></div>
 <h6>
 <a id="user-content-union" class="anchor" href="#union" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Union</h6>
-<p>MessagePack for C# supports serialize interface. It is like <code>XmlInclude</code> or <code>ProtoInclude</code>. MessagePack for C# there called <em>Union</em>. <code>UnionAttribute</code> can only attach to interface. It requires discriminated integer key and sub-type.</p>
+<p>MessagePack for C# supports serialize interface. It is like <code>XmlInclude</code> or <code>ProtoInclude</code>. MessagePack for C# there called <em>Union</em>. <code>UnionAttribute</code> can only attach to interface or abstract class. It requires discriminated integer key and sub-type.</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-c">// mark inheritance types</span>
 [MessagePack.Union(<span class="pl-c1">0</span>, typeof(FooClass))]
 [MessagePack.Union(<span class="pl-c1">1</span>, typeof(BarClass))]
@@ -7558,50 +7558,30 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <span class="pl-c">// Union is serialized to two-length array, [key, object]</span>
 <span class="pl-c">// [1,["FooBar"]]</span>
 <span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin));</pre></div>
-<p>Tips: If you want to pass single primitive like F#'s discriminated union. You can create single generic value and marked interface.</p>
-<div class="highlight highlight-source-cs"><pre>[Union(<span class="pl-c1">0</span>, typeof(UnionValue&lt;<span class="pl-k">int</span>&gt;))]
-[Union(<span class="pl-c1">1</span>, typeof(UnionValue&lt;<span class="pl-k">float</span>&gt;))]
-<span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">IPrimitiveUnionA</span>
+<p>Using Union in Abstract Class, you can use same of interface.</p>
+<div class="highlight highlight-source-cs"><pre>[Union(<span class="pl-c1">0</span>, typeof(SubUnionType1))]
+[Union(<span class="pl-c1">1</span>, typeof(SubUnionType2))]
+[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-k">class</span> <span class="pl-en">ParentUnionType</span>
 {
-}
-
-[Union(<span class="pl-c1">0</span>, typeof(UnionValue&lt;<span class="pl-k">string</span>&gt;))]
-[Union(<span class="pl-c1">1</span>, typeof(UnionValue&lt;ValueTuple&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt;))]
-<span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">IPrimitiveUnionB</span>
-{
+    [Key(<span class="pl-c1">0</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">MyProperty</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
 [MessagePackObject]
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">UnionValue</span>&lt;<span class="pl-en">T</span>&gt; : <span class="pl-en">IPrimitiveUnionA</span>, <span class="pl-en">IPrimitiveUnionB</span> <span class="pl-c">//, add your union types...</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SubUnionType1</span> : <span class="pl-en">ParentUnionType</span>
 {
-    [Key(<span class="pl-c1">0</span>)]
-    <span class="pl-k">public</span> <span class="pl-en">T</span> Value { <span class="pl-k">get</span>; <span class="pl-en">private</span> <span class="pl-en">set</span>; }
-
-    [SerializationConstructor]
-    <span class="pl-k">public</span> <span class="pl-en">UnionValue</span>(T value)
-    {
-        <span class="pl-c1">this</span>.Value = <span class="pl-k">value</span>;
-    }
+    [Key(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">MyProperty1</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-<span class="pl-c">// helper of typesafe create value..</span>
-<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">PrimitiveUnionA</span>
+[MessagePackObject]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SubUnionType2</span> : <span class="pl-en">ParentUnionType</span>
 {
-    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-en">IPrimitiveUnionA</span> <span class="pl-en">Create</span>(<span class="pl-k">int</span> <span class="pl-smi">value</span>)
-    {
-        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">UnionValue</span>&lt;<span class="pl-k">int</span>&gt;(<span class="pl-en">value</span>);
-    }
-
-    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-en">IPrimitiveUnionA</span> <span class="pl-en">Create</span>(<span class="pl-k">float</span> <span class="pl-smi">value</span>)
-    {
-        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">UnionValue</span>&lt;<span class="pl-k">float</span>&gt;(<span class="pl-en">value</span>);
-    }
-}
-
-<span class="pl-c">// usage, create value and Serialize/Deserialize...</span>
-
-<span class="pl-k">var</span> <span class="pl-en">a1 </span>= <span class="pl-en">PrimitiveUnionA.Create</span>(100);
-<span class="pl-k">var</span> <span class="pl-en">a2 </span>= <span class="pl-en">PrimitiveUnionA.Create</span>(100.423f);</pre></div>
+    [Key(<span class="pl-c1">1</span>)]
+    <span class="pl-k">public </span><span class="pl-k">int</span> <span class="pl-en">MyProperty2</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}</pre></div>
+<p>Serialization of inherited type, flatten in array(or map), be carefult to integer key, it cannot duplicate parent and all childrens.</p>
 <h6>
 <a id="user-content-dynamicuntyped-deserialization" class="anchor" href="#dynamicuntyped-deserialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dynamic(Untyped) Deserialization</h6>
 <p>If use <code>MessagePackSerializer.Deserialize&lt;object&gt;</code> or <code>MessagePackSerializer.Deserialize&lt;dynamic&gt;</code>, convert messagepack binary to primitive values that convert from msgpack-primitive to <code>bool</code>, <code>char</code>, <code>sbyte</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>ushort</code>, <code>uint</code>, <code>ulong</code>, <code>float</code>, <code>double</code>, <code>DateTime</code>, <code>string</code>, <code>byte[]</code>, <code>object[]</code>, <code>IDictionary&lt;object, object&gt;</code>.</p>
