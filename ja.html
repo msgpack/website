@@ -338,7 +338,7 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-patriksimek-msgpack-postgres',this)">PostgreSQL <span class="qs-sub">patriksimek</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-msgpack-racket',this)">racket <span class="qs-sub">HiPhish</span></a></li>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-msgpack-racket',this)">Racket <span class="qs-sub">HiPhish</span></a></li>
           
         </ul>
       </div>
@@ -8722,28 +8722,39 @@ much better here.</p>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-messagepack-in-racket" class="anchor" href="#messagepack-in-racket" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack in Racket</h5>
-<p>This is an implementation of <a href="http://msgpack.org/">MessagePack</a> written in <a href="http://racket-lang.org/">Racket</a>.  Currently only
-de-serialisation is implemented, I am still in the process of poking my way
-through Racket, see below for caveats.</p>
+<p>This is a <a href="http://racket-lang.org/">Racket</a> implementation of <a href="http://msgpack.org/">MessagePack</a> , a binary data serialisation
+format. It allows you to serialise (pack) and de-serialise (unpack) Racket
+object to and from binary data.</p>
+<a name="user-content-installation"></a>
+<h6>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+<p>The easiest way to install this library is from the <a href="https://pkgs.racket-lang.org/">Racket Package Catalog</a>.
+Run the following code from your shell:</p>
+<div class="highlight highlight-source-shell"><pre>raco pkg install msgpack</pre></div>
 <a name="user-content-using"></a>
 <h6>
 <a id="user-content-using" class="anchor" href="#using" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using</h6>
-<div class="highlight highlight-source-racket"><pre>(<span class="pl-en">require</span> msgpack)
+<div class="highlight highlight-source-racket"><pre><span class="pl-c">;;; Import the library first</span>
+(<span class="pl-en">require</span> msgpack)
+
+<span class="pl-c">;;; Some object to pack</span>
+(<span class="pl-en">define</span> hodgepodge (vector <span class="pl-c1">1</span> <span class="pl-c1">2</span> (void) '#(<span class="pl-c1">3</span> <span class="pl-c1">#t</span>) <span class="pl-c1">"<span class="pl-c1">foo</span>"</span>))
 
 <span class="pl-c">;;; Packing data</span>
-(<span class="pl-en">define</span> out (open-output-bytes))
-(pack <span class="pl-c1">#x1234</span> out)  <span class="pl-c">;; (get-output-bytes out) returns #xCD #x12 #x34</span>
+(<span class="pl-en">define</span> packed (call-with-output-bytes (<span class="pl-en">λ</span> (out) (pack hodgepodge out))))
+<span class="pl-c">;;; &gt; #"\225\1\2\300\222\3\303\243foo"</span>
 
 <span class="pl-c">;;; Unpacking data</span>
-(<span class="pl-en">require</span> msgpack)
-(<span class="pl-en">define</span> in (open-input-bytes (bytes <span class="pl-c1">#xCD</span> <span class="pl-c1">#x12</span> <span class="pl-c1">#x34</span>)))
-(unpack in)  <span class="pl-c">;; returns #x1234, or 4660 in decimal</span></pre></div>
+(<span class="pl-en">define</span> unpacked (call-with-input-bytes packed (<span class="pl-en">λ</span> (in) (unpack in))))
+<span class="pl-c">;;; &gt; '#(1 2 #&lt;void&gt; #(3 #t) "foo")</span></pre></div>
 <p>The <code>pack</code> function takes a Racket object and a binary output port as arguments
 and writes the serialised data to the port.  The <code>unpack</code> function takes a
 binary input port and returns one de-serialised object, consuming the necessary
-amount of bytes from the port in the process.</p>
-<p>In the above example code we created a port from a byte string, but the port
-may be any kind of Racket port.</p>
+amount of bytes from the port in the process. For more details please refer to
+the <a href="https://docs.racket-lang.org/msgpack/index.html">documentation</a>.</p>
+<p>In the above example code we set the output and input ports to be byte strings
+so we could work with the packed and unpacked data directly inside the Racket
+instance.</p>
 <a name="user-content-status"></a>
 <h6>
 <a id="user-content-status" class="anchor" href="#status" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status</h6>
