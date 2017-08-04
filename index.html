@@ -7803,7 +7803,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 <tr>
 <td><code>Deserialize&lt;T&gt;</code></td>
-<td>Convert byte[] or stream to object. There has IFormatterResolver overload, used specified resolver.</td>
+<td>Convert byte[] or <code>ArraySegment&lt;byte&gt;</code> or stream to object. There has IFormatterResolver overload, used specified resolver.</td>
 </tr>
 <tr>
 <td><code>NonGeneric.*</code></td>
@@ -7885,6 +7885,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>ReadMessageBlockFromStreamUnsafe</td>
 <td>Read binary block from Stream, if readOnlySingleMessage = false then read sub structures(array/map).</td>
+</tr>
+<tr>
+<td>ReadStringSegment</td>
+<td>Read string format but do not decode UTF8, returns <code>ArraySegment&lt;byte&gt;</code>.</td>
 </tr>
 <tr>
 <td>Write/ReadMapHeader</td>
