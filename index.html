@@ -7472,7 +7472,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 
 <span class="pl-c">// Okay to deserialize immutable obejct</span>
 <span class="pl-k">var</span> <span class="pl-en">point </span>= <span class="pl-en">MessagePackSerializer.Deserialize</span>&lt;<span class="pl-en">Point</span>&gt;(bin);</pre></div>
-<p>MessagePackSerializer choose constructor with the least argument and match index if key in integer or match name(ignore case) if key is string.</p>
+<p>MessagePackSerializer choose constructor with the least argument and match index if key in integer or match name(ignore case) if key is string. If encounts <code>MessagePackDynamicObjectResolverException: can't find matched constructor parameter</code> you should check about this.</p>
 <p>If can not match automatically, you can specify to use constructor manually by <code>[SerializationConstructorAttribute]</code>.</p>
 <div class="highlight highlight-source-cs"><pre>[MessagePackObject]
 <span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Point</span>
