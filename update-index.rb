@@ -33,26 +33,26 @@ class IndexHtmlRenderer
       # description needs to include msgpack[LANG]
       desc_match = REPO_DESCRIPTION_MATCH.match repo[:description]
       next unless desc_match
-      lang = CGI.escape_html(desc_match[1])
+      lang = desc_match[1]
 
       quickstart_html, quickstart_fname = get_quickstart_html(github_com, github_com_raw, repo)
       next unless quickstart_html
       tweak_quickstart_html!(quickstart_html)
 
-      repo_id = repo[:full_name].gsub(/[^a-zA-Z0-9_\-]+/,'-')
+      repo_id = repo[:full_name]
 
       homepage = repo[:homepage]
       homepage = nil if homepage =~ /^http\:\/\/msgpack.org\/?/
       homepage = nil if homepage == ""
       homepage ||= repo[:html_url]
 
-      @log.info "  >> #{repo[:full_name]}: lang=#{lang}, quickstart_file=#{quickstart_fname}"
+      @log.info "  >> #{repo_id}: lang=#{lang}, quickstart_file=#{quickstart_fname}"
 
       {
-        msgpack_lang: lang,
+        msgpack_lang: CGI.escape_html(lang),
         msgpack_quickstart_html: quickstart_html,
-        msgpack_repo_id: repo_id,
-        msgpack_repo_homepage: homepage,
+        msgpack_repo_id: repo_id.gsub(/[^a-zA-Z0-9_\-]+/,'-'),
+        msgpack_repo_homepage: CGI.escape_html(homepage),
       }.merge(repo)
     end.compact
 
