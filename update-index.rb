@@ -39,19 +39,19 @@ class IndexHtmlRenderer
       next unless quickstart_html
       tweak_quickstart_html!(quickstart_html)
 
-      repo_id = repo[:full_name].gsub(/[^a-zA-Z0-9_\-]+/,'-')
+      repo_id = repo[:full_name]
 
       homepage = repo[:homepage]
       homepage = nil if homepage =~ /^http\:\/\/msgpack.org\/?/
       homepage = nil if homepage == ""
       homepage ||= repo[:html_url]
 
-      @log.info "  >> #{repo[:full_name]}: lang=#{lang}, quickstart_file=#{quickstart_fname}"
+      @log.info "  >> #{repo_id}: lang=#{lang}, quickstart_file=#{quickstart_fname}"
 
       {
         msgpack_lang: CGI.escape_html(lang),
         msgpack_quickstart_html: quickstart_html,
-        msgpack_repo_id: repo_id,
+        msgpack_repo_id: repo_id.gsub(/[^a-zA-Z0-9_\-]+/,'-'),
         msgpack_repo_homepage: CGI.escape_html(homepage),
       }.merge(repo)
     end.compact
