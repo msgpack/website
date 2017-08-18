@@ -7983,11 +7983,11 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 <tr>
 <td>StandardResolver</td>
-<td>Composited resolver. It resolves in the following order <code>builtin -&gt; attribute -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; primitive object</code>. This is the default of MessagePackSerializer.</td>
+<td>Composited resolver. It resolves in the following order <code>builtin -&gt; attribute -&gt; dynamic enum -&gt; dynamic generic -&gt; dynamic union -&gt; dynamic object -&gt; dynamic object fallback</code>. This is the default of MessagePackSerializer.</td>
 </tr>
 <tr>
 <td>ContractlessStandardResolver</td>
-<td>Composited <code>StandardResolver</code>(except primitive) -&gt; <code>DynamicContractlessObjectResolver</code> -&gt; <code>DynamicObjectTypeFallbackResolver</code>. It enables contractless serialization.</td>
+<td>Composited <code>StandardResolver</code>(except dynamic object fallback) -&gt; <code>DynamicContractlessObjectResolver</code> -&gt; <code>DynamicObjectTypeFallbackResolver</code>. It enables contractless serialization.</td>
 </tr>
 <tr>
 <td>PrimitiveObjectResolver</td>
@@ -7995,7 +7995,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </tr>
 <tr>
 <td>DynamicObjectTypeFallbackResolver</td>
-<td>It is used fallback in <code>object</code> type and resolve primitive object -&gt; dynamic contractless object</td>
+<td>Serialize is used type in from <code>object</code> type, deserialize is used PrimitiveObjectResolver.</td>
 </tr>
 <tr>
 <td>AttributeFormatterResolver</td>
