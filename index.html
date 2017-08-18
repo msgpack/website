@@ -6082,9 +6082,9 @@ To do this, use the <code>packMap</code> method:</p>
 </blockquote>
 <h8>
 <a id="user-content-type-detection-mode" class="anchor" href="#type-detection-mode" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type detection mode</h8>
-<p>Automatically detecting a MP type of PHP arrays/strings adds some overhead which can be noticed
+<p>Automatically detecting an MP type of PHP arrays/strings adds some overhead which can be noticed
 when you pack large (16- and 32-bit) arrays or strings. However, if you know the variable type
-in advance (for example, you only work with utf-8 strings or/and associative arrays), you can
+in advance (for example, you only work with UTF-8 strings or/and associative arrays), you can
 eliminate this overhead by forcing the packer to use the appropriate type, which will save it
 from running the auto detection routine:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>(<span class="pl-c1">Packer</span><span class="pl-k">::</span><span class="pl-c1">FORCE_STR</span>);</span>
@@ -6135,7 +6135,7 @@ method, which will try to unpack data and return an array of unpacked data inste
 <a id="user-content-unsigned-64-bit-integers" class="anchor" href="#unsigned-64-bit-integers" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unsigned 64-bit Integers</h8>
 <p>The binary MessagePack format has unsigned 64-bit as its largest integer data type,
 but PHP does not support such integers. By default, while unpacking <code>uint64</code> value
-the library will throw a <code>IntegerOverflowException</code>.</p>
+the library will throw an <code>IntegerOverflowException</code>.</p>
 <p>You can change this default behavior to unpack <code>uint64</code> integer to a string:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setIntOverflowMode(<span class="pl-c1">BufferUnpacker</span><span class="pl-k">::</span><span class="pl-c1">INT_AS_STR</span>);</span></pre></div>
 <p>Or to a <code>Gmp</code> number (make sure that <a href="http://php.net/manual/en/book.gmp.php">gmp</a> extension is enabled):</p>
@@ -6430,7 +6430,7 @@ Ignored                         17              17             0               8
 </code></pre>
 <blockquote>
 <p>Note, that this is not a fair comparison as the msgpack extension (0.5.2+, 2.0) doesn't
-support <strong>ext</strong>, <strong>bin</strong> and utf-8 <strong>str</strong> types.</p>
+support <strong>ext</strong>, <strong>bin</strong> and UTF-8 <strong>str</strong> types.</p>
 </blockquote>
 <h6>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
@@ -7441,7 +7441,6 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 
 <span class="pl-c">// serializable.</span>
 <span class="pl-k">var</span> <span class="pl-en">bin2 </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(data);</pre></div>
-<p>ContractlessStandardResolver can serialize anonymous type, too.</p>
 <p>I don't need type, I want to use like BinaryFormatter! You can use as typeless resolver and helpers. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#typeless">Typeless section</a>.</p>
 <p>Resolver is key customize point of MessagePack for C#. Details, please see <a href="https://github.com/neuecc/MessagePack-CSharp#extension-pointiformatterresolver">extension point</a>.</p>
 <h6>
@@ -7607,6 +7606,25 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <span class="pl-en">Console.WriteLine</span>(dynamicModel["Items"][2]); <span class="pl-c">// 100</span></pre></div>
 <p>So you can access indexer for msgpack map and array.</p>
 <h6>
+<a id="user-content-object-type-serialization" class="anchor" href="#object-type-serialization" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Object Type Serialization</h6>
+<p><code>StandardResolver</code> and <code>ContractlessStandardResolver</code> can serialize <code>object</code> type as concrete type by <code>DynamicObjectTypeFallbackResolver</code>.</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">var</span> <span class="pl-en">objects </span>= <span class="pl-k">new</span> <span class="pl-k">object</span>[] { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>aaa<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> <span class="pl-en">ObjectFieldType</span> { Anything = <span class="pl-c1">9999</span> } };
+<span class="pl-k">var</span> <span class="pl-en">bin </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(objects);
+
+<span class="pl-c">// [1,"aaa",[9999]]</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin));
+
+<span class="pl-c">// Support Anonymous Type Serialize</span>
+<span class="pl-k">var</span> <span class="pl-en">anonType </span>= <span class="pl-k">new</span> { Foo = 100, <span class="pl-en">Bar</span> = <span class="pl-s"><span class="pl-pds">"</span>foobar<span class="pl-pds">"</span></span> };
+<span class="pl-k">var</span> <span class="pl-en">bin2 </span>= <span class="pl-en">MessagePackSerializer.Serialize</span>(anonType, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+
+<span class="pl-c">// {"Foo":100,"Bar":"foobar"}</span>
+<span class="pl-en">Console.WriteLine</span>(MessagePackSerializer.<span class="pl-en">ToJson</span>(bin2));</pre></div>
+<blockquote>
+<p>Unity supports is limited.</p>
+</blockquote>
+<p>When deserializing, same as Dynamic(Untyped) Deserialization.</p>
+<h6>
 <a id="user-content-typeless" class="anchor" href="#typeless" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Typeless</h6>
 <p>Typeless API is like <code>BinaryFormatter</code>, embed type information to binary so no needs type to deserialize.</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-k">object</span> <span class="pl-en">mc</span> = <span class="pl-k">new</span> <span class="pl-en">Sandbox</span>.<span class="pl-en">MyClass</span>()
@@ -7757,7 +7775,6 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 {
     services.AddMvc().AddMvcOptions(option =&gt;
     {
-	    <span class="pl-c">// ContractlessStandardResolver supports anonymous type, or use your custom composite resolver.</span>
         option.OutputFormatters.Clear();
         option.OutputFormatters.Add(<span class="pl-k">new</span> <span class="pl-en">MessagePackOutputFormatter</span>(ContractlessStandardResolver.Instance));
         option.InputFormatters.Clear();
@@ -7826,6 +7843,14 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td><code>FromJson</code></td>
 <td>From Json string to MessagePack binary.</td>
+</tr>
+<tr>
+<td><code>ToLZ4Binary</code></td>
+<td>(LZ4 only)Convert msgpack binary to LZ4 msgpack binary.</td>
+</tr>
+<tr>
+<td><code>Decode</code></td>
+<td>(LZ4 only)Convert LZ4 msgpack binary to standard msgpack binary.</td>
 </tr>
 </tbody>
 </table>
@@ -7943,6 +7968,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>GetMessagePackType</td>
 <td>Return MessagePackType of target MessagePack bianary position.</td>
+</tr>
+<tr>
+<td>GetExtensionFormatHeaderLength</td>
+<td>Calculate extension formatter header length.</td>
 </tr>
 <tr>
 <td>EnsureCapacity</td>
