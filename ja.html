@@ -7543,7 +7543,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 
 <span class="pl-c">// Okay to deserialize immutable obejct</span>
 <span class="pl-k">var</span> <span class="pl-en">point </span>= <span class="pl-en">MessagePackSerializer.Deserialize</span>&lt;<span class="pl-en">Point</span>&gt;(bin);</pre></div>
-<p>MessagePackSerializer choose constructor with the least argument and match index if key in integer or match name(ignore case) if key is string. If encounts <code>MessagePackDynamicObjectResolverException: can't find matched constructor parameter</code> you should check about this.</p>
+<p>MessagePackSerializer choose constructor with the least matched argument, match index if key in integer or match name(ignore case) if key is string. If encounts <code>MessagePackDynamicObjectResolverException: can't find matched constructor parameter</code> you should check about this.</p>
 <p>If can not match automatically, you can specify to use constructor manually by <code>[SerializationConstructorAttribute]</code>.</p>
 <div class="highlight highlight-source-cs"><pre>[MessagePackObject]
 <span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Point</span>
@@ -7553,11 +7553,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
     [Key(<span class="pl-c1">1</span>)]
     <span class="pl-k">public readonly </span><span class="pl-k">int</span> <span class="pl-en">Y</span>;
 
-    <span class="pl-c">// can't find matched constructor parameter, parameterType mismatch. type:Point parameterIndex:0 paramterType:ValueTuple`2</span>
-    <span class="pl-k">public</span> <span class="pl-en">Point</span>((int, int) p)
+    <span class="pl-c">// If not marked attribute, used this(least matched argument)</span>
+    <span class="pl-k">public</span> <span class="pl-en">Point</span>(int x)
     {
-        X = p.Item1;
-        Y = p.Item2;
+        X = x;
     }
 
     [SerializationConstructor]
@@ -7738,10 +7737,132 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </li>
 <li>Uses optimized type key dictionary for non-generic methods, <a href="https://github.com/neuecc/MessagePack-CSharp/blob/91312921cb7fe987f48336768c898a76ac7dbb40/src/MessagePack/Internal/ThreadsafeTypeKeyHashTable.cs">see: ThreadsafeTypeKeyHashTable</a>
 </li>
-<li>Avoid string key decode for lookup map(string key) key with calc hash by FarmHash, see: <a href="https://github.com/neuecc/MessagePack-CSharp/blob/91312921cb7fe987f48336768c898a76ac7dbb40/src/MessagePack/Internal/ByteArrayStringHashTable.cs">ByteArrayStringHashTable</a>
+<li>Avoid string key decode for lookup map(string key) key and uses automata based name lookup with il inlining code generation, see: <a href="https://github.com/neuecc/MessagePack-CSharp/blob/bcedbce3fd98cb294210d6b4a22bdc4c75ccd916/src/MessagePack/Internal/AutomataDictionary.cs">AutomataDictionary</a>
 </li>
 </ul>
 <p>Before creating this library, I implemented a fast fast serializer with <a href="https://github.com/neuecc/ZeroFormatter#performance">ZeroFormatter#Performance</a>. And this is a further evolved implementation. MessagePack for C# is always fast, optimized for all types(primitive, small struct, large object, any collections).</p>
+<h6>
+<a id="user-content-deserialize-perfomrance-per-options" class="anchor" href="#deserialize-perfomrance-per-options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deserialize Perfomrance per options</h6>
+<p>Performance varies depending on options. This is a micro benchamark with <a href="https://github.com/dotnet/BenchmarkDotNet">BenchmarkDotNet</a>. Target object has 9 members(<code>MyProperty1</code> ~ <code>MyProperty9</code>), value are zero.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th align="right">Mean</th>
+<th align="right">Error</th>
+<th align="right">Scaled</th>
+<th align="right">Gen 0</th>
+<th align="right">Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IntKey</td>
+<td align="right">72.67 ns</td>
+<td align="right">NA</td>
+<td align="right">1.00</td>
+<td align="right">0.0132</td>
+<td align="right">56 B</td>
+</tr>
+<tr>
+<td>StringKey</td>
+<td align="right">217.95 ns</td>
+<td align="right">NA</td>
+<td align="right">3.00</td>
+<td align="right">0.0131</td>
+<td align="right">56 B</td>
+</tr>
+<tr>
+<td>Typeless_IntKey</td>
+<td align="right">176.71 ns</td>
+<td align="right">NA</td>
+<td align="right">2.43</td>
+<td align="right">0.0131</td>
+<td align="right">56 B</td>
+</tr>
+<tr>
+<td>Typeless_StringKey</td>
+<td align="right">378.64 ns</td>
+<td align="right">NA</td>
+<td align="right">5.21</td>
+<td align="right">0.0129</td>
+<td align="right">56 B</td>
+</tr>
+<tr>
+<td>MsgPackCliMap</td>
+<td align="right">1,355.26 ns</td>
+<td align="right">NA</td>
+<td align="right">18.65</td>
+<td align="right">0.1431</td>
+<td align="right">608 B</td>
+</tr>
+<tr>
+<td>MsgPackCliArray</td>
+<td align="right">455.28 ns</td>
+<td align="right">NA</td>
+<td align="right">6.26</td>
+<td align="right">0.0415</td>
+<td align="right">176 B</td>
+</tr>
+<tr>
+<td>ProtobufNet</td>
+<td align="right">265.85 ns</td>
+<td align="right">NA</td>
+<td align="right">3.66</td>
+<td align="right">0.0319</td>
+<td align="right">136 B</td>
+</tr>
+<tr>
+<td>Hyperion</td>
+<td align="right">366.47 ns</td>
+<td align="right">NA</td>
+<td align="right">5.04</td>
+<td align="right">0.0949</td>
+<td align="right">400 B</td>
+</tr>
+<tr>
+<td>JsonNetString</td>
+<td align="right">2,783.39 ns</td>
+<td align="right">NA</td>
+<td align="right">38.30</td>
+<td align="right">0.6790</td>
+<td align="right">2864 B</td>
+</tr>
+<tr>
+<td>JsonNetStreamReader</td>
+<td align="right">3,297.90 ns</td>
+<td align="right">NA</td>
+<td align="right">45.38</td>
+<td align="right">1.4267</td>
+<td align="right">6000 B</td>
+</tr>
+<tr>
+<td>JilString</td>
+<td align="right">553.65 ns</td>
+<td align="right">NA</td>
+<td align="right">7.62</td>
+<td align="right">0.0362</td>
+<td align="right">152 B</td>
+</tr>
+<tr>
+<td>JilStreamReader</td>
+<td align="right">1,408.46 ns</td>
+<td align="right">NA</td>
+<td align="right">19.38</td>
+<td align="right">0.8450</td>
+<td align="right">3552 B</td>
+</tr>
+</tbody>
+</table>
+<p>IntKey, StringKey, Typeless_IntKey, Typeless_StringKey are MessagePack for C# options. All MessagePack for C# options achive zero memory allocation on deserialization process. JsonNetString/JilString is deserialized from string. JsonNetStreamReader/JilStreamReader is deserialized from UTF8 byte[] with StreamReader. Deserialization is normally read from Stream. Thus, it will be restored from byte[](or Stream) instead of string.</p>
+<p>MessagePack for C# IntKey is fastest. StringKey is slower than IntKey because matching from the character string is required. If IntKey, read array length, for(array length) { binary decode }. If StringKey, read map length, for(map length) { decode key, lookup by key, binary decode } so requires additional two steps(decode key and lookup by key).</p>
+<p>String key is often useful, contractless, simple replacement of JSON, interoperability with other languages, and more certain versioning. MessagePack for C# is also optimized for String Key. First of all, it do not decode UTF8 byte[] to String for matching with the member name, it will look up the byte[] as it is(avoid decode cost and extra allocation).</p>
+<p>And It will try to match each <code>long type</code> (per 8 character, if it is not enough, pad with 0) using <a href="https://en.wikipedia.org/wiki/Automata_theory">automata</a> and inline it when IL code generating.</p>
+<p><a href="https://user-images.githubusercontent.com/46207/29754771-216b40e2-8bc7-11e7-8310-1c3602e80a08.png" target="_blank"><img src="https://user-images.githubusercontent.com/46207/29754771-216b40e2-8bc7-11e7-8310-1c3602e80a08.png" alt="image" style="max-width:100%;"></a></p>
+<p>This also avoids calculating the hash code of byte[], and the comparison can be made several times on a long unit.</p>
+<p>This is the sample decompile of generated deserializer code by <a href="http://ilspy.net/">ILSpy</a>.</p>
+<p><a href="https://user-images.githubusercontent.com/46207/29754804-b5ba0f44-8bc7-11e7-9f6b-0c8f3c041237.png" target="_blank"><img src="https://user-images.githubusercontent.com/46207/29754804-b5ba0f44-8bc7-11e7-9f6b-0c8f3c041237.png" alt="image" style="max-width:100%;"></a></p>
+<p>If the number of nodes is large, search with a embedded binary search.</p>
 <h6>
 <a id="user-content-lz4-compression" class="anchor" href="#lz4-compression" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LZ4 Compression</h6>
 <p>MessagePack is a fast and <em>compact</em> format but it is not compression. <a href="https://github.com/lz4/lz4">LZ4</a> is extremely fast compression algorithm, with MessagePack for C# can achive extremely fast perfrormance and extremely compact binary size!</p>
@@ -7992,6 +8113,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>ReadStringSegment</td>
 <td>Read string format but do not decode UTF8, returns <code>ArraySegment&lt;byte&gt;</code>.</td>
+</tr>
+<tr>
+<td>ReadBytesSegment</td>
+<td>Read binary format but do not copy bytes, returns <code>ArraySegment&lt;byte&gt;</code>.</td>
 </tr>
 <tr>
 <td>Write/ReadMapHeader</td>
