@@ -7432,7 +7432,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <h6>
 <a id="user-content-built-in-support-types" class="anchor" href="#built-in-support-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Built-in support types</h6>
 <p>These types can serialize by default.</p>
-<p>Primitives(<code>int</code>, <code>string</code>, etc...), <code>Enum</code>, <code>Nullable&lt;&gt;</code>,  <code>TimeSpan</code>,  <code>DateTime</code>, <code>DateTimeOffset</code>, <code>Nil</code>, <code>Guid</code>, <code>Uri</code>, <code>Version</code>, <code>StringBuilder</code>, <code>BitArray</code>, <code>ArraySegment&lt;&gt;</code>, <code>BigInteger</code>, <code>Complext</code>, <code>Task</code>, <code>Array[]</code>, <code>Array[,]</code>, <code>Array[,,]</code>, <code>Array[,,,]</code>, <code>KeyValuePair&lt;,&gt;</code>, <code>Tuple&lt;,...&gt;</code>, <code>ValueTuple&lt;,...&gt;</code>, <code>List&lt;&gt;</code>, <code>LinkedList&lt;&gt;</code>, <code>Queue&lt;&gt;</code>, <code>Stack&lt;&gt;</code>, <code>HashSet&lt;&gt;</code>, <code>ReadOnlyCollection&lt;&gt;</code>, <code>IList&lt;&gt;</code>, <code>ICollection&lt;&gt;</code>, <code>IEnumerable&lt;&gt;</code>, <code>Dictionary&lt;,&gt;</code>, <code>IDictionary&lt;,&gt;</code>, <code>SortedDictionary&lt;,&gt;</code>, <code>SortedList&lt;,&gt;</code>, <code>ILookup&lt;,&gt;</code>, <code>IGrouping&lt;,&gt;</code>, <code>ObservableCollection&lt;&gt;</code>, <code>ReadOnlyOnservableCollection&lt;&gt;</code>, <code>IReadOnlyList&lt;&gt;</code>, <code>IReadOnlyCollection&lt;&gt;</code>, <code>ISet&lt;&gt;</code>, <code>ConcurrentBag&lt;&gt;</code>, <code>ConcurrentQueue&lt;&gt;</code>, <code>ConcurrentStack&lt;&gt;</code>, <code>ReadOnlyDictionary&lt;,&gt;</code>, <code>IReadOnlyDictionary&lt;,&gt;</code>, <code>ConcurrentDictionary&lt;,&gt;</code>, <code>Lazy&lt;&gt;</code>, <code>Task&lt;&gt;</code> and custom inherited <code>ICollection&lt;&gt;</code> or <code>IDictionary&lt;,&gt;</code> with paramterless constructor.</p>
+<p>Primitives(<code>int</code>, <code>string</code>, etc...), <code>Enum</code>, <code>Nullable&lt;&gt;</code>,  <code>TimeSpan</code>,  <code>DateTime</code>, <code>DateTimeOffset</code>, <code>Nil</code>, <code>Guid</code>, <code>Uri</code>, <code>Version</code>, <code>StringBuilder</code>, <code>BitArray</code>, <code>ArraySegment&lt;&gt;</code>, <code>BigInteger</code>, <code>Complext</code>, <code>Task</code>, <code>Array[]</code>, <code>Array[,]</code>, <code>Array[,,]</code>, <code>Array[,,,]</code>, <code>KeyValuePair&lt;,&gt;</code>, <code>Tuple&lt;,...&gt;</code>, <code>ValueTuple&lt;,...&gt;</code>, <code>List&lt;&gt;</code>, <code>LinkedList&lt;&gt;</code>, <code>Queue&lt;&gt;</code>, <code>Stack&lt;&gt;</code>, <code>HashSet&lt;&gt;</code>, <code>ReadOnlyCollection&lt;&gt;</code>, <code>IList&lt;&gt;</code>, <code>ICollection&lt;&gt;</code>, <code>IEnumerable&lt;&gt;</code>, <code>Dictionary&lt;,&gt;</code>, <code>IDictionary&lt;,&gt;</code>, <code>SortedDictionary&lt;,&gt;</code>, <code>SortedList&lt;,&gt;</code>, <code>ILookup&lt;,&gt;</code>, <code>IGrouping&lt;,&gt;</code>, <code>ObservableCollection&lt;&gt;</code>, <code>ReadOnlyOnservableCollection&lt;&gt;</code>, <code>IReadOnlyList&lt;&gt;</code>, <code>IReadOnlyCollection&lt;&gt;</code>, <code>ISet&lt;&gt;</code>, <code>ConcurrentBag&lt;&gt;</code>, <code>ConcurrentQueue&lt;&gt;</code>, <code>ConcurrentStack&lt;&gt;</code>, <code>ReadOnlyDictionary&lt;,&gt;</code>, <code>IReadOnlyDictionary&lt;,&gt;</code>, <code>ConcurrentDictionary&lt;,&gt;</code>, <code>Lazy&lt;&gt;</code>, <code>Task&lt;&gt;</code>, custom inherited <code>ICollection&lt;&gt;</code> or <code>IDictionary&lt;,&gt;</code> with paramterless constructor, <code>IList</code>, <code>IDictionary</code> and custom inherited <code>ICollection</code> or <code>IDictionary</code> with paramterless constructor(includes <code>ArrayList</code> and <code>Hashtable</code>).</p>
 <p>You can add custom type support and has some official/third-party extension package. for ImmutableCollections(<code>ImmutableList&lt;&gt;</code>, etc), for ReactiveProperty and for Unity(<code>Vector3</code>, <code>Quaternion</code>, etc...), for F#(Record, FsList, Discriminated Unions, etc...). Please see <a href="https://github.com/neuecc/MessagePack-CSharp#extensions">extensions section</a>.</p>
 <p><code>MessagePack.Nil</code> is built-in null/void/unit representation type of MessagePack for C#.</p>
 <h6>
@@ -7736,6 +7736,8 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </li>
 <li>Avoid string key decode for lookup map(string key) key and uses automata based name lookup with il inlining code generation, see: <a href="https://github.com/neuecc/MessagePack-CSharp/blob/bcedbce3fd98cb294210d6b4a22bdc4c75ccd916/src/MessagePack/Internal/AutomataDictionary.cs">AutomataDictionary</a>
 </li>
+<li>For string key encode, pre-generated member name bytes and use fixed sized binary copy in IL, see: <a href="https://github.com/neuecc/MessagePack-CSharp/blob/f17ddc5d107d3a2f66f60398b214ef87919ff892/src/MessagePack/Internal/UnsafeMemory.cs">UnsafeMemory.cs</a>
+</li>
 </ul>
 <p>Before creating this library, I implemented a fast fast serializer with <a href="https://github.com/neuecc/ZeroFormatter#performance">ZeroFormatter#Performance</a>. And this is a further evolved implementation. MessagePack for C# is always fast, optimized for all types(primitive, small struct, large object, any collections).</p>
 <h6>
@@ -7875,105 +7877,105 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tbody>
 <tr>
 <td>IntKey</td>
-<td align="right">95.31 ns</td>
+<td align="right">109.3 ns</td>
 <td align="right">NA</td>
 <td align="right">1.00</td>
-<td align="right">0.0094</td>
+<td align="right">0.0093</td>
 <td align="right">40 B</td>
 </tr>
 <tr>
 <td>StringKey</td>
-<td align="right">225.33 ns</td>
+<td align="right">170.8 ns</td>
 <td align="right">NA</td>
-<td align="right">2.36</td>
-<td align="right">0.0339</td>
+<td align="right">1.56</td>
+<td align="right">0.0341</td>
 <td align="right">144 B</td>
 </tr>
 <tr>
 <td>Typeless_IntKey</td>
-<td align="right">168.00 ns</td>
+<td align="right">223.0 ns</td>
 <td align="right">NA</td>
-<td align="right">1.76</td>
+<td align="right">2.04</td>
 <td align="right">0.0265</td>
 <td align="right">112 B</td>
 </tr>
 <tr>
 <td>Typeless_StringKey</td>
-<td align="right">325.38 ns</td>
+<td align="right">279.1 ns</td>
 <td align="right">NA</td>
-<td align="right">3.41</td>
+<td align="right">2.55</td>
 <td align="right">0.0510</td>
 <td align="right">216 B</td>
 </tr>
 <tr>
 <td>MsgPackCliMap</td>
-<td align="right">1,158.00 ns</td>
+<td align="right">1,304.8 ns</td>
 <td align="right">NA</td>
-<td align="right">12.15</td>
+<td align="right">11.94</td>
 <td align="right">0.1297</td>
 <td align="right">552 B</td>
 </tr>
 <tr>
 <td>MsgPackCliArray</td>
-<td align="right">332.33 ns</td>
+<td align="right">409.7 ns</td>
 <td align="right">NA</td>
-<td align="right">3.49</td>
+<td align="right">3.75</td>
 <td align="right">0.1006</td>
 <td align="right">424 B</td>
 </tr>
 <tr>
 <td>ProtobufNet</td>
-<td align="right">260.88 ns</td>
+<td align="right">213.4 ns</td>
 <td align="right">NA</td>
-<td align="right">2.74</td>
+<td align="right">1.95</td>
 <td align="right">0.0665</td>
 <td align="right">280 B</td>
 </tr>
 <tr>
 <td>Hyperion</td>
-<td align="right">300.12 ns</td>
+<td align="right">359.6 ns</td>
 <td align="right">NA</td>
-<td align="right">3.15</td>
+<td align="right">3.29</td>
 <td align="right">0.1674</td>
 <td align="right">704 B</td>
 </tr>
 <tr>
 <td>ZeroFormatter</td>
-<td align="right">165.17 ns</td>
+<td align="right">186.7 ns</td>
 <td align="right">NA</td>
-<td align="right">1.73</td>
+<td align="right">1.71</td>
 <td align="right">0.1009</td>
 <td align="right">424 B</td>
 </tr>
 <tr>
 <td>JsonNetString</td>
-<td align="right">1,524.97 ns</td>
+<td align="right">1,814.3 ns</td>
 <td align="right">NA</td>
-<td align="right">16.00</td>
+<td align="right">16.60</td>
 <td align="right">0.4616</td>
 <td align="right">1944 B</td>
 </tr>
 <tr>
 <td>JsonNetStreamWriter</td>
-<td align="right">1,847.29 ns</td>
+<td align="right">2,211.0 ns</td>
 <td align="right">NA</td>
-<td align="right">19.38</td>
+<td align="right">20.24</td>
 <td align="right">1.5526</td>
 <td align="right">6522 B</td>
 </tr>
 <tr>
 <td>JilString</td>
-<td align="right">580.54 ns</td>
+<td align="right">702.0 ns</td>
 <td align="right">NA</td>
-<td align="right">6.09</td>
+<td align="right">6.42</td>
 <td align="right">0.3481</td>
 <td align="right">1464 B</td>
 </tr>
 <tr>
 <td>JilStreamWriter</td>
-<td align="right">848.34 ns</td>
+<td align="right">988.0 ns</td>
 <td align="right">NA</td>
-<td align="right">8.90</td>
+<td align="right">9.04</td>
 <td align="right">1.4448</td>
 <td align="right">6066 B</td>
 </tr>
@@ -8276,6 +8278,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <td>Write ext format header, always use ext32 format(length is fixed, 6).</td>
 </tr>
 <tr>
+<td>WriteRaw</td>
+<td>Write msgpack block directly.</td>
+</tr>
+<tr>
 <td>IsNil</td>
 <td>Is TypeCode Nil?</td>
 </tr>
@@ -8286,6 +8292,10 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <tr>
 <td>GetExtensionFormatHeaderLength</td>
 <td>Calculate extension formatter header length.</td>
+</tr>
+<tr>
+<td>GetEncodedStringBytes</td>
+<td>Get msgpack packed raw binary.</td>
 </tr>
 <tr>
 <td>EnsureCapacity</td>
@@ -8550,6 +8560,23 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
     }
 }</pre></div>
 <p>Formatter is retrieved by <code>AttributeFormatterResolver</code>, it is included in <code>StandardResolver</code>.</p>
+<h6>
+<a id="user-content-ignoreformatter" class="anchor" href="#ignoreformatter" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IgnoreFormatter</h6>
+<p><code>IgnoreFormatter&lt;T&gt;</code> is lightweight extension point of class and struct, if exists can't serializable type in external type, you can register <code>IgnoreFormatter&lt;T&gt;</code> that serialize to nil.</p>
+<div class="highlight highlight-source-cs"><pre><span class="pl-c">// CompositeResolver can set custom formatter.</span>
+<span class="pl-en">MessagePack.Resolvers.CompositeResolver.RegisterAndSetAsDefault</span>(
+    new IMessagePackFormatter[] 
+    {
+        <span class="pl-c">// for example, register reflection infos(can not serialize in default)</span>
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;MethodBase&gt;(),
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;MethodInfo&gt;(),
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;PropertyInfo&gt;(),
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;FieldInfo&gt;()
+    },
+    new IFormatterResolver[] 
+    {
+        ContractlessStandardResolver.Instance
+    });</pre></div>
 <h6>
 <a id="user-content-reserved-extension-types" class="anchor" href="#reserved-extension-types" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reserved Extension Types</h6>
 <p>MessagePack for C# already used some messagepack ext type codes, be careful to use same ext code.</p>
