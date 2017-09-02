@@ -342,6 +342,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-msgpack-racket',this)">Racket <span class="qs-sub">HiPhish</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-traversc-msgpack2R',this)">R <span class="qs-sub">traversc</span></a></li>
+          
         </ul>
       </div>
 
@@ -9185,6 +9187,38 @@ UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
 <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 <p>Released under the GPLv3+ license, see the <a href="/HiPhish/msgpack-racket/blob/master/COPYING.txt">COPYING</a> file for details.</p>
 
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-traversc-msgpack2R" class="qs"><h4><a href="https://github.com/traversc/msgpack2R" target="_blank">traversc/msgpack2R <span class="qs-url">https://github.com/traversc/msgpack2R</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack2r" class="anchor" href="#msgpack2r" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack2R</h5>
+<p><em>Convert to and from msgpack objects in R using the msgpac-c API.</em></p>
+<p><a href="/traversc/msgpack2R/blob/master/msgpack_flowchart_small.png" target="_blank"><img src="/traversc/msgpack2R/raw/master/msgpack_flowchart_small.png" alt="flowchart" title="Conversion flowchart" style="max-width:100%;"></a>
+A flowchart describing the conversion of R objects into msgpack objects and back.</p>
+<p>Msgpack extensions are converted to raw vectors with EXT attributes containing the extension type.  The extension type must be an integer from 0 to 127.</p>
+<p>Maps are converted to data.frames with additional class "map".  Map objects in R contain key and value list columns and can be simplified to named lists or named vectors.  The helper function <code>msgpack_map</code> can create map objects that can be serialized into msgpack.</p>
+<p>For more information on msgpack types, see <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">here</a>.</p>
+<h7>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation:</h7>
+<ol>
+<li>On Windows, install Rtools (<a href="https://cran.r-project.org/bin/windows/Rtools/">https://cran.r-project.org/bin/windows/Rtools/</a>)</li>
+<li>In R, install devtools: <code>install.packages("devtools")</code>
+</li>
+<li><code>library(devtools)</code></li>
+<li><code>install_github("traversc/msgpack2R")</code></li>
+</ol>
+<h7>
+<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example:</h7>
+<p>See <code>tests.r</code> for more examples.</p>
+<pre><code>library(msgpack2R)
+
+x &lt;- as.list(1:1e7)
+xpk &lt;- msgpack_pack(x)
+xu &lt;- msgpack_unpack(xpk)
+</code></pre>
 </article>
   </div>
         </div>
