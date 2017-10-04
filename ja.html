@@ -8764,7 +8764,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <blockquote>
 <p>Note: If Unity's build target as PC, does not need code generation. It works well.</p>
 </blockquote>
-<p>If you want to avoid generate cost or run on Xamarin or Unity, you need pre-code generation. <code>mpc.exe</code>(MessagePackCompiler) is code generator of MessagePack for C#. mpc is located in <code>packages\MessagePack.*.*.*\tools\mpc.exe</code> or includes for unity's package. mpc is using <a href="https://github.com/dotnet/roslyn">Roslyn</a> so analyze source code.</p>
+<p>If you want to avoid generate cost or run on Xamarin or Unity, you need pre-code generation. <code>mpc.exe</code>(MessagePackCompiler) is code generator of MessagePack for C#. mpc can download from <a href="https://github.com/neuecc/MessagePack-CSharp/releases/tag/v1.6.2">releases</a> page, <code>mpc.zip</code>. mpc is using <a href="https://github.com/dotnet/roslyn">Roslyn</a> so analyze source code.</p>
 <pre><code>mpc arguments help:
   -i, --input              [required]Input path of analyze csproj
   -o, --output             [required]Output file path
