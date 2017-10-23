@@ -1203,26 +1203,39 @@ This library can be used from ALL CLS compliant languages such as C#, F#, Visual
 <ol>
 <li>
 <p>Install Visual Studio 2017 (Community edition is OK) and 2015 (for MsgPack.Windows.sln).</p>
+<ul>
+<li>You must install .NET Framework 3.5, 4.x, .NET Core, and Xamarin dev tools to build all builds successfully.
+If you do not want to install options, edit <code>&lt;TargetFrameworks&gt;</code> element in <code>*.csproj</code> files to exclude platforms you want to exclude.</li>
+</ul>
+</li>
+<li>
+<p>Install latest .NET Core SDK.</p>
 </li>
 <li>
 <p>Run with Visual Studio Developer Command Prompt:</p>
-<p>msbuild MsgPack.sln</p>
+<p>msbuild MsgPack.sln /t:Restore
+msbuild MsgPack.sln</p>
 </li>
 </ol>
 <p>Or (for Unity 3D drops):</p>
-<pre><code>msbuild MsgPack.compats.sln
+<pre><code>msbuild MsgPack.compats.sln /t:Restore
+msbuild MsgPack.compats.sln
 </code></pre>
 <p>Or (for Windows Runtime/Phone drops and Silverlight 5 drops):</p>
-<pre><code>msbuild MsgPack.Windows.sln
+<pre><code>msbuild MsgPack.Windows.sln /t:Restore
+msbuild MsgPack.Windows.sln
 </code></pre>
 <p>Or (for Xamarin unit testing, you must have Xamarin Business or upper license and Mac machine on the LAN to build on Windows):</p>
-<pre><code>msbuild MsgPack.Xamarin.sln
+<pre><code>msbuild MsgPack.Xamarin.sln /t:Restore
+msbuild MsgPack.Xamarin.sln
 </code></pre>
 <p>Or open one of above solution files in your IDE and run build command in it.</p>
 <h7>
 <a href="#for-mono" aria-hidden="true" class="anchor" id="user-content-for-mono"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For Mono</h7>
-<p>Open MsgPack.mono.sln with MonoDevelop and then click <strong>Build</strong> menu item.
-(Of cource, you can build via xbuild.)</p>
+<ol>
+<li>Install latest Mono and .NET Core SDK.</li>
+<li>Now, you can build MsgPack.sln and MsgPack.Xamarin.sln with above instructions and <code>msbuild</code> in latest Mono. Note that <code>xbuild</code> does not work because it does not support latest csproj format.</li>
+</ol>
 <h7>
 <a href="#own-unity-3d-build" aria-hidden="true" class="anchor" id="user-content-own-unity-3d-build"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Own Unity 3D Build</h7>
 <p>First of all, there are binary drops on github release page, you should use it to save your time.
