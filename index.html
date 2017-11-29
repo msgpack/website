@@ -1011,53 +1011,50 @@ end
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a href="#messagepack-for-scala" aria-hidden="true" class="anchor" id="user-content-messagepack-for-scala"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Scala</h5>
-<p><a href="https://travis-ci.org/msgpack/msgpack-scala"><img src="https://camo.githubusercontent.com/e0d1591ccd9b26e78281681c4d0272ceba6abb93/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d7363616c612e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-scala.svg?branch=master" style="max-width:100%;"></a></p>
-<p>An implementation of <a href="http://msgpack.org/">MessagePack</a> for Scala.</p>
-<h6>
-<a href="#requirement" aria-hidden="true" class="anchor" id="user-content-requirement"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirement</h6>
+<p><a href="https://travis-ci.org/msgpack/msgpack-scala" rel="nofollow"><img src="https://camo.githubusercontent.com/e0d1591ccd9b26e78281681c4d0272ceba6abb93/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d7363616c612e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-scala.svg?branch=master" style="max-width:100%;"></a></p>
 <ul>
-<li>sbt 0.13.5 or later</li>
+<li>Message Pack specification: <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a>
+</li>
 </ul>
 <h6>
-<a href="#sbt" aria-hidden="true" class="anchor" id="user-content-sbt"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SBT</h6>
-<p>Add dependency.</p>
-<pre><code>libraryDependencies += "org.msgpack" %% "msgpack-scala" % "0.6.11"
+<a href="#quick-start" aria-hidden="true" class="anchor" id="user-content-quick-start"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quick Start</h6>
+<p><a href="https://maven-badges.herokuapp.com/maven-central/org.msgpack/msgpack-scala/" rel="nofollow"><img src="https://camo.githubusercontent.com/406dda48b3a74c6597b78602d597b44bfec6d39e/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f6f72672e6d73677061636b2f6d73677061636b2d7363616c612f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/org.msgpack/msgpack-scala/badge.svg" style="max-width:100%;"></a>
+<a href="http://www.javadoc.io/doc/org.msgpack/msgpack-scala" rel="nofollow"><img src="https://camo.githubusercontent.com/f75a4f7fe8b5d39c5bb5088a1704b8d581262f94/68747470733a2f2f6a617661646f632d656d626c656d2e7268636c6f75642e636f6d2f646f632f6f72672e6d73677061636b2f6d73677061636b2d7363616c612f62616467652e737667" alt="Javadoc" data-canonical-src="https://javadoc-emblem.rhcloud.com/doc/org.msgpack/msgpack-scala/badge.svg" style="max-width:100%;"></a></p>
+<pre><code>libraryDependencies += "org.msgpack" %% "msgpack-scala" % "(version)"
 </code></pre>
+<p>General usage is the same with msgpack-java. See this <a href="https://github.com/msgpack/msgpack-java/blob/develop/msgpack-core/src/test/java/org/msgpack/core/example/MessagePackExample.java">example code (Java)</a>.</p>
 <h6>
-<a href="#for-developer" aria-hidden="true" class="anchor" id="user-content-for-developer"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For developer</h6>
+<a href="#for-messagepack-developers" aria-hidden="true" class="anchor" id="user-content-for-messagepack-developers"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>For MessagePack Developers</h6>
 <h7>
-<a href="#make-intellij-project" aria-hidden="true" class="anchor" id="user-content-make-intellij-project"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make intellij project</h7>
-<h7>
-<a href="#-intellij-idea-13" aria-hidden="true" class="anchor" id="user-content--intellij-idea-13"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>&gt;= IntelliJ IDEA 13</h7>
-<p>You can import sbt file.</p>
-<h7>
-<a href="#-intellij-idea-13-1" aria-hidden="true" class="anchor" id="user-content--intellij-idea-13-1"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>&lt; IntelliJ IDEA 13</h7>
-<p>Please type the following command.Then intellij project will be generated.</p>
-<pre><code>$ sbt gen-idea
+<a href="#basic-sbt-commands" aria-hidden="true" class="anchor" id="user-content-basic-sbt-commands"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic sbt commands</h7>
+<p>Enter the sbt console:</p>
+<pre><code>$ ./sbt
 </code></pre>
-<h5>
-<a href="#quick-start" aria-hidden="true" class="anchor" id="user-content-quick-start"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quick Start</h5>
-<h6>
-<a href="#serializedeserialize-class" aria-hidden="true" class="anchor" id="user-content-serializedeserialize-class"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialize/Deserialize class</h6>
-<div class="highlight highlight-source-scala"><pre><span class="pl-k">import</span> <span class="pl-smi">org.msgpack.annotation.</span><span class="pl-smi">Message</span>
-<span class="pl-k">import</span> <span class="pl-smi">org.msgpack.</span><span class="pl-smi">ScalaMessagePack</span>
+<p>Here is a list of sbt commands for daily development:</p>
+<pre><code>&gt; ~compile                                 # Compile source codes
+&gt; ~test:compile                            # Compile both source and test codes
+&gt; ~test                                    # Run tests upon source code change
+&gt; ~test-only *MessagePackTest              # Run tests in the specified class
+&gt; ~test-only *MessagePackTest -- -n prim   # Run the test tagged as "prim"
+&gt; project msgpack-scala                    # Focus on a specific project
+&gt; package                                  # Create a jar file in the target folder of each project
+&gt; scalafmt                                 # Reformat source codes
+&gt; ; coverage; test; coverageReport; coverageAggregate;  # Code coverage
+</code></pre>
+<h7>
+<a href="#publishing" aria-hidden="true" class="anchor" id="user-content-publishing"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publishing</h7>
+<pre><code>&gt; publishLocal            # Install to local .ivy2 repository
+&gt; publish                 # Publishing a snapshot version to the Sonatype repository
 
-<span class="pl-k">@</span><span class="pl-en">Message</span> <span class="pl-c"><span class="pl-c">//</span> Don't forget to add Message annotation.</span>
-<span class="pl-k">class</span> <span class="pl-en">YourClass</span>{
-  <span class="pl-k">var</span> <span class="pl-en">name</span> <span class="pl-k">:</span> <span class="pl-k">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
-  <span class="pl-k">var</span> <span class="pl-en">age</span> <span class="pl-k">:</span> <span class="pl-k">Int</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>
-}
-
-<span class="pl-k">val</span> <span class="pl-en">obj</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">YourClass</span>()
-obj.name <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>hoge<span class="pl-pds">"</span></span>
-obj.age <span class="pl-k">=</span> <span class="pl-c1">22</span>
-<span class="pl-k">val</span> <span class="pl-en">serialized</span> <span class="pl-k">:</span> <span class="pl-en">Array</span>[<span class="pl-k">Byte</span>] <span class="pl-k">=</span> <span class="pl-en">ScalaMessagePack</span>.write(obj)
-
-<span class="pl-k">val</span> <span class="pl-en">deserialized</span> <span class="pl-k">:</span> <span class="pl-en">YourClass</span> <span class="pl-k">=</span> <span class="pl-en">ScalaMessagePack</span>.read[<span class="pl-en">YourClass</span>](serialized)
-</pre></div>
-<ul>
-<li>Sorry, case classes are not supported now.</li>
-</ul>
+&gt; release                 # Run the release procedure (set a new version, run tests, upload artifacts, then deploy to Sonatype)
+</code></pre>
+<p>For publishing to Maven central, msgpack-scala uses <a href="https://github.com/xerial/sbt-sonatype">sbt-sonatype</a> plugin. Set Sonatype account information (user name and password) in the global sbt settings. To protect your password, never include this file in your project.</p>
+<p><em><strong>$HOME/.sbt/(sbt-version)/sonatype.sbt</strong></em></p>
+<pre><code>credentials += Credentials("Sonatype Nexus Repository Manager",
+        "oss.sonatype.org",
+        "(Sonatype user name)",
+        "(Sonatype password)")
+</code></pre>
 </article>
   </div>
         </div>
