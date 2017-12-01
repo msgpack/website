@@ -4786,7 +4786,7 @@ version bumping.</li>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a href="#msgpack4nim" aria-hidden="true" class="anchor" id="user-content-msgpack4nim"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack4nim</h5>
-<p><a href="http://msgpack.org/">MessagePack</a> implementation written in pure nim</p>
+<p><a href="http://msgpack.org/" rel="nofollow">MessagePack</a> implementation written in pure nim</p>
 <h7>
 <a href="#why-another-implementation" aria-hidden="true" class="anchor" id="user-content-why-another-implementation"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>why another implementation?</h7>
 <p>I am fully aware of <a href="https://github.com/akiradeveloper/msgpack-nim">another</a> msgpack implementation written in nim. But I want something easier to use. Another motivation come from the nim language itself. The current version of nim compiler offer many improvements, including 'generics ' specialization. I found out nim compiler is smart enough to make serialization/deserialization to/from msgpack easy and convenient.</p>
@@ -4993,7 +4993,7 @@ No matter which library/language you use, you can exchange msgpack data among th
 </h8>
 <p><em>ref something</em> :</p>
 <ul>
-<li>if ref value is nil, it will be packed into msgpack nil, and when unpacked, usually will do nothing except seq[T] will be @[]</li>
+<li>if ref value is nil, it will be packed into msgpack nil, and when unpacked, you will get nil too</li>
 <li>if ref value not nil, it will be dereferenced e.g. pack(val[]) or unpack(val[])</li>
 <li>ref subject to some restriction. see <strong>restriction</strong> below</li>
 <li>ptr will be treated like ref during pack</li>
