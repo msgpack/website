@@ -3080,7 +3080,7 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
         <div id="qs-mcollina-msgpack5" class="qs"><h4><a href="https://github.com/mcollina/msgpack5" target="_blank">mcollina/msgpack5 <span class="qs-url">https://github.com/mcollina/msgpack5</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
-<a href="#msgpack5" aria-hidden="true" class="anchor" id="user-content-msgpack5"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack5  <a href="https://travis-ci.org/mcollina/msgpack5"><img src="https://camo.githubusercontent.com/9b55d6db87b3f41e6c4963d8169561554a7e4975/68747470733a2f2f7472617669732d63692e6f72672f6d636f6c6c696e612f6d73677061636b352e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/mcollina/msgpack5.png" style="max-width:100%;"></a>
+<a href="#msgpack5" aria-hidden="true" class="anchor" id="user-content-msgpack5"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack5  <a href="https://travis-ci.org/mcollina/msgpack5" rel="nofollow"><img src="https://camo.githubusercontent.com/9b55d6db87b3f41e6c4963d8169561554a7e4975/68747470733a2f2f7472617669732d63692e6f72672f6d636f6c6c696e612f6d73677061636b352e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/mcollina/msgpack5.png" style="max-width:100%;"></a>
 </h5>
 <p>A msgpack v5 implementation for node.js and the browser, with extension point support.</p>
 <h6>
@@ -3131,7 +3131,7 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
 }</pre></div>
 <h6>
 <a href="#in-the-browser" aria-hidden="true" class="anchor" id="user-content-in-the-browser"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In the Browser</h6>
-<p>This library is compatible with <a href="http://npm.im/browserify">Browserify</a>.</p>
+<p>This library is compatible with <a href="http://npm.im/browserify" rel="nofollow">Browserify</a>.</p>
 <p>If you want to use standalone, grab the file in the <code>dist</code> folder of
 this repo, and use in your own HTML page, the module will expose a
 <code>msgpack5</code> global.</p>
@@ -3170,18 +3170,20 @@ encoded.</p>
 <code>forceFloat64</code>, a boolean to that forces all floats to be encoded as 64-bits floats. Defaults to false.</li>
 <li>
 <code>compatibilityMode</code>, a boolean that enables "compatibility mode" which doesn't use str 8 format. Defaults to false.</li>
+<li>
+<code>disableTimestampEncoding</code>, a boolean that when set disables the encoding of Dates into the <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#timestamp-extension-type">timestamp extension type</a>. Defaults to false.</li>
 </ul>
 <hr>
 <p><a name="user-content-encode"></a></p>
 <h7>
 <a href="#encodeobject" aria-hidden="true" class="anchor" id="user-content-encodeobject"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>encode(object)</h7>
-<p>Encodes <code>object</code> in msgpack, returns a <a href="http://npm.im/bl">bl</a>.</p>
+<p>Encodes <code>object</code> in msgpack, returns a <a href="http://npm.im/bl" rel="nofollow">bl</a>.</p>
 <hr>
 <p><a name="user-content-decode"></a></p>
 <h7>
 <a href="#decodebuf" aria-hidden="true" class="anchor" id="user-content-decodebuf"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>decode(buf)</h7>
-<p>Decodes buf from in msgpack. <code>buf</code> can be a <code>Buffer</code> or a <a href="http://npm.im/bl">bl</a> instance.</p>
-<p>In order to support a stream interface, a user must pass in a <a href="http://npm.im/bl">bl</a> instance.</p>
+<p>Decodes buf from in msgpack. <code>buf</code> can be a <code>Buffer</code> or a <a href="http://npm.im/bl" rel="nofollow">bl</a> instance.</p>
+<p>In order to support a stream interface, a user must pass in a <a href="http://npm.im/bl" rel="nofollow">bl</a> instance.</p>
 <hr>
 <p><a name="user-content-registerEncoder"></a></p>
 <h7>
@@ -3268,19 +3270,19 @@ the passed <code>Buffer</code>
 <a href="#related-projects" aria-hidden="true" class="anchor" id="user-content-related-projects"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Related projects</h6>
 <ul>
 <li>
-<a href="http://npmjs.com/package/msgpack5rpc">msgpack5rpc</a>: An implementation of the
+<a href="http://npmjs.com/package/msgpack5rpc" rel="nofollow">msgpack5rpc</a>: An implementation of the
 <a href="https://github.com/msgpack-rpc/msgpack-rpc/blob/master/spec.md">msgpack-rpc spec</a>
 on top of this library.</li>
 </ul>
 <h6>
 <a href="#disclaimer" aria-hidden="true" class="anchor" id="user-content-disclaimer"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Disclaimer</h6>
-<p>This library is built fully on JS and on <a href="http://npm.im/bl">bl</a> to
+<p>This library is built fully on JS and on <a href="http://npm.im/bl" rel="nofollow">bl</a> to
 simplify the code. Every improvement that keeps the same API is welcome.</p>
 <h6>
 <a href="#acknowledgements" aria-hidden="true" class="anchor" id="user-content-acknowledgements"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Acknowledgements</h6>
-<p>This project was kindly sponsored by <a href="http://nearform.com">nearForm</a>.</p>
+<p>This project was kindly sponsored by <a href="http://nearform.com" rel="nofollow">nearForm</a>.</p>
 <p>This library was originally built as the data format for
-<a href="http://npm.im/jschan">JSChan</a>.</p>
+<a href="http://npm.im/jschan" rel="nofollow">JSChan</a>.</p>
 <h6>
 <a href="#license" aria-hidden="true" class="anchor" id="user-content-license"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 <p>MIT</p>
