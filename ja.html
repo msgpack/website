@@ -7812,6 +7812,32 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <span class="pl-k">var</span> <span class="pl-en">objModel </span>= <span class="pl-en">MessagePackSerializer.Typeless.Deserialize</span>(bin) as MyClass;</pre></div>
 <p>Type information is serialized by mspgack <code>ext</code> format, typecode is 100.</p>
 <p><code>MessagePackSerializer.Typeless</code> is shortcut of <code>Serialize/Deserialize&lt;object&gt;(TypelessContractlessStandardResolver.Instance)</code>. If you want to configure default typeless resolver, you can set by <code>MessagePackSerializer.Typeless.RegisterDefaultResolver</code>.</p>
+<p>TypelessFormatter can use standalone and combinate with existing resolvers.</p>
+<p>``csharp
+// replace <code>object</code> uses typeless
+MessagePack.Resolvers.CompositeResolver.RegisterAndSetAsDefault(
+new[] { MessagePack.Formatters.TypelessFormatter.Instance },
+new[] { MessagePack.Resolvers.StandardResolver.Instance });</p>
+<p>public class Foo
+{
+// use Typeless(this field only)
+[MessagePackFormatter(typeof(TypelessFormatter))]
+public object Bar;
+}</p>
+<pre><code>
+If type name was changed, can not deserialize. If you need to typename fallback, you can use `TypelessFormatter.BindToType`.
+
+```csharp
+MessagePack.Formatters.TypelessFormatter.BindToType = typeName =&gt;
+{
+    if (typeName.StartsWith("SomeNamespace"))
+    {
+        typeName = typeName.Replace("SomeNamespace", "AnotherNamespace");
+    }
+    
+    return Type.GetType(typeName, false);
+};
+</code></pre>
 <h6>
 <a href="#performance" aria-hidden="true" class="anchor" id="user-content-performance"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance</h6>
 <p>Benchmarks comparing to other serializers run on <code>Windows 10 Pro x64 Intel Core i7-6700K 4.00GHz, 32GB RAM</code>. Benchmark code is <a href="https://github.com/neuecc/ZeroFormatter/tree/master/sandbox/PerformanceComparison">here</a> - and there <a href="https://github.com/neuecc/ZeroFormatter/blob/bc63cb925d/sandbox/PerformanceComparison/packages.config">version info</a>, ZeroFormatter and <a href="https://google.github.io/flatbuffers/" rel="nofollow">FlatBuffers</a> has infinitely fast deserializer so ignore deserialize performance.</p>
@@ -8167,7 +8193,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 </code></pre>
 <p><code>MessagePack.ImmutableCollection</code> package add support for <a href="https://www.nuget.org/packages/System.Collections.Immutable/" rel="nofollow">System.Collections.Immutable</a> library. It adds <code>ImmutableArray&lt;&gt;</code>, <code>ImmutableList&lt;&gt;</code>, <code>ImmutableDictionary&lt;,&gt;</code>, <code>ImmutableHashSet&lt;&gt;</code>, <code>ImmutableSortedDictionary&lt;,&gt;</code>, <code>ImmutableSortedSet&lt;&gt;</code>, <code>ImmutableQueue&lt;&gt;</code>, <code>ImmutableStack&lt;&gt;</code>, <code>IImmutableList&lt;&gt;</code>, <code>IImmutableDictionary&lt;,&gt;</code>, <code>IImmutableQueue&lt;&gt;</code>, <code>IImmutableSet&lt;&gt;</code>, <code>IImmutableStack&lt;&gt;</code> serialization support.</p>
 <p><code>MessagePack.ReactiveProperty</code> package add support for <a href="https://github.com/runceel/ReactiveProperty">ReactiveProperty</a> library. It adds <code>ReactiveProperty&lt;&gt;</code>, <code>IReactiveProperty&lt;&gt;</code>, <code>IReadOnlyReactiveProperty&lt;&gt;</code>, <code>ReactiveCollection&lt;&gt;</code>, <code>Unit</code> serialization support. It is useful for save viewmodel state.</p>
-<p><code>MessagePack.UnityShims</code> package provides shim of <a href="https://unity3d.com/" rel="nofollow">Unity</a>'s standard struct(<code>Vector2</code>, <code>Vector3</code>, <code>Vector4</code>, <code>Quaternion</code>, <code>Color</code>, <code>Bounds</code>, <code>Rect</code>) and there formatter. It can enable to commnicate between server and Unity client.</p>
+<p><code>MessagePack.UnityShims</code> package provides shim of <a href="https://unity3d.com/" rel="nofollow">Unity</a>'s standard struct(<code>Vector2</code>, <code>Vector3</code>, <code>Vector4</code>, <code>Quaternion</code>, <code>Color</code>, <code>Bounds</code>, <code>Rect</code>, <code>AnimationCurve</code>, <code>Keyframe</code>, <code>Matrix4x4</code>, <code>Gradient</code>, <code>Color32</code>, <code>RectOffset</code>, <code>LayerMask</code>, <code>Vector2Int</code>, <code>Vector3Int</code>, <code>RangeInt</code>, <code>RectInt</code>, <code>BoundsInt</code>) and there formatter. It can enable to commnicate between server and Unity client.</p>
 <p>After install, extension package must enable by configuration. Here is sample of enable all extension.</p>
 <div class="highlight highlight-source-cs"><pre><span class="pl-c">// set extensions to default resolver.</span>
 <span class="pl-en">MessagePack.Resolvers.CompositeResolver.RegisterAndSetAsDefault</span>(
@@ -8802,7 +8828,7 @@ Install-Package MessagePack.AspNetCoreMvcFormatter
 <h6>
 <a href="#for-unity" aria-hidden="true" class="anchor" id="user-content-for-unity"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for Unity</h6>
 <p>You can install by package and includes source code. If build target as PC, you can use as is but if build target uses IL2CPP, you can not use <code>Dynamic***Resolver</code> so use pre-code generation. Please see <a href="https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports">pre-code generation section</a>.</p>
-<p>In Unity, MessagePackSerializer can serialize <code>Vector2</code>, <code>Vector3</code>, <code>Quaternion</code>, <code>Color</code>, <code>Bounds</code>, <code>Rect</code> and there nullable by built-in extension <code>UnityResolver</code>. It is included StandardResolver by default.</p>
+<p>In Unity, MessagePackSerializer can serialize <code>Vector2</code>, <code>Vector3</code>, <code>Vector4</code>, <code>Quaternion</code>, <code>Color</code>, <code>Bounds</code>, <code>Rect</code>, <code>AnimationCurve</code>, <code>Keyframe</code>, <code>Matrix4x4</code>, <code>Gradient</code>, <code>Color32</code>, <code>RectOffset</code>, <code>LayerMask</code>, <code>Vector2Int</code>, <code>Vector3Int</code>, <code>RangeInt</code>, <code>RectInt</code>, <code>BoundsInt</code> and there nullable, there array, there list by built-in extension <code>UnityResolver</code>. It is included StandardResolver by default.</p>
 <p>MessagePack for C# has additional unsafe extension.  <code>UnsafeBlitResolver</code> is special resolver for extremely fast unsafe serialization/deserialization for struct array.</p>
 <p><a href="https://cloud.githubusercontent.com/assets/46207/23837633/76589924-07ce-11e7-8b26-e50eab548938.png" target="_blank"><img src="https://cloud.githubusercontent.com/assets/46207/23837633/76589924-07ce-11e7-8b26-e50eab548938.png" alt="image" style="max-width:100%;"></a></p>
 <p>x20 faster Vector3[] serialization than native JsonUtility. If use <code>UnsafeBlitResolver</code>, serialize special format(ext:typecode 30~39)  <code>Vector2[]</code>, <code>Vector3[]</code>, <code>Quaternion[]</code>, <code>Color[]</code>, <code>Bounds[]</code>, <code>Rect[]</code>. If use <code>UnityBlitWithPrimitiveArrayResolver</code>, supports <code>int[]</code>, <code>float[]</code>, <code>double[]</code> too. This special feature is useful for serialize Mesh(many Vector3[]) or many transform position.</p>
