@@ -346,6 +346,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-SeanTAllen-pony-msgpack',this)">Pony <span class="qs-sub">SeanTAllen</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-lekma-mood-msgpack',this)">Python <span class="qs-sub">lekma</span></a></li>
+          
         </ul>
       </div>
 
@@ -9392,6 +9394,119 @@ UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
 <li>
 <code>stable env ponyc</code> to compile your application</li>
 </ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-lekma-mood-msgpack" class="qs"><h4><a href="https://github.com/lekma/mood.msgpack" target="_blank">lekma/mood.msgpack <span class="qs-url">https://github.com/lekma/mood.msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a href="#moodmsgpack" aria-hidden="true" class="anchor" id="user-content-moodmsgpack"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mood.msgpack</h5>
+<p>Python MessagePack implementation</p>
+<p><a href="https://msgpack.org/" rel="nofollow">MessagePack</a> is an efficient binary serialization
+format. It lets you exchange data among multiple languages like JSON. But it's
+faster and smaller. Small integers are encoded into a single byte, and typical
+short strings require only one extra byte in addition to the strings themselves.</p>
+<p><strong>See also:</strong> <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a></p>
+<a name="user-content-what-can-be-packed-and-unpacked"></a>
+<h6>
+<a href="#what-can-be-packed-and-unpacked" aria-hidden="true" class="anchor" id="user-content-what-can-be-packed-and-unpacked"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What can be packed and unpacked?</h6>
+<p>The following types can be packed:</p>
+<ul>
+<li>
+<code>None</code>, <code>True</code>, and <code>False</code>
+</li>
+<li>integers, floating point numbers, complex numbers</li>
+<li>strings, bytes, bytearrays</li>
+<li>tuples, lists, sets, frozensets, and dictionaries containing only packable
+objects</li>
+<li>classes (these <strong>must</strong> be <a href="#registered">registered</a> in order to be unpacked)</li>
+<li>instances of classes whose <code>__reduce__</code> method conforms to the interface
+defined in <a href="#packing-class-instances">Packing Class Instances</a>
+</li>
+</ul>
+<a name="user-content-module-interface"></a>
+<h6>
+<a href="#module-interface" aria-hidden="true" class="anchor" id="user-content-module-interface"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Module Interface</h6>
+<dl id="user-content-registered">
+<dt>register(object)</dt>
+<dd>Adds the object to the <em>registry</em>. The argument must be a class or a singleton
+(instance whose <code>__reduce__</code> method returns a string).</dd>
+<dt>pack(object)</dt>
+<dd>Return the packed representation of the object as a bytearray object.</dd>
+<dt>unpack(message)</dt>
+<dd>Read a packed object hierarchy from a bytes-like object and return the
+reconstituted object hierarchy specified therein.</dd>
+</dl>
+<a name="user-content-packing-class-instances"></a>
+<h6>
+<a href="#packing-class-instances" aria-hidden="true" class="anchor" id="user-content-packing-class-instances"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packing Class Instances</h6>
+<p><strong>Note:</strong> This is largely based on Python's <a href="https://docs.python.org/3.5/library/pickle.html" rel="nofollow">pickle</a> module, this means most
+built-in objects and most objects defined in the standard library already
+conform to this interface (also most of the following documentation is a
+copy/paste from the <a href="https://docs.python.org/3.5/library/pickle.html#object.__reduce__" rel="nofollow">pickle module object.__reduce__() documentation</a>).</p>
+<dl id="user-content-reduce">
+<dt>object.__reduce__()</dt>
+<dd>
+<p>The interface is currently defined as follows: the <code>__reduce__</code> method takes
+no argument and shall return either a unique string or preferably a tuple.</p>
+<p>If a string is returned, the string should be interpreted as the name of a
+global variable. This behaviour is typically useful for singletons (and is the
+case for built-in functions).</p>
+<p>When a tuple is returned, it must be between two and five items long.
+Optional items can either be omitted, or <code>None</code> can be provided as their
+value. The semantics of each item are in order:</p>
+<ul>
+<li>A callable object that will be invoked to create the initial version of the
+object (it <strong>must</strong> be <a href="#registered">registered</a> in order to be unpacked).</li>
+<li>A tuple of arguments for the callable object. An empty tuple must be given
+if the callable does not accept any argument.</li>
+<li>Optionally, the object's state, which will be passed to the object's
+<code>__setstate__</code> method. If the object has no such method then, the value
+must be a dictionary and it will be added to the object's <code>__dict__</code>
+attribute.</li>
+<li>Optionally, a sequence/iterator yielding successive items. These items
+will be appended to the object using <code>object.extend(items)</code>. This is
+primarily used for list subclasses, but may be used by other classes as long
+as they have an <code>extend</code> method with the appropriate signature. If the
+object has no such method then, an in-place concatenation will be attempted
+(equivalent to <code>object += items</code>).</li>
+<li>Optionally, a dict/mapping or a sequence/iterator yielding successive
+key-value pairs.  These pairs will be stored in the object using
+<code>object.update(pairs)</code>. This is primarily used for dictionary subclasses,
+but may be used by other classes as long as they have an <code>update</code> method
+with the appropriate signature. If the object has no such method then, an
+attempt will be made to store these pairs using <code>object[key] = value</code>.</li>
+</ul>
+<p>A simple example:</p>
+<pre>&gt;&gt;&gt; from mood.msgpack import pack, unpack, register
+&gt;&gt;&gt; class Kiki(object):
+...     def __init__(self, a, b):
+...         self.a = a
+...         self.b = b
+...     def __repr__(self):
+...         return "&lt;Kiki object: a={0.a}, b={0.b}&gt;".format(self)
+...     def __reduce__(self):
+...         return (Kiki, (self.a, self.b))
+...
+&gt;&gt;&gt; k = Kiki(1, 2)
+&gt;&gt;&gt; k
+&lt;Kiki object: a=1, b=2&gt;
+&gt;&gt;&gt; b = pack(k)
+&gt;&gt;&gt; b
+bytearray(b'\xc7\x15\x7f\x92\xc7\x0e\x06\xa8__main__\xa4Kiki\x92\x01\x02')
+&gt;&gt;&gt; unpack(b)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: cannot unpack &lt;class '__main__.Kiki'&gt;
+&gt;&gt;&gt; register(Kiki)
+&gt;&gt;&gt; unpack(b)
+&lt;Kiki object: a=1, b=2&gt;
+&gt;&gt;&gt;
+</pre>
+</dd>
+</dl>
+
 </article>
   </div>
         </div>
