@@ -9407,6 +9407,17 @@ UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
 format. It lets you exchange data among multiple languages like JSON. But it's
 faster and smaller. Small integers are encoded into a single byte, and typical
 short strings require only one extra byte in addition to the strings themselves.</p>
+<p><strong>Note:</strong> This implementation is not geared towards inter language exchange but
+towards serialization/de-serialization of Python object structures (it was
+designed as a <a href="https://docs.python.org/3.5/library/pickle.html" rel="nofollow">pickle</a>
+substitute). It does not expose MessagePack's extensions mechanism but uses it
+internally to pack/unpack non-standard types.
+That said, if you only deal with standard objects/types (<code>None</code>, <code>True</code>,
+<code>False</code>, integers, floating point numbers, bytes, unicode, tuples and
+dictionaries) you are fine to use this module to produce or consume data that is
+targeted at or originates from other programming languages.
+The following documentation is largely adapted from Python's <a href="https://docs.python.org/3.5/library/pickle.html" rel="nofollow">pickle module
+documentation</a>.</p>
 <p><strong>See also:</strong> <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a></p>
 <a name="user-content-what-can-be-packed-and-unpacked"></a>
 <h6>
@@ -9430,21 +9441,20 @@ defined in <a href="#packing-class-instances">Packing Class Instances</a>
 <a href="#module-interface" aria-hidden="true" class="anchor" id="user-content-module-interface"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Module Interface</h6>
 <dl id="user-content-registered">
 <dt>register(object)</dt>
-<dd>Adds the object to the <em>registry</em>. The argument must be a class or a singleton
+<dd>Add <em>object</em> to the <em>registry</em>. <em>object</em> must be a class or a singleton
 (instance whose <code>__reduce__</code> method returns a string).</dd>
 <dt>pack(object)</dt>
-<dd>Return the packed representation of the object as a bytearray object.</dd>
+<dd>Return the packed representation of <em>object</em> as a bytearray object.</dd>
 <dt>unpack(message)</dt>
-<dd>Read a packed object hierarchy from a bytes-like object and return the
-reconstituted object hierarchy specified therein.</dd>
+<dd>Read a packed object hierarchy from a <a href="https://docs.python.org/3.5/glossary.html#term-bytes-like-object" rel="nofollow">bytes-like</a>
+<em>message</em> and return the reconstituted object hierarchy specified therein.</dd>
 </dl>
 <a name="user-content-packing-class-instances"></a>
 <h6>
 <a href="#packing-class-instances" aria-hidden="true" class="anchor" id="user-content-packing-class-instances"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packing Class Instances</h6>
-<p><strong>Note:</strong> This is largely based on Python's <a href="https://docs.python.org/3.5/library/pickle.html" rel="nofollow">pickle</a> module, this means most
-built-in objects and most objects defined in the standard library already
-conform to this interface (also most of the following documentation is a
-copy/paste from the <a href="https://docs.python.org/3.5/library/pickle.html#object.__reduce__" rel="nofollow">pickle module object.__reduce__() documentation</a>).</p>
+<p><strong>Note:</strong> This being chiefly based on <a href="https://docs.python.org/3.5/library/pickle.html#object.__reduce__" rel="nofollow">pickle's object.__reduce__() interface</a>,
+most built-in objects and most objects defined in the Python standard library
+already conform to it.</p>
 <dl id="user-content-reduce">
 <dt>object.__reduce__()</dt>
 <dd>
