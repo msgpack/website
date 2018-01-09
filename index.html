@@ -671,7 +671,7 @@ key-value pairs.</p>
 ...     <span class="pl-k">return</span> ExtType(code, data)
 ...
 &gt;&gt;&gt; data <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>, [<span class="pl-c1">1.2</span>, <span class="pl-c1">3.4</span>])
-&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(data, <span class="pl-v">default</span><span class="pl-k">=</span>default)
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(data, <span class="pl-v">default</span><span class="pl-k">=</span>default, <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
 &gt;&gt;&gt; unpacked <span class="pl-k">=</span> msgpack.unpackb(packed, <span class="pl-v">ext_hook</span><span class="pl-k">=</span>ext_hook)
 &gt;&gt;&gt; data <span class="pl-k">==</span> unpacked
 True</pre></div>
@@ -766,7 +766,7 @@ Another way to unpacking such object is using <code>object_pairs_hook</code>.</p
 <p>MessagePack uses pytest for testing.
 Run test with following command:</p>
 <blockquote>
-$ py.test</blockquote>
+$ pytest -v test</blockquote>
 
 </article>
   </div>
