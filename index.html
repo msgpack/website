@@ -9489,31 +9489,30 @@ with the appropriate signature. If the object has no such method then, an
 attempt will be made to store these pairs using <code>object[key] = value</code>.</li>
 </ul>
 <p>A simple example:</p>
-<pre>&gt;&gt;&gt; from mood.msgpack import pack, unpack, register
-&gt;&gt;&gt; class Kiki(object):
-...     def __init__(self, a, b):
-...         self.a = a
-...         self.b = b
-...     def __repr__(self):
-...         return "&lt;Kiki object: a={0.a}, b={0.b}&gt;".format(self)
-...     def __reduce__(self):
-...         return (Kiki, (self.a, self.b))
-...
-&gt;&gt;&gt; k = Kiki(1, 2)
-&gt;&gt;&gt; k
-&lt;Kiki object: a=1, b=2&gt;
-&gt;&gt;&gt; b = pack(k)
-&gt;&gt;&gt; b
-bytearray(b'\xc7\x15\x7f\x92\xc7\x0e\x06\xa8__main__\xa4Kiki\x92\x01\x02')
-&gt;&gt;&gt; unpack(b)
+<div class="highlight highlight-source-python"><pre><span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">from</span> mood.msgpack <span class="pl-k">import</span> pack, unpack, register
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> <span class="pl-k">class</span> <span class="pl-en">Kiki</span>(<span class="pl-c1">object</span>):
+<span class="pl-c1">...</span>     <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">a</span>, <span class="pl-smi">b</span>):
+<span class="pl-c1">...</span>         <span class="pl-c1">self</span>.a <span class="pl-k">=</span> a
+<span class="pl-c1">...</span>         <span class="pl-c1">self</span>.b <span class="pl-k">=</span> b
+<span class="pl-c1">...</span>     <span class="pl-k">def</span> <span class="pl-c1">__repr__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
+<span class="pl-c1">...</span>         <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;Kiki object: a=<span class="pl-c1">{0.a}</span>, b=<span class="pl-c1">{0.b}</span>&gt;<span class="pl-pds">"</span></span>.format(<span class="pl-c1">self</span>)
+<span class="pl-c1">...</span>     <span class="pl-k">def</span> <span class="pl-c1">__reduce__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
+<span class="pl-c1">...</span>         <span class="pl-k">return</span> (Kiki, (<span class="pl-c1">self</span>.a, <span class="pl-c1">self</span>.b))
+<span class="pl-c1">...</span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> k <span class="pl-k">=</span> Kiki(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> k
+<span class="pl-k">&lt;</span>Kiki <span class="pl-c1">object</span>: a<span class="pl-k">=</span><span class="pl-c1">1</span>, b<span class="pl-k">=</span><span class="pl-c1">2</span><span class="pl-k">&gt;</span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> b <span class="pl-k">=</span> pack(k)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> b
+<span class="pl-c1">bytearray</span>(<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\xc7\x15\x7f\x92\xc7\x0e\x06\xa8</span>__main__<span class="pl-cce">\xa4</span>Kiki<span class="pl-cce">\x92\x01\x02</span><span class="pl-pds">'</span></span>)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> unpack(b)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-TypeError: cannot unpack &lt;class '__main__.Kiki'&gt;
-&gt;&gt;&gt; register(Kiki)
-&gt;&gt;&gt; unpack(b)
-&lt;Kiki object: a=1, b=2&gt;
-&gt;&gt;&gt;
-</pre>
+  File <span class="pl-s"><span class="pl-pds">"</span>&lt;stdin&gt;<span class="pl-pds">"</span></span>, line <span class="pl-c1">1</span>, <span class="pl-k">in</span> <span class="pl-k">&lt;</span>module<span class="pl-k">&gt;</span>
+<span class="pl-c1">TypeError</span>: cannot unpack <span class="pl-k">&lt;</span><span class="pl-k">class</span> <span class="pl-s"><span class="pl-pds">'</span>__main__.Kiki<span class="pl-pds">'</span></span><span class="pl-k">&gt;</span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> register(Kiki)
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span> unpack(b)
+<span class="pl-k">&lt;</span>Kiki <span class="pl-c1">object</span>: a<span class="pl-k">=</span><span class="pl-c1">1</span>, b<span class="pl-k">=</span><span class="pl-c1">2</span><span class="pl-k">&gt;</span>
+<span class="pl-k">&gt;&gt;</span><span class="pl-k">&gt;</span></pre></div>
 </dd>
 </dl>
 
