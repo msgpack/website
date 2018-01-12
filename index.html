@@ -575,9 +575,9 @@ msgpack is removed and import msgpack fail.</p>
 <p>In case of packer, use UTF-8 always.  Storing other than UTF-8 is not recommended.</p>
 <p>For backward compatibility, you can use <code>use_bin_type=False</code> and pack <code>bytes</code>
 object into msgpack raw type.</p>
-<p>In case of unpacker, there is new <code>raw_as_bytes</code> option.  It is <code>True</code> by default
+<p>In case of unpacker, there is new <code>raw</code> option.  It is <code>True</code> by default
 for backward compatibility, but it is changed to <code>False</code> in near future.
-You can use <code>raw_as_bytes=False</code> instead of <code>encoding='utf-8'</code>.</p>
+You can use <code>raw=False</code> instead of <code>encoding='utf-8'</code>.</p>
 <a name="user-content-planned-backward-incompatible-changes"></a>
 <h7>
 <a href="#planned-backward-incompatible-changes" aria-hidden="true" class="anchor" id="user-content-planned-backward-incompatible-changes"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Planned backward incompatible changes</h7>
@@ -585,14 +585,14 @@ You can use <code>raw_as_bytes=False</code> instead of <code>encoding='utf-8'</c
 <ul>
 <li>packer and unpacker: Remove <code>encoding</code> and <code>unicode_errors</code> option.</li>
 <li>packer: Change default of <code>use_bin_type</code> option from False to True.</li>
-<li>unpacker: Change default of <code>raw_as_bytes</code> option from True to False.</li>
+<li>unpacker: Change default of <code>raw</code> option from True to False.</li>
 <li>unpacker: Reduce all <code>max_xxx_len</code> options for typical usage.</li>
 <li>unpacker: Remove <code>write_bytes</code> option from all methods.</li>
 </ul>
 <p>To avoid these breaking changes breaks your application, please:</p>
 <ul>
 <li>Don't use deprecated options.</li>
-<li>Pass <code>use_bin_type</code> and <code>raw_as_bytes</code> options explicitly.</li>
+<li>Pass <code>use_bin_type</code> and <code>raw</code> options explicitly.</li>
 <li>If your application handle large (&gt;1MB) data, specify <code>max_xxx_len</code> options too.</li>
 </ul>
 <a name="user-content-install"></a>
@@ -628,10 +628,10 @@ msgpack provides <code>dumps</code> and <code>loads</code> as an alias for compa
 <div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
 &gt;&gt;&gt; msgpack.packb([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
 '\x93\x01\x02\x03'
-&gt;&gt;&gt; msgpack.unpackb(_, <span class="pl-v">raw_as_bytes</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+&gt;&gt;&gt; msgpack.unpackb(_, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
 [1, 2, 3]</pre></div>
 <p><code>unpack</code> unpacks msgpack's array to Python's list, but can also unpack to tuple:</p>
-<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; msgpack.unpackb(<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x93\x01\x02\x03</span><span class="pl-pds">'</span></span>, <span class="pl-v">use_list</span><span class="pl-k">=</span><span class="pl-c1">False</span>, <span class="pl-v">raw_as_bytes</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+<div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; msgpack.unpackb(<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x93\x01\x02\x03</span><span class="pl-pds">'</span></span>, <span class="pl-v">use_list</span><span class="pl-k">=</span><span class="pl-c1">False</span>, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
 (1, 2, 3)</pre></div>
 <p>You should always specify the <code>use_list</code> keyword argument for backward compatibility.
 See performance issues relating to <a href="#use-list-option">use_list option</a> below.</p>
@@ -650,7 +650,7 @@ buf <span class="pl-k">=</span> BytesIO()
 
 buf.seek(<span class="pl-c1">0</span>)
 
-unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf, <span class="pl-v">raw_as_bytes</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+unpacker <span class="pl-k">=</span> msgpack.Unpacker(buf, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
 <span class="pl-k">for</span> unpacked <span class="pl-k">in</span> unpacker:
     <span class="pl-c1">print</span>(unpacked)</pre></div>
 <a name="user-content-packing-unpacking-of-custom-data-type"></a>
@@ -678,7 +678,7 @@ useful_dict <span class="pl-k">=</span> {
 
 
 packed_dict <span class="pl-k">=</span> msgpack.packb(useful_dict, <span class="pl-v">default</span><span class="pl-k">=</span>encode_datetime, <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
-this_dict_again <span class="pl-k">=</span> msgpack.unpackb(packed_dict, <span class="pl-v">object_hook</span><span class="pl-k">=</span>decode_datetime, <span class="pl-v">raw_as_bytes</span><span class="pl-k">=</span><span class="pl-c1">False</span>)</pre></div>
+this_dict_again <span class="pl-k">=</span> msgpack.unpackb(packed_dict, <span class="pl-v">object_hook</span><span class="pl-k">=</span>decode_datetime, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)</pre></div>
 <p><code>Unpacker</code>'s <code>object_hook</code> callback receives a dict; the
 <code>object_pairs_hook</code> callback may instead be used to receive a list of
 key-value pairs.</p>
@@ -702,7 +702,7 @@ key-value pairs.</p>
 ...
 &gt;&gt;&gt; data <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>, [<span class="pl-c1">1.2</span>, <span class="pl-c1">3.4</span>])
 &gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(data, <span class="pl-v">default</span><span class="pl-k">=</span>default, <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
-&gt;&gt;&gt; unpacked <span class="pl-k">=</span> msgpack.unpackb(packed, <span class="pl-v">ext_hook</span><span class="pl-k">=</span>ext_hook, <span class="pl-v">raw_as_bytes</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+&gt;&gt;&gt; unpacked <span class="pl-k">=</span> msgpack.unpackb(packed, <span class="pl-v">ext_hook</span><span class="pl-k">=</span>ext_hook, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
 &gt;&gt;&gt; data <span class="pl-k">==</span> unpacked
 True</pre></div>
 <a name="user-content-advanced-unpacking-control"></a>
@@ -741,13 +741,13 @@ The type for representing both string and binary types was named <strong>raw</st
 strings to byte strings, unless you specify the <code>use_bin_type=True</code> option in
 the packer. If you do so, it will use a non-standard type called <strong>bin</strong> to
 serialize byte arrays, and <strong>raw</strong> becomes to mean <strong>str</strong>. If you want to
-distinguish <strong>bin</strong> and <strong>raw</strong> in the unpacker, specify <code>raw_as_bytes=False</code>.</p>
+distinguish <strong>bin</strong> and <strong>raw</strong> in the unpacker, specify <code>raw=False</code>.</p>
 <p>Note that Python 2 defaults to byte-arrays over Unicode strings:</p>
 <div class="highlight highlight-text-python-console"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
 &gt;&gt;&gt; msgpack.unpackb(msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>eggs<span class="pl-pds">'</span></span>]))
 ['spam', 'eggs']
 &gt;&gt;&gt; msgpack.unpackb(msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>eggs<span class="pl-pds">'</span></span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>),
-                    raw_as_bytes=False)
+                    raw=False)
 ['spam', u'eggs']</pre></div>
 <p>This is the same code in Python 3 (same behaviour, but Python 3 has a
 different default):</p>
@@ -755,7 +755,7 @@ different default):</p>
 &gt;&gt;&gt; msgpack.unpackb(msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>eggs<span class="pl-pds">'</span></span>]))
 [b'spam', b'eggs']
 &gt;&gt;&gt; msgpack.unpackb(msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>eggs<span class="pl-pds">'</span></span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>),
-                    raw_as_bytes=False)
+                    raw=False)
 [b'spam', 'eggs']</pre></div>
 <a name="user-content-ext-type"></a>
 <h7>
