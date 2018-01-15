@@ -220,6 +220,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ktakashi-r6rs-msgpack',this)">Scheme <span class="qs-sub">ktakashi</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
@@ -239,6 +241,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
           
@@ -276,8 +280,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-txmsgpackrpc',this)">Python/Twisted <span class="qs-sub">jakm</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-txmsgpackrpc',this)">Python/Twisted <span class="qs-sub">jakm</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-jonghough-msgpack-j',this)">J <span class="qs-sub">jonghough</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-a2-MessagePack-swift',this)">Swift <span class="qs-sub">a2</span></a></li>
@@ -289,6 +291,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-3Hren-msgpack-rust',this)">Rust <span class="qs-sub">3Hren</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jangko-msgpack4nim',this)">Nim <span class="qs-sub">jangko</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-crystal-community-msgpack-crystal',this)">Crystal <span class="qs-sub">crystal-community</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Asmod4n-mruby-simplemsgpack',this)">mruby <span class="qs-sub">Asmod4n</span></a></li>
           
@@ -310,13 +314,9 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-polyglotted-msgpack-python',this)">Python <span class="qs-sub">polyglotted</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-polyglotted-msgpack-python',this)">Python <span class="qs-sub">polyglotted</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-st3v0-msgpack-as3',this)">ActionScript3 <span class="qs-sub">st3v0</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-eddelbuettel-rcppmsgpack',this)">R <span class="qs-sub">eddelbuettel</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-steakknife-msgpack-cr',this)">Crystal <span class="qs-sub">steakknife</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-steakknife-msgpack-cr',this)">Crystal <span class="qs-sub">steakknife</span></a></li>
           
@@ -1812,6 +1812,54 @@ in the following example:</p>
   </div>
         </div>
         
+        <div id="qs-mururu-msgpack-elixir" class="qs"><h4><a href="https://github.com/mururu/msgpack-elixir" target="_blank">mururu/msgpack-elixir <span class="qs-url">https://github.com/mururu/msgpack-elixir</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a href="#messagepack-for-elixir" aria-hidden="true" class="anchor" id="user-content-messagepack-for-elixir"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Elixir</h5>
+<p><a href="https://travis-ci.org/mururu/msgpack-elixir"><img src="https://camo.githubusercontent.com/09452907bf3009b0bf9ac3ecb8e3b5ce6bfb4ce6/68747470733a2f2f7472617669732d63692e6f72672f6d75727572752f6d73677061636b2d656c697869722e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/mururu/msgpack-elixir.png?branch=master" style="max-width:100%;"></a></p>
+<h6>
+<a href="#installation" aria-hidden="true" class="anchor" id="user-content-installation"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+<p>Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-k">defp</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
+  [{<span class="pl-c1">:message_pack</span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.2.0<span class="pl-pds">"</span></span>}]
+<span class="pl-k">end</span></pre></div>
+<h6>
+<a href="#usage" aria-hidden="true" class="anchor" id="user-content-usage"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-elixir"><pre><span class="pl-c"><span class="pl-c">#</span> pack</span>
+<span class="pl-en">MessagePack</span>.pack([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }</span>
+<span class="pl-en">MessagePack</span>.pack!([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>]) <span class="pl-c"><span class="pl-c">#</span>=&gt; &lt;&lt;147,1,2,3&gt;&gt;</span>
+
+<span class="pl-c"><span class="pl-c">#</span> unpack</span>
+<span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; { :ok, [1,2,3] }</span>
+<span class="pl-en">MessagePack</span>.unpack!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; [1,2,3]</span>
+
+<span class="pl-c"><span class="pl-c">#</span> unpack_once</span>
+<span class="pl-en">MessagePack</span>.unpack_once(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {:ok, {[1, 2, 3], &lt;&lt;4&gt;&gt;}}</span>
+<span class="pl-en">MessagePack</span>.unpack_once!(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">147</span>,<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span><span class="pl-k">&gt;&gt;</span>) <span class="pl-c"><span class="pl-c">#</span>=&gt; {[1, 2, 3], &lt;&lt;4&gt;&gt;}</span></pre></div>
+<h6>
+<a href="#options" aria-hidden="true" class="anchor" id="user-content-options"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h6>
+<ul>
+<li><code>enable_string</code></li>
+</ul>
+<p>Support string type. This options is <code>false</code> by default.</p>
+<div class="highlight highlight-source-elixir"><pre>iex(<span class="pl-c1">1</span>)<span class="pl-k">&gt;</span> { <span class="pl-c1">:ok</span>, bin } <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.pack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
+{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
+iex(<span class="pl-c1">3</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>)
+{<span class="pl-c1">:ok</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}
+iex(<span class="pl-c1">4</span>)<span class="pl-k">&gt;</span> <span class="pl-en">MessagePack</span>.unpack(<span class="pl-k">&lt;&lt;</span><span class="pl-c1">161</span>, <span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>, <span class="pl-c1">enable_string:</span> <span class="pl-c1">true</span>)
+{<span class="pl-c1">:error</span>, {<span class="pl-c1">:invalid_string</span>, <span class="pl-k">&lt;&lt;</span><span class="pl-c1">255</span><span class="pl-k">&gt;&gt;</span>}}</pre></div>
+<ul>
+<li><code>ext</code></li>
+</ul>
+<p>Support extention type.</p>
+<p>See <code>test/message_pack_ext_test.exs</code>.</p>
+<h6>
+<a href="#license" aria-hidden="true" class="anchor" id="user-content-license"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+<p>MIT</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-ktakashi-r6rs-msgpack" class="qs"><h4><a href="https://github.com/ktakashi/r6rs-msgpack" target="_blank">ktakashi/r6rs-msgpack <span class="qs-url">https://github.com/ktakashi/r6rs-msgpack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -2661,6 +2709,195 @@ called MsgPack-SML, which is targeted for MLton.</p>
 <p>ML-MessagePack is written from scratch and not a fork of MsgPack-SML.</p>
 <p>For information on MessagePack, see:</p>
 <p><a href="http://msgpack.org/">http://msgpack.org/</a></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-camgunz-cmp" class="qs"><h4><a href="https://github.com/camgunz/cmp" target="_blank">camgunz/cmp <span class="qs-url">https://github.com/camgunz/cmp</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a href="#cmp" aria-hidden="true" class="anchor" id="user-content-cmp"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CMP</h5>
+<p><a href="https://travis-ci.org/camgunz/cmp"><img src="https://camo.githubusercontent.com/97f858756020e3e55899a30e812e643aeb7e86ef/68747470733a2f2f7472617669732d63692e6f72672f63616d67756e7a2f636d702e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/camgunz/cmp.svg?branch=master" style="max-width:100%;"></a> <a href="https://coveralls.io/github/camgunz/cmp?branch=develop"><img src="https://camo.githubusercontent.com/a630624d6ec4ab93afdea8815a23fd5ce920808d/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f63616d67756e7a2f636d702f62616467652e7376673f6272616e63683d646576656c6f70" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/camgunz/cmp/badge.svg?branch=develop" style="max-width:100%;"></a></p>
+<p>CMP is a C implementation of the MessagePack serialization format.  It
+currently implements version 5 of the <a href="http://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack
+Spec</a>.</p>
+<p>CMP's goal is to be lightweight and straightforward, forcing nothing on the
+programmer.</p>
+<h6>
+<a href="#license" aria-hidden="true" class="anchor" id="user-content-license"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+<p>While I'm a big believer in the GPL, I license CMP under the MIT license.</p>
+<h6>
+<a href="#example-usage" aria-hidden="true" class="anchor" id="user-content-example-usage"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Usage</h6>
+<p>The following examples use a file as the backend, and are modeled after the
+examples included with the msgpack-c project.</p>
+<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdbool.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdint.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>stdlib.h<span class="pl-pds">&gt;</span></span>
+
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>cmp.h<span class="pl-pds">"</span></span>
+
+<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">read_bytes</span>(<span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> sz, <span class="pl-c1">FILE</span> *fh) {
+    <span class="pl-k">return</span> <span class="pl-c1">fread</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>), sz, fh) == (sz * <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>));
+}
+
+<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">file_reader</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> limit) {
+    <span class="pl-k">return</span> <span class="pl-c1">read_bytes</span>(data, limit, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
+}
+
+<span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">file_skipper</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-c1">size_t</span> count) {
+    <span class="pl-k">return</span> <span class="pl-c1">fseek</span>((<span class="pl-c1">FILE</span> *)ctx-&gt;buf, count, SEEK_CUR);
+}
+
+<span class="pl-k">static</span> <span class="pl-c1">size_t</span> <span class="pl-en">file_writer</span>(<span class="pl-c1">cmp_ctx_t</span> *ctx, <span class="pl-k">const</span> <span class="pl-k">void</span> *data, <span class="pl-c1">size_t</span> count) {
+    <span class="pl-k">return</span> <span class="pl-c1">fwrite</span>(data, <span class="pl-k">sizeof</span>(<span class="pl-c1">uint8_t</span>), count, (<span class="pl-c1">FILE</span> *)ctx-&gt;buf);
+}
+
+<span class="pl-k">void</span> <span class="pl-en">error_and_exit</span>(<span class="pl-k">const</span> <span class="pl-k">char</span> *msg) {
+    <span class="pl-c1">fprintf</span>(stderr, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-cce">\n\n</span><span class="pl-pds">"</span></span>, msg);
+    <span class="pl-c1">exit</span>(EXIT_FAILURE);
+}
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">void</span>) {
+    <span class="pl-c1">FILE</span> *fh = <span class="pl-c1">NULL</span>;
+    <span class="pl-c1">cmp_ctx_t</span> cmp;
+    <span class="pl-c1">uint32_t</span> array_size = <span class="pl-c1">0</span>;
+    <span class="pl-c1">uint32_t</span> str_size = <span class="pl-c1">0</span>;
+    <span class="pl-k">char</span> hello[<span class="pl-c1">6</span>] = {<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>};
+    <span class="pl-k">char</span> message_pack[<span class="pl-c1">12</span>] = {<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>};
+
+    fh = <span class="pl-c1">fopen</span>(<span class="pl-s"><span class="pl-pds">"</span>cmp_data.dat<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w+b<span class="pl-pds">"</span></span>);
+
+    <span class="pl-k">if</span> (fh == <span class="pl-c1">NULL</span>)
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-s"><span class="pl-pds">"</span>Error opening data.dat<span class="pl-pds">"</span></span>);
+
+    <span class="pl-c1">cmp_init</span>(&amp;cmp, fh, file_reader, file_skipper, file_writer);
+
+    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_array</span>(&amp;cmp, <span class="pl-c1">2</span>))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
+
+    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_str</span>(&amp;cmp, <span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>, <span class="pl-c1">5</span>))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
+
+    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_write_str</span>(&amp;cmp, <span class="pl-s"><span class="pl-pds">"</span>MessagePack<span class="pl-pds">"</span></span>, <span class="pl-c1">11</span>))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
+
+    <span class="pl-c1">rewind</span>(fh);
+
+    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_array</span>(&amp;cmp, &amp;array_size))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
+
+    <span class="pl-c"><span class="pl-c">/*</span> You can read the str byte size and then read str bytes... <span class="pl-c">*/</span></span>
+
+    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str_size</span>(&amp;cmp, &amp;str_size))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
+
+    <span class="pl-k">if</span> (str_size &gt; (<span class="pl-k">sizeof</span>(hello) - <span class="pl-c1">1</span>))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-s"><span class="pl-pds">"</span>Packed 'hello' length too long<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+
+    <span class="pl-k">if</span> (!<span class="pl-c1">read_bytes</span>(hello, str_size, fh))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
+
+    <span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">     * ...or you can set the maximum number of bytes to read and do it all in</span>
+<span class="pl-c">     * one call</span>
+<span class="pl-c">     <span class="pl-c">*/</span></span>
+
+    str_size = <span class="pl-k">sizeof</span>(message_pack);
+    <span class="pl-k">if</span> (!<span class="pl-c1">cmp_read_str</span>(&amp;cmp, message_pack, &amp;str_size))
+        <span class="pl-c1">error_and_exit</span>(<span class="pl-c1">cmp_strerror</span>(&amp;cmp));
+
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>Array Length: <span class="pl-c1">%u</span>.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, array_size);
+    <span class="pl-c1">printf</span>(<span class="pl-s"><span class="pl-pds">"</span>[<span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>, <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span>]<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>, hello, message_pack);
+
+    <span class="pl-c1">fclose</span>(fh);
+
+    <span class="pl-k">return</span> EXIT_SUCCESS;
+}
+</pre></div>
+<h6>
+<a href="#advanced-usage" aria-hidden="true" class="anchor" id="user-content-advanced-usage"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced Usage</h6>
+<p>See the <code>examples</code> folder.</p>
+<h6>
+<a href="#fast-lightweight-flexible-and-robust" aria-hidden="true" class="anchor" id="user-content-fast-lightweight-flexible-and-robust"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fast, Lightweight, Flexible, and Robust</h6>
+<p>CMP uses no internal buffers; conversions, encoding and decoding are done on
+the fly.</p>
+<p>CMP's source and header file together are ~4k LOC.</p>
+<p>CMP makes no heap allocations.</p>
+<p>CMP uses standardized types rather than declaring its own, and it depends only
+on <code>stdbool.h</code>, <code>stdint.h</code> and <code>string.h</code>.</p>
+<p>CMP is written using C89 (ANSI C), aside, of course, from its use of
+fixed-width integer types and <code>bool</code>.</p>
+<p>On the other hand, CMP's test suite requires C99.</p>
+<p>CMP only requires the programmer supply a read function, a write function, and
+an optional skip function.  In this way, the programmer can use CMP on memory,
+files, sockets, etc.</p>
+<p>CMP is portable.  It uses fixed-width integer types, and checks the endianness
+of the machine at runtime before swapping bytes (MessagePack is big-endian).</p>
+<p>CMP provides a fairly comprehensive error reporting mechanism modeled after
+<code>errno</code> and <code>strerror</code>.</p>
+<p>CMP is thread aware; while contexts cannot be shared between threads, each
+thread may use its own context freely.</p>
+<p>CMP is tested using the MessagePack test suite as well as a large set of custom
+test cases.  Its small test program is compiled with clang using <code>-Wall -Werror -Wextra ...</code> along with several other flags, and generates no compilation
+errors in either clang or GCC.</p>
+<p>CMP's source is written as readably as possible, using explicit, descriptive
+variable names and a consistent, clear style.</p>
+<p>CMP's source is written to be as secure as possible.  Its testing suite checks
+for invalid values, and data is always treated as suspect before it passes
+validation.</p>
+<p>CMP's API is designed to be clear, convenient and unsurprising.  Strings are
+null-terminated, binary data is not, error codes are clear, and so on.</p>
+<p>CMP provides optional backwards compatibility for use with other MessagePack
+implementations that only implement version 4 of the spec.</p>
+<h6>
+<a href="#building" aria-hidden="true" class="anchor" id="user-content-building"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building</h6>
+<p>There is no build system for CMP.  The programmer can drop <code>cmp.c</code> and <code>cmp.h</code>
+in their source tree and modify as necessary.  No special compiler settings are
+required to build it, and it generates no compilation errors in either clang or
+gcc.</p>
+<h6>
+<a href="#versioning" aria-hidden="true" class="anchor" id="user-content-versioning"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Versioning</h6>
+<p>CMP's versions are single integers.  I don't use semantic versioning because
+I don't guarantee that any version is completely compatible with any other.  In
+general, semantic versioning provides a false sense of security.  You should be
+evaluating compatibility yourself, not relying on some stranger's versioning
+convention.</p>
+<h6>
+<a href="#stability" aria-hidden="true" class="anchor" id="user-content-stability"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stability</h6>
+<p>I only guarantee stability for versions released on
+<a href="/camgunz/cmp/releases">the releases page</a>.  While rare, both <code>master</code> and <code>develop</code>
+branches may have errors or mismatched versions.</p>
+<h6>
+<a href="#backwards-compatibility" aria-hidden="true" class="anchor" id="user-content-backwards-compatibility"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Backwards Compatibility</h6>
+<p>Version 4 of the MessagePack spec has no <code>BIN</code> type, and provides no <code>STR8</code>
+marker.  In order to remain backwards compatible with version 4 of MessagePack,
+do the following:</p>
+<p>Avoid these functions:</p>
+<ul>
+<li><code>cmp_write_bin</code></li>
+<li><code>cmp_write_bin_marker</code></li>
+<li><code>cmp_write_str8_marker</code></li>
+<li><code>cmp_write_str8</code></li>
+<li><code>cmp_write_bin8_marker</code></li>
+<li><code>cmp_write_bin8</code></li>
+<li><code>cmp_write_bin16_marker</code></li>
+<li><code>cmp_write_bin16</code></li>
+<li><code>cmp_write_bin32_marker</code></li>
+<li><code>cmp_write_bin32</code></li>
+</ul>
+<p>Use these functions in lieu of their v5 counterparts:</p>
+<ul>
+<li>
+<code>cmp_write_str_marker_v4</code> instead of <code>cmp_write_str_marker</code>
+</li>
+<li>
+<code>cmp_write_str_v4</code> instead of <code>cmp_write_str</code>
+</li>
+<li>
+<code>cmp_write_object_v4</code> instead of <code>cmp_write_object</code>
+</li>
+</ul>
 </article>
   </div>
         </div>
@@ -4138,424 +4375,6 @@ $</pre></div>
   </div>
         </div>
         
-        <div id="qs-jakm-txmsgpackrpc" class="qs"><h4><a href="https://github.com/jakm/txmsgpackrpc" target="_blank">jakm/txmsgpackrpc <span class="qs-url">https://github.com/jakm/txmsgpackrpc</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a href="#txmsgpackrpc" aria-hidden="true" class="anchor" id="user-content-txmsgpackrpc"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>txmsgpackrpc</h5>
-<a href="https://travis-ci.org/jakm/txmsgpackrpc"><img alt="https://travis-ci.org/jakm/txmsgpackrpc.svg?branch=master" src="https://camo.githubusercontent.com/d21207666bf99b49ad80b2385c92e1c5a159fef5/68747470733a2f2f7472617669732d63692e6f72672f6a616b6d2f74786d73677061636b7270632e7376673f6272616e63683d6d6173746572" data-canonical-src="https://travis-ci.org/jakm/txmsgpackrpc.svg?branch=master" style="max-width:100%;"></a>
-<p>For the latest source code, see <a href="http://github.com/jakm/txmsgpackrpc">http://github.com/jakm/txmsgpackrpc</a></p>
-<p><code>txmsgpackrpc</code> is a library for writing asynchronous
-<a href="https://github.com/msgpack-rpc/msgpack-rpc/blob/master/spec.md">msgpack-rpc</a>
-servers and clients in Python, using <a href="http://twistedmatrix.com">Twisted
-framework</a>. Library is based on
-<a href="https://github.com/donalm/txMsgpack">txMsgpack</a>, but some
-improvements and fixes were made.</p>
-<a name="user-content-features"></a>
-<h6>
-<a href="#features" aria-hidden="true" class="anchor" id="user-content-features"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h6>
-<ul>
-<li>user friendly API</li>
-<li>modular object model</li>
-<li>working timeouts and reconnecting</li>
-<li>connection pool support</li>
-<li>TCP, SSL, UDP and UNIX sockets</li>
-</ul>
-<a name="user-content-python-3-note"></a>
-<h6>
-<a href="#python-3-note" aria-hidden="true" class="anchor" id="user-content-python-3-note"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Python 3 note</h6>
-<p>To use UNIX sockets with Python 3 please use Twisted framework 15.3.0 and above.</p>
-<a name="user-content-dependencies"></a>
-<h6>
-<a href="#dependencies" aria-hidden="true" class="anchor" id="user-content-dependencies"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dependencies</h6>
-<ul>
-<li>msgpack-python <a href="https://pypi.python.org/pypi/msgpack-python/">https://pypi.python.org/pypi/msgpack-python/</a>
-</li>
-<li>Twisted <a href="http://twistedmatrix.com/trac/">http://twistedmatrix.com/trac/</a>
-</li>
-</ul>
-<a name="user-content-installation"></a>
-<h6>
-<a href="#installation" aria-hidden="true" class="anchor" id="user-content-installation"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
-<div class="highlight highlight-source-shell"><pre>% pip install txmsgpackrpc</pre></div>
-<p>Debian packages are available on project's <a href="https://github.com/jakm/txmsgpackrpc/releases/latest">Releases
-page</a>.</p>
-<a name="user-content-tcp-example"></a>
-<h6>
-<a href="#tcp-example" aria-hidden="true" class="anchor" id="user-content-tcp-example"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TCP example</h6>
-<p>Computation of PI using Chudnovsky algorithm in subprocess. For details,
-see <a href="http://www.craig-wood.com/nick/articles/pi-chudnovsky/">http://www.craig-wood.com/nick/articles/pi-chudnovsky/</a>.</p>
-<a name="user-content-results"></a>
-<h7>
-<a href="#results" aria-hidden="true" class="anchor" id="user-content-results"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Results</h7>
-<pre>Computation of PI with 5 places finished in 0.022390 seconds
-
-Computation of PI with 100 places finished in 0.037856 seconds
-
-Computation of PI with 1000 places finished in 0.038070 seconds
-
-Computation of PI with 10000 places finished in 0.073907 seconds
-
-Computation of PI with 100000 places finished in 6.741683 seconds
-
-Computation of PI with 5 places finished in 0.001142 seconds
-
-Computation of PI with 100 places finished in 0.001182 seconds
-
-Computation of PI with 1000 places finished in 0.001206 seconds
-
-Computation of PI with 10000 places finished in 0.001230 seconds
-
-Computation of PI with 100000 places finished in 0.001255 seconds
-
-Computation of PI with 1000000 places finished in 432.574457 seconds
-
-Computation of PI with 1000000 places finished in 402.551226 seconds
-
-DONE
-</pre>
-<a name="user-content-server"></a>
-<h7>
-<a href="#server" aria-hidden="true" class="anchor" id="user-content-server"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Server</h7>
-<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> <span class="pl-c1">__future__</span> <span class="pl-k">import</span> print_function
-
-<span class="pl-k">from</span> collections <span class="pl-k">import</span> defaultdict
-<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, utils
-<span class="pl-k">from</span> twisted.python <span class="pl-k">import</span> failure
-<span class="pl-k">from</span> txmsgpackrpc.server <span class="pl-k">import</span> MsgpackRPCServer
-
-
-pi_chudovsky_bs <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'''</span></span>
-<span class="pl-s">"""</span>
-<span class="pl-s">Python3 program to calculate Pi using python long integers, binary</span>
-<span class="pl-s">splitting and the Chudnovsky algorithm</span>
-<span class="pl-s"></span>
-<span class="pl-s">See: http://www.craig-wood.com/nick/articles/pi-chudnovsky/ for more</span>
-<span class="pl-s">info</span>
-<span class="pl-s"></span>
-<span class="pl-s">Nick Craig-Wood &lt;nick@craig-wood.com&gt;</span>
-<span class="pl-s">"""</span>
-<span class="pl-s"></span>
-<span class="pl-s">import math</span>
-<span class="pl-s">from time import time</span>
-<span class="pl-s"></span>
-<span class="pl-s">def sqrt(n, one):</span>
-<span class="pl-s">    """</span>
-<span class="pl-s">    Return the square root of n as a fixed point number with the one</span>
-<span class="pl-s">    passed in.  It uses a second order Newton-Raphson convgence.  This</span>
-<span class="pl-s">    doubles the number of significant figures on each iteration.</span>
-<span class="pl-s">    """</span>
-<span class="pl-s">    # Use floating point arithmetic to make an initial guess</span>
-<span class="pl-s">    floating_point_precision = 10**16</span>
-<span class="pl-s">    n_float = float((n * floating_point_precision) // one) / floating_point_precision</span>
-<span class="pl-s">    x = (int(floating_point_precision * math.sqrt(n_float)) * one) // floating_point_precision</span>
-<span class="pl-s">    n_one = n * one</span>
-<span class="pl-s">    while 1:</span>
-<span class="pl-s">        x_old = x</span>
-<span class="pl-s">        x = (x + n_one // x) // 2</span>
-<span class="pl-s">        if x == x_old:</span>
-<span class="pl-s">            break</span>
-<span class="pl-s">    return x</span>
-<span class="pl-s"></span>
-<span class="pl-s">def pi_chudnovsky_bs(digits):</span>
-<span class="pl-s">    """</span>
-<span class="pl-s">    Compute int(pi * 10**digits)</span>
-<span class="pl-s"></span>
-<span class="pl-s">    This is done using Chudnovsky's series with binary splitting</span>
-<span class="pl-s">    """</span>
-<span class="pl-s">    C = 640320</span>
-<span class="pl-s">    C3_OVER_24 = C**3 // 24</span>
-<span class="pl-s">    def bs(a, b):</span>
-<span class="pl-s">        """</span>
-<span class="pl-s">        Computes the terms for binary splitting the Chudnovsky infinite series</span>
-<span class="pl-s"></span>
-<span class="pl-s">        a(a) = +/- (13591409 + 545140134*a)</span>
-<span class="pl-s">        p(a) = (6*a-5)*(2*a-1)*(6*a-1)</span>
-<span class="pl-s">        b(a) = 1</span>
-<span class="pl-s">        q(a) = a*a*a*C3_OVER_24</span>
-<span class="pl-s"></span>
-<span class="pl-s">        returns P(a,b), Q(a,b) and T(a,b)</span>
-<span class="pl-s">        """</span>
-<span class="pl-s">        if b - a == 1:</span>
-<span class="pl-s">            # Directly compute P(a,a+1), Q(a,a+1) and T(a,a+1)</span>
-<span class="pl-s">            if a == 0:</span>
-<span class="pl-s">                Pab = Qab = 1</span>
-<span class="pl-s">            else:</span>
-<span class="pl-s">                Pab = (6*a-5)*(2*a-1)*(6*a-1)</span>
-<span class="pl-s">                Qab = a*a*a*C3_OVER_24</span>
-<span class="pl-s">            Tab = Pab * (13591409 + 545140134*a) # a(a) * p(a)</span>
-<span class="pl-s">            if a &amp; 1:</span>
-<span class="pl-s">                Tab = -Tab</span>
-<span class="pl-s">        else:</span>
-<span class="pl-s">            # Recursively compute P(a,b), Q(a,b) and T(a,b)</span>
-<span class="pl-s">            # m is the midpoint of a and b</span>
-<span class="pl-s">            m = (a + b) // 2</span>
-<span class="pl-s">            # Recursively calculate P(a,m), Q(a,m) and T(a,m)</span>
-<span class="pl-s">            Pam, Qam, Tam = bs(a, m)</span>
-<span class="pl-s">            # Recursively calculate P(m,b), Q(m,b) and T(m,b)</span>
-<span class="pl-s">            Pmb, Qmb, Tmb = bs(m, b)</span>
-<span class="pl-s">            # Now combine</span>
-<span class="pl-s">            Pab = Pam * Pmb</span>
-<span class="pl-s">            Qab = Qam * Qmb</span>
-<span class="pl-s">            Tab = Qmb * Tam + Pam * Tmb</span>
-<span class="pl-s">        return Pab, Qab, Tab</span>
-<span class="pl-s">    # how many terms to compute</span>
-<span class="pl-s">    DIGITS_PER_TERM = math.log10(C3_OVER_24/6/2/6)</span>
-<span class="pl-s">    N = int(digits/DIGITS_PER_TERM + 1)</span>
-<span class="pl-s">    # Calclate P(0,N) and Q(0,N)</span>
-<span class="pl-s">    P, Q, T = bs(0, N)</span>
-<span class="pl-s">    one = 10**digits</span>
-<span class="pl-s">    sqrtC = sqrt(10005*one, one)</span>
-<span class="pl-s">    return (Q*426880*sqrtC) // T</span>
-<span class="pl-s"></span>
-<span class="pl-s">if __name__ == "__main__":</span>
-<span class="pl-s">    import sys</span>
-<span class="pl-s">    digits = int(sys.argv[1])</span>
-<span class="pl-s">    pi = pi_chudnovsky_bs(digits)</span>
-<span class="pl-s">    print(pi)</span>
-<span class="pl-s"><span class="pl-pds">'''</span></span>
-
-
-<span class="pl-k">def</span> <span class="pl-en">set_timeout</span>(<span class="pl-smi">deferred</span>, <span class="pl-smi">timeout</span><span class="pl-k">=</span><span class="pl-c1">30</span>):
-    <span class="pl-k">def</span> <span class="pl-en">callback</span>(<span class="pl-smi">value</span>):
-        <span class="pl-k">if</span> <span class="pl-k">not</span> watchdog.called:
-            watchdog.cancel()
-        <span class="pl-k">return</span> value
-
-    deferred.addBoth(callback)
-
-    watchdog <span class="pl-k">=</span> reactor.callLater(timeout, defer.timeout, deferred)
-
-
-<span class="pl-k">class</span> <span class="pl-en">ComputePI</span>(<span class="pl-e">MsgpackRPCServer</span>):
-
-    <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
-        <span class="pl-c1">self</span>.waiting <span class="pl-k">=</span> defaultdict(<span class="pl-c1">list</span>)
-        <span class="pl-c1">self</span>.results <span class="pl-k">=</span> {}
-
-    <span class="pl-k">def</span> <span class="pl-en">remote_PI</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
-        <span class="pl-k">if</span> digits <span class="pl-k">in</span> <span class="pl-c1">self</span>.results:
-            <span class="pl-k">return</span> defer.succeed(<span class="pl-c1">self</span>.results[digits])
-
-        d <span class="pl-k">=</span> defer.Deferred()
-
-        <span class="pl-k">if</span> digits <span class="pl-k">not</span> <span class="pl-k">in</span> <span class="pl-c1">self</span>.waiting:
-            subprocessDeferred <span class="pl-k">=</span> <span class="pl-c1">self</span>.computePI(digits, timeout)
-
-            <span class="pl-k">def</span> <span class="pl-en">callWaiting</span>(<span class="pl-smi">res</span>):
-                waiting <span class="pl-k">=</span> <span class="pl-c1">self</span>.waiting[digits]
-                <span class="pl-k">del</span> <span class="pl-c1">self</span>.waiting[digits]
-
-                <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(res, failure.Failure):
-                    func <span class="pl-k">=</span> <span class="pl-k">lambda</span> <span class="pl-smi">d</span>: d.errback(res)
-                <span class="pl-k">else</span>:
-                    func <span class="pl-k">=</span> <span class="pl-k">lambda</span> <span class="pl-smi">d</span>: d.callback(res)
-
-                <span class="pl-k">for</span> d <span class="pl-k">in</span> waiting:
-                    func(d)
-
-            subprocessDeferred.addBoth(callWaiting)
-
-        <span class="pl-c1">self</span>.waiting[digits].append(d)
-
-        <span class="pl-k">return</span> d
-
-    <span class="pl-k">def</span> <span class="pl-en">computePI</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">digits</span>, <span class="pl-smi">timeout</span>):
-        d <span class="pl-k">=</span> utils.getProcessOutputAndValue(<span class="pl-s"><span class="pl-pds">'</span>/usr/bin/python<span class="pl-pds">'</span></span>, <span class="pl-v">args</span><span class="pl-k">=</span>(<span class="pl-s"><span class="pl-pds">'</span>-c<span class="pl-pds">'</span></span>, pi_chudovsky_bs, <span class="pl-c1">str</span>(digits)))
-
-        <span class="pl-k">def</span> <span class="pl-en">callback</span>((<span class="pl-smi">out</span>, <span class="pl-smi">err</span>, <span class="pl-smi">code</span>)):
-            <span class="pl-k">if</span> code <span class="pl-k">==</span> <span class="pl-c1">0</span>:
-                pi <span class="pl-k">=</span> <span class="pl-c1">int</span>(out)
-                <span class="pl-c1">self</span>.results[digits] <span class="pl-k">=</span> pi
-                <span class="pl-k">return</span> pi
-            <span class="pl-k">else</span>:
-                <span class="pl-k">return</span> failure.Failure(<span class="pl-c1">RuntimeError</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation failed: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> err))
-
-        <span class="pl-k">if</span> timeout <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:
-            set_timeout(d, timeout)
-
-        d.addCallback(callback)
-
-        <span class="pl-k">return</span> d
-
-
-<span class="pl-k">def</span> <span class="pl-en">main</span>():
-    server <span class="pl-k">=</span> ComputePI()
-    reactor.listenTCP(<span class="pl-c1">8000</span>, server.getStreamFactory())
-
-<span class="pl-k">if</span> <span class="pl-c1">__name__</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
-    reactor.callWhenRunning(main)
-    reactor.run()</pre></div>
-<a name="user-content-client"></a>
-<h7>
-<a href="#client" aria-hidden="true" class="anchor" id="user-content-client"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Client</h7>
-<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> <span class="pl-c1">__future__</span> <span class="pl-k">import</span> print_function
-
-<span class="pl-k">import</span> sys
-<span class="pl-k">import</span> time
-<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
-<span class="pl-k">from</span> twisted.python <span class="pl-k">import</span> failure
-
-<span class="pl-en">@defer.inlineCallbacks</span>
-<span class="pl-k">def</span> <span class="pl-en">main</span>():
-    <span class="pl-k">try</span>:
-
-        <span class="pl-k">from</span> txmsgpackrpc.client <span class="pl-k">import</span> connect
-
-        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect(<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-v">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">900</span>)
-
-        <span class="pl-k">def</span> <span class="pl-en">callback</span>(<span class="pl-smi">res</span>, <span class="pl-smi">digits</span>, <span class="pl-smi">start_time</span>):
-            <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(res, failure.Failure):
-                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places failed: <span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span>
-                      (digits, res.getErrorMessage()), <span class="pl-v">end</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
-            <span class="pl-k">else</span>:
-                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Computation of PI with <span class="pl-c1">%d</span> places finished in <span class="pl-c1">%f</span> seconds<span class="pl-pds">'</span></span> <span class="pl-k">%</span>
-                      (digits, time.time() <span class="pl-k">-</span> start_time), <span class="pl-v">end</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n\n</span><span class="pl-pds">'</span></span>)
-            sys.stdout.flush()
-
-        defers <span class="pl-k">=</span> []
-        <span class="pl-k">for</span> _ <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">2</span>):
-            <span class="pl-k">for</span> digits <span class="pl-k">in</span> (<span class="pl-c1">5</span>, <span class="pl-c1">100</span>, <span class="pl-c1">1000</span>, <span class="pl-c1">10000</span>, <span class="pl-c1">100000</span>, <span class="pl-c1">1000000</span>):
-                d <span class="pl-k">=</span> c.createRequest(<span class="pl-s"><span class="pl-pds">'</span>PI<span class="pl-pds">'</span></span>, digits, <span class="pl-c1">600</span>)
-                d.addBoth(callback, digits, time.time())
-                defers.append(d)
-            <span class="pl-c"><span class="pl-c">#</span> wait for 30 seconds</span>
-            <span class="pl-k">yield</span> task.deferLater(reactor, <span class="pl-c1">30</span>, <span class="pl-k">lambda</span>: <span class="pl-c1">None</span>)
-
-        <span class="pl-k">yield</span> defer.DeferredList(defers)
-
-        <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>DONE<span class="pl-pds">'</span></span>)
-
-    <span class="pl-k">except</span> <span class="pl-c1">Exception</span>:
-        <span class="pl-k">import</span> traceback
-        traceback.print_exc()
-    <span class="pl-k">finally</span>:
-        reactor.stop()
-
-<span class="pl-k">if</span> <span class="pl-c1">__name__</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
-    reactor.callWhenRunning(main)
-    reactor.run()</pre></div>
-<a name="user-content-multicast-udp-example"></a>
-<h6>
-<a href="#multicast-udp-example" aria-hidden="true" class="anchor" id="user-content-multicast-udp-example"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multicast UDP example</h6>
-<p>Example servers join to group 224.0.0.5 and listen on port 8000. Their only
-method <code>echo</code> returns its parameter.</p>
-<p>Client joins group to 224.0.0.5, sends multicast request to group on port 8000
-and waits for 5 seconds for responses. If some responses are received,
-protocol callbacks with tuple of results and individual parts are checked for
-errors. If no responses are received, protocol errbacks with TimeoutError.</p>
-<p>Because there is no common way to determine number of peers in group,
-MsgpackMulticastDatagramProtocol always wait for responses until waitTimeout
-expires.</p>
-<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c"><span class="pl-c">#</span> setup multicast routing</span>
-$ ip route add 224.0.0.0/4 dev eth0
-$ <span class="pl-c1">echo</span> 1 <span class="pl-k">&gt;</span> /proc/sys/net/ipv4/ip_forward
-$
-$ <span class="pl-c"><span class="pl-c">#</span> start servers listening on port 8000</span>
-$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
-[1] 3584
-$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
-[2] 3585
-$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
-[3] 3586
-$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
-[4] 3587
-$ python examples/tx_rpc_server_udp_multicast.py <span class="pl-k">&amp;</span>
-[5] 3588
-$
-$ <span class="pl-c"><span class="pl-c">#</span> execute client</span>
-$ python examples/tx_rpc_client_udp_multicast.py
-Received results from 5 peers
-$</pre></div>
-<a name="user-content-id1"></a>
-<h7>
-<a href="#server-1" aria-hidden="true" class="anchor" id="user-content-server-1"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Server</h7>
-<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor, task
-<span class="pl-k">from</span> txmsgpackrpc.server <span class="pl-k">import</span> MsgpackRPCServer
-
-
-<span class="pl-k">class</span> <span class="pl-en">EchoRPC</span>(<span class="pl-e">MsgpackRPCServer</span>):
-
-    <span class="pl-en">@defer.inlineCallbacks</span>
-    <span class="pl-k">def</span> <span class="pl-en">remote_echo</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">value</span>, <span class="pl-smi">delay</span><span class="pl-k">=</span><span class="pl-c1">None</span>, <span class="pl-smi">msgid</span><span class="pl-k">=</span><span class="pl-c1">None</span>):
-        <span class="pl-k">if</span> delay <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:
-            <span class="pl-k">yield</span> task.deferLater(reactor, delay, <span class="pl-k">lambda</span>: <span class="pl-c1">None</span>)
-        defer.returnValue(value)
-
-
-<span class="pl-k">def</span> <span class="pl-en">main</span>():
-    server <span class="pl-k">=</span> EchoRPC()
-    reactor.listenMulticast(<span class="pl-c1">8000</span>, server.getMulticastProtocol(<span class="pl-s"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-v">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>),
-                            <span class="pl-v">listenMultiple</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
-
-<span class="pl-k">if</span> <span class="pl-c1">__name__</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
-    reactor.callWhenRunning(main)
-    reactor.run()</pre></div>
-<a name="user-content-id2"></a>
-<h7>
-<a href="#client-1" aria-hidden="true" class="anchor" id="user-content-client-1"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Client</h7>
-<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> <span class="pl-c1">__future__</span> <span class="pl-k">import</span> print_function
-
-<span class="pl-k">from</span> twisted.internet <span class="pl-k">import</span> defer, reactor
-
-<span class="pl-en">@defer.inlineCallbacks</span>
-<span class="pl-k">def</span> <span class="pl-en">main</span>():
-    <span class="pl-k">try</span>:
-
-        <span class="pl-k">from</span> txmsgpackrpc.client <span class="pl-k">import</span> connect_multicast
-
-        c <span class="pl-k">=</span> <span class="pl-k">yield</span> connect_multicast(<span class="pl-s"><span class="pl-pds">'</span>228.0.0.5<span class="pl-pds">'</span></span>, <span class="pl-c1">8000</span>, <span class="pl-v">ttl</span><span class="pl-k">=</span><span class="pl-c1">5</span>, <span class="pl-v">waitTimeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>)
-
-        data <span class="pl-k">=</span> {
-                    <span class="pl-s"><span class="pl-pds">'</span>firstName<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>John<span class="pl-pds">'</span></span>,
-                    <span class="pl-s"><span class="pl-pds">'</span>lastName<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>Smith<span class="pl-pds">'</span></span>,
-                    <span class="pl-s"><span class="pl-pds">'</span>isAlive<span class="pl-pds">'</span></span>: <span class="pl-c1">True</span>,
-                    <span class="pl-s"><span class="pl-pds">'</span>age<span class="pl-pds">'</span></span>: <span class="pl-c1">25</span>,
-                    <span class="pl-s"><span class="pl-pds">'</span>height_cm<span class="pl-pds">'</span></span>: <span class="pl-c1">167.6</span>,
-                    <span class="pl-s"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span>: {
-                      <span class="pl-s"><span class="pl-pds">'</span>streetAddress<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">"</span>21 2nd Street<span class="pl-pds">"</span></span>,
-                      <span class="pl-s"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">'</span>New York<span class="pl-pds">'</span></span>,
-                      <span class="pl-s"><span class="pl-pds">"</span>state<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">'</span>NY<span class="pl-pds">'</span></span>,
-                      <span class="pl-s"><span class="pl-pds">'</span>postalCode<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>10021-3100<span class="pl-pds">'</span></span>
-                    },
-                    <span class="pl-s"><span class="pl-pds">'</span>phoneNumbers<span class="pl-pds">'</span></span>: [
-                      {
-                        <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>home<span class="pl-pds">'</span></span>,
-                        <span class="pl-s"><span class="pl-pds">'</span>number<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>212 555-1234<span class="pl-pds">'</span></span>
-                      },
-                      {
-                        <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>office<span class="pl-pds">'</span></span>,
-                        <span class="pl-s"><span class="pl-pds">'</span>number<span class="pl-pds">'</span></span>: <span class="pl-s"><span class="pl-pds">'</span>646 555-4567<span class="pl-pds">'</span></span>
-                      }
-                    ],
-                    <span class="pl-s"><span class="pl-pds">'</span>children<span class="pl-pds">'</span></span>: [],
-                    <span class="pl-s"><span class="pl-pds">'</span>spouse<span class="pl-pds">'</span></span>: <span class="pl-c1">None</span>
-                  }
-
-        results <span class="pl-k">=</span> <span class="pl-k">yield</span> c.createRequest(<span class="pl-s"><span class="pl-pds">'</span>echo<span class="pl-pds">'</span></span>, data)
-
-        <span class="pl-k">assert</span> <span class="pl-c1">isinstance</span>(results, <span class="pl-c1">tuple</span>)
-
-        <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Received results from <span class="pl-c1">%d</span> peers<span class="pl-pds">'</span></span> <span class="pl-k">%</span> <span class="pl-c1">len</span>(results))
-
-        <span class="pl-k">for</span> i, result <span class="pl-k">in</span> <span class="pl-c1">enumerate</span>(results):
-            <span class="pl-k">if</span> result <span class="pl-k">!=</span> data:
-                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">'</span>Result <span class="pl-c1">%d</span> mismatch<span class="pl-pds">'</span></span> <span class="pl-k">%</span> i)
-                <span class="pl-c1">print</span>(result)
-
-    <span class="pl-k">except</span> <span class="pl-c1">Exception</span>:
-        <span class="pl-k">import</span> traceback
-        traceback.print_exc()
-    <span class="pl-k">finally</span>:
-        reactor.stop()
-
-<span class="pl-k">if</span> <span class="pl-c1">__name__</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>__main__<span class="pl-pds">'</span></span>:
-    reactor.callWhenRunning(main)
-    reactor.run()</pre></div>
-
-</article>
-  </div>
-        </div>
-        
         <div id="qs-jonghough-msgpack-j" class="qs"><h4><a href="https://github.com/jonghough/msgpack-j" target="_blank">jonghough/msgpack-j <span class="qs-url">https://github.com/jonghough/msgpack-j</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -5410,6 +5229,58 @@ msgInt, msgUint, msgNull
 <span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.msgType == msgString
 <span class="pl-k">assert</span> a.arrayVal[<span class="pl-c1">2</span>].mapVal[<span class="pl-c1">0</span>].val.stringVal == <span class="pl-s">"b"</span></pre></div>
 <p>enjoy it, happy nim-ing</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-crystal-community-msgpack-crystal" class="qs"><h4><a href="https://github.com/crystal-community/msgpack-crystal" target="_blank">crystal-community/msgpack-crystal <span class="qs-url">https://github.com/crystal-community/msgpack-crystal</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a href="#messagepack" aria-hidden="true" class="anchor" id="user-content-messagepack"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack</h5>
+<p><a href="https://travis-ci.org/crystal-community/msgpack-crystal" rel="nofollow"><img src="https://camo.githubusercontent.com/b1ed324ca577c3650027e34a726beebb7d542d7e/68747470733a2f2f7472617669732d63692e6f72672f6372797374616c2d636f6d6d756e6974792f6d73677061636b2d6372797374616c2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/crystal-community/msgpack-crystal.svg" style="max-width:100%;"></a></p>
+<p>MessagePack implementation in Crystal. It supports Packing and Unpacking from a string or an IO, Mappings, to_msgpack-from_msgpack methods.</p>
+<h6>
+<a href="#installation" aria-hidden="true" class="anchor" id="user-content-installation"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+<p>Add this to your application's <code>shard.yml</code>:</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">dependencies</span>:
+  <span class="pl-ent">msgpack</span>:
+    <span class="pl-ent">github</span>: <span class="pl-s">crystal-community/msgpack-crystal</span></pre></div>
+<h6>
+<a href="#usage" aria-hidden="true" class="anchor" id="user-content-usage"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-crystal"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack<span class="pl-pds">"</span></span>
+
+<span class="pl-k">class</span> <span class="pl-en">Location</span>
+  <span class="pl-c1">MessagePack</span>.mapping({
+    <span class="pl-c1">lat:</span> <span class="pl-c1">Float64</span>,
+    <span class="pl-c1">lng:</span> <span class="pl-c1">Float64</span>,
+  })
+<span class="pl-k">end</span>
+
+<span class="pl-k">class</span> <span class="pl-en">House</span>
+  <span class="pl-c1">MessagePack</span>.mapping({
+    <span class="pl-c1">address:</span>  <span class="pl-c1">String</span>,
+    <span class="pl-c1">location:</span> {<span class="pl-c1">type:</span> <span class="pl-c1">Location</span>, <span class="pl-c1">nilable:</span> <span class="pl-c1">true</span>},
+  })
+<span class="pl-k">end</span>
+
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Road12<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>location<span class="pl-pds">"</span></span> =&gt; {<span class="pl-s"><span class="pl-pds">"</span>lat<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">12.3</span>, <span class="pl-s"><span class="pl-pds">"</span>lng<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">34.5</span>}}.to_msgpack)
+<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> &lt;House:0x1b06de0 @address="Road12", @location=#&lt;Location:0x1b06dc0 @lat=12.3, @lng=34.5&gt;&gt;</span>
+
+house.address <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Something<span class="pl-pds">"</span></span>
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(house.to_msgpack)
+<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> #&lt;House:0x13f0d80 @address="Something", @location=#&lt;Location:0x13f0d60 @lat=12.3, @lng=34.5&gt;&gt;</span>
+
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Crystal Road 1234<span class="pl-pds">"</span></span>}.to_msgpack)
+<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> &lt;House:0x1b06d80 @address="Crystal Road 1234", @location=nil&gt;</span></pre></div>
+<h6>
+<a href="#more-examples" aria-hidden="true" class="anchor" id="user-content-more-examples"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More Examples</h6>
+<p>(<a href="https://github.com/benoist/msgpack-crystal/tree/master/examples">examples</a>)</p>
+<h6>
+<a href="#copyright" aria-hidden="true" class="anchor" id="user-content-copyright"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright</h6>
+<p>Copyright 2015 Benoist Claassen</p>
+<p><em>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License You may obtain a copy of the License at</em></p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p><em>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</em></p>
 </article>
   </div>
         </div>
@@ -7031,14 +6902,6 @@ form.at(<span class="pl-s"><span class="pl-pds">"</span>interests<span class="pl
   </div>
         </div>
         
-        <div id="qs-polyglotted-msgpack-python" class="qs"><h4><a href="https://github.com/polyglotted/msgpack-python" target="_blank">polyglotted/msgpack-python <span class="qs-url">https://github.com/polyglotted/msgpack-python</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h7>
-<a href="#msgpack" aria-hidden="true" class="anchor" id="user-content-msgpack"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack</h7>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-st3v0-msgpack-as3" class="qs"><h4><a href="https://github.com/st3v0/msgpack-as3" target="_blank">st3v0/msgpack-as3 <span class="qs-url">https://github.com/st3v0/msgpack-as3</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -7149,75 +7012,6 @@ x &lt;- as.list(1:1e6)
 microbenchmark(xpk &lt;- msgpack_pack(x), times=3)
 microbenchmark(xu &lt;- msgpack_unpack(xpk), times=3)
 </code></pre>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-steakknife-msgpack-cr" class="qs"><h4><a href="https://github.com/steakknife/msgpack.cr" target="_blank">steakknife/msgpack.cr <span class="qs-url">https://github.com/steakknife/msgpack.cr</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a href="#msgpackcr" aria-hidden="true" class="anchor" id="user-content-msgpackcr"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack.cr</h5>
-<p>A low-level <a href="http://msgpack.org">msgpack</a> codec for <a href="https://crystal-lang.org">Crystal</a></p>
-<h6>
-<a href="#todo" aria-hidden="true" class="anchor" id="user-content-todo"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TODO</h6>
-<ul>
-<li>More specs</li>
-<li>Mapping</li>
-</ul>
-<h6>
-<a href="#installation" aria-hidden="true" class="anchor" id="user-content-installation"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
-<p>Add this to your application's <code>shard.yml</code>:</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">dependencies</span>:
-  <span class="pl-ent">msgpack</span>:
-    <span class="pl-ent">github</span>: <span class="pl-s">steakknife/msgpack.cr</span></pre></div>
-<h6>
-<a href="#usage" aria-hidden="true" class="anchor" id="user-content-usage"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-crystal"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack<span class="pl-pds">"</span></span>
-
-<span class="pl-c1">1</span>.to_msgpack <span class="pl-c"><span class="pl-c">#</span> =&gt; Slice[210, 0, 0, 0, 1]</span>
-
-<span class="pl-c"><span class="pl-c">#</span> write 2_i32 to file foo.msgpack</span>
-<span class="pl-c1">File</span>.open(<span class="pl-s"><span class="pl-pds">"</span>foo.msgpack<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w<span class="pl-pds">"</span></span>) { |<span class="pl-smi">f</span>| f.write(<span class="pl-c1">2</span>.to_msgpack) }
-</pre></div>
-<h6>
-<a href="#extending" aria-hidden="true" class="anchor" id="user-content-extending"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extending</h6>
-<h7>
-<a href="#encoding" aria-hidden="true" class="anchor" id="user-content-encoding"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Encoding</h7>
-<p>Any type can become encodable by including <code>Msgpack::Encodable</code> and defining <code>to_msgpack(io : IO)</code></p>
-<h7>
-<a href="#decoding" aria-hidden="true" class="anchor" id="user-content-decoding"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decoding</h7>
-<p>Any type can become decodable by following the <a href="/steakknife/msgpack.cr/blob/master/spec/foo_spec.cr">example</a></p>
-<h6>
-<a href="#development" aria-hidden="true" class="anchor" id="user-content-development"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Development</h6>
-<h7>
-<a href="#run-tests" aria-hidden="true" class="anchor" id="user-content-run-tests"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Run tests</h7>
-<div class="highlight highlight-source-shell"><pre>crystal spec</pre></div>
-<h6>
-<a href="#alternate-implementations" aria-hidden="true" class="anchor" id="user-content-alternate-implementations"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alternate Implementations</h6>
-<ul>
-<li><a href="https://github.com/benoist/msgpack-crystal">github: benoist/msgpack-crystal</a></li>
-</ul>
-<h6>
-<a href="#contributing" aria-hidden="true" class="anchor" id="user-content-contributing"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h6>
-<ol>
-<li>Fork it ( <a href="https://github.com/steakknife/msgpack.cr/fork">https://github.com/steakknife/msgpack.cr/fork</a> )</li>
-<li>Create your feature branch (git checkout -b my-new-feature)</li>
-<li>Commit your changes (git commit -am 'Add some feature')</li>
-<li>Push to the branch (git push origin my-new-feature)</li>
-<li>Create a new Pull Request</li>
-</ol>
-<h6>
-<a href="#contributors" aria-hidden="true" class="anchor" id="user-content-contributors"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributors</h6>
-<ul>
-<li>
-<a href="https://github.com/steakknife">[steakknife]</a> Barry Allard - creator, maintainer</li>
-</ul>
-<h6>
-<a href="#license" aria-hidden="true" class="anchor" id="user-content-license"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
-<p><a href="/steakknife/msgpack.cr/blob/master/LICENSE">MIT</a></p>
-<h6>
-<a href="#copyright" aria-hidden="true" class="anchor" id="user-content-copyright"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright</h6>
-<p>2016 (c) Copyright Barry Allard</p>
 </article>
   </div>
         </div>
