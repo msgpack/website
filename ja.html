@@ -348,6 +348,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-SeanTAllen-pony-msgpack',this)">Pony <span class="qs-sub">SeanTAllen</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-FootballAddicts-msgpack-objc',this)">Objective-C <span class="qs-sub">FootballAddicts</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-lekma-mood-msgpack',this)">Python <span class="qs-sub">lekma</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-cherrywoods-swift-msgpack-serialization',this)">Swift, java compatibel <span class="qs-sub">cherrywoods</span></a></li>
@@ -9459,6 +9461,30 @@ UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
 <li>
 <code>stable env ponyc</code> to compile your application</li>
 </ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-FootballAddicts-msgpack-objc" class="qs"><h4><a href="https://github.com/FootballAddicts/msgpack-objc" target="_blank">FootballAddicts/msgpack-objc <span class="qs-url">https://github.com/FootballAddicts/msgpack-objc</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a href="#msgpack-objc" aria-hidden="true" class="anchor" id="user-content-msgpack-objc"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack-objc</h5>
+<p>An Objective-C wrapper for <a href="https://github.com/msgpack/msgpack-c">msgpack-c</a>. Focuses on ease of use and speed.
+If you need configurability, there are other, more advanced libraries, for example <a href="https://github.com/gabriel/MPMessagePack">MPMessagePack</a>.</p>
+<h7>
+<a href="#example-usage" aria-hidden="true" class="anchor" id="user-content-example-usage"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example usage:</h7>
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack-objc/MessagePack.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-c1">NSDictionary</span> *dictionary = @{<span class="pl-s"><span class="pl-pds">@"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>msgpack-objc<span class="pl-pds">"</span></span>};
+
+<span class="pl-c1">NSData</span> *messagePackData = [MessagePack <span class="pl-c1">packObject:</span>dictionary];
+<span class="pl-c1">NSDictionary</span> *unpackedDictionary = [MessagePack <span class="pl-c1">unpackData:</span>messagePackData];</pre></div>
+<h6>
+<a href="#extension-support" aria-hidden="true" class="anchor" id="user-content-extension-support"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extension support</h6>
+<p>The library supports <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#timestamp-extension-type">MessagePack-timestamps</a>,
+and will return an <code>NSDate</code>-object whenever one is encountered. When serializing, any <code>NSDate</code>-objects will also be
+serialized as native MessagePack-timestamps.</p>
+<p>You can add native serialization for your own classes by subclassing <code>MessagePackExtension</code>.</p>
 </article>
   </div>
         </div>
