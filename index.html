@@ -351,6 +351,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-cherrywoods-swift-msgpack-serialization',this)">Swift, java compatibel <span class="qs-sub">cherrywoods</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-bastibe-matlab-msgpack',this)">Matlab <span class="qs-sub">bastibe</span></a></li>
+          
         </ul>
       </div>
 
@@ -9638,6 +9640,139 @@ Traceback (most recent call last):
 <h6>
 <a href="#compatibilty-restrictions" aria-hidden="true" class="anchor" id="user-content-compatibilty-restrictions"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compatibilty restrictions</h6>
 <p>Make sure you never call .encode(to:) directly! Instead use the encode method on a keyed, unkeyed or singleValue container or cast the encoder passed to you to MsgpackEncoder and call encodeIntermediate(_) on this encoder. If you do not use this, this framework won't be able to do it's work properly.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-bastibe-matlab-msgpack" class="qs"><h4><a href="https://github.com/bastibe/matlab-msgpack" target="_blank">bastibe/matlab-msgpack <span class="qs-url">https://github.com/bastibe/matlab-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a href="#a-messagepack-implementation-for-matlab" aria-hidden="true" class="anchor" id="user-content-a-messagepack-implementation-for-matlab"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A MessagePack implementation for Matlab</h5>
+<p>The code is written in pure Matlab, and has no dependencies beyond Matlab itself. It does not work in Octave, since Octave does not support <code>unicode2native</code> or <code>native2unicode</code>.</p>
+<p>The files in this repository are taken from <a href="https://github.com/bastibe/transplant">Transplant</a>.</p>
+<h6>
+<a href="#basic-usage" aria-hidden="true" class="anchor" id="user-content-basic-usage"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Usage:</h6>
+<div class="highlight highlight-source-matlab"><pre>data = {<span class="pl-s"><span class="pl-pds">'</span>life, the universe, and everything<span class="pl-pds">'</span></span>, struct(<span class="pl-s"><span class="pl-pds">'</span>the_answer<span class="pl-pds">'</span></span>, <span class="pl-c1">42</span>)};
+bytes = dumpmsgpack(data)
+data = parsemsgpack(bytes)
+<span class="pl-c"><span class="pl-c">%</span> returns: {'life, the universe, and everything', containers.Map('the_answer', 42)}</span></pre></div>
+<h6>
+<a href="#converting-matlab-to-msgpack" aria-hidden="true" class="anchor" id="user-content-converting-matlab-to-msgpack"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Converting Matlab to MsgPack:</h6>
+<table>
+<thead>
+<tr>
+<th>Matlab</th>
+<th>MsgPack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>string</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>number</td>
+</tr>
+<tr>
+<td>logical</td>
+<td>
+<code>true</code>/<code>false</code>
+</td>
+</tr>
+<tr>
+<td>vector</td>
+<td>array of numbers</td>
+</tr>
+<tr>
+<td>uint8 vector</td>
+<td>bin</td>
+</tr>
+<tr>
+<td>matrix</td>
+<td>array of array of numbers</td>
+</tr>
+<tr>
+<td>empty matrix</td>
+<td>nil</td>
+</tr>
+<tr>
+<td>cell array</td>
+<td>array</td>
+</tr>
+<tr>
+<td>cell matrix</td>
+<td>array of arrays</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>map</td>
+</tr>
+<tr>
+<td>containers.Map</td>
+<td>map</td>
+</tr>
+<tr>
+<td>struct array</td>
+<td>array of maps</td>
+</tr>
+<tr>
+<td>handles</td>
+<td>raise error</td>
+</tr>
+</tbody>
+</table>
+<p>There is no way of encoding exts</p>
+<h6>
+<a href="#converting-msgpack-to-matlab" aria-hidden="true" class="anchor" id="user-content-converting-msgpack-to-matlab"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Converting MsgPack to Matlab</h6>
+<table>
+<thead>
+<tr>
+<th>MsgPack</th>
+<th>Matlab</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>string</td>
+</tr>
+<tr>
+<td>number</td>
+<td>scalar</td>
+</tr>
+<tr>
+<td>
+<code>true</code>/<code>false</code>
+</td>
+<td>logical</td>
+</tr>
+<tr>
+<td>nil</td>
+<td>empty matrix</td>
+</tr>
+<tr>
+<td>array</td>
+<td>cell array</td>
+</tr>
+<tr>
+<td>map</td>
+<td>containers.Map</td>
+</tr>
+<tr>
+<td>bin</td>
+<td>uint8</td>
+</tr>
+<tr>
+<td>ext</td>
+<td>uint8</td>
+</tr>
+</tbody>
+</table>
+<p>Note that since <code>structs</code> don't support arbitrary field names, they can't be used for representing <code>maps</code>. We use <code>containers.Map</code> instead.</p>
+<h6>
+<a href="#tests" aria-hidden="true" class="anchor" id="user-content-tests"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tests</h6>
+<div class="highlight highlight-source-matlab"><pre>runtests()</pre></div>
 </article>
   </div>
         </div>
