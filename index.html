@@ -9520,24 +9520,30 @@ designed as a <a href="https://docs.python.org/3.5/library/pickle.html" rel="nof
 substitute). It does not expose MessagePack's extensions mechanism but uses it
 internally to pack/unpack non-standard types.
 That said, if you only deal with standard objects/types (<code>None</code>, <code>True</code>,
-<code>False</code>, integers, floating point numbers, bytes, unicode, tuples and
+<code>False</code>, integers, floating point numbers, bytes, strings, tuples and
 dictionaries) you are fine to use this module to produce or consume data that is
 targeted at or originates from other programming languages.
 The following documentation is largely adapted from Python's <a href="https://docs.python.org/3.5/library/pickle.html" rel="nofollow">pickle module
 documentation</a>.</p>
 <p><strong>See also:</strong> <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a></p>
+<hr>
 <a name="user-content-what-can-be-packed-and-unpacked"></a>
 <h6>
 <a href="#what-can-be-packed-and-unpacked" aria-hidden="true" class="anchor" id="user-content-what-can-be-packed-and-unpacked"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What can be packed and unpacked?</h6>
-<p>The following types can be packed:</p>
+<p>The following standard types can be packed/unpacked:</p>
 <ul>
 <li>
-<code>None</code>, <code>True</code>, and <code>False</code>
+<code>None</code>, <code>True</code> and <code>False</code>
 </li>
-<li>integers, floating point numbers, complex numbers</li>
-<li>strings, bytes, bytearrays</li>
-<li>tuples, lists, sets, frozensets, and dictionaries containing only packable
-objects</li>
+<li>integers, floating point numbers</li>
+<li>strings, bytes</li>
+<li>tuples and dictionaries containing only packable objects</li>
+</ul>
+<p>Additionally, the following Python types are supported by default:</p>
+<ul>
+<li>complex numbers</li>
+<li>bytearrays</li>
+<li>lists, sets and frozensets containing only packable objects</li>
 <li>classes (these <strong>must</strong> be <a href="#registered">registered</a> in order to be unpacked)</li>
 <li>instances of classes whose <code>__reduce__</code> method conforms to the interface
 defined in <a href="#packing-class-instances">Packing Class Instances</a>
