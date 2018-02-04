@@ -352,6 +352,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-lekma-mood-msgpack',this)">Python <span class="qs-sub">lekma</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-dchenk-msgp',this)">Go <span class="qs-sub">dchenk</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-cherrywoods-swift-msgpack-serialization',this)">Swift, java compatibel <span class="qs-sub">cherrywoods</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-bastibe-matlab-msgpack',this)">Matlab <span class="qs-sub">bastibe</span></a></li>
@@ -9624,6 +9626,103 @@ Traceback (most recent call last):
 </dd>
 </dl>
 
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-dchenk-msgp" class="qs"><h4><a href="https://github.com/dchenk/msgp" target="_blank">dchenk/msgp <span class="qs-url">https://github.com/dchenk/msgp</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a href="#messagepack-code-generator-" aria-hidden="true" class="anchor" id="user-content-messagepack-code-generator-"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack Code Generator <a href="https://travis-ci.org/dchenk/msgp" rel="nofollow"><img src="https://camo.githubusercontent.com/4675b44ed067a684a3a78b4ee43f7e0767d87d07/68747470733a2f2f7472617669732d63692e6f72672f646368656e6b2f6d7367702e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/dchenk/msgp.svg?branch=master" style="max-width:100%;"></a>
+</h5>
+<p>This is a code generation tool and serialization library for MessagePack. You can read more about MessagePack <a href="http://github.com/dchenk/msgp/wiki">in the wiki</a> or at <a href="https://msgpack.org" rel="nofollow">msgpack.org</a>.</p>
+<h7>
+<a href="#why-messagepack-and-this-tool" aria-hidden="true" class="anchor" id="user-content-why-messagepack-and-this-tool"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why MessagePack and This Tool?</h7>
+<ul>
+<li>Use Go as your schema language</li>
+<li>Performance is amazing</li>
+<li><a href="https://godoc.org/github.com/dchenk/msgp/msgp#CopyToJSON" rel="nofollow">JSON interop</a></li>
+<li><a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">User-defined extensions</a></li>
+<li>Type safety</li>
+</ul>
+<h7>
+<a href="#quickstart" aria-hidden="true" class="anchor" id="user-content-quickstart"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quickstart</h7>
+<p>In a source file, include the following directive:</p>
+<div class="highlight highlight-source-go"><pre><span class="pl-c"><span class="pl-c">//</span>go:generate msgp</span></pre></div>
+<p>The <code>msgp</code> command will tell <code>go generate</code> to generate serialization and deserialization methods for all exported type declarations in the file.</p>
+<p>You can <a href="https://github.com/dchenk/msgp/wiki/Using-the-Code-Generator">read more about the code generation options here</a>.</p>
+<h7>
+<a href="#use" aria-hidden="true" class="anchor" id="user-content-use"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use</h7>
+<p>Field names can be set in much the same way as with the <code>encoding/json</code> package. For example:</p>
+<div class="highlight highlight-source-go"><pre><span class="pl-k">type</span> <span class="pl-v">Person</span> <span class="pl-k">struct</span> {
+    <span class="pl-v">Name</span>       <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"name"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Address</span>    <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"address"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Age</span>        <span class="pl-k">int</span>    <span class="pl-s"><span class="pl-pds">`</span>msg:"age"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Hidden</span>     <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"-"<span class="pl-pds">`</span></span> <span class="pl-c"><span class="pl-c">//</span> this field is ignored</span>
+    unexported <span class="pl-k">bool</span>             <span class="pl-c"><span class="pl-c">//</span> this field is also ignored</span>
+}</pre></div>
+<p>By default, the code generator will satisfy <code>msgp.Sizer</code>, <code>msgp.Encoder</code>, <code>msgp.Decoder</code>, <code>msgp.Marshaler</code>,
+and <code>msgp.Unmarshaler</code>. Carefully-designed applications can use these methods to do marshalling/unmarshalling
+with zero heap allocations.</p>
+<p>While <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> are quite similar to the standard library's<code>json.Marshaler</code>
+and <code>json.Unmarshaler</code>, <code>msgp.Encoder</code> and <code>msgp.Decoder</code> are useful for stream serialization.
+(<code>*msgp.Writer</code> and <code>*msgp.Reader</code> are essentially protocol-aware versions of <code>*bufio.Writer</code> and <code>*bufio.Reader</code>.)</p>
+<h7>
+<a href="#features" aria-hidden="true" class="anchor" id="user-content-features"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h7>
+<ul>
+<li>Extremely fast generated code</li>
+<li>Test and benchmark generation</li>
+<li>JSON interoperability (see <code>msgp.CopyToJSON() and msgp.UnmarshalAsJSON()</code>)</li>
+<li>Support for complex type declarations</li>
+<li>Native support for Go's <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types</li>
+<li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
+<li>Support for arbitrary type system extensions</li>
+<li><a href="https://github.com/dchenk/msgp/wiki/Preprocessor-Directives">Preprocessor directives</a></li>
+</ul>
+<p>Consider the following:</p>
+<div class="highlight highlight-source-go"><pre><span class="pl-k">const</span> <span class="pl-v">Eight</span> = <span class="pl-c1">8</span>
+<span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-k">int</span>
+<span class="pl-k">type</span> <span class="pl-v">Data</span> []<span class="pl-k">byte</span>
+
+<span class="pl-k">type</span> <span class="pl-v">Struct</span> <span class="pl-k">struct</span> {
+    <span class="pl-v">Which</span>  <span class="pl-k">map</span>[<span class="pl-k">string</span>]*MyInt <span class="pl-s"><span class="pl-pds">`</span>msg:"which"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Other</span>  <span class="pl-v">Data</span>              <span class="pl-s"><span class="pl-pds">`</span>msg:"other"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Nums</span>   [Eight]<span class="pl-k">float64</span>    <span class="pl-s"><span class="pl-pds">`</span>msg:"nums"<span class="pl-pds">`</span></span>
+}</pre></div>
+<p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file as <code>Struct</code>, the parser will determine that the type information for <code>MyInt</code> and <code>Data</code> can be passed into the definition of <code>Struct</code> before its methods are generated.</p>
+<h8>
+<a href="#extensions" aria-hidden="true" class="anchor" id="user-content-extensions"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h8>
+<p>MessagePack supports defining your own types through "extensions," which are just a tuple of the data "type" (<code>int8</code>) and the raw binary.
+You can see <a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">a worked example in the wiki.</a></p>
+<h7>
+<a href="#status" aria-hidden="true" class="anchor" id="user-content-status"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status</h7>
+<p>The code generator here and runtime library are both stable. Newer versions of the code may generate different code than older versions for performance reasons.</p>
+<p>You can read more about how <code>msgp</code> maps MessagePack types onto Go types <a href="http://github.com/dchenk/msgp/wiki">in the wiki</a>.</p>
+<p>Here some of the known limitations/restrictions:</p>
+<ul>
+<li>Identifiers from outside the processed source file are assumed to satisfy the generator's interfaces. If this isn't the case, your code will fail to compile.</li>
+<li>The <code>chan</code> and <code>func</code> fields and types are ignored as well as non-exported fields.</li>
+<li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
+<li>
+<em>Maps must have <code>string</code> keys.</em> This is intentional (as it preserves JSON interoperability). Although non-string map keys are not forbidden by the MessagePack standard, many serializers impose this restriction. (It also means <em>any</em> well-formed <code>struct</code> can be de-serialized into a <code>map[string]interface{}</code>.) The only exception to this rule is that the deserializers will allow you to read map keys encoded as <code>bin</code> types, since some legacy encodings permitted this. (However, those values will still be cast to Go <code>string</code>s, and they will be converted to <code>str</code> types when re-encoded. It is the responsibility of the user to ensure that map keys are UTF-8 safe in this case.) The same rules hold true for JSON translation.</li>
+</ul>
+<p>If the output compiles, then there's a pretty good chance things are fine. (Plus, we generate tests for you.) <em>Please, please, please</em> file an issue if you think the generator is writing broken code.</p>
+<h7>
+<a href="#performance" aria-hidden="true" class="anchor" id="user-content-performance"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance</h7>
+<p>If you like benchmarks, see <a href="http://bravenewgeek.com/so-you-wanna-go-fast/" rel="nofollow">here</a> and <a href="https://github.com/alecthomas/go_serialization_benchmarks">here</a>.</p>
+<p>As one might expect, the generated methods that deal with <code>[]byte</code> are faster for small objects, but the <code>io.Reader/Writer</code> methods are generally more memory-efficient (and, at some point, faster) for large (&gt; 2KB) objects.</p>
+<h6>
+<a href="#credits" aria-hidden="true" class="anchor" id="user-content-credits"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credits</h6>
+<p>This repository is a fork of <a href="https://github.com/tinylib/msgp">github.com/tinylib/msgp</a>. The original authors did a great job, but
+this repository takes the project in a new and better direction.</p>
+<p>Differences between this tool and tinylib/msgp:</p>
+<ul>
+<li>Here we have regular expression matching for type names in directives.</li>
+<li>Here we do not use package <code>unsafe</code> for conversions from byte slices to strings: <code>[]byte</code> is converted efficiently
+to <code>string</code> simply with the built-in <code>string()</code>.</li>
+<li>This codebase is thoroughly refactored to be more Go-idiomatic, efficient, and inviting to contributors.</li>
+</ul>
+<p>Additionally, in this library we plan to add an <code>omitempty</code> feature, like what <code>encoding/json</code> has.</p>
 </article>
   </div>
         </div>
