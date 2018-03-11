@@ -9761,10 +9761,10 @@ Traceback (most recent call last):
 <a href="#use" aria-hidden="true" class="anchor" id="user-content-use"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use</h7>
 <p>Field names can be set in much the same way as with the <code>encoding/json</code> package. For example:</p>
 <div class="highlight highlight-source-go"><pre><span class="pl-k">type</span> <span class="pl-v">Person</span> <span class="pl-k">struct</span> {
-    <span class="pl-v">Name</span>       <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"name"<span class="pl-pds">`</span></span>
-    <span class="pl-v">Address</span>    <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"address"<span class="pl-pds">`</span></span>
-    <span class="pl-v">Age</span>        <span class="pl-k">int</span>    <span class="pl-s"><span class="pl-pds">`</span>msg:"age"<span class="pl-pds">`</span></span>
-    <span class="pl-v">Hidden</span>     <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msg:"-"<span class="pl-pds">`</span></span> <span class="pl-c"><span class="pl-c">//</span> this field is ignored</span>
+    <span class="pl-v">Name</span>       <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"name"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Address</span>    <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"address"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Age</span>        <span class="pl-k">int</span>    <span class="pl-s"><span class="pl-pds">`</span>msgp:"age"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Hidden</span>     <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"-"<span class="pl-pds">`</span></span> <span class="pl-c"><span class="pl-c">//</span> this field is ignored</span>
     unexported <span class="pl-k">bool</span>             <span class="pl-c"><span class="pl-c">//</span> this field is also ignored</span>
 }</pre></div>
 <p>By default, the code generator will satisfy <code>msgp.Sizer</code>, <code>msgp.Encoder</code>, <code>msgp.Decoder</code>, <code>msgp.Marshaler</code>,
@@ -9791,9 +9791,9 @@ and <code>json.Unmarshaler</code>, <code>msgp.Encoder</code> and <code>msgp.Deco
 <span class="pl-k">type</span> <span class="pl-v">Data</span> []<span class="pl-k">byte</span>
 
 <span class="pl-k">type</span> <span class="pl-v">Struct</span> <span class="pl-k">struct</span> {
-    <span class="pl-v">Which</span>  <span class="pl-k">map</span>[<span class="pl-k">string</span>]*MyInt <span class="pl-s"><span class="pl-pds">`</span>msg:"which"<span class="pl-pds">`</span></span>
-    <span class="pl-v">Other</span>  <span class="pl-v">Data</span>              <span class="pl-s"><span class="pl-pds">`</span>msg:"other"<span class="pl-pds">`</span></span>
-    <span class="pl-v">Nums</span>   [Eight]<span class="pl-k">float64</span>    <span class="pl-s"><span class="pl-pds">`</span>msg:"nums"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Which</span>  <span class="pl-k">map</span>[<span class="pl-k">string</span>]*MyInt <span class="pl-s"><span class="pl-pds">`</span>msgp:"which"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Other</span>  <span class="pl-v">Data</span>              <span class="pl-s"><span class="pl-pds">`</span>msgp:"other"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Nums</span>   [Eight]<span class="pl-k">float64</span>    <span class="pl-s"><span class="pl-pds">`</span>msgp:"nums"<span class="pl-pds">`</span></span>
 }</pre></div>
 <p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file as <code>Struct</code>, the parser will determine that the type information for <code>MyInt</code> and <code>Data</code> can be passed into the definition of <code>Struct</code> before its methods are generated.</p>
 <h8>
