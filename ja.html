@@ -6107,7 +6107,7 @@ including <strong>bin</strong>, <strong>str</strong> and <strong>ext</strong> ty
 </li>
 <li>Supports <a href="#unpacking-options">unsigned 64-bit integers handling</a>
 </li>
-<li>Supports <a href="#custom-types">object serialization</a>
+<li>Supports <a href="#type-transformers">object serialization</a>
 </li>
 <li>Works with PHP 5.4-7.x and HHVM 3.9+</li>
 <li><a href="https://travis-ci.org/rybakit/msgpack.php" rel="nofollow">Fully tested</a></li>
@@ -6135,7 +6135,7 @@ including <strong>bin</strong>, <strong>str</strong> and <strong>ext</strong> ty
 </ul>
 </li>
 <li><a href="#extensions">Extensions</a></li>
-<li><a href="#custom-types">Custom types</a></li>
+<li><a href="#type-transformers">Type transformers</a></li>
 <li><a href="#exceptions">Exceptions</a></li>
 <li>
 <a href="#tests">Tests</a>
@@ -6153,7 +6153,7 @@ including <strong>bin</strong>, <strong>str</strong> and <strong>ext</strong> ty
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
 <h7>
 <a id="user-content-packing" class="anchor" aria-hidden="true" href="#packing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packing</h7>
-<p>To pack values you can either use an instance of <code>Packer</code>:</p>
+<p>To pack values you can either use an instance of a <code>Packer</code>:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>();</span>
@@ -6161,17 +6161,16 @@ including <strong>bin</strong>, <strong>str</strong> and <strong>ext</strong> ty
 <span class="pl-s1"><span class="pl-k">...</span></span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack(<span class="pl-smi">$value</span>);</span></pre></div>
-<p>or call the static method on the <code>MessagePack</code> class:</p>
+<p>or call a static method on the <code>MessagePack</code> class:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\MessagePack</span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-k">...</span></span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span><span class="pl-k">::</span>pack(<span class="pl-smi">$value</span>);</span></pre></div>
-<p>In the examples above, the method <code>pack</code> automatically packs a value depending on its type.
-But not all PHP types can be uniquely translated to MessagePack types. For example,
-MessagePack format defines <code>map</code> and <code>array</code> types, which are represented by a single <code>array</code>
-type in PHP. By default, the packer will pack a PHP array as a MessagePack array if it
-has sequential numeric keys, starting from <code>0</code> and as a MessagePack map otherwise:</p>
+<p>In the examples above, the method <code>pack</code> automatically packs a value depending on its type. But not all PHP types
+can be uniquely translated to MessagePack types. For example, the MessagePack format defines <code>map</code> and <code>array</code> types,
+which are represented by a single <code>array</code> type in PHP. By default, the packer will pack a PHP array as a MessagePack
+array if it has sequential numeric keys, starting from <code>0</code> and as a MessagePack map otherwise:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpArr1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);                   <span class="pl-c"><span class="pl-c">//</span> MP array [1, 2]</span></span>
 <span class="pl-s1"><span class="pl-smi">$mpArr2</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">1</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP array [1, 2]</span></span>
 <span class="pl-s1"><span class="pl-smi">$mpMap1</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-c1">0</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c1">2</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">3</span>]);         <span class="pl-c"><span class="pl-c">//</span> MP map {0: 1, 2: 3}</span></span>
@@ -6180,19 +6179,18 @@ has sequential numeric keys, starting from <code>0</code> and as a MessagePack m
 <p>However, sometimes you need to pack a sequential array as a MessagePack map.
 To do this, use the <code>packMap</code> method:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$mpMap</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]); <span class="pl-c"><span class="pl-c">//</span> {0: 1, 1: 2}</span></span></pre></div>
-<p>Here is a list of all low-level packer methods:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packArray([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);           <span class="pl-c"><span class="pl-c">//</span> MP array</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);             <span class="pl-c"><span class="pl-c">//</span> MP map</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packStr(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>);              <span class="pl-c"><span class="pl-c">//</span> MP str</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBin(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\x80</span><span class="pl-pds">"</span></span>);             <span class="pl-c"><span class="pl-c">//</span> MP bin</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packFloat32(<span class="pl-c1">M_PI</span>);           <span class="pl-c"><span class="pl-c">//</span> MP float 32</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packFloat64(<span class="pl-c1">M_PI</span>);           <span class="pl-c"><span class="pl-c">//</span> MP float 64</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packInt(<span class="pl-c1">42</span>);                 <span class="pl-c"><span class="pl-c">//</span> MP int</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packNil();                   <span class="pl-c"><span class="pl-c">//</span> MP nil</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBool(<span class="pl-c1">true</span>);              <span class="pl-c"><span class="pl-c">//</span> MP bool</span></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packExt(<span class="pl-k">new</span> <span class="pl-c1">Ext</span>(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>)); <span class="pl-c"><span class="pl-c">//</span> MP ext</span></span></pre></div>
+<p>Here is a list of type-specific packing methods:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packNil();          <span class="pl-c"><span class="pl-c">//</span> MP nil</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBool(<span class="pl-c1">true</span>);     <span class="pl-c"><span class="pl-c">//</span> MP bool</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packInt(<span class="pl-c1">42</span>);        <span class="pl-c"><span class="pl-c">//</span> MP int</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packFloat(<span class="pl-c1">M_PI</span>);    <span class="pl-c"><span class="pl-c">//</span> MP float</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packStr(<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>);     <span class="pl-c"><span class="pl-c">//</span> MP str</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packBin(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\x80</span><span class="pl-pds">"</span></span>);    <span class="pl-c"><span class="pl-c">//</span> MP bin</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packArray([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);  <span class="pl-c"><span class="pl-c">//</span> MP array</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>]);    <span class="pl-c"><span class="pl-c">//</span> MP map</span></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packExt(<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>); <span class="pl-c"><span class="pl-c">//</span> MP ext</span></span></pre></div>
 <blockquote>
-<p><em>Check <a href="#custom-types">"Custom types"</a> section below on how to pack arbitrary PHP objects.</em></p>
+<p><em>Check the <a href="#type-transformers">"Type transformers"</a> section below on how to pack arbitrary PHP objects.</em></p>
 </blockquote>
 <h8>
 <a id="user-content-packing-options" class="anchor" aria-hidden="true" href="#packing-options"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Packing options</h8>
@@ -6249,11 +6247,12 @@ process (defaults are in bold):</p>
 </tbody>
 </table>
 <blockquote>
-<p><em>Automatically detecting which MessagePack type to use to pack a value (the <code>DETECT_STR_BIN</code>/<code>DETECT_ARR_MAP</code> mode)
-adds some overhead which can be noticed when you pack large (16- and 32-bit) arrays or strings.
-However, if you know the value type in advance (for example, you only work with UTF-8 strings
-or/and associative arrays), you can eliminate this overhead by forcing the packer to use
-the appropriate type, which will save it from running the auto detection routine.</em></p>
+<p><em>The type detection mode (<code>DETECT_STR_BIN</code>/<code>DETECT_ARR_MAP</code>) adds some overhead which can be noticed when you pack
+large (16- and 32-bit) arrays or strings. However, if you know the value type in advance (for example, you only
+work with UTF-8 strings or/and associative arrays), you can eliminate this overhead by forcing the packer to use
+the appropriate type, which will save it from running the auto-detection routine. Another option is to explicitly
+specify the value type. The library provides 2 auxiliary classes for this, <code>Map</code> and <code>Binary</code>.
+Check the <a href="#type-transformers">"Type transformers"</a> section below for details.</em></p>
 </blockquote>
 <p>Examples:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
@@ -6271,7 +6270,7 @@ the appropriate type, which will save it from running the auto detection routine
 <span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>(<span class="pl-c1">PackOptions</span><span class="pl-k">::</span><span class="pl-c1">FORCE_FLOAT32</span> <span class="pl-k">|</span> <span class="pl-c1">PackOptions</span><span class="pl-k">::</span><span class="pl-c1">FORCE_FLOAT64</span>);</span></pre></div>
 <h7>
 <a id="user-content-unpacking" class="anchor" aria-hidden="true" href="#unpacking"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unpacking</h7>
-<p>To unpack data you can either use an instance of <code>BufferUnpacker</code>:</p>
+<p>To unpack data you can either use an instance of a <code>BufferUnpacker</code>:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\BufferUnpacker</span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$unpacker</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">BufferUnpacker</span>();</span>
@@ -6280,24 +6279,34 @@ the appropriate type, which will save it from running the auto detection routine
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>reset(<span class="pl-smi">$packed</span>);</span>
 <span class="pl-s1"><span class="pl-smi">$value</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpack();</span></pre></div>
-<p>or call the static method on the <code>MessagePack</code> class:</p>
+<p>or call a static method on the <code>MessagePack</code> class:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\MessagePack</span>;</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-k">...</span></span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$value</span> <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span><span class="pl-k">::</span>unpack(<span class="pl-smi">$packed</span>);</span></pre></div>
-<p>If the packed data is received in chunks (e.g. when reading from a stream), use the <code>tryUnpack</code>
-method, which attempts to unpack data and returns an array of unpacked messages (if any) instead of throwing an <code>InsufficientDataException</code>:</p>
+<p>If the packed data is received in chunks (e.g. when reading from a stream), use the <code>tryUnpack</code> method, which attempts
+to unpack data and returns an array of unpacked messages (if any) instead of throwing an <code>InsufficientDataException</code>:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">while</span> (<span class="pl-smi">$chunk</span> <span class="pl-k">=</span> <span class="pl-k">...</span>) {</span>
 <span class="pl-s1">    <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>append(<span class="pl-smi">$chunk</span>);</span>
 <span class="pl-s1">    <span class="pl-k">if</span> (<span class="pl-smi">$messages</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>tryUnpack()) {</span>
 <span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$messages</span>;</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1">}</span></pre></div>
+<p>Besides the above methods <code>BufferUnpacker</code> provides type-specific unpacking methods, namely:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackNil();   <span class="pl-c"><span class="pl-c">//</span> PHP null</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackBool();  <span class="pl-c"><span class="pl-c">//</span> PHP bool</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackInt();   <span class="pl-c"><span class="pl-c">//</span> PHP int</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackFloat(); <span class="pl-c"><span class="pl-c">//</span> PHP float</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackStr();   <span class="pl-c"><span class="pl-c">//</span> PHP UTF-8 string</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackBin();   <span class="pl-c"><span class="pl-c">//</span> PHP binary string</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackArray(); <span class="pl-c"><span class="pl-c">//</span> PHP sequential array</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackMap();   <span class="pl-c"><span class="pl-c">//</span> PHP associative array</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackExt();   <span class="pl-c"><span class="pl-c">//</span> PHP Ext class</span></span></pre></div>
 <h8>
 <a id="user-content-unpacking-options" class="anchor" aria-hidden="true" href="#unpacking-options"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unpacking options</h8>
-<p>The <code>BufferUnpacker</code> object supports a number of bitmask-based options for fine-tuning
-the unpacking process (defaults are in bold):</p>
+<p>The <code>BufferUnpacker</code> object supports a number of bitmask-based options for fine-tuning the unpacking process (defaults
+are in bold):</p>
 <table>
 <thead>
 <tr>
@@ -6353,68 +6362,116 @@ but PHP does not support such integers, which means that an overflow can occur d
 <span class="pl-s1"><span class="pl-c1">var_dump</span>(<span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span><span class="pl-smi">type</span> <span class="pl-k">===</span> <span class="pl-c1">42</span>); <span class="pl-c"><span class="pl-c">//</span> bool(true)</span></span>
 <span class="pl-s1"><span class="pl-c1">var_dump</span>(<span class="pl-smi">$ext</span><span class="pl-k">-&gt;</span><span class="pl-smi">data</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">\xaa</span><span class="pl-pds">"</span></span>); <span class="pl-c"><span class="pl-c">//</span> bool(true)</span></span></pre></div>
 <h7>
-<a id="user-content-custom-types" class="anchor" aria-hidden="true" href="#custom-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom types</h7>
+<a id="user-content-type-transformers" class="anchor" aria-hidden="true" href="#type-transformers"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type transformers</h7>
 <p>In addition to <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#type-system">the basic types</a>,
-the library provides functionality to serialize and deserialize arbitrary types. To do this, you need
-to create a transformer, that converts your type to a type, which can be handled by MessagePack.</p>
-<p>For example, the code below shows how to add <code>DateTime</code> object support:</p>
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\TypeTransformer\TypeTransformer</span>;</span>
+the library provides functionality to serialize and deserialize arbitrary types. In order to support a custom type
+you need to create and register a transformer. The transformer must either implement the <code>Packable</code> or <code>Extension</code>
+interface.</p>
+<p>The purpose of <code>Packable</code> transformers is to serialize a specific value to one of the basic MessagePack types. A good
+example of such a transformer is a <code>MapTransformer</code> that comes with the library. It serializes <code>Map</code> objects (which
+are simple wrappers around PHP arrays) to MessagePack maps. This is useful when you want to explicitly mark that
+a given PHP array must be packed as a MessagePack map, without triggering the type's auto-detection routine.</p>
+<blockquote>
+<p><em>More types and type transformers can be found in <a href="/rybakit/msgpack.php/blob/master/src/Type">src/Type</a>
+and <a href="/rybakit/msgpack.php/blob/master/src/TypeTransformer">src/TypeTransformer</a> directories.</em></p>
+</blockquote>
+<p>The implementation is trivial:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">namespace</span> <span class="pl-en">MessagePack\TypeTransformer</span>;</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">DateTimeTransformer</span> <span class="pl-k">implements</span> <span class="pl-e">TypeTransformer</span></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Type\Map</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">MapTransformer</span> <span class="pl-k">implements</span> <span class="pl-e">Packable</span></span>
 <span class="pl-s1">{</span>
-<span class="pl-s1">    <span class="pl-k">private</span> <span class="pl-smi">$id</span>;</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-c1">__construct</span>(<span class="pl-smi">$id</span>)</span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">pack</span>(<span class="pl-c1">Packer</span> <span class="pl-smi">$packer</span>, <span class="pl-smi">$value</span>)</span>
 <span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">id</span> <span class="pl-k">=</span> <span class="pl-smi">$id</span>;</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">getId</span>()</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">id</span>;</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">supports</span>(<span class="pl-smi">$value</span>)</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$value</span> <span class="pl-k">instanceof</span> <span class="pl-c1">\DateTime</span>;</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">transform</span>(<span class="pl-smi">$value</span>)</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$value</span><span class="pl-k">-&gt;</span>format(<span class="pl-c1">\DateTime</span><span class="pl-k">::</span><span class="pl-c1">RFC3339</span>);</span>
-<span class="pl-s1">    }</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">reverseTransform</span>(<span class="pl-smi">$data</span>)</span>
-<span class="pl-s1">    {</span>
-<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">\DateTime</span>(<span class="pl-smi">$data</span>);</span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$value</span> <span class="pl-k">instanceof</span> <span class="pl-c1">Map</span></span>
+<span class="pl-s1">            ? <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packMap(<span class="pl-smi">$value</span><span class="pl-k">-&gt;</span><span class="pl-smi">map</span>)</span>
+<span class="pl-s1">            : <span class="pl-c1">null</span>;</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1">}</span></pre></div>
+<p>Once <code>MapTransformer</code> is registered, you can pack <code>Map</code> objects:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\PackOptions</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Type\Map</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\TypeTransformer\MapTransformer</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>(<span class="pl-c1">PackOptions</span><span class="pl-k">::</span><span class="pl-c1">FORCE_ARR</span>);</span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>registerTransformer(<span class="pl-k">new</span> <span class="pl-c1">MapTransformer</span>());</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([</span>
+<span class="pl-s1">    [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>],          <span class="pl-c"><span class="pl-c">//</span> MP array</span></span>
+<span class="pl-s1">    <span class="pl-k">new</span> <span class="pl-c1">Map</span>([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>]), <span class="pl-c"><span class="pl-c">//</span> MP map</span></span>
+<span class="pl-s1">]);</span></pre></div>
+<p>Transformers implementing the <code>Extension</code> interface are intended for packing <em>and</em> unpacking application-specific types
+using the MessagePack's <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#extension-types">Extension type</a>.
+For example, the code below shows how to create a transformer that allows you to work transparently with <code>DateTime</code>
+objects:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\BufferUnpacker</span>;</span>
 <span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
-<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\TypeTransformer\Collection</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\TypeTransformer\Extension</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">DateTimeTransformer</span> <span class="pl-k">implements</span> <span class="pl-e">Extension</span></span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">private</span> <span class="pl-smi">$type</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-c1">__construct</span>(<span class="pl-smi">$type</span>)</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">type</span> <span class="pl-k">=</span> <span class="pl-smi">$type</span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">getType</span>()</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">type</span>;</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">pack</span>(<span class="pl-c1">Packer</span> <span class="pl-smi">$packer</span>, <span class="pl-smi">$value</span>)</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">$value</span> <span class="pl-k">instanceof</span> <span class="pl-c1">\DateTimeInterface</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-smi">$value</span> <span class="pl-k">instanceof</span> <span class="pl-c1">\DateTime</span>) {</span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-c1">null</span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packExt(<span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">type</span>,</span>
+<span class="pl-s1">            <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>packStr(<span class="pl-smi">$value</span><span class="pl-k">-&gt;</span>format(<span class="pl-c1">\DateTime</span><span class="pl-k">::</span><span class="pl-c1">RFC3339</span>))</span>
+<span class="pl-s1">        );</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">unpack</span>(<span class="pl-c1">BufferUnpacker</span> <span class="pl-smi">$unpacker</span>, <span class="pl-smi">$extLength</span>)</span>
+<span class="pl-s1">    {</span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-c1">\DateTime</span>(<span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackStr());</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span></pre></div>
+<p>Register <code>DateTimeTransformer</code> for both the packer and the unpacker with a unique extension type (an integer
+between 0 and 127) and you are ready to go:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">App\MessagePack\DateTimeTransformer</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\BufferUnpacker</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">MessagePack\Packer</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$transformer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">DateTimeTransformer</span>(<span class="pl-c1">42</span>);</span>
 <span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$packer</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Packer</span>();</span>
+<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>registerTransformer(<span class="pl-smi">$transformer</span>);</span>
+<span class="pl-s1"></span>
 <span class="pl-s1"><span class="pl-smi">$unpacker</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">BufferUnpacker</span>();</span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>registerTransformer(<span class="pl-smi">$transformer</span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$coll</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Collection</span>([<span class="pl-k">new</span> <span class="pl-c1">DateTimeTransformer</span>(<span class="pl-c1">5</span>)]);</span>
-<span class="pl-s1"><span class="pl-c"><span class="pl-c">//</span> $coll-&gt;add(new AnotherTypeTransformer(42));</span></span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>setTransformers(<span class="pl-smi">$coll</span>);</span>
-<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>setTransformers(<span class="pl-smi">$coll</span>);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack([<span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-k">new</span> <span class="pl-c1">DateTime</span>(), <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>baz<span class="pl-pds">'</span></span>]);</span>
-<span class="pl-s1"><span class="pl-smi">$value</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>reset(<span class="pl-smi">$packed</span>)<span class="pl-k">-&gt;</span>unpack();</span></pre></div>
+<span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack(<span class="pl-k">new</span> <span class="pl-c1">DateTime</span>());</span>
+<span class="pl-s1"><span class="pl-smi">$date</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>reset(<span class="pl-smi">$packed</span>)<span class="pl-k">-&gt;</span>unpack();</span></pre></div>
+<blockquote>
+<p><em>More type transformer examples can be found in the <a href="/rybakit/msgpack.php/blob/master/examples">examples</a> directory.</em></p>
+</blockquote>
 <h6>
 <a id="user-content-exceptions" class="anchor" aria-hidden="true" href="#exceptions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exceptions</h6>
-<p>If an error occurs during packing/unpacking, a <code>PackingFailedException</code> or <code>UnpackingFailedException</code>
-will be thrown, respectively.</p>
-<p>In addition, there are two more exceptions that can be thrown during unpacking:</p>
+<p>If an error occurs during packing/unpacking, a <code>PackingFailedException</code> or <code>UnpackingFailedException</code> will be thrown,
+respectively.</p>
+<p>In addition, there are three more exceptions that can be thrown during unpacking:</p>
 <ul>
 <li><code>InsufficientDataException</code></li>
 <li><code>IntegerOverflowException</code></li>
+<li><code>InvalidCodeException</code></li>
 </ul>
-<p>The <code>InvalidOptionException</code> will be thrown in case of an invalid option (or a combination
-of mutually exclusive options) is used.</p>
+<p>An <code>InvalidOptionException</code> will be thrown in case an invalid option (or a combination of mutually exclusive options)
+is used.</p>
 <h6>
 <a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tests</h6>
 <p>Run tests as follows:</p>
@@ -6442,82 +6499,82 @@ Iterations: 100000
 =============================================
 Test/Target            Packer  BufferUnpacker
 ---------------------------------------------
-nil .................. 0.0064 ........ 0.0204
-false ................ 0.0075 ........ 0.0211
-true ................. 0.0074 ........ 0.0214
-7-bit uint #1 ........ 0.0084 ........ 0.0157
-7-bit uint #2 ........ 0.0085 ........ 0.0158
-7-bit uint #3 ........ 0.0084 ........ 0.0158
-5-bit sint #1 ........ 0.0088 ........ 0.0202
-5-bit sint #2 ........ 0.0088 ........ 0.0202
-5-bit sint #3 ........ 0.0089 ........ 0.0201
-8-bit uint #1 ........ 0.0110 ........ 0.0330
-8-bit uint #2 ........ 0.0110 ........ 0.0329
-8-bit uint #3 ........ 0.0109 ........ 0.0328
-16-bit uint #1 ....... 0.0159 ........ 0.0427
-16-bit uint #2 ....... 0.0159 ........ 0.0422
-16-bit uint #3 ....... 0.0160 ........ 0.0423
-32-bit uint #1 ....... 0.0181 ........ 0.0534
-32-bit uint #2 ....... 0.0179 ........ 0.0535
-32-bit uint #3 ....... 0.0180 ........ 0.0534
-64-bit uint #1 ....... 0.0269 ........ 0.0661
-64-bit uint #2 ....... 0.0269 ........ 0.0655
-8-bit int #1 ......... 0.0109 ........ 0.0361
-8-bit int #2 ......... 0.0109 ........ 0.0366
-8-bit int #3 ......... 0.0108 ........ 0.0365
-16-bit int #1 ........ 0.0159 ........ 0.0448
-16-bit int #2 ........ 0.0160 ........ 0.0443
-16-bit int #3 ........ 0.0158 ........ 0.0445
-32-bit int #1 ........ 0.0180 ........ 0.0618
-32-bit int #2 ........ 0.0184 ........ 0.0614
-32-bit int #3 ........ 0.0182 ........ 0.0616
-64-bit int #1 ........ 0.0269 ........ 0.0672
-64-bit int #2 ........ 0.0270 ........ 0.0671
-64-bit int #3 ........ 0.0268 ........ 0.0695
-64-bit float #1 ...... 0.0241 ........ 0.0577
-64-bit float #2 ...... 0.0245 ........ 0.0578
-64-bit float #3 ...... 0.0243 ........ 0.0595
-fix string #1 ........ 0.0239 ........ 0.0179
-fix string #2 ........ 0.0251 ........ 0.0309
-fix string #3 ........ 0.0253 ........ 0.0309
-fix string #4 ........ 0.0280 ........ 0.0306
-8-bit string #1 ...... 0.0304 ........ 0.0500
-8-bit string #2 ...... 0.0351 ........ 0.0515
-8-bit string #3 ...... 0.0424 ........ 0.0503
-16-bit string #1 ..... 0.0474 ........ 0.0598
-16-bit string #2 ..... 3.3957 ........ 0.3365
-32-bit string ........ 3.4516 ........ 0.3527
-wide char string #1 .. 0.0275 ........ 0.0318
-wide char string #2 .. 0.0332 ........ 0.0523
-8-bit binary #1 ...... 0.0278 ........ 0.0458
-8-bit binary #2 ...... 0.0287 ........ 0.0466
-8-bit binary #3 ...... 0.0288 ........ 0.0460
-16-bit binary ........ 0.0339 ........ 0.0560
-32-bit binary ........ 0.3956 ........ 0.3489
-fixext 1 ............. 0.0190 ........ 0.0664
-fixext 2 ............. 0.0196 ........ 0.0682
-fixext 4 ............. 0.0203 ........ 0.0680
-fixext 8 ............. 0.0218 ........ 0.0688
-fixext 16 ............ 0.0217 ........ 0.0686
-8-bit ext ............ 0.0288 ........ 0.0788
-16-bit ext ........... 0.0334 ........ 0.0900
-32-bit ext ........... 0.3940 ........ 0.3796
-fix array #1 ......... 0.0205 ........ 0.0200
-fix array #2 ......... 0.0778 ........ 0.0880
-16-bit array #1 ...... 0.2349 ........ 0.2471
+nil .................. 0.0057 ........ 0.0198
+false ................ 0.0069 ........ 0.0204
+true ................. 0.0081 ........ 0.0210
+7-bit uint #1 ........ 0.0086 ........ 0.0157
+7-bit uint #2 ........ 0.0085 ........ 0.0156
+7-bit uint #3 ........ 0.0086 ........ 0.0155
+5-bit sint #1 ........ 0.0088 ........ 0.0198
+5-bit sint #2 ........ 0.0088 ........ 0.0199
+5-bit sint #3 ........ 0.0088 ........ 0.0198
+8-bit uint #1 ........ 0.0105 ........ 0.0346
+8-bit uint #2 ........ 0.0106 ........ 0.0346
+8-bit uint #3 ........ 0.0105 ........ 0.0349
+16-bit uint #1 ....... 0.0160 ........ 0.0436
+16-bit uint #2 ....... 0.0161 ........ 0.0414
+16-bit uint #3 ....... 0.0155 ........ 0.0414
+32-bit uint #1 ....... 0.0181 ........ 0.0530
+32-bit uint #2 ....... 0.0179 ........ 0.0529
+32-bit uint #3 ....... 0.0179 ........ 0.0536
+64-bit uint #1 ....... 0.0260 ........ 0.0650
+64-bit uint #2 ....... 0.0262 ........ 0.0653
+8-bit int #1 ......... 0.0110 ........ 0.0419
+8-bit int #2 ......... 0.0135 ........ 0.0411
+8-bit int #3 ......... 0.0111 ........ 0.0385
+16-bit int #1 ........ 0.0168 ........ 0.0473
+16-bit int #2 ........ 0.0219 ........ 0.0438
+16-bit int #3 ........ 0.0164 ........ 0.0438
+32-bit int #1 ........ 0.0181 ........ 0.0605
+32-bit int #2 ........ 0.0179 ........ 0.0605
+32-bit int #3 ........ 0.0185 ........ 0.0603
+64-bit int #1 ........ 0.0293 ........ 0.0694
+64-bit int #2 ........ 0.0264 ........ 0.0664
+64-bit int #3 ........ 0.0266 ........ 0.0689
+64-bit float #1 ...... 0.0245 ........ 0.0569
+64-bit float #2 ...... 0.0249 ........ 0.0565
+64-bit float #3 ...... 0.0246 ........ 0.0586
+fix string #1 ........ 0.0232 ........ 0.0182
+fix string #2 ........ 0.0247 ........ 0.0315
+fix string #3 ........ 0.0246 ........ 0.0323
+fix string #4 ........ 0.0277 ........ 0.0322
+8-bit string #1 ...... 0.0299 ........ 0.0515
+8-bit string #2 ...... 0.0347 ........ 0.0507
+8-bit string #3 ...... 0.0411 ........ 0.0518
+16-bit string #1 ..... 0.0461 ........ 0.0579
+16-bit string #2 ..... 3.3203 ........ 0.3238
+32-bit string ........ 3.3139 ........ 0.3364
+wide char string #1 .. 0.0261 ........ 0.0336
+wide char string #2 .. 0.0320 ........ 0.0528
+8-bit binary #1 ...... 0.0262 ........ 0.0454
+8-bit binary #2 ...... 0.0275 ........ 0.0451
+8-bit binary #3 ...... 0.0273 ........ 0.0448
+16-bit binary ........ 0.0326 ........ 0.0528
+32-bit binary ........ 0.3789 ........ 0.3329
+fix array #1 ......... 0.0207 ........ 0.0189
+fix array #2 ......... 0.0763 ........ 0.0870
+16-bit array #1 ...... 0.2200 ........ 0.2309
 16-bit array #2 ........... S ............. S
 32-bit array .............. S ............. S
-complex array ........ 0.3193 ........ 0.4058
-fix map #1 ........... 0.1524 ........ 0.1819
-fix map #2 ........... 0.0621 ........ 0.0667
-fix map #3 ........... 0.0748 ........ 0.1109
-fix map #4 ........... 0.0701 ........ 0.0862
-16-bit map #1 ........ 0.3929 ........ 0.4382
+complex array ........ 0.3201 ........ 0.3844
+fix map #1 ........... 0.1438 ........ 0.1708
+fix map #2 ........... 0.0599 ........ 0.0654
+fix map #3 ........... 0.0715 ........ 0.1044
+fix map #4 ........... 0.0679 ........ 0.0843
+16-bit map #1 ........ 0.3547 ........ 0.4083
 16-bit map #2 ............. S ............. S
 32-bit map ................ S ............. S
-complex map .......... 0.4442 ........ 0.5239
+complex map .......... 0.4284 ........ 0.5006
+fixext 1 ............. 0.0171 ........ 0.0600
+fixext 2 ............. 0.0177 ........ 0.0618
+fixext 4 ............. 0.0181 ........ 0.0628
+fixext 8 ............. 0.0193 ........ 0.0643
+fixext 16 ............ 0.0197 ........ 0.0626
+8-bit ext ............ 0.0262 ........ 0.0730
+16-bit ext ........... 0.0304 ........ 0.0819
+32-bit ext ........... 0.3744 ........ 0.3604
 =============================================
-Total                 10.6381          6.1902
+Total                 10.2821          5.9778
 Skipped                     4               4
 Failed                      0               0
 Ignored                     0               0
@@ -6543,7 +6600,7 @@ $ <span class="pl-c"><span class="pl-c">#</span> export MP_BENCH_TESTS='-@slow' 
 $ <span class="pl-c"><span class="pl-c">#</span> or a regexp</span>
 $ <span class="pl-c"><span class="pl-c">#</span> export MP_BENCH_TESTS='/complex (array|map)/'</span>
 $ php -n tests/bench.php</pre></div>
-<p>Another example, benchmarking both the library and <a href="https://pecl.php.net/package/msgpack" rel="nofollow">msgpack pecl extension</a>:</p>
+<p>Another example, benchmarking both the library and the <a href="https://pecl.php.net/package/msgpack" rel="nofollow">msgpack pecl extension</a>:</p>
 <pre><code>$ MP_BENCH_TARGETS=pure_ps,pure_bu,pecl_p,pecl_u php -n -dextension=msgpack.so tests/bench.php
 
 Filter: MessagePack\Tests\Perf\Filter\ListFilter
@@ -6553,58 +6610,72 @@ Iterations: 100000
 ================================================================================
 Test/Target           Packer (str)  BufferUnpacker  msgpack_pack  msgpack_unpack
 --------------------------------------------------------------------------------
-nil ....................... 0.0062 ........ 0.0202 ...... 0.0071 ........ 0.0056
-false ..................... 0.0075 ........ 0.0208 ...... 0.0072 ........ 0.0056
-true ...................... 0.0076 ........ 0.0212 ...... 0.0072 ........ 0.0059
-7-bit uint #1 ............. 0.0087 ........ 0.0161 ...... 0.0075 ........ 0.0059
-7-bit uint #2 ............. 0.0085 ........ 0.0156 ...... 0.0075 ........ 0.0060
-7-bit uint #3 ............. 0.0088 ........ 0.0161 ...... 0.0075 ........ 0.0058
-5-bit sint #1 ............. 0.0093 ........ 0.0206 ...... 0.0075 ........ 0.0059
-5-bit sint #2 ............. 0.0092 ........ 0.0201 ...... 0.0073 ........ 0.0057
-5-bit sint #3 ............. 0.0089 ........ 0.0200 ...... 0.0073 ........ 0.0058
-8-bit uint #1 ............. 0.0110 ........ 0.0326 ...... 0.0075 ........ 0.0062
-8-bit uint #2 ............. 0.0110 ........ 0.0334 ...... 0.0076 ........ 0.0064
-8-bit uint #3 ............. 0.0113 ........ 0.0335 ...... 0.0077 ........ 0.0064
-16-bit uint #1 ............ 0.0164 ........ 0.0438 ...... 0.0076 ........ 0.0064
-16-bit uint #2 ............ 0.0164 ........ 0.0423 ...... 0.0074 ........ 0.0062
-16-bit uint #3 ............ 0.0161 ........ 0.0419 ...... 0.0074 ........ 0.0062
-32-bit uint #1 ............ 0.0180 ........ 0.0533 ...... 0.0074 ........ 0.0063
-32-bit uint #2 ............ 0.0180 ........ 0.0530 ...... 0.0074 ........ 0.0062
-32-bit uint #3 ............ 0.0180 ........ 0.0532 ...... 0.0074 ........ 0.0063
-64-bit uint #1 ............ 0.0266 ........ 0.0668 ...... 0.0076 ........ 0.0065
-64-bit uint #2 ............ 0.0273 ........ 0.0653 ...... 0.0074 ........ 0.0062
-8-bit int #1 .............. 0.0109 ........ 0.0365 ...... 0.0074 ........ 0.0062
-8-bit int #2 .............. 0.0112 ........ 0.0379 ...... 0.0076 ........ 0.0063
-8-bit int #3 .............. 0.0109 ........ 0.0371 ...... 0.0075 ........ 0.0063
-16-bit int #1 ............. 0.0158 ........ 0.0441 ...... 0.0072 ........ 0.0063
-16-bit int #2 ............. 0.0158 ........ 0.0441 ...... 0.0072 ........ 0.0064
-16-bit int #3 ............. 0.0163 ........ 0.0502 ...... 0.0136 ........ 0.0116
-32-bit int #1 ............. 0.0213 ........ 0.0618 ...... 0.0076 ........ 0.0065
-32-bit int #2 ............. 0.0184 ........ 0.0611 ...... 0.0074 ........ 0.0063
-32-bit int #3 ............. 0.0180 ........ 0.0605 ...... 0.0078 ........ 0.0067
-64-bit int #1 ............. 0.0283 ........ 0.0697 ...... 0.0076 ........ 0.0064
-64-bit int #2 ............. 0.0289 ........ 0.0684 ...... 0.0076 ........ 0.0062
-64-bit int #3 ............. 0.0274 ........ 0.0687 ...... 0.0074 ........ 0.0063
-64-bit float #1 ........... 0.0241 ........ 0.0570 ...... 0.0072 ........ 0.0062
-64-bit float #2 ........... 0.0244 ........ 0.0587 ...... 0.0074 ........ 0.0065
-64-bit float #3 ........... 0.0248 ........ 0.0740 ...... 0.0133 ........ 0.0091
-fix string #1 ............. 0.0120 ........ 0.0180 ...... 0.0077 ........ 0.0059
-fix string #2 ............. 0.0132 ........ 0.0305 ...... 0.0077 ........ 0.0077
-fix string #3 ............. 0.0131 ........ 0.0305 ...... 0.0076 ........ 0.0077
-fix string #4 ............. 0.0137 ........ 0.0305 ...... 0.0078 ........ 0.0079
-8-bit string #1 ........... 0.0175 ........ 0.0493 ...... 0.0078 ........ 0.0074
-8-bit string #2 ........... 0.0164 ........ 0.0497 ...... 0.0078 ........ 0.0076
-8-bit string #3 ........... 0.0165 ........ 0.0522 ...... 0.0127 ........ 0.0079
-16-bit string #1 .......... 0.0224 ........ 0.0606 ...... 0.0127 ........ 0.0086
-16-bit string #2 .......... 0.3771 ........ 0.3277 ...... 0.3527 ........ 0.2843
-32-bit string ............. 0.3758 ........ 0.3359 ...... 0.3541 ........ 0.2755
-wide char string #1 ....... 0.0145 ........ 0.0304 ...... 0.0076 ........ 0.0076
-wide char string #2 ....... 0.0162 ........ 0.0647 ...... 0.0140 ........ 0.0113
+nil ....................... 0.0062 ........ 0.0205 ...... 0.0074 ........ 0.0052
+false ..................... 0.0070 ........ 0.0203 ...... 0.0071 ........ 0.0051
+true ...................... 0.0072 ........ 0.0217 ...... 0.0072 ........ 0.0052
+7-bit uint #1 ............. 0.0083 ........ 0.0156 ...... 0.0083 ........ 0.0060
+7-bit uint #2 ............. 0.0087 ........ 0.0173 ...... 0.0073 ........ 0.0052
+7-bit uint #3 ............. 0.0102 ........ 0.0195 ...... 0.0073 ........ 0.0052
+5-bit sint #1 ............. 0.0091 ........ 0.0204 ...... 0.0074 ........ 0.0052
+5-bit sint #2 ............. 0.0093 ........ 0.0206 ...... 0.0074 ........ 0.0054
+5-bit sint #3 ............. 0.0097 ........ 0.0204 ...... 0.0072 ........ 0.0053
+8-bit uint #1 ............. 0.0108 ........ 0.0345 ...... 0.0074 ........ 0.0056
+8-bit uint #2 ............. 0.0108 ........ 0.0346 ...... 0.0074 ........ 0.0056
+8-bit uint #3 ............. 0.0107 ........ 0.0352 ...... 0.0073 ........ 0.0057
+16-bit uint #1 ............ 0.0155 ........ 0.0416 ...... 0.0075 ........ 0.0059
+16-bit uint #2 ............ 0.0154 ........ 0.0414 ...... 0.0073 ........ 0.0059
+16-bit uint #3 ............ 0.0156 ........ 0.0416 ...... 0.0073 ........ 0.0058
+32-bit uint #1 ............ 0.0178 ........ 0.0545 ...... 0.0074 ........ 0.0058
+32-bit uint #2 ............ 0.0177 ........ 0.0545 ...... 0.0074 ........ 0.0058
+32-bit uint #3 ............ 0.0177 ........ 0.0545 ...... 0.0074 ........ 0.0058
+64-bit uint #1 ............ 0.0265 ........ 0.0679 ...... 0.0074 ........ 0.0057
+64-bit uint #2 ............ 0.0265 ........ 0.0692 ...... 0.0074 ........ 0.0056
+8-bit int #1 .............. 0.0110 ........ 0.0371 ...... 0.0074 ........ 0.0058
+8-bit int #2 .............. 0.0110 ........ 0.0366 ...... 0.0074 ........ 0.0058
+8-bit int #3 .............. 0.0112 ........ 0.0363 ...... 0.0073 ........ 0.0059
+16-bit int #1 ............. 0.0159 ........ 0.0441 ...... 0.0073 ........ 0.0058
+16-bit int #2 ............. 0.0158 ........ 0.0440 ...... 0.0073 ........ 0.0059
+16-bit int #3 ............. 0.0159 ........ 0.0438 ...... 0.0072 ........ 0.0058
+32-bit int #1 ............. 0.0179 ........ 0.0627 ...... 0.0073 ........ 0.0056
+32-bit int #2 ............. 0.0180 ........ 0.0624 ...... 0.0073 ........ 0.0068
+32-bit int #3 ............. 0.0186 ........ 0.0630 ...... 0.0073 ........ 0.0057
+64-bit int #1 ............. 0.0270 ........ 0.0691 ...... 0.0074 ........ 0.0059
+64-bit int #2 ............. 0.0267 ........ 0.0690 ...... 0.0075 ........ 0.0059
+64-bit int #3 ............. 0.0267 ........ 0.0696 ...... 0.0074 ........ 0.0058
+64-bit float #1 ........... 0.0249 ........ 0.0587 ...... 0.0072 ........ 0.0057
+64-bit float #2 ........... 0.0246 ........ 0.0588 ...... 0.0072 ........ 0.0057
+64-bit float #3 ........... 0.0245 ........ 0.0603 ...... 0.0072 ........ 0.0057
+fix string #1 ............. 0.0119 ........ 0.0181 ...... 0.0076 ........ 0.0054
+fix string #2 ............. 0.0126 ........ 0.0304 ...... 0.0076 ........ 0.0073
+fix string #3 ............. 0.0129 ........ 0.0304 ...... 0.0075 ........ 0.0074
+fix string #4 ............. 0.0137 ........ 0.0306 ...... 0.0075 ........ 0.0073
+8-bit string #1 ........... 0.0164 ........ 0.0494 ...... 0.0074 ........ 0.0069
+8-bit string #2 ........... 0.0164 ........ 0.0496 ...... 0.0079 ........ 0.0077
+8-bit string #3 ........... 0.0170 ........ 0.0497 ...... 0.0121 ........ 0.0075
+16-bit string #1 .......... 0.0211 ........ 0.0571 ...... 0.0121 ........ 0.0079
+16-bit string #2 .......... 0.3709 ........ 0.3262 ...... 0.3515 ........ 0.2773
+32-bit string ............. 0.3658 ........ 0.3383 ...... 0.3491 ........ 0.2772
+wide char string #1 ....... 0.0137 ........ 0.0304 ...... 0.0075 ........ 0.0072
+wide char string #2 ....... 0.0162 ........ 0.0493 ...... 0.0076 ........ 0.0072
 8-bit binary #1 ................ I ............. I ........... F ............. I
 8-bit binary #2 ................ I ............. I ........... F ............. I
 8-bit binary #3 ................ I ............. I ........... F ............. I
 16-bit binary .................. I ............. I ........... F ............. I
 32-bit binary .................. I ............. I ........... F ............. I
+fix array #1 .............. 0.0211 ........ 0.0188 ...... 0.0161 ........ 0.0071
+fix array #2 .............. 0.0637 ........ 0.0857 ...... 0.0202 ........ 0.0196
+16-bit array #1 ........... 0.2120 ........ 0.2364 ...... 0.0334 ........ 0.0439
+16-bit array #2 ................ S ............. S ........... S ............. S
+32-bit array ................... S ............. S ........... S ............. S
+complex array .................. I ............. I ........... F ............. F
+fix map #1 ..................... I ............. I ........... F ............. I
+fix map #2 ................ 0.0484 ........ 0.0695 ...... 0.0192 ........ 0.0186
+fix map #3 ..................... I ............. I ........... F ............. I
+fix map #4 ..................... I ............. I ........... F ............. I
+16-bit map #1 ............. 0.3687 ........ 0.4071 ...... 0.0338 ........ 0.0641
+16-bit map #2 .................. S ............. S ........... S ............. S
+32-bit map ..................... S ............. S ........... S ............. S
+complex map ............... 0.3872 ........ 0.5015 ...... 0.0680 ........ 0.0689
 fixext 1 ....................... I ............. I ........... F ............. F
 fixext 2 ....................... I ............. I ........... F ............. F
 fixext 4 ....................... I ............. I ........... F ............. F
@@ -6613,22 +6684,8 @@ fixext 16 ...................... I ............. I ........... F ............. F
 8-bit ext ...................... I ............. I ........... F ............. F
 16-bit ext ..................... I ............. I ........... F ............. F
 32-bit ext ..................... I ............. I ........... F ............. F
-fix array #1 .............. 0.0199 ........ 0.0188 ...... 0.0160 ........ 0.0076
-fix array #2 .............. 0.0627 ........ 0.0854 ...... 0.0200 ........ 0.0200
-16-bit array #1 ........... 0.2302 ........ 0.2454 ...... 0.0389 ........ 0.0680
-16-bit array #2 ................ S ............. S ........... S ............. S
-32-bit array ................... S ............. S ........... S ............. S
-complex array .................. I ............. I ........... F ............. F
-fix map #1 ..................... I ............. I ........... F ............. I
-fix map #2 ................ 0.0480 ........ 0.0647 ...... 0.0182 ........ 0.0222
-fix map #3 ..................... I ............. I ........... F ............. I
-fix map #4 ..................... I ............. I ........... F ............. I
-16-bit map #1 ............. 0.3769 ........ 0.4230 ...... 0.0352 ........ 0.0957
-16-bit map #2 .................. S ............. S ........... S ............. S
-32-bit map ..................... S ............. S ........... S ............. S
-complex map ............... 0.3855 ........ 0.5048 ...... 0.0697 ........ 0.0703
 ================================================================================
-Total                       2.5926          3.9415        1.2707          1.1478
+Total                       2.5400          3.8999        1.2332          1.0469
 Skipped                          4               4             4               4
 Failed                           0               0            17               9
 Ignored                         17              17             0               8
