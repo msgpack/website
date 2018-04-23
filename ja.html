@@ -9893,18 +9893,18 @@ or at <a href="https://msgpack.org" rel="nofollow">msgpack.org</a>.</p>
 <li>Use Go as your schema language</li>
 <li>Performance is amazing</li>
 <li><a href="https://godoc.org/github.com/dchenk/msgp/msgp#CopyToJSON" rel="nofollow">JSON interop</a></li>
-<li><a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">User-defined extensions</a></li>
+<li><a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">Define your own MessagePack extensions</a></li>
 <li>Type safety</li>
 </ul>
 <h7>
 <a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quickstart</h7>
-<p>In a source file, include the following directive:</p>
+<p>In a Go code source file, include the following directive:</p>
 <div class="highlight highlight-source-go"><pre><span class="pl-c"><span class="pl-c">//</span>go:generate msgp</span></pre></div>
-<p>The <code>msgp</code> command will tell <code>go generate</code> to generate serialization and deserialization methods for all exported type declarations in the file.</p>
+<p>The <code>msgp</code> command will tell <code>go generate</code> to generate serialization and deserialization methods for all exported types in the file.</p>
 <p>You can <a href="https://github.com/dchenk/msgp/wiki/Using-the-Code-Generator">read more about the code generation options here</a>.</p>
 <h7>
 <a id="user-content-use" class="anchor" aria-hidden="true" href="#use"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use</h7>
-<p>Field names can be set in much the same way as with the <code>encoding/json</code> package. For example:</p>
+<p>Struct field names can be set the same way as with the <code>encoding/json</code> package. For example:</p>
 <div class="highlight highlight-source-go"><pre><span class="pl-k">type</span> <span class="pl-v">Person</span> <span class="pl-k">struct</span> {
     <span class="pl-v">Name</span>       <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"name"<span class="pl-pds">`</span></span>
     <span class="pl-v">Address</span>    <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"address"<span class="pl-pds">`</span></span>
@@ -9955,7 +9955,7 @@ for performance reasons.</p>
 <ul>
 <li>Identifiers from outside the processed source file are assumed to satisfy the generator's interfaces. If this isn't the case, your code
 will fail to compile.</li>
-<li>The <code>chan</code> and <code>func</code> fields and types are ignored as well as non-exported fields.</li>
+<li>The <code>chan</code> and <code>func</code> fields and types are ignored as well as un-exported fields.</li>
 <li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
 <li>Maps must have <code>string</code> keys. This is intentional (as it preserves JSON interoperability). Although non-string map keys are not
 forbidden by the MessagePack standard, many serializers impose this restriction. (It also means <em>any</em> well-formed <code>struct</code> can be
