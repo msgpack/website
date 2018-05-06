@@ -9887,13 +9887,20 @@ Traceback (most recent call last):
 <p>This is a code generation tool and serialization library for MessagePack. You can read more about MessagePack <a href="http://github.com/dchenk/msgp/wiki">in the wiki</a>
 or at <a href="https://msgpack.org" rel="nofollow">msgpack.org</a>.</p>
 <h7>
-<a id="user-content-why-messagepack-and-this-tool" class="anchor" aria-hidden="true" href="#why-messagepack-and-this-tool"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why MessagePack and This Tool?</h7>
+<a id="user-content-top-features" class="anchor" aria-hidden="true" href="#top-features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Top Features</h7>
 <ul>
 <li>Use Go as your schema language</li>
 <li>Performance is amazing</li>
-<li><a href="https://godoc.org/github.com/dchenk/msgp/msgp#CopyToJSON" rel="nofollow">JSON interop</a></li>
-<li><a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">Define your own MessagePack extensions</a></li>
+<li>JSON <a href="https://godoc.org/github.com/dchenk/msgp/msgp#CopyToJSON" rel="nofollow">interoperability</a>
+</li>
 <li>Type safety</li>
+<li>Support for complex type declarations</li>
+<li>Define your own <a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">MessagePack extensions</a>
+</li>
+<li>Automatic unit test and benchmark generation</li>
+<li>Native support for Go’s <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types</li>
+<li><a href="https://github.com/dchenk/msgp/wiki/Using-the-Code-Generator">Preprocessor directives</a></li>
+<li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
 </ul>
 <h7>
 <a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quickstart</h7>
@@ -9913,22 +9920,10 @@ or at <a href="https://msgpack.org" rel="nofollow">msgpack.org</a>.</p>
 }</pre></div>
 <p>(The struct field tags are optional.)</p>
 <p>By default, the code generator will satisfy <code>msgp.Sizer</code>, <code>msgp.Encoder</code>, <code>msgp.Decoder</code>, <code>msgp.Marshaler</code>, and <code>msgp.Unmarshaler</code>.
-Carefully-designed applications can use these methods to do marshalling/unmarshalling with zero heap allocations.</p>
-<p>While <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> are quite similar to the standard library's<code>json.Marshaler</code> and <code>json.Unmarshaler</code>,
+You’ll often find that much marshalling and unmarshalling will be done with zero heap allocations.</p>
+<p>Although <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> are similar to the standard library’s <code>json.Marshaler</code> and <code>json.Unmarshaler</code>,
 <code>msgp.Encoder</code> and <code>msgp.Decoder</code> are useful for stream serialization. (<code>*msgp.Writer</code> and <code>*msgp.Reader</code> are essentially
 protocol-aware versions of <code>*bufio.Writer</code> and <code>*bufio.Reader</code>.)</p>
-<h7>
-<a id="user-content-features" class="anchor" aria-hidden="true" href="#features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h7>
-<ul>
-<li>Extremely fast generated code</li>
-<li>Test and benchmark generation</li>
-<li>JSON interoperability (see <code>msgp.CopyToJSON() and msgp.UnmarshalAsJSON()</code>)</li>
-<li>Support for complex type declarations</li>
-<li>Native support for Go's <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types</li>
-<li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
-<li>Support for arbitrary type system extensions</li>
-<li><a href="https://github.com/dchenk/msgp/wiki/Preprocessor-Directives">Preprocessor directives</a></li>
-</ul>
 <p>Consider the following:</p>
 <div class="highlight highlight-source-go"><pre><span class="pl-k">const</span> <span class="pl-v">Eight</span> = <span class="pl-c1">8</span>
 <span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-k">int</span>
@@ -9956,12 +9951,12 @@ for performance reasons.</p>
 will fail to compile.</li>
 <li>The <code>chan</code> and <code>func</code> fields and types are ignored as well as un-exported fields.</li>
 <li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
-<li>Maps must have <code>string</code> keys. This is intentional (as it preserves JSON interoperability). Although non-string map keys are not
-forbidden by the MessagePack standard, many serializers impose this restriction. (It also means <em>any</em> well-formed <code>struct</code> can be
-de-serialized into a <code>map[string]interface{}</code>.) The only exception to this rule is that the deserializers will allow you to read map keys
-encoded as <code>bin</code> types, since some legacy encodings permitted this. (However, those values will still be cast to Go <code>string</code>s, and they
-will be converted to <code>str</code> types when re-encoded. It is the responsibility of the user to ensure that map keys are UTF-8 safe in this case.)
-The same rules hold true for JSON translation.</li>
+<li>Maps must have <code>string</code> keys. This is intentional (as it preserves JSON interoperability). Although non-string map keys are not forbidden
+by the MessagePack standard, many serializers impose this restriction. (It also means <em>any</em> well-formed <code>struct</code> can be decoded into a
+<code>map[string]interface{}</code>.) The only exception to this rule is that the decoders will allow you to read map keys encoded as <code>bin</code> types,
+since some legacy encodings permitted this. (However, those values will still be cast to Go <code>string</code>s, and they will be converted to <code>str</code>
+types when re-encoded. It is the responsibility of the user to ensure that map keys are UTF-8 safe in this case.) The same rules hold true
+for JSON translation.</li>
 </ul>
 <p>If the output compiles, then there's a pretty good chance things are fine. (Plus, we generate tests for you.) Please file an issue if you
 think the generator is writing broken code.</p>
@@ -9971,8 +9966,7 @@ think the generator is writing broken code.</p>
 and <a href="https://github.com/alecthomas/go_serialization_benchmarks">here</a>.</p>
 <h6>
 <a id="user-content-credits" class="anchor" aria-hidden="true" href="#credits"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credits</h6>
-<p>This repository is a fork of <a href="https://github.com/tinylib/msgp">github.com/tinylib/msgp</a>. The original authors did a great job, but
-this repository takes the project in a new and better direction.</p>
+<p>This repository is a fork of <a href="https://github.com/tinylib/msgp">github.com/tinylib/msgp</a>.</p>
 <p>Differences between this tool and tinylib/msgp:</p>
 <ul>
 <li>Here we have <a href="https://github.com/dchenk/msgp/wiki/Using-the-Code-Generator#matching-type-names">regular expression matching</a> for type
