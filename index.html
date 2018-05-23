@@ -6466,7 +6466,7 @@ to 127) and you are ready to go:</p>
 <span class="pl-s1"><span class="pl-smi">$unpacker</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">BufferUnpacker</span>();</span>
 <span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>registerTransformer(<span class="pl-smi">$transformer</span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack(<span class="pl-k">new</span> <span class="pl-c1">DateTime</span>());</span>
+<span class="pl-s1"><span class="pl-smi">$packed</span> <span class="pl-k">=</span> <span class="pl-smi">$packer</span><span class="pl-k">-&gt;</span>pack(<span class="pl-k">new</span> <span class="pl-c1">DateTimeImmutable</span>());</span>
 <span class="pl-s1"><span class="pl-smi">$date</span> <span class="pl-k">=</span> <span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>reset(<span class="pl-smi">$packed</span>)<span class="pl-k">-&gt;</span>unpack();</span></pre></div>
 <blockquote>
 <p><em>More type transformer examples can be found in the <a href="/rybakit/msgpack.php/blob/master/examples">examples</a> directory.</em></p>
