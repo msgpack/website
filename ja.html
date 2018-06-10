@@ -211,8 +211,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vmihailenco-msgpack',this)">Go <span class="qs-sub">vmihailenco</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-fperrad-lua-MessagePack',this)">Lua <span class="qs-sub">fperrad</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-rust-msgpack',this)">Rust <span class="qs-sub">mneumann</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mururu-msgpack-elixir',this)">Elixir <span class="qs-sub">mururu</span></a></li>
@@ -230,6 +228,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-jingweno-msgpack_rails',this)">Rails <span class="qs-sub">jingweno</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-markstinson-lua-MessagePack',this)">Lua <span class="qs-sub">markstinson</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-JuliaIO-MsgPack-jl',this)">Julia <span class="qs-sub">JuliaIO</span></a></li>
           
@@ -1749,40 +1749,6 @@ BenchmarkStructGOB-4                  	   10000	    104331 ns/op	   14664 B/op	 
   </div>
         </div>
         
-        <div id="qs-fperrad-lua-MessagePack" class="qs"><h4><a href="http://fperrad.github.io/lua-MessagePack/" target="_blank">fperrad/lua-MessagePack <span class="qs-url">http://fperrad.github.io/lua-MessagePack/</span></a></h4>
-<div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-messagepack-for-lua-spec-v5" class="anchor" aria-hidden="true" href="#messagepack-for-lua-spec-v5"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Lua (spec v5)</h5>
-<p><a href="https://travis-ci.org/fperrad/lua-MessagePack" rel="nofollow"><img src="https://camo.githubusercontent.com/621838758f869a5cea8171a45a34b7021027fbb0/68747470733a2f2f7472617669732d63692e6f72672f667065727261642f6c75612d4d6573736167655061636b2e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/fperrad/lua-MessagePack.png?branch=master" style="max-width:100%;"></a>
-<a href="https://coveralls.io/r/fperrad/lua-MessagePack?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/d78abbaa338852cf670531b628d9cc03b815e8ce/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f667065727261642f6c75612d4d6573736167655061636b2f62616467652e706e673f6272616e63683d6d6173746572" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/fperrad/lua-MessagePack/badge.png?branch=master" style="max-width:100%;"></a>
-<a href="/fperrad/lua-MessagePack/blob/master/COPYRIGHT"><img src="https://camo.githubusercontent.com/4ebe0bb28f60172b0c0378442dd98253e2b5fded/687474703a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e63652d4d49542d627269676874677265656e2e737667" alt="Licence" data-canonical-src="http://img.shields.io/badge/Licence-MIT-brightgreen.svg" style="max-width:100%;"></a>
-<a href="/fperrad/lua-MessagePack/blob/master/COPYRIGHT"><img src="https://camo.githubusercontent.com/10709f61ba8fa7657411081e600eccd7b2e9067a/687474703a2f2f696d672e736869656c64732e696f2f62616467652f446570656e64656e636965732d6e6f6e652d627269676874677265656e2e737667" alt="Dependencies" data-canonical-src="http://img.shields.io/badge/Dependencies-none-brightgreen.svg" style="max-width:100%;"></a></p>
-<div class="highlight highlight-source-lua"><pre><span class="pl-k">local</span> mp <span class="pl-k">=</span> <span class="pl-c1">require</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>
-mpac <span class="pl-k">=</span> mp.<span class="pl-c1">pack</span>(data)
-data <span class="pl-k">=</span> mp.<span class="pl-c1">unpack</span>(mpac)</pre></div>
-<h6>
-<a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h6>
-<p>You can use LuaRocks to install lua-MessagePack:</p>
-<pre><code>$ luarocks install lua-messagepack
-</code></pre>
-<p>or from the source, with:</p>
-<pre><code>$ make install
-</code></pre>
-<p>It is a pure Lua implementation, without any dependency.</p>
-<h6>
-<a id="user-content-links" class="anchor" aria-hidden="true" href="#links"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links</h6>
-<ul>
-<li><a href="http://github.com/fperrad/lua-MessagePack/">Github</a></li>
-<li><a href="http://fperrad.github.io/lua-MessagePack/messagepack/" rel="nofollow">API reference</a></li>
-</ul>
-<h6>
-<a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and License</h6>
-<p>Copyright (c) 2012-2018 Francois Perrad <a href="https://www.openhub.net/accounts/4780" rel="nofollow"><img src="https://camo.githubusercontent.com/b6b47de1fd31badb4c9a48713018c6124e3f1757/68747470733a2f2f7777772e6f70656e6875622e6e65742f6163636f756e74732f343738302f776964676574732f6163636f756e745f72616e6b2e676966" alt="rank" data-canonical-src="https://www.openhub.net/accounts/4780/widgets/account_rank.gif" style="max-width:100%;"></a></p>
-<p>This library is licensed under the terms of the MIT/X11 license, like Lua itself.</p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-mneumann-rust-msgpack" class="qs"><h4><a href="https://github.com/mneumann/rust-msgpack" target="_blank">mneumann/rust-msgpack <span class="qs-url">https://github.com/mneumann/rust-msgpack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -2300,6 +2266,29 @@ available:</p>
 <h6>
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 <p>u-msgpack-python is MIT licensed. See the included <code>LICENSE</code> file for more details.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-markstinson-lua-MessagePack" class="qs"><h4><a href="http://fperrad.github.io/lua-MessagePack/" target="_blank">markstinson/lua-MessagePack <span class="qs-url">http://fperrad.github.io/lua-MessagePack/</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-lua-messagepack--a-pure-lua-implementation-spec-v5" class="anchor" aria-hidden="true" href="#lua-messagepack--a-pure-lua-implementation-spec-v5"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>lua-MessagePack : a pure Lua implementation (spec v5)</h5>
+<p><a href="https://travis-ci.org/fperrad/lua-MessagePack" rel="nofollow"><img src="https://camo.githubusercontent.com/7d3a92014a51e2e1e60a4baf8276bde2605909aa/68747470733a2f2f7472617669732d63692e6f72672f667065727261642f6c75612d4d6573736167655061636b2e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/fperrad/lua-MessagePack.png" style="max-width:100%;"></a></p>
+<h6>
+<a id="user-content-introduction" class="anchor" aria-hidden="true" href="#introduction"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h6>
+<p><a href="http://msgpack.org/" rel="nofollow">MessagePack</a> is an efficient binary serialization format.</p>
+<p>It lets you exchange data among multiple languages like JSON but it's faster and smaller.</p>
+<p>It's a pure Lua implementation, without dependency.</p>
+<p>And it's really fast with <a href="http://luajit.org" rel="nofollow">LuaJIT</a>.</p>
+<h6>
+<a id="user-content-links" class="anchor" aria-hidden="true" href="#links"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links</h6>
+<p>The homepage is at <a href="http://fperrad.github.io/lua-MessagePack/" rel="nofollow">http://fperrad.github.io/lua-MessagePack/</a>,
+and the sources are hosted at <a href="http://github.com/fperrad/lua-MessagePack/">http://github.com/fperrad/lua-MessagePack/</a>.</p>
+<h6>
+<a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright and License</h6>
+<p>Copyright (c) 2012-2013 Francois Perrad</p>
+<p>This library is licensed under the terms of the MIT/X11 license, like Lua itself.</p>
 </article>
   </div>
         </div>
