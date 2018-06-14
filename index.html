@@ -1191,6 +1191,10 @@ $ cabal install msgpack-rpc
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-messagepack-for-cli" class="anchor" aria-hidden="true" href="#messagepack-for-cli"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for CLI</h5>
+<p><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-x2p85" rel="nofollow"><img src="https://camo.githubusercontent.com/912ddc65123a84980714397c3735edae4c294e0f/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f356c6e3775376566776a65706a366f383f7376673d74727565" alt="Build status release" data-canonical-src="https://ci.appveyor.com/api/projects/status/5ln7u7efwjepj6o8?svg=true" style="max-width:100%;"></a>
+<a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli" rel="nofollow"><img src="https://camo.githubusercontent.com/8ba3e1f2fca1e0b0a1cb26e88db4d337278a619a/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f646c6330763472726f6c776a307432743f7376673d74727565" alt="Build status debug" data-canonical-src="https://ci.appveyor.com/api/projects/status/dlc0v4rrolwj0t2t?svg=true" style="max-width:100%;"></a>
+<a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-3jme9" rel="nofollow"><img src="https://camo.githubusercontent.com/ca5c771e646653155c2c6d0b3c2ce32e76da58ec/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f636a703870686c6e62776a37676b6a393f7376673d74727565" alt="Build status debug net35" data-canonical-src="https://ci.appveyor.com/api/projects/status/cjp8phlnbwj7gkj9?svg=true" style="max-width:100%;"></a>
+<a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-rhnh0" rel="nofollow"><img src="https://camo.githubusercontent.com/346580715957870dec3d514e4862565305f5b8c4/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f316d773738776b787835306a766162313f7376673d74727565" alt="Build status debug net35 CodeDOM" data-canonical-src="https://ci.appveyor.com/api/projects/status/1mw78wkxx50jvab1?svg=true" style="max-width:100%;"></a></p>
 <h6>
 <a id="user-content-what-is-it" class="anchor" aria-hidden="true" href="#what-is-it"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is it?</h6>
 <p>This is MessagePack serialization/deserialization for CLI (Common Language Infrastructure) implementations such as .NET Framework, Silverlight, Mono (including Moonlight.)
@@ -1216,6 +1220,7 @@ This library can be used from ALL CLS compliant languages such as C#, F#, Visual
 <span class="pl-smi">serializer.Pack(stream,</span> <span class="pl-smi">obj)</span>
 <span class="pl-c">' Unpack from stream.</span>
 <span class="pl-k">Dim</span> <span class="pl-smi">unpackedObject</span> <span class="pl-smi">=</span> <span class="pl-smi">serializer.Unpack(stream)</span></pre></div>
+<p><strong>For production environment, you should instantiate own <code>SerializationCOntext</code> and manage its lifetime. It is good idea to treat it as singleton because <code>SerializationContext</code> is thread-safe.</strong></p>
 <h6>
 <a id="user-content-features" class="anchor" aria-hidden="true" href="#features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h6>
 <ul>
@@ -1223,6 +1228,8 @@ This library can be used from ALL CLS compliant languages such as C#, F#, Visual
 <li>Generating pre-compiled assembly for rapid start up.</li>
 <li>Flexible MessagePackObject which represents MessagePack type system naturally.</li>
 </ul>
+<p><strong>Note: AOT support is limited yet. Use <a href="https://github.com/msgpack/msgpack-cli/wiki/Xamarin-and-Unity">serializer pre-generation</a> with <code>mpu -s</code> utility or API.</strong><br>
+If you do not pre-generated serializers, MsgPack for CLI uses reflection in AOT environments, it is slower and it sometimes causes AOT related error (<code>ExecutionEngineException</code> for runtime JIT compilation).</p>
 <h6>
 <a id="user-content-documentation" class="anchor" aria-hidden="true" href="#documentation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation</h6>
 <p>See <a href="https://github.com/msgpack/msgpack-cli/wiki">wiki</a></p>
@@ -1284,10 +1291,56 @@ msbuild MsgPack.Xamarin.sln
 </ol>
 <h7>
 <a id="user-content-own-unity-3d-build" class="anchor" aria-hidden="true" href="#own-unity-3d-build"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Own Unity 3D Build</h7>
-<p>First of all, there are binary drops on github release page, you should use it to save your time.
-Because we will not guarantee source code organization compatibilities, we might add/remove non-public types or members, which should break source code build.
-If you want to import sources, you must include just only described on MsgPack.Unity3D.csproj.
+<p>First of all, there are binary drops on github release page, you should use it to save your time.<br>
+Because we will not guarantee source code organization compatibilities, we might add/remove non-public types or members, which should break source code build.<br>
+If you want to import sources, you must include just only described on MsgPack.Unity3D.csproj.<br>
 If you want to use ".NET 2.0 Subset" settings, you must use just only described on MsgPack.Unity3D.CorLibOnly.csproj file, and define <code>CORLIB_ONLY</code> compiler constants.</p>
+<h7>
+<a id="user-content-xamarin-android-testing" class="anchor" aria-hidden="true" href="#xamarin-android-testing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Xamarin Android testing</h7>
+<p>If you run on Windows, it is recommended to use HXM instead of Hyper-V based emulator.<br>
+You can disable Hyper-V from priviledged (administrator) powershell as follows:</p>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Disable-WindowsOptionalFeature</span> <span class="pl-k">-</span>Online <span class="pl-k">-</span>FeatureName Microsoft<span class="pl-k">-</span>Hyper<span class="pl-k">-</span>V<span class="pl-k">-</span>Hypervisor</pre></div>
+<p>If you want to use Hyper-V again (such as for Docker for Windows etc.), you can do it by following in priviledged (administrator) powershell:</p>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Enable-WindowsOptionalFeature</span> <span class="pl-k">-</span>Online <span class="pl-k">-</span>FeatureName Microsoft<span class="pl-k">-</span>Hyper<span class="pl-k">-</span>V<span class="pl-k">-</span>Hypervisor</pre></div>
+<h8>
+<a id="user-content-xamarin-android-trouble-shooting-tips" class="anchor" aria-hidden="true" href="#xamarin-android-trouble-shooting-tips"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Xamarin Android Trouble shooting tips</h8>
+<ul>
+<li>Javac shows compilation error.
+<ul>
+<li>Rebuild the test project and try it run again.</li>
+</ul>
+</li>
+</ul>
+<h7>
+<a id="user-content-xamarin-ios-testing" class="anchor" aria-hidden="true" href="#xamarin-ios-testing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Xamarin iOS testing</h7>
+<p>You must create provisoning profiles in your MacOS devices.<br>
+See <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/free-provisioning/" rel="nofollow">Xamarin documents about provisining</a> for details.</p>
+<p>There are bundle IDs of current iOS tests:</p>
+<ul>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-packer</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-unpacker</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-unpacking</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-timestamp</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-arrayserialization</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-mapserialization</code></li>
+</ul>
+<p><em>Note that some reflection based serializer tests failed with AOT related limitation.</em></p>
+<h8>
+<a id="user-content-xamarin-ios-trouble-shooting-tips" class="anchor" aria-hidden="true" href="#xamarin-ios-trouble-shooting-tips"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Xamarin iOS Trouble shooting tips</h8>
+<p>See <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/troubleshooting/" rel="nofollow">Xamarin's official trouble shooting docs first.</a></p>
+<ul>
+<li>An error occurred while running unit test project.
+<ul>
+<li>Rebuild the project and rerun it. Or, login your Mac again, ant retry it.</li>
+</ul>
+</li>
+<li>It is hard to read English.
+<ul>
+<li>You can read localized Xamarin docs with putting <code>{region}-{lang}</code> as the first component of URL path such as <code>https://developer.xamarin.com/ja-jp/guides/...</code>.</li>
+</ul>
+</li>
+</ul>
 <h6>
 <a id="user-content-see-also" class="anchor" aria-hidden="true" href="#see-also"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also</h6>
 <ul>
