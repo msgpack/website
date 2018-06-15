@@ -6348,6 +6348,11 @@ to unpack data and returns an array of unpacked messages (if any) instead of thr
 <span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$messages</span>;</span>
 <span class="pl-s1">    }</span>
 <span class="pl-s1">}</span></pre></div>
+<p>If you want to unpack from a specific position in a buffer, use <code>seek()</code>:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>seek(<span class="pl-c1">42</span>); <span class="pl-c"><span class="pl-c">//</span> set position equal to 42 bytes</span></span>
+<span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>seek(<span class="pl-k">-</span><span class="pl-c1">8</span>); <span class="pl-c"><span class="pl-c">//</span> set position to 8 bytes before the end of the buffer</span></span></pre></div>
+<p>To skip bytes from the current position, use <code>skip()</code>:</p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>skip(<span class="pl-c1">10</span>); <span class="pl-c"><span class="pl-c">//</span> set position to 10 bytes ahead of the current position</span></span></pre></div>
 <p>Besides the above methods <code>BufferUnpacker</code> provides type-specific unpacking methods, namely:</p>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackNil();   <span class="pl-c"><span class="pl-c">//</span> PHP null</span></span>
 <span class="pl-s1"><span class="pl-smi">$unpacker</span><span class="pl-k">-&gt;</span>unpackBool();  <span class="pl-c"><span class="pl-c">//</span> PHP bool</span></span>
