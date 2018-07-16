@@ -5305,7 +5305,7 @@ msgInt, msgUint, msgNull
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-messagepack" class="anchor" aria-hidden="true" href="#messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack</h5>
 <p><a href="https://travis-ci.org/crystal-community/msgpack-crystal" rel="nofollow"><img src="https://camo.githubusercontent.com/b1ed324ca577c3650027e34a726beebb7d542d7e/68747470733a2f2f7472617669732d63692e6f72672f6372797374616c2d636f6d6d756e6974792f6d73677061636b2d6372797374616c2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/crystal-community/msgpack-crystal.svg" style="max-width:100%;"></a></p>
-<p>MessagePack implementation in Crystal. It supports Packing and Unpacking from a string or an IO, Mappings, to_msgpack-from_msgpack methods.</p>
+<p>MessagePack implementation in Crystal.</p>
 <h6>
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
 <p>Add this to your application's <code>shard.yml</code>:</p>
@@ -5317,31 +5317,37 @@ msgInt, msgUint, msgNull
 <div class="highlight highlight-source-crystal"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack<span class="pl-pds">"</span></span>
 
 <span class="pl-k">class</span> <span class="pl-en">Location</span>
-  <span class="pl-c1">MessagePack</span>.mapping({
-    <span class="pl-c1">lat:</span> <span class="pl-c1">Float64</span>,
-    <span class="pl-c1">lng:</span> <span class="pl-c1">Float64</span>,
-  })
+  <span class="pl-k">include</span> <span class="pl-c1">MessagePack</span>::<span class="pl-c1">Serializable</span>
+
+  <span class="pl-k">property</span> lat : <span class="pl-c1">Float64</span>
+  <span class="pl-k">property</span> lng : <span class="pl-c1">Float64</span>
 <span class="pl-k">end</span>
 
 <span class="pl-k">class</span> <span class="pl-en">House</span>
-  <span class="pl-c1">MessagePack</span>.mapping({
-    <span class="pl-c1">address:</span>  <span class="pl-c1">String</span>,
-    <span class="pl-c1">location:</span> {<span class="pl-c1">type:</span> <span class="pl-c1">Location</span>, <span class="pl-c1">nilable:</span> <span class="pl-c1">true</span>},
-  })
+  <span class="pl-k">include</span> <span class="pl-c1">MessagePack</span>::<span class="pl-c1">Serializable</span>
+
+  <span class="pl-k">property</span> address : <span class="pl-c1">String</span>
+  <span class="pl-k">property</span> location : <span class="pl-c1">Location</span>?
 <span class="pl-k">end</span>
 
-house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Road12<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>location<span class="pl-pds">"</span></span> =&gt; {<span class="pl-s"><span class="pl-pds">"</span>lat<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">12.3</span>, <span class="pl-s"><span class="pl-pds">"</span>lng<span class="pl-pds">"</span></span> =&gt; <span class="pl-c1">34.5</span>}}.to_msgpack)
-<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> &lt;House:0x1b06de0 @address="Road12", @location=#&lt;Location:0x1b06dc0 @lat=12.3, @lng=34.5&gt;&gt;</span>
+house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-c1">address:</span> <span class="pl-s"><span class="pl-pds">"</span>Road12<span class="pl-pds">"</span></span>, <span class="pl-c1">location:</span> {<span class="pl-c1">lat:</span> <span class="pl-c1">12.3</span>, <span class="pl-c1">lng:</span> <span class="pl-c1">34.5</span>}}.to_msgpack)
+<span class="pl-c1">p</span> house
+<span class="pl-c"><span class="pl-c">#</span> =&gt; &lt;House:0x1b06de0 @address="Road12", @location=#&lt;Location:0x1b06dc0 @lat=12.3, @lng=34.5&gt;&gt;</span>
+
+<span class="pl-c1">p</span> house.to_msgpack
+<span class="pl-c"><span class="pl-c">#</span> =&gt; Bytes[130, 167, 97, 100, 100, 114, 101, 115, 115, 166, 82, 111, 97, 100, ...</span>
 
 house.address <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Something<span class="pl-pds">"</span></span>
 house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(house.to_msgpack)
-<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> #&lt;House:0x13f0d80 @address="Something", @location=#&lt;Location:0x13f0d60 @lat=12.3, @lng=34.5&gt;&gt;</span>
+<span class="pl-c1">p</span> house
+<span class="pl-c"><span class="pl-c">#</span> =&gt; #&lt;House:0x13f0d80 @address="Something", @location=#&lt;Location:0x13f0d60 @lat=12.3, @lng=34.5&gt;&gt;</span>
 
 house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack({<span class="pl-s"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>Crystal Road 1234<span class="pl-pds">"</span></span>}.to_msgpack)
-<span class="pl-c1">p</span> house <span class="pl-c"><span class="pl-c">#</span> &lt;House:0x1b06d80 @address="Crystal Road 1234", @location=nil&gt;</span></pre></div>
+<span class="pl-c1">p</span> house
+<span class="pl-c"><span class="pl-c">#</span> =&gt; &lt;House:0x1b06d80 @address="Crystal Road 1234", @location=nil&gt;</span></pre></div>
 <h6>
 <a id="user-content-more-examples" class="anchor" aria-hidden="true" href="#more-examples"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>More Examples</h6>
-<p>(<a href="https://github.com/benoist/msgpack-crystal/tree/master/examples">examples</a>)</p>
+<p><a href="https://github.com/benoist/msgpack-crystal/tree/master/examples">examples</a></p>
 <h6>
 <a id="user-content-copyright" class="anchor" aria-hidden="true" href="#copyright"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copyright</h6>
 <p>Copyright 2015 Benoist Claassen</p>
