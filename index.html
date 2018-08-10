@@ -2393,7 +2393,7 @@ julia&gt; MsgPack.pack(f2, [1,2,"hi"])
 <a id="user-content-the-extension-type" class="anchor" aria-hidden="true" href="#the-extension-type"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Extension Type</h7>
 <p>The MsgPack spec <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#formats-ext">defines</a> the <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#types-extension-type">extension type</a> to be a tuple of <code>(typecode, bytearray)</code> where <code>typecode</code> is an application-specific identifier for the data in <code>bytearray</code>. MsgPack.jl provides support for the extension type through the <code>Ext</code> immutable.</p>
 <p>It is defined like so</p>
-<div class="highlight highlight-source-julia"><pre><span class="pl-k">immutable</span> Ext
+<div class="highlight highlight-source-julia"><pre><span class="pl-k">struct</span> Ext
     typecode<span class="pl-k">::</span><span class="pl-c1">Int8</span>
     data<span class="pl-k">::</span><span class="pl-c1">Vector{Uint8}</span>
 <span class="pl-k">end</span></pre></div>
@@ -2437,7 +2437,7 @@ MsgPack<span class="pl-k">.</span><span class="pl-c1">Ext</span>(<span class="pl
 <h8>
 <a id="user-content-serialization" class="anchor" aria-hidden="true" href="#serialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serialization</h8>
 <p>MsgPack.jl also defines the <code>extserialize</code> and <code>extdeserialize</code> convenience functions. These functions can turn an arbitrary object into an <code>Ext</code> and vice-versa.</p>
-<div class="highlight highlight-source-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-k">type</span> Point{T}
+<div class="highlight highlight-source-julia"><pre>julia<span class="pl-k">&gt;</span> <span class="pl-k">mutable</span> <span class="pl-k">struct</span> Point{T}
         x<span class="pl-k">::</span><span class="pl-c1">T</span>
         y<span class="pl-k">::</span><span class="pl-c1">T</span>
        <span class="pl-k">end</span>
