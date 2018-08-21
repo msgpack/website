@@ -1456,6 +1456,10 @@ addition to the strings themselves.</p>
     msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; dst;
     deserialized.<span class="pl-c1">convert</span>(dst);
 
+    <span class="pl-c"><span class="pl-c">//</span> or create the new instance</span>
+    msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; dst2 =
+        deserialized.<span class="pl-smi">as</span>&lt;msgpack::type::tuple&lt;<span class="pl-k">int</span>, <span class="pl-k">bool</span>, std::string&gt; &gt;();
+
     <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 <p>See <a href="/msgpack/msgpack-c/blob/master/QUICKSTART-CPP.md"><code>QUICKSTART-CPP.md</code></a> for more details.</p>
@@ -1463,7 +1467,7 @@ addition to the strings themselves.</p>
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
 <h7>
 <a id="user-content-c-header-only-library" class="anchor" aria-hidden="true" href="#c-header-only-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>C++ Header Only Library</h7>
-<p>When you use msgpack on C++03 and C++11, you can just add
+<p>When you use msgpack on C++, you can just add
 msgpack-c/include to your include path:</p>
 <pre><code>g++ -I msgpack-c/include your_source_file.cpp
 </code></pre>
@@ -1487,13 +1491,15 @@ $ cmake .
 $ make
 $ sudo make install
 </code></pre>
-<p>If you want to setup C++11 version of msgpack instead,
+<p>If you want to setup C++11 or C++17 version of msgpack instead,
 execute the following commands:</p>
 <pre><code>$ git clone https://github.com/msgpack/msgpack-c.git
 $ cd msgpack-c
-$ cmake -DMSGPACK_CXX11=ON .
+$ cmake -DMSGPACK_CXX[11|17]=ON .
 $ sudo make install
 </code></pre>
+<p><code>MSGPACK_CXX[11|17]</code> flags are not affected to installing files. Just switching test cases. All files are installed in every settings.</p>
+<p>When you use the C part of <code>msgpack-c</code>, you need to build and link the library. By default, both static/shared libraries are built. If you want to build only static library, set <code>BUILD_SHARED_LIBS=OFF</code> to cmake. If you want to build only shared library, set `BUILD_SHARED_L</p>
 <h8>
 <a id="user-content-gui-on-windows" class="anchor" aria-hidden="true" href="#gui-on-windows"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GUI on Windows</h8>
 <p>Clone msgpack-c git repository.</p>
@@ -1527,7 +1533,7 @@ the binaries:' text box.</p>
 </ol>
 <h7>
 <a id="user-content-documentation" class="anchor" aria-hidden="true" href="#documentation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation</h7>
-<p>You can get additional information on the
+<p>You can get additional information including the tutorial on the
 <a href="https://github.com/msgpack/msgpack-c/wiki">wiki</a>.</p>
 <h6>
 <a id="user-content-contributing" class="anchor" aria-hidden="true" href="#contributing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h6>
