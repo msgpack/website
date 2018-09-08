@@ -10836,7 +10836,7 @@ limitations under the License.</p>
 		<span class="pl-c1">panic</span>(err)
 	}
 	<span class="pl-smi">r</span> <span class="pl-k">:=</span> Struct{}
-	err = msgpack.<span class="pl-c1">Decode</span>(&amp;r, d)
+	err = msgpack.<span class="pl-c1">Decode</span>(d, &amp;r)
 	<span class="pl-k">if</span> err != <span class="pl-c1">nil</span> {
 		<span class="pl-c1">panic</span>(err)
 	}
