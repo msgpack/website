@@ -233,6 +233,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-JuliaIO-MsgPack-jl',this)">Julia <span class="qs-sub">JuliaIO</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-edma2-clojure-msgpack',this)">Clojure <span class="qs-sub">edma2</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
@@ -266,6 +268,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-SimpleMsgPack-Net',this)">C# <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-thealchemist',this)">Elixir <span class="qs-sub">ymofen</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-core',this)">Scala <span class="qs-sub">msgpack4z</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-argonaut',this)">scala-native <span class="qs-sub">msgpack4z</span></a></li>
           
@@ -311,6 +315,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-steakknife-msgpack-cr',this)">Crystal <span class="qs-sub">steakknife</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ar90n-msgpack11',this)">C++11 <span class="qs-sub">ar90n</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-pierre-vigier-Perl6-Data-MessagePack',this)">Perl 6 <span class="qs-sub">pierre-vigier</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tagomoris-msgpack-inspect',this)">msgpack-inspect <span class="qs-sub">tagomoris</span></a></li>
@@ -345,7 +351,11 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-lekma-mood-msgpack',this)">Python <span class="qs-sub">lekma</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-dchenk-msgp',this)">Go <span class="qs-sub">dchenk</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-cherrywoods-swift-msgpack-serialization',this)">Swift, java compatibel <span class="qs-sub">cherrywoods</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-bastibe-matlab-msgpack',this)">Matlab <span class="qs-sub">bastibe</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
           
@@ -1670,129 +1680,23 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
         
         <div id="qs-loteixeira-as3-msgpack" class="qs"><h4><a href="https://github.com/loteixeira/as3-msgpack" target="_blank">loteixeira/as3-msgpack <span class="qs-url">https://github.com/loteixeira/as3-msgpack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-as3-msgpack-v101" class="anchor" aria-hidden="true" href="#as3-msgpack-v101"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>as3-msgpack v1.0.1</h5>
-<p>as3-msgpack is a implementation of MessagePack specification for Actionscript3 language (Flash, Flex and AIR).</p>
-<p><strong>Getting started:</strong> <a href="http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/" rel="nofollow">http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/</a><br>
-<strong>Download the lastest release:</strong> <a href="https://github.com/loteixeira/as3-msgpack/archive/v1.0.1.zip">https://github.com/loteixeira/as3-msgpack/archive/v1.0.1.zip</a><br>
-<strong>See online documentation:</strong> <a href="http://disturbedcoder.com/files/as3-msgpack/" rel="nofollow">http://disturbedcoder.com/files/as3-msgpack/</a><br>
-<strong>Check the wishlist:</strong> <a href="https://github.com/loteixeira/as3-msgpack/blob/master/WISHLIST.md">https://github.com/loteixeira/as3-msgpack/blob/master/WISHLIST.md</a></p>
-<h6>
-<a id="user-content-about-message-pack-format" class="anchor" aria-hidden="true" href="#about-message-pack-format"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>about message pack format</h6>
-<p>MessagePack is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON but it's faster and smaller. For example, small integers (like flags or error code) are encoded into a single byte, and typical short strings only require an extra byte in addition to the strings themselves.</p>
-<p>Check the website: <a href="http://msgpack.org" rel="nofollow">http://msgpack.org</a></p>
-<h6>
-<a id="user-content-supported-types" class="anchor" aria-hidden="true" href="#supported-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>supported types</h6>
-<p>Message pack specification was built to work mostly with primitive types. You shouldn't expect a serialization library, because msgpack is similiar to JSON - but is based on binary data instead of text.<br>
-The types available are: signed/unsigned integer, single/double precision floating point, nil (null), boolean, array, associative array (map) and raw buffer.<br>
-These types are mapped to Actionscript3 as the following:</p>
-* signed integer -&gt; int
-* unsigned integer -&gt; uint
-* single/double precision floating point -&gt; Number
-* nil -&gt; null
-* boolean -&gt; Boolean
-* array -&gt; Array
-* associative array -&gt; Object
-* raw buffer -&gt; String or ByteArray
-<h6>
-<a id="user-content-changes" class="anchor" aria-hidden="true" href="#changes"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>changes</h6>
-<h7>
-<a id="user-content-100-to-101" class="anchor" aria-hidden="true" href="#100-to-101"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.0.0 to 1.0.1</h7>
-<ul>
-<li>Using make tool to compile the binaries instead of batch files.</li>
-<li>Improving README.md</li>
-<li>Creating msgpack.org.md (as3-msgpack API document for msgpack.org)</li>
-</ul>
-<h7>
-<a id="user-content-041-to-100" class="anchor" aria-hidden="true" href="#041-to-100"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.4.1 to 1.0.0</h7>
-<ul>
-<li>The access interface has been totally modified. Now isn't possible to use singletons, to read/write message pack data you'll need create an object.</li>
-<li>The names of classes and files were updated. The class MessagePack became MsgPack and the library MessagePack.swc became msgpack.swc.</li>
-<li>Stream reading is available. If you read data from a buffer (IDataInput) and the object is not complete, the library stores the current status and then wait for more bytes.</li>
-</ul>
-<h6>
-<a id="user-content-folders" class="anchor" aria-hidden="true" href="#folders"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>folders</h6>
-<ul>
-<li>bin: binaries (library and test applications);</li>
-<li>lib: libraries used by test applications;</li>
-<li>doc: documentation generated by asdoc;</li>
-<li>src_lib: source code of the library;</li>
-<li>src_test: source code of test applications (including a server and a client which exchange streaming messagepack packets through sockets);</li>
-</ul>
-<h6>
-<a id="user-content-examples" class="anchor" aria-hidden="true" href="#examples"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>examples</h6>
-<h7>
-<a id="user-content-basic-usage" class="anchor" aria-hidden="true" href="#basic-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>basic usage</h7>
-<p>The usage of MsgPack class is very simple. You need create an object and call read and write methods.</p>
-```actionscript
-// message pack object created
-var msgpack:MsgPack = new MsgPack();
-<p>// encode an array
-var bytes:ByteArray = msgpack.write([1, 2, 3, 4, 5]);</p>
-<p>// rewind the buffer
-bytes.position = 0;</p>
-<p>// print the decoded object
-trace(msgpack.read(bytes));</p>
-<pre><code>
-### streaming
-&lt;p&gt;You may read streaming data making successive calls to msgpack.read method. Each MsgPack object can handle one stream at time.&lt;br&gt;
-If all bytes are not available, the method returns incomplete (a special object).&lt;/p&gt;
-```actionscript
-package
-{
-	import flash.events.*;
-	import flash.net.*;
+    <article class="markdown-body entry-content" itemprop="text"><p><strong>MessagePack for Actionscript3 (Flash, Flex and AIR).</strong></p>
+<p>as3-msgpack was designed to work with the interfaces IDataInput and IDataOutput, thus the API might be easily connected with the native classes that handle binary data (such as ByteArray, Socket, FileStream and URLStream).<br>
+Moreover, as3-msgpack is capable of decoding data from binary streams.<br>
+Get started: <a href="http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/" rel="nofollow">http://loteixeira.github.io/lib/2013/08/19/as3-msgpack/</a></p>
+<p><strong>Basic usage (encoding/decoding):</strong></p>
+<div class="highlight highlight-source-actionscript-3"><pre><span class="pl-c">// create messagepack object</span>
+<span class="pl-k">var</span> msgpack<span class="pl-k">:</span>MsgPack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack()<span class="pl-k">;</span>
 
-	import org.msgpack.*;
+<span class="pl-c">// encode an array</span>
+<span class="pl-k">var</span> <span class="pl-c1">bytes</span><span class="pl-k">:</span><span class="pl-c1">ByteArray</span> <span class="pl-k">=</span> msgpack<span class="pl-k">.</span>write(<span class="pl-k">[</span><span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span><span class="pl-k">]</span>)<span class="pl-k">;</span>
 
-	public class Streamer
-	{
-		private var msgpack:MsgPack;
-		private var socket:Socket;
+<span class="pl-c">// rewind the buffer</span>
+<span class="pl-c1">bytes</span><span class="pl-k">.</span><span class="pl-c1">position</span> <span class="pl-k">=</span> <span class="pl-c1">0</span><span class="pl-k">;</span>
 
-		public function Streamer()
-		{
-			msgpack = new MsgPack();
-
-			// flash sockets implements the interfaces IDataInput and IDataOutput.
-			// thus, these objects may be directly connected to as3-msgpack.
-			socket = new Socket();
-			socket.addEventListener(ProgressEvent.SOCKET_DATA, socketData);
-			// connecting to our hypothetical server
-			socket.connect("localhost", 5555);
-		}
-
-		public function send(data:*):void
-		{
-			// we'll write the encoded object straight into the socket (since it implements IDataOutput interface).
-			msgpack.write(data, socket);
-			socket.flush();
-		}
-
-		private function socketData(e:ProgressEvent):void
-		{
-			// until the data is ready, this call returns incomplete.
-			var data:* = msgpack.read(socket);
-
-			// is the object complete?
-			if (data != incomplete)
-			{
-				trace("OBJECT READY:");
-				trace(data);
-			}
-		}
-	}
-}
-</code></pre>
-<h7>
-<a id="user-content-using-flags" class="anchor" aria-hidden="true" href="#using-flags"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>using flags</h7>
-<p>Currently there are two flags which you may use to initialize a MsgPack object:</p>
-* MsgPackFlags.READ_RAW_AS_BYTE_ARRAY: message pack raw data is read as byte array instead of string;
-* MsgPackFlags.ACCEPT_LITTLE_ENDIAN: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).
-<div class="highlight highlight-source-actionscript-3"><pre><span class="pl-k">var</span> msg<span class="pl-k">:</span>MsgPack<span class="pl-k">;</span>
-
-<span class="pl-c">// use logical operator OR to set the flags.</span>
-msgpack <span class="pl-k">=</span> <span class="pl-k">new</span> MsgPack(MsgPackFlags<span class="pl-k">.</span><span class="pl-c1">READ_RAW_AS_BYTE_ARRAY</span> <span class="pl-k">|</span> MsgPackFlags<span class="pl-k">.</span><span class="pl-c1">ACCEPT_LITTLE_ENDIAN</span>)<span class="pl-k">;</span></pre></div>
+<span class="pl-c">// print the decoded object</span>
+<span class="pl-c1">trace</span>(msgpack<span class="pl-k">.</span>read(<span class="pl-c1">bytes</span>))<span class="pl-k">;</span></pre></div>
+<p>For downloads, source code and further information, check the project repository: <a href="https://github.com/loteixeira/as3-msgpack">https://github.com/loteixeira/as3-msgpack</a>.</p>
 </article>
   </div>
         </div>
@@ -2119,35 +2023,46 @@ deserializer.deserialize([](std::unique_ptr&lt;MsgPack::Element&gt; parsed) {
         
         <div id="qs-ugorji-go" class="qs"><h4><a href="https://github.com/ugorji/go" target="_blank">ugorji/go <span class="qs-url">https://github.com/ugorji/go</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><p><a href="https://sourcegraph.com/github.com/ugorji/go/-/tree/codec" rel="nofollow"><img src="https://camo.githubusercontent.com/4ed6cc734a30fb76655d2e646a8fe83b557d9d22/68747470733a2f2f736f7572636567726170682e636f6d2f6769746875622e636f6d2f75676f726a692f676f2f2d2f62616467652e7376673f763d32" alt="Sourcegraph" data-canonical-src="https://sourcegraph.com/github.com/ugorji/go/-/badge.svg?v=2" style="max-width:100%;"></a>
-<a href="https://travis-ci.org/ugorji/go" rel="nofollow"><img src="https://camo.githubusercontent.com/64c7bdd47745913cd2969fa91d7ec9654047e960/68747470733a2f2f7472617669732d63692e6f72672f75676f726a692f676f2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ugorji/go.svg?branch=master" style="max-width:100%;"></a>
-<a href="https://codecov.io/gh/ugorji/go" rel="nofollow"><img src="https://camo.githubusercontent.com/60dadf3f7a65d41d85e756005260cbc1751ec173/68747470733a2f2f636f6465636f762e696f2f67682f75676f726a692f676f2f6272616e63682f6d61737465722f67726170682f62616467652e7376673f763d32" alt="codecov" data-canonical-src="https://codecov.io/gh/ugorji/go/branch/master/graph/badge.svg?v=2" style="max-width:100%;"></a>
-<a href="http://godoc.org/github.com/ugorji/go/codec" rel="nofollow"><img src="https://camo.githubusercontent.com/6609a4ae07da7917f7a7b79c45ccc24fcc01540f/687474703a2f2f696d672e736869656c64732e696f2f62616467652f676f2d646f63756d656e746174696f6e2d626c75652e7376673f7374796c653d666c61742d737175617265" alt="GoDoc" data-canonical-src="http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square" style="max-width:100%;"></a>
-<a href="https://goreportcard.com/report/github.com/ugorji/go/codec" rel="nofollow"><img src="https://camo.githubusercontent.com/5a27d9ac45a13fdf0b1ab0d4270781f55fe26859/68747470733a2f2f676f7265706f7274636172642e636f6d2f62616467652f6769746875622e636f6d2f75676f726a692f676f2f636f6465633f763d32" alt="rcard" data-canonical-src="https://goreportcard.com/badge/github.com/ugorji/go/codec?v=2" style="max-width:100%;"></a>
-<a href="https://raw.githubusercontent.com/ugorji/go/master/LICENSE" rel="nofollow"><img src="https://camo.githubusercontent.com/c0e9b3d3e996ee6c01364035633ead82feb4a729/687474703a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265" alt="License" data-canonical-src="http://img.shields.io/badge/license-mit-blue.svg?style=flat-square" style="max-width:100%;"></a></p>
-<h5>
-<a id="user-content-gocodec" class="anchor" aria-hidden="true" href="#gocodec"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>go/codec</h5>
-<p>This repository contains the <code>go-codec</code> library,
-a High Performance and Feature-Rich Idiomatic encode/decode and rpc library for</p>
-<ul>
-<li>msgpack: <a href="https://github.com/msgpack/msgpack">https://github.com/msgpack/msgpack</a>
-</li>
-<li>binc:    <a href="http://github.com/ugorji/binc">http://github.com/ugorji/binc</a>
-</li>
-<li>cbor:    <a href="http://cbor.io" rel="nofollow">http://cbor.io</a> <a href="http://tools.ietf.org/html/rfc7049" rel="nofollow">http://tools.ietf.org/html/rfc7049</a>
-</li>
-<li>json:    <a href="http://json.org" rel="nofollow">http://json.org</a> <a href="http://tools.ietf.org/html/rfc7159" rel="nofollow">http://tools.ietf.org/html/rfc7159</a>
-</li>
-</ul>
-<p>For more information:</p>
-<ul>
-<li><a href="https://github.com/ugorji/go/tree/master/codec#readme">see the codec/Readme for quick usage information</a></li>
-<li><a href="http://godoc.org/github.com/ugorji/go/codec" rel="nofollow">view the API on godoc</a></li>
-<li><a href="http://ugorji.net/blog/go-codec-primer" rel="nofollow">read the detailed usage/how-to primer</a></li>
-</ul>
-<p>Install using:</p>
+    <article class="markdown-body entry-content" itemprop="text"><p><strong>MessagePack and <a href="http://github.com/ugorji/binc">Binc</a> Codec for <a href="http://golang.org" rel="nofollow">Go</a> Language.</strong></p>
+<p><em>A High Performance, Feature-Rich, Idiomatic encode/decode and rpc library</em>.</p>
+<p>To install:</p>
 <pre><code>go get github.com/ugorji/go/codec
 </code></pre>
+<p>Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
+Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec" rel="nofollow">http://godoc.org/github.com/ugorji/go/codec</a>]</p>
+<p>Typical usage:</p>
+<div class="highlight highlight-source-go"><pre>    <span class="pl-c"><span class="pl-c">//</span> create and use decoder/encoder</span>
+    <span class="pl-c1">var</span> (
+        v <span class="pl-k">interface</span>{} <span class="pl-c"><span class="pl-c">//</span> value to decode/encode into</span>
+        r io.<span class="pl-smi">Reader</span>
+        w io.<span class="pl-smi">Writer</span>
+        b []<span class="pl-k">byte</span>
+        mh codec.<span class="pl-smi">MsgpackHandle</span>
+    )
+    
+    dec = codec.<span class="pl-c1">NewDecoder</span>(r, &amp;mh)
+    dec = codec.<span class="pl-c1">NewDecoderBytes</span>(b, &amp;mh)
+    err = dec.<span class="pl-c1">Decode</span>(&amp;v) 
+    
+    enc = codec.<span class="pl-c1">NewEncoder</span>(w, &amp;mh)
+    enc = codec.<span class="pl-c1">NewEncoderBytes</span>(&amp;b, &amp;mh)
+    err = enc.<span class="pl-c1">Encode</span>(v)
+    
+    <span class="pl-c"><span class="pl-c">//</span>RPC Server</span>
+    <span class="pl-k">go</span> <span class="pl-k">func</span>() {
+        <span class="pl-k">for</span> {
+            <span class="pl-smi">conn</span>, <span class="pl-smi">err</span> <span class="pl-k">:=</span> listener.<span class="pl-c1">Accept</span>()
+            <span class="pl-smi">rpcCodec</span> <span class="pl-k">:=</span> codec.<span class="pl-smi">GoRpc</span>.<span class="pl-c1">ServerCodec</span>(conn, h)
+            <span class="pl-c"><span class="pl-c">//</span>OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)</span>
+            rpc.<span class="pl-c1">ServeCodec</span>(rpcCodec)
+        }
+    }()
+    
+    <span class="pl-c"><span class="pl-c">//</span>RPC Communication (client side)</span>
+    conn, err = net.<span class="pl-c1">Dial</span>(<span class="pl-s"><span class="pl-pds">"</span>tcp<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>localhost:5555<span class="pl-pds">"</span></span>)
+    <span class="pl-smi">rpcCodec</span> <span class="pl-k">:=</span> codec.<span class="pl-smi">GoRpc</span>.<span class="pl-c1">ClientCodec</span>(conn, h)
+    <span class="pl-c"><span class="pl-c">//</span>OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span>
+    <span class="pl-smi">client</span> <span class="pl-k">:=</span> rpc.<span class="pl-c1">NewClientWithCodec</span>(rpcCodec)</pre></div>
 </article>
   </div>
         </div>
@@ -2558,6 +2473,212 @@ julia<span class="pl-k">&gt;</span> r
 different versions of Julia, or an instance of Julia with a different system
 image.</p>
 </blockquote>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-edma2-clojure-msgpack" class="qs"><h4><a href="https://github.com/edma2/clojure-msgpack" target="_blank">edma2/clojure-msgpack <span class="qs-url">https://github.com/edma2/clojure-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-clojure-msgpack" class="anchor" aria-hidden="true" href="#clojure-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>clojure-msgpack</h5>
+<p>clojure-msgpack is a lightweight and simple library for converting
+between native Clojure data structures and MessagePack byte formats.
+clojure-msgpack only depends on Clojure itself; it has no third-party
+dependencies.</p>
+<h6>
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
+<p><a href="https://clojars.org/clojure-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/bd3244c34d2088c6f22bf3c8cbdfc0fc38ee986a/687474703a2f2f636c6f6a6172732e6f72672f636c6f6a7572652d6d73677061636b2f6c61746573742d76657273696f6e2e737667" alt="Clojars Project" data-canonical-src="http://clojars.org/clojure-msgpack/latest-version.svg" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/edma2/clojure-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/1bc6fc12bcbde68e4bfd66192eddce3b02b2c578/68747470733a2f2f7472617669732d63692e6f72672f65646d61322f636c6f6a7572652d6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/edma2/clojure-msgpack.svg?branch=master" style="max-width:100%;"></a></p>
+<h6>
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
+<h7>
+<a id="user-content-basic" class="anchor" aria-hidden="true" href="#basic"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic</h7>
+<ul>
+<li>
+<code>pack</code>: Serialize object as a sequence of java.lang.Bytes.</li>
+<li>
+<code>unpack</code> Deserialize bytes as a Clojure object.</li>
+</ul>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.core <span class="pl-c1">:as</span> msg])
+(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+
+(<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>})
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@60280b2e&gt;</span>
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>}))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+<h7>
+<a id="user-content-streaming" class="anchor" aria-hidden="true" href="#streaming"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streaming</h7>
+<p><code>clojure-msgpack</code> provides a streaming API for situations where it is more
+convenient or efficient to work with byte streams instead of fixed byte arrays
+(e.g. size of object is not known ahead of time).</p>
+<p>The streaming counterpart to <code>msgpack.core/pack</code> is <code>msgpack.core/pack-stream</code>
+which returns nil and accepts either
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html" rel="nofollow">java.io.OutputStream</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataOutput.html" rel="nofollow">java.io.DataOutput</a>
+as an additional argument.</p>
+<p><code>msgpack.core/unpack</code> is in "streaming mode" when the argument is of type
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html" rel="nofollow">java.io.DataInput</a>
+or
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html" rel="nofollow">java.io.InputStream</a>.</p>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">use</span> 'clojure.java.io)
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">output-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)]
+  (<span class="pl-en">msg/pack-stream</span> {<span class="pl-c1">:compact</span> <span class="pl-c1">true</span> <span class="pl-c1">:schema</span> <span class="pl-c1">0</span>} s))
+
+(<span class="pl-en">with-open</span> [s (<span class="pl-en">input-stream</span> <span class="pl-s"><span class="pl-pds">"</span>test.dat<span class="pl-pds">"</span></span>)] (<span class="pl-en">msg/unpack</span> s))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; {:schema 0, :compact true}</span></pre></div>
+<h7>
+<a id="user-content-core-types" class="anchor" aria-hidden="true" href="#core-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core types</h7>
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>java.lang.Boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>java.lang.Byte</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Short</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Integer</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Long</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.BigInteger</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>clojure.lang.BigInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>java.lang.Float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.Double</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>String</td>
+</tr>
+<tr>
+<td>clojure.lang.Sequential</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentMap</td>
+<td>Map</td>
+</tr>
+<tr>
+<td>msgpack.core.Ext</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+<p>Serializing a value of unrecognized type will fail with <code>IllegalArgumentException</code>.  See <a href="#application-types">Application types</a> if you want to register your own types.</p>
+<h7>
+<a id="user-content-clojure-types" class="anchor" aria-hidden="true" href="#clojure-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clojure types</h7>
+<p>Some native Clojure types don't have an obvious MessagePack counterpart. We can
+serialize them as Extended types. To enable automatic conversion of these
+types, load the <code>clojure-extensions</code> library.</p>
+<table>
+<thead>
+<tr>
+<th>Clojure</th>
+<th>MessagePack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clojure.lang.Keyword</td>
+<td>Extended (type = 3)</td>
+</tr>
+<tr>
+<td>clojure.lang.Symbol</td>
+<td>Extended (type = 4)</td>
+</tr>
+<tr>
+<td>java.lang.Character</td>
+<td>Extended (type = 5)</td>
+</tr>
+<tr>
+<td>clojure.lang.Ratio</td>
+<td>Extended (type = 6)</td>
+</tr>
+<tr>
+<td>clojure.lang.IPersistentSet</td>
+<td>Extended (type = 7)</td>
+</tr>
+</tbody>
+</table>
+<p>With <code>msgpack.clojure-extensions</code>:</p>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
+(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
+<p>Without <code>msgpack.clojure-extensions</code>:</p>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
+<span class="pl-c"><span class="pl-c">;</span> =&gt; IllegalArgumentException No implementation of method: :pack-stream of</span>
+<span class="pl-c"><span class="pl-c">;</span> protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword</span>
+<span class="pl-c"><span class="pl-c">;</span> clojure.core/-cache-protocol-fn (core _deftype.clj:544)</span></pre></div>
+<h7>
+<a id="user-content-application-types" class="anchor" aria-hidden="true" href="#application-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="user-content-application-types">Application types</a>
+</h7>
+<p>You can also define your own Extended types with <code>extend-msgpack</code>.</p>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-k">require</span> '[msgpack.macros <span class="pl-c1">:refer</span> [extend-msgpack]])
+
+(<span class="pl-k">defrecord</span> <span class="pl-e">Person</span> [name])
+
+(<span class="pl-en">extend-msgpack</span>
+  Person
+  <span class="pl-c1">100</span>
+  [p] (<span class="pl-en">.getBytes</span> (<span class="pl-c1">:name</span> p))
+  [bytes] (<span class="pl-en">-&gt;Person</span> (<span class="pl-en">String.</span> bytes)))
+
+(<span class="pl-en">msg/unpack</span> (<span class="pl-en">msg/pack</span> [(<span class="pl-en">-&gt;Person</span> <span class="pl-s"><span class="pl-pds">"</span>bob<span class="pl-pds">"</span></span>) <span class="pl-c1">5</span> <span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span>]))
+<span class="pl-c"><span class="pl-c">;</span> =&gt; (#user.Person{:name "bob"} 5 "test")</span></pre></div>
+<h7>
+<a id="user-content-options" class="anchor" aria-hidden="true" href="#options"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h7>
+<p>All pack and unpack functions take an optional map of options:</p>
+<ul>
+<li>
+<p><code>:compatibility-mode</code>
+Serialize/deserialize strings and bytes using the raw-type defined here:
+<a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">https://github.com/msgpack/msgpack/blob/master/spec-old.md</a></p>
+<p>Note: No error is thrown if an unpacked value is reserved under the old spec
+but defined under the new spec. We always deserialize something if we can
+regardless of <code>compatibility-mode</code>.</p>
+</li>
+</ul>
+<div class="highlight highlight-source-clojure"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
+<h6>
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+<p>clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
 </article>
   </div>
         </div>
@@ -3465,32 +3586,17 @@ QMsgPack is a part of QDAC 3.0,Source code hosted in Sourceforge(<a href="http:/
         <div id="qs-romixlab-qmsgpack" class="qs"><h4><a href="https://github.com/romixlab/qmsgpack" target="_blank">romixlab/qmsgpack <span class="qs-url">https://github.com/romixlab/qmsgpack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
-<a id="user-content-qmsgpack" class="anchor" aria-hidden="true" href="#qmsgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>qmsgpack</h5>
-<p>MessagePack for Qt</p>
-<p align="center">
-    <a href="https://travis-ci.org/romixlab/qmsgpack" rel="nofollow">
-        <img src="https://camo.githubusercontent.com/3a3b1414626fd941a11b206b297fb1c62213f102/68747470733a2f2f7472617669732d63692e6f72672f726f6d69786c61622f716d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/romixlab/qmsgpack.svg?branch=master" style="max-width:100%;">
-    </a>
-    <a href="http://qmsgpack.readthedocs.io/en/latest/" rel="nofollow">
-        <img src="https://camo.githubusercontent.com/0a3c3743926d04469497a52f2c1f2dc7c0da2167/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f716d73677061636b2f62616467652f3f76657273696f6e3d6c6174657374" alt="Doc Status" data-canonical-src="https://readthedocs.org/projects/qmsgpack/badge/?version=latest" style="max-width:100%;">
-    </a>
-</p>
-<h6>
-<a id="user-content-documentation" class="anchor" aria-hidden="true" href="#documentation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation</h6>
-<p>Complete documentation is available here: <a href="http://qmsgpack.readthedocs.io/en/latest/" rel="nofollow">qmsgpack.readthedocs.io</a></p>
+<a id="user-content-messagepack-for-qt" class="anchor" aria-hidden="true" href="#messagepack-for-qt"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack for Qt</h5>
+<p>Full documentation is here <a href="http://msgpack.marsworks.ru/" rel="nofollow">mp.marsw.ru</a></p>
 <h6>
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
 <p>Clone repository:</p>
-<div class="highlight highlight-source-shell"><pre>git clone https://github.com/romixlab/qmsgpack.git</pre></div>
-<p>Run cmake:</p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> qmsgpack
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/romixlab/qmsgpack.git
+<span class="pl-c1">cd</span> qmsgpack
 mkdir build
 <span class="pl-c1">cd</span> build
-cmake ..</pre></div>
-<p>Compile:</p>
-<div class="highlight highlight-source-shell"><pre>make</pre></div>
-<p>Run tests and install</p>
-<div class="highlight highlight-source-shell"><pre>make tests install</pre></div>
+cmake ..
+make install</pre></div>
 <h6>
 <a id="user-content-sample-usage" class="anchor" aria-hidden="true" href="#sample-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample usage</h6>
 <p>Packing</p>
@@ -3499,15 +3605,20 @@ list &lt;&lt; <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">2</span>
 QByteArray array = MsgPack::pack(list);</pre></div>
 <p>Unpacking:</p>
 <div class="highlight highlight-source-c++"><pre>QVariantList unpacked = MsgPack::unpack(array).toList();</pre></div>
-<p>By default these Qt types are supported: <code>Int, UInt, LongLong, ULongLong, Double, QByteArray, Bool, QString, QStringList, QVariantList, QVariantMap</code>.</p>
-<p>Also you can provide packer and unpacker functions for any other type (even for user type defined via <code>Q_DECLARE_METATYPE</code>) or MsgPack type.</p>
+<p>Streaming API:</p>
+<div class="highlight highlight-source-c++"><pre><span class="pl-c"><span class="pl-c">//</span> packing</span>
+MsgPackStream <span class="pl-en">stream</span>(&amp;ba, QIODevice::WriteOnly);
+stream &lt;&lt; <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">2.3</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>some string<span class="pl-pds">"</span></span>;
+
+<span class="pl-c"><span class="pl-c">//</span> unpacking</span>
+MsgPackStream <span class="pl-en">stream</span>(ba);
+<span class="pl-k">int</span> a;
+<span class="pl-k">double</span> b;
+QSting s;
+stream &gt;&gt; a &gt;&gt; b &gt;&gt; s;</pre></div>
 <h6>
 <a id="user-content-qt-types-and-user-types" class="anchor" aria-hidden="true" href="#qt-types-and-user-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Qt types and User types</h6>
 <p>There is packers and unpackers for QColor, QTime, QDate, QDateTime, QPoint, QSize, QRect. Also you can create your own packer/unpacker methods for Qt or your own types. See <a href="http://msgpack.marsworks.ru/" rel="nofollow">docs</a> for details.</p>
-<h6>
-<a id="user-content-thread-safety" class="anchor" aria-hidden="true" href="#thread-safety"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Thread-safety</h6>
-<p>At this time it is not safe to call <code>MsgPack::registerPacker</code>, <code>MsgPack::registerUnpacker</code> and <code>MsgPack::setCompatibilityModeEnabled</code> from different threads.
-pack and unpack methods do not use any global data, so should be safe to use from multiple threads.</p>
 </article>
   </div>
         </div>
@@ -3846,6 +3957,48 @@ after that you can bring the <code>ERL shell</code> with</p>
 <p><code>make run</code></p>
 <p>If you want to bring the <code>IEX</code> you can type</p>
 <p><code>make runex</code></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack4z-msgpack4z-core" class="qs"><h4><a href="https://github.com/msgpack4z/msgpack4z-core" target="_blank">msgpack4z/msgpack4z-core <span class="qs-url">https://github.com/msgpack4z/msgpack4z-core</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-msgpack4z-core" class="anchor" aria-hidden="true" href="#msgpack4z-core"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack4z-core</h5>
+<p><a href="http://travis-ci.org/msgpack4z/msgpack4z-core" rel="nofollow"><img src="https://camo.githubusercontent.com/b364d30bed187c240de4bcc263194ca99ef1591c/68747470733a2f2f7365637572652e7472617669732d63692e6f72672f6d73677061636b347a2f6d73677061636b347a2d636f72652e706e673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://secure.travis-ci.org/msgpack4z/msgpack4z-core.png?branch=master" style="max-width:100%;"></a>
+<a href="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-core_2.11" rel="nofollow"><img src="https://camo.githubusercontent.com/a73a91fa3efef97d78ae7dfbadb57e9a1f934e87/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d636f72655f322e31312f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-core_2.11/badge.svg" style="max-width:100%;"></a>
+<a href="https://javadoc-badge.appspot.com/com.github.xuwei-k/msgpack4z-core_2.12/msgpack4z/index.html?javadocio=true" rel="nofollow"><img src="https://camo.githubusercontent.com/3964e12fb82734736e67ffdffcd38a6d2574c946/68747470733a2f2f6a617661646f632d62616467652e61707073706f742e636f6d2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d636f72655f322e31322e7376673f6c6162656c3d7363616c61646f63" alt="scaladoc" data-canonical-src="https://javadoc-badge.appspot.com/com.github.xuwei-k/msgpack4z-core_2.12.svg?label=scaladoc" style="max-width:100%;"></a>
+<a href="https://www.scala-js.org" rel="nofollow"><img src="https://camo.githubusercontent.com/9cd18073c81b367e28edc376992977afa15403cb/68747470733a2f2f7777772e7363616c612d6a732e6f72672f6173736574732f6261646765732f7363616c616a732d302e362e31332e737667" alt="Scala.js" data-canonical-src="https://www.scala-js.org/assets/badges/scalajs-0.6.13.svg" style="max-width:100%;"></a></p>
+<ul>
+<li><a href="https://msgpack.org/" rel="nofollow">https://msgpack.org/</a></li>
+<li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a></li>
+</ul>
+<h7>
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>example</h7>
+<ul>
+<li><a href="https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala">https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala</a></li>
+<li><a href="https://github.com/xuwei-k/msgpack-json/blob/640878e88171/src/main/scala/App.scala">https://github.com/xuwei-k/msgpack-json/blob/640878e88171/src/main/scala/App.scala</a></li>
+</ul>
+<h7>
+<a id="user-content-latest-stable-version" class="anchor" aria-hidden="true" href="#latest-stable-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>latest stable version</h7>
+<div class="highlight highlight-source-scala"><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.3.9<span class="pl-pds">"</span></span></pre></div>
+<ul>
+<li><a href="https://oss.sonatype.org/service/local/repositories/releases/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.3.9/msgpack4z-core_2.11-0.3.9-sxr.jar/!/index.html" rel="nofollow">sxr</a></li>
+</ul>
+<h7>
+<a id="user-content-snapshot-version" class="anchor" aria-hidden="true" href="#snapshot-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>snapshot version</h7>
+<div class="highlight highlight-source-scala"><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.3.10-SNAPSHOT<span class="pl-pds">"</span></span>
+
+resolvers <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-en">Opts</span>.resolver.sonatypeSnapshots</pre></div>
+<ul>
+<li><a href="https://oss.sonatype.org/service/local/repositories/snapshots/archive/com/github/xuwei-k/msgpack4z-core_2.11/0.3.10-SNAPSHOT/msgpack4z-core_2.11-0.3.10-SNAPSHOT-sxr.jar/!/index.html" rel="nofollow">sxr</a></li>
+</ul>
+<h7>
+<a id="user-content-dependency-graph" class="anchor" aria-hidden="true" href="#dependency-graph"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dependency graph</h7>
+<p><a href="https://msgpack4z.github.io/graph.svg" rel="nofollow"><img src="https://camo.githubusercontent.com/6d788baae6050b7f56eecd5ae8792ba5f708ae75/68747470733a2f2f6d73677061636b347a2e6769746875622e696f2f67726170682e737667" alt="graph" data-canonical-src="https://msgpack4z.github.io/graph.svg" style="max-width:100%;"></a></p>
+<h7>
+<a id="user-content-for-scalaz-71x" class="anchor" aria-hidden="true" href="#for-scalaz-71x"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>for scalaz 7.1.x</h7>
+<p><a href="https://github.com/msgpack4z/msgpack4z-core/tree/0.2.x">https://github.com/msgpack4z/msgpack4z-core/tree/0.2.x</a></p>
 </article>
   </div>
         </div>
@@ -7177,6 +7330,130 @@ microbenchmark(xu &lt;- msgpack_unpack(xpk), times=3)
   </div>
         </div>
         
+        <div id="qs-ar90n-msgpack11" class="qs"><h4><a href="https://github.com/ar90n/msgpack11" target="_blank">ar90n/msgpack11 <span class="qs-url">https://github.com/ar90n/msgpack11</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><p><a href="https://travis-ci.org/ar90n/msgpack11" rel="nofollow"><img src="https://camo.githubusercontent.com/c3c03f2c22de81aa64f964275a4c52ee8039e7ae/68747470733a2f2f7472617669732d63692e6f72672f617239306e2f6d73677061636b31312e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/ar90n/msgpack11.svg?branch=master" style="max-width:100%;"></a></p>
+<h5>
+<a id="user-content-what-is-msgpack11-" class="anchor" aria-hidden="true" href="#what-is-msgpack11-"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is msgpack11 ?</h5>
+<p>msgpack11 is a tiny MsgPack library for C++11, providing MsgPack parsing and serialization.<br>
+This library is inspired by <a href="https://github.com/dropbox/json11">json11</a>.<br>
+The API of msgpack11 is designed to be similar with json11.</p>
+<h5>
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h5>
+<ul>
+<li>
+<p>Using CMake</p>
+<pre><code>  git clone git@github.com:ar90n/msgpack11.git
+  mkdir build
+  cd build
+  cmake ../msgpack11
+  make &amp;&amp; make install
+</code></pre>
+</li>
+<li>
+<p>Using Buck</p>
+<pre><code>  git clone git@github.com:ar90n/msgpack11.git
+  cd msgpack11
+  buck build :msgpack11
+</code></pre>
+</li>
+</ul>
+<h5>
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h5>
+<pre><code>MsgPack my_msgpack = MsgPack::object {
+    { "key1", "value1" },
+    { "key2", false },
+    { "key3", MsgPack::array { 1, 2, 3 } },
+};
+
+//access to elements
+std::cout &lt;&lt; my_msgpack["key1"].string_value();
+
+//serialize
+std::string msgpack_bytes = my_msgpack.dump();
+
+//deserialize
+std::string err;
+MsgPack des_msgpack = MsgPack::parse(msgpack_bytes, err);
+</code></pre>
+<p>There are more specific examples in example.cpp.
+Please see it.</p>
+<h5>
+<a id="user-content-benchmark" class="anchor" aria-hidden="true" href="#benchmark"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benchmark</h5>
+<p>Derived from <a href="https://github.com/ludocode/schemaless-benchmarks">schemaless-benchmarks</a></p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Binary size</th>
+<th>time[ms] @ Smallest</th>
+<th>time[ms] @ Small</th>
+<th>time[ms] @ Medium</th>
+<th>time[ms] @ Large</th>
+<th>time[ms] @ Largest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msgpack-c-pack(v2.1.4)</td>
+<td>6649</td>
+<td>0.55</td>
+<td>2.38</td>
+<td>43.22</td>
+<td>711.75</td>
+<td>8748.20</td>
+</tr>
+<tr>
+<td>msgpack-c-unpack(v2.1.4)</td>
+<td>21804</td>
+<td>1.34</td>
+<td>6.00</td>
+<td>83.09</td>
+<td>714.64</td>
+<td>11192.32</td>
+</tr>
+<tr>
+<td>msgpack11-pack(v0.0.9)</td>
+<td>99844</td>
+<td>20.80</td>
+<td>130.04</td>
+<td>1063.24</td>
+<td>10466.65</td>
+<td>136640.99</td>
+</tr>
+<tr>
+<td>msgpack11-unpack(v0.0.9)</td>
+<td>99460</td>
+<td>13.31</td>
+<td>92.54</td>
+<td>786.73</td>
+<td>7345.43</td>
+<td>99119.56</td>
+</tr>
+</tbody>
+</table>
+<p>CPU : 2.6 GHz Intel Core i7<br>
+Memory : 16 GB 2133 MHz LPDDR3<br>
+Git revision : 6f6b4302b68b3c88312eb24367418b7fce81298c</p>
+<h5>
+<a id="user-content-feature" class="anchor" aria-hidden="true" href="#feature"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Feature</h5>
+<ul>
+<li>Support serialization and deserialization.</li>
+</ul>
+<h5>
+<a id="user-content-acknowledgement" class="anchor" aria-hidden="true" href="#acknowledgement"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Acknowledgement</h5>
+<ul>
+<li><a href="https://github.com/dropbox/json11">json11</a></li>
+<li><a href="https://github.com/msgpack/msgpack-c">msgpack-c</a></li>
+<li><a href="https://github.com/ludocode/schemaless-benchmarks">schemaless-benchmarks</a></li>
+</ul>
+<h5>
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h5>
+<p>This software is released under the MIT License, see LICENSE.txt.</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-pierre-vigier-Perl6-Data-MessagePack" class="qs"><h4><a href="https://github.com/pierre-vigier/Perl6-Data-MessagePack" target="_blank">pierre-vigier/Perl6-Data-MessagePack <span class="qs-url">https://github.com/pierre-vigier/Perl6-Data-MessagePack</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -9458,7 +9735,7 @@ UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-msgpack2r" class="anchor" aria-hidden="true" href="#msgpack2r"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack2R</h5>
 <p>Convert to and from msgpack objects in R using the official msgpack-c API through Rcpp.</p>
-<p><a target="_blank" rel="noopener noreferrer" href="/skyformat99/msgpack2R/blob/master/vignettes/msgpack_flowchart.png"><img src="/skyformat99/msgpack2R/raw/master/vignettes/msgpack_flowchart.png" alt="flowchart" title="Conversion flowchart" style="max-width:100%;"></a>
+<p><a target="_blank" href="https://raw.githubusercontent.com/traversc/msgpack2R/master/vignettes/msgpack_flowchart.png"><img src="https://raw.githubusercontent.com/traversc/msgpack2R/master/vignettes/msgpack_flowchart.png" alt="flowchart" title="Conversion flowchart" style="max-width:100%;"></a>
 <em>A flowchart describing the conversion of R objects into msgpack objects and back.</em></p>
 <p>Msgpack EXT types are converted to raw vectors with EXT attributes containing the extension type.  The extension type must be an integer from 0 to 127.</p>
 <p>Maps are converted to data.frames with additional class "map".  Map objects in R contain key and value list columns and can be simplified to named lists or named vectors.  The helper function <code>msgpack_map</code> creates map objects that can be serialized into msgpack.</p>
@@ -9691,6 +9968,111 @@ Traceback (most recent call last):
   </div>
         </div>
         
+        <div id="qs-dchenk-msgp" class="qs"><h4><a href="https://github.com/dchenk/msgp" target="_blank">dchenk/msgp <span class="qs-url">https://github.com/dchenk/msgp</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-messagepack-code-generator-and-library-for-go" class="anchor" aria-hidden="true" href="#messagepack-code-generator-and-library-for-go"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack Code Generator and Library for Go</h5>
+<p><a href="https://travis-ci.org/dchenk/msgp" rel="nofollow"><img src="https://camo.githubusercontent.com/4675b44ed067a684a3a78b4ee43f7e0767d87d07/68747470733a2f2f7472617669732d63692e6f72672f646368656e6b2f6d7367702e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/dchenk/msgp.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://goreportcard.com/badge/github.com/dchenk/msgp" rel="nofollow"><img src="https://camo.githubusercontent.com/c84188e8023231fa18c8640a834a79bf8c4812ed/68747470733a2f2f676f7265706f7274636172642e636f6d2f62616467652f6769746875622e636f6d2f646368656e6b2f6d736770" alt="Go Report Card" data-canonical-src="https://goreportcard.com/badge/github.com/dchenk/msgp" style="max-width:100%;"></a>
+<a href="https://godoc.org/github.com/dchenk/msgp/msgp" rel="nofollow"><img src="https://camo.githubusercontent.com/7fe94cb6b136ceb951800d0c5d08d0731231fd24/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f646368656e6b2f6d7367703f7374617475732e737667" alt="GoDoc" data-canonical-src="https://godoc.org/github.com/dchenk/msgp?status.svg" style="max-width:100%;"></a></p>
+<p>This is a code generation tool and serialization library for MessagePack. You can read more about MessagePack <a href="https://github.com/dchenk/msgp/wiki">in the wiki</a>
+or at <a href="https://msgpack.org" rel="nofollow">msgpack.org</a>.</p>
+<p><strong>This library is no longer being maintained. You should be using <a href="https://developers.google.com/protocol-buffers/" rel="nofollow">Protocol Buffers</a> for binary data serialization</strong></p>
+<h7>
+<a id="user-content-top-features" class="anchor" aria-hidden="true" href="#top-features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Top Features</h7>
+<ul>
+<li>Use Go as your schema language</li>
+<li>Performance is amazing</li>
+<li>JSON <a href="https://godoc.org/github.com/dchenk/msgp/msgp#CopyToJSON" rel="nofollow">interoperability</a>
+</li>
+<li>Type safety</li>
+<li>Support for complex type declarations</li>
+<li>Define your own <a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">MessagePack extensions</a>
+</li>
+<li>Automatic unit test and benchmark generation</li>
+<li>Native support for Go’s <code>time.Time</code>, <code>complex64</code>, and <code>complex128</code> types</li>
+<li><a href="https://github.com/dchenk/msgp/wiki/Using-the-Code-Generator">Preprocessor directives</a></li>
+<li>Generation of both <code>[]byte</code>-oriented and <code>io.Reader/io.Writer</code>-oriented methods</li>
+</ul>
+<h7>
+<a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quickstart</h7>
+<p>In a Go code source file, include the following directive:</p>
+<div class="highlight highlight-source-go"><pre><span class="pl-c"><span class="pl-c">//</span>go:generate msgp</span></pre></div>
+<p>Within the directory with the file where you placed that directive, run <code>go generate</code>.</p>
+<p>The <code>msgp</code> command will tell the <code>go generate</code> tool to generate serialization and deserialization methods (functions) for all exported types in the file. These custom-built functions enable you to use package <a href="https://godoc.org/github.com/dchenk/msgp/msgp" rel="nofollow"><code>msgp</code></a> to efficiently encode objects to and from the MessagePack format.</p>
+<p>You can <a href="https://github.com/dchenk/msgp/wiki/Using-the-Code-Generator">read more about the code generation options here</a>.</p>
+<h7>
+<a id="user-content-use" class="anchor" aria-hidden="true" href="#use"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use</h7>
+<p>Struct field names can be set the same way as with the <code>encoding/json</code> package. For example:</p>
+<div class="highlight highlight-source-go"><pre><span class="pl-k">type</span> <span class="pl-v">Person</span> <span class="pl-k">struct</span> {
+    <span class="pl-v">Name</span>       <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"name"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Address</span>    <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"address"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Age</span>        <span class="pl-k">int</span>    <span class="pl-s"><span class="pl-pds">`</span>msgp:"age"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Hidden</span>     <span class="pl-k">string</span> <span class="pl-s"><span class="pl-pds">`</span>msgp:"-"<span class="pl-pds">`</span></span> <span class="pl-c"><span class="pl-c">//</span> this field is ignored</span>
+    unexported <span class="pl-k">bool</span>              <span class="pl-c"><span class="pl-c">//</span> this field is also ignored</span>
+}</pre></div>
+<p>(The struct field tags are optional.)</p>
+<p>By default, the code generator will satisfy <code>msgp.Sizer</code>, <code>msgp.Encoder</code>, <code>msgp.Decoder</code>, <code>msgp.Marshaler</code>, and <code>msgp.Unmarshaler</code>.
+You’ll often find that much marshalling and unmarshalling will be done with zero heap allocations.</p>
+<p>Although <code>msgp.Marshaler</code> and <code>msgp.Unmarshaler</code> are similar to the standard library’s <code>json.Marshaler</code> and <code>json.Unmarshaler</code>,
+<code>msgp.Encoder</code> and <code>msgp.Decoder</code> are useful for stream serialization. (<code>*msgp.Writer</code> and <code>*msgp.Reader</code> are essentially
+protocol-aware versions of <code>*bufio.Writer</code> and <code>*bufio.Reader</code>.)</p>
+<p>Consider the following:</p>
+<div class="highlight highlight-source-go"><pre><span class="pl-k">const</span> <span class="pl-v">Eight</span> = <span class="pl-c1">8</span>
+<span class="pl-k">type</span> <span class="pl-v">MyInt</span> <span class="pl-k">int</span>
+<span class="pl-k">type</span> <span class="pl-v">Data</span> []<span class="pl-k">byte</span>
+
+<span class="pl-k">type</span> <span class="pl-v">Struct</span> <span class="pl-k">struct</span> {
+    <span class="pl-v">Which</span>  <span class="pl-k">map</span>[<span class="pl-k">string</span>]*MyInt <span class="pl-s"><span class="pl-pds">`</span>msgp:"which"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Other</span>  <span class="pl-v">Data</span>              <span class="pl-s"><span class="pl-pds">`</span>msgp:"other"<span class="pl-pds">`</span></span>
+    <span class="pl-v">Nums</span>   [Eight]<span class="pl-k">float64</span>    <span class="pl-s"><span class="pl-pds">`</span>msgp:"nums"<span class="pl-pds">`</span></span>
+}</pre></div>
+<p>As long as the declarations of <code>MyInt</code> and <code>Data</code> are in the same file as <code>Struct</code>, the parser will determine that the type information
+for <code>MyInt</code> and <code>Data</code> can be passed into the definition of <code>Struct</code> before its methods are generated.</p>
+<h8>
+<a id="user-content-extensions" class="anchor" aria-hidden="true" href="#extensions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extensions</h8>
+<p>MessagePack supports defining your own types through "extensions," which are just a tuple of the data "type" (<code>int8</code>) and the raw binary.
+You can see <a href="https://github.com/dchenk/msgp/wiki/Using-Extensions">a worked example in the wiki.</a></p>
+<h7>
+<a id="user-content-status" class="anchor" aria-hidden="true" href="#status"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status</h7>
+<p>The code generator here and runtime library are both stable. Newer versions of the code may generate different code than older versions
+for performance reasons.</p>
+<p>You can read more about how <code>msgp</code> maps MessagePack types onto Go types <a href="http://github.com/dchenk/msgp/wiki">in the wiki</a>.</p>
+<p>Here some of the known limitations/restrictions:</p>
+<ul>
+<li>Identifiers from outside the processed source file are assumed to satisfy the generator's interfaces. If this isn't the case, your code
+will fail to compile.</li>
+<li>The <code>chan</code> and <code>func</code> fields and types are ignored as well as un-exported fields.</li>
+<li>Encoding of <code>interface{}</code> is limited to built-ins or types that have explicit encoding methods.</li>
+<li>Maps must have <code>string</code> keys. This is intentional (as it preserves JSON interoperability). Although non-string map keys are not forbidden
+by the MessagePack standard, many serializers impose this restriction. (It also means <em>any</em> well-formed <code>struct</code> can be decoded into a
+<code>map[string]interface{}</code>.) The only exception to this rule is that the decoders will allow you to read map keys encoded as <code>bin</code> types,
+since some legacy encodings permitted this. (However, those values will still be cast to Go <code>string</code>s, and they will be converted to <code>str</code>
+types when re-encoded. It is the responsibility of the user to ensure that map keys are UTF-8 safe in this case.) The same rules hold true
+for JSON translation.</li>
+</ul>
+<p>If the output compiles, then there's a pretty good chance things are fine. (Plus, we generate tests for you.) Please file an issue if you
+think the generator is writing broken code.</p>
+<h7>
+<a id="user-content-performance" class="anchor" aria-hidden="true" href="#performance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance</h7>
+<p>If you like benchmarks, see <a href="https://github.com/dchenk/messagepack-benchmarks">here</a>, <a href="http://bravenewgeek.com/so-you-wanna-go-fast/" rel="nofollow">here</a>,
+and <a href="https://github.com/alecthomas/go_serialization_benchmarks">here</a>.</p>
+<h6>
+<a id="user-content-credits" class="anchor" aria-hidden="true" href="#credits"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credits</h6>
+<p>This repository is a fork of github.com/tinylib/msgp.</p>
+<p>Differences between this tool and tinylib/msgp:</p>
+<ul>
+<li>Here we have <a href="https://github.com/dchenk/msgp/wiki/Using-the-Code-Generator#matching-type-names">regular expression matching</a> for type
+names in directives.</li>
+<li>Here we do not use package <code>unsafe</code> for conversions from byte slices to strings: <code>[]byte</code> is converted quite efficiently to <code>string</code>
+simply with the built-in <code>string()</code>.</li>
+<li>This codebase is thoroughly refactored to be more Go-idiomatic and efficient.</li>
+</ul>
+<p>You're welcome to contribute!</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-cherrywoods-swift-msgpack-serialization" class="qs"><h4><a href="https://github.com/cherrywoods/swift-msgpack-serialization" target="_blank">cherrywoods/swift-msgpack-serialization <span class="qs-url">https://github.com/cherrywoods/swift-msgpack-serialization</span></a></h4>
 <div id="readme" class="readme blob instapaper_body">
     <article class="markdown-body entry-content" itemprop="text"><h5>
@@ -9708,6 +10090,175 @@ See <a href="https://github.com/cherrywoods/swift-msgpack-serialization/blob/mas
 <h6>
 <a id="user-content-compatibilty-restrictions" class="anchor" aria-hidden="true" href="#compatibilty-restrictions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compatibilty restrictions</h6>
 <p>Make sure you never call .encode(to:) directly! Instead use the encode method on a keyed, unkeyed or singleValue container or cast the encoder passed to you to MsgpackEncoder and call encodeIntermediate(_) on this encoder. If you do not use this, this framework won't be able to do it's work properly.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-bastibe-matlab-msgpack" class="qs"><h4><a href="https://github.com/bastibe/matlab-msgpack" target="_blank">bastibe/matlab-msgpack <span class="qs-url">https://github.com/bastibe/matlab-msgpack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-a-messagepack-implementation-for-matlab" class="anchor" aria-hidden="true" href="#a-messagepack-implementation-for-matlab"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A MessagePack implementation for Matlab</h5>
+<p>The code is written in pure Matlab, and has no dependencies beyond Matlab itself. It does not work in Octave, since Octave does not support <code>unicode2native</code> or <code>native2unicode</code>.</p>
+<p>The files in this repository are taken from <a href="https://github.com/bastibe/transplant">Transplant</a>.</p>
+<h6>
+<a id="user-content-basic-usage" class="anchor" aria-hidden="true" href="#basic-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Usage:</h6>
+<div class="highlight highlight-source-matlab"><pre>data = {<span class="pl-s"><span class="pl-pds">'</span>life, the universe, and everything<span class="pl-pds">'</span></span>, struct(<span class="pl-s"><span class="pl-pds">'</span>the_answer<span class="pl-pds">'</span></span>, <span class="pl-c1">42</span>)};
+bytes = dumpmsgpack(data)
+data = parsemsgpack(bytes)
+<span class="pl-c"><span class="pl-c">%</span> returns: {'life, the universe, and everything', containers.Map('the_answer', 42)}</span></pre></div>
+<h6>
+<a id="user-content-converting-matlab-to-msgpack" class="anchor" aria-hidden="true" href="#converting-matlab-to-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Converting Matlab to MsgPack:</h6>
+<table>
+<thead>
+<tr>
+<th>Matlab</th>
+<th>MsgPack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>string</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>number</td>
+</tr>
+<tr>
+<td>logical</td>
+<td>
+<code>true</code>/<code>false</code>
+</td>
+</tr>
+<tr>
+<td>vector</td>
+<td>array of numbers</td>
+</tr>
+<tr>
+<td>uint8 vector</td>
+<td>bin</td>
+</tr>
+<tr>
+<td>matrix</td>
+<td>array of array of numbers</td>
+</tr>
+<tr>
+<td>empty matrix</td>
+<td>nil</td>
+</tr>
+<tr>
+<td>cell array</td>
+<td>array</td>
+</tr>
+<tr>
+<td>cell matrix</td>
+<td>array of arrays</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>map</td>
+</tr>
+<tr>
+<td>containers.Map</td>
+<td>map</td>
+</tr>
+<tr>
+<td>struct array</td>
+<td>array of maps</td>
+</tr>
+<tr>
+<td>handles</td>
+<td>raise error</td>
+</tr>
+</tbody>
+</table>
+<p>There is no way of encoding exts</p>
+<h6>
+<a id="user-content-converting-msgpack-to-matlab" class="anchor" aria-hidden="true" href="#converting-msgpack-to-matlab"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Converting MsgPack to Matlab</h6>
+<table>
+<thead>
+<tr>
+<th>MsgPack</th>
+<th>Matlab</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>string</td>
+</tr>
+<tr>
+<td>number</td>
+<td>scalar</td>
+</tr>
+<tr>
+<td>
+<code>true</code>/<code>false</code>
+</td>
+<td>logical</td>
+</tr>
+<tr>
+<td>nil</td>
+<td>empty matrix</td>
+</tr>
+<tr>
+<td>array</td>
+<td>cell array</td>
+</tr>
+<tr>
+<td>map</td>
+<td>containers.Map</td>
+</tr>
+<tr>
+<td>bin</td>
+<td>uint8</td>
+</tr>
+<tr>
+<td>ext</td>
+<td>uint8</td>
+</tr>
+</tbody>
+</table>
+<p>Note that since <code>structs</code> don't support arbitrary field names, they can't be used for representing <code>maps</code>. We use <code>containers.Map</code> instead.</p>
+<h6>
+<a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tests</h6>
+<div class="highlight highlight-source-matlab"><pre>runtests()</pre></div>
+<h6>
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
+<p>MATLAB (R) is copyright of the Mathworks</p>
+<p>Copyright (c) 2014 Bastian Bechtold
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:</p>
+<ol>
+<li>
+<p>Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.</p>
+</li>
+<li>
+<p>Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the
+distribution.</p>
+</li>
+<li>
+<p>Neither the name of the copyright holder nor the names of its
+contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.</p>
+</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </article>
   </div>
         </div>
