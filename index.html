@@ -10809,15 +10809,20 @@ limitations under the License.</p>
 <a href="https://travis-ci.org/shamaton/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/232ad32c6c6226d33c14f5131632bb7e9e1641bf/68747470733a2f2f7472617669732d63692e6f72672f7368616d61746f6e2f6d73677061636b2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/shamaton/msgpack.svg?branch=master" style="max-width:100%;"></a>
 <a href="https://coveralls.io/github/shamaton/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/ec57ee083c2de7b262498ba5140b0abe77ca72e0/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f7368616d61746f6e2f6d73677061636b2f62616467652e737667" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/shamaton/msgpack/badge.svg" style="max-width:100%;"></a>
 <a href="https://github.com/shamaton/msgpack/releases"><img src="https://camo.githubusercontent.com/10db26bf54ef991444711efc05c42123110115a4/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f7368616d61746f6e2f6d73677061636b2e737667" alt="Releases" data-canonical-src="https://img.shields.io/github/release/shamaton/msgpack.svg" style="max-width:100%;"></a></p>
+<ul>
+<li>Supported types : primitive / array / slice / struct / map / interface{} and time.Time</li>
+<li>Renames fields via <code>msgpack:"field_name"</code>
+</li>
+<li>Ignores fields via <code>msgpack:"ignore"</code>
+</li>
+<li>Supports extend encoder / decoder</li>
+<li>Can also Encoding / Decoding struct as array</li>
+</ul>
 <h6>
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
-<h7>
-<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h7>
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h6>
 <div class="highlight highlight-source-shell"><pre>go get -u github.com/shamaton/msgpack</pre></div>
-<h7>
-<a id="user-content-how-to-use" class="anchor" aria-hidden="true" href="#how-to-use"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to use</h7>
-<h8>
-<a id="user-content-use-simply" class="anchor" aria-hidden="true" href="#use-simply"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>use simply</h8>
+<h6>
+<a id="user-content-quick-start" class="anchor" aria-hidden="true" href="#quick-start"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quick Start</h6>
 <div class="highlight highlight-source-go"><pre><span class="pl-k">package</span> main;
 
 <span class="pl-k">import</span> (
@@ -10840,6 +10845,29 @@ limitations under the License.</p>
 		<span class="pl-c1">panic</span>(err)
 	}
 }</pre></div>
+<h6>
+<a id="user-content-benchmark" class="anchor" aria-hidden="true" href="#benchmark"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benchmark</h6>
+<p>This result made from <a href="https://github.com/shamaton/msgpack_bench">shamaton/msgpack_bench</a></p>
+<h7>
+<a id="user-content-encode" class="anchor" aria-hidden="true" href="#encode"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Encode</h7>
+<pre><code>BenchmarkCompareEncodeShamaton-8           	 1000000	      1319 ns/op	     320 B/op	       3 allocs/op
+BenchmarkCompareEncodeShamatonArray-8      	 1000000	      1172 ns/op	     256 B/op	       3 allocs/op
+BenchmarkCompareEncodeVmihailenco-8        	  300000	      4626 ns/op	    1000 B/op	      14 allocs/op
+BenchmarkCompareEncodeVmihailencoArray-8   	  500000	      3918 ns/op	     680 B/op	      13 allocs/op
+BenchmarkCompareEncodeUgorji-8             	 1000000	      1985 ns/op	     986 B/op	      11 allocs/op
+BenchmarkCompareEncodeJson-8               	  500000	      3649 ns/op	    1224 B/op	      16 allocs/op
+BenchmarkCompareEncodeGob-8                	  100000	     12324 ns/op	    2824 B/op	      50 allocs/op
+</code></pre>
+<h7>
+<a id="user-content-decode" class="anchor" aria-hidden="true" href="#decode"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decode</h7>
+<pre><code>BenchmarkCompareDecodeShamaton-8           	 1000000	      1494 ns/op	     512 B/op	       6 allocs/op
+BenchmarkCompareDecodeShamatonArray-8      	 1000000	      1031 ns/op	     512 B/op	       6 allocs/op
+BenchmarkCompareDecodeVmihailenco-8        	  200000	      5660 ns/op	    1056 B/op	      33 allocs/op
+BenchmarkCompareDecodeVmihailencoArray-8   	  300000	      4779 ns/op	     992 B/op	      22 allocs/op
+BenchmarkCompareDecodeUgorji-8             	  500000	      2774 ns/op	     844 B/op	      12 allocs/op
+BenchmarkCompareDecodeJson-8               	  200000	      9721 ns/op	    1216 B/op	      43 allocs/op
+BenchmarkCompareDecodeGob-8                	   50000	     37553 ns/op	   10172 B/op	     275 allocs/op
+</code></pre>
 <h6>
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 <p>This library is under the MIT License.</p>
