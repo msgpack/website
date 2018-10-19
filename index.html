@@ -11187,10 +11187,30 @@ projects as well.</p>
 2^30 = 1.07 GB
 </code></pre>
 <h6>
+<a id="user-content-minified-build-for-browsers" class="anchor" aria-hidden="true" href="#minified-build-for-browsers"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>minified build for browsers</h6>
+<pre><code>&lt;!-- latest umd build --&gt;
+&lt;script src="https://unpkg.com/what-the-pack/dist/MessagePack.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- exposed as 'MessagePack' --&gt;
+&lt;script&gt;
+  const data = {
+    name: 'Lunox',
+    age: 20
+  };
+
+  const encoded = MessagePack.encode(data);
+  const decoded = MessagePack.decode(encoded);
+
+  console.log({
+    encoded,
+    decoded
+  });
+&lt;/script&gt;
+</code></pre>
+<h6>
 <a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>benchmarks</h6>
-<ul>
-<li><code>yarn run benchmark</code></li>
-</ul>
+<pre><code>yarn run benchmark
+</code></pre>
 <pre><code>$ yarn run benchmark
 yarn run v1.5.1
 $ node benchmark.js
@@ -11215,9 +11235,8 @@ Done in 96.26s.
 </code></pre>
 <h6>
 <a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tests</h6>
-<ul>
-<li><code>yarn run test</code></li>
-</ul>
+<pre><code>yarn run test
+</code></pre>
 <pre><code>$ yarn run test
 yarn run v1.5.1
 $ jest
