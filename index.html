@@ -320,6 +320,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tris-foundation-messagepack',this)">Swift <span class="qs-sub">tris-foundation</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-clwi-CWPack',this)">C <span class="qs-sub">clwi</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-neuecc-MessagePack-CSharp',this)">C# <span class="qs-sub">neuecc</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-pocketberserker-MessagePack-FSharpExtensions',this)">F# <span class="qs-sub">pocketberserker</span></a></li>
@@ -7653,6 +7655,88 @@ The data corresponds to <code>{"compact":true,"schema":0}</code> in JSON.</p>
 <span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">UInt8</span>.<span class="pl-k">self</span>)
 <span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">Double</span>.<span class="pl-k">self</span>)
 <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">"</span>decoded manually: <span class="pl-pse">\(</span><span class="pl-s1">string</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">int</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">double</span><span class="pl-pse"><span class="pl-s1">)</span></span><span class="pl-pds">"</span></span>)</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-clwi-CWPack" class="qs"><h4><a href="https://github.com/clwi/CWPack" target="_blank">clwi/CWPack <span class="qs-url">https://github.com/clwi/CWPack</span></a></h4>
+<div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h5>
+<a id="user-content-cwpack" class="anchor" aria-hidden="true" href="#cwpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CWPack</h5>
+<p>CWPack is a lightweight and yet complete implementation of the
+<a href="http://msgpack.org" rel="nofollow">MessagePack</a> serialization format
+<a href="https://github.com/msgpack/msgpack/blob/master/spec.md">version 5</a>.</p>
+<h6>
+<a id="user-content-excellent-performance" class="anchor" aria-hidden="true" href="#excellent-performance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Excellent Performance</h6>
+<p>Together with <a href="https://github.com/ludocode/mpack">MPack</a>, CWPack is the fastest open-source messagepack implementation. Both totally outperform
+<a href="https://github.com/camgunz/cmp">CMP</a> and <a href="https://github.com/msgpack/msgpack-c">msgpack-c</a></p>
+<h6>
+<a id="user-content-design" class="anchor" aria-hidden="true" href="#design"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design</h6>
+<p>CWPack does no memory allocations and no file handling. All that is done
+outside of CWPack.</p>
+<p>CWPack is working against memory buffers. User defined handlers are called when buffers are
+filled up (packing) or needs refill (unpack).</p>
+<p>Containers (arrays, maps) are read/written in parts, first the item containing the size and
+then the contained items one by one. Exception to this is the <code>cw_skip_items</code> function which
+skip whole containers.</p>
+<h6>
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h6>
+<p>Pack and unpack example from the MessagePack home page:</p>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">void</span> <span class="pl-en">example</span> (<span class="pl-k">void</span>)
+{
+    cw_pack_context pc;
+    <span class="pl-k">char</span> buffer[<span class="pl-c1">20</span>];
+    <span class="pl-c1">cw_pack_context_init</span> (&amp;pc, buffer, <span class="pl-c1">20</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>);
+
+    <span class="pl-c1">cw_pack_map_size</span> (&amp;pc, <span class="pl-c1">2</span>);
+    <span class="pl-c1">cw_pack_str</span> (&amp;pc, <span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>, <span class="pl-c1">7</span>);
+    <span class="pl-c1">cw_pack_boolean</span> (&amp;pc, <span class="pl-c1">true</span>);
+    <span class="pl-c1">cw_pack_str</span> (&amp;pc, <span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>, <span class="pl-c1">6</span>);
+    <span class="pl-c1">cw_pack_unsigned</span> (&amp;pc, <span class="pl-c1">0</span>);
+
+    <span class="pl-k">int</span> length = pc.<span class="pl-smi">current</span> - pc.<span class="pl-smi">start</span>;
+    <span class="pl-k">if</span> (length &gt; <span class="pl-c1">18</span>) ERROR;
+
+    cw_unpack_context uc;
+    <span class="pl-c1">cw_unpack_context_init</span> (&amp;uc, pc.<span class="pl-smi">start</span>, length, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>);
+
+    <span class="pl-c1">cw_unpack_next</span>(&amp;uc);
+    <span class="pl-k">if</span> (uc.<span class="pl-smi">item</span>.<span class="pl-smi">type</span> != CWP_ITEM_MAP || uc.<span class="pl-smi">item</span>.<span class="pl-smi">as</span>.<span class="pl-smi">map</span>.<span class="pl-smi">size</span> != <span class="pl-c1">2</span>) ERROR;
+
+    <span class="pl-c1">cw_unpack_next</span>(&amp;uc);
+    <span class="pl-k">if</span> (uc.<span class="pl-smi">item</span>.<span class="pl-smi">type</span> != CWP_ITEM_STR || uc.<span class="pl-smi">item</span>.<span class="pl-smi">as</span>.<span class="pl-smi">str</span>.<span class="pl-smi">length</span> != <span class="pl-c1">7</span>)) ERROR;
+    <span class="pl-k">if</span> (<span class="pl-c1">strncmp</span>(<span class="pl-s"><span class="pl-pds">"</span>compact<span class="pl-pds">"</span></span>, uc.<span class="pl-smi">item</span>.<span class="pl-smi">as</span>.<span class="pl-smi">str</span>.<span class="pl-smi">start</span>, <span class="pl-c1">7</span>)) ERROR;
+
+    <span class="pl-c1">cw_unpack_next</span>(&amp;uc);
+    <span class="pl-k">if</span> (uc.<span class="pl-smi">item</span>.<span class="pl-smi">type</span> != CWP_ITEM_BOOLEAN || uc.<span class="pl-smi">item</span>.<span class="pl-smi">as</span>.<span class="pl-smi">boolean</span> != <span class="pl-c1">true</span>) ERROR;
+
+    <span class="pl-c1">cw_unpack_next</span>(&amp;uc);
+    <span class="pl-k">if</span> (uc.<span class="pl-smi">item</span>.<span class="pl-smi">type</span> != CWP_ITEM_STR || uc.<span class="pl-smi">item</span>.<span class="pl-smi">as</span>.<span class="pl-smi">str</span>.<span class="pl-smi">length</span> != <span class="pl-c1">6</span>)) ERROR;
+    <span class="pl-k">if</span> (<span class="pl-c1">strncmp</span>(<span class="pl-s"><span class="pl-pds">"</span>schema<span class="pl-pds">"</span></span>, uc.<span class="pl-smi">item</span>.<span class="pl-smi">as</span>.<span class="pl-smi">str</span>.<span class="pl-smi">start</span>, <span class="pl-c1">6</span>)) ERROR;
+
+    <span class="pl-c1">cw_unpack_next</span>(&amp;uc);
+    <span class="pl-k">if</span> (uc.<span class="pl-smi">item</span>.<span class="pl-smi">type</span> != CWP_ITEM_POSITIVE_INTEGER || uc.<span class="pl-smi">item</span>.<span class="pl-smi">as</span>.<span class="pl-smi">u64</span> != <span class="pl-c1">0</span>) ERROR;
+
+    <span class="pl-c1">cw_unpack_next</span>(&amp;uc);
+    <span class="pl-k">if</span> (uc.<span class="pl-smi">return_code</span> != CWP_RC_END_OF_INPUT)  ERROR;
+}</pre></div>
+<p>In the examples folder there are more examples.</p>
+<h6>
+<a id="user-content-backward-compatibility" class="anchor" aria-hidden="true" href="#backward-compatibility"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Backward compatibility</h6>
+<p>CWPack may be run in compatibility mode. It affects only packing; EXT is considered illegal, BIN are transformed to STR and generation of STR8 is supressed.</p>
+<h6>
+<a id="user-content-error-handling" class="anchor" aria-hidden="true" href="#error-handling"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error handling</h6>
+<p>When an error is detected in a context, the context is stopped and all future calls to that context are immediatly returned without any actions.</p>
+<p>CWPack does not check for illegal values (e.g. in STR for illegal unicode characters).</p>
+<h6>
+<a id="user-content-build" class="anchor" aria-hidden="true" href="#build"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build</h6>
+<p>CWPack consists of a single src file and two header files. It is written
+in strict ansi C and the files are together ~ 1.2K lines. No separate build is neccesary, just include the
+files in your own build.</p>
+<p>CWPack has no dependencies to other libraries.</p>
+<h6>
+<a id="user-content-test" class="anchor" aria-hidden="true" href="#test"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test</h6>
+<p>Included in the test folder are a module test and a performance test and shell scripts to run them.</p>
 </article>
   </div>
         </div>
