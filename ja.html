@@ -676,7 +676,7 @@ stream (or from bytes provided through its <code>feed</code> method).</p>
 
 buf <span class="pl-k">=</span> BytesIO()
 <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">100</span>):
-   buf.write(msgpack.packb(<span class="pl-c1">range</span>(i), <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>))
+   buf.write(msgpack.packb(i, <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>))
 
 buf.seek(<span class="pl-c1">0</span>)
 
