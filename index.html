@@ -10731,7 +10731,7 @@ limitations under the License.</p>
 <p>MessagePack is an efficient binary serialisation format. It lets you exchange data among multiple languages like JSON. But it’s faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
 <h6>
 <a id="user-content-size" class="anchor" aria-hidden="true" href="#size"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Size</h6>
-<p>This codec is very lightweight. The source code has around <strong>450 lines</strong>, the minified file is below 6 kB and can be GZip-compressed to <strong>2 kB</strong>.</p>
+<p>This codec is very lightweight. The source code has around <strong>480 lines</strong>, the minified file is below 6.5 kB and can be GZip-compressed to <strong>2.2 kB</strong>.</p>
 <h6>
 <a id="user-content-performance" class="anchor" aria-hidden="true" href="#performance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance</h6>
 <p>The file msgpack-tests.html contains some tests and a benchmark function that compares this library with <a href="https://github.com/kawanet/msgpack-lite">msgpack-lite</a>. Here are the results, in milliseconds (lower is better). All tests done on an Intel Core i7-3770 and Windows 10.</p>
@@ -10739,44 +10739,64 @@ limitations under the License.</p>
 <thead>
 <tr>
 <th align="left">Function</th>
-<th align="right">Chrome 67</th>
-<th align="right">Firefox 61</th>
+<th align="right">Chrome 70</th>
+<th align="right"></th>
+<th align="right">Firefox 63</th>
+<th align="right"></th>
 <th align="right">Edge 16</th>
+<th align="right"></th>
 <th align="right">IE 11</th>
+<th align="right"> </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">serializeMsgPack</td>
-<td align="right">660 ms</td>
-<td align="right">1370 ms</td>
-<td align="right">2250 ms</td>
-<td align="right">2600 ms</td>
+<td align="right">722 ms</td>
+<td align="right">+10%</td>
+<td align="right">1181 ms</td>
+<td align="right">−45%</td>
+<td align="right">2739 ms</td>
+<td align="right">+50%</td>
+<td align="right">2550 ms</td>
+<td align="right">−3%</td>
 </tr>
 <tr>
 <td align="left">msgpack.encode</td>
-<td align="right">580 ms</td>
-<td align="right">1750 ms</td>
-<td align="right">1730 ms</td>
-<td align="right">2490 ms</td>
+<td align="right">659 ms</td>
+<td align="right"></td>
+<td align="right">2138 ms</td>
+<td align="right"></td>
+<td align="right">1829 ms</td>
+<td align="right"></td>
+<td align="right">2617 ms</td>
+<td align="right"></td>
 </tr>
 <tr>
 <td align="left">deserializeMsgPack</td>
-<td align="right">620 ms</td>
-<td align="right">1310 ms</td>
-<td align="right">2240 ms</td>
-<td align="right">890 ms</td>
+<td align="right">647 ms</td>
+<td align="right">+11%</td>
+<td align="right">773 ms</td>
+<td align="right">−3%</td>
+<td align="right">816 ms</td>
+<td align="right">−49%</td>
+<td align="right">634 ms</td>
+<td align="right">−66%</td>
 </tr>
 <tr>
 <td align="left">msgpack.decode</td>
-<td align="right">400 ms</td>
-<td align="right">630 ms</td>
-<td align="right">1380 ms</td>
-<td align="right">1720 ms</td>
+<td align="right">582 ms</td>
+<td align="right"></td>
+<td align="right">801 ms</td>
+<td align="right"></td>
+<td align="right">1601 ms</td>
+<td align="right"></td>
+<td align="right">1870 ms</td>
+<td align="right"></td>
 </tr>
 </tbody>
 </table>
-<p>This shows that this library is comparable with msgpack-lite when encoding. When decoding, it takes up to twice the time or is even much faster, depending on the browser. Chrome’s JavaScript execution is considerably faster than Firefox. Microsoft browsers are almost always the slowest.</p>
+<p>The numbers show that this library is comparable with msgpack-lite. In Chrome it’s only 10% slower. But serializing in Firefox and deserializing in Microsoft browsers is twice as fast.</p>
 <h6>
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
 <p>The source file contains two public functions: <code>serializeMsgPack</code> and <code>deserializeMsgPack</code>. The first can be called with any data and returns the encoded bytes. The second works in reverse, taking the encoded bytes and returning the runtime value.</p>
