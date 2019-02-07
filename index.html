@@ -9238,7 +9238,7 @@ mpc.exe -i "..\src\Sandbox.Shared.csproj" -o "MessagePackGenerated.cs" -m
 
     <span class="pl-c"><span class="pl-c">//</span> finally, use builtin/primitive resolver(don't use StandardResolver, it includes dynamic generation)</span>
     <span class="pl-smi">MessagePack</span>.<span class="pl-smi">Resolvers</span>.<span class="pl-smi">BuiltinResolver</span>.<span class="pl-smi">Instance</span>,
-    <span class="pl-smi">AttributeFormatterResolver</span>.<span class="pl-smi">Instance</span>,
+    <span class="pl-smi">MessagePack</span>.<span class="pl-smi">Resolvers</span>.<span class="pl-smi">AttributeFormatterResolver</span>.<span class="pl-smi">Instance</span>,
     <span class="pl-smi">MessagePack</span>.<span class="pl-smi">Resolvers</span>.<span class="pl-smi">PrimitiveObjectResolver</span>.<span class="pl-smi">Instance</span>
 );</pre></div>
 <blockquote>
