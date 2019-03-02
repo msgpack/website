@@ -11074,15 +11074,16 @@ projects as well.</p>
 <div id="readme" class="readme blob instapaper_body js-code-block-container">
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-what-the-pack" class="anchor" aria-hidden="true" href="#what-the-pack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>what-the-pack</h5>
-<p>The fastest MessagePack implementation in JS.</p>
+<p>Ultra-fast MessagePack for NodeJS &amp; Browsers.</p>
 <h6>
 <a id="user-content-implementation-notes" class="anchor" aria-hidden="true" href="#implementation-notes"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>implementation notes</h6>
 <ul>
 <li>this implementation uses pre-allocated buffers and buffer.copy() for encoding, instead of regular arrays</li>
 <li>uses a buffer polyfill if used in browser environments</li>
+<li>has dictionary support, to further reduce payload size</li>
 </ul>
 <h6>
-<a id="user-content-backward-compatibility-issues-with-other-libraries" class="anchor" aria-hidden="true" href="#backward-compatibility-issues-with-other-libraries"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>backward compatibility issues with other libraries</h6>
+<a id="user-content-backward-compatibility-notes-with-other-libraries" class="anchor" aria-hidden="true" href="#backward-compatibility-notes-with-other-libraries"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>backward compatibility notes with other libraries</h6>
 <ul>
 <li>used extensions
 <ul>
@@ -11100,24 +11101,270 @@ projects as well.</p>
 </li>
 </ul>
 </li>
-<li>Buffers, ArrayBuffers and TypedArrays
+<li>
+<code>Buffers</code>, <code>ArrayBuffers</code> and <code>TypedArrays</code>
 <ul>
-<li>Buffers : encoded as Buffers, decoded as Buffers</li>
-<li>ArrayBuffers : encoded as Buffers, decoded as Buffers</li>
+<li>
+<code>Buffers</code> : encoded as Buffers, decoded as Buffers</li>
+<li>
+<code>ArrayBuffers</code> : encoded as Buffers, decoded as Buffers</li>
 </ul>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(encoded);
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-en">decode</span>(encoded);
 <span class="pl-k">const</span> <span class="pl-c1">your_arraybuffer</span> <span class="pl-k">=</span> <span class="pl-smi">decoded</span>.<span class="pl-smi">buffer</span>;</pre></div>
 <ul>
-<li>TypedArrays : encoded as Buffers, decoded as Buffers</li>
+<li>
+<code>TypedArrays</code> : encoded as Buffers, decoded as Buffers</li>
 </ul>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(encoded);
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-en">decode</span>(encoded);
 <span class="pl-k">const</span> <span class="pl-c1">your_typedarray</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Uint8Array</span>(<span class="pl-smi">decoded</span>.<span class="pl-smi">buffer</span>);</pre></div>
 </li>
 </ul>
 <h6>
-<a id="user-content-future-improvements" class="anchor" aria-hidden="true" href="#future-improvements"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>future improvements</h6>
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>usage</h6>
+<div class="highlight highlight-source-shell"><pre>yarn add what-the-pack</pre></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">MessagePack</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>what-the-pack<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> { <span class="pl-c1">encode</span>, <span class="pl-c1">decode</span> } <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">initialize</span>(<span class="pl-c1">2</span><span class="pl-k">**</span><span class="pl-c1">22</span>); <span class="pl-c"><span class="pl-c">//</span> 4MB</span>
+
+<span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> {
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>,
+  age<span class="pl-k">:</span> <span class="pl-c1">20</span>
+};
+
+<span class="pl-k">const</span> <span class="pl-c1">encoded</span> <span class="pl-k">=</span> <span class="pl-en">encode</span>(data);
+<span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-en">decode</span>(encoded);
+
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>({
+  encoded,
+  decoded
+});</pre></div>
+<h6>
+<a id="user-content-result" class="anchor" aria-hidden="true" href="#result"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>result</h6>
+<div class="highlight highlight-source-js"><pre>{ encoded<span class="pl-k">:</span> <span class="pl-k">&lt;</span>Buffer <span class="pl-c1">82</span> a4 <span class="pl-ii">6e</span> <span class="pl-c1">61</span> <span class="pl-ii">6d</span> <span class="pl-c1">65</span> a5 <span class="pl-ii">4c</span> <span class="pl-c1">75</span> <span class="pl-ii">6e</span> <span class="pl-ii">6f</span> <span class="pl-c1">78</span> a3 <span class="pl-c1">61</span> <span class="pl-c1">67</span> <span class="pl-c1">65</span> <span class="pl-c1">14</span><span class="pl-k">&gt;</span>,
+  decoded<span class="pl-k">:</span> { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">20</span> } }</pre></div>
+<h6>
+<a id="user-content-pre-allocating-a-larger-buffer" class="anchor" aria-hidden="true" href="#pre-allocating-a-larger-buffer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pre-allocating a larger buffer</h6>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">MessagePack</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>what-the-pack<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> { <span class="pl-c1">encode</span>, <span class="pl-c1">decode</span> } <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">initialize</span>(<span class="pl-c1">2</span><span class="pl-k">**</span><span class="pl-c1">30</span>); <span class="pl-c"><span class="pl-c">//</span> 1GB</span>
+<span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> {
+  <span class="pl-c"><span class="pl-c">//</span> large data goes here</span>
+};</pre></div>
+<pre><code>2^7 = 128 B
+2^8 = 256 B
+2^9 = 512 B
+2^10 = 1.02 kB
+2^11 = 2.05 kB
+2^12 = 4.1 kB
+2^13 = 8.19 kB
+2^14 = 16.4 kB
+2^15 = 32.8 kB
+2^16 = 65.5 kB
+2^17 = 131 kB
+2^18 = 262 kB
+2^19 = 524 kB
+2^20 = 1.05 MB
+2^21 = 2.1 MB
+2^22 = 4.19 MB
+2^23 = 8.39 MB
+2^24 = 16.8 MB
+2^25 = 33.6 MB
+2^26 = 67.1 MB
+2^27 = 134 MB
+2^28 = 268 MB
+2^29 = 537 MB
+2^30 = 1.07 GB
+</code></pre>
+<h6>
+<a id="user-content-using-dictionaries-added-in-113" class="anchor" aria-hidden="true" href="#using-dictionaries-added-in-113"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>using dictionaries (added in 1.1.3)</h6>
 <ul>
-<li>preallocating a larger buffer and using it like a circular buffer and using buffer.slice() instead of buffer.copy()</li>
+<li>this feature isn't in MessagePack spec but added as a convenience feature in 1.1.3</li>
+<li>dictionaries allow us to decrease our buffer output size by recognizing strings used as object keys and replacing them with shorter-byte integer values during the encoding process</li>
+<li>these shorter-byte placeholder values are then restored to their respective strings during the decoding process</li>
+<li>the trade-off in using dictionaries is an insignificantly slower encoding and decoding time in exchange of a significantly smaller buffer output, which results into a lower network bandwidth and storage consumption in the long run</li>
+<li>the best part: the byte placeholders starts from -32 then increments upwards, values -32 to 127 are encoded in single byte, which means your first (32 + 128) = 160 keys will be encoded as a single byte instead of encoding the whole string</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">MessagePack</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>what-the-pack<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> { <span class="pl-c1">encode</span>, <span class="pl-c1">decode</span>, <span class="pl-c1">register</span> } <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">initialize</span>(<span class="pl-c1">2</span><span class="pl-k">**</span><span class="pl-c1">22</span>); <span class="pl-c"><span class="pl-c">//</span> 4MB</span>
+<span class="pl-k">let</span> encoded, decoded, data;
+data <span class="pl-k">=</span> { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">20</span> };
+
+encoded <span class="pl-k">=</span> <span class="pl-en">encode</span>(data);
+decoded <span class="pl-k">=</span> <span class="pl-en">decode</span>(encoded);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>({ encoded, decoded });
+<span class="pl-c"><span class="pl-c">/**</span></span>
+<span class="pl-c"> - encoded: &lt;Buffer 82 a4 6e 61 6d 65 a5 4c 75 6e 6f 78 a3 61 67 65 14&gt; (17)</span>
+<span class="pl-c"> - decoded: { name: 'Lunox', age: 20 }</span>
+<span class="pl-c"> *<span class="pl-c">*/</span></span>
+
+<span class="pl-en">register</span>(<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>age<span class="pl-pds">'</span></span>);
+encoded <span class="pl-k">=</span> <span class="pl-en">encode</span>(data);
+decoded <span class="pl-k">=</span> <span class="pl-en">decode</span>(encoded);
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>({ encoded, decoded });
+<span class="pl-c"><span class="pl-c">/**</span></span>
+<span class="pl-c"> - encoded: &lt;Buffer 82 e0 a5 4c 75 6e 6f 78 e1 14&gt; (10)</span>
+<span class="pl-c"> - decoded: { name: 'Lunox', age: 20 }</span>
+<span class="pl-c"> *<span class="pl-c">*/</span></span></pre></div>
+<h6>
+<a id="user-content-minified-build-for-browsers" class="anchor" aria-hidden="true" href="#minified-build-for-browsers"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>minified build for browsers</h6>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">&lt;!--</span></span> latest umd build <span class="pl-c"><span class="pl-c">--&gt;</span></span>
+<span class="pl-k">&lt;</span>script src<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>https://unpkg.com/what-the-pack/dist/MessagePack.min.js<span class="pl-pds">"</span></span><span class="pl-k">&gt;&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span>
+
+<span class="pl-c"><span class="pl-c">&lt;!--</span></span> exposed as <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span> <span class="pl-c"><span class="pl-c">--&gt;</span></span>
+<span class="pl-k">&lt;</span>script<span class="pl-k">&gt;</span>
+  <span class="pl-k">const</span> { <span class="pl-c1">encode</span>, <span class="pl-c1">decode</span> } <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">initialize</span>(<span class="pl-c1">2</span><span class="pl-k">**</span><span class="pl-c1">22</span>); <span class="pl-c"><span class="pl-c">//</span> 4MB</span>
+  <span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> {
+    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>,
+    age<span class="pl-k">:</span> <span class="pl-c1">20</span>
+  };
+  <span class="pl-k">const</span> <span class="pl-c1">encoded</span> <span class="pl-k">=</span> <span class="pl-en">encode</span>(data);
+  <span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-en">decode</span>(encoded);
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>({ encoded, decoded });
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
+<h6>
+<a id="user-content-using-with-browser-websockets" class="anchor" aria-hidden="true" href="#using-with-browser-websockets"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>using with browser websockets</h6>
+<h8>
+<a id="user-content-server" class="anchor" aria-hidden="true" href="#server"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>server</h8>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">WebSocket</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>ws<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> <span class="pl-c1">MessagePack</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>what-the-pack<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> { <span class="pl-c1">encode</span>, <span class="pl-c1">decode</span> } <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">initialize</span>(<span class="pl-c1">2</span><span class="pl-k">**</span><span class="pl-c1">22</span>); <span class="pl-c"><span class="pl-c">//</span> 4MB</span>
+
+<span class="pl-k">const</span> <span class="pl-c1">wss</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">WebSocket.Server</span>(
+<span class="pl-sr">  <span class="pl-pds">/</span>- options go here <span class="pl-k">*</span><span class="pl-pds">/</span></span>
+);
+<span class="pl-smi">wss</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>connection<span class="pl-pds">'</span></span>, (<span class="pl-smi">client</span>, <span class="pl-smi">req</span>) <span class="pl-k">=&gt;</span> {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>A client has connected.<span class="pl-pds">'</span></span>);
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>IP address:<span class="pl-pds">'</span></span>, <span class="pl-smi">req</span>.<span class="pl-smi">connection</span>.<span class="pl-smi">remoteAddress</span>);
+  <span class="pl-smi">client</span>.<span class="pl-c1">send</span>(
+    <span class="pl-en">encode</span>({
+      message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>something<span class="pl-pds">'</span></span>
+    })
+  );
+});</pre></div>
+<h8>
+<a id="user-content-client" class="anchor" aria-hidden="true" href="#client"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client</h8>
+<ul>
+<li>On browsers, <code>Buffer</code> object is exposed as <code>MessagePack.Buffer</code>
+</li>
+<li>On browsers, call <code>MessagePack.Buffer.from(x)</code> on received ArrayBuffers</li>
+</ul>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> Create WebSocket connection.</span>
+<span class="pl-k">const</span> <span class="pl-c1">socket</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">WebSocket</span>(<span class="pl-s"><span class="pl-pds">'</span>ws://localhost:8080<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> { <span class="pl-c1">encode</span>, <span class="pl-c1">decode</span>, <span class="pl-c1">Buffer</span> } <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">initialize</span>(<span class="pl-c1">2</span><span class="pl-k">**</span><span class="pl-c1">22</span>); <span class="pl-c"><span class="pl-c">//</span> 4MB</span>
+
+<span class="pl-c"><span class="pl-c">//</span> Connection opened</span>
+<span class="pl-smi">socket</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>open<span class="pl-pds">'</span></span>, (<span class="pl-c1">event</span>) <span class="pl-k">=&gt;</span> {
+  <span class="pl-smi">socket</span>.<span class="pl-smi">binaryType</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>arraybuffer<span class="pl-pds">'</span></span>; <span class="pl-c"><span class="pl-c">//</span> important</span>
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Connected to server.<span class="pl-pds">'</span></span>);
+});
+
+<span class="pl-c"><span class="pl-c">//</span> Listen for messages</span>
+<span class="pl-smi">socket</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>message<span class="pl-pds">'</span></span>, (<span class="pl-c1">event</span>) <span class="pl-k">=&gt;</span> {
+  <span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(
+    <span class="pl-smi">Buffer</span>.<span class="pl-en">from</span>(<span class="pl-c1">event</span>.<span class="pl-c1">data</span>)
+  );
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(data);
+  <span class="pl-c"><span class="pl-c">//</span> logs: { message: 'something' }</span>
+});</pre></div>
+<h6>
+<a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>benchmarks</h6>
+<div class="highlight highlight-source-shell"><pre>yarn run benchmark</pre></div>
+<div class="highlight highlight-source-shell"><pre>$ yarn run benchmark
+JSON stringify tiny x 1,477,866 ops/sec ±0.58% (93 runs sampled)
+JSON stringify small x 232,645 ops/sec ±0.25% (91 runs sampled)
+JSON stringify medium x 117,357 ops/sec ±0.31% (93 runs sampled)
+JSON stringify large x 24.01 ops/sec ±0.37% (43 runs sampled)
+JSON parse tiny x 1,301,925 ops/sec ±3.18% (82 runs sampled)
+JSON parse small x 264,410 ops/sec ±0.57% (90 runs sampled)
+JSON parse medium x 133,865 ops/sec ±0.52% (87 runs sampled)
+JSON parse large x 31.52 ops/sec ±0.34% (53 runs sampled)
+what-the-pack encode tiny x 1,175,981 ops/sec ±0.39% (92 runs sampled)
+what-the-pack encode small x 365,533 ops/sec ±0.85% (90 runs sampled)
+what-the-pack encode medium x 173,746 ops/sec ±0.41% (91 runs sampled)
+what-the-pack encode large x 218 ops/sec ±0.85% (82 runs sampled)
+what-the-pack decode tiny x 1,130,260 ops/sec ±0.30% (91 runs sampled)
+what-the-pack decode small x 254,931 ops/sec ±0.79% (94 runs sampled)
+what-the-pack decode medium x 146,809 ops/sec ±0.79% (92 runs sampled)
+what-the-pack decode large x 211 ops/sec ±0.37% (87 runs sampled)
+notepack.encode tiny x 1,291,361 ops/sec ±0.22% (95 runs sampled)
+notepack encode small x 325,882 ops/sec ±1.20% (95 runs sampled)
+notepack encode medium x 133,398 ops/sec ±0.20% (94 runs sampled)
+notepack encode large x 231 ops/sec ±1.65% (81 runs sampled)
+notepack decode tiny x 1,097,597 ops/sec ±0.67% (93 runs sampled)
+notepack decode small x 231,895 ops/sec ±0.69% (96 runs sampled)
+notepack decode medium x 137,385 ops/sec ±2.45% (86 runs sampled)
+notepack decode large x 210 ops/sec ±0.85% (86 runs sampled)</pre></div>
+<h6>
+<a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tests</h6>
+<div class="highlight highlight-source-shell"><pre>yarn run <span class="pl-c1">test</span></pre></div>
+<div class="highlight highlight-source-shell"><pre>$ yarn run <span class="pl-c1">test</span>
+ PASS  ./test.js
+  √ fixstr (6ms)
+  √ str 8 (2ms)
+  √ str 16 (1ms)
+  √ str 32 (1ms)
+  √ zero
+  √ positive fixint (1ms)
+  √ negative  fixint (1ms)
+  √ uint 8 (1ms)
+  √ uint 16 (1ms)
+  √ uint 32
+  √ uint 64 (1ms)
+  √ int 8 (1ms)
+  √ int 16
+  √ int 32 (2ms)
+  √ int 64
+  √ float 32 (2ms)
+  √ float 64 (1ms)
+  √ true, false, undefined, NaN, +Infinity, -Infinity (2ms)
+  √ flat <span class="pl-k">&amp;</span> nested empty arrays (1ms)
+  √ flat arrays (456ms)
+  √ nested arrays (5ms)
+  √ highly nested arrays (2ms)
+  √ buffers, bin8 (2ms)
+  √ buffers, bin16 (96ms)
+  √ buffers, bin32 (473ms)
+  √ arraybuffers as buffer (54ms)
+  √ typedarrays as buffer (7ms)
+  √ tiny object (1ms)
+  √ small object
+  √ medium object (1ms)
+  √ large object (1736ms)
+
+  console.log index.js:49
+    MessagePack: Setting buffer limit to 1.07 GB
+
+Test Suites: 1 passed, 1 total
+Tests:       31 passed, 31 total
+Snapshots:   0 total
+Time:        5.477s
+Ran all <span class="pl-c1">test</span> suites.
+Done <span class="pl-k">in</span> 6.59s.</pre></div>
+<h6>
+<a id="user-content-changelog" class="anchor" aria-hidden="true" href="#changelog"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>changelog</h6>
+<ul>
+<li>1.x
+<ul>
+<li>basic support</li>
+<li>dictionary support</li>
+</ul>
+</li>
+<li>2.x
+<ul>
+<li>rewrite to use raw functions instead of classes</li>
+<li>update dev-deps</li>
+<li>jest test-cov @ <code>86.06%</code>
+<ul>
+<li>statements <code>389/452</code>
+</li>
+<li>branches <code>137/169</code>
+</li>
+<li>functions <code>11/12</code>
+</li>
+<li>lines <code>374/428</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h6>
 <a id="user-content-references" class="anchor" aria-hidden="true" href="#references"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>references</h6>
@@ -11158,239 +11405,6 @@ projects as well.</p>
 </ul>
 </li>
 </ul>
-<h6>
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>usage</h6>
-<pre><code>yarn add what-the-pack
-</code></pre>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">MessagePack</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>what-the-pack<span class="pl-pds">'</span></span>);
-
-<span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> {
-  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>,
-  age<span class="pl-k">:</span> <span class="pl-c1">20</span>
-};
-
-<span class="pl-k">const</span> <span class="pl-c1">encoded</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">encode</span>(data);
-<span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(encoded);
-
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>({
-  encoded,
-  decoded
-});</pre></div>
-<h6>
-<a id="user-content-result" class="anchor" aria-hidden="true" href="#result"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>result</h6>
-<div class="highlight highlight-source-js"><pre>{ encoded<span class="pl-k">:</span> <span class="pl-k">&lt;</span>Buffer <span class="pl-c1">82</span> a4 <span class="pl-ii">6e</span> <span class="pl-c1">61</span> <span class="pl-ii">6d</span> <span class="pl-c1">65</span> a5 <span class="pl-ii">4c</span> <span class="pl-c1">75</span> <span class="pl-ii">6e</span> <span class="pl-ii">6f</span> <span class="pl-c1">78</span> a3 <span class="pl-c1">61</span> <span class="pl-c1">67</span> <span class="pl-c1">65</span> <span class="pl-c1">14</span><span class="pl-k">&gt;</span>,
-  decoded<span class="pl-k">:</span> { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">20</span> } }</pre></div>
-<h6>
-<a id="user-content-pre-allocating-a-larger-buffer" class="anchor" aria-hidden="true" href="#pre-allocating-a-larger-buffer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pre-allocating a larger buffer</h6>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">MessagePack</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>what-the-pack<span class="pl-pds">'</span></span>);
-
-<span class="pl-c"><span class="pl-c">//</span> sets our log function to console.info</span>
-<span class="pl-smi">MessagePack</span>.<span class="pl-smi">log</span> <span class="pl-k">=</span> <span class="pl-en">console</span>.<span class="pl-smi">info</span>;
-<span class="pl-c"><span class="pl-c">//</span> by default, our log function is console.log</span>
-
-<span class="pl-c"><span class="pl-c">//</span> reallocates our buffer to 2 ^ 30 / 1 GB</span>
-<span class="pl-c"><span class="pl-c">//</span> logs "MessagePack: Setting buffer limit to 1.07 GB"</span>
-<span class="pl-smi">MessagePack</span>.<span class="pl-en">reallocate</span>(<span class="pl-c1">2</span><span class="pl-k">**</span><span class="pl-c1">30</span>);
-<span class="pl-c"><span class="pl-c">//</span> by default, our value is 8192 or 8KB</span>
-
-<span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> {
-  <span class="pl-c"><span class="pl-c">//</span> large data goes here</span>
-};
-</pre></div>
-<pre><code>2^7 = 128 B
-2^8 = 256 B
-2^9 = 512 B
-2^10 = 1.02 kB
-2^11 = 2.05 kB
-2^12 = 4.1 kB
-2^13 = 8.19 kB
-2^14 = 16.4 kB
-2^15 = 32.8 kB
-2^16 = 65.5 kB
-2^17 = 131 kB
-2^18 = 262 kB
-2^19 = 524 kB
-2^20 = 1.05 MB
-2^21 = 2.1 MB
-2^22 = 4.19 MB
-2^23 = 8.39 MB
-2^24 = 16.8 MB
-2^25 = 33.6 MB
-2^26 = 67.1 MB
-2^27 = 134 MB
-2^28 = 268 MB
-2^29 = 537 MB
-2^30 = 1.07 GB
-</code></pre>
-<h6>
-<a id="user-content-using-dictionaries-added-in-113" class="anchor" aria-hidden="true" href="#using-dictionaries-added-in-113"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>using dictionaries (added in 1.1.3)</h6>
-<ul>
-<li>this feature isn't in MessagePack spec but added as a convenience feature in 1.1.3</li>
-<li>dictionaries allow us to decrease our buffer output size by recognizing strings used as object keys and replacing them with shorter-byte integer values during the encoding process</li>
-<li>these shorter-byte placeholder values are then restored to their respective strings during the decoding process</li>
-<li>the trade-off in using dictionaries is an insignificantly slower encoding and decoding time in exchange of a significantly smaller buffer output, which results into a lower network bandwidth and storage consumption in the long run</li>
-<li>the best part: the byte placeholders starts from -32 then increments upwards, values -32 to 127 are encoded in single byte, which means your first (32 + 128) = 160 keys will be encoded as a single byte instead of encoding the whole string</li>
-</ul>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">let</span> encoded, decoded, data;
-data <span class="pl-k">=</span> { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>, age<span class="pl-k">:</span> <span class="pl-c1">20</span> };
-
-encoded <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">encode</span>(data);
-decoded <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(encoded);
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>({ encoded, decoded });
-<span class="pl-c"><span class="pl-c">/**</span></span>
-<span class="pl-c"> * encoded: &lt;Buffer 82 a4 6e 61 6d 65 a5 4c 75 6e 6f 78 a3 61 67 65 14&gt; (17)</span>
-<span class="pl-c"> * decoded: { name: 'Lunox', age: 20 }</span>
-<span class="pl-c"> *<span class="pl-c">*/</span></span>
-
-<span class="pl-smi">MessagePack</span>.<span class="pl-en">register</span>(<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>age<span class="pl-pds">'</span></span>);
-encoded <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">encode</span>(data);
-decoded <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(encoded);
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>({ encoded, decoded, dictionary<span class="pl-k">:</span> <span class="pl-smi">MessagePack</span>.<span class="pl-smi">dictionary</span> });
-<span class="pl-c"><span class="pl-c">/**</span></span>
-<span class="pl-c"> * encoded: &lt;Buffer 82 e0 a5 4c 75 6e 6f 78 e1 14&gt; (10)</span>
-<span class="pl-c"> * decoded: { name: 'Lunox', age: 20 }</span>
-<span class="pl-c"> * dictionary: { '-32': 'name', name: -32, '-31': 'age', age: -31 }</span>
-<span class="pl-c"> *<span class="pl-c">*/</span></span></pre></div>
-<h6>
-<a id="user-content-minified-build-for-browsers" class="anchor" aria-hidden="true" href="#minified-build-for-browsers"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>minified build for browsers</h6>
-<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">&lt;!--</span></span> latest umd build <span class="pl-c"><span class="pl-c">--&gt;</span></span>
-<span class="pl-k">&lt;</span>script src<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>https://unpkg.com/what-the-pack/dist/MessagePack.min.js<span class="pl-pds">"</span></span><span class="pl-k">&gt;&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span>
-
-<span class="pl-c"><span class="pl-c">&lt;!--</span></span> exposed as <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span> <span class="pl-c"><span class="pl-c">--&gt;</span></span>
-<span class="pl-k">&lt;</span>script<span class="pl-k">&gt;</span>
-  <span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> {
-    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Lunox<span class="pl-pds">'</span></span>,
-    age<span class="pl-k">:</span> <span class="pl-c1">20</span>
-  };
-
-  <span class="pl-k">const</span> <span class="pl-c1">encoded</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">encode</span>(data);
-  <span class="pl-k">const</span> <span class="pl-c1">decoded</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(encoded);
-
-  <span class="pl-en">console</span>.<span class="pl-c1">log</span>({
-    encoded,
-    decoded
-  });
-<span class="pl-k">&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
-<h6>
-<a id="user-content-using-with-browser-websockets" class="anchor" aria-hidden="true" href="#using-with-browser-websockets"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>using with browser websockets</h6>
-<h8>
-<a id="user-content-server" class="anchor" aria-hidden="true" href="#server"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>server</h8>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">WebSocket</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>ws<span class="pl-pds">'</span></span>);
-<span class="pl-k">const</span> <span class="pl-c1">MessagePack</span> <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>what-the-pack<span class="pl-pds">'</span></span>);
-
-<span class="pl-k">const</span> <span class="pl-c1">wss</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">WebSocket.Server</span>(
-  <span class="pl-c"><span class="pl-c">/*</span> options go here <span class="pl-c">*/</span></span>
-);
-<span class="pl-smi">wss</span>.<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>connection<span class="pl-pds">'</span></span>, (<span class="pl-smi">client</span>, <span class="pl-smi">req</span>) <span class="pl-k">=&gt;</span> {
-  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>A client has connected.<span class="pl-pds">'</span></span>);
-  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>IP address:<span class="pl-pds">'</span></span>, <span class="pl-smi">req</span>.<span class="pl-smi">connection</span>.<span class="pl-smi">remoteAddress</span>);
-  <span class="pl-smi">client</span>.<span class="pl-c1">send</span>(
-    <span class="pl-smi">MessagePack</span>.<span class="pl-en">encode</span>({
-      message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>something<span class="pl-pds">'</span></span>
-    })
-  );
-});</pre></div>
-<h8>
-<a id="user-content-client" class="anchor" aria-hidden="true" href="#client"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client</h8>
-<ul>
-<li>On browsers, <code>Buffer</code> object is exposed as <code>MessagePack.Buffer</code>
-</li>
-<li>On browsers, call <code>MessagePack.Buffer.from(x)</code> on received ArrayBuffers</li>
-</ul>
-<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> Create WebSocket connection.</span>
-<span class="pl-k">const</span> <span class="pl-c1">socket</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">WebSocket</span>(<span class="pl-s"><span class="pl-pds">'</span>ws://localhost:8080<span class="pl-pds">'</span></span>);
-
-<span class="pl-c"><span class="pl-c">//</span> Connection opened</span>
-<span class="pl-smi">socket</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>open<span class="pl-pds">'</span></span>, (<span class="pl-c1">event</span>) <span class="pl-k">=&gt;</span> {
-  <span class="pl-smi">socket</span>.<span class="pl-smi">binaryType</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>arraybuffer<span class="pl-pds">'</span></span>; <span class="pl-c"><span class="pl-c">//</span> important</span>
-  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Connected to server.<span class="pl-pds">'</span></span>);
-});
-
-<span class="pl-c"><span class="pl-c">//</span> Listen for messages</span>
-<span class="pl-smi">socket</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>message<span class="pl-pds">'</span></span>, (<span class="pl-c1">event</span>) <span class="pl-k">=&gt;</span> {
-  <span class="pl-k">const</span> <span class="pl-c1">data</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-en">decode</span>(
-    <span class="pl-smi">MessagePack</span>.<span class="pl-smi">Buffer</span>.<span class="pl-en">from</span>(<span class="pl-c1">event</span>.<span class="pl-c1">data</span>)
-  );
-  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(data);
-  <span class="pl-c"><span class="pl-c">//</span> logs:</span>
-  <span class="pl-c"><span class="pl-c">//</span> { message: 'something' }</span>
-});</pre></div>
-<h6>
-<a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>benchmarks</h6>
-<pre><code>yarn run benchmark
-</code></pre>
-<pre><code>$ yarn run benchmark
-yarn run v1.5.1
-$ node benchmark.js
-MessagePack: Setting buffer limit to 4.19 MB
-notepack.encode tiny x 237,430 ops/sec ±44.27% (85 runs sampled)
-notepack encode small x 235,976 ops/sec ±1.13% (90 runs sampled)
-notepack encode medium x 116,554 ops/sec ±0.58% (92 runs sampled)
-notepack encode large x 228 ops/sec ±1.46% (81 runs sampled)
-notepack decode tiny x 1,049,417 ops/sec ±0.79% (92 runs sampled)
-notepack decode small x 239,018 ops/sec ±0.21% (94 runs sampled)
-notepack decode medium x 143,825 ops/sec ±0.23% (90 runs sampled)
-notepack decode large x 215 ops/sec ±0.51% (82 runs sampled)
-what-the-pack encode tiny x 1,795,238 ops/sec ±0.40% (91 runs sampled)
-what-the-pack encode small x 488,628 ops/sec ±0.41% (92 runs sampled)
-what-the-pack encode medium x 217,942 ops/sec ±0.43% (94 runs sampled)
-what-the-pack encode large x 221 ops/sec ±1.15% (82 runs sampled)
-what-the-pack decode tiny x 1,037,703 ops/sec ±1.11% (85 runs sampled)
-what-the-pack decode small x 243,569 ops/sec ±1.03% (92 runs sampled)
-what-the-pack decode medium x 144,167 ops/sec ±1.02% (88 runs sampled)
-what-the-pack decode large x 215 ops/sec ±0.30% (82 runs sampled)
-Done in 96.26s.
-</code></pre>
-<h6>
-<a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tests</h6>
-<pre><code>yarn run test
-</code></pre>
-<pre><code>$ yarn run test
-yarn run v1.5.1
-$ jest
- PASS  ./test.js
-  √ fixstr (6ms)
-  √ str 8 (2ms)
-  √ str 16 (1ms)
-  √ str 32 (1ms)
-  √ zero
-  √ positive fixint (1ms)
-  √ negative  fixint (1ms)
-  √ uint 8 (1ms)
-  √ uint 16 (1ms)
-  √ uint 32
-  √ uint 64 (1ms)
-  √ int 8 (1ms)
-  √ int 16
-  √ int 32 (2ms)
-  √ int 64
-  √ float 32 (2ms)
-  √ float 64 (1ms)
-  √ true, false, undefined, NaN, +Infinity, -Infinity (2ms)
-  √ flat &amp; nested empty arrays (1ms)
-  √ flat arrays (456ms)
-  √ nested arrays (5ms)
-  √ highly nested arrays (2ms)
-  √ buffers, bin8 (2ms)
-  √ buffers, bin16 (96ms)
-  √ buffers, bin32 (473ms)
-  √ arraybuffers as buffer (54ms)
-  √ typedarrays as buffer (7ms)
-  √ tiny object (1ms)
-  √ small object
-  √ medium object (1ms)
-  √ large object (1736ms)
-
-  console.log index.js:49
-    MessagePack: Setting buffer limit to 1.07 GB
-
-Test Suites: 1 passed, 1 total
-Tests:       31 passed, 31 total
-Snapshots:   0 total
-Time:        5.477s
-Ran all test suites.
-Done in 6.59s.
-</code></pre>
 <p>MIT | @davalapar</p>
 </article>
   </div>
