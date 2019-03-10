@@ -10735,15 +10735,16 @@ limitations under the License.</p>
 <div id="readme" class="readme blob instapaper_body js-code-block-container">
     <article class="markdown-body entry-content" itemprop="text"><h5>
 <a id="user-content-msgpackjs" class="anchor" aria-hidden="true" href="#msgpackjs"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>msgpack.js</h5>
-<p>This is a <a href="https://msgpack.org" rel="nofollow">MessagePack</a> codec written in JavaScript for web browsers (including IE 11). Support for JavaScript servers like Node.js is unknown because I’m not using those, but I see no reason why it shouldn’t work.</p>
+<p>This is a <a href="https://msgpack.org" rel="nofollow">MessagePack</a> serializer and deserializer written in JavaScript for web browsers (including IE 11) and Node.js.</p>
 <p>It is compact but still fully-featured. This library supports the complete <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a> released on 2017-08-09, including date/time values. No other extension types are implemented in this library, it’s only the standard types which is perfectly fine for interoperability with MessagePack codecs in other programming languages.</p>
 <p>I’m using the <a href="https://github.com/neuecc/MessagePack-CSharp/">MessagePack-CSharp</a> library on the server side in my .NET applications.</p>
+<p><a href="https://www.npmjs.com/package/msgpack.js" rel="nofollow"><img src="https://camo.githubusercontent.com/7de0539aa3434447d87158b0424aa1cc751bb45e/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f6d73677061636b2e6a732e737667" alt="NPM" data-canonical-src="https://img.shields.io/npm/v/msgpack.js.svg" style="max-width:100%;"></a></p>
 <h6>
 <a id="user-content-messagepack" class="anchor" aria-hidden="true" href="#messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MessagePack</h6>
 <p>MessagePack is an efficient binary serialisation format. It lets you exchange data among multiple languages like JSON. But it’s faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
 <h6>
 <a id="user-content-size" class="anchor" aria-hidden="true" href="#size"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Size</h6>
-<p>This codec is very lightweight. The source code has around <strong>480 lines</strong>, the minified file is below 6.5 kB and can be GZip-compressed to <strong>2.2 kB</strong>.</p>
+<p>This library is very lightweight. The source code has around <strong>510 lines</strong> (incl. browser/Node detection), the minified file has 6.6 kB and can be GZip-compressed to <strong>2.4 kB</strong>.</p>
 <h6>
 <a id="user-content-performance" class="anchor" aria-hidden="true" href="#performance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performance</h6>
 <p>The file msgpack-tests.html contains some tests and a benchmark function that compares this library with <a href="https://github.com/kawanet/msgpack-lite">msgpack-lite</a>. Here are the results, in milliseconds (lower is better). All tests done on an Intel Core i7-3770 and Windows 10.</p>
@@ -10751,9 +10752,9 @@ limitations under the License.</p>
 <thead>
 <tr>
 <th align="left">Function</th>
-<th align="right">Chrome 70</th>
+<th align="right">Chrome 72</th>
 <th align="right"></th>
-<th align="right">Firefox 63</th>
+<th align="right">Firefox 65</th>
 <th align="right"></th>
 <th align="right">Edge 16</th>
 <th align="right"></th>
@@ -10763,47 +10764,47 @@ limitations under the License.</p>
 </thead>
 <tbody>
 <tr>
-<td align="left">serializeMsgPack</td>
-<td align="right">722 ms</td>
-<td align="right">+10%</td>
-<td align="right">1181 ms</td>
-<td align="right">−45%</td>
-<td align="right">2739 ms</td>
-<td align="right">+50%</td>
-<td align="right">2550 ms</td>
+<td align="left"><strong>msgpack.js serialize</strong></td>
+<td align="right">702 ms</td>
+<td align="right">+6%</td>
+<td align="right">1232 ms</td>
+<td align="right">−42%</td>
+<td align="right">2483 ms</td>
+<td align="right">+41%</td>
+<td align="right">2493 ms</td>
 <td align="right">−3%</td>
 </tr>
 <tr>
-<td align="left">msgpack.encode</td>
-<td align="right">659 ms</td>
+<td align="left">msgpack-lite encode</td>
+<td align="right">663 ms</td>
 <td align="right"></td>
-<td align="right">2138 ms</td>
+<td align="right">2124 ms</td>
 <td align="right"></td>
-<td align="right">1829 ms</td>
+<td align="right">1762 ms</td>
 <td align="right"></td>
-<td align="right">2617 ms</td>
+<td align="right">2578 ms</td>
 <td align="right"></td>
 </tr>
 <tr>
-<td align="left">deserializeMsgPack</td>
-<td align="right">647 ms</td>
-<td align="right">+11%</td>
-<td align="right">773 ms</td>
-<td align="right">−3%</td>
-<td align="right">816 ms</td>
-<td align="right">−49%</td>
-<td align="right">634 ms</td>
-<td align="right">−66%</td>
+<td align="left"><strong>msgpack.js deserialize</strong></td>
+<td align="right">652 ms</td>
+<td align="right">+13%</td>
+<td align="right">869 ms</td>
+<td align="right">+5%</td>
+<td align="right">821 ms</td>
+<td align="right">−48%</td>
+<td align="right">651 ms</td>
+<td align="right">−68%</td>
 </tr>
 <tr>
-<td align="left">msgpack.decode</td>
-<td align="right">582 ms</td>
+<td align="left">msgpack-lite decode</td>
+<td align="right">577 ms</td>
 <td align="right"></td>
-<td align="right">801 ms</td>
+<td align="right">827 ms</td>
 <td align="right"></td>
-<td align="right">1601 ms</td>
+<td align="right">1587 ms</td>
 <td align="right"></td>
-<td align="right">1870 ms</td>
+<td align="right">2021 ms</td>
 <td align="right"></td>
 </tr>
 </tbody>
@@ -10811,9 +10812,25 @@ limitations under the License.</p>
 <p>The numbers show that this library is comparable with msgpack-lite. In Chrome it’s only 10% slower. But serializing in Firefox and deserializing in Microsoft browsers is twice as fast.</p>
 <h6>
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h6>
-<p>The source file contains two public functions: <code>serializeMsgPack</code> and <code>deserializeMsgPack</code>. The first can be called with any data and returns the encoded bytes. The second works in reverse, taking the encoded bytes and returning the runtime value.</p>
+<h7>
+<a id="user-content-browser" class="anchor" aria-hidden="true" href="#browser"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Browser</h7>
+<p>In browsers, a global <code>msgpack</code> object is created that contains the functions <code>serialize</code> and <code>deserialize</code>. The first can be called with any data and returns the serialized bytes. The second works in reverse, taking the serialized bytes and returning the runtime value.</p>
+<p>Include the JavaScript file into your HTML document like this:</p>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+<p>You can use the library functions after loading the script.</p>
+<p>If there should be a naming conflict with another library you want to load, you can change the global object name from <code>msgpack</code> to something else by setting <code>msgpackJsName</code> before loading the script file:</p>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1">    msgpackJsName <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>msgpackJs<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1"></span>&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+<h7>
+<a id="user-content-nodejs" class="anchor" aria-hidden="true" href="#nodejs"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Node.js</h7>
+<p>In Node.js, these functions are exported in the object you get from the <code>require</code> function.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack.js<span class="pl-pds">'</span></span>);</pre></div>
+<h7>
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h7>
 <p>Here’s a simple example:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> Define some data to encode</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> Define some data</span>
 <span class="pl-k">var</span> sourceData <span class="pl-k">=</span> {
     number<span class="pl-k">:</span> <span class="pl-c1">123</span>,
     number2<span class="pl-k">:</span> <span class="pl-k">-</span><span class="pl-c1">0.129</span>,
@@ -10824,14 +10841,15 @@ limitations under the License.</p>
     time<span class="pl-k">:</span> <span class="pl-c1">Date</span>.<span class="pl-en">now</span>()
 };
 
-<span class="pl-c"><span class="pl-c">//</span> Encode to byte array</span>
-<span class="pl-k">var</span> encodedBytes <span class="pl-k">=</span> <span class="pl-en">serializeMsgPack</span>(sourceData);
+<span class="pl-c"><span class="pl-c">//</span> Serialize to byte array</span>
+<span class="pl-k">var</span> bytes <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">serialize</span>(sourceData);
 
-<span class="pl-c"><span class="pl-c">//</span> Decode again</span>
-<span class="pl-k">var</span> decodedData <span class="pl-k">=</span> <span class="pl-en">deserializeMsgPack</span>(encodedBytes);</pre></div>
-<p>Include the JavaScript file into your HTML document like this:</p>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>msgpack.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
-<p>You can use the codec functions after loading the script. No additional configuration required.</p>
+<span class="pl-c"><span class="pl-c">//</span> Deserialize again</span>
+<span class="pl-k">var</span> deserializedData <span class="pl-k">=</span> <span class="pl-smi">msgpack</span>.<span class="pl-en">deserialize</span>(bytes);</pre></div>
+<h7>
+<a id="user-content-compatibility" class="anchor" aria-hidden="true" href="#compatibility"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compatibility</h7>
+<p>You can also use the functions <code>encode</code> and <code>decode</code> which are aliases to <code>serialize</code> and <code>deserialize</code>. This makes it easier to replace other libraries that use these function names with msgpack.js.</p>
+<p>New projects should use the preferred (and more precisely named) <code>serialize</code> and <code>deserialize</code> functions though.</p>
 <h6>
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h6>
 <p><a href="https://github.com/ygoe/msgpack.js/blob/master/LICENSE">MIT license</a></p>
