@@ -20,8 +20,7 @@
   <script src="js/prettify/run_prettify.js"></script>
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/jquery.leanModal.min.js" ></script>
-  <script src="js/msgpack.js" ></script>
-
+  <script crossorigin src="https://unpkg.com/@msgpack/msgpack"></script>
   <style>
   <%= t 'css' %>
   </style>
@@ -63,7 +62,7 @@
       } catch (e) {
          return;
       }
-      var msg = msgpack.pack(obj);
+      var msg = MessagePack.encode(obj);
       var hex = jQuery.map(msg, function(e,i) {
         return ("0" + e.toString(16)).slice(-2);
       }).join(" ");
@@ -80,7 +79,7 @@
         msgbytes.push(parseInt(hex.substr(i, 2), 16));
       }
       var msg = String.fromCharCode.apply(String, msgbytes);
-      var obj=msgpack.unpack(msg);
+      var obj=MessagePack.decode(msg);
       var text=JSON.stringify(obj);
       $("#json-text").text(text);
       var textLength = encodeURIComponent(text).replace(/%../g,"%").length;
