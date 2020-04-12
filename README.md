@@ -11,7 +11,7 @@ with a specific tag and put their summary to the website.
 
 ## How to list up your project on msgpack.org
 
-1. Add the keyword ```msgpack.org[ProjctName]``` to description of your github repository
+1. Add the keyword ```msgpack.org[ProjectName]``` to description of your github repository
     * ```ProjectName``` is typically name of a programming language such as ```ruby```
 2. Add one of following files to the root directory of your github repository:
     1. msgpack.org.md
