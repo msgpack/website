@@ -4,9 +4,9 @@ This repository manages [msgpack.org website](http://msgpack.org/).
 
 ## Publishing your msgpack project to msgpack.org
 
-The list of msgpack projects on the [msgpack.org website](http://msgpack.org/) is generated automatically.
+The list of msgpack projects on the 'msgpack.org' website (http://msgpack.org/) is generated automatically.
 
-[A crawler](https://github.com/msgpack/website/blob/master/update-index.rb) searches Github repositories
+A crawler (https://github.com/msgpack/website/blob/master/update-index.rb) searches Github repositories
 with a specific tag and put their summary to the website.
 
 ## How to list up your project on msgpack.org
