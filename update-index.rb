@@ -56,8 +56,10 @@ class IndexHtmlRenderer
       }.merge(repo)
     end.compact
 
-    # older repository first for deterministic display
-    repos.sort_by {|repo| repo[:created_at] }
+    # Sort by alphabetical at first and created_at at second.
+    repos.sort do |a, b|
+      [a[:msgpack_lang], a[:created_at]] <=> [b[:msgpack_lang], b[:created_at]]
+    end
   end
 
   def get_quickstart_html(github_com, github_com_raw, repo)
