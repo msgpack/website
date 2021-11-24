@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-#ruby '2.7.2'
+ruby '2.7.2'
 gem 'octokit', '~> 4.21.0'
 gem 'faraday', '~> 1.7.0'
 gem 'httpclient', '~> 2.4.0'
