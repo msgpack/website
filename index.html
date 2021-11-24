@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="MessagePack,msgpack,JSON,alternative,better json,faster json,serializer">
+  <link href='favicon.ico' rel='icon' type='image/x-icon'>
+
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="ja" href="ja.html">
+
+
+  <title>MessagePack: It's like JSON. but fast and small.</title>
+
+  <link media="all" rel="stylesheet" href="css/yuibase.css">
+  <link media="all" rel="stylesheet" href="js/prettify/prettify.css">
+  <link media="all" rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,200">
+  <script src="js/all.js"></script>
+  <script src="js/prettify/prettify.js"></script>
+  <script src="js/prettify/run_prettify.js"></script>
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/jquery.leanModal.min.js" ></script>
+  <script src="js/msgpack.js" ></script>
+
+  <style>
+  
+  </style>
+
+  <script type="text/javascript">
+  // select initially-selected quick start randomly
+  $(function(){
+    var index = Math.floor(Math.random()*(document.getElementsByClassName('qs').length-1));
+    changeQuickStart(document.getElementsByClassName('qs')[index].id,document.getElementsByClassName('qs-a')[index])}
+  );
+
+  $(function() {
+    $('pre > code').addClass('prettyprint');
+    prettyPrint();
+  });
+
+  $(function() {
+    $('a[rel*=leanModal]').leanModal({
+      top: 100,
+      overlay : 0.5,
+      closeButton: ".modal_close"
+    });
+    $(document).keydown(function(e) {
+      if (e.keyCode == 27) {
+        $('#lean_overlay').fadeOut(200);
+        $('#json-to-msgpack').css({'display':'none'});
+      }
+    });
+  });
+  </script>
+
+  <script type="text/javascript">
+  $(function() {
+    $("#json-text").keyup(function(event) {
+      var text = $("#json-text").val();
+      var obj;
+      try {
+         obj = JSON.parse(text);
+      } catch (e) {
+         return;
+      }
+      var msg = msgpack.pack(obj);
+      var hex = jQuery.map(msg, function(e,i) {
+        return ("0" + e.toString(16)).slice(-2);
+      }).join(" ");
+      $("#msgpack-text").text(hex);
+      var textLength = encodeURIComponent(text).replace(/%../g,"%").length;
+      $("#json-bytes").text(textLength.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
+    }).keyup();
+    $("#msgpack-text").keyup(function(event) {
+      var hex = $("#msgpack-text").val().replace(/ +/g,'');
+      var msgbytes = [];
+      for(var i=0; i< hex.length-1; i+=2){
+        msgbytes.push(parseInt(hex.substr(i, 2), 16));
+      }
+      var msg = String.fromCharCode.apply(String, msgbytes);
+      var obj=msgpack.unpack(msg);
+      var text=JSON.stringify(obj);
+      $("#json-text").text(text);
+      var textLength = encodeURIComponent(text).replace(/%../g,"%").length;
+      $("#json-bytes").text(textLength.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-bytes").text(msg.length.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + " bytes");
+      $("#msgpack-percent").text(Math.round(msg.length / textLength * 100).toString() + " %");
+    });
+  });
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-17125377-1', 'auto', {'allowLinker': true});
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1><a href="/">MessagePack</a></h1>
+      <nav id="topnav">
+        <ul>
+          <li><a rel="leanModal" href="#json-to-msgpack" class="i18n_nav">Try!</a></li>
+          <li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md" class="i18n_nav">Spec</a></li>
+          <li><a href="https://twitter.com/search/MessagePack%20OR%20msgpack" class="i18n_nav">#msgpack</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="introduction">
+      <div id="description">
+        <h2 class="i18n">It's like JSON.<br />but fast and small.</h2>
+        <p class="i18n">MessagePack is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. But it's faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
+      </div>
+
+      <div id="next">
+        <h3 class="i18n_head i18n_next">Next:</h3>
+        <p class="i18n">MessagePack is supported by over 50 programming languages and environments.<br />See <a href="#languages">list of implementations</a>.</p>
+      </div>
+    </section>
+
+    
+    <section id="usecases">
+      <div id="testimonials">
+        <div class="tmset">
+          <div class="tm">
+            <a class="tmlogo" href="https://redis.io/"><img src="images/redis.png" alt="Redis" width="150" height="50" /></a>
+            <p class="tmtext">Redis scripting has support for MessagePack because it is a fast and compact serialization format with a simple to implement specification. I liked it so much that I implemented a MessagePack C extension for Lua just to include it into Redis.</p>
+            <p class="tmauthor">Salvatore Sanfilippo, creator of Redis</p>
+          </div>
+
+          <div class="tm">
+            <a class="tmlogo" href="https://fluentd.org/" style="height:100px;margin-top:-35px;"><img src="images/fluentd.png" alt="Fluentd" width="245" height="85" /></a>
+            <p class="tmtext">Fluentd uses MessagePack for all internal data representation. It's crazy fast because of zero-copy optimization of msgpack-ruby. Now MessagePack is an essential component of Fluentd to achieve high performance and flexibility at the same time.</p>
+            <p class="tmauthor">Sadayuki Furuhashi, creator of Fluentd</p>
+          </div>
+        </div>
+
+        <div class="tmset">
+          <div class="tm">
+            <a class="tmlogo" href="https://www.treasuredata.com/"><img src="images/treasuredata.png" alt="Treasure Data" width="242" height="52" /></a>
+            <p class="tmtext">Treasure Data built a multi-tenant database optimized for analytical queries using MessagePack. The schemaless database is growing by billions of records every month. We also use MessagePack as a glue between components. Actually we just wanted a fast replacement of JSON, and MessagePack is simply useful.</p>
+            <p class="tmauthor">Kazuki Ohta, CTO</p>
+          </div>
+
+          <div class="tm">
+            <a class="tmlogo" href="https://www.pinterest.com/pinterest/"><img src="images/pinterest.png" alt="Pinterest" width="197" height="50" /></a>
+            <p class="tmtext">MessagePack has been simply invaluable to us. We use MessagePack + Memcache to cache many of our feeds on Pinterest. These feeds are compressed and very quick to unpack thanks to MessagePack while Memcache gives us fast atomic pushes.</p>
+            <p class="tmauthor">Marty Weiner, Software Engineer</p>
+
+            <p class="tmcontribute">Also use MessagePack? <a href="https://github.com/msgpack/website">Waiting for your testimonial!</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="twitter">
+        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=msgpack+OR+MessagePack+lang%3Aen" data-widget-id="343624208380735490" width="350" height="500">Tweets about "msgpack OR MessagePack"</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+    </section>
+    
+
+    <section id="usage">
+      <div id="languages">
+        <h3 class="i18n_head">Languages</h3>
+
+        <ul class="qslist">
+          
+        </ul>
+      </div>
+
+      <div id="api">
+        <h3 class="i18n_head">API</h3>
+        <h4 id="language">&nbsp;</h4>
+        <div id="quickstart" class="qsholder"></div>
+        <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md#how-to-list-up-your-project-on-msgpackorg">List your implementation here!</a></p>
+
+        
+      </div>
+    </section>
+
+    <section id="related">
+      <h3>Related projects</h3>
+
+      <div class="paragraphs">
+        <h4><a href="https://github.com/dotcloud/zerorpc-python">ZeroRPC</a> by DotCloud</h4>
+        <p>zerorpc is a flexible RPC implementation based on zeromq and messagepack. Service APIs exposed with zerorpc are called "zeroservices".</p>
+
+        <h4><a href="https://github.com/pfi/pficommon">pficommon</a> by Preferred Infrastructure, Inc.</h4>
+        <p>General purpose C++ library for Preferred Infrastructure, Inc. It includes MessagePack-RPC implementation for C++</p>
+      </div>
+    </section>
+
+    <div id="json-to-msgpack">
+      <h3>JSON <span class="bytes" id="json-bytes"></span></h3>
+      <textarea type="text" id="json-text">{"compact":true,"schema":0}</textarea>
+      <h3>MessagePack (hex) <span class="bytes" id="msgpack-bytes"></span> <span class="bytes" id="msgpack-percent"></span></h3>
+      <textarea readonly id="msgpack-text"></textarea>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <div id="thanks">
+        <p>MessagePack &trade; Copyright &copy; 2008-2019 Sadayuki Furuhashi</p>
+      </div>
+    </div>
+  </footer>
+</body>
