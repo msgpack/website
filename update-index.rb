@@ -56,27 +56,29 @@ class IndexHtmlRenderer
       }.merge(repo)
     end.compact
 
-    # older repository first for deterministic display
-    repos.sort_by {|repo| repo[:created_at] }
+    # Sort by alphabetical at first and created_at at second.
+    repos.sort do |a, b|
+      [a[:msgpack_lang], a[:created_at]] <=> [b[:msgpack_lang], b[:created_at]]
+    end
   end
 
   def get_quickstart_html(github_com, github_com_raw, repo)
     QUICKSTART_FILES.each {|fname|
       if fname.include?('.')
-        path = "#{repo[:full_name]}/blob/master/#{fname}"
+        path = "#{repo[:full_name]}/blob/#{repo[:default_branch]}/#{fname}"
         res = github_com.get(path)
         next if res.status != 200
 
         begin
           url = github_com.build_url(path).to_s
-          html = Nokogiri::HTML::Document.parse(res.body, url, 'UTF-8').css('.file')[0].xpath('div').last.to_s
+          html = Nokogiri::HTML::Document.parse(res.body, url, 'UTF-8').at_css('[id="readme"]').to_s
         rescue
-          log.error "Failed to parse quickstart file #{repo[:full_name]}/#{fname}: #{$!}"
+          @log.error "Failed to parse quickstart file #{repo[:full_name]}/#{fname}: #{$!}"
           break  # fail & skip
         end
 
       else
-        path = "#{repo[:full_name]}/master/#{fname}"
+        path = "#{repo[:full_name]}/#{repo[:default_branch]}/#{fname}"
         res = github_com_raw.get(path)
         next if res.status != 200
 
