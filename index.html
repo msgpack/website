@@ -248,6 +248,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-xtpor-godot-msgpack',this)">GDScript <span class="qs-sub">xtpor</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-guile-msgpack',this)">GNU Guile <span class="qs-sub">HiPhish</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-vmihailenco-msgpack',this)">Go <span class="qs-sub">vmihailenco</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ugorji-go',this)">Go <span class="qs-sub">ugorji</span></a></li>
@@ -385,6 +387,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-a2-MessagePack-swift',this)">Swift <span class="qs-sub">a2</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-michael-yuji-YSMessagePack',this)">Swift <span class="qs-sub">michael-yuji</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-couchdeveloper-messagepack',this)">Swift <span class="qs-sub">couchdeveloper</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-hirotakan-MessagePacker',this)">Swift <span class="qs-sub">hirotakan</span></a></li>
           
@@ -8907,6 +8911,86 @@ dictionary. No support for other data type like Vector2 and Vector3</li>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="godot -s run_test.gd
 "><pre><code>godot -s run_test.gd
 </code></pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-HiPhish-guile-msgpack" class="qs"><h4><a href="https://gitlab.com/HiPhish/guile-msgpack" target="_blank">HiPhish/guile-msgpack <span class="qs-url">https://gitlab.com/HiPhish/guile-msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-gnu-guile" class="anchor" aria-hidden="true" href="#messagepack-for-gnu-guile"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for GNU Guile</h5>
+<p dir="auto">This is a GNU Guile library implementing the MessagePack data serialisation
+format. It allows you to serialise (pack) and de-serialise (unpack) Scheme
+objects to and from binary data according to the MessagePack format.</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/HiPhish/guile-msgpack/blob/master/screenshot.png"><img alt="Screenshot of running a Racket REPL in Neovim, using Racket to control Neovim" src="/HiPhish/guile-msgpack/raw/master/screenshot.png" style="max-width: 100%;"></a></p>
+<a name="user-content-installation"></a>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">Use the included makefile to build the library, documentation and run tests.
+Here is a quick run-down, please refer to the <a href="/HiPhish/guile-msgpack/blob/master/INSTALL.rst">INSTALL</a> file for full details.</p>
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="# Run tests, install to /usr/local, build PDF and HTML documentation
+make check &amp;&amp; make lib doc PREFIX=/usr/local &amp;&amp; make pdf html
+"><pre><span class="pl-c"><span class="pl-c">#</span> Run tests, install to /usr/local, build PDF and HTML documentation</span>
+make check <span class="pl-k">&amp;&amp;</span> make lib doc PREFIX=/usr/local <span class="pl-k">&amp;&amp;</span> make pdf html</pre></div>
+<a name="user-content-using-messagepack"></a>
+<h6 dir="auto">
+<a id="user-content-using-messagepack" class="anchor" aria-hidden="true" href="#using-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using MessagePack</h6>
+<p dir="auto">First import the module, then you can pack an object to a binary input port or
+unpack one from a binary output port.</p>
+<div class="highlight highlight-source-scheme position-relative overflow-auto" data-snippet-clipboard-copy-content="(use-modules ((msgpack) #:select (pack unpack pack-to unpack-from)))
+
+;; Some object to pack
+(define hodgepodge (vector 1 2 '#(3 #t) &quot;foo&quot;))
+
+(pack hodgepodge)
+;; Returns #vu8(#x94 #x01 #x02 #x92 #x03 #xC3 #xA3 #x66 #x6F #x6F)
+
+(unpack #vu8(#x94 #x01 #x02 #x92 #x03 #xC3 #xA3 #x66 #x6F #x6F))
+;; Returns '#(1 2 #(3 #t) &quot;foo&quot;)
+
+;; We can also pack and unpack directly to and from a port
+(pack-to (current-output-port) hodgepodge)
+(unpack-from (current-input-port))
+"><pre>(use-modules ((msgpack) #:select (pack unpack pack-to unpack-from)))
+
+<span class="pl-c"><span class="pl-c">;</span>; Some object to pack</span>
+(<span class="pl-k">define</span> <span class="pl-smi">hodgepodge</span> (vector <span class="pl-c1">1</span> <span class="pl-c1">2</span> <span class="pl-s">'#</span>(<span class="pl-c1">3</span> <span class="pl-c1">#t</span>) <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>))
+
+(pack hodgepodge)
+<span class="pl-c"><span class="pl-c">;</span>; Returns #vu8(#x94 #x01 #x02 #x92 #x03 #xC3 #xA3 #x66 #x6F #x6F)</span>
+
+(unpack #vu8(<span class="pl-c1">#x94</span> <span class="pl-c1">#x01</span> <span class="pl-c1">#x02</span> <span class="pl-c1">#x92</span> <span class="pl-c1">#x03</span> <span class="pl-c1">#xC3</span> <span class="pl-c1">#xA3</span> <span class="pl-c1">#x66</span> <span class="pl-c1">#x6F</span> <span class="pl-c1">#x6F</span>))
+<span class="pl-c"><span class="pl-c">;</span>; Returns '#(1 2 #(3 #t) "foo")</span>
+
+<span class="pl-c"><span class="pl-c">;</span>; We can also pack and unpack directly to and from a port</span>
+(pack-to (current-output-port) hodgepodge)
+(unpack-from (current-input-port))</pre></div>
+<p dir="auto">In the above code we have two variants of <code>pack</code> and <code>unpack</code>: a pure one and
+an impure one with a <code>to</code>- or <code>from</code> suffix. The pure variant performs the
+packing or unpacking without any side effects by returning the packed bytes or
+the unpacked object. The impure variant on the other hand writes to or reads
+from a port as a side effect, but does not return anything.</p>
+<a name="user-content-status-of-the-project"></a>
+<h6 dir="auto">
+<a id="user-content-status-of-the-project" class="anchor" aria-hidden="true" href="#status-of-the-project"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Status of the project</h6>
+<p dir="auto">The project is still fresh, but it is complete and stable as far as I am
+concerned. I will wait a little while for it to set before committing to a
+proper release though. User experience reports are always welcome.</p>
+<a name="user-content-license"></a>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">Released under the GPLv3+ license, see the <a href="/HiPhish/guile-msgpack/blob/master/COPYING.txt">COPYING</a> file for details.</p>
+<a name="user-content-self-promotion"></a>
+<h6 dir="auto">
+<a id="user-content-self-promotion" class="anchor" aria-hidden="true" href="#self-promotion"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Self-promotion</h6>
+<p dir="auto">If you like this library please consider financially supporting its
+development, every small amount helps. Feel free to explore my other software
+projects as well.</p>
+<ul dir="auto">
+<li><a href="http://hiphish.github.io/" rel="nofollow">http://hiphish.github.io/</a></li>
+<li><a href="https://liberapay.com/HiPhish/" rel="nofollow">https://liberapay.com/HiPhish/</a></li>
+</ul>
+
 </article>
   </div>
         </div>
@@ -22155,6 +22239,114 @@ let msgPackedBytes: NSData = packedInt +^ packedStr +^ packedArray
 <span class="pl-c"></span>} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
     <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
 }</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-couchdeveloper-messagepack" class="qs"><h4><a href="https://github.com/couchdeveloper/messagepack" target="_blank">couchdeveloper/messagepack <span class="qs-url">https://github.com/couchdeveloper/messagepack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack" class="anchor" aria-hidden="true" href="#messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack</h5>
+<p dir="auto"><strong>MessagePack</strong> is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. But it's faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
+<h6 dir="auto">
+<a id="user-content-packageswift" class="anchor" aria-hidden="true" href="#packageswift"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Package.swift</h6>
+<div class="highlight highlight-source-swift position-relative overflow-auto" data-snippet-clipboard-copy-content='.Package(url: "https://github.com/tris-foundation/messagepack.git", majorVersion: 0)
+'><pre>.<span class="pl-c1">Package</span>(<span class="pl-c1">url</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/tris-foundation/messagepack.git<span class="pl-pds">"</span></span>, <span class="pl-c1">majorVersion</span>: <span class="pl-c1">0</span>)</pre></div>
+<h6 dir="auto">
+<a id="user-content-memo" class="anchor" aria-hidden="true" href="#memo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Memo</h6>
+<div class="highlight highlight-source-swift position-relative overflow-auto" data-snippet-clipboard-copy-content="public enum MessagePack {
+    case `nil`
+    case int(Int)
+    case uint(UInt)
+    case bool(Bool)
+    case float(Float)
+    case double(Double)
+    case string(String)
+    case binary([UInt8])
+    case array([MessagePack])
+    case map([MessagePack : MessagePack])
+    case extended(Extended)
+
+    public struct Extended {
+        public let type: Int8
+        public let data: [UInt8]
+        public init(type: Int8, data: [UInt8]) {
+            self.type = type
+            self.data = data
+        }
+    }
+}
+"><pre><span class="pl-k">public</span> <span class="pl-k">enum</span> <span class="pl-en">MessagePack</span> {
+    <span class="pl-k">case</span> <span class="pl-c1">`nil`</span>
+    <span class="pl-k">case</span> <span class="pl-c1">int</span>(<span class="pl-c1">Int</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">uint</span>(<span class="pl-c1">UInt</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">bool</span>(<span class="pl-c1">Bool</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">float</span>(<span class="pl-c1">Float</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">double</span>(<span class="pl-c1">Double</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">string</span>(<span class="pl-c1">String</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">binary</span>([<span class="pl-c1">UInt8</span>])
+    <span class="pl-k">case</span> <span class="pl-c1">array</span>([MessagePack])
+    <span class="pl-k">case</span> <span class="pl-c1">map</span>([MessagePack : MessagePack])
+    <span class="pl-k">case</span> <span class="pl-c1">extended</span>(Extended)
+
+    <span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Extended</span> {
+        <span class="pl-k">public</span> <span class="pl-k">let</span> type: <span class="pl-c1">Int8</span>
+        <span class="pl-k">public</span> <span class="pl-k">let</span> data: [<span class="pl-c1">UInt8</span>]
+        <span class="pl-k">public</span> <span class="pl-k">init</span>(<span class="pl-smi"><span class="pl-en">type</span></span>: <span class="pl-c1">Int8</span>, <span class="pl-smi"><span class="pl-en">data</span></span>: [<span class="pl-c1">UInt8</span>]) {
+            <span class="pl-c1">self</span>.<span class="pl-smi">type</span> <span class="pl-k">=</span> type
+            <span class="pl-c1">self</span>.<span class="pl-smi">data</span> <span class="pl-k">=</span> data
+        }
+    }
+}</pre></div>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<p dir="auto">You can find this code and more in <a href="https://github.com/tris-foundation/examples">examples</a>.</p>
+<h7 dir="auto">
+<a id="user-content-convenience-api" class="anchor" aria-hidden="true" href="#convenience-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Convenience API</h7>
+<div class="highlight highlight-source-swift position-relative overflow-auto" data-snippet-clipboard-copy-content='let hey = MessagePack("hey there!")
+let bytes = MessagePack.encode(hey)
+let original = String(try MessagePack.decode(bytes: bytes))
+'><pre><span class="pl-k">let</span> hey <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>(<span class="pl-s"><span class="pl-pds">"</span>hey there!<span class="pl-pds">"</span></span>)
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">encode</span>(hey)
+<span class="pl-k">let</span> original <span class="pl-k">=</span> <span class="pl-c1">String</span>(<span class="pl-k">try</span> MessagePack.<span class="pl-c1">decode</span>(<span class="pl-c1">bytes</span>: bytes))</pre></div>
+<h7 dir="auto">
+<a id="user-content-performance-optimized" class="anchor" aria-hidden="true" href="#performance-optimized"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Performance optimized</h7>
+<div class="highlight highlight-source-swift position-relative overflow-auto" data-snippet-clipboard-copy-content='var encoder = Encoder()
+encoder.encode(.string("one"))
+encoder.encode(.int(2))
+encoder.encode(.double(3.0))
+let encoded = encoder.bytes
+// be careful, we use raw pointer here
+var decoder = Decoder(bytes: encoded, count: encoded.count)
+// throws on invalid data
+let value = try decoder.decode()
+// reuse decoder
+decoder.rewind()
+// you can avoid extra MessagePack object 
+// if you sure about the structure
+// throws on wrong type
+let string = try decoder.decode(String.self)
+let int = try decoder.decode(UInt8.self)
+let double = try decoder.decode(Double.self)
+print("decoded manually: \(string), \(int), \(double)")
+'><pre><span class="pl-k">var</span> encoder <span class="pl-k">=</span> <span class="pl-c1">Encoder</span>()
+encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">string</span>(<span class="pl-s"><span class="pl-pds">"</span>one<span class="pl-pds">"</span></span>))
+encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">int</span>(<span class="pl-c1">2</span>))
+encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">double</span>(<span class="pl-c1">3.0</span>))
+<span class="pl-k">let</span> encoded <span class="pl-k">=</span> encoder.<span class="pl-smi">bytes</span>
+<span class="pl-c"><span class="pl-c">//</span> be careful, we use raw pointer here</span>
+<span class="pl-c"></span><span class="pl-k">var</span> decoder <span class="pl-k">=</span> <span class="pl-c1">Decoder</span>(<span class="pl-c1">bytes</span>: encoded, <span class="pl-c1">count</span>: encoded.<span class="pl-c1">count</span>)
+<span class="pl-c"><span class="pl-c">//</span> throws on invalid data</span>
+<span class="pl-c"></span><span class="pl-k">let</span> value <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>()
+<span class="pl-c"><span class="pl-c">//</span> reuse decoder</span>
+<span class="pl-c"></span>decoder.<span class="pl-c1">rewind</span>()
+<span class="pl-c"><span class="pl-c">//</span> you can avoid extra MessagePack object </span>
+<span class="pl-c"><span class="pl-c">//</span> if you sure about the structure</span>
+<span class="pl-c"><span class="pl-c">//</span> throws on wrong type</span>
+<span class="pl-c"></span><span class="pl-k">let</span> string <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">String</span>.<span class="pl-k">self</span>)
+<span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">UInt8</span>.<span class="pl-k">self</span>)
+<span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">Double</span>.<span class="pl-k">self</span>)
+<span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">"</span>decoded manually: <span class="pl-pse">\(</span><span class="pl-s1">string</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">int</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">double</span><span class="pl-pse"><span class="pl-s1">)</span></span><span class="pl-pds">"</span></span>)</pre></div>
 </article>
   </div>
         </div>
