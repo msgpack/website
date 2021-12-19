@@ -1,4 +1,4 @@
-# msgpack.org
+# msgpack.in
 
 This repository manages [msgpack.org website](http://msgpack.org/).
 
