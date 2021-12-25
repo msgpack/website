@@ -187,6 +187,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-HEADS-project-arduino_msgpack',this)">Arduino C <span class="qs-sub">HEADS-project</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-bblanchon-ArduinoJson-msgpack-org',this)">Arduino/C++ <span class="qs-sub">bblanchon</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-mpack',this)">C <span class="qs-sub">ludocode</span></a></li>
@@ -201,11 +203,15 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-neuecc-MessagePack-CSharp',this)">C# <span class="qs-sub">neuecc</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-highras-msgpack-csharp',this)">C# <span class="qs-sub">highras</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jonathonl-goodform',this)">C++11 <span class="qs-sub">jonathonl</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ar90n-msgpack11',this)">C++11 <span class="qs-sub">ar90n</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ToruNiina-wad',this)">C++11 <span class="qs-sub">ToruNiina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mikeloomisgg-cppack',this)">C++17 <span class="qs-sub">mikeloomisgg</span></a></li>
           
@@ -244,6 +250,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-pocketberserker-MessagePack-FSharpExtensions',this)">F# <span class="qs-sub">pocketberserker</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-xtpor-godot-msgpack',this)">GDScript <span class="qs-sub">xtpor</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-guile-msgpack',this)">GNU Guile <span class="qs-sub">HiPhish</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-vmihailenco-msgpack',this)">Go <span class="qs-sub">vmihailenco</span></a></li>
           
@@ -345,6 +353,10 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-crowding-msgpack-r',this)">R <span class="qs-sub">crowding</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-skyformat99-msgpack2R',this)">R <span class="qs-sub">skyformat99</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-msgpack-racket',this)">Racket <span class="qs-sub">HiPhish</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-owenthereal-msgpack_rails',this)">Rails <span class="qs-sub">owenthereal</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-retrofit-converter-msgpack',this)">Retrofit converter (Java) <span class="qs-sub">komamitsu</span></a></li>
@@ -354,6 +366,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mneumann-MessagePack',this)">Ruby/C++ <span class="qs-sub">mneumann</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-3Hren-msgpack-rust',this)">Rust <span class="qs-sub">3Hren</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-codx-dev-msgpacker',this)">Rust <span class="qs-sub">codx-dev</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-dankogai-swift-sion',this)">SION,Swift <span class="qs-sub">dankogai</span></a></li>
           
@@ -2101,6 +2115,47 @@ namespace eeprom {
 <li>2^32 byte long (or longer) bins</li>
 <li>extention types.</li>
 </ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-bblanchon-ArduinoJson-msgpack-org" class="qs"><h4><a href="https://github.com/bblanchon/ArduinoJson-msgpack.org" target="_blank">bblanchon/ArduinoJson-msgpack.org <span class="qs-url">https://github.com/bblanchon/ArduinoJson-msgpack.org</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-arduino" class="anchor" aria-hidden="true" href="#messagepack-for-arduino"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Arduino</h5>
+<p dir="auto"><a href="https://www.ardu-badge.com/ArduinoJson/" rel="nofollow"><img src="https://camo.githubusercontent.com/159d2838350543f552faab977e643e2ead1de286901f7abc3b915a558e4bfa52/68747470733a2f2f7777772e617264752d62616467652e636f6d2f62616467652f41726475696e6f4a736f6e2e737667" alt="arduino-library-badge" data-canonical-src="https://www.ardu-badge.com/badge/ArduinoJson.svg" style="max-width: 100%;"></a>
+<a href="https://ci.appveyor.com/project/bblanchon/arduinojson/branch/6.x" rel="nofollow"><img src="https://camo.githubusercontent.com/55330679784bfc31ab8cc6c8f01085dd5a1ebb98e4cbe7db3f9c7b0e90fb3a09/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f6d37733533776176316c3061627373672f6272616e63682f362e783f7376673d74727565" alt="Build Status" data-canonical-src="https://ci.appveyor.com/api/projects/status/m7s53wav1l0abssg/branch/6.x?svg=true" style="max-width: 100%;"></a>
+<a href="https://travis-ci.org/bblanchon/ArduinoJson" rel="nofollow"><img src="https://camo.githubusercontent.com/9a38d98b139c04667e1b846f429760082f0fc52134283709f76537495f167079/68747470733a2f2f7472617669732d63692e6f72672f62626c616e63686f6e2f41726475696e6f4a736f6e2e7376673f6272616e63683d362e78" alt="Build Status" data-canonical-src="https://travis-ci.org/bblanchon/ArduinoJson.svg?branch=6.x" style="max-width: 100%;"></a>
+<a href="https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&amp;can=1&amp;q=proj:arduinojson" rel="nofollow"><img src="https://camo.githubusercontent.com/2ce68a33e91208e36172b55ea3a18f4e2e0a049b4ae8c5ce4aabe060d8c324f9/68747470733a2f2f6f73732d66757a7a2d6275696c642d6c6f67732e73746f726167652e676f6f676c65617069732e636f6d2f6261646765732f61726475696e6f6a736f6e2e737667" alt="Fuzzing Status" data-canonical-src="https://oss-fuzz-build-logs.storage.googleapis.com/badges/arduinojson.svg" style="max-width: 100%;"></a>
+<a href="https://coveralls.io/github/bblanchon/ArduinoJson?branch=6.x" rel="nofollow"><img src="https://camo.githubusercontent.com/c987201a2a10202a088ccd0c4ad0bd6d522b0b315cc58d7438f0fc8d89aa74d4/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f62626c616e63686f6e2f41726475696e6f4a736f6e2f62616467652e7376673f6272616e63683d362e78" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/bblanchon/ArduinoJson/badge.svg?branch=6.x" style="max-width: 100%;"></a>
+<a href="https://github.com/bblanchon/ArduinoJson/stargazers"><img src="https://camo.githubusercontent.com/67bb9891257952bcb0c32031707099ea0c2497f92058483e55f9034ade6afb23/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f62626c616e63686f6e2f41726475696e6f4a736f6e3f7374796c653d666c6174" alt="GitHub stars" data-canonical-src="https://img.shields.io/github/stars/bblanchon/ArduinoJson?style=flat" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://arduinojson.org" rel="nofollow">ArduinoJson</a> supports <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> serialization and deserialization.</p>
+<p dir="auto">It supports all <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> features except <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a> and <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#timestamp-extension-type">timestamp</a>.</p>
+<h6 dir="auto">
+<a id="user-content-how-to-install" class="anchor" aria-hidden="true" href="#how-to-install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to install?</h6>
+<p dir="auto">To install <a href="https://arduinojson.org" rel="nofollow">ArduinoJson</a>, you can either:</p>
+<ul dir="auto">
+<li>install the library from the <a href="https://www.ardu-badge.com/ArduinoJson/" rel="nofollow">Arduino Library Manager</a>,</li>
+<li>install the library from the <a href="https://build.particle.io/libs/ArduinoJson/" rel="nofollow">Particle Web IDE</a>, or</li>
+<li>download the single header from <a href="https://github.com/bblanchon/ArduinoJson/releases/latest/">the release page</a>.</li>
+</ul>
+<p dir="auto">See also: <a href="https://arduinojson.org/v6/doc/installation/" rel="nofollow">How to install ArduinoJson</a> on <a href="https://arduinojson.org" rel="nofollow">arduinojson.org</a>.</p>
+<h6 dir="auto">
+<a id="user-content-how-to-serialize-to-msgpack" class="anchor" aria-hidden="true" href="#how-to-serialize-to-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to serialize to MsgPack?</h6>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='StaticJsonDocument&lt;200&gt; doc;
+doc["hello"] = "world";
+serializeMsgPack(doc, Serial);'><pre>StaticJsonDocument&lt;<span class="pl-c1">200</span>&gt; doc;
+doc[<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>] = <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>;
+<span class="pl-en">serializeMsgPack</span>(doc, Serial);</pre></div>
+<p dir="auto">See also: <a href="https://arduinojson.org/v6/api/msgpack/serializemsgpack/" rel="nofollow">serializeMsgPack()</a> on <a href="https://arduinojson.org" rel="nofollow">arduinojson.org</a>.</p>
+<h6 dir="auto">
+<a id="user-content-how-to-deserialize-from-msgpack" class="anchor" aria-hidden="true" href="#how-to-deserialize-from-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to deserialize from MsgPack?</h6>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='StaticJsonDocument&lt;200&gt; doc;
+deserializeMsgPack(doc, input);
+const char* hello = doc["hello"];'><pre>StaticJsonDocument&lt;<span class="pl-c1">200</span>&gt; doc;
+<span class="pl-en">deserializeMsgPack</span>(doc, input);
+<span class="pl-k">const</span> <span class="pl-k">char</span>* hello = doc[<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>];</pre></div>
+<p dir="auto">See also: <a href="https://arduinojson.org/v6/api/msgpack/deserializemsgpack/" rel="nofollow">deserializeMsgPack()</a> and <a href="https://arduinojson.org/v6/example/msgpack-parser/" rel="nofollow">MsgPackParser.ino</a> on <a href="https://arduinojson.org" rel="nofollow">arduinojson.org</a>.</p>
 </article>
   </div>
         </div>
@@ -5779,6 +5834,79 @@ He is known as the creator of <a href="https://github.com/neuecc/UniRx/">UniRx</
   </div>
         </div>
         
+        <div id="qs-highras-msgpack-csharp" class="qs"><h4><a href="https://github.com/highras/msgpack-csharp" target="_blank">highras/msgpack-csharp <span class="qs-url">https://github.com/highras/msgpack-csharp</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h6 dir="auto">
+<a id="user-content-fpnn-msgpack-implement" class="anchor" aria-hidden="true" href="#fpnn-msgpack-implement"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>FPNN MsgPack Implement</h6>
+<ul dir="auto">
+<li><strong><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">msgpack SPEC</a></strong></li>
+<li><strong><a href="https://github.com/highras/msgpack-csharp">Project Home</a></strong></li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-compatibility-version" class="anchor" aria-hidden="true" href="#compatibility-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibility Version:</h7>
+<p dir="auto">C# .Net Standard 2.0</p>
+<h7 dir="auto">
+<a id="user-content-for-packer" class="anchor" aria-hidden="true" href="#for-packer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For Packer:</h7>
+<ul dir="auto">
+<li>
+<p dir="auto">input kinds:</p>
+<p dir="auto">null, bool, sbyte, byte, short, ushort, Int32, UInt32, Int64, Uint64, float, double, string</p>
+<p dir="auto">Decimal, Tuple</p>
+<p dir="auto">byte[], DateTime, IEnumerable (such as List, Dictionary, List&lt;object&gt;, Dictionary&lt;object, object&gt;, ...)</p>
+</li>
+<li>
+<p dir="auto">usage:</p>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="  using com.fpnn.msgpack;
+  void MsgPacker.Pack(Stream stream, Object obj);"><pre><code>  using com.fpnn.msgpack;
+  void MsgPacker.Pack(Stream stream, Object obj);
+</code></pre></div>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-for-unpacker" class="anchor" aria-hidden="true" href="#for-unpacker"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For Unpacker:</h7>
+<ul dir="auto">
+<li>
+<p dir="auto">output kinds:</p>
+<p dir="auto">Object, which maybe the following kinds:</p>
+<p dir="auto">null, bool, sbyte, byte, short, ushort, Int32, UInt32, Int64, Uint64, float, double, string</p>
+<p dir="auto">byte[], DateTime, List&lt;object&gt;, Dictionary&lt;object, object&gt;</p>
+</li>
+<li>
+<p dir="auto">usage:</p>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="  using com.fpnn.msgpack;
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary);
+
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary, int offset, int length = 0);
+
+  //-- unpack one object.
+  Object MsgUnpacker.Unpack(byte[] binary, int offset, out int endOffset);"><pre><code>  using com.fpnn.msgpack;
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary);
+
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary, int offset, int length = 0);
+
+  //-- unpack one object.
+  Object MsgUnpacker.Unpack(byte[] binary, int offset, out int endOffset);
+</code></pre></div>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-exception" class="anchor" aria-hidden="true" href="#exception"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Exception:</h7>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="    using com.fpnn.msgpack;
+    public class MsgPackException: Exception;
+    public class UnsupportedTypeException : MsgPackException;
+    public class UnrecognizedDataException : MsgPackException;
+    public class InsufficientException : MsgPackException;
+    public class InvalidDataException : MsgPackException;"><pre><code>    using com.fpnn.msgpack;
+    public class MsgPackException: Exception;
+    public class UnsupportedTypeException : MsgPackException;
+    public class UnrecognizedDataException : MsgPackException;
+    public class InsufficientException : MsgPackException;
+    public class InvalidDataException : MsgPackException;
+</code></pre></div>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-Lichtso-netLink" class="qs"><h4><a href="https://github.com/Lichtso/netLink" target="_blank">Lichtso/netLink <span class="qs-url">https://github.com/Lichtso/netLink</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -6141,6 +6269,603 @@ Git revision : 6f6b4302b68b3c88312eb24367418b7fce81298c</p>
 <h5 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h5>
 <p dir="auto">This software is released under the MIT License, see LICENSE.txt.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ToruNiina-wad" class="qs"><h4><a href="https://github.com/ToruNiina/wad" target="_blank">ToruNiina/wad <span class="qs-url">https://github.com/ToruNiina/wad</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-wad" class="anchor" aria-hidden="true" href="#wad"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>wad</h5>
+<p dir="auto"><a href="https://github.com/ToruNiina/wad/actions"><img src="https://github.com/ToruNiina/wad/workflows/C/C++%20CI/badge.svg?branch=master" alt="C/C++ CI" style="max-width: 100%;"></a>
+<a href="https://github.com/ToruNiina/wad/releases"><img src="https://camo.githubusercontent.com/6e53794e38f19242afc2c8b56223e8739d85d528223da2defe7c1801c134e727/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f546f72754e69696e612f7761642e7376673f7374796c653d666c6174" alt="Version" data-canonical-src="https://img.shields.io/github/release/ToruNiina/wad.svg?style=flat" style="max-width: 100%;"></a>
+<a href="/ToruNiina/wad/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/ee2f518180e7775bdb244b127dcdd293290581dcb81ba6dfe37eac6cd5289e47/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f546f72754e69696e612f776164" alt="LICENSE" data-canonical-src="https://img.shields.io/github/license/ToruNiina/wad" style="max-width: 100%;"></a></p>
+<p dir="auto">serialize/deserialize into/from msgpack.</p>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;wad/default_archiver.hpp&gt;
+#include &lt;wad/interface.hpp&gt;
+#include &lt;wad/in_place.hpp&gt;
+#include &lt;wad/string.hpp&gt;
+#include &lt;wad/vector.hpp&gt;
+#include &lt;wad/map.hpp&gt;
+
+namespace user
+{
+struct defined
+{
+    std::string         name;
+    std::vector&lt;double&gt; values;
+    std::map&lt;std::string, int&gt; nums;
+
+    template&lt;typename Archiver&gt;
+    bool archive(Archiver&amp; arc) const
+    {
+        return wad::archive&lt;wad::type::map&gt;(arc,
+            "name", name, "values", values, "nums", nums);
+    }
+};
+} // user
+
+int main()
+{
+    std::vector&lt;user::defined&gt; uds = {/* ... */};
+
+    wad::write_archive sink;
+    if(!wad::save(sink, uds)) {return 1;}
+    sink.dump("checkpoint.msg");
+
+    // ...
+
+    wad::read_archive src("checkpoint.msg");
+    if(!wad::load(src, uds)) {return 1;}
+
+    // ...
+
+    return 0;
+}'><pre>#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>map<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>vector<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>string<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>wad/default_archiver.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>wad/interface.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>wad/in_place.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>wad/string.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>wad/vector.hpp<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>wad/map.hpp<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">namespace</span> <span class="pl-en">user</span>
+{
+<span class="pl-k">struct</span> <span class="pl-en">defined</span>
+{
+    std::string         name;
+    std::vector&lt;<span class="pl-k">double</span>&gt; values;
+    std::map&lt;std::string, <span class="pl-k">int</span>&gt; nums;
+
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Archiver&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">archive</span>(Archiver&amp; arc) <span class="pl-k">const</span>
+    {
+        <span class="pl-k">return</span> wad::archive&lt;wad::type::map&gt;(arc,
+            <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>, name, <span class="pl-s"><span class="pl-pds">"</span>values<span class="pl-pds">"</span></span>, values, <span class="pl-s"><span class="pl-pds">"</span>nums<span class="pl-pds">"</span></span>, nums);
+    }
+};
+} <span class="pl-c"><span class="pl-c">//</span> user</span>
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
+{
+    std::vector&lt;user::defined&gt; uds = {<span class="pl-c"><span class="pl-c">/*</span> ... <span class="pl-c">*/</span></span>};
+
+    wad::write_archive sink;
+    <span class="pl-k">if</span>(!<span class="pl-c1">wad::save</span>(sink, uds)) {<span class="pl-k">return</span> <span class="pl-c1">1</span>;}
+    sink.<span class="pl-c1">dump</span>(<span class="pl-s"><span class="pl-pds">"</span>checkpoint.msg<span class="pl-pds">"</span></span>);
+
+    <span class="pl-c"><span class="pl-c">//</span> ...</span>
+
+    wad::read_archive <span class="pl-smi">src</span>(<span class="pl-s"><span class="pl-pds">"</span>checkpoint.msg<span class="pl-pds">"</span></span>);
+    <span class="pl-k">if</span>(!<span class="pl-c1">wad::load</span>(src, uds)) {<span class="pl-k">return</span> <span class="pl-c1">1</span>;}
+
+    <span class="pl-c"><span class="pl-c">//</span> ...</span>
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
+<p dir="auto">The user-interface is strongly inspired by
+<a href="http://www.boost.org/doc/libs/release/libs/serialization/doc/index.html" rel="nofollow">Boost.serialization</a>
+and <a href="https://uscilab.github.io/cereal/" rel="nofollow">cereal</a>.</p>
+<h6 dir="auto">
+<a id="user-content-table-of-contents" class="anchor" aria-hidden="true" href="#table-of-contents"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Table of Contents</h6>
+<ul dir="auto">
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#supported-types">Supported Types</a></li>
+<li><a href="#user-defined-class">User-defined Class</a></li>
+<li><a href="#subclass">Subclass</a></li>
+<li><a href="#archiver-requirements">Archiver Requirements</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#licensing-terms">Licensing Terms</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-motivation" class="anchor" aria-hidden="true" href="#motivation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Motivation</h6>
+<p dir="auto"><strong>wad</strong> does not intend to be a general-purpose msgpack parser. It directly
+serializes your class into and deserializes your class from msgpack, without
+any internal representation.</p>
+<p dir="auto"><strong>wad</strong> does not plan to be a multi-format serializer. It uses msgpack only.</p>
+<p dir="auto"><strong>wad</strong> intends to be a simple, small library that enables you to serialize and
+deserialize your class into/from msgpack.</p>
+<h6 dir="auto">
+<a id="user-content-supported-types" class="anchor" aria-hidden="true" href="#supported-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Supported Types</h6>
+<p dir="auto">Basic types and STL classes listed below are supported. By including the header
+file, you can save/load it into/from msgpack.</p>
+<table>
+<thead>
+<tr>
+<th align="left">types</th>
+<th align="left">header file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>bool</code></td>
+<td align="left"><code>wad/boolean.hpp</code></td>
+</tr>
+<tr>
+<td align="left">integers</td>
+<td align="left"><code>wad/integer.hpp</code></td>
+</tr>
+<tr>
+<td align="left">enums</td>
+<td align="left"><code>wad/enum.hpp</code></td>
+</tr>
+<tr>
+<td align="left">
+<code>float</code> and <code>double</code>
+</td>
+<td align="left"><code>wad/floating.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::complex</code></td>
+<td align="left"><code>wad/complex.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::string</code></td>
+<td align="left"><code>wad/string.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::vector</code></td>
+<td align="left"><code>wad/vector.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::array</code></td>
+<td align="left"><code>wad/array.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::deque</code></td>
+<td align="left"><code>wad/deque.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::list</code></td>
+<td align="left"><code>wad/list.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::forward_list</code></td>
+<td align="left"><code>wad/forward_list.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::valarray</code></td>
+<td align="left"><code>wad/valarray.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::set</code></td>
+<td align="left"><code>wad/set.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::unordered_set</code></td>
+<td align="left"><code>wad/unordered_set.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::map</code></td>
+<td align="left"><code>wad/map.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::unordered_map</code></td>
+<td align="left"><code>wad/unordered_map.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::pair</code></td>
+<td align="left"><code>wad/pair.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::tuple</code></td>
+<td align="left"><code>wad/tuple.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::queue</code></td>
+<td align="left"><code>wad/queue.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::unique_ptr</code></td>
+<td align="left"><code>wad/unique_ptr.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::atomic</code></td>
+<td align="left"><code>wad/atomic.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::bitset</code></td>
+<td align="left"><code>wad/bitset.hpp</code></td>
+</tr>
+<tr>
+<td align="left"><code>std::optional</code></td>
+<td align="left"><code>wad/optional.hpp</code></td>
+</tr>
+<tr>
+<td align="left">RNGs (e.g. <code>mt19937</code>)</td>
+<td align="left"><code>wad/random.hpp</code></td>
+</tr>
+<tr>
+<td align="left">user-defined classes</td>
+<td align="left"><code>wad/interface.hpp</code></td>
+</tr>
+</tbody>
+</table>
+<h6 dir="auto">
+<a id="user-content-user-defined-class" class="anchor" aria-hidden="true" href="#user-defined-class"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>User-defined Class</h6>
+<p dir="auto">By defining one of the following member or non-member functions,
+you can serialize your class to msgpack with <strong>wad</strong>.</p>
+<h7 dir="auto">
+<a id="user-content-save-and-load-member-methods" class="anchor" aria-hidden="true" href="#save-and-load-member-methods"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>save() and load() member methods</h7>
+<p dir="auto"><code>wad::save(arc, x)</code> function finds your <code>x.save(arc)</code> member method. The same
+applies to <code>wad::load</code>.</p>
+<p dir="auto">Because <code>save</code> function does not change the state of <code>*this</code> object, it must be
+marked as <code>const</code>. On the other hand, <code>load</code> must not be marked as <code>const</code>.</p>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='struct X
+{
+    std::string  a;
+    double       b;
+    std::int32_t c;
+
+    template&lt;typename Archiver&gt;
+    bool save(Archiver&amp; arc) const
+    {
+        return wad::save&lt;wad::type::map&gt;(arc, "a", a, "b", b, "c", c);
+    }
+    template&lt;typename Archiver&gt;
+    bool load(Archiver&amp; arc)
+    {
+        return wad::load&lt;wad::type::map&gt;(arc, "a", a, "b", b, "c", c);
+    }
+};'><pre><span class="pl-k">struct</span> <span class="pl-en">X</span>
+{
+    std::string  a;
+    <span class="pl-k">double</span>       b;
+    std::<span class="pl-c1">int32_t</span> c;
+
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Archiver&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">save</span>(Archiver&amp; arc) <span class="pl-k">const</span>
+    {
+        <span class="pl-k">return</span> wad::save&lt;wad::type::map&gt;(arc, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, a, <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>, b, <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span>, c);
+    }
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Archiver&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">load</span>(Archiver&amp; arc)
+    {
+        <span class="pl-k">return</span> wad::load&lt;wad::type::map&gt;(arc, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, a, <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>, b, <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span>, c);
+    }
+};</pre></div>
+<h7 dir="auto">
+<a id="user-content-non-intrusive-save-and-load-methods" class="anchor" aria-hidden="true" href="#non-intrusive-save-and-load-methods"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Non-intrusive save() and load() methods</h7>
+<p dir="auto"><strong>wad</strong> finds <code>save</code> and <code>load</code> function through argument dependent lookup (ADL).
+If you define <code>save</code> and <code>load</code> function in your <code>namespace</code>, <strong>wad</strong> calls them.</p>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='namespace foo {
+struct X
+{
+    std::string  a;
+    double       b;
+    std::int32_t c;
+};
+template&lt;typename Archiver&gt;
+bool save(Archiver&amp; arc, const X&amp; x)
+{
+    return wad::save&lt;wad::type::map&gt;(arc, "a", x.a, "b", x.b, "c", x.c);
+}
+template&lt;typename Archiver&gt;
+bool load(Archiver&amp; arc, X&amp; x)
+{
+    return wad::save&lt;wad::type::map&gt;(arc, "a", x.a, "b", x.b, "c", x.c);
+}
+} // namespace foo'><pre><span class="pl-k">namespace</span> <span class="pl-en">foo</span> {
+<span class="pl-k">struct</span> <span class="pl-en">X</span>
+{
+    std::string  a;
+    <span class="pl-k">double</span>       b;
+    std::<span class="pl-c1">int32_t</span> c;
+};
+<span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Archiver&gt;
+<span class="pl-k">bool</span> <span class="pl-en">save</span>(Archiver&amp; arc, <span class="pl-k">const</span> X&amp; x)
+{
+    <span class="pl-k">return</span> wad::save&lt;wad::type::map&gt;(arc, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, x.<span class="pl-smi">a</span>, <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>, x.<span class="pl-smi">b</span>, <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span>, x.<span class="pl-smi">c</span>);
+}
+<span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Archiver&gt;
+<span class="pl-k">bool</span> <span class="pl-en">load</span>(Archiver&amp; arc, X&amp; x)
+{
+    <span class="pl-k">return</span> wad::save&lt;wad::type::map&gt;(arc, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, x.<span class="pl-smi">a</span>, <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>, x.<span class="pl-smi">b</span>, <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span>, x.<span class="pl-smi">c</span>);
+}
+} <span class="pl-c"><span class="pl-c">//</span> namespace foo</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-archive-method" class="anchor" aria-hidden="true" href="#archive-method"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>archive() method</h7>
+<p dir="auto">In many cases, the <code>save()</code> and <code>load()</code> function looks similar.</p>
+<p dir="auto"><code>archive</code> method works in both ways, save and load, depending on the archiver
+passed.</p>
+<p dir="auto">Because it loads and changes the state of <code>*this</code> object, it must not be
+marked as <code>const</code>.</p>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='struct X
+{
+    std::string  a;
+    double       b;
+    std::int32_t c;
+
+    template&lt;typename Archiver&gt;
+    bool archive(Archiver&amp; arc)
+    {
+        return wad::archive&lt;wad::type::map&gt;(arc, "a", a, "b", b, "c", c);
+    }
+};'><pre><span class="pl-k">struct</span> <span class="pl-en">X</span>
+{
+    std::string  a;
+    <span class="pl-k">double</span>       b;
+    std::<span class="pl-c1">int32_t</span> c;
+
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Archiver&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">archive</span>(Archiver&amp; arc)
+    {
+        <span class="pl-k">return</span> wad::archive&lt;wad::type::map&gt;(arc, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, a, <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>, b, <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span>, c);
+    }
+};</pre></div>
+<h6 dir="auto">
+<a id="user-content-subclass" class="anchor" aria-hidden="true" href="#subclass"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Subclass</h6>
+<p dir="auto">Currently, loading a polymorphic type through <code>archive</code> method is not supported.</p>
+<p dir="auto">To save the state of the base class, pass <code>base_of&lt;Base&gt;(this)</code> to <code>wad::save</code>
+and <code>load</code> function. It should be passed as the second argument, immediately
+after <code>archiver</code>.</p>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='struct Base
+{
+    std::string  s;
+    virtual ~Base() = default;
+
+    template&lt;typename Arc&gt;
+    bool save(Arc&amp; arc) const
+    {
+        return wad::save&lt;wad::type::map&gt;(arc, "s", s);
+    }
+    template&lt;typename Arc&gt;
+    bool load(Arc&amp; arc)
+    {
+        return wad::load&lt;wad::type::map&gt;(arc, "s", s);
+    }
+};
+
+struct Derived : Base
+{
+    std::int32_t i;
+    double       d;
+    ~Derived() override = default;
+
+    template&lt;typename Arc&gt;
+    bool save(Arc&amp; arc) const
+    {
+        return wad::save&lt;wad::type::map&gt;(arc,
+                wad::base_of&lt;Base&gt;(this), "i", i, "d", d);
+    }
+    template&lt;typename Arc&gt;
+    bool load(Arc&amp; arc)
+    {
+        return wad::load&lt;wad::type::map&gt;(arc,
+                wad::base_of&lt;Base&gt;(this), "i", i, "d", d);
+    }
+};'><pre><span class="pl-k">struct</span> <span class="pl-en">Base</span>
+{
+    std::string  s;
+    <span class="pl-k">virtual</span> <span class="pl-en">~Base</span>() = <span class="pl-k">default</span>;
+
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Arc&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">save</span>(Arc&amp; arc) <span class="pl-k">const</span>
+    {
+        <span class="pl-k">return</span> wad::save&lt;wad::type::map&gt;(arc, <span class="pl-s"><span class="pl-pds">"</span>s<span class="pl-pds">"</span></span>, s);
+    }
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Arc&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">load</span>(Arc&amp; arc)
+    {
+        <span class="pl-k">return</span> wad::load&lt;wad::type::map&gt;(arc, <span class="pl-s"><span class="pl-pds">"</span>s<span class="pl-pds">"</span></span>, s);
+    }
+};
+
+<span class="pl-k">struct</span> <span class="pl-en">Derived</span> : Base
+{
+    std::<span class="pl-c1">int32_t</span> i;
+    <span class="pl-k">double</span>       d;
+    <span class="pl-en">~Derived</span>() <span class="pl-k">override</span> = <span class="pl-k">default</span>;
+
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Arc&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">save</span>(Arc&amp; arc) <span class="pl-k">const</span>
+    {
+        <span class="pl-k">return</span> wad::save&lt;wad::type::map&gt;(arc,
+                wad::base_of&lt;Base&gt;(<span class="pl-c1">this</span>), <span class="pl-s"><span class="pl-pds">"</span>i<span class="pl-pds">"</span></span>, i, <span class="pl-s"><span class="pl-pds">"</span>d<span class="pl-pds">"</span></span>, d);
+    }
+    <span class="pl-k">template</span>&lt;<span class="pl-k">typename</span> Arc&gt;
+    <span class="pl-k">bool</span> <span class="pl-en">load</span>(Arc&amp; arc)
+    {
+        <span class="pl-k">return</span> wad::load&lt;wad::type::map&gt;(arc,
+                wad::base_of&lt;Base&gt;(<span class="pl-c1">this</span>), <span class="pl-s"><span class="pl-pds">"</span>i<span class="pl-pds">"</span></span>, i, <span class="pl-s"><span class="pl-pds">"</span>d<span class="pl-pds">"</span></span>, d);
+    }
+};</pre></div>
+<p dir="auto">To load <code>Derived</code> through <code>Base</code>, you need to tell the relationship to the
+polymorphic loader and define the name of the derived type.
+To achieve that, specialize the following class.</p>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='namespace wad {
+template&lt;&gt;
+struct register_subclass&lt;extlib::Base, extlib::Derived&gt;
+{
+    static constexpr const char* name() noexcept {return "extlib::Derived";}
+    static const registered&lt;extlib::Base, extlib::Derived&gt; bound;
+};
+const registered&lt;extlib::Base, extlib::Derived&gt;
+    register_subclass&lt;extlib::Base, extlib::Derived&gt;::bound;
+} /* wad */'><pre><span class="pl-k">namespace</span> <span class="pl-en">wad</span> {
+<span class="pl-k">template</span>&lt;&gt;
+<span class="pl-k">struct</span> <span class="pl-en">register_subclass</span>&lt;extlib::Base, extlib::Derived&gt;
+{
+    <span class="pl-k">static</span> <span class="pl-k">constexpr</span> <span class="pl-k">const</span> <span class="pl-k">char</span>* <span class="pl-en">name</span>() <span class="pl-k">noexcept</span> {<span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>extlib::Derived<span class="pl-pds">"</span></span>;}
+    <span class="pl-k">static</span> <span class="pl-k">const</span> registered&lt;extlib::Base, extlib::Derived&gt; bound;
+};
+<span class="pl-k">const</span> registered&lt;extlib::Base, extlib::Derived&gt;
+    register_subclass&lt;extlib::Base, extlib::Derived&gt;::bound;
+} <span class="pl-c"><span class="pl-c">/*</span> wad <span class="pl-c">*/</span></span></pre></div>
+<h6 dir="auto">
+<a id="user-content-archiver-requirements" class="anchor" aria-hidden="true" href="#archiver-requirements"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Archiver requirements</h6>
+<p dir="auto">You can use your own archive class in <code>wad::save</code>, <code>wad::load</code>, <code>wad::archive</code>
+functions.</p>
+<p dir="auto">Note: <code>wad::archive(arc, ...)</code> function checks if <code>arc</code> has <code>sink()</code> or <code>src()</code>
+method and dispatch <code>save(arc, ...)</code> or <code>load(arc, ...)</code> depending on the
+provided member method. If <code>arc</code> supports both, the overload resolution becomes
+ambiguous. To use <code>wad::archive</code> method with your archiver, it should have only
+one of those member methods.</p>
+<h7 dir="auto">
+<a id="user-content-writable-archiver-requiremnets" class="anchor" aria-hidden="true" href="#writable-archiver-requiremnets"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Writable archiver requiremnets</h7>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="class write_archiver
+{
+  public:
+    // return type of sink.
+    using sink_iterator = Iterator;
+
+    // Return an iterator through which the binary will be written.
+    // iterator value_type should be a `char`.
+    Iterator sink() noexcept;
+
+    // Check if we can write some bytes in to the buffer.
+    bool is_writable(const std::size_t) const noexcept;
+
+    // Advance the internal pointer.
+    void advance(const std::size_t) noexcept;
+
+    // Retrace the internal pointer.
+    void retrace(const std::size_t) noexcept;
+
+    // Save the current location
+    Location npos() const noexcept;
+
+    // restore the status to the passed location
+    void seek(const Location&amp;) noexcept;
+};"><pre><span class="pl-k">class</span> <span class="pl-en">write_archiver</span>
+{
+  <span class="pl-k">public:</span>
+    <span class="pl-c"><span class="pl-c">//</span> return type of sink.</span>
+    <span class="pl-k">using</span> sink_iterator = Iterator;
+
+    <span class="pl-c"><span class="pl-c">//</span> Return an iterator through which the binary will be written.</span>
+    <span class="pl-c"><span class="pl-c">//</span> iterator value_type should be a `char`.</span>
+    Iterator <span class="pl-en">sink</span>() <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Check if we can write some bytes in to the buffer.</span>
+    <span class="pl-k">bool</span> <span class="pl-en">is_writable</span>(<span class="pl-k">const</span> std::<span class="pl-c1">size_t</span>) <span class="pl-k">const</span> <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Advance the internal pointer.</span>
+    <span class="pl-k">void</span> <span class="pl-en">advance</span>(<span class="pl-k">const</span> std::<span class="pl-c1">size_t</span>) <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Retrace the internal pointer.</span>
+    <span class="pl-k">void</span> <span class="pl-en">retrace</span>(<span class="pl-k">const</span> std::<span class="pl-c1">size_t</span>) <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Save the current location</span>
+    Location <span class="pl-en">npos</span>() <span class="pl-k">const</span> <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> restore the status to the passed location</span>
+    <span class="pl-k">void</span> <span class="pl-en">seek</span>(<span class="pl-k">const</span> Location&amp;) <span class="pl-k">noexcept</span>;
+};</pre></div>
+<h7 dir="auto">
+<a id="user-content-readable-archiver-requiremnets" class="anchor" aria-hidden="true" href="#readable-archiver-requiremnets"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Readable archiver requiremnets</h7>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="class read_archiver
+{
+  public:
+
+    // return type of sink.
+    using src_iterator = Iterator;
+
+    // Return an iterator through which the binary will be read.
+    // iterator value_type should be a `char`.
+    Iterator src() const noexcept;
+
+    // Check if we can read some bytes in to the buffer.
+    bool is_readable(const std::size_t) const noexcept;
+
+    // Advance the internal pointer.
+    void advance(const std::size_t) noexcept;
+
+    // Retrace the internal pointer.
+    void retrace(const std::size_t) noexcept;
+
+    // Save the current location
+    Location npos() const noexcept;
+
+    // Restore the status to the passed location
+    void seek(const Location&amp;) noexcept;
+};"><pre><span class="pl-k">class</span> <span class="pl-en">read_archiver</span>
+{
+  <span class="pl-k">public:</span>
+
+    <span class="pl-c"><span class="pl-c">//</span> return type of sink.</span>
+    <span class="pl-k">using</span> src_iterator = Iterator;
+
+    <span class="pl-c"><span class="pl-c">//</span> Return an iterator through which the binary will be read.</span>
+    <span class="pl-c"><span class="pl-c">//</span> iterator value_type should be a `char`.</span>
+    Iterator <span class="pl-en">src</span>() <span class="pl-k">const</span> <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Check if we can read some bytes in to the buffer.</span>
+    <span class="pl-k">bool</span> <span class="pl-en">is_readable</span>(<span class="pl-k">const</span> std::<span class="pl-c1">size_t</span>) <span class="pl-k">const</span> <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Advance the internal pointer.</span>
+    <span class="pl-k">void</span> <span class="pl-en">advance</span>(<span class="pl-k">const</span> std::<span class="pl-c1">size_t</span>) <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Retrace the internal pointer.</span>
+    <span class="pl-k">void</span> <span class="pl-en">retrace</span>(<span class="pl-k">const</span> std::<span class="pl-c1">size_t</span>) <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Save the current location</span>
+    Location <span class="pl-en">npos</span>() <span class="pl-k">const</span> <span class="pl-k">noexcept</span>;
+
+    <span class="pl-c"><span class="pl-c">//</span> Restore the status to the passed location</span>
+    <span class="pl-k">void</span> <span class="pl-en">seek</span>(<span class="pl-k">const</span> Location&amp;) <span class="pl-k">noexcept</span>;
+};</pre></div>
+<h7 dir="auto">
+<a id="user-content-binding-your-archiver-to-the-polymorphic-loader" class="anchor" aria-hidden="true" href="#binding-your-archiver-to-the-polymorphic-loader"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Binding your archiver to the polymorphic loader</h7>
+<p dir="auto">To use your archiver with a polymorphic class, you need to bind them explicitly
+to subclass relationships. By specifying your archiver as type arguments of
+<code>bind_archivers</code> that will be passed to the <code>registere_subclass::bound</code>, the
+polymorphic loader will recognize your archiver.</p>
+<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='namespace wad {
+template&lt;&gt;
+struct register_subclass&lt;extlib::Base, extlib::Derived&gt;
+{
+    static constexpr const char* name() noexcept {return "extlib::Derived";}
+    static const registered&lt;extlib::Base, extlib::Derived&gt; bound;
+};
+const registered&lt;extlib::Base, extlib::Derived&gt;
+    register_subclass&lt;extlib::Base, extlib::Derived&gt;::bound(
+        bind_archivers&lt;your_write_archiver, your_read_archiver&gt;{});
+} /* wad */'><pre><span class="pl-k">namespace</span> <span class="pl-en">wad</span> {
+<span class="pl-k">template</span>&lt;&gt;
+<span class="pl-k">struct</span> <span class="pl-en">register_subclass</span>&lt;extlib::Base, extlib::Derived&gt;
+{
+    <span class="pl-k">static</span> <span class="pl-k">constexpr</span> <span class="pl-k">const</span> <span class="pl-k">char</span>* <span class="pl-en">name</span>() <span class="pl-k">noexcept</span> {<span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>extlib::Derived<span class="pl-pds">"</span></span>;}
+    <span class="pl-k">static</span> <span class="pl-k">const</span> registered&lt;extlib::Base, extlib::Derived&gt; bound;
+};
+<span class="pl-k">const</span> registered&lt;extlib::Base, extlib::Derived&gt;
+    register_subclass&lt;extlib::Base, extlib::Derived&gt;::bound(
+        bind_archivers&lt;your_write_archiver, your_read_archiver&gt;{});
+} <span class="pl-c"><span class="pl-c">/*</span> wad <span class="pl-c">*/</span></span></pre></div>
+<h6 dir="auto">
+<a id="user-content-reference" class="anchor" aria-hidden="true" href="#reference"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Reference</h6>
+<h6 dir="auto">
+<a id="user-content-licensing-terms" class="anchor" aria-hidden="true" href="#licensing-terms"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Licensing terms</h6>
+<p dir="auto">This product is licensed under the terms of the <a href="/ToruNiina/wad/blob/master/LICENSE">MIT License</a>.</p>
+<ul dir="auto">
+<li>Copyright (c) 2020 Toru Niina</li>
+</ul>
+<p dir="auto">All rights reserved.</p>
 </article>
   </div>
         </div>
@@ -8020,6 +8745,84 @@ dictionary. No support for other data type like Vector2 and Vector3</li>
 <a id="user-content-testcases" class="anchor" aria-hidden="true" href="#testcases"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Testcases</h5>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="godot -s run_test.gd"><pre><code>godot -s run_test.gd
 </code></pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-HiPhish-guile-msgpack" class="qs"><h4><a href="https://gitlab.com/HiPhish/guile-msgpack" target="_blank">HiPhish/guile-msgpack <span class="qs-url">https://gitlab.com/HiPhish/guile-msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-gnu-guile" class="anchor" aria-hidden="true" href="#messagepack-for-gnu-guile"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for GNU Guile</h5>
+<p dir="auto">This is a GNU Guile library implementing the MessagePack data serialisation
+format. It allows you to serialise (pack) and de-serialise (unpack) Scheme
+objects to and from binary data according to the MessagePack format.</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/HiPhish/guile-msgpack/blob/master/screenshot.png"><img alt="Screenshot of running a Racket REPL in Neovim, using Racket to control Neovim" src="/HiPhish/guile-msgpack/raw/master/screenshot.png" style="max-width: 100%;"></a></p>
+<a name="user-content-installation"></a>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">Use the included makefile to build the library, documentation and run tests.
+Here is a quick run-down, please refer to the <a href="/HiPhish/guile-msgpack/blob/master/INSTALL.rst">INSTALL</a> file for full details.</p>
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="# Run tests, install to /usr/local, build PDF and HTML documentation
+make check &amp;&amp; make lib doc PREFIX=/usr/local &amp;&amp; make pdf html"><pre><span class="pl-c"><span class="pl-c">#</span> Run tests, install to /usr/local, build PDF and HTML documentation</span>
+make check <span class="pl-k">&amp;&amp;</span> make lib doc PREFIX=/usr/local <span class="pl-k">&amp;&amp;</span> make pdf html</pre></div>
+<a name="user-content-using-messagepack"></a>
+<h6 dir="auto">
+<a id="user-content-using-messagepack" class="anchor" aria-hidden="true" href="#using-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using MessagePack</h6>
+<p dir="auto">First import the module, then you can pack an object to a binary input port or
+unpack one from a binary output port.</p>
+<div class="highlight highlight-source-scheme position-relative overflow-auto" data-snippet-clipboard-copy-content="(use-modules ((msgpack) #:select (pack unpack pack-to unpack-from)))
+
+;; Some object to pack
+(define hodgepodge (vector 1 2 '#(3 #t) &quot;foo&quot;))
+
+(pack hodgepodge)
+;; Returns #vu8(#x94 #x01 #x02 #x92 #x03 #xC3 #xA3 #x66 #x6F #x6F)
+
+(unpack #vu8(#x94 #x01 #x02 #x92 #x03 #xC3 #xA3 #x66 #x6F #x6F))
+;; Returns '#(1 2 #(3 #t) &quot;foo&quot;)
+
+;; We can also pack and unpack directly to and from a port
+(pack-to (current-output-port) hodgepodge)
+(unpack-from (current-input-port))"><pre>(use-modules ((msgpack) #:select (pack unpack pack-to unpack-from)))
+
+<span class="pl-c"><span class="pl-c">;</span>; Some object to pack</span>
+(<span class="pl-k">define</span> <span class="pl-smi">hodgepodge</span> (vector <span class="pl-c1">1</span> <span class="pl-c1">2</span> <span class="pl-s">'#</span>(<span class="pl-c1">3</span> <span class="pl-c1">#t</span>) <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>))
+
+(pack hodgepodge)
+<span class="pl-c"><span class="pl-c">;</span>; Returns #vu8(#x94 #x01 #x02 #x92 #x03 #xC3 #xA3 #x66 #x6F #x6F)</span>
+
+(unpack #vu8(<span class="pl-c1">#x94</span> <span class="pl-c1">#x01</span> <span class="pl-c1">#x02</span> <span class="pl-c1">#x92</span> <span class="pl-c1">#x03</span> <span class="pl-c1">#xC3</span> <span class="pl-c1">#xA3</span> <span class="pl-c1">#x66</span> <span class="pl-c1">#x6F</span> <span class="pl-c1">#x6F</span>))
+<span class="pl-c"><span class="pl-c">;</span>; Returns '#(1 2 #(3 #t) "foo")</span>
+
+<span class="pl-c"><span class="pl-c">;</span>; We can also pack and unpack directly to and from a port</span>
+(pack-to (current-output-port) hodgepodge)
+(unpack-from (current-input-port))</pre></div>
+<p dir="auto">In the above code we have two variants of <code>pack</code> and <code>unpack</code>: a pure one and
+an impure one with a <code>to</code>- or <code>from</code> suffix. The pure variant performs the
+packing or unpacking without any side effects by returning the packed bytes or
+the unpacked object. The impure variant on the other hand writes to or reads
+from a port as a side effect, but does not return anything.</p>
+<a name="user-content-status-of-the-project"></a>
+<h6 dir="auto">
+<a id="user-content-status-of-the-project" class="anchor" aria-hidden="true" href="#status-of-the-project"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Status of the project</h6>
+<p dir="auto">The project is still fresh, but it is complete and stable as far as I am
+concerned. I will wait a little while for it to set before committing to a
+proper release though. User experience reports are always welcome.</p>
+<a name="user-content-license"></a>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">Released under the GPLv3+ license, see the <a href="/HiPhish/guile-msgpack/blob/master/COPYING.txt">COPYING</a> file for details.</p>
+<a name="user-content-self-promotion"></a>
+<h6 dir="auto">
+<a id="user-content-self-promotion" class="anchor" aria-hidden="true" href="#self-promotion"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Self-promotion</h6>
+<p dir="auto">If you like this library please consider financially supporting its
+development, every small amount helps. Feel free to explore my other software
+projects as well.</p>
+<ul dir="auto">
+<li><a href="http://hiphish.github.io/" rel="nofollow">http://hiphish.github.io/</a></li>
+<li><a href="https://liberapay.com/HiPhish/" rel="nofollow">https://liberapay.com/HiPhish/</a></li>
+</ul>
+
 </article>
   </div>
         </div>
@@ -19359,6 +20162,128 @@ vignette</a>.</p>
   </div>
         </div>
         
+        <div id="qs-skyformat99-msgpack2R" class="qs"><h4><a href="https://github.com/skyformat99/msgpack2R" target="_blank">skyformat99/msgpack2R <span class="qs-url">https://github.com/skyformat99/msgpack2R</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack2r" class="anchor" aria-hidden="true" href="#msgpack2r"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack2R</h5>
+<p dir="auto">Convert to and from msgpack objects in R using the official msgpack-c API through Rcpp.</p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/traversc/msgpack2R/master/vignettes/msgpack_flowchart.png"><img src="https://raw.githubusercontent.com/traversc/msgpack2R/master/vignettes/msgpack_flowchart.png" alt="flowchart" title="Conversion flowchart" style="max-width: 100%;"></a>
+<em>A flowchart describing the conversion of R objects into msgpack objects and back.</em></p>
+<p dir="auto">Msgpack EXT types are converted to raw vectors with EXT attributes containing the extension type.  The extension type must be an integer from 0 to 127.</p>
+<p dir="auto">Maps are converted to data.frames with additional class "map".  Map objects in R contain key and value list columns and can be simplified to named lists or named vectors.  The helper function <code>msgpack_map</code> creates map objects that can be serialized into msgpack.</p>
+<p dir="auto">For more information on msgpack types, see <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">here</a>.</p>
+<h7 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation:</h7>
+<ol dir="auto">
+<li>On Windows, install Rtools (<a href="https://cran.r-project.org/bin/windows/Rtools/" rel="nofollow">https://cran.r-project.org/bin/windows/Rtools/</a>)</li>
+<li>In R, install devtools: <code>install.packages("devtools")</code>
+</li>
+<li><code>library(devtools)</code></li>
+<li><code>install_github("traversc/msgpack2R")</code></li>
+</ol>
+<h7 dir="auto">
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example:</h7>
+<p dir="auto">See <code>examples/tests.r</code> for more examples.</p>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="library(msgpack2R)
+library(microbenchmark)
+
+x &lt;- as.list(1:1e7)
+microbenchmark(xpk &lt;- msgpack_pack(x), times=3) # ~ 0.5 seconds
+microbenchmark(xu &lt;- msgpack_unpack(xpk), times=3) # ~ 2.5-3 seconds"><pre><code>library(msgpack2R)
+library(microbenchmark)
+
+x &lt;- as.list(1:1e7)
+microbenchmark(xpk &lt;- msgpack_pack(x), times=3) # ~ 0.5 seconds
+microbenchmark(xu &lt;- msgpack_unpack(xpk), times=3) # ~ 2.5-3 seconds
+</code></pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-HiPhish-msgpack-racket" class="qs"><h4><a href="https://gitlab.com/HiPhish/MsgPack.rkt" target="_blank">HiPhish/msgpack-racket <span class="qs-url">https://gitlab.com/HiPhish/MsgPack.rkt</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-in-racket" class="anchor" aria-hidden="true" href="#messagepack-in-racket"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack in Racket</h5>
+<p dir="auto">This is a <a href="http://racket-lang.org/" rel="nofollow">Racket</a> implementation of <a href="http://msgpack.org/" rel="nofollow">MessagePack</a>, a binary data serialisation
+format. It allows you to serialise (pack) and de-serialise (unpack) Racket
+object to and from binary data.</p>
+<a name="user-content-installation"></a>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">The easiest way to install this library is from the <a href="https://pkgs.racket-lang.org/" rel="nofollow">Racket Package Catalog</a>.
+Run the following code from your shell:</p>
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="raco pkg install msgpack"><pre>raco pkg install msgpack</pre></div>
+<p dir="auto">If you wish to install the package from this repository use the included
+makefile:</p>
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="make install   # Install the package
+make remove    # Uninstall the package"><pre>make install   <span class="pl-c"><span class="pl-c">#</span> Install the package</span>
+make remove    <span class="pl-c"><span class="pl-c">#</span> Uninstall the package</span></pre></div>
+<a name="user-content-using-messagepack"></a>
+<h6 dir="auto">
+<a id="user-content-using-messagepack" class="anchor" aria-hidden="true" href="#using-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using MessagePack</h6>
+<div class="highlight highlight-source-racket position-relative overflow-auto" data-snippet-clipboard-copy-content=";;; Import the library first
+(require msgpack)
+
+;;; Some object to pack
+(define hodgepodge (vector 1 2 (void) '#(3 #t) &quot;foo&quot;))
+
+;;; Packing data
+(define packed (call-with-output-bytes (λ (out) (pack hodgepodge out))))
+;;; &gt; #&quot;\225\1\2\300\222\3\303\243foo&quot;
+
+;;; Unpacking data
+(define unpacked (call-with-input-bytes packed (λ (in) (unpack in))))
+;;; &gt; '#(1 2 #&lt;void&gt; #(3 #t) &quot;foo&quot;)"><pre><span class="pl-c">;;; Import the library first</span>
+(<span class="pl-en">require</span> msgpack)
+
+<span class="pl-c">;;; Some object to pack</span>
+(<span class="pl-en">define</span> hodgepodge (vector <span class="pl-c1">1</span> <span class="pl-c1">2</span> (void) '#(<span class="pl-c1">3</span> <span class="pl-c1">#t</span>) <span class="pl-c1">"<span class="pl-c1">foo</span>"</span>))
+
+<span class="pl-c">;;; Packing data</span>
+(<span class="pl-en">define</span> packed (call-with-output-bytes (<span class="pl-en">λ</span> (out) (pack hodgepodge out))))
+<span class="pl-c">;;; &gt; #"\225\1\2\300\222\3\303\243foo"</span>
+
+<span class="pl-c">;;; Unpacking data</span>
+(<span class="pl-en">define</span> unpacked (call-with-input-bytes packed (<span class="pl-en">λ</span> (in) (unpack in))))
+<span class="pl-c">;;; &gt; '#(1 2 #&lt;void&gt; #(3 #t) "foo")</span></pre></div>
+<p dir="auto">The <code>pack</code> function takes a Racket object and a binary output port as arguments
+and writes the serialised data to the port.  The <code>unpack</code> function takes a
+binary input port and returns one de-serialised object, consuming the necessary
+amount of bytes from the port in the process. For more details please refer to
+the <a href="https://docs.racket-lang.org/msgpack/index.html" rel="nofollow">documentation</a>.</p>
+<p dir="auto">In the above example code we set the output and input ports to be byte strings
+so we could work with the packed and unpacked data directly inside the Racket
+instance.</p>
+<a name="user-content-status"></a>
+<h6 dir="auto">
+<a id="user-content-status" class="anchor" aria-hidden="true" href="#status"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Status</h6>
+<p dir="auto">The library is fully functional, covered by test cases, and the API should be
+reasonably mature, but I am not yet willing to completely rule out changes. See
+also below for parts of the library that could not be tested at the moment due
+to technical reasons.</p>
+<a name="user-content-caveats"></a>
+<h6 dir="auto">
+<a id="user-content-caveats" class="anchor" aria-hidden="true" href="#caveats"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Caveats</h6>
+<p dir="auto">The following cases cannot be tested for the time being:</p>
+<ul dir="auto">
+<li>The <code>bin32</code> type, storing a byte string that is <tt>2^32</tt> bytes long
+requires 4GiB, my machine simply runs out of memory.</li>
+<li>The same goes for the <code>str32</code> type</li>
+<li>The same goes for the <code>array32</code> type</li>
+<li>The same goes for the <code>map32</code> type</li>
+<li>The same goes for the <code>ext32</code> type</li>
+<li>Strings are only tested using ASCII characters, if anyone can generate
+UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
+</ul>
+<a name="user-content-license"></a>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">Released under the GPLv3+ license, see the <a href="/HiPhish/msgpack-racket/blob/master/COPYING.txt">COPYING</a> file for details.</p>
+
+</article>
+  </div>
+        </div>
+        
         <div id="qs-owenthereal-msgpack_rails" class="qs"><h4><a href="https://github.com/jingweno/msgpack_rails" target="_blank">owenthereal/msgpack_rails <span class="qs-url">https://github.com/jingweno/msgpack_rails</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -19630,6 +20555,209 @@ existing functionality.</p>
 <ul dir="auto">
 <li>Rust 1.53.0 or later</li>
 </ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-codx-dev-msgpacker" class="qs"><h4><a href="https://github.com/codx-dev/msgpacker" target="_blank">codx-dev/msgpacker <span class="qs-url">https://github.com/codx-dev/msgpacker</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepacker---some-rust-in-the-msgpack-protocol" class="anchor" aria-hidden="true" href="#messagepacker---some-rust-in-the-msgpack-protocol"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePacker - some Rust in the msgpack protocol</h5>
+<p dir="auto"><a href="https://crates.io/crates/msgpacker" rel="nofollow"><img src="https://camo.githubusercontent.com/3e73f8b35e0518a06b697d8fb7dea446f8ee2ce24d91d3c0b115c9a1b67be5b1/68747470733a2f2f696d672e736869656c64732e696f2f6372617465732f762f6d73677061636b65723f6c6162656c3d6c6174657374" alt="crates.io" data-canonical-src="https://img.shields.io/crates/v/msgpacker?label=latest" style="max-width: 100%;"></a>
+<a href="https://docs.rs/msgpacker/" rel="nofollow"><img src="https://camo.githubusercontent.com/895b175afa68c38a37723ae4475e9f22a26c8589574c3f2245bd9243aa5b4061/68747470733a2f2f646f63732e72732f6d73677061636b65722f62616467652e737667" alt="Documentation" data-canonical-src="https://docs.rs/msgpacker/badge.svg" style="max-width: 100%;"></a>
+<a href="/codx-dev/msgpacker/blob/main"><img src="https://camo.githubusercontent.com/ecdc8dc052f8e4033fdcc22dc33c3b158edaf982c1d870f203db83043be88943/68747470733a2f2f696d672e736869656c64732e696f2f6372617465732f6c2f6d73677061636b65722e737667" alt="License" data-canonical-src="https://img.shields.io/crates/l/msgpacker.svg" style="max-width: 100%;"></a></p>
+<p dir="auto">The protocol specification can be found <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">here</a>.</p>
+<p dir="auto">This crate targets simplicity and performance. No dependencies are used, just the standard Rust library.</p>
+<p dir="auto">We have two main structures available:</p>
+<ul dir="auto">
+<li>Message - Owned parsed values</li>
+<li>MessageRef - Message parsed by reference and bound to the lifetime of the readers source</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example</h6>
+<div class="highlight highlight-source-rust position-relative overflow-auto" data-snippet-clipboard-copy-content='use msgpacker::prelude::*;
+use std::io::{Cursor, Seek};
+
+let buffer = vec![0u8; 4096];
+let mut cursor = Cursor::new(buffer);
+
+let key = Message::string("some-key");
+let value = Message::integer_signed(-15);
+let entry = MapEntry::new(key, value);
+let message = Message::map(vec![entry]);
+
+// Write the message to the cursor
+message.pack(&amp;mut cursor).expect("Message pack failed");
+
+cursor.rewind().expect("Reset the cursor to the beginning");
+
+// Read the message from the cursor
+let restored = Message::unpack(&amp;mut cursor).expect("Message unpack failed");
+let value = restored
+    .as_map()
+    .expect("A map was originally created")
+    .first()
+    .expect("The map contained one entry")
+    .val()
+    .as_integer()
+    .expect("The value was an integer")
+    .as_i64()
+    .expect("The value was a negative integer");
+
+assert_eq!(value, -15);
+
+// Alternatively, we can use the index implementation
+let value = restored["some-key"]
+    .as_integer()
+    .expect("The value was an integer")
+    .as_i64()
+    .expect("The value was a negative number");
+
+assert_eq!(value, -15);'><pre><span class="pl-k">use</span> msgpacker<span class="pl-k">::</span>prelude<span class="pl-k">::</span><span class="pl-k">*</span>;
+<span class="pl-k">use</span> std<span class="pl-k">::</span>io<span class="pl-k">::</span>{Cursor, Seek};
+
+<span class="pl-k">let</span> buffer <span class="pl-k">=</span> <span class="pl-c1">vec!</span>[<span class="pl-c1">0u8</span>; <span class="pl-c1">4096</span>];
+<span class="pl-k">let</span> <span class="pl-k">mut</span> cursor <span class="pl-k">=</span> Cursor<span class="pl-k">::</span><span class="pl-en">new</span>(buffer);
+
+<span class="pl-k">let</span> key <span class="pl-k">=</span> Message<span class="pl-k">::</span><span class="pl-en">string</span>(<span class="pl-s">"some-key"</span>);
+<span class="pl-k">let</span> value <span class="pl-k">=</span> Message<span class="pl-k">::</span><span class="pl-en">integer_signed</span>(<span class="pl-k">-</span><span class="pl-c1">15</span>);
+<span class="pl-k">let</span> entry <span class="pl-k">=</span> MapEntry<span class="pl-k">::</span><span class="pl-en">new</span>(key, value);
+<span class="pl-k">let</span> message <span class="pl-k">=</span> Message<span class="pl-k">::</span><span class="pl-en">map</span>(<span class="pl-c1">vec!</span>[entry]);
+
+<span class="pl-c">// Write the message to the cursor</span>
+message.<span class="pl-en">pack</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> cursor).<span class="pl-en">expect</span>(<span class="pl-s">"Message pack failed"</span>);
+
+cursor.<span class="pl-en">rewind</span>().<span class="pl-en">expect</span>(<span class="pl-s">"Reset the cursor to the beginning"</span>);
+
+<span class="pl-c">// Read the message from the cursor</span>
+<span class="pl-k">let</span> restored <span class="pl-k">=</span> Message<span class="pl-k">::</span><span class="pl-en">unpack</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> cursor).<span class="pl-en">expect</span>(<span class="pl-s">"Message unpack failed"</span>);
+<span class="pl-k">let</span> value <span class="pl-k">=</span> restored
+    .<span class="pl-en">as_map</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"A map was originally created"</span>)
+    .<span class="pl-en">first</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The map contained one entry"</span>)
+    .<span class="pl-en">val</span>()
+    .<span class="pl-en">as_integer</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was an integer"</span>)
+    .<span class="pl-en">as_i64</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was a negative integer"</span>);
+
+<span class="pl-c1">assert_eq!</span>(value, <span class="pl-k">-</span><span class="pl-c1">15</span>);
+
+<span class="pl-c">// Alternatively, we can use the index implementation</span>
+<span class="pl-k">let</span> value <span class="pl-k">=</span> restored[<span class="pl-s">"some-key"</span>]
+    .<span class="pl-en">as_integer</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was an integer"</span>)
+    .<span class="pl-en">as_i64</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was a negative number"</span>);
+
+<span class="pl-c1">assert_eq!</span>(value, <span class="pl-k">-</span><span class="pl-c1">15</span>);</pre></div>
+<h6 dir="auto">
+<a id="user-content-example-by-ref" class="anchor" aria-hidden="true" href="#example-by-ref"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example (by ref)</h6>
+<div class="highlight highlight-source-rust position-relative overflow-auto" data-snippet-clipboard-copy-content='use msgpacker::prelude::*;
+use std::io::{Cursor, Seek};
+
+let mut cursor = Cursor::new(vec![0u8; 4096]);
+
+let key = Message::String("some-key".into());
+let value = Message::Integer(Integer::signed(-15));
+let entry = MapEntry::new(key, value);
+let message = Message::Map(vec![entry]);
+
+// Write the message to the cursor
+message.pack(&amp;mut cursor).expect("Message pack failed");
+
+cursor.rewind().expect("Reset the cursor to the beginning");
+
+// The consumer need to guarantee himself the cursor source will live long enough to satisfy the
+// lifetime of the message reference.
+//
+// If this is guaranteed, then the function is safe.
+let restored = unsafe { MessageRef::unpack(&amp;mut cursor).expect("Message unpack failed") };
+
+// The lifetime of `MessageRef` is not bound to the `Read` implementation because the source
+// might outlive it - as in this example
+let _buffer = cursor.into_inner();
+
+// `MessageRef` behaves the same as `Message`, but the runtime cost is cheaper because it will
+// avoid a couple of unnecessary copies
+let value = restored
+    .as_map()
+    .expect("A map was originally created")
+    .first()
+    .expect("The map contained one entry")
+    .val()
+    .as_integer()
+    .expect("The value was an integer")
+    .as_i64()
+    .expect("The value was a negative integer");
+
+assert_eq!(value, -15);
+
+// MessageRef also implements `Index`
+let value = restored["some-key"]
+    .as_integer()
+    .expect("The value was an integer")
+    .as_i64()
+    .expect("The value was a negative number");
+
+assert_eq!(value, -15);'><pre><span class="pl-k">use</span> msgpacker<span class="pl-k">::</span>prelude<span class="pl-k">::</span><span class="pl-k">*</span>;
+<span class="pl-k">use</span> std<span class="pl-k">::</span>io<span class="pl-k">::</span>{Cursor, Seek};
+
+<span class="pl-k">let</span> <span class="pl-k">mut</span> cursor <span class="pl-k">=</span> Cursor<span class="pl-k">::</span><span class="pl-en">new</span>(<span class="pl-c1">vec!</span>[<span class="pl-c1">0u8</span>; <span class="pl-c1">4096</span>]);
+
+<span class="pl-k">let</span> key <span class="pl-k">=</span> Message<span class="pl-k">::</span><span class="pl-k">String</span>(<span class="pl-s">"some-key"</span>.<span class="pl-en">into</span>());
+<span class="pl-k">let</span> value <span class="pl-k">=</span> Message<span class="pl-k">::</span><span class="pl-en">Integer</span>(Integer<span class="pl-k">::</span><span class="pl-en">signed</span>(<span class="pl-k">-</span><span class="pl-c1">15</span>));
+<span class="pl-k">let</span> entry <span class="pl-k">=</span> MapEntry<span class="pl-k">::</span><span class="pl-en">new</span>(key, value);
+<span class="pl-k">let</span> message <span class="pl-k">=</span> Message<span class="pl-k">::</span><span class="pl-en">Map</span>(<span class="pl-c1">vec!</span>[entry]);
+
+<span class="pl-c">// Write the message to the cursor</span>
+message.<span class="pl-en">pack</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> cursor).<span class="pl-en">expect</span>(<span class="pl-s">"Message pack failed"</span>);
+
+cursor.<span class="pl-en">rewind</span>().<span class="pl-en">expect</span>(<span class="pl-s">"Reset the cursor to the beginning"</span>);
+
+<span class="pl-c">// The consumer need to guarantee himself the cursor source will live long enough to satisfy the</span>
+<span class="pl-c">// lifetime of the message reference.</span>
+<span class="pl-c">//</span>
+<span class="pl-c">// If this is guaranteed, then the function is safe.</span>
+<span class="pl-k">let</span> restored <span class="pl-k">=</span> <span class="pl-k">unsafe</span> { MessageRef<span class="pl-k">::</span><span class="pl-en">unpack</span>(<span class="pl-k">&amp;</span><span class="pl-k">mut</span> cursor).<span class="pl-en">expect</span>(<span class="pl-s">"Message unpack failed"</span>) };
+
+<span class="pl-c">// The lifetime of `MessageRef` is not bound to the `Read` implementation because the source</span>
+<span class="pl-c">// might outlive it - as in this example</span>
+<span class="pl-k">let</span> _buffer <span class="pl-k">=</span> cursor.<span class="pl-en">into_inner</span>();
+
+<span class="pl-c">// `MessageRef` behaves the same as `Message`, but the runtime cost is cheaper because it will</span>
+<span class="pl-c">// avoid a couple of unnecessary copies</span>
+<span class="pl-k">let</span> value <span class="pl-k">=</span> restored
+    .<span class="pl-en">as_map</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"A map was originally created"</span>)
+    .<span class="pl-en">first</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The map contained one entry"</span>)
+    .<span class="pl-en">val</span>()
+    .<span class="pl-en">as_integer</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was an integer"</span>)
+    .<span class="pl-en">as_i64</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was a negative integer"</span>);
+
+<span class="pl-c1">assert_eq!</span>(value, <span class="pl-k">-</span><span class="pl-c1">15</span>);
+
+<span class="pl-c">// MessageRef also implements `Index`</span>
+<span class="pl-k">let</span> value <span class="pl-k">=</span> restored[<span class="pl-s">"some-key"</span>]
+    .<span class="pl-en">as_integer</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was an integer"</span>)
+    .<span class="pl-en">as_i64</span>()
+    .<span class="pl-en">expect</span>(<span class="pl-s">"The value was a negative number"</span>);
+
+<span class="pl-c1">assert_eq!</span>(value, <span class="pl-k">-</span><span class="pl-c1">15</span>);</pre></div>
+<h6 dir="auto">
+<a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Benchmarks</h6>
+<p dir="auto">Results obtained with <code>Intel(R) Core(TM) i9-9900X CPU @ 3.50GHz</code>. To generate benchmarks, run <code>$ cargo bench</code>.</p>
+<p dir="auto">The benchmark compares msgpacker with two very popuplar Rust implementations: rmpv and rmps. The performance was similar for pack and unpack, with msgpacker taking the lead a couple of times. Very often rmps was far behind.</p>
+<p dir="auto">The performance of integer packing was better for msgpacker.</p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/8730839/138608513-b62b44f5-0651-4619-9173-967a5cb08647.png"><img src="https://user-images.githubusercontent.com/8730839/138608513-b62b44f5-0651-4619-9173-967a5cb08647.png" alt="violin-int" style="max-width: 100%;"></a></p>
+<p dir="auto">However, for unpack by reference, the performance was dramatically better in favor of msgpacker for map deserialization.</p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/8730839/138608511-e8c44d3a-684a-4077-8fe8-034e19d3c34f.png"><img src="https://user-images.githubusercontent.com/8730839/138608511-e8c44d3a-684a-4077-8fe8-034e19d3c34f.png" alt="violin" style="max-width: 100%;"></a></p>
+<p dir="auto">The full report can be found <a href="https://github.com/codx-dev/msgpacker/tree/main/msgpacker-bench/html">here</a>.</p>
 </article>
   </div>
         </div>
