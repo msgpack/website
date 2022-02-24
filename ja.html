@@ -217,8 +217,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-d',this)">D <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-knopp-msgpack_dart',this)">Dart <span class="qs-sub">knopp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-chinawsb-qmsgpack-delphi',this)">Delphi <span class="qs-sub">chinawsb</span></a></li>
@@ -350,8 +348,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-Asmod4n-mruby-simplemsgpack',this)">mruby <span class="qs-sub">Asmod4n</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tagomoris-msgpack-inspect',this)">msgpack-inspect <span class="qs-sub">tagomoris</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-argonaut',this)">scala-native <span class="qs-sub">msgpack4z</span></a></li>
           
         </ul>
       </div>
@@ -1597,23 +1593,23 @@ public class MyClass
     // All fields or properties that should not be serialized must be annotated with [IgnoreMember].
     [IgnoreMember]
     public string FullName { get { return FirstName + LastName; } }
-}"><pre>[<span class="pl-k">MessagePackObject</span>]
+}"><pre>[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyClass</span>
 {
     <span class="pl-c"><span class="pl-c">//</span> Key attributes take a serialization index (or string name)</span>
     <span class="pl-c"><span class="pl-c">//</span> The values must be unique and versioning has to be considered as well.</span>
     <span class="pl-c"><span class="pl-c">//</span> Keys are described in later sections in more detail.</span>
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Age</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">FirstName</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 
-    [<span class="pl-k">Key</span>(<span class="pl-c1">2</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">2</span>)]
     <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">LastName</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 
     <span class="pl-c"><span class="pl-c">//</span> All fields or properties that should not be serialized must be annotated with [IgnoreMember].</span>
-    [<span class="pl-k">IgnoreMember</span>]
+    [<span class="pl-en">IgnoreMember</span>]
     <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">FullName</span> { <span class="pl-k">get</span> { <span class="pl-k">return</span> <span class="pl-smi">FirstName</span> <span class="pl-k">+</span> <span class="pl-smi">LastName</span>; } }
 }</pre></div>
 <p dir="auto">Call <code>MessagePackSerializer.Serialize&lt;T&gt;/Deserialize&lt;T&gt;</code> to serialize/deserialize your object instance.
@@ -1644,7 +1640,7 @@ You can use the <code>ConvertToJson</code> method to get a human readable repres
 {
     <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">Main</span>(<span class="pl-k">string</span>[] <span class="pl-en">args</span>)
     {
-        <span class="pl-k">var</span> <span class="pl-en">mc</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">MyClass</span>
+        <span class="pl-k">var</span> <span class="pl-en">mc</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyClass</span>
         {
             <span class="pl-smi">Age</span> <span class="pl-k">=</span> <span class="pl-c1">99</span>,
             <span class="pl-smi">FirstName</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>hoge<span class="pl-pds">"</span></span>,
@@ -1653,7 +1649,7 @@ You can use the <code>ConvertToJson</code> method to get a human readable repres
 
         <span class="pl-c"><span class="pl-c">//</span> Call Serialize/Deserialize, that's all.</span>
         <span class="pl-k">byte</span>[] <span class="pl-en">bytes</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(<span class="pl-smi">mc</span>);
-        <span class="pl-k">MyClass</span> <span class="pl-en">mc2</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">MyClass</span>&gt;(<span class="pl-smi">bytes</span>);
+        <span class="pl-en">MyClass</span> <span class="pl-en">mc2</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">MyClass</span>&gt;(<span class="pl-smi">bytes</span>);
 
         <span class="pl-c"><span class="pl-c">//</span> You can dump MessagePack binary blobs to human readable json.</span>
         <span class="pl-c"><span class="pl-c">//</span> Using indexed keys (as opposed to string keys) will serialize to MessagePack arrays,</span>
@@ -1769,43 +1765,43 @@ Console.WriteLine(MessagePackSerializer.SerializeToJson(new Sample1 { Foo = 10, 
 Console.WriteLine(MessagePackSerializer.SerializeToJson(new Sample2 { Foo = 10, Bar = 20 }));
 
 // {"Foo":10}
-Console.WriteLine(MessagePackSerializer.SerializeToJson(new Sample3 { Foo = 10, Bar = 20 }));'><pre>[<span class="pl-k">MessagePackObject</span>]
+Console.WriteLine(MessagePackSerializer.SerializeToJson(new Sample3 { Foo = 10, Bar = 20 }));'><pre>[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Sample1</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Foo</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Bar</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-[<span class="pl-k">MessagePackObject</span>]
+[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Sample2</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Foo</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    [<span class="pl-k">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Bar</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-[<span class="pl-k">MessagePackObject</span>(<span class="pl-smi">keyAsPropertyName</span>: <span class="pl-c1">true</span>)]
+[<span class="pl-en">MessagePackObject</span>(<span class="pl-smi">keyAsPropertyName</span>: <span class="pl-c1">true</span>)]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Sample3</span>
 {
     <span class="pl-c"><span class="pl-c">//</span> No need for a Key attribute</span>
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Foo</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 
     <span class="pl-c"><span class="pl-c">//</span> If want to ignore a public member, you can use the  IgnoreMember attribute</span>
-    [<span class="pl-k">IgnoreMember</span>]
+    [<span class="pl-en">IgnoreMember</span>]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Bar</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
 <span class="pl-c"><span class="pl-c">//</span> [10,20]</span>
-<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-k">Sample1</span> { <span class="pl-smi">Foo</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>, <span class="pl-smi">Bar</span> <span class="pl-k">=</span> <span class="pl-c1">20</span> }));
+<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-en">Sample1</span> { <span class="pl-smi">Foo</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>, <span class="pl-smi">Bar</span> <span class="pl-k">=</span> <span class="pl-c1">20</span> }));
 
 <span class="pl-c"><span class="pl-c">//</span> {"foo":10,"bar":20}</span>
-<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-k">Sample2</span> { <span class="pl-smi">Foo</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>, <span class="pl-smi">Bar</span> <span class="pl-k">=</span> <span class="pl-c1">20</span> }));
+<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-en">Sample2</span> { <span class="pl-smi">Foo</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>, <span class="pl-smi">Bar</span> <span class="pl-k">=</span> <span class="pl-c1">20</span> }));
 
 <span class="pl-c"><span class="pl-c">//</span> {"Foo":10}</span>
-<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-k">Sample3</span> { <span class="pl-smi">Foo</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>, <span class="pl-smi">Bar</span> <span class="pl-k">=</span> <span class="pl-c1">20</span> }));</pre></div>
+<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-en">Sample3</span> { <span class="pl-smi">Foo</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>, <span class="pl-smi">Bar</span> <span class="pl-k">=</span> <span class="pl-c1">20</span> }));</pre></div>
 <p dir="auto">All public instance members (fields as well as properties) will be serialized. If you want to ignore certain public members, annotate the member with a <code>[IgnoreMember]</code> attribute.</p>
 <p dir="auto">Please note that any serializable struct or class must have public accessibility; private and internal structs and classes cannot be serialized!
 The default of requiring <code>MessagePackObject</code> annotations is meant to enforce explicitness and therefore may help write more robust code.</p>
@@ -1825,17 +1821,17 @@ public class IntKeySample
 }
 
 // [null,null,null,0,null,null,null,null,null,null,0]
-Console.WriteLine(MessagePackSerializer.SerializeToJson(new IntKeySample()));"><pre>[<span class="pl-k">MessagePackObject</span>]
+Console.WriteLine(MessagePackSerializer.SerializeToJson(new IntKeySample()));"><pre>[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IntKeySample</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">3</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">3</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">A</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    [<span class="pl-k">Key</span>(<span class="pl-c1">10</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">10</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">B</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
 <span class="pl-c"><span class="pl-c">//</span> [null,null,null,0,null,null,null,null,null,null,0]</span>
-<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-k">IntKeySample</span>()));</pre></div>
+<span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">SerializeToJson</span>(<span class="pl-k">new</span> <span class="pl-en">IntKeySample</span>()));</pre></div>
 <p dir="auto">If you do not want to explicitly annotate with the <code>MessagePackObject</code>/<code>Key</code> attributes and instead want to use MessagePack for C# more like e.g. <a href="https://github.com/JamesNK/Newtonsoft.Json">Json.NET</a>, you can make use of the contractless resolver.</p>
 <div class="highlight highlight-source-cs position-relative overflow-auto" data-snippet-clipboard-copy-content='public class ContractlessSample
 {
@@ -1862,7 +1858,7 @@ var bin2 = MessagePackSerializer.Serialize(data);'><pre><span class="pl-k">publi
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">MyProperty2</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-<span class="pl-k">var</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ContractlessSample</span> { <span class="pl-smi">MyProperty1</span> <span class="pl-k">=</span> <span class="pl-c1">99</span>, <span class="pl-smi">MyProperty2</span> <span class="pl-k">=</span> <span class="pl-c1">9999</span> };
+<span class="pl-k">var</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">ContractlessSample</span> { <span class="pl-smi">MyProperty1</span> <span class="pl-k">=</span> <span class="pl-c1">99</span>, <span class="pl-smi">MyProperty2</span> <span class="pl-k">=</span> <span class="pl-c1">9999</span> };
 <span class="pl-k">var</span> <span class="pl-en">bin</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(
   <span class="pl-smi">data</span>,
   <span class="pl-smi">MessagePack</span>.<span class="pl-smi">Resolvers</span>.<span class="pl-smi">ContractlessStandardResolver</span>.<span class="pl-smi">Options</span>);
@@ -1901,10 +1897,10 @@ data.SetX(9999);
 // or ContractlessStandardResolverAllowPrivate
 var bin = MessagePackSerializer.Serialize(
   data,
-  MessagePack.Resolvers.DynamicObjectResolverAllowPrivate.Options);"><pre>[<span class="pl-k">MessagePackObject</span>]
+  MessagePack.Resolvers.DynamicObjectResolverAllowPrivate.Options);"><pre>[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">PrivateSample</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">int</span> <span class="pl-en">x</span>;
 
     <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">SetX</span>(<span class="pl-k">int</span> <span class="pl-en">v</span>)
@@ -1918,7 +1914,7 @@ var bin = MessagePackSerializer.Serialize(
     }
 }
 
-<span class="pl-k">var</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">PrivateSample</span>();
+<span class="pl-k">var</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PrivateSample</span>();
 <span class="pl-smi">data</span>.<span class="pl-en">SetX</span>(<span class="pl-c1">9999</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> You can choose either StandardResolverAllowPrivate</span>
@@ -1955,12 +1951,12 @@ var data = new Point(99, 9999);
 var bin = MessagePackSerializer.Serialize(data);
 
 // Okay to deserialize immutable object
-var point = MessagePackSerializer.Deserialize&lt;Point&gt;(bin);"><pre>[<span class="pl-k">MessagePackObject</span>]
+var point = MessagePackSerializer.Deserialize&lt;Point&gt;(bin);"><pre>[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Point</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">readonly</span> <span class="pl-k">int</span> <span class="pl-en">X</span>;
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">readonly</span> <span class="pl-k">int</span> <span class="pl-en">Y</span>;
 
     <span class="pl-k">public</span> <span class="pl-en">Point</span>(<span class="pl-k">int</span> <span class="pl-en">x</span>, <span class="pl-k">int</span> <span class="pl-en">y</span>)
@@ -1970,11 +1966,11 @@ var point = MessagePackSerializer.Deserialize&lt;Point&gt;(bin);"><pre>[<span cl
     }
 }
 
-<span class="pl-k">var</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">Point</span>(<span class="pl-c1">99</span>, <span class="pl-c1">9999</span>);
+<span class="pl-k">var</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Point</span>(<span class="pl-c1">99</span>, <span class="pl-c1">9999</span>);
 <span class="pl-k">var</span> <span class="pl-en">bin</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(<span class="pl-smi">data</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> Okay to deserialize immutable object</span>
-<span class="pl-k">var</span> <span class="pl-en">point</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">Point</span>&gt;(<span class="pl-smi">bin</span>);</pre></div>
+<span class="pl-k">var</span> <span class="pl-en">point</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">Point</span>&gt;(<span class="pl-smi">bin</span>);</pre></div>
 <p dir="auto"><code>MessagePackSerializer</code> will choose the constructor with the best matched argument list, using argument indexes index for index keys, or parameter names for string keys. If it cannot determine an appropriate constructor, a <code>MessagePackDynamicObjectResolverException: can't find matched constructor parameter</code> exception will be thrown.
 You can specify which constructor to use manually with a <code>[SerializationConstructor]</code> annotation.</p>
 <div class="highlight highlight-source-cs position-relative overflow-auto" data-snippet-clipboard-copy-content="[MessagePackObject]
@@ -1998,15 +1994,15 @@ public struct Point
         this.X = x;
         this.Y = y;
     }
-}"><pre>[<span class="pl-k">MessagePackObject</span>]
+}"><pre>[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Point</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">readonly</span> <span class="pl-k">int</span> <span class="pl-en">X</span>;
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">readonly</span> <span class="pl-k">int</span> <span class="pl-en">Y</span>;
 
-    [<span class="pl-k">SerializationConstructor</span>]
+    [<span class="pl-en">SerializationConstructor</span>]
     <span class="pl-k">public</span> <span class="pl-en">Point</span>(<span class="pl-k">int</span> <span class="pl-en">x</span>)
     {
         <span class="pl-k">this</span>.<span class="pl-smi">X</span> <span class="pl-k">=</span> <span class="pl-smi">x</span>;
@@ -2039,19 +2035,19 @@ public record Person
     [Key(1)]
     public string LastName { get; init; }
 }"><pre><span class="pl-c"><span class="pl-c">//</span> use key as property name</span>
-[<span class="pl-k">MessagePackObject</span>(<span class="pl-c1">true</span>)]<span class="pl-k">public</span> <span class="pl-k">record</span> <span class="pl-en">Point</span>(int X, int Y);
+[<span class="pl-en">MessagePackObject</span>(<span class="pl-c1">true</span>)]<span class="pl-k">public</span> <span class="pl-k">record</span> <span class="pl-en">Point</span>(int X, int Y);
 
 <span class="pl-c"><span class="pl-c">//</span> use property: to set KeyAttribute</span>
-[MessagePackObject] public record Point([property:<span class="pl-k">Key</span>(0)] <span class="pl-k">int</span> <span class="pl-k">X</span>, [property: Key(1)] <span class="pl-k">int</span> <span class="pl-k">Y</span>);
+[MessagePackObject] public record Point([property:<span class="pl-en">Key</span>(0)] <span class="pl-k">int</span> <span class="pl-en">X</span>, [property: Key(1)] <span class="pl-k">int</span> <span class="pl-en">Y</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> Or use explicit properties</span>
 [MessagePackObject]
-<span class="pl-k">public</span> <span class="pl-k">record</span> <span class="pl-k">Person</span>
+<span class="pl-en">public</span> <span class="pl-en">record</span> <span class="pl-en">Person</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">FirstName</span> { <span class="pl-k">get</span>; <span class="pl-k">init</span>; }
 
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">LastName</span> { <span class="pl-k">get</span>; <span class="pl-k">init</span>; }
 }</pre></div>
 <h7 dir="auto">
@@ -2077,10 +2073,10 @@ public class SampleCallback : IMessagePackSerializationCallbackReceiver
     {
         Console.WriteLine("OnAfter");
     }
-}'><pre>[<span class="pl-k">MessagePackObject</span>]
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SampleCallback</span> : <span class="pl-k">IMessagePackSerializationCallbackReceiver</span>
+}'><pre>[<span class="pl-en">MessagePackObject</span>]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SampleCallback</span> : <span class="pl-en">IMessagePackSerializationCallbackReceiver</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Key</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 
     <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">OnBeforeSerialize</span>()
@@ -2139,35 +2135,35 @@ switch (reData)
     default:
         break;
 }"><pre><span class="pl-c"><span class="pl-c">//</span> Annotate inheritance types</span>
-[<span class="pl-k">MessagePack</span>.<span class="pl-k">Union</span>(<span class="pl-c1">0</span>, <span class="pl-k">typeof</span>(<span class="pl-k">FooClass</span>))]
-[<span class="pl-k">MessagePack</span>.<span class="pl-k">Union</span>(<span class="pl-c1">1</span>, <span class="pl-k">typeof</span>(<span class="pl-k">BarClass</span>))]
+[<span class="pl-en">MessagePack</span>.<span class="pl-en">Union</span>(<span class="pl-c1">0</span>, <span class="pl-k">typeof</span>(<span class="pl-en">FooClass</span>))]
+[<span class="pl-en">MessagePack</span>.<span class="pl-en">Union</span>(<span class="pl-c1">1</span>, <span class="pl-k">typeof</span>(<span class="pl-en">BarClass</span>))]
 <span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">IUnionSample</span>
 {
 }
 
-[<span class="pl-k">MessagePackObject</span>]
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FooClass</span> : <span class="pl-k">IUnionSample</span>
+[<span class="pl-en">MessagePackObject</span>]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FooClass</span> : <span class="pl-en">IUnionSample</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">XYZ</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-[<span class="pl-k">MessagePackObject</span>]
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">BarClass</span> : <span class="pl-k">IUnionSample</span>
+[<span class="pl-en">MessagePackObject</span>]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">BarClass</span> : <span class="pl-en">IUnionSample</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">OPQ</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
 <span class="pl-c"><span class="pl-c">//</span> ---</span>
 
-<span class="pl-k">IUnionSample</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">FooClass</span>() { <span class="pl-smi">XYZ</span> <span class="pl-k">=</span> <span class="pl-c1">999</span> };
+<span class="pl-en">IUnionSample</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">FooClass</span>() { <span class="pl-smi">XYZ</span> <span class="pl-k">=</span> <span class="pl-c1">999</span> };
 
 <span class="pl-c"><span class="pl-c">//</span> Serialize interface-typed object.</span>
 <span class="pl-k">var</span> <span class="pl-en">bin</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(<span class="pl-smi">data</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> Deserialize again.</span>
-<span class="pl-k">var</span> <span class="pl-en">reData</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">IUnionSample</span>&gt;(<span class="pl-smi">bin</span>);
+<span class="pl-k">var</span> <span class="pl-en">reData</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">IUnionSample</span>&gt;(<span class="pl-smi">bin</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> Use with e.g. type-switching in C# 7.0</span>
 <span class="pl-k">switch</span> (<span class="pl-smi">reData</span>)
@@ -2188,7 +2184,7 @@ var bin = MessagePackSerializer.Serialize(data);
 
 // Union is serialized to two-length array, [key, object]
 // [1,["FooBar"]]
-Console.WriteLine(MessagePackSerializer.ConvertToJson(bin));'><pre><span class="pl-k">IUnionSample</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">BarClass</span> { <span class="pl-smi">OPQ</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>FooBar<span class="pl-pds">"</span></span> };
+Console.WriteLine(MessagePackSerializer.ConvertToJson(bin));'><pre><span class="pl-en">IUnionSample</span> <span class="pl-en">data</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BarClass</span> { <span class="pl-smi">OPQ</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>FooBar<span class="pl-pds">"</span></span> };
 
 <span class="pl-k">var</span> <span class="pl-en">bin</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(<span class="pl-smi">data</span>);
 
@@ -2217,26 +2213,26 @@ public class SubUnionType2 : ParentUnionType
 {
     [Key(1)]
     public int MyProperty2 { get; set; }
-}"><pre>[<span class="pl-k">Union</span>(<span class="pl-c1">0</span>, <span class="pl-k">typeof</span>(<span class="pl-k">SubUnionType1</span>))]
-[<span class="pl-k">Union</span>(<span class="pl-c1">1</span>, <span class="pl-k">typeof</span>(<span class="pl-k">SubUnionType2</span>))]
-[<span class="pl-k">MessagePackObject</span>]
+}"><pre>[<span class="pl-en">Union</span>(<span class="pl-c1">0</span>, <span class="pl-k">typeof</span>(<span class="pl-en">SubUnionType1</span>))]
+[<span class="pl-en">Union</span>(<span class="pl-c1">1</span>, <span class="pl-k">typeof</span>(<span class="pl-en">SubUnionType2</span>))]
+[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-k">class</span> <span class="pl-en">ParentUnionType</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">MyProperty</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-[<span class="pl-k">MessagePackObject</span>]
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SubUnionType1</span> : <span class="pl-k">ParentUnionType</span>
+[<span class="pl-en">MessagePackObject</span>]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SubUnionType1</span> : <span class="pl-en">ParentUnionType</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">MyProperty1</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-[<span class="pl-k">MessagePackObject</span>]
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SubUnionType2</span> : <span class="pl-k">ParentUnionType</span>
+[<span class="pl-en">MessagePackObject</span>]
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SubUnionType2</span> : <span class="pl-en">ParentUnionType</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">MyProperty2</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }</pre></div>
 <p dir="auto">Please be mindful that you cannot reuse the same keys in derived types that are already present in the parent type, as internally a single flat array or map will be used and thus cannot have duplicate indexes/keys.</p>
@@ -2253,7 +2249,7 @@ var dynamicModel = MessagePackSerializer.Deserialize&lt;dynamic&gt;(blob, Contra
 // You can access the data using array/dictionary indexers, as shown above
 Console.WriteLine(dynamicModel["Name"]); // foobar
 Console.WriteLine(dynamicModel["Items"][2]); // 100'><pre><span class="pl-c"><span class="pl-c">//</span> Sample blob.</span>
-<span class="pl-k">var</span> <span class="pl-en">model</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">DynamicModel</span> { <span class="pl-smi">Name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>foobar<span class="pl-pds">"</span></span>, <span class="pl-smi">Items</span> <span class="pl-k">=</span> <span class="pl-k">new</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">10</span>, <span class="pl-c1">100</span>, <span class="pl-c1">1000</span> } };
+<span class="pl-k">var</span> <span class="pl-en">model</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">DynamicModel</span> { <span class="pl-smi">Name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>foobar<span class="pl-pds">"</span></span>, <span class="pl-smi">Items</span> <span class="pl-k">=</span> <span class="pl-k">new</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">10</span>, <span class="pl-c1">100</span>, <span class="pl-c1">1000</span> } };
 <span class="pl-k">var</span> <span class="pl-en">blob</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(<span class="pl-smi">model</span>, <span class="pl-smi">ContractlessStandardResolver</span>.<span class="pl-smi">Options</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> Dynamic ("untyped")</span>
@@ -2278,7 +2274,7 @@ var anonType = new { Foo = 100, Bar = "foobar" };
 var bin2 = MessagePackSerializer.Serialize(anonType, MessagePack.Resolvers.ContractlessStandardResolver.Options);
 
 // {"Foo":100,"Bar":"foobar"}
-Console.WriteLine(MessagePackSerializer.ConvertToJson(bin2));'><pre><span class="pl-k">var</span> <span class="pl-en">objects</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">object</span>[] { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>aaa<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> <span class="pl-k">ObjectFieldType</span> { <span class="pl-smi">Anything</span> <span class="pl-k">=</span> <span class="pl-c1">9999</span> } };
+Console.WriteLine(MessagePackSerializer.ConvertToJson(bin2));'><pre><span class="pl-k">var</span> <span class="pl-en">objects</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">object</span>[] { <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">"</span>aaa<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> <span class="pl-en">ObjectFieldType</span> { <span class="pl-smi">Anything</span> <span class="pl-k">=</span> <span class="pl-c1">9999</span> } };
 <span class="pl-k">var</span> <span class="pl-en">bin</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(<span class="pl-smi">objects</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> [1,"aaa",[9999]]</span>
@@ -2314,7 +2310,7 @@ Console.WriteLine(MessagePackSerializer.ConvertToJson(bin));
 // You can deserialize to MyClass again with the typeless API
 // Note that no type has to be specified explicitly in the Deserialize call
 // as type information is embedded in the binary blob
-var objModel = MessagePackSerializer.Typeless.Deserialize(bin) as MyClass;'><pre><span class="pl-k">object</span> <span class="pl-en">mc</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">Sandbox</span>.<span class="pl-k">MyClass</span>()
+var objModel = MessagePackSerializer.Typeless.Deserialize(bin) as MyClass;'><pre><span class="pl-k">object</span> <span class="pl-en">mc</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Sandbox</span>.<span class="pl-en">MyClass</span>()
 {
     <span class="pl-smi">Age</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>,
     <span class="pl-smi">FirstName</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>hoge<span class="pl-pds">"</span></span>,
@@ -2331,7 +2327,7 @@ var objModel = MessagePackSerializer.Typeless.Deserialize(bin) as MyClass;'><pre
 <span class="pl-c"><span class="pl-c">//</span> You can deserialize to MyClass again with the typeless API</span>
 <span class="pl-c"><span class="pl-c">//</span> Note that no type has to be specified explicitly in the Deserialize call</span>
 <span class="pl-c"><span class="pl-c">//</span> as type information is embedded in the binary blob</span>
-<span class="pl-k">var</span> <span class="pl-en">objModel</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-smi">Typeless</span>.<span class="pl-en">Deserialize</span>(<span class="pl-smi">bin</span>) <span class="pl-k">as</span> <span class="pl-k">MyClass</span>;</pre></div>
+<span class="pl-k">var</span> <span class="pl-en">objModel</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-smi">Typeless</span>.<span class="pl-en">Deserialize</span>(<span class="pl-smi">bin</span>) <span class="pl-k">as</span> <span class="pl-en">MyClass</span>;</pre></div>
 <p dir="auto">Type information is represented by the MessagePack <code>ext</code> format, type code <code>100</code>.</p>
 <p dir="auto"><code>MessagePackSerializer.Typeless</code> is a shortcut of <code>Serialize/Deserialize&lt;object&gt;(TypelessContractlessStandardResolver.Instance)</code>.
 If you want to configure it as the default resolver, you can use <code>MessagePackSerializer.Typeless.RegisterDefaultResolver</code>.</p>
@@ -2354,7 +2350,7 @@ public class Foo
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Foo</span>
 {
     <span class="pl-c"><span class="pl-c">//</span> use Typeless(this field only)</span>
-    [<span class="pl-k">MessagePackFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-k">TypelessFormatter</span>))]
+    [<span class="pl-en">MessagePackFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-en">TypelessFormatter</span>))]
     <span class="pl-k">public</span> <span class="pl-k">object</span> <span class="pl-en">Bar</span>;
 }</pre></div>
 <p dir="auto">If a type's name is changed later, you can no longer deserialize old blobs. But you can specify a fallback name in such cases, providing a <code>TypelessFormatter.BindToType</code> function of your own.</p>
@@ -2393,7 +2389,7 @@ MessagePackSerializer.DefaultOptions = options;"><pre><span class="pl-k">var</sp
     .<span class="pl-en">WithSecurity</span>(<span class="pl-smi">MessagePackSecurity</span>.<span class="pl-smi">UntrustedData</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> Pass the options explicitly for the greatest control.</span>
-<span class="pl-k">T</span> <span class="pl-en">object</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">T</span>&gt;(<span class="pl-smi">data</span>, <span class="pl-smi">options</span>);
+<span class="pl-en">T</span> <span class="pl-en">object</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">T</span>&gt;(<span class="pl-smi">data</span>, <span class="pl-smi">options</span>);
 
 <span class="pl-c"><span class="pl-c">//</span> Or set the security level as the default.</span>
 <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-smi">DefaultOptions</span> <span class="pl-k">=</span> <span class="pl-smi">options</span>;</pre></div>
@@ -2728,21 +2724,21 @@ using (var ms = new MemoryStream())
     var result = ProtoBuf.Serializer.Deserialize&lt;Parent&gt;(ms);
 
     Console.WriteLine(result.Array == null); // True, null!
-}"><pre>[<span class="pl-k">ProtoContract</span>]
+}"><pre>[<span class="pl-en">ProtoContract</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Parent</span>
 {
-    [<span class="pl-k">ProtoMember</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">ProtoMember</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Primitive</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    [<span class="pl-k">ProtoMember</span>(<span class="pl-c1">2</span>)]
-    <span class="pl-k">public</span> <span class="pl-k">Child</span> <span class="pl-en">Prop</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
-    [<span class="pl-k">ProtoMember</span>(<span class="pl-c1">3</span>)]
+    [<span class="pl-en">ProtoMember</span>(<span class="pl-c1">2</span>)]
+    <span class="pl-k">public</span> <span class="pl-en">Child</span> <span class="pl-en">Prop</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    [<span class="pl-en">ProtoMember</span>(<span class="pl-c1">3</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span>[] <span class="pl-en">Array</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
-[<span class="pl-k">ProtoContract</span>]
+[<span class="pl-en">ProtoContract</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Child</span>
 {
-    [<span class="pl-k">ProtoMember</span>(<span class="pl-c1">1</span>)]
+    [<span class="pl-en">ProtoMember</span>(<span class="pl-c1">1</span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Number</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }
 
@@ -2752,7 +2748,7 @@ using (var ms = new MemoryStream())
     <span class="pl-en">ProtoBuf</span>.<span class="pl-en">Serializer</span>.<span class="pl-en">Serialize</span>&lt;<span class="pl-en">Parent</span>&gt;(<span class="pl-en">ms</span>, <span class="pl-en">null</span>);
 
     <span class="pl-smi">ms</span>.<span class="pl-smi">Position</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
-    <span class="pl-k">var</span> <span class="pl-en">result</span> <span class="pl-k">=</span> <span class="pl-smi">ProtoBuf</span>.<span class="pl-smi">Serializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">Parent</span>&gt;(<span class="pl-smi">ms</span>);
+    <span class="pl-k">var</span> <span class="pl-en">result</span> <span class="pl-k">=</span> <span class="pl-smi">ProtoBuf</span>.<span class="pl-smi">Serializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">Parent</span>&gt;(<span class="pl-smi">ms</span>);
 
     <span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">result</span> <span class="pl-k">!=</span> <span class="pl-c1">null</span>); <span class="pl-c"><span class="pl-c">//</span> True, not null. but all property are zero formatted.</span>
     <span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">result</span>.<span class="pl-smi">Primitive</span>); <span class="pl-c"><span class="pl-c">//</span> 0</span>
@@ -2766,7 +2762,7 @@ using (var ms = new MemoryStream())
     <span class="pl-en">ProtoBuf</span>.<span class="pl-en">Serializer</span>.<span class="pl-en">Serialize</span>&lt;<span class="pl-en">Parent</span>&gt;(<span class="pl-en">ms</span>, <span class="pl-en">new</span> <span class="pl-en">Parent</span> { <span class="pl-en">Array</span> <span class="pl-k">=</span> <span class="pl-en">System</span>.<span class="pl-en">Array</span>.<span class="pl-en">Empty</span>&lt;<span class="pl-en">int</span>&gt;() });
 
     <span class="pl-smi">ms</span>.<span class="pl-smi">Position</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
-    <span class="pl-k">var</span> <span class="pl-en">result</span> <span class="pl-k">=</span> <span class="pl-smi">ProtoBuf</span>.<span class="pl-smi">Serializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">Parent</span>&gt;(<span class="pl-smi">ms</span>);
+    <span class="pl-k">var</span> <span class="pl-en">result</span> <span class="pl-k">=</span> <span class="pl-smi">ProtoBuf</span>.<span class="pl-smi">Serializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">Parent</span>&gt;(<span class="pl-smi">ms</span>);
 
     <span class="pl-smi">Console</span>.<span class="pl-en">WriteLine</span>(<span class="pl-smi">result</span>.<span class="pl-smi">Array</span> <span class="pl-k">==</span> <span class="pl-c1">null</span>); <span class="pl-c"><span class="pl-c">//</span> True, null!</span>
 }</pre></div>
@@ -2792,12 +2788,12 @@ public class Person
     public int Age { get; set;}
 }
 
-new Person { Name = "foobar", Age = 999 }'><pre>[<span class="pl-k">MessagePackObject</span>]
+new Person { Name = "foobar", Age = 999 }'><pre>[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Person</span>
 {
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)] or [<span class="pl-k">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)] or [<span class="pl-en">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>)]
     <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">Name</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>;}
-    [<span class="pl-k">Key</span>(<span class="pl-c1">1</span>)] or [<span class="pl-k">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>age<span class="pl-pds">"</span></span>)]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">1</span>)] or [<span class="pl-en">Key</span>(<span class="pl-s"><span class="pl-pds">"</span>age<span class="pl-pds">"</span></span>)]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Age</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>;}
 }
 
@@ -2854,38 +2850,38 @@ new Person { Name = "foobar", Age = 999 }'><pre>[<span class="pl-k">MessagePackO
             }
         }
     }
-}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyApplicationResolver</span> : <span class="pl-k">IFormatterResolver</span>
+}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyApplicationResolver</span> : <span class="pl-en">IFormatterResolver</span>
 {
-    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-k">IFormatterResolver</span> <span class="pl-en">Instance</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">MyApplicationResolver</span>();
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-en">IFormatterResolver</span> <span class="pl-en">Instance</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MyApplicationResolver</span>();
 
     <span class="pl-c"><span class="pl-c">//</span> configure your custom resolvers.</span>
-    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-k">IFormatterResolver</span>[] <span class="pl-en">Resolvers</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">IFormatterResolver</span>[]
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-en">IFormatterResolver</span>[] <span class="pl-en">Resolvers</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">IFormatterResolver</span>[]
     {
     };
 
     <span class="pl-k">private</span> <span class="pl-en">MyApplicationResolver</span>() { }
 
-    <span class="pl-k">public</span> <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">T</span>&gt; <span class="pl-en">GetFormatter</span>&lt;<span class="pl-en">T</span>&gt;()
+    <span class="pl-k">public</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">GetFormatter</span>&lt;<span class="pl-en">T</span>&gt;()
     {
-        <span class="pl-k">return</span> <span class="pl-smi">Cache</span>&lt;<span class="pl-k">T</span>&gt;.<span class="pl-smi">Formatter</span>;
+        <span class="pl-k">return</span> <span class="pl-smi">Cache</span>&lt;<span class="pl-en">T</span>&gt;.<span class="pl-smi">Formatter</span>;
     }
 
     <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">Cache</span>&lt;<span class="pl-en">T</span>&gt;
     {
-        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">T</span>&gt; <span class="pl-en">Formatter</span>;
+        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">Formatter</span>;
 
         <span class="pl-k">static</span> <span class="pl-en">Cache</span>()
         {
             <span class="pl-c"><span class="pl-c">//</span> configure your custom formatters.</span>
-            <span class="pl-k">if</span> (<span class="pl-k">typeof</span>(<span class="pl-k">T</span>) <span class="pl-k">==</span> <span class="pl-k">typeof</span>(<span class="pl-k">XXX</span>))
+            <span class="pl-k">if</span> (<span class="pl-k">typeof</span>(<span class="pl-en">T</span>) <span class="pl-k">==</span> <span class="pl-k">typeof</span>(<span class="pl-en">XXX</span>))
             {
-                <span class="pl-smi">Formatter</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ICustomFormatter</span>();
+                <span class="pl-smi">Formatter</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">ICustomFormatter</span>();
                 <span class="pl-k">return</span>;
             }
 
             <span class="pl-k">foreach</span> (<span class="pl-k">var</span> <span class="pl-en">resolver</span> <span class="pl-k">in</span> <span class="pl-smi">Resolvers</span>)
             {
-                <span class="pl-k">var</span> <span class="pl-en">f</span> <span class="pl-k">=</span> <span class="pl-smi">resolver</span>.<span class="pl-en">GetFormatter</span>&lt;<span class="pl-k">T</span>&gt;();
+                <span class="pl-k">var</span> <span class="pl-en">f</span> <span class="pl-k">=</span> <span class="pl-smi">resolver</span>.<span class="pl-en">GetFormatter</span>&lt;<span class="pl-en">T</span>&gt;();
                 <span class="pl-k">if</span> (<span class="pl-smi">f</span> <span class="pl-k">!=</span> <span class="pl-c1">null</span>)
                 {
                     <span class="pl-smi">Formatter</span> <span class="pl-k">=</span> <span class="pl-smi">f</span>;
@@ -2991,14 +2987,14 @@ MessagePackSerializer.DefaultOptions = options;"><pre><span class="pl-c"><span c
         option.InputFormatters.Clear();
         option.InputFormatters.Add(new MessagePackInputFormatter(ContractlessStandardResolver.Options));
     });
-}"><pre><span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">ConfigureServices</span>(<span class="pl-k">IServiceCollection</span> <span class="pl-en">services</span>)
+}"><pre><span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">ConfigureServices</span>(<span class="pl-en">IServiceCollection</span> <span class="pl-en">services</span>)
 {
     <span class="pl-smi">services</span>.<span class="pl-en">AddMvc</span>().<span class="pl-en">AddMvcOptions</span>(<span class="pl-en">option</span> <span class="pl-k">=&gt;</span>
     {
         <span class="pl-smi">option</span>.<span class="pl-smi">OutputFormatters</span>.<span class="pl-en">Clear</span>();
-        <span class="pl-smi">option</span>.<span class="pl-smi">OutputFormatters</span>.<span class="pl-en">Add</span>(<span class="pl-k">new</span> <span class="pl-k">MessagePackOutputFormatter</span>(<span class="pl-smi">ContractlessStandardResolver</span>.<span class="pl-smi">Options</span>));
+        <span class="pl-smi">option</span>.<span class="pl-smi">OutputFormatters</span>.<span class="pl-en">Add</span>(<span class="pl-k">new</span> <span class="pl-en">MessagePackOutputFormatter</span>(<span class="pl-smi">ContractlessStandardResolver</span>.<span class="pl-smi">Options</span>));
         <span class="pl-smi">option</span>.<span class="pl-smi">InputFormatters</span>.<span class="pl-en">Clear</span>();
-        <span class="pl-smi">option</span>.<span class="pl-smi">InputFormatters</span>.<span class="pl-en">Add</span>(<span class="pl-k">new</span> <span class="pl-k">MessagePackInputFormatter</span>(<span class="pl-smi">ContractlessStandardResolver</span>.<span class="pl-smi">Options</span>));
+        <span class="pl-smi">option</span>.<span class="pl-smi">InputFormatters</span>.<span class="pl-en">Add</span>(<span class="pl-k">new</span> <span class="pl-en">MessagePackInputFormatter</span>(<span class="pl-smi">ContractlessStandardResolver</span>.<span class="pl-smi">Options</span>));
     });
 }</pre></div>
 <p dir="auto">Other authors are creating extension packages, too.</p>
@@ -3081,14 +3077,14 @@ for each data structure and deserialize it. For example:</p>
     }
 
     return dataStructures;
-}"><pre><span class="pl-k">static</span> <span class="pl-k">async</span> <span class="pl-k">Task</span>&lt;<span class="pl-k">List</span>&lt;<span class="pl-k">T</span>&gt;&gt; <span class="pl-en">DeserializeListFromStreamAsync</span>&lt;<span class="pl-en">T</span>&gt;(<span class="pl-k">Stream</span> <span class="pl-en">stream</span>, <span class="pl-k">CancellationToken</span> <span class="pl-en">cancellationToken</span>)
+}"><pre><span class="pl-k">static</span> <span class="pl-k">async</span> <span class="pl-en">Task</span>&lt;<span class="pl-en">List</span>&lt;<span class="pl-en">T</span>&gt;&gt; <span class="pl-en">DeserializeListFromStreamAsync</span>&lt;<span class="pl-en">T</span>&gt;(<span class="pl-en">Stream</span> <span class="pl-en">stream</span>, <span class="pl-en">CancellationToken</span> <span class="pl-en">cancellationToken</span>)
 {
-    <span class="pl-k">var</span> <span class="pl-en">dataStructures</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">List</span>&lt;<span class="pl-k">T</span>&gt;();
-    <span class="pl-k">using</span> (<span class="pl-k">var</span> <span class="pl-en">streamReader</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">MessagePackStreamReader</span>(<span class="pl-smi">stream</span>))
+    <span class="pl-k">var</span> <span class="pl-en">dataStructures</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">List</span>&lt;<span class="pl-en">T</span>&gt;();
+    <span class="pl-k">using</span> (<span class="pl-k">var</span> <span class="pl-en">streamReader</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">MessagePackStreamReader</span>(<span class="pl-smi">stream</span>))
     {
-        <span class="pl-k">while</span> (<span class="pl-k">await</span> <span class="pl-smi">streamReader</span>.<span class="pl-en">ReadAsync</span>(<span class="pl-smi">cancellationToken</span>) <span class="pl-k">is</span> <span class="pl-k">ReadOnlySequence</span>&lt;<span class="pl-k">byte</span>&gt; <span class="pl-smi">msgpack</span>)
+        <span class="pl-k">while</span> (<span class="pl-k">await</span> <span class="pl-smi">streamReader</span>.<span class="pl-en">ReadAsync</span>(<span class="pl-smi">cancellationToken</span>) <span class="pl-k">is</span> <span class="pl-en">ReadOnlySequence</span>&lt;<span class="pl-k">byte</span>&gt; <span class="pl-smi">msgpack</span>)
         {
-            <span class="pl-smi">dataStructures</span>.<span class="pl-en">Add</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">T</span>&gt;(<span class="pl-smi">msgpack</span>, <span class="pl-en">cancellationToken</span>: <span class="pl-smi">cancellationToken</span>));
+            <span class="pl-smi">dataStructures</span>.<span class="pl-en">Add</span>(<span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">T</span>&gt;(<span class="pl-smi">msgpack</span>, <span class="pl-en">cancellationToken</span>: <span class="pl-smi">cancellationToken</span>));
         }
     }
 
@@ -3103,8 +3099,8 @@ for each data structure and deserialize it. For example:</p>
     T Deserialize(ref MessagePackReader reader, MessagePackSerializerOptions options);
 }"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt;
 {
-    <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-k">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-k">T</span> <span class="pl-en">value</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>);
-    <span class="pl-k">T</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">ref</span> <span class="pl-k">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>);
+    <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-en">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-en">T</span> <span class="pl-en">value</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>);
+    <span class="pl-en">T</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">ref</span> <span class="pl-en">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>);
 }</pre></div>
 <p dir="auto">Many built-in formatters exists under <code>MessagePack.Formatters</code>. Your custom types are usually automatically supported with the built-in type resolvers that generate new <code>IMessagePackFormatter&lt;T&gt;</code> types on-the-fly using dynamic code generation. See our <a href="#aot">AOT code generation</a> support for platforms that do not support this.</p>
 <p dir="auto">However, some types - especially those provided by third party libraries or the runtime itself - cannot be appropriately annotated, and contractless serialization would produce inefficient or even wrong results.
@@ -3141,10 +3137,10 @@ public class FileInfoFormatter : IMessagePackFormatter&lt;FileInfo&gt;
         return new FileInfo(path);
     }
 }'><pre><span class="pl-c"><span class="pl-c">///</span> &lt;<span class="pl-ent"><span class="pl-ent">summary</span></span>&gt;Serializes a &lt;<span class="pl-ent"><span class="pl-ent">see</span></span> <span class="pl-e"><span class="pl-e">cref</span></span>=<span class="pl-s"><span class="pl-pds">"</span>FileInfo<span class="pl-pds">"</span></span> /&gt; by its full path as a string.&lt;/<span class="pl-ent"><span class="pl-ent">summary</span></span>&gt;</span>
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FileInfoFormatter</span> : <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">FileInfo</span>&gt;
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FileInfoFormatter</span> : <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">FileInfo</span>&gt;
 {
     <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(
-      <span class="pl-k">ref</span> <span class="pl-k">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-k">FileInfo</span> <span class="pl-en">value</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+      <span class="pl-k">ref</span> <span class="pl-en">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-en">FileInfo</span> <span class="pl-en">value</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
     {
         <span class="pl-k">if</span> (<span class="pl-smi">value</span> <span class="pl-k">==</span> <span class="pl-c1">null</span>)
         {
@@ -3155,8 +3151,8 @@ public class FileInfoFormatter : IMessagePackFormatter&lt;FileInfo&gt;
         <span class="pl-smi">writer</span>.<span class="pl-en">WriteString</span>(<span class="pl-smi">value</span>.<span class="pl-smi">FullName</span>);
     }
 
-    <span class="pl-k">public</span> <span class="pl-k">FileInfo</span> <span class="pl-en">Deserialize</span>(
-      <span class="pl-k">ref</span> <span class="pl-k">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+    <span class="pl-k">public</span> <span class="pl-en">FileInfo</span> <span class="pl-en">Deserialize</span>(
+      <span class="pl-k">ref</span> <span class="pl-en">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
     {
         <span class="pl-k">if</span> (<span class="pl-smi">reader</span>.<span class="pl-en">TryReadNil</span>())
         {
@@ -3168,7 +3164,7 @@ public class FileInfoFormatter : IMessagePackFormatter&lt;FileInfo&gt;
         <span class="pl-k">var</span> <span class="pl-en">path</span> <span class="pl-k">=</span> <span class="pl-smi">reader</span>.<span class="pl-en">ReadString</span>();
 
         <span class="pl-smi">reader</span>.<span class="pl-smi">Depth</span><span class="pl-k">--</span>;
-        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-k">FileInfo</span>(<span class="pl-smi">path</span>);
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">FileInfo</span>(<span class="pl-smi">path</span>);
     }
 }</pre></div>
 <p dir="auto">The <code>DepthStep</code> and <code>Depth--</code> statements provide a level of security while deserializing untrusted data
@@ -3234,10 +3230,10 @@ For example:</p>
         reader.Depth--;
         return new MySpecialObject(fullName, age);
     }
-}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MySpecialObjectFormatter</span> : <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">MySpecialObject</span>&gt;
+}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MySpecialObjectFormatter</span> : <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">MySpecialObject</span>&gt;
 {
     <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(
-      <span class="pl-k">ref</span> <span class="pl-k">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-k">MySpecialObject</span> <span class="pl-en">value</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+      <span class="pl-k">ref</span> <span class="pl-en">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-en">MySpecialObject</span> <span class="pl-en">value</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
     {
         <span class="pl-k">if</span> (<span class="pl-smi">value</span> <span class="pl-k">==</span> <span class="pl-c1">null</span>)
         {
@@ -3250,8 +3246,8 @@ For example:</p>
         <span class="pl-smi">writer</span>.<span class="pl-en">WriteString</span>(<span class="pl-smi">value</span>.<span class="pl-smi">Age</span>);
     }
 
-    <span class="pl-k">public</span> <span class="pl-k">MySpecialObject</span> <span class="pl-en">Deserialize</span>(
-      <span class="pl-k">ref</span> <span class="pl-k">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+    <span class="pl-k">public</span> <span class="pl-en">MySpecialObject</span> <span class="pl-en">Deserialize</span>(
+      <span class="pl-k">ref</span> <span class="pl-en">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
     {
         <span class="pl-k">if</span> (<span class="pl-smi">reader</span>.<span class="pl-en">TryReadNil</span>())
         {
@@ -3287,7 +3283,7 @@ For example:</p>
         }
 
         <span class="pl-smi">reader</span>.<span class="pl-smi">Depth</span><span class="pl-k">--</span>;
-        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-k">MySpecialObject</span>(<span class="pl-smi">fullName</span>, <span class="pl-smi">age</span>);
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">MySpecialObject</span>(<span class="pl-smi">fullName</span>, <span class="pl-smi">age</span>);
     }
 }</pre></div>
 <p dir="auto">Your custom formatters must be discoverable via some <code>IFormatterResolver</code>. Learn more in our <a href="#resolvers">resolvers</a> section.</p>
@@ -3543,7 +3539,7 @@ T myObject2 = MessagePackSerializer.Deserialize&lt;MyObject&gt;(msgpackBytes, op
 
 <span class="pl-c"><span class="pl-c">//</span> Each time you serialize/deserialize, specify the options:</span>
 <span class="pl-k">byte</span>[] <span class="pl-en">msgpackBytes</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Serialize</span>(<span class="pl-smi">myObject</span>, <span class="pl-smi">options</span>);
-<span class="pl-k">T</span> <span class="pl-en">myObject2</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-k">MyObject</span>&gt;(<span class="pl-smi">msgpackBytes</span>, <span class="pl-smi">options</span>);</pre></div>
+<span class="pl-en">T</span> <span class="pl-en">myObject2</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Deserialize</span>&lt;<span class="pl-en">MyObject</span>&gt;(<span class="pl-smi">msgpackBytes</span>, <span class="pl-smi">options</span>);</pre></div>
 <p dir="auto">A resolver can be set as default with <code>MessagePackSerializer.DefaultOptions = options</code>, but <strong>WARNING</strong>:
 When developing an application where you control all MessagePack-related code it may be safe to rely on this mutable static to control behavior.
 For all other libraries or multi-purpose applications that use <code>MessagePackSerializer</code> you should explicitly specify the <code>MessagePackSerializerOptions</code> to use with each method invocation to guarantee your code behaves as you expect even when sharing an <code>AppDomain</code> or process with other MessagePack users that may change this static property.</p>
@@ -3632,30 +3628,30 @@ internal static class SampleCustomResolverGetFormatterHelper
         // If type can not get, must return null for fallback mechanism.
         return null;
     }
-}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SampleCustomResolver</span> : <span class="pl-k">IFormatterResolver</span>
+}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SampleCustomResolver</span> : <span class="pl-en">IFormatterResolver</span>
 {
     <span class="pl-c"><span class="pl-c">//</span> Resolver should be singleton.</span>
-    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-k">IFormatterResolver</span> <span class="pl-en">Instance</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">SampleCustomResolver</span>();
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-en">IFormatterResolver</span> <span class="pl-en">Instance</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SampleCustomResolver</span>();
 
     <span class="pl-k">private</span> <span class="pl-en">SampleCustomResolver</span>()
     {
     }
 
     <span class="pl-c"><span class="pl-c">//</span> GetFormatter&lt;T&gt;'s get cost should be minimized so use type cache.</span>
-    <span class="pl-k">public</span> <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">T</span>&gt; <span class="pl-en">GetFormatter</span>&lt;<span class="pl-en">T</span>&gt;()
+    <span class="pl-k">public</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">GetFormatter</span>&lt;<span class="pl-en">T</span>&gt;()
     {
-        <span class="pl-k">return</span> <span class="pl-smi">FormatterCache</span>&lt;<span class="pl-k">T</span>&gt;.<span class="pl-smi">Formatter</span>;
+        <span class="pl-k">return</span> <span class="pl-smi">FormatterCache</span>&lt;<span class="pl-en">T</span>&gt;.<span class="pl-smi">Formatter</span>;
     }
 
     <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">FormatterCache</span>&lt;<span class="pl-en">T</span>&gt;
     {
-        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">T</span>&gt; <span class="pl-en">Formatter</span>;
+        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt; <span class="pl-en">Formatter</span>;
 
         <span class="pl-c"><span class="pl-c">//</span> generic's static constructor should be minimized for reduce type generation size!</span>
         <span class="pl-c"><span class="pl-c">//</span> use outer helper method.</span>
         <span class="pl-k">static</span> <span class="pl-en">FormatterCache</span>()
         {
-            <span class="pl-smi">Formatter</span> <span class="pl-k">=</span> (<span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">T</span>&gt;)<span class="pl-smi">SampleCustomResolverGetFormatterHelper</span>.<span class="pl-en">GetFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-k">T</span>));
+            <span class="pl-smi">Formatter</span> <span class="pl-k">=</span> (<span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">T</span>&gt;)<span class="pl-smi">SampleCustomResolverGetFormatterHelper</span>.<span class="pl-en">GetFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-en">T</span>));
         }
     }
 }
@@ -3663,13 +3659,13 @@ internal static class SampleCustomResolverGetFormatterHelper
 <span class="pl-k">internal</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">SampleCustomResolverGetFormatterHelper</span>
 {
     <span class="pl-c"><span class="pl-c">//</span> If type is concrete type, use type-formatter map</span>
-    <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-k">Dictionary</span>&lt;<span class="pl-k">Type</span>, <span class="pl-k">object</span>&gt; <span class="pl-en">formatterMap</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">Dictionary</span>&lt;<span class="pl-k">Type</span>, <span class="pl-k">object</span>&gt;()
+    <span class="pl-k">static</span> <span class="pl-k">readonly</span> <span class="pl-en">Dictionary</span>&lt;<span class="pl-en">Type</span>, <span class="pl-k">object</span>&gt; <span class="pl-en">formatterMap</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Dictionary</span>&lt;<span class="pl-en">Type</span>, <span class="pl-k">object</span>&gt;()
     {
-        {<span class="pl-k">typeof</span>(<span class="pl-k">FileInfo</span>), <span class="pl-k">new</span> <span class="pl-k">FileInfoFormatter</span>()}
+        {<span class="pl-k">typeof</span>(<span class="pl-en">FileInfo</span>), <span class="pl-k">new</span> <span class="pl-en">FileInfoFormatter</span>()}
         <span class="pl-c"><span class="pl-c">//</span> add more your own custom serializers.</span>
     };
 
-    <span class="pl-k">internal</span> <span class="pl-k">static</span> <span class="pl-k">object</span> <span class="pl-en">GetFormatter</span>(<span class="pl-k">Type</span> <span class="pl-en">t</span>)
+    <span class="pl-k">internal</span> <span class="pl-k">static</span> <span class="pl-k">object</span> <span class="pl-en">GetFormatter</span>(<span class="pl-en">Type</span> <span class="pl-en">t</span>)
     {
         <span class="pl-k">object</span> <span class="pl-en">formatter</span>;
         <span class="pl-k">if</span> (<span class="pl-smi">formatterMap</span>.<span class="pl-en">TryGetValue</span>(<span class="pl-smi">t</span>, <span class="pl-k">out</span> <span class="pl-smi">formatter</span>))
@@ -3732,7 +3728,7 @@ public class MyClass
     [Key(0)]
     [MessagePackFormatter(typeof(Int_x10Formatter))]
     public int MyProperty1 { get; set; }
-}"><pre>[<span class="pl-k">MessagePackFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-k">CustomObjectFormatter</span>))]
+}"><pre>[<span class="pl-en">MessagePackFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-en">CustomObjectFormatter</span>))]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CustomObject</span>
 {
     <span class="pl-k">string</span> <span class="pl-en">internalId</span>;
@@ -3743,42 +3739,42 @@ public class MyClass
     }
 
     <span class="pl-c"><span class="pl-c">//</span> serialize/deserialize internal field.</span>
-    <span class="pl-k">class</span> <span class="pl-en">CustomObjectFormatter</span> : <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">CustomObject</span>&gt;
+    <span class="pl-k">class</span> <span class="pl-en">CustomObjectFormatter</span> : <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-en">CustomObject</span>&gt;
     {
-        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-k">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-k">CustomObject</span> <span class="pl-en">value</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-en">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-en">CustomObject</span> <span class="pl-en">value</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
         {
             <span class="pl-smi">options</span>.<span class="pl-smi">Resolver</span>.<span class="pl-en">GetFormatterWithVerify</span>&lt;<span class="pl-k">string</span>&gt;().<span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-smi">writer</span>, <span class="pl-smi">value</span>.<span class="pl-smi">internalId</span>, <span class="pl-smi">options</span>);
         }
 
-        <span class="pl-k">public</span> <span class="pl-k">CustomObject</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">ref</span> <span class="pl-k">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+        <span class="pl-k">public</span> <span class="pl-en">CustomObject</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">ref</span> <span class="pl-en">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
         {
             <span class="pl-k">var</span> <span class="pl-en">id</span> <span class="pl-k">=</span> <span class="pl-smi">options</span>.<span class="pl-smi">Resolver</span>.<span class="pl-en">GetFormatterWithVerify</span>&lt;<span class="pl-k">string</span>&gt;().<span class="pl-en">Deserialize</span>(<span class="pl-k">ref</span> <span class="pl-smi">reader</span>, <span class="pl-smi">options</span>);
-            <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-k">CustomObject</span> { <span class="pl-smi">internalId</span> <span class="pl-k">=</span> <span class="pl-smi">id</span> };
+            <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">CustomObject</span> { <span class="pl-smi">internalId</span> <span class="pl-k">=</span> <span class="pl-smi">id</span> };
         }
     }
 }
 
 <span class="pl-c"><span class="pl-c">//</span> per field, member</span>
 
-<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Int_x10Formatter</span> : <span class="pl-k">IMessagePackFormatter</span>&lt;<span class="pl-k">int</span>&gt;
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Int_x10Formatter</span> : <span class="pl-en">IMessagePackFormatter</span>&lt;<span class="pl-k">int</span>&gt;
 {
-    <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">ref</span> <span class="pl-k">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+    <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">Deserialize</span>(<span class="pl-k">ref</span> <span class="pl-en">MessagePackReader</span> <span class="pl-en">reader</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
     {
         <span class="pl-k">return</span> <span class="pl-smi">reader</span>.<span class="pl-en">ReadInt32</span>() <span class="pl-k">*</span> <span class="pl-c1">10</span>;
     }
 
-    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-k">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-k">int</span> <span class="pl-en">value</span>, <span class="pl-k">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Serialize</span>(<span class="pl-k">ref</span> <span class="pl-en">MessagePackWriter</span> <span class="pl-en">writer</span>, <span class="pl-k">int</span> <span class="pl-en">value</span>, <span class="pl-en">MessagePackSerializerOptions</span> <span class="pl-en">options</span>)
     {
         <span class="pl-smi">writer</span>.<span class="pl-en">WriteInt32</span>(<span class="pl-smi">value</span> <span class="pl-k">*</span> <span class="pl-c1">10</span>);
     }
 }
 
-[<span class="pl-k">MessagePackObject</span>]
+[<span class="pl-en">MessagePackObject</span>]
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyClass</span>
 {
     <span class="pl-c"><span class="pl-c">//</span> You can attach custom formatter per member.</span>
-    [<span class="pl-k">Key</span>(<span class="pl-c1">0</span>)]
-    [<span class="pl-k">MessagePackFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-k">Int_x10Formatter</span>))]
+    [<span class="pl-en">Key</span>(<span class="pl-c1">0</span>)]
+    [<span class="pl-en">MessagePackFormatter</span>(<span class="pl-k">typeof</span>(<span class="pl-en">Int_x10Formatter</span>))]
     <span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">MyProperty1</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
 }</pre></div>
 <p dir="auto">Formatter is retrieved by <code>AttributeFormatterResolver</code>, it is included in <code>StandardResolver</code>.</p>
@@ -3800,15 +3796,15 @@ var resolver = MessagePack.Resolvers.CompositeResolver.Create(
         ContractlessStandardResolver.Instance
     });"><pre><span class="pl-c"><span class="pl-c">//</span> CompositeResolver can set custom formatter.</span>
 <span class="pl-k">var</span> <span class="pl-en">resolver</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePack</span>.<span class="pl-smi">Resolvers</span>.<span class="pl-smi">CompositeResolver</span>.<span class="pl-en">Create</span>(
-    <span class="pl-k">new</span> <span class="pl-k">IMessagePackFormatter</span>[]
+    <span class="pl-k">new</span> <span class="pl-en">IMessagePackFormatter</span>[]
     {
         <span class="pl-c"><span class="pl-c">//</span> for example, register reflection infos (can not serialize)</span>
-        <span class="pl-k">new</span> <span class="pl-k">IgnoreFormatter</span>&lt;<span class="pl-k">MethodBase</span>&gt;(),
-        <span class="pl-k">new</span> <span class="pl-k">IgnoreFormatter</span>&lt;<span class="pl-k">MethodInfo</span>&gt;(),
-        <span class="pl-k">new</span> <span class="pl-k">IgnoreFormatter</span>&lt;<span class="pl-k">PropertyInfo</span>&gt;(),
-        <span class="pl-k">new</span> <span class="pl-k">IgnoreFormatter</span>&lt;<span class="pl-k">FieldInfo</span>&gt;()
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;<span class="pl-en">MethodBase</span>&gt;(),
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;<span class="pl-en">MethodInfo</span>&gt;(),
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;<span class="pl-en">PropertyInfo</span>&gt;(),
+        <span class="pl-k">new</span> <span class="pl-en">IgnoreFormatter</span>&lt;<span class="pl-en">FieldInfo</span>&gt;()
     },
-    <span class="pl-k">new</span> <span class="pl-k">IFormatterResolver</span>[]
+    <span class="pl-k">new</span> <span class="pl-en">IFormatterResolver</span>[]
     {
         <span class="pl-smi">ContractlessStandardResolver</span>.<span class="pl-smi">Instance</span>
     });</pre></div>
@@ -4039,7 +4035,7 @@ public class Startup
 {
     <span class="pl-k">static</span> <span class="pl-k">bool</span> <span class="pl-en">serializerRegistered</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;
 
-    [<span class="pl-k">RuntimeInitializeOnLoadMethod</span>(<span class="pl-smi">RuntimeInitializeLoadType</span>.<span class="pl-smi">BeforeSceneLoad</span>)]
+    [<span class="pl-en">RuntimeInitializeOnLoadMethod</span>(<span class="pl-smi">RuntimeInitializeLoadType</span>.<span class="pl-smi">BeforeSceneLoad</span>)]
     <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">Initialize</span>()
     {
         <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">serializerRegistered</span>)
@@ -4059,7 +4055,7 @@ public class Startup
 #<span class="pl-k">if</span> <span class="pl-en">UNITY_EDITOR</span>
 
 
-    [<span class="pl-k">UnityEditor</span>.<span class="pl-k">InitializeOnLoadMethod</span>]
+    [<span class="pl-en">UnityEditor</span>.<span class="pl-en">InitializeOnLoadMethod</span>]
     <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">EditorInitialize</span>()
     {
         <span class="pl-en">Initialize</span>();
@@ -5375,34 +5371,6 @@ void main()
 <h5 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h5>
 <p dir="auto">Distributed under the <a href="http://www.boost.org/users/license.html" rel="nofollow">Boost Software License, Version 1.0</a>.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-danellis-dart-msgpack" class="qs"><h4><a href="https://github.com/danellis/dart-msgpack" target="_blank">danellis/dart-msgpack <span class="qs-url">https://github.com/danellis/dart-msgpack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-dart-msgpack" class="anchor" aria-hidden="true" href="#dart-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>dart-msgpack</h5>
-<p dir="auto">This is a very early release of my MessagePack library for Dart. Currently, message classes must be written by hand. For example:</p>
-<div class="highlight highlight-source-dart position-relative overflow-auto" data-snippet-clipboard-copy-content="class NotificationFrame extends Message {
-    String kind;
-    Map&lt;String, Object&gt; data;
-
-    NotificationFrame(this.kind, this.data);
-
-    static NotificationFrame fromList(List f) =&gt; new NotificationFrame(f[0], f[1]);
-    List toList() =&gt; [kind, data];
-}"><pre><span class="pl-k">class</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-k">extends</span> <span class="pl-c1">Message</span> {
-    <span class="pl-c1">String</span> kind;
-    <span class="pl-c1">Map&lt;<span class="pl-c1">String</span>, <span class="pl-c1">Object</span>&gt;</span> data;
-
-    <span class="pl-c1">NotificationFrame</span>(<span class="pl-c1">this</span>.kind, <span class="pl-c1">this</span>.data);
-
-    <span class="pl-k">static</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-en">fromList</span>(<span class="pl-c1">List</span> f) <span class="pl-k">=&gt;</span> <span class="pl-k">new</span> <span class="pl-c1">NotificationFrame</span>(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
-    <span class="pl-c1">List</span> <span class="pl-en">toList</span>() <span class="pl-k">=&gt;</span> [kind, data];
-}</pre></div>
-<p dir="auto">For each class you need to define the <code>fromList</code> and <code>toList</code> methods, which convert from and to a list of fields respectively.</p>
-<p dir="auto">For example usage, see the unit tests.</p>
 </article>
   </div>
         </div>
@@ -17771,23 +17739,6 @@ The data corresponds to <code>{"compact":true,"schema":0}</code> in JSON.</p>
 <h6 dir="auto">
 <a id="user-content-contributing" class="anchor" aria-hidden="true" href="#contributing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributing</h6>
 <p dir="auto">Bug reports and pull requests are welcome on GitHub at [<a href="https://github.com/tagomoris/msgpack-inspect">https://github.com/tagomoris/msgpack-inspect</a>].</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-msgpack4z-msgpack4z-argonaut" class="qs"><h4><a href="https://msgpack4z.github.io/graph.svg" target="_blank">msgpack4z/msgpack4z-argonaut <span class="qs-url">https://msgpack4z.github.io/graph.svg</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack4z-argonaut" class="anchor" aria-hidden="true" href="#msgpack4z-argonaut"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack4z-argonaut</h5>
-<p dir="auto"><a href="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-argonaut_2.12" rel="nofollow"><img src="https://camo.githubusercontent.com/43f391f831e6dbcbe6c9a11f9cbbf7e2e72e58a53f7ee0b17e42fcabc66255a1/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d6172676f6e6175745f322e31322f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-argonaut_2.12/badge.svg" style="max-width: 100%;"></a>
-<a href="https://javadoc.io/doc/com.github.xuwei-k/msgpack4z-argonaut_3/latest/api/msgpack4z.html" rel="nofollow"><img src="https://camo.githubusercontent.com/42e56ac36d1af5c89de6182fd951fe504b0c91c974fda7394cfe0412a1cfdc32/68747470733a2f2f6a617661646f632e696f2f6261646765322f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d6172676f6e6175745f332f6a617661646f632e737667" alt="scaladoc" data-canonical-src="https://javadoc.io/badge2/com.github.xuwei-k/msgpack4z-argonaut_3/javadoc.svg" style="max-width: 100%;"></a></p>
-<ul dir="auto">
-<li><a href="https://msgpack.org/" rel="nofollow">https://msgpack.org/</a></li>
-<li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a></li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-latest-stable-version" class="anchor" aria-hidden="true" href="#latest-stable-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>latest stable version</h7>
-<div class="highlight highlight-source-scala position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "com.github.xuwei-k" %% "msgpack4z-argonaut" % "0.8.0"'><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-argonaut<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.8.0<span class="pl-pds">"</span></span></pre></div>
 </article>
   </div>
         </div>
