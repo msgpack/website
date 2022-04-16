@@ -477,7 +477,7 @@ trace(msgpack.read(bytes));</p>
 var msg:MsgPack;
 
 // use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);"><pre class="notranslate"><code class="notranslate">
+msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);"><pre><code>
 ### Flags
 &lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
 * &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
@@ -518,7 +518,7 @@ var workerA:StringWorker = new StringWorker();
 var workerB:DifferentStringWorker = new DifferentStringWorker();
 
 msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);"><pre class="notranslate"><code class="notranslate">
+msgpack.factory.assign(workerB);"><pre><code>
 &lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
 
 ### Priorities
@@ -551,7 +551,7 @@ This application uses Open Source components. You can find the source code of th
 
 Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
 Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  "><pre class="notranslate"><code class="notranslate">
+License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  "><pre><code>
 ## Credits
 This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
 
@@ -2723,7 +2723,7 @@ NSDictionary *dict = [uc unpackNextObject];</pre></div>
 packer + DictionaryHeader(2) + "compact" + true + "schema" + 0
 let data = packer.data
 
-	```'><pre><code>let packer = CWDataPacker()
+	```'><pre class="notranslate"><code class="notranslate">let packer = CWDataPacker()
 packer + DictionaryHeader(2) + "compact" + true + "schema" + 0
 let data = packer.data
 
@@ -2872,17 +2872,17 @@ msbuild MsgPack.sln</p>
 </ol>
 <p dir="auto">Or (for Unity 3D drops):</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="msbuild MsgPack.compats.sln /t:Restore
-msbuild MsgPack.compats.sln"><pre><code>msbuild MsgPack.compats.sln /t:Restore
+msbuild MsgPack.compats.sln"><pre class="notranslate"><code class="notranslate">msbuild MsgPack.compats.sln /t:Restore
 msbuild MsgPack.compats.sln
 </code></pre></div>
 <p dir="auto">Or (for Windows Runtime/Phone drops and Silverlight 5 drops):</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="msbuild MsgPack.Windows.sln /t:Restore
-msbuild MsgPack.Windows.sln"><pre><code>msbuild MsgPack.Windows.sln /t:Restore
+msbuild MsgPack.Windows.sln"><pre class="notranslate"><code class="notranslate">msbuild MsgPack.Windows.sln /t:Restore
 msbuild MsgPack.Windows.sln
 </code></pre></div>
 <p dir="auto">Or (for Xamarin unit testing, you must have Xamarin Business or upper license and Mac machine on the LAN to build on Windows):</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="msbuild MsgPack.Xamarin.sln /t:Restore
-msbuild MsgPack.Xamarin.sln"><pre><code>msbuild MsgPack.Xamarin.sln /t:Restore
+msbuild MsgPack.Xamarin.sln"><pre class="notranslate"><code class="notranslate">msbuild MsgPack.Xamarin.sln /t:Restore
 msbuild MsgPack.Xamarin.sln
 </code></pre></div>
 <p dir="auto">Or open one of above solution files in your IDE and run build command in it.</p>
@@ -3101,7 +3101,7 @@ if you find any bug, please contact me!
 <h6 dir="auto">
 <a id="user-content-nuget" class="anchor" aria-hidden="true" href="#nuget"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>NuGet</h6>
 <p dir="auto">MPack is available as a NuGet package!</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="PM&gt; Install-Package MPack"><pre class="notranslate"><code class="notranslate">PM&gt; Install-Package MPack
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="PM&gt; Install-Package MPack"><pre><code>PM&gt; Install-Package MPack
 </code></pre></div>
 <h6 dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
@@ -5997,7 +5997,7 @@ MsgPack::Deserializer deserializer(socket);
 deserializer.deserialize([](std::unique_ptr&lt;MsgPack::Element&gt; parsed) {
     std::cout &lt;&lt; "Parsed: " &lt;&lt; *parsed &lt;&lt; "\n";
     return false;
-}, true);'><pre><code>MsgPack::Serializer serializer(socket);  
+}, true);'><pre class="notranslate"><code class="notranslate">MsgPack::Serializer serializer(socket);  
 std::vector&lt;std::unique_ptr&lt;MsgPack::Element&gt;&gt; arrayWithoutElements, arrayWith3Elements;
 arrayWith3Elements.push_back(MsgPack::Factory(true));
 arrayWith3Elements.push_back(MsgPack__Factory(Array(std::move(arrayWithoutElements))));
@@ -9218,14 +9218,14 @@ supports all of the message pack types, including <a href="https://github.com/ms
    &lt;groupId&gt;org.msgpack&lt;/groupId&gt;
    &lt;artifactId&gt;msgpack-core&lt;/artifactId&gt;
    &lt;version&gt;(version)&lt;/version&gt;
-&lt;/dependency&gt;"><pre><code>&lt;dependency&gt;
+&lt;/dependency&gt;"><pre class="notranslate"><code class="notranslate">&lt;dependency&gt;
    &lt;groupId&gt;org.msgpack&lt;/groupId&gt;
    &lt;artifactId&gt;msgpack-core&lt;/artifactId&gt;
    &lt;version&gt;(version)&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></div>
 <p dir="auto">For sbt users:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "org.msgpack" % "msgpack-core" % "(version)"'><pre><code>libraryDependencies += "org.msgpack" % "msgpack-core" % "(version)"
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "org.msgpack" % "msgpack-core" % "(version)"'><pre class="notranslate"><code class="notranslate">libraryDependencies += "org.msgpack" % "msgpack-core" % "(version)"
 </code></pre></div>
 <p dir="auto">For gradle users:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="repositories {
@@ -9234,7 +9234,7 @@ supports all of the message pack types, including <a href="https://github.com/ms
 
 dependencies {
     compile 'org.msgpack:msgpack-core:(version)'
-}"><pre><code>repositories {
+}"><pre class="notranslate"><code class="notranslate">repositories {
     mavenCentral()
 }
 
@@ -9267,7 +9267,7 @@ For details, see <a href="https://github.com/msgpack/msgpack-java/blob/develop/m
 <h7 dir="auto">
 <a id="user-content-basic-sbt-commands" class="anchor" aria-hidden="true" href="#basic-sbt-commands"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic sbt commands</h7>
 <p dir="auto">Enter the sbt console:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ ./sbt"><pre><code>$ ./sbt
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ ./sbt"><pre class="notranslate"><code class="notranslate">$ ./sbt
 </code></pre></div>
 <p dir="auto">Here is a list of sbt commands for daily development:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt; ~compile                                 # Compile source codes
@@ -9280,7 +9280,7 @@ For details, see <a href="https://github.com/msgpack/msgpack-java/blob/develop/m
 &gt; findbugs                                 # Produce findbugs report in target/findbugs
 &gt; jacoco:cover                             # Report the code coverage of tests to target/jacoco folder
 &gt; jcheckStyle                              # Run check style
-&gt; ;scalafmt;test:scalafmt;scalafmtSbt      # Reformat Scala codes"><pre><code>&gt; ~compile                                 # Compile source codes
+&gt; ;scalafmt;test:scalafmt;scalafmtSbt      # Reformat Scala codes"><pre class="notranslate"><code class="notranslate">&gt; ~compile                                 # Compile source codes
 &gt; ~test:compile                            # Compile both source and test codes
 &gt; ~test                                    # Run tests upon source code change
 &gt; ~testOnly *MessagePackTest               # Run tests in the specified class
@@ -9296,7 +9296,7 @@ For details, see <a href="https://github.com/msgpack/msgpack-java/blob/develop/m
 <a id="user-content-publishing" class="anchor" aria-hidden="true" href="#publishing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Publishing</h7>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt; publishLocal            # Install to local .ivy2 repository
 &gt; publishM2               # Install to local .m2 Maven repository
-&gt; publish                 # Publishing a snapshot version to the Sonatype repository"><pre><code>&gt; publishLocal            # Install to local .ivy2 repository
+&gt; publish                 # Publishing a snapshot version to the Sonatype repository"><pre class="notranslate"><code class="notranslate">&gt; publishLocal            # Install to local .ivy2 repository
 &gt; publishM2               # Install to local .m2 Maven repository
 &gt; publish                 # Publishing a snapshot version to the Sonatype repository
 </code></pre></div>
@@ -9307,7 +9307,7 @@ For details, see <a href="https://github.com/msgpack/msgpack-java/blob/develop/m
 $ git push origin v0.x.y"><pre>$ git tag v0.x.y
 $ git push origin v0.x.y</pre></div>
 <p dir="auto">To generate a release notes, you can use this command line:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ git log v(last version).. --oneline | cut -f 2- -d ' ' | perl -npe 's/(.*)\(\#([0-9]+)\)/* \1\[\#\2\]\(http:\/\/github.com\/msgpack\/msgpack-java\/pull\/\2\)/g'"><pre><code>$ git log v(last version).. --oneline | cut -f 2- -d ' ' | perl -npe 's/(.*)\(\#([0-9]+)\)/* \1\[\#\2\]\(http:\/\/github.com\/msgpack\/msgpack-java\/pull\/\2\)/g'
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ git log v(last version).. --oneline | cut -f 2- -d ' ' | perl -npe 's/(.*)\(\#([0-9]+)\)/* \1\[\#\2\]\(http:\/\/github.com\/msgpack\/msgpack-java\/pull\/\2\)/g'"><pre class="notranslate"><code class="notranslate">$ git log v(last version).. --oneline | cut -f 2- -d ' ' | perl -npe 's/(.*)\(\#([0-9]+)\)/* \1\[\#\2\]\(http:\/\/github.com\/msgpack\/msgpack-java\/pull\/\2\)/g'
 </code></pre></div>
 <h8 dir="auto">
 <a id="user-content-publishing-to-sonatype-from-local-machine" class="anchor" aria-hidden="true" href="#publishing-to-sonatype-from-local-machine"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Publishing to Sonatype from Local Machine</h8>
@@ -9316,7 +9316,7 @@ $ git push origin v0.x.y</pre></div>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='credentials += Credentials("Sonatype Nexus Repository Manager",
         "oss.sonatype.org",
         "(Sonatype user name)",
-        "(Sonatype password)")'><pre><code>credentials += Credentials("Sonatype Nexus Repository Manager",
+        "(Sonatype password)")'><pre class="notranslate"><code class="notranslate">credentials += Credentials("Sonatype Nexus Repository Manager",
         "oss.sonatype.org",
         "(Sonatype user name)",
         "(Sonatype password)")
@@ -9325,7 +9325,7 @@ $ git push origin v0.x.y</pre></div>
 <p dir="auto">Then, run <code>publishedSigned</code> followed by <code>sonatypeBundleRelease</code>:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="# [optional] When you need to perform the individual release steps manually, use the following commands:
 &gt; publishSigned           # Publish GPG signed artifacts to the Sonatype repository
-&gt; sonatypeBundleRelease   # Publish to the Maven Central (It will be synched within less than 4 hours)"><pre><code># [optional] When you need to perform the individual release steps manually, use the following commands:
+&gt; sonatypeBundleRelease   # Publish to the Maven Central (It will be synched within less than 4 hours)"><pre class="notranslate"><code class="notranslate"># [optional] When you need to perform the individual release steps manually, use the following commands:
 &gt; publishSigned           # Publish GPG signed artifacts to the Sonatype repository
 &gt; sonatypeBundleRelease   # Publish to the Maven Central (It will be synched within less than 4 hours)
 </code></pre></div>
@@ -9333,7 +9333,7 @@ $ git push origin v0.x.y</pre></div>
 <h7 dir="auto">
 <a id="user-content-project-structure" class="anchor" aria-hidden="true" href="#project-structure"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Project Structure</h7>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="msgpack-core                 # Contains packer/unpacker implementation that never uses third-party libraries
-msgpack-jackson              # Contains jackson-dataformat-java implementation"><pre><code>msgpack-core                 # Contains packer/unpacker implementation that never uses third-party libraries
+msgpack-jackson              # Contains jackson-dataformat-java implementation"><pre class="notranslate"><code class="notranslate">msgpack-core                 # Contains packer/unpacker implementation that never uses third-party libraries
 msgpack-jackson              # Contains jackson-dataformat-java implementation
 </code></pre></div>
 </article>
@@ -11512,7 +11512,7 @@ msgpack.extend({
 <h6 dir="auto">
 <a id="user-content-basic-usage" class="anchor" aria-hidden="true" href="#basic-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic Usage</h6>
 <p dir="auto">Install with:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="npm i msgpackr"><pre class="notranslate"><code class="notranslate">npm i msgpackr
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="npm i msgpackr"><pre><code>npm i msgpackr
 </code></pre></div>
 <p dir="auto">And <code>import</code> or <code>require</code> it for basic standard serialization/encoding (<code>pack</code>) and deserialization/decoding (<code>unpack</code>) functions:</p>
 <div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="import { unpack, pack } from 'msgpackr';
@@ -11641,7 +11641,7 @@ let packr = new Packr({
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="	maxSharedStructures: 100,
 	shouldShareStructure(keys) {
 		return !(keys[0] &gt; 1) // don't share structures that consist of numbers as keys
-	}"><pre class="notranslate"><code class="notranslate">	maxSharedStructures: 100,
+	}"><pre><code>	maxSharedStructures: 100,
 	shouldShareStructure(keys) {
 		return !(keys[0] &gt; 1) // don't share structures that consist of numbers as keys
 	}
@@ -12000,7 +12000,7 @@ addExtension({
 <p dir="auto">Once a record identifier and record field names have been defined, the parser/decoder should proceed to read the next value. Any subsequent use of the record identifier as a value in the block or stream should parsed as a record instance, and the next n values, where is n is the number of fields (as defined in the array of field names), should be read as the values of the fields. For example, here we have defined a structure with fields "foo" and "bar", with the record identifier 0x40, and then read a record instance that defines the field values of 4 and 2, respectively:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='+--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+
 |  0xd4  |  0x72  |  0x40  | array: [ "foo", "bar" ] |  0x40  |  0x04  |  0x02  |
-+--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+'><pre class="notranslate"><code class="notranslate">+--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+
++--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+'><pre><code>+--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+
 |  0xd4  |  0x72  |  0x40  | array: [ "foo", "bar" ] |  0x40  |  0x04  |  0x02  |
 +--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+
 </code></pre></div>
@@ -12564,10 +12564,10 @@ Done <span class="pl-k">in</span> 6.59s.</pre></div>
 <p dir="auto"><a href="https://circleci.com/gh/davethomas11/MoshiPack/tree/master" rel="nofollow"><img src="https://camo.githubusercontent.com/26e8a26b1f7b3963966a4d88f5508cc22763c08c2e799fceadf84801814abcc0/68747470733a2f2f636972636c6563692e636f6d2f67682f6461766574686f6d617331312f4d6f7368695061636b2f747265652f6d61737465722e7376673f7374796c653d737667" alt="CircleCI" data-canonical-src="https://circleci.com/gh/davethomas11/MoshiPack/tree/master.svg?style=svg" style="max-width: 100%;"></a></p>
 <h7 dir="auto">
 <a id="user-content-gradle" class="anchor" aria-hidden="true" href="#gradle"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Gradle</h7>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="implementation com.daveanthonythomas.moshipack:moshipack:1.0.1"><pre class="notranslate"><code class="notranslate">implementation com.daveanthonythomas.moshipack:moshipack:1.0.1
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="implementation com.daveanthonythomas.moshipack:moshipack:1.0.1"><pre><code>implementation com.daveanthonythomas.moshipack:moshipack:1.0.1
 </code></pre></div>
 <p dir="auto">Optional Retrofit support:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="implementation com.daveanthonythomas.moshipack:moshipack-retrofit:1.0.1"><pre class="notranslate"><code class="notranslate">implementation com.daveanthonythomas.moshipack:moshipack-retrofit:1.0.1
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="implementation com.daveanthonythomas.moshipack:moshipack-retrofit:1.0.1"><pre><code>implementation com.daveanthonythomas.moshipack:moshipack-retrofit:1.0.1
 </code></pre></div>
 <h6 dir="auto">
 <a id="user-content-about" class="anchor" aria-hidden="true" href="#about"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>About</h6>
@@ -12958,7 +12958,7 @@ If you are using ProGuard you might need to add the following options:</p>
 -keep @com.squareup.moshi.JsonQualifier interface *
 -keepclassmembers class kotlin.Metadata {
     public &lt;methods&gt;;
-}"><pre class="notranslate"><code class="notranslate">-dontwarn okio.**
+}"><pre><code>-dontwarn okio.**
 -dontwarn javax.annotation.**
 -keepclasseswithmembers class * {
     @com.squareup.moshi.* &lt;methods&gt;;
@@ -14273,13 +14273,13 @@ this repo, and use in your own HTML page, the module will expose a
 <code>msgpack5</code> global.</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;script type="text/javascript"
         src="./msgpack5.min.js"&gt;
-&lt;/script&gt;'><pre class="notranslate"><code class="notranslate">&lt;script type="text/javascript"
+&lt;/script&gt;'><pre><code>&lt;script type="text/javascript"
         src="./msgpack5.min.js"&gt;
 &lt;/script&gt;
 </code></pre></div>
 <h7 dir="auto">
 <a id="user-content-to-build" class="anchor" aria-hidden="true" href="#to-build"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>To build</h7>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="	npm run build"><pre class="notranslate"><code class="notranslate">	npm run build
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="	npm run build"><pre><code>	npm run build
 </code></pre></div>
 <h6 dir="auto">
 <a id="user-content-api" class="anchor" aria-hidden="true" href="#api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API</h6>
@@ -16281,7 +16281,7 @@ MsgPack::extend(array(
 contact:
        qq:185511468, 
     email:185511468@qq.com
-welcome to report bug"><pre class="notranslate"><code class="notranslate">unit Owner: D10.Mofen, qdac.swish
+welcome to report bug"><pre><code>unit Owner: D10.Mofen, qdac.swish
 contact:
        qq:185511468, 
     email:185511468@qq.com
@@ -16426,7 +16426,7 @@ my $mp = Data::MessagePack-&gt;new();
 $mp-&gt;canonical-&gt;utf8-&gt;prefer_integer if $needed;
 
 my $packed   = $mp-&gt;pack($dat);
-my $unpacked = $mp-&gt;unpack($dat);"><pre class="notranslate"><code class="notranslate">use Data::MessagePack;
+my $unpacked = $mp-&gt;unpack($dat);"><pre><code>use Data::MessagePack;
 
 my $mp = Data::MessagePack-&gt;new();
 $mp-&gt;canonical-&gt;utf8-&gt;prefer_integer if $needed;
@@ -16453,7 +16453,7 @@ JSON.  But unlike JSON, it is very fast and small.</p>
 <p dir="auto">SMALL IN SIZE</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="  say length(JSON::XS::encode_json({a=&gt;1, b=&gt;2}));   # =&gt; 13
   say length(Storable::nfreeze({a=&gt;1, b=&gt;2}));       # =&gt; 21
-  say length(Data::MessagePack-&gt;pack({a=&gt;1, b=&gt;2})); # =&gt; 7"><pre class="notranslate"><code class="notranslate">  say length(JSON::XS::encode_json({a=&gt;1, b=&gt;2}));   # =&gt; 13
+  say length(Data::MessagePack-&gt;pack({a=&gt;1, b=&gt;2})); # =&gt; 7"><pre><code>  say length(JSON::XS::encode_json({a=&gt;1, b=&gt;2}));   # =&gt; 13
   say length(Storable::nfreeze({a=&gt;1, b=&gt;2}));       # =&gt; 21
   say length(Data::MessagePack-&gt;pack({a=&gt;1, b=&gt;2})); # =&gt; 7
 </code></pre></div>
@@ -16570,7 +16570,7 @@ Benchmark: running json, mp, storable for at least 1 CPU seconds...
              Rate storable     json       mp
 storable 114975/s       --     -36%     -46%
 json     179443/s      56%       --     -16%
-mp       212910/s      85%      19%       --"><pre class="notranslate"><code class="notranslate">-- serialize
+mp       212910/s      85%      19%       --"><pre><code>-- serialize
 JSON::XS: 2.3
 Data::MessagePack: 0.24
 Storable: 2.21
@@ -16999,7 +16999,7 @@ which type is not bytes or str.</li>
 </ul>
 <h6 dir="auto">
 <a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ pip install msgpack"><pre class="notranslate"><code class="notranslate">$ pip install msgpack
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ pip install msgpack"><pre><code>$ pip install msgpack
 </code></pre></div>
 <h7 dir="auto">
 <a id="user-content-pure-python-implementation" class="anchor" aria-hidden="true" href="#pure-python-implementation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Pure Python implementation</h7>
@@ -19636,13 +19636,13 @@ It implements the <a href="http://rubygems.org/gems/activesupport" rel="nofollow
 <h6 dir="auto">
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
 <p dir="auto">Add this line to your application's Gemfile:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="gem 'msgpack_rails'"><pre class="notranslate"><code class="notranslate">gem 'msgpack_rails'
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="gem 'msgpack_rails'"><pre><code>gem 'msgpack_rails'
 </code></pre></div>
 <p dir="auto">And then execute:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ bundle"><pre class="notranslate"><code class="notranslate">$ bundle
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ bundle"><pre><code>$ bundle
 </code></pre></div>
 <p dir="auto">Or install it yourself as:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ gem install msgpack_rails"><pre class="notranslate"><code class="notranslate">$ gem install msgpack_rails
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ gem install msgpack_rails"><pre><code>$ gem install msgpack_rails
 </code></pre></div>
 <h6 dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
@@ -19665,7 +19665,7 @@ $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
 
 # After setting ActiveSupport.parse_msgpack_times to true
 $ ActiveSupport::MessagePack.decode Time.now.to_msgpack
-=&gt; Wed, 11 Sep 2013 11:25:18 -0700'><pre class="notranslate"><code class="notranslate">$ ActiveSupport::MessagePack.encode(:a =&gt; :b)
+=&gt; Wed, 11 Sep 2013 11:25:18 -0700'><pre><code>$ ActiveSupport::MessagePack.encode(:a =&gt; :b)
 =&gt; "\x81\xA1a\xA1b"
 
 $ ActiveSupport::MessagePack.encode(Time.now)
@@ -20047,7 +20047,7 @@ called MsgPack-SML, which is targeted for MLton.</p>
 <h6 dir="auto">
 <a id="user-content-quick-start" class="anchor" aria-hidden="true" href="#quick-start"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quick Start</h6>
 <p dir="auto"><a href="https://maven-badges.herokuapp.com/maven-central/org.msgpack/msgpack-scala_2.12/" rel="nofollow"><img src="https://camo.githubusercontent.com/792dddff6dac94afaa9025c6fbf51e61c7ed4b1fb7bde1f7461b21bdcc6e2803/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f6f72672e6d73677061636b2f6d73677061636b2d7363616c615f322e31322f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/org.msgpack/msgpack-scala_2.12/badge.svg" style="max-width: 100%;"></a></p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "org.msgpack" %% "msgpack-scala" % "(version)"'><pre><code>libraryDependencies += "org.msgpack" %% "msgpack-scala" % "(version)"
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "org.msgpack" %% "msgpack-scala" % "(version)"'><pre class="notranslate"><code class="notranslate">libraryDependencies += "org.msgpack" %% "msgpack-scala" % "(version)"
 </code></pre></div>
 <p dir="auto">General usage is the same with msgpack-java. See this <a href="https://github.com/msgpack/msgpack-java/blob/develop/msgpack-core/src/test/java/org/msgpack/core/example/MessagePackExample.java">example code (Java)</a>.</p>
 <h6 dir="auto">
@@ -20055,7 +20055,7 @@ called MsgPack-SML, which is targeted for MLton.</p>
 <h7 dir="auto">
 <a id="user-content-basic-sbt-commands" class="anchor" aria-hidden="true" href="#basic-sbt-commands"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic sbt commands</h7>
 <p dir="auto">Enter the sbt console:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ ./sbt"><pre><code>$ ./sbt
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ ./sbt"><pre class="notranslate"><code class="notranslate">$ ./sbt
 </code></pre></div>
 <p dir="auto">Here is a list of sbt commands for daily development:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='&gt; ~compile                                 # Compile source codes
@@ -20066,7 +20066,7 @@ called MsgPack-SML, which is targeted for MLton.</p>
 &gt; project msgpack-scala                    # Focus on a specific project
 &gt; package                                  # Create a jar file in the target folder of each project
 &gt; scalafmt                                 # Reformat source codes
-&gt; ; coverage; test; coverageReport; coverageAggregate;  # Code coverage'><pre><code>&gt; ~compile                                 # Compile source codes
+&gt; ; coverage; test; coverageReport; coverageAggregate;  # Code coverage'><pre class="notranslate"><code class="notranslate">&gt; ~compile                                 # Compile source codes
 &gt; ~test:compile                            # Compile both source and test codes
 &gt; ~test                                    # Run tests upon source code change
 &gt; ~test-only *MessagePackTest              # Run tests in the specified class
@@ -20081,7 +20081,7 @@ called MsgPack-SML, which is targeted for MLton.</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt; publishLocal            # Install to local .ivy2 repository
 &gt; publish                 # Publishing a snapshot version to the Sonatype repository
 
-&gt; release                 # Run the release procedure (set a new version, run tests, upload artifacts, then deploy to Sonatype)"><pre><code>&gt; publishLocal            # Install to local .ivy2 repository
+&gt; release                 # Run the release procedure (set a new version, run tests, upload artifacts, then deploy to Sonatype)"><pre class="notranslate"><code class="notranslate">&gt; publishLocal            # Install to local .ivy2 repository
 &gt; publish                 # Publishing a snapshot version to the Sonatype repository
 
 &gt; release                 # Run the release procedure (set a new version, run tests, upload artifacts, then deploy to Sonatype)
@@ -20091,7 +20091,7 @@ called MsgPack-SML, which is targeted for MLton.</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='credentials += Credentials("Sonatype Nexus Repository Manager",
         "oss.sonatype.org",
         "(Sonatype user name)",
-        "(Sonatype password)")'><pre><code>credentials += Credentials("Sonatype Nexus Repository Manager",
+        "(Sonatype password)")'><pre class="notranslate"><code class="notranslate">credentials += Credentials("Sonatype Nexus Repository Manager",
         "oss.sonatype.org",
         "(Sonatype user name)",
         "(Sonatype password)")
@@ -20190,7 +20190,7 @@ Arguments:
     &lt;host&gt;                Server hostname
     &lt;port&gt;                Server port
     &lt;method&gt;              Name of RPC method
-    &lt;params&gt;              Parameters of RPC method in JSON format"><pre><code>msgpack-cli
+    &lt;params&gt;              Parameters of RPC method in JSON format"><pre class="notranslate"><code class="notranslate">msgpack-cli
 
 Usage:
     msgpack-cli encode &lt;input-file&gt; [--out=&lt;output-file&gt;] [--disable-int64-conv]
@@ -20285,7 +20285,7 @@ $ msgpack-cli decode test.bin --pp  # pretty-print
     }
   ],
   &quot;spouse&quot;: null
-}"><pre><code>$ cat test.json
+}"><pre class="notranslate"><code class="notranslate">$ cat test.json
 {
   "firstName": "John",
   "lastName": "Smith",
@@ -20356,7 +20356,7 @@ $ msgpack-cli rpc localhost 8000 echo 3.14159
 $
 $ # multiple params (as json array)
 $ msgpack-cli rpc localhost 8000 echo '[&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;, {&quot;A&quot;: 65, &quot;B&quot;: 66, &quot;C&quot;: 67}]'
-[&quot;abc&quot;,&quot;def&quot;,&quot;ghi&quot;,{&quot;A&quot;:65,&quot;B&quot;:66,&quot;C&quot;:67}]"><pre><code>$ # zero params
+[&quot;abc&quot;,&quot;def&quot;,&quot;ghi&quot;,{&quot;A&quot;:65,&quot;B&quot;:66,&quot;C&quot;:67}]"><pre class="notranslate"><code class="notranslate">$ # zero params
 $ msgpack-cli rpc localhost 8000 echo
 []
 $
@@ -20499,7 +20499,7 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
 <h7 dir="auto">
 <a id="user-content-carthage" class="anchor" aria-hidden="true" href="#carthage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Carthage</h7>
 <p dir="auto">To use Carthage, add the following to your Cartfile:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='github "a2/MessagePack.swift" ~&gt; 4.0'><pre lang="ogdl" class="notranslate"><code class="notranslate">github "a2/MessagePack.swift" ~&gt; 4.0
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='github "a2/MessagePack.swift" ~&gt; 4.0'><pre lang="ogdl"><code>github "a2/MessagePack.swift" ~&gt; 4.0
 </code></pre></div>
 <h7 dir="auto">
 <a id="user-content-spm-swift-package-manager" class="anchor" aria-hidden="true" href="#spm-swift-package-manager"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SPM (Swift Package Manager)</h7>
@@ -20970,12 +20970,12 @@ print(landmark)
 <h7 dir="auto">
 <a id="user-content-carthage" class="anchor" aria-hidden="true" href="#carthage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Carthage</h7>
 <p dir="auto">Add the following to your Cartfile:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='github "hirotakan/MessagePacker"'><pre lang="terminal" class="notranslate"><code class="notranslate">github "hirotakan/MessagePacker"
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='github "hirotakan/MessagePacker"'><pre lang="terminal"><code>github "hirotakan/MessagePacker"
 </code></pre></div>
 <h7 dir="auto">
 <a id="user-content-cocoapods" class="anchor" aria-hidden="true" href="#cocoapods"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>CocoaPods</h7>
 <p dir="auto">Add the following to your Podfile:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="pod 'MessagePacker'"><pre lang="terminal" class="notranslate"><code class="notranslate">pod 'MessagePacker'
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="pod 'MessagePacker'"><pre lang="terminal"><code>pod 'MessagePacker'
 </code></pre></div>
 <h7 dir="auto">
 <a id="user-content-swiftpm" class="anchor" aria-hidden="true" href="#swiftpm"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SwiftPM</h7>
