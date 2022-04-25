@@ -218,8 +218,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-d',this)">D <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-jpf91-msgpack-ll',this)">D <span class="qs-sub">jpf91</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-knopp-msgpack_dart',this)">Dart <span class="qs-sub">knopp</span></a></li>
@@ -248,8 +246,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-shamaton-msgpack',this)">Go <span class="qs-sub">shamaton</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-shamaton-msgpackgen',this)">Go <span class="qs-sub">shamaton</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-reeze-msgpack-hhvm',this)">HHVM <span class="qs-sub">reeze</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-haskell',this)">Haskell <span class="qs-sub">msgpack</span></a></li>
@@ -273,8 +269,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-davalapar-what-the-pack',this)">Javascript/NodeJS <span class="qs-sub">davalapar</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kropp-kotlinx-serialization-msgpack',this)">Kotlin Serialization <span class="qs-sub">kropp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mradziwo-MsgPack_LabVIEW',this)">LabVIEW <span class="qs-sub">mradziwo</span></a></li>
           
@@ -311,8 +305,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-seantallen-org-msgpack',this)">Pony <span class="qs-sub">seantallen-org</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-patriksimek-msgpack-postgres',this)">PostgreSQL <span class="qs-sub">patriksimek</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-royratcliffe-msgpackc-prolog',this)">Prolog <span class="qs-sub">royratcliffe</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-python',this)">Python <span class="qs-sub">msgpack</span></a></li>
           
@@ -373,8 +365,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-Asmod4n-mruby-simplemsgpack',this)">mruby <span class="qs-sub">Asmod4n</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tagomoris-msgpack-inspect',this)">msgpack-inspect <span class="qs-sub">tagomoris</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-argonaut',this)">scala-native <span class="qs-sub">msgpack4z</span></a></li>
           
         </ul>
       </div>
@@ -6949,236 +6939,6 @@ void main()
   </div>
         </div>
         
-        <div id="qs-jpf91-msgpack-ll" class="qs"><h4><a href="https://github.com/jpf91/msgpack-ll" target="_blank">jpf91/msgpack-ll <span class="qs-url">https://github.com/jpf91/msgpack-ll</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack-ll" class="anchor" aria-hidden="true" href="#msgpack-ll"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-ll</h5>
-<p dir="auto"><a href="https://coveralls.io/github/jpf91/msgpack-ll?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/895f06e5f92c1da6808be4ae881010eca89c3371c9eea3ebdc550fb1ccad0193/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f6a706639312f6d73677061636b2d6c6c2f62616467652e7376673f6272616e63683d6d6173746572" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/jpf91/msgpack-ll/badge.svg?branch=master" style="max-width: 100%;"></a>
-<a href="https://travis-ci.org/jpf91/msgpack-ll" rel="nofollow"><img src="https://camo.githubusercontent.com/fbcf7bc6f3cd1031febc094f195e550270b6317c2d6df6c0a5043efbedbfa4cc/68747470733a2f2f7472617669732d63692e6f72672f6a706639312f6d73677061636b2d6c6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/jpf91/msgpack-ll.svg?branch=master" style="max-width: 100%;"></a></p>
-<p dir="auto">This is a low-level <code>@nogc</code>, <code>nothrow</code>, <code>@safe</code>, <code>pure</code> and <code>betterC</code> compatible
-<a href="http://msgpack.org/" rel="nofollow">MessagePack</a> serializer and deserializer. The
-library was designed to avoid any external dependencies and handle the low-level protocol
-details only. As a result the library doesn't have to do any error handling or
-buffer management. This library does never dynamically allocate memory.</p>
-<p dir="auto">The API documentation is available <a href="https://jpf91.github.io/msgpack-ll/msgpack_ll.html" rel="nofollow">here</a>.</p>
-<h6 dir="auto">
-<a id="user-content-a-simple-example-showing-the-complete-api" class="anchor" aria-hidden="true" href="#a-simple-example-showing-the-complete-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>A simple example showing the complete API</h6>
-<div class="highlight highlight-source-d position-relative overflow-auto" data-snippet-clipboard-copy-content="import msgpack_ll;
-
-// Buffer allocation is not handled by the library
-ubyte[128] buffer;
-
-
-// The MsgpackType enum contains all low-level MessagePack types
-enum type = MsgpackType.uint8;
-
-// The DataSize!(MsgpackType) function returns the size of serialized data
-// for a certain type.
-
-// The formatter and parser use ref ubyte[DataSize!type] types. This
-// forces the compiler to do array length checks at compile time and avoid
-// any runtime bounds checking.
-
-// Format the number 42 as a uint8 type. This will require
-// DataSize!(MsgpackType.uint8) == 2 bytes storage.
-formatType!(type)(42, buffer[0..DataSize!type]);
-
-// To deserialize we have to somehow get the data type at runtime
-// Then verify the type is as expected.
-assert(getType(buffer[0]) == type);
-
-// Now deserialize. Here we have to specify the MsgpackType
-// as a compile time value.
-const result = parseType!type(buffer[0..DataSize!type]);
-assert(result == 42);"><pre><span class="pl-k">import</span> msgpack_ll;
-
-<span class="pl-c"><span class="pl-c">//</span> Buffer allocation is not handled by the library</span>
-<span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer;
-
-
-<span class="pl-c"><span class="pl-c">//</span> The MsgpackType enum contains all low-level MessagePack types</span>
-<span class="pl-k">enum</span> type = MsgpackType.uint8;
-
-<span class="pl-c"><span class="pl-c">//</span> The DataSize!(MsgpackType) function returns the size of serialized data</span>
-<span class="pl-c"><span class="pl-c">//</span> for a certain type.</span>
-
-<span class="pl-c"><span class="pl-c">//</span> The formatter and parser use ref ubyte[DataSize!type] types. This</span>
-<span class="pl-c"><span class="pl-c">//</span> forces the compiler to do array length checks at compile time and avoid</span>
-<span class="pl-c"><span class="pl-c">//</span> any runtime bounds checking.</span>
-
-<span class="pl-c"><span class="pl-c">//</span> Format the number 42 as a uint8 type. This will require</span>
-<span class="pl-c"><span class="pl-c">//</span> DataSize!(MsgpackType.uint8) == 2 bytes storage.</span>
-formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
-
-<span class="pl-c"><span class="pl-c">//</span> To deserialize we have to somehow get the data type at runtime</span>
-<span class="pl-c"><span class="pl-c">//</span> Then verify the type is as expected.</span>
-<span class="pl-k">assert</span>(getType(buffer[<span class="pl-c1">0</span>]) <span class="pl-k">==</span> type);
-
-<span class="pl-c"><span class="pl-c">//</span> Now deserialize. Here we have to specify the MsgpackType</span>
-<span class="pl-c"><span class="pl-c">//</span> as a compile time value.</span>
-<span class="pl-k">const</span> result = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
-<span class="pl-k">assert</span>(result <span class="pl-k">==</span> <span class="pl-c1">42</span>);</pre></div>
-<h6 dir="auto">
-<a id="user-content-a-quick-view-at-the-generated-code-for-this-library" class="anchor" aria-hidden="true" href="#a-quick-view-at-the-generated-code-for-this-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>A quick view at the generated code for this library</h6>
-<h7 dir="auto">
-<a id="user-content-serializing-an-8-bit-integer" class="anchor" aria-hidden="true" href="#serializing-an-8-bit-integer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializing an 8 bit integer</h7>
-<div class="highlight highlight-source-d position-relative overflow-auto" data-snippet-clipboard-copy-content="void format(ref ubyte[128] buffer)
-{
-    enum type = MsgpackType.uint8;
-    formatType!(type)(42, buffer[0..DataSize!type]);
-}"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
-{
-    <span class="pl-k">enum</span> type = MsgpackType.uint8;
-    formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
-}</pre></div>
-<p dir="auto">Because of clever typing there's no runtime bounds checking but all bounds
-checks are performed at compile time by type checking.</p>
-<div class="highlight highlight-source-assembly position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe void msgpack_ll.format(ref ubyte[128]):
-        mov     BYTE PTR [rdi], -52
-        mov     BYTE PTR [rdi+1], 42
-        ret"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">52</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-c1">42</span>
-<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-serializing-a-small-negative-integer-into-one-byte" class="anchor" aria-hidden="true" href="#serializing-a-small-negative-integer-into-one-byte"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializing a small negative integer into one byte</h7>
-<div class="highlight highlight-source-d position-relative overflow-auto" data-snippet-clipboard-copy-content="void format(ref ubyte[128] buffer)
-{
-    enum type = MsgpackType.negFixInt;
-    formatType!(type)(-11, buffer[0..DataSize!type]);
-}"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
-{
-    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
-    formatType<span class="pl-k">!</span>(type)(<span class="pl-k">-</span><span class="pl-c1">11</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
-}</pre></div>
-<p dir="auto">The MessagePack format is cleverly designed, so encoding the type is actually free
-in this case.</p>
-<div class="highlight highlight-source-assembly position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe void msgpack_ll.format(ref ubyte[128]):
-        mov     BYTE PTR [rdi], -11
-        ret"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">11</span>
-<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-deserializing-an-expected-type" class="anchor" aria-hidden="true" href="#deserializing-an-expected-type"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserializing an expected type</h7>
-<div class="highlight highlight-source-d position-relative overflow-auto" data-snippet-clipboard-copy-content="bool parse(ref ubyte[128] buffer, ref byte value)
-{
-    enum type = MsgpackType.negFixInt;
-    auto rtType = getType(buffer[0]);
-    if(rtType != type)
-        return false;
-
-    value = parseType!type(buffer[0..DataSize!type]);
-    return true;
-}"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
-{
-    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
-    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
-    <span class="pl-k">if</span>(rtType <span class="pl-k">!=</span> type)
-        <span class="pl-k">return</span> <span class="pl-c1">false</span>;
-
-    value = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
-    <span class="pl-k">return</span> <span class="pl-c1">true</span>;
-}</pre></div>
-<p dir="auto">The compiler will inline functions and can see through the switch block in
-<code>getType</code>. If you explicitly ask for one type, the compiler will reduce the
-code to a simple explicit <code>if</code> check for this type!</p>
-<div class="highlight highlight-source-assembly position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte[128], ref byte):
-        movzx   edx, BYTE PTR [rdi]
-        cmp     edx, 223
-        jle     .L58
-        mov     BYTE PTR [rsi], dl
-        mov     eax, 1
-        ret
-.L58:
-        xor     eax, eax
-        ret"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
-<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
-<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
-<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L58</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">dl</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
-<span class="pl-en">        </span><span class="pl-k">ret</span>
-<span class="pl-en">.L58:</span>
-<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
-<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-deserializing-one-of-multiple-types" class="anchor" aria-hidden="true" href="#deserializing-one-of-multiple-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserializing one of multiple types</h7>
-<div class="highlight highlight-source-d position-relative overflow-auto" data-snippet-clipboard-copy-content="bool parse(ref ubyte[128] buffer, ref byte value)
-{
-    auto rtType = getType(buffer[0]);
-    switch(rtType)
-    {
-        case MsgpackType.negFixInt:
-            value = parseType!(MsgpackType.negFixInt)(buffer[0..DataSize!(MsgpackType.negFixInt)]);
-            return true;
-        case MsgpackType.int8:
-            value = parseType!(MsgpackType.int8)(buffer[0..DataSize!(MsgpackType.int8)]);
-            return true;
-        default:
-            return false;
-    }
-}"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
-{
-    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
-    <span class="pl-k">switch</span>(rtType)
-    {
-        <span class="pl-k">case</span> MsgpackType.negFixInt:
-            value = parseType<span class="pl-k">!</span>(MsgpackType.negFixInt)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.negFixInt)]);
-            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
-        <span class="pl-k">case</span> MsgpackType.int8:
-            value = parseType<span class="pl-k">!</span>(MsgpackType.int8)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.int8)]);
-            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
-        <span class="pl-k">default</span>:
-            <span class="pl-k">return</span> <span class="pl-c1">false</span>;
-    }
-}</pre></div>
-<p dir="auto">The generated code is obviously slighly more complex. The interesting part here
-is that type checking is directly done using the raw type value and not the
-enum values returned by <code>getType</code>. Even manually written ASM probably can't do
-much better here.</p>
-<div class="highlight highlight-source-assembly position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte[128], ref byte):
-        movzx   ecx, BYTE PTR [rdi]
-        xor     eax, eax
-        cmp     ecx, 191
-        jle     .L55
-        cmp     ecx, 223
-        jg      .L56
-        cmp     ecx, 208
-        jne     .L60
-        movzx   eax, BYTE PTR [rdi+1]
-        mov     BYTE PTR [rsi], al
-        mov     eax, 1
-.L55:
-        rep; ret
-.L56:
-        mov     BYTE PTR [rsi], cl
-        mov     eax, 1
-        ret
-.L60:
-        ret"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
-<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
-<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
-<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">191</span>
-<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L55</span>
-<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
-<span class="pl-en">        </span><span class="pl-k">jg</span><span class="pl-en">      .L56</span>
-<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">208</span>
-<span class="pl-en">        </span><span class="pl-k">jne</span><span class="pl-en">     .L60</span>
-<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">]</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">al</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
-<span class="pl-en">.L55:</span>
-<span class="pl-en">        </span><span class="pl-k">rep</span><span class="pl-c">; ret</span>
-<span class="pl-en">.L56:</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">cl</span>
-<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
-<span class="pl-en">        </span><span class="pl-k">ret</span>
-<span class="pl-en">.L60:</span>
-<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-danellis-dart-msgpack" class="qs"><h4><a href="https://github.com/danellis/dart-msgpack" target="_blank">danellis/dart-msgpack <span class="qs-url">https://github.com/danellis/dart-msgpack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-3:0" dir="auto">
@@ -7928,14 +7688,14 @@ func ExampleMarshal() {
         
         <div id="qs-ugorji-go" class="qs"><h4><a href="https://github.com/ugorji/go" target="_blank">ugorji/go <span class="qs-url">https://github.com/ugorji/go</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><strong>MessagePack and <a href="http://github.com/ugorji/binc">Binc</a> Codec for <a href="http://golang.org" rel="nofollow">Go</a> Language.</strong></p>
-<p dir="auto"><em>A High Performance, Feature-Rich, Idiomatic encode/decode and rpc library</em>.</p>
-<p dir="auto">To install:</p>
+    <article class="markdown-body entry-content container-lg" itemprop="text"><p data-sourcepos="1:1-1:101" dir="auto"><strong>MessagePack and <a href="http://github.com/ugorji/binc">Binc</a> Codec for <a href="http://golang.org" rel="nofollow">Go</a> Language.</strong></p>
+<p data-sourcepos="3:1-3:76" dir="auto"><em>A High Performance, Feature-Rich, Idiomatic encode/decode and rpc library</em>.</p>
+<p data-sourcepos="5:1-5:11" dir="auto">To install:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/ugorji/go/codec"><pre class="notranslate"><code class="notranslate">go get github.com/ugorji/go/codec
 </code></pre></div>
-<p dir="auto">Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
+<p data-sourcepos="9:1-10:69" dir="auto">Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
 Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec" rel="nofollow">http://godoc.org/github.com/ugorji/go/codec</a>]</p>
-<p dir="auto">Typical usage:</p>
+<p data-sourcepos="12:1-12:14" dir="auto">Typical usage:</p>
 <div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content='    // create and use decoder/encoder
     var (
         v interface{} // value to decode/encode into
@@ -8311,243 +8071,6 @@ func main() {
   </div>
         </div>
         
-        <div id="qs-shamaton-msgpackgen" class="qs"><h4><a href="https://github.com/shamaton/msgpackgen" target="_blank">shamaton/msgpackgen <span class="qs-url">https://github.com/shamaton/msgpackgen</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:35" dir="auto">
-<a id="user-content-messagepack-code-generator-for-go" class="anchor" aria-hidden="true" href="#messagepack-code-generator-for-go"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack Code Generator for Go</h5>
-<p data-sourcepos="3:1-7:200" dir="auto"><a href="https://pkg.go.dev/github.com/shamaton/msgpackgen" rel="nofollow"><img src="https://camo.githubusercontent.com/10921201495956d2ae13555a57828121308eeafa6d3b3c9e4e90e95ee2cc28f4/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f7368616d61746f6e2f6d73677061636b67656e2e737667" alt="Go Reference" data-canonical-src="https://pkg.go.dev/badge/github.com/shamaton/msgpackgen.svg" style="max-width: 100%;"></a>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/shamaton/msgpackgen/workflows/test/badge.svg"><img src="https://github.com/shamaton/msgpackgen/workflows/test/badge.svg" alt="test" style="max-width: 100%;"></a>
-<a href="https://goreportcard.com/report/github.com/shamaton/msgpackgen" rel="nofollow"><img src="https://camo.githubusercontent.com/a693d15dcdd5e6c22911cb0107e9b064be2bf195b88fccf760f3e6708f8589a5/68747470733a2f2f676f7265706f7274636172642e636f6d2f62616467652f6769746875622e636f6d2f7368616d61746f6e2f6d73677061636b67656e" alt="Go Report Card" data-canonical-src="https://goreportcard.com/badge/github.com/shamaton/msgpackgen" style="max-width: 100%;"></a>
-<a href="https://codecov.io/gh/shamaton/msgpackgen" rel="nofollow"><img src="https://camo.githubusercontent.com/d9f93a215473ec655021a1e543ed31ce3018eaba58c4d69a75139a4a74bcfa34/68747470733a2f2f636f6465636f762e696f2f67682f7368616d61746f6e2f6d73677061636b67656e2f6272616e63682f6d61696e2f67726170682f62616467652e7376673f746f6b656e3d4b374d33373738583743" alt="codecov" data-canonical-src="https://codecov.io/gh/shamaton/msgpackgen/branch/main/graph/badge.svg?token=K7M3778X7C" style="max-width: 100%;"></a>
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fshamaton%2Fmsgpackgen?ref=badge_shield" rel="nofollow"><img src="https://camo.githubusercontent.com/366c7a05179e0bfd43d6aaef746666996b9087200f84479887af5f92de13e2c6/68747470733a2f2f6170702e666f7373612e636f6d2f6170692f70726f6a656374732f6769742532426769746875622e636f6d2532467368616d61746f6e2532466d73677061636b67656e2e7376673f747970653d736869656c64" alt="FOSSA Status" data-canonical-src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fshamaton%2Fmsgpackgen.svg?type=shield" style="max-width: 100%;"></a></p>
-<p data-sourcepos="9:1-9:112" dir="auto"><strong>msgpackgen</strong> provides a code generation tool and serialization library for <a href="http://msgpack.org/" rel="nofollow">MessagePack</a>.</p>
-<ul data-sourcepos="11:1-14:0" dir="auto">
-<li data-sourcepos="11:1-11:21">
-<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji> Extremely Fast</li>
-<li data-sourcepos="12:1-12:25">
-<g-emoji class="g-emoji" alias="recycle" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/267b.png">♻️</g-emoji> Easy Maintenance</li>
-<li data-sourcepos="13:1-14:0">
-<g-emoji class="g-emoji" alias="100" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png">💯</g-emoji> Compliant with <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">specifications</a>
-</li>
-</ul>
-<h6 data-sourcepos="15:1-15:13" dir="auto">
-<a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quickstart</h6>
-<p data-sourcepos="16:1-16:50" dir="auto">Create go.mod file, if you still have not created.</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="# example
-go mod init github.com/user/awesome"><pre><span class="pl-c"><span class="pl-c">#</span> example</span>
-go mod init github.com/user/awesome</pre></div>
-<p data-sourcepos="23:1-23:63" dir="auto">In a source file(ex. main.go), include the following directive:</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="//go:generate msgpackgen
-or
-//go:generate go run github.com/shamaton/msgpackgen"><pre><span class="pl-c">//go:generate msgpackgen</span>
-<span class="pl-s1">or</span>
-<span class="pl-c">//go:generate go run github.com/shamaton/msgpackgen</span></pre></div>
-<p data-sourcepos="31:1-31:44" dir="auto">And run the following command in your shell:</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="go generate"><pre>go generate</pre></div>
-<p data-sourcepos="37:1-38:46" dir="auto">It will generate one <code>.go</code> file for serialization, default is <code>resolver.msgpackgen.go</code>.
-You can call one method to use generated code.</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="func main() {
-	// this method is defined in resolver.msgpackgen.go
-	RegisterGeneratedResolver()
-	
-	// ... your code ...
-}"><pre><span class="pl-k">func</span> <span class="pl-en">main</span>() {
-	<span class="pl-c">// this method is defined in resolver.msgpackgen.go</span>
-	<span class="pl-en">RegisterGeneratedResolver</span>()
-	
-	<span class="pl-c">// ... your code ...</span>
-}</pre></div>
-<p data-sourcepos="49:1-49:41" dir="auto"><code>Marshal</code> and <code>Unmarshal</code> look like this:</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="    // import github.com/shamaton/msgpackgen/msgpack
-    v := ResolvedStruct{}
-    b, err := msgpack.Marshal(v)
-    if err != nil {
-        panic(err)
-    }
-    
-    var vv ResolvedStruct
-    err = msgpack.Unmarshal(b, &amp;vv)
-    if err != nil {
-        panic(err)
-    }"><pre>    <span class="pl-c">// import github.com/shamaton/msgpackgen/msgpack</span>
-    <span class="pl-s1">v</span> <span class="pl-c1">:=</span> <span class="pl-smi">ResolvedStruct</span>{}
-    <span class="pl-s1">b</span>, <span class="pl-s1">err</span> <span class="pl-c1">:=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Marshal</span>(<span class="pl-s1">v</span>)
-    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
-        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
-    }
-    
-    <span class="pl-k">var</span> <span class="pl-s1">vv</span> <span class="pl-smi">ResolvedStruct</span>
-    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Unmarshal</span>(<span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">vv</span>)
-    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
-        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
-    }</pre></div>
-<h6 data-sourcepos="65:1-65:13" dir="auto">
-<a id="user-content-serializer" class="anchor" aria-hidden="true" href="#serializer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializer</h6>
-<h7 data-sourcepos="66:1-66:19" dir="auto">
-<a id="user-content-supported-types" class="anchor" aria-hidden="true" href="#supported-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Supported Types</h7>
-<p data-sourcepos="67:1-71:25" dir="auto">primitive types:<br>
-<code>int</code>, <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code>,
-<code>uint</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code>,
-<code>float32</code>, <code>float64</code>, <code>string</code>, <code>bool</code>, <code>byte</code>, <code>rune</code>,
-<code>complex64</code>, <code>complex128</code></p>
-<p data-sourcepos="73:1-73:27" dir="auto">slice, array: <code>[]</code>, <code>[cap]</code></p>
-<p data-sourcepos="75:1-75:20" dir="auto">map: <code>map[key]value</code></p>
-<p data-sourcepos="77:1-77:46" dir="auto">struct: <code>time.Time</code> and structures you defined</p>
-<h7 data-sourcepos="79:1-79:8" dir="auto">
-<a id="user-content-tags" class="anchor" aria-hidden="true" href="#tags"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Tags</h7>
-<p data-sourcepos="80:1-80:35" dir="auto">Renaming or omitting are available.</p>
-<ul data-sourcepos="82:1-85:0" dir="auto">
-<li data-sourcepos="82:1-82:44">Renaming fields via <code>msgpack:"field_name"</code>
-</li>
-<li data-sourcepos="83:1-85:0">Omitting fields via <code>msgpack:"-"</code>
-</li>
-</ul>
-<h7 data-sourcepos="86:1-86:28" dir="auto">
-<a id="user-content-switch-default-behaviour" class="anchor" aria-hidden="true" href="#switch-default-behaviour"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Switch Default Behaviour</h7>
-<p data-sourcepos="87:1-88:68" dir="auto">Default serialization behaviour is map type. But the performance of array type is better.
-If you want to switch array type as default, use <code>SetStructAsArray</code>.</p>
-<p data-sourcepos="90:1-90:55" dir="auto">Also, you can use <code>MarshalAsArray</code>, <code>UnmarshalAsArray</code>.</p>
-<h6 data-sourcepos="92:1-92:17" dir="auto">
-<a id="user-content-code-generator" class="anchor" aria-hidden="true" href="#code-generator"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Code Generator</h6>
-<h7 data-sourcepos="93:1-93:20" dir="auto">
-<a id="user-content-easy-maintenance" class="anchor" aria-hidden="true" href="#easy-maintenance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Easy maintenance</h7>
-<p data-sourcepos="94:1-95:52" dir="auto">This tool generates only one <code>.go</code> file.
-All you have to delete is one generated <code>.go</code> file.</p>
-<h7 data-sourcepos="97:1-97:13" dir="auto">
-<a id="user-content-analyzing" class="anchor" aria-hidden="true" href="#analyzing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Analyzing</h7>
-<p data-sourcepos="98:1-98:36" dir="auto"><code>-input-dir</code> needs to be in $GOPATH.</p>
-<p data-sourcepos="100:1-101:43" dir="auto">Resolver is generated by recursively searching directories,
-but some directories and files are ignored.</p>
-<ul data-sourcepos="102:1-105:0" dir="auto">
-<li data-sourcepos="102:1-102:31">Prefix <code>_</code> and <code>.</code> directory.</li>
-<li data-sourcepos="103:1-103:35">
-<code>testdata</code> and <code>vendor</code> directory</li>
-<li data-sourcepos="104:1-105:0">
-<code>_test.go</code> file</li>
-</ul>
-<p data-sourcepos="106:1-106:87" dir="auto">If you use <code>-input-file</code> option, it will work without considering the above conditions.</p>
-<hr data-sourcepos="108:1-109:0">
-<p data-sourcepos="110:1-110:37" dir="auto">Compatible with various import rules.</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content='import ("
-	"example.com/user/a/b"
-	d "example.com/user/a/c"
-	. "example.com/user/a/e"
-)'><pre><span class="pl-k">import</span> (<span class="pl-s">"</span>
-<span class="pl-s">	"</span><span class="pl-s1">example</span>.<span class="pl-s1">com</span><span class="pl-c1">/</span><span class="pl-s1">user</span><span class="pl-c1">/</span><span class="pl-s1">a</span><span class="pl-c1">/</span><span class="pl-s1">b</span>"
-	d <span class="pl-s">"example.com/user/a/c"</span>
-	. <span class="pl-s">"example.com/user/a/e"</span>
-)</pre></div>
-<h7 data-sourcepos="120:1-120:22" dir="auto">
-<a id="user-content-not-generated-case" class="anchor" aria-hidden="true" href="#not-generated-case"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Not Generated Case</h7>
-<p data-sourcepos="121:1-121:37" dir="auto">Not generated in the following cases:</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="// ex. a/example.go
-type Example struct {
-	// unsupported types
-	Interface interface{}
-	Uintptr uintptr
-	Error error
-	Chan chan
-	Func func()
-	
-	// nested struct is also unsupported
-	NestedStruct struct {}
-	
-	// because b.Example is not generated
-	B b.Example
-	
-	// because bytes.Butffer is in outside package
-	Buf bytes.Buffer
-}
-
-func (e Example) F() {
-	// unsupported  struct defined in func
-	type InFunction struct {}
-}
-
-// ex a/b/example.go
-type Example struct {
-	Interface interface{}
-}"><pre><span class="pl-c">// ex. a/example.go</span>
-<span class="pl-k">type</span> <span class="pl-smi">Example</span> <span class="pl-k">struct</span> {
-	<span class="pl-c">// unsupported types</span>
-	<span class="pl-c1">Interface</span> <span class="pl-k">interface</span>{}
-	<span class="pl-c1">Uintptr</span> <span class="pl-smi">uintptr</span>
-	<span class="pl-c1">Error</span> <span class="pl-smi">error</span>
-	<span class="pl-c1">Chan</span> <span class="pl-k">chan</span>
-	<span class="pl-s1">Func</span> <span class="pl-k">func</span>()
-	
-	<span class="pl-c">// nested struct is also unsupported</span>
-	<span class="pl-c1">NestedStruct</span> <span class="pl-k">struct</span> {}
-	
-	<span class="pl-c">// because b.Example is not generated</span>
-	<span class="pl-c1">B</span> b.<span class="pl-smi">Example</span>
-	
-	<span class="pl-c">// because bytes.Butffer is in outside package</span>
-	<span class="pl-c1">Buf</span> bytes.<span class="pl-smi">Buffer</span>
-}
-
-<span class="pl-k">func</span> (<span class="pl-s1">e</span> <span class="pl-smi">Example</span>) <span class="pl-en">F</span>() {
-	<span class="pl-c">// unsupported  struct defined in func</span>
-	<span class="pl-k">type</span> <span class="pl-smi">InFunction</span> <span class="pl-k">struct</span> {}
-}
-
-<span class="pl-c">// ex a/b/example.go</span>
-<span class="pl-k">type</span> <span class="pl-smi">Example</span> <span class="pl-k">struct</span> {
-	<span class="pl-c1">Interface</span> <span class="pl-k">interface</span>{}
-}</pre></div>
-<p data-sourcepos="153:1-153:134" dir="auto">If you serialize a struct that wasn't code generated, it will be processed by <a href="https://github.com/shamaton/msgpack">shamaton/msgpack</a>.</p>
-<h7 data-sourcepos="155:1-155:15" dir="auto">
-<a id="user-content-strict-mode" class="anchor" aria-hidden="true" href="#strict-mode"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Strict Mode</h7>
-<p data-sourcepos="156:1-157:85" dir="auto">If you use strict mode(option <code>-strict</code>), you will get an error if an unrecognized structure is passed.
-In other words,  <a href="https://github.com/shamaton/msgpack">shamaton/msgpack</a> is not used.</p>
-<hr data-sourcepos="159:1-160:0">
-<p data-sourcepos="161:1-161:24" dir="auto">See also <code>msgpackgen -h</code></p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content='Usage of msgpackgen:
-  -dry-run
-        dry run mode
-  -input-dir string
-        input directory. input-file cannot be used at the same time (default ".")
-  -input-file string
-        input a specific file. input-dir cannot be used at the same time
-  -output-dir string
-        output directory (default ".")
-  -output-file string
-        name of generated file (default "resolver.msgpackgen.go")
-  -pointer int
-        pointer level to consider (default 1)
-  -strict
-        strict mode
-  -use-gopath
-        use GOPATH instead of go.mod
-  -v    verbose diagnostics'><pre>Usage of msgpackgen:
-  -dry-run
-        dry run mode
-  -input-dir string
-        input directory. input-file cannot be used at the same <span class="pl-k">time</span> (default <span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>)
-  -input-file string
-        input a specific file. input-dir cannot be used at the same <span class="pl-k">time</span>
-  -output-dir string
-        output directory (default <span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>)
-  -output-file string
-        name of generated file (default <span class="pl-s"><span class="pl-pds">"</span>resolver.msgpackgen.go<span class="pl-pds">"</span></span>)
-  -pointer int
-        pointer level to consider (default 1)
-  -strict
-        strict mode
-  -use-gopath
-        use GOPATH instead of go.mod
-  -v    verbose diagnostics</pre></div>
-<h6 data-sourcepos="183:1-183:13" dir="auto">
-<a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Benchmarks</h6>
-<p data-sourcepos="185:1-189:132" dir="auto">These results are recorded by <a href="https://github.com/shamaton/msgpack_bench">msgpack_bench</a> at 2021/08.<br>
-The result of this package is that the suffix has <code>ShamatonGen</code>.
-<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/4637556/128298988-0e3c96fd-6014-42a0-9050-36e2b58316b1.png"><img src="https://user-images.githubusercontent.com/4637556/128298988-0e3c96fd-6014-42a0-9050-36e2b58316b1.png" alt="msgpack_bench" style="max-width: 100%;"></a>
-The result of <a href="https://github.com/alecthomas/go_serialization_benchmarks">go_serialization_benchmarks</a> is here.
-<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/4637556/128299037-06b3a645-2726-4205-848a-cccebb9a3d7f.png"><img src="https://user-images.githubusercontent.com/4637556/128299037-06b3a645-2726-4205-848a-cccebb9a3d7f.png" alt="go_serialization_benchmarks" style="max-width: 100%;"></a></p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-reeze-msgpack-hhvm" class="qs"><h4><a href="https://github.com/reeze/msgpack-hhvm" target="_blank">reeze/msgpack-hhvm <span class="qs-url">https://github.com/reeze/msgpack-hhvm</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-3:0" dir="auto">
@@ -8717,18 +8240,18 @@ class Example {
         
         <div id="qs-komamitsu-jackson-dataformat-msgpack" class="qs"><h4><a href="https://github.com/komamitsu/jackson-dataformat-msgpack" target="_blank">komamitsu/jackson-dataformat-msgpack <span class="qs-url">https://github.com/komamitsu/jackson-dataformat-msgpack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:28" dir="auto">
 <a id="user-content-jackson-dataformat-msgpack" class="anchor" aria-hidden="true" href="#jackson-dataformat-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>jackson-dataformat-msgpack</h5>
-<p dir="auto"><strong>This project is merged to msgpack-java!!</strong> Yay!</p>
-<p dir="auto"><strong>See <a href="https://github.com/msgpack/msgpack-java/blob/develop/msgpack-jackson/README.md">msgpack-java/msgpack-jackson</a> for the updated documents</strong></p>
-<h5 dir="auto">
+<p data-sourcepos="3:1-3:49" dir="auto"><strong>This project is merged to msgpack-java!!</strong> Yay!</p>
+<p data-sourcepos="5:1-5:144" dir="auto"><strong>See <a href="https://github.com/msgpack/msgpack-java/blob/develop/msgpack-jackson/README.md">msgpack-java/msgpack-jackson</a> for the updated documents</strong></p>
+<h5 data-sourcepos="8:1-8:10" dir="auto">
 <a id="user-content-overview" class="anchor" aria-hidden="true" href="#overview"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Overview</h5>
-<p dir="auto"><a href="https://travis-ci.org/komamitsu/jackson-dataformat-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/335163a8b8830e113358e195eba500085959cefd39677e0dcad8983a539703ab/68747470733a2f2f7472617669732d63692e6f72672f6b6f6d616d697473752f6a61636b736f6e2d64617461666f726d61742d6d73677061636b2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/komamitsu/jackson-dataformat-msgpack.svg" style="max-width: 100%;"></a></p>
-<p dir="auto">This Jackson extension library handles reading and writing of data encoded in <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> data format.
+<p data-sourcepos="10:1-10:141" dir="auto"><a href="https://travis-ci.org/komamitsu/jackson-dataformat-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/335163a8b8830e113358e195eba500085959cefd39677e0dcad8983a539703ab/68747470733a2f2f7472617669732d63692e6f72672f6b6f6d616d697473752f6a61636b736f6e2d64617461666f726d61742d6d73677061636b2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/komamitsu/jackson-dataformat-msgpack.svg" style="max-width: 100%;"></a></p>
+<p data-sourcepos="12:1-13:216" dir="auto">This Jackson extension library handles reading and writing of data encoded in <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> data format.
 It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonParser</code>, <code>JsonGenerator</code>), and as such works seamlessly with all the higher level data abstractions (data binding, tree model, and pluggable extensions).</p>
-<h6 dir="auto">
+<h6 data-sourcepos="15:1-15:19" dir="auto">
 <a id="user-content-maven-dependency" class="anchor" aria-hidden="true" href="#maven-dependency"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Maven dependency</h6>
-<p dir="auto">To use this module on Maven-based projects, use following dependency:</p>
+<p data-sourcepos="17:1-17:69" dir="auto">To use this module on Maven-based projects, use following dependency:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;dependency&gt;
   &lt;groupId&gt;org.komamitsu&lt;/groupId&gt;
   &lt;artifactId&gt;jackson-dataformat-msgpack&lt;/artifactId&gt;
@@ -8739,9 +8262,9 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
   &lt;version&gt;0.0.3&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></div>
-<h6 dir="auto">
+<h6 data-sourcepos="27:1-27:8" dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<p dir="auto">Only thing you need to do is to instantiate MessagePackFactory and pass it to the constructor of ObjectMapper.</p>
+<p data-sourcepos="29:1-29:110" dir="auto">Only thing you need to do is to instantiate MessagePackFactory and pass it to the constructor of ObjectMapper.</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='  ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
   ExamplePojo orig = new ExamplePojo("komamitsu");
   byte[] bytes = objectMapper.writeValueAsBytes(orig);
@@ -8752,8 +8275,8 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
   ExamplePojo value = objectMapper.readValue(bytes, ExamplePojo.class);
   System.out.println(value.getName()); // =&gt; komamitsu
 </code></pre></div>
-<p dir="auto">Also, you can exchange data among multiple languages.</p>
-<p dir="auto">Java</p>
+<p data-sourcepos="39:1-39:53" dir="auto">Also, you can exchange data among multiple languages.</p>
+<p data-sourcepos="41:1-41:4" dir="auto">Java</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='  // Serialize
   Map&lt;String, Object&gt; obj = new HashMap&lt;String, Object&gt;();
   obj.put("foo", "hello");
@@ -8768,7 +8291,7 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
   // bs =&gt; [-126, -93, 102, 111, 111, -91, 104, 101, 108, 108, 111,
   //        -93, 98, 97, 114, -91, 119, 111, 114, 108, 100]
 </code></pre></div>
-<p dir="auto">Ruby</p>
+<p data-sourcepos="53:1-53:4" dir="auto">Ruby</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="  require 'msgpack'
 
   # Deserialize
@@ -8791,7 +8314,7 @@ It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonP
   ["zero", 1, 2.0, nil].to_msgpack.unpack('C*')
   # =&gt; [148, 164, 122, 101, 114, 111, 1, 203, 64, 0, 0, 0, 0, 0, 0, 0, 192]
 </code></pre></div>
-<p dir="auto">Java</p>
+<p data-sourcepos="69:1-69:4" dir="auto">Java</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="  // Deserialize
   bs = new byte[] {(byte) 148, (byte) 164, 122, 101, 114, 111, 1,
                    (byte) 203, 64, 0, 0, 0, 0, 0, 0, 0, (byte) 192};
@@ -10639,92 +10162,92 @@ SOFTWARE.</p>
         
         <div id="qs-ygoe-msgpack-js" class="qs"><h4><a href="https://github.com/ygoe/msgpack.js" target="_blank">ygoe/msgpack.js <span class="qs-url">https://github.com/ygoe/msgpack.js</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:12" dir="auto">
 <a id="user-content-msgpackjs" class="anchor" aria-hidden="true" href="#msgpackjs"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.js</h5>
-<p dir="auto">This is a <a href="https://msgpack.org" rel="nofollow">MessagePack</a> serializer and deserializer written in JavaScript for web browsers (including IE 11) and Node.js.</p>
-<p dir="auto">It is compact but still fully-featured. This library supports the complete <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a> released on 2017-08-09, including date/time values. No other extension types are implemented in this library, it’s only the standard types which is perfectly fine for interoperability with MessagePack codecs in other programming languages.</p>
-<p dir="auto">I’m using the <a href="https://github.com/neuecc/MessagePack-CSharp/">MessagePack-CSharp</a> library on the server side in my .NET applications.</p>
-<p dir="auto"><a href="https://www.npmjs.com/package/@ygoe/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/a4f9726ced6a7e03bd3167acd01611172a58ce62431804b05f07fa3ce547c967/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f4079676f652f6d73677061636b2e737667" alt="NPM" data-canonical-src="https://img.shields.io/npm/v/@ygoe/msgpack.svg" style="max-width: 100%;"></a></p>
-<h6 dir="auto">
+<p data-sourcepos="3:1-3:142" dir="auto">This is a <a href="https://msgpack.org" rel="nofollow">MessagePack</a> serializer and deserializer written in JavaScript for web browsers (including IE 11) and Node.js.</p>
+<p data-sourcepos="5:1-5:400" dir="auto">It is compact but still fully-featured. This library supports the complete <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a> released on 2017-08-09, including date/time values. No other extension types are implemented in this library, it’s only the standard types which is perfectly fine for interoperability with MessagePack codecs in other programming languages.</p>
+<p data-sourcepos="7:1-7:135" dir="auto">I’m using the <a href="https://github.com/neuecc/MessagePack-CSharp/">MessagePack-CSharp</a> library on the server side in my .NET applications.</p>
+<p data-sourcepos="9:1-9:101" dir="auto"><a href="https://www.npmjs.com/package/@ygoe/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/a4f9726ced6a7e03bd3167acd01611172a58ce62431804b05f07fa3ce547c967/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f4079676f652f6d73677061636b2e737667" alt="NPM" data-canonical-src="https://img.shields.io/npm/v/@ygoe/msgpack.svg" style="max-width: 100%;"></a></p>
+<h6 data-sourcepos="11:1-11:14" dir="auto">
 <a id="user-content-messagepack" class="anchor" aria-hidden="true" href="#messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack</h6>
-<p dir="auto">MessagePack is an efficient binary serialisation format. It lets you exchange data among multiple languages like JSON. But it’s faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
-<h6 dir="auto">
+<p data-sourcepos="13:1-13:289" dir="auto">MessagePack is an efficient binary serialisation format. It lets you exchange data among multiple languages like JSON. But it’s faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
+<h6 data-sourcepos="15:1-15:7" dir="auto">
 <a id="user-content-size" class="anchor" aria-hidden="true" href="#size"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Size</h6>
-<p dir="auto">This library is very lightweight. The source code has around <strong>510 lines</strong> (incl. browser/Node detection), the minified file has 6.6 kB and can be GZip-compressed to <strong>2.4 kB</strong>.</p>
-<h6 dir="auto">
+<p data-sourcepos="17:1-17:177" dir="auto">This library is very lightweight. The source code has around <strong>510 lines</strong> (incl. browser/Node detection), the minified file has 6.6 kB and can be GZip-compressed to <strong>2.4 kB</strong>.</p>
+<h6 data-sourcepos="19:1-19:14" dir="auto">
 <a id="user-content-performance" class="anchor" aria-hidden="true" href="#performance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Performance</h6>
-<p dir="auto">The file msgpack-tests.html contains some tests and a benchmark function that compares this library with <a href="https://github.com/kawanet/msgpack-lite">msgpack-lite</a>. Here are the results, in milliseconds (lower is better). All tests done on an Intel Core i7-3770 and Windows 10.</p>
-<table>
+<p data-sourcepos="21:1-21:274" dir="auto">The file msgpack-tests.html contains some tests and a benchmark function that compares this library with <a href="https://github.com/kawanet/msgpack-lite">msgpack-lite</a>. Here are the results, in milliseconds (lower is better). All tests done on an Intel Core i7-3770 and Windows 10.</p>
+<table data-sourcepos="23:1-28:93">
 <thead>
-<tr>
-<th align="left">Function</th>
-<th align="right">Chrome 72</th>
-<th align="right"></th>
-<th align="right">Firefox 65</th>
-<th align="right"></th>
-<th align="right">Edge 16</th>
-<th align="right"></th>
-<th align="right">IE 11</th>
-<th align="right"> </th>
+<tr data-sourcepos="23:1-23:100">
+<th align="left" data-sourcepos="23:1-23:27">Function</th>
+<th align="right" data-sourcepos="23:29-23:39">Chrome 72</th>
+<th align="right" data-sourcepos="23:41-23:46"></th>
+<th align="right" data-sourcepos="23:48-23:59">Firefox 65</th>
+<th align="right" data-sourcepos="23:61-23:66"></th>
+<th align="right" data-sourcepos="23:68-23:76">Edge 16</th>
+<th align="right" data-sourcepos="23:78-23:83"></th>
+<th align="right" data-sourcepos="23:85-23:92">IE 11</th>
+<th align="right" data-sourcepos="23:94-23:100"> </th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td align="left"><strong>msgpack.js serialize</strong></td>
-<td align="right">702 ms</td>
-<td align="right">+6%</td>
-<td align="right">1232 ms</td>
-<td align="right">−42%</td>
-<td align="right">2483 ms</td>
-<td align="right">+41%</td>
-<td align="right">2493 ms</td>
-<td align="right">−3%</td>
+<tr data-sourcepos="25:1-25:102">
+<td align="left" data-sourcepos="25:1-25:27"><strong>msgpack.js serialize</strong></td>
+<td align="right" data-sourcepos="25:29-25:39">702 ms</td>
+<td align="right" data-sourcepos="25:41-25:46">+6%</td>
+<td align="right" data-sourcepos="25:48-25:59">1232 ms</td>
+<td align="right" data-sourcepos="25:61-25:68">−42%</td>
+<td align="right" data-sourcepos="25:70-25:78">2483 ms</td>
+<td align="right" data-sourcepos="25:80-25:85">+41%</td>
+<td align="right" data-sourcepos="25:87-25:94">2493 ms</td>
+<td align="right" data-sourcepos="25:96-25:102">−3%</td>
 </tr>
-<tr>
-<td align="left">msgpack-lite encode</td>
-<td align="right">663 ms</td>
-<td align="right"></td>
-<td align="right">2124 ms</td>
-<td align="right"></td>
-<td align="right">1762 ms</td>
-<td align="right"></td>
-<td align="right">2578 ms</td>
-<td align="right"></td>
+<tr data-sourcepos="26:1-26:93">
+<td align="left" data-sourcepos="26:1-26:27">msgpack-lite encode</td>
+<td align="right" data-sourcepos="26:29-26:39">663 ms</td>
+<td align="right" data-sourcepos="26:41-26:46"></td>
+<td align="right" data-sourcepos="26:48-26:59">2124 ms</td>
+<td align="right" data-sourcepos="26:61-26:66"></td>
+<td align="right" data-sourcepos="26:68-26:76">1762 ms</td>
+<td align="right" data-sourcepos="26:78-26:83"></td>
+<td align="right" data-sourcepos="26:85-26:92">2578 ms</td>
+<td align="right" data-sourcepos="26:0-26:0"></td>
 </tr>
-<tr>
-<td align="left"><strong>msgpack.js deserialize</strong></td>
-<td align="right">652 ms</td>
-<td align="right">+13%</td>
-<td align="right">869 ms</td>
-<td align="right">+5%</td>
-<td align="right">821 ms</td>
-<td align="right">−48%</td>
-<td align="right">651 ms</td>
-<td align="right">−68%</td>
+<tr data-sourcepos="27:1-27:102">
+<td align="left" data-sourcepos="27:1-27:27"><strong>msgpack.js deserialize</strong></td>
+<td align="right" data-sourcepos="27:29-27:39">652 ms</td>
+<td align="right" data-sourcepos="27:41-27:46">+13%</td>
+<td align="right" data-sourcepos="27:48-27:59">869 ms</td>
+<td align="right" data-sourcepos="27:61-27:66">+5%</td>
+<td align="right" data-sourcepos="27:68-27:76">821 ms</td>
+<td align="right" data-sourcepos="27:78-27:85">−48%</td>
+<td align="right" data-sourcepos="27:87-27:94">651 ms</td>
+<td align="right" data-sourcepos="27:96-27:102">−68%</td>
 </tr>
-<tr>
-<td align="left">msgpack-lite decode</td>
-<td align="right">577 ms</td>
-<td align="right"></td>
-<td align="right">827 ms</td>
-<td align="right"></td>
-<td align="right">1587 ms</td>
-<td align="right"></td>
-<td align="right">2021 ms</td>
-<td align="right"></td>
+<tr data-sourcepos="28:1-28:93">
+<td align="left" data-sourcepos="28:1-28:27">msgpack-lite decode</td>
+<td align="right" data-sourcepos="28:29-28:39">577 ms</td>
+<td align="right" data-sourcepos="28:41-28:46"></td>
+<td align="right" data-sourcepos="28:48-28:59">827 ms</td>
+<td align="right" data-sourcepos="28:61-28:66"></td>
+<td align="right" data-sourcepos="28:68-28:76">1587 ms</td>
+<td align="right" data-sourcepos="28:78-28:83"></td>
+<td align="right" data-sourcepos="28:85-28:92">2021 ms</td>
+<td align="right" data-sourcepos="28:0-28:0"></td>
 </tr>
 </tbody>
 </table>
-<p dir="auto">The numbers show that this library is comparable with msgpack-lite. In Chrome it’s only 10% slower. But serializing in Firefox and deserializing in Microsoft browsers is twice as fast.</p>
-<h6 dir="auto">
+<p data-sourcepos="30:1-30:186" dir="auto">The numbers show that this library is comparable with msgpack-lite. In Chrome it’s only 10% slower. But serializing in Firefox and deserializing in Microsoft browsers is twice as fast.</p>
+<h6 data-sourcepos="32:1-32:8" dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<h7 dir="auto">
+<h7 data-sourcepos="34:1-34:11" dir="auto">
 <a id="user-content-browser" class="anchor" aria-hidden="true" href="#browser"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Browser</h7>
-<p dir="auto">In browsers, a global <code>msgpack</code> object is created that contains the functions <code>serialize</code> and <code>deserialize</code>. The first can be called with any data and returns the serialized bytes. The second works in reverse, taking the serialized bytes and returning the runtime value.</p>
-<p dir="auto">Include the JavaScript file into your HTML document like this:</p>
+<p data-sourcepos="36:1-36:270" dir="auto">In browsers, a global <code>msgpack</code> object is created that contains the functions <code>serialize</code> and <code>deserialize</code>. The first can be called with any data and returns the serialized bytes. The second works in reverse, taking the serialized bytes and returning the runtime value.</p>
+<p data-sourcepos="38:1-38:62" dir="auto">Include the JavaScript file into your HTML document like this:</p>
 <div class="highlight highlight-text-html-basic position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;script src="msgpack.min.js"&gt;&lt;/script&gt;'><pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">msgpack.min.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
-<p dir="auto">You can use the library functions after loading the script.</p>
-<p dir="auto">If there should be a naming conflict with another library you want to load, you can change the global object name from <code>msgpack</code> to something else by setting <code>msgpackJsName</code> before loading the script file:</p>
+<p data-sourcepos="44:1-44:59" dir="auto">You can use the library functions after loading the script.</p>
+<p data-sourcepos="46:1-46:205" dir="auto">If there should be a naming conflict with another library you want to load, you can change the global object name from <code>msgpack</code> to something else by setting <code>msgpackJsName</code> before loading the script file:</p>
 <div class="highlight highlight-text-html-basic position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;script&gt;
     msgpackJsName = "msgpackJs";
 &lt;/script&gt;
@@ -10732,13 +10255,13 @@ SOFTWARE.</p>
     <span class="pl-s1">msgpackJsName</span> <span class="pl-c1">=</span> <span class="pl-s">"msgpackJs"</span><span class="pl-kos">;</span>
 <span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
 <span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">msgpack.min.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
-<h7 dir="auto">
+<h7 data-sourcepos="55:1-55:11" dir="auto">
 <a id="user-content-nodejs" class="anchor" aria-hidden="true" href="#nodejs"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Node.js</h7>
-<p dir="auto">In Node.js, these functions are exported in the object you get from the <code>require</code> function.</p>
+<p data-sourcepos="57:1-57:91" dir="auto">In Node.js, these functions are exported in the object you get from the <code>require</code> function.</p>
 <div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="var msgpack = require('@ygoe/msgpack');"><pre><span class="pl-k">var</span> <span class="pl-s1">msgpack</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'@ygoe/msgpack'</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h7 dir="auto">
+<h7 data-sourcepos="63:1-63:11" dir="auto">
 <a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example</h7>
-<p dir="auto">Here’s a simple example:</p>
+<p data-sourcepos="65:1-65:26" dir="auto">Here’s a simple example:</p>
 <div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content='// Define some data
 var sourceData = {
     number: 123,
@@ -10770,13 +10293,13 @@ var deserializedData = msgpack.deserialize(bytes);'><pre><span class="pl-c">// D
 
 <span class="pl-c">// Deserialize again</span>
 <span class="pl-k">var</span> <span class="pl-s1">deserializedData</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">deserialize</span><span class="pl-kos">(</span><span class="pl-s1">bytes</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h7 dir="auto">
+<h7 data-sourcepos="86:1-86:17" dir="auto">
 <a id="user-content-compatibility" class="anchor" aria-hidden="true" href="#compatibility"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibility</h7>
-<p dir="auto">You can also use the functions <code>encode</code> and <code>decode</code> which are aliases to <code>serialize</code> and <code>deserialize</code>. This makes it easier to replace other libraries that use these function names with msgpack.js.</p>
-<p dir="auto">New projects should use the preferred (and more precisely named) <code>serialize</code> and <code>deserialize</code> functions though.</p>
-<h6 dir="auto">
+<p data-sourcepos="88:1-88:199" dir="auto">You can also use the functions <code>encode</code> and <code>decode</code> which are aliases to <code>serialize</code> and <code>deserialize</code>. This makes it easier to replace other libraries that use these function names with msgpack.js.</p>
+<p data-sourcepos="90:1-90:112" dir="auto">New projects should use the preferred (and more precisely named) <code>serialize</code> and <code>deserialize</code> functions though.</p>
+<h6 data-sourcepos="92:1-92:10" dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
-<p dir="auto"><a href="https://github.com/ygoe/msgpack.js/blob/master/LICENSE">MIT license</a></p>
+<p data-sourcepos="94:1-94:69" dir="auto"><a href="https://github.com/ygoe/msgpack.js/blob/master/LICENSE">MIT license</a></p>
 </article>
   </div>
         </div>
@@ -12261,53 +11784,6 @@ If you are using ProGuard you might need to add the following options:</p>
   </div>
         </div>
         
-        <div id="qs-kropp-kotlinx-serialization-msgpack" class="qs"><h4><a href="https://github.com/kropp/kotlinx.serialization.msgpack" target="_blank">kropp/kotlinx.serialization.msgpack <span class="qs-url">https://github.com/kropp/kotlinx.serialization.msgpack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:42" dir="auto">
-<a id="user-content-kotlin-serialization-messagepack-library" class="anchor" aria-hidden="true" href="#kotlin-serialization-messagepack-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Kotlin Serialization MessagePack library</h5>
-<p data-sourcepos="3:1-4:43" dir="auto">This library extends <a href="https://github.com/Kotlin/kotlinx.serialization/">kotlinx.serialization</a> framework to support
-<a href="https://msgpack.org/" rel="nofollow">MessagePack</a> format.</p>
-<h6 data-sourcepos="6:1-6:25" dir="auto">
-<a id="user-content-implementation-details" class="anchor" aria-hidden="true" href="#implementation-details"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementation details</h6>
-<p data-sourcepos="8:1-9:118" dir="auto">When multiple equivalent encodings exist, the shortest (in terms of number of bytes) is used.
-Decoders decode any format and convert it to a required type (possibly loosing precision or significant higher digits)</p>
-<p data-sourcepos="11:1-12:63" dir="auto">Thus, not for any input decoding and encoding back will produce the exact same byte array. However, for any <code>@Serializable</code> class
-encoding and decoding should result in the equivalent instance.</p>
-<h6 data-sourcepos="14:1-14:22" dir="auto">
-<a id="user-content-current-limitations" class="anchor" aria-hidden="true" href="#current-limitations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Current Limitations</h6>
-<ul data-sourcepos="16:1-19:0" dir="auto">
-<li data-sourcepos="16:1-16:33">Only JVM is supported as of now</li>
-<li data-sourcepos="17:1-17:177">Unsigned integers can't be encoded because kotlinx.serialization framework <a href="https://github.com/Kotlin/kotlinx.serialization/issues/259" data-hovercard-type="issue" data-hovercard-url="/Kotlin/kotlinx.serialization/issues/259/hovercard">doesn't support <code>inline</code> classes</a> (yet)</li>
-<li data-sourcepos="18:1-19:0">MessagePack extensions are not supported</li>
-</ul>
-<h6 data-sourcepos="20:1-20:15" dir="auto">
-<a id="user-content-verification" class="anchor" aria-hidden="true" href="#verification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Verification</h6>
-<p data-sourcepos="22:1-22:83" dir="auto">The implementation is tested against <a href="https://github.com/kawanet/msgpack-test-suite/">https://github.com/kawanet/msgpack-test-suite/</a></p>
-<h6 data-sourcepos="24:1-24:8" dir="auto">
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-kotlin position-relative overflow-auto" data-snippet-clipboard-copy-content="import com.github.kropp.messagepack.MessagePack
-
-@Serializable
-data class Demo(val compact: Boolean, val schema: Int)
-
-val bytes = byteArrayOf(0x82.toByte(), 0xA7.toByte(), 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3.toByte(), 0xA6.toByte(), 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00)
-val demo = MessagePack.decode(Demo.serializer(), bytes)
-
-assertEquals(demo.compact, true)
-assertEquals(demo.schema, 0)"><pre><span class="pl-k">import</span> <span class="pl-smi">com.github.kropp.messagepack.MessagePack</span>
-
-@Serializable
-<span class="pl-k">data class</span> <span class="pl-en">Demo</span>(<span class="pl-k">val</span> <span class="pl-smi">compact</span><span class="pl-k">:</span> <span class="pl-c1">Boolean</span>, <span class="pl-k">val</span> <span class="pl-smi">schema</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>)
-
-<span class="pl-k">val</span> bytes <span class="pl-k">=</span> byteArrayOf(<span class="pl-c1">0x82</span>.toByte(), <span class="pl-c1">0xA7</span>.toByte(), <span class="pl-c1">0x63</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x70</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0xC3</span>.toByte(), <span class="pl-c1">0xA6</span>.toByte(), <span class="pl-c1">0x73</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x00</span>)
-<span class="pl-k">val</span> demo <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.decode(<span class="pl-en">Demo</span>.serializer(), bytes)
-
-assertEquals(demo.compact, <span class="pl-c1">true</span>)
-assertEquals(demo.schema, <span class="pl-c1">0</span>)</pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-mradziwo-MsgPack_LabVIEW" class="qs"><h4><a href="https://github.com/mradziwo/MsgPack_LabVIEW" target="_blank">mradziwo/MsgPack_LabVIEW <span class="qs-url">https://github.com/mradziwo/MsgPack_LabVIEW</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:18" dir="auto">
@@ -12343,26 +11819,26 @@ and the sources are hosted at <a href="http://github.com/fperrad/lua-MessagePack
         
         <div id="qs-kieselsteini-msgpack" class="qs"><h4><a href="https://github.com/kieselsteini/msgpack" target="_blank">kieselsteini/msgpack <span class="qs-url">https://github.com/kieselsteini/msgpack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:31" dir="auto">
 <a id="user-content-messagepack-for-lua-53--54" class="anchor" aria-hidden="true" href="#messagepack-for-lua-53--54"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Lua 5.3 / 5.4</h5>
-<h6 dir="auto">
+<h6 data-sourcepos="3:1-3:11" dir="auto">
 <a id="user-content-overview" class="anchor" aria-hidden="true" href="#overview"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Overview</h6>
-<p dir="auto">This is a pure Lua implementation for encoding/decoding MessagePack (<a href="https://msgpack.org" rel="nofollow">https://msgpack.org</a>).</p>
-<p dir="auto">Please report any bugs you encounter!</p>
-<p dir="auto">Features:</p>
-<ul dir="auto">
-<li>written in pure Lua 5.3 / 5.4 (using <code>string.pack()</code> / <code>string.unpack()</code>)</li>
-<li>can distinguish between integer / float / double numbers</li>
-<li>can distinguish between UTF-8 strings and binary data</li>
-<li>public domain license (<a href="http://unlicense.org" rel="nofollow">http://unlicense.org</a>)</li>
-<li>pretty fast decoding</li>
+<p data-sourcepos="5:1-5:90" dir="auto">This is a pure Lua implementation for encoding/decoding MessagePack (<a href="https://msgpack.org" rel="nofollow">https://msgpack.org</a>).</p>
+<p data-sourcepos="7:1-7:37" dir="auto">Please report any bugs you encounter!</p>
+<p data-sourcepos="9:1-9:9" dir="auto">Features:</p>
+<ul data-sourcepos="10:1-15:0" dir="auto">
+<li data-sourcepos="10:1-10:83">written in pure Lua 5.3 / 5.4 (using <code>string.pack()</code> / <code>string.unpack()</code>)</li>
+<li data-sourcepos="11:1-11:58">can distinguish between integer / float / double numbers</li>
+<li data-sourcepos="12:1-12:55">can distinguish between UTF-8 strings and binary data</li>
+<li data-sourcepos="13:1-13:46">public domain license (<a href="http://unlicense.org" rel="nofollow">http://unlicense.org</a>)</li>
+<li data-sourcepos="14:1-15:0">pretty fast decoding</li>
 </ul>
-<p dir="auto">What's missing:</p>
-<ul dir="auto">
-<li>extendend types <code>fixent</code>
+<p data-sourcepos="16:1-16:15" dir="auto">What's missing:</p>
+<ul data-sourcepos="17:1-18:0" dir="auto">
+<li data-sourcepos="17:1-18:0">extendend types <code>fixent</code>
 </li>
 </ul>
-<p dir="auto">Example code:</p>
+<p data-sourcepos="19:1-19:13" dir="auto">Example code:</p>
 <div class="highlight highlight-source-lua position-relative overflow-auto" data-snippet-clipboard-copy-content="local msgpack = require('msgpack')
 
 local value = msgpack.decode(binary_msgpack_data) -- decode to Lua value
@@ -12372,42 +11848,42 @@ local binary_data = msgpack.encode(lua_value) -- encode Lua value to MessagePack
 <span class="pl-k">local</span> value <span class="pl-k">=</span> msgpack.<span class="pl-c1">decode</span>(binary_msgpack_data) <span class="pl-c"><span class="pl-c">--</span> decode to Lua value</span>
 
 <span class="pl-k">local</span> binary_data <span class="pl-k">=</span> msgpack.<span class="pl-c1">encode</span>(lua_value) <span class="pl-c"><span class="pl-c">--</span> encode Lua value to MessagePack</span></pre></div>
-<h6 dir="auto">
+<h6 data-sourcepos="28:1-28:6" dir="auto">
 <a id="user-content-api" class="anchor" aria-hidden="true" href="#api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API</h6>
-<h7 dir="auto">
+<h7 data-sourcepos="30:1-30:29" dir="auto">
 <a id="user-content-msgpackencode_onevalue" class="anchor" aria-hidden="true" href="#msgpackencode_onevalue"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.encode_one(value)</h7>
-<p dir="auto">Encodes the given Lua value to a binary MessagePack representation. It will return the binary string on succes or <code>nil</code> plus an error message if it fails.</p>
-<p dir="auto">The encoder will encode Lua strings as MessagePack strings when they are properly UTF-8 encoded otherwise they will become MessagePack binary objects.</p>
-<p dir="auto">There is also a check if a Lua number can be lossless encoded as a 32-bit float.</p>
-<blockquote>
-<p dir="auto"><strong>NOTE:</strong> Empty Lua tables will be encoded as empty arrays!</p>
+<p data-sourcepos="31:1-31:158" dir="auto">Encodes the given Lua value to a binary MessagePack representation. It will return the binary string on succes or <code>nil</code> plus an error message if it fails.</p>
+<p data-sourcepos="33:1-33:150" dir="auto">The encoder will encode Lua strings as MessagePack strings when they are properly UTF-8 encoded otherwise they will become MessagePack binary objects.</p>
+<p data-sourcepos="35:1-35:80" dir="auto">There is also a check if a Lua number can be lossless encoded as a 32-bit float.</p>
+<blockquote data-sourcepos="37:1-37:61">
+<p data-sourcepos="37:3-37:61" dir="auto"><strong>NOTE:</strong> Empty Lua tables will be encoded as empty arrays!</p>
 </blockquote>
-<h7 dir="auto">
+<h7 data-sourcepos="39:1-39:23" dir="auto">
 <a id="user-content-msgpackencode" class="anchor" aria-hidden="true" href="#msgpackencode"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.encode(...)</h7>
-<p dir="auto">Encodes all given values to a binary MessagePack representation. It will return the binary string or <code>nil</code> plus an error message if it fails.</p>
+<p data-sourcepos="40:1-40:145" dir="auto">Encodes all given values to a binary MessagePack representation. It will return the binary string or <code>nil</code> plus an error message if it fails.</p>
 <div class="highlight highlight-source-lua position-relative overflow-auto" data-snippet-clipboard-copy-content="local binary = msgpack.encode('Hello', 1024, true, { 2, 3, 4 })"><pre><span class="pl-k">local</span> binary <span class="pl-k">=</span> msgpack.<span class="pl-c1">encode</span>(<span class="pl-s"><span class="pl-pds">'</span>Hello<span class="pl-pds">'</span></span>, <span class="pl-c1">1024</span>, <span class="pl-c1">true</span>, { <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span> })</pre></div>
-<h7 dir="auto">
+<h7 data-sourcepos="46:1-46:47" dir="auto">
 <a id="user-content-msgpackdecode_onebinary_data-position" class="anchor" aria-hidden="true" href="#msgpackdecode_onebinary_data-position"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.decode_one(binary_data[, position])</h7>
-<p dir="auto">Decode the given MessagePack binary string to a corresponding Lua value. It will return the decoded Lua value and the position for next byte in stream
+<p data-sourcepos="47:1-48:143" dir="auto">Decode the given MessagePack binary string to a corresponding Lua value. It will return the decoded Lua value and the position for next byte in stream
 or <code>nil</code> plus an error message if decoding went wrong. You can use the returned position to decode multiple MessagePack values in a stream.</p>
-<p dir="auto">The optional position argument is used to start the decoding at a specific position inside the the binary_data string.</p>
-<blockquote>
-<p dir="auto"><strong>NOTE:</strong> Extended types are not supported. Decoding will fail!</p>
+<p data-sourcepos="50:1-50:118" dir="auto">The optional position argument is used to start the decoding at a specific position inside the the binary_data string.</p>
+<blockquote data-sourcepos="52:1-52:65">
+<p data-sourcepos="52:3-52:65" dir="auto"><strong>NOTE:</strong> Extended types are not supported. Decoding will fail!</p>
 </blockquote>
-<blockquote>
-<p dir="auto"><strong>NOTE:</strong> Binary data will be decoded as Lua strings</p>
+<blockquote data-sourcepos="54:1-54:54">
+<p data-sourcepos="54:3-54:54" dir="auto"><strong>NOTE:</strong> Binary data will be decoded as Lua strings</p>
 </blockquote>
-<blockquote>
-<p dir="auto"><strong>NOTE:</strong> Arrays will be decoded as Lua tables starting with index 1 (like Lua uses tables as arrays)</p>
+<blockquote data-sourcepos="56:1-56:103">
+<p data-sourcepos="56:3-56:103" dir="auto"><strong>NOTE:</strong> Arrays will be decoded as Lua tables starting with index 1 (like Lua uses tables as arrays)</p>
 </blockquote>
-<blockquote>
-<p dir="auto"><strong>NOTE:</strong> Values which are <code>nil</code> will cause the key, value pair to disappear in a Lua table (that's how it works in Lua)</p>
+<blockquote data-sourcepos="58:1-58:126">
+<p data-sourcepos="58:3-58:126" dir="auto"><strong>NOTE:</strong> Values which are <code>nil</code> will cause the key, value pair to disappear in a Lua table (that's how it works in Lua)</p>
 </blockquote>
-<h7 dir="auto">
+<h7 data-sourcepos="60:1-60:43" dir="auto">
 <a id="user-content-msgpackdecodebinary_data-position" class="anchor" aria-hidden="true" href="#msgpackdecodebinary_data-position"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.decode(binary_data[, position])</h7>
-<p dir="auto">Decode the given MessagePack binary string to one or more Lua values. It will return all decoded Lua values or <code>nil</code> plus an error message if decoding failed.</p>
+<p data-sourcepos="61:1-61:162" dir="auto">Decode the given MessagePack binary string to one or more Lua values. It will return all decoded Lua values or <code>nil</code> plus an error message if decoding failed.</p>
 <div class="highlight highlight-source-lua position-relative overflow-auto" data-snippet-clipboard-copy-content="local a, b, c = msgpack.decode(binary)"><pre><span class="pl-k">local</span> a, b, c <span class="pl-k">=</span> msgpack.<span class="pl-c1">decode</span>(binary)</pre></div>
-<h6 dir="auto">
+<h6 data-sourcepos="67:1-67:10" dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='This is free and unencumbered software released into the public domain.
 
@@ -12432,7 +11908,7 @@ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-For more information, please refer to &lt;http://unlicense.org/&gt;'><pre><code>This is free and unencumbered software released into the public domain.
+For more information, please refer to &lt;http://unlicense.org/&gt;'><pre class="notranslate"><code class="notranslate">This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
 distribute this software, either in source code form or as a compiled
@@ -15988,134 +15464,6 @@ select msgpack_decode(decode('81a568656c6c6fa5776f726c64', 'hex'));
   </div>
         </div>
         
-        <div id="qs-royratcliffe-msgpackc-prolog" class="qs"><h4><a href="https://msgpack.org/" target="_blank">royratcliffe/msgpackc-prolog <span class="qs-url">https://msgpack.org/</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:37" dir="auto">
-<a id="user-content-message-pack-for-swi-prolog-using-c" class="anchor" aria-hidden="true" href="#message-pack-for-swi-prolog-using-c"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Message Pack for SWI-Prolog using C</h5>
-<p data-sourcepos="3:1-5:135" dir="auto"><a href="https://github.com/royratcliffe/msgpackc-prolog/actions/workflows/test.yaml"><img src="https://github.com/royratcliffe/msgpackc-prolog/actions/workflows/test.yaml/badge.svg" alt="test" style="max-width: 100%;"></a>
-<a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/6b4b684fa4ebe00de7c7252f9180a0f0f8031bd31b77bb18ef5481c99618611f/68747470733a2f2f736869656c64732e696f2f656e64706f696e743f75726c3d68747470733a2f2f676973742e67697468756275736572636f6e74656e742e636f6d2f726f79726174636c696666652f63636363656632616331333239353531373934663261343636656536313031342f7261772f636f762e6a736f6e"><img src="https://camo.githubusercontent.com/6b4b684fa4ebe00de7c7252f9180a0f0f8031bd31b77bb18ef5481c99618611f/68747470733a2f2f736869656c64732e696f2f656e64706f696e743f75726c3d68747470733a2f2f676973742e67697468756275736572636f6e74656e742e636f6d2f726f79726174636c696666652f63636363656632616331333239353531373934663261343636656536313031342f7261772f636f762e6a736f6e" alt="cov" data-canonical-src="https://shields.io/endpoint?url=https://gist.githubusercontent.com/royratcliffe/ccccef2ac1329551794f2a466ee61014/raw/cov.json" style="max-width: 100%;"></a>
-<a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/e9434b269bc214771e96d7373631c254f4db291bb288b410b2abd3dcc1636fca/68747470733a2f2f736869656c64732e696f2f656e64706f696e743f75726c3d68747470733a2f2f676973742e67697468756275736572636f6e74656e742e636f6d2f726f79726174636c696666652f63636363656632616331333239353531373934663261343636656536313031342f7261772f6661696c2e6a736f6e"><img src="https://camo.githubusercontent.com/e9434b269bc214771e96d7373631c254f4db291bb288b410b2abd3dcc1636fca/68747470733a2f2f736869656c64732e696f2f656e64706f696e743f75726c3d68747470733a2f2f676973742e67697468756275736572636f6e74656e742e636f6d2f726f79726174636c696666652f63636363656632616331333239353531373934663261343636656536313031342f7261772f6661696c2e6a736f6e" alt="fail" data-canonical-src="https://shields.io/endpoint?url=https://gist.githubusercontent.com/royratcliffe/ccccef2ac1329551794f2a466ee61014/raw/fail.json" style="max-width: 100%;"></a></p>
-<h6 data-sourcepos="7:1-7:8" dir="auto">
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<p data-sourcepos="9:1-9:44" dir="auto">Install the Prolog pack in SWI-Prolog using:</p>
-<div class="highlight highlight-source-prolog position-relative overflow-auto" data-snippet-clipboard-copy-content="pack_install(msgpackc)."><pre><span class="pl-en">pack_install</span>(<span class="pl-c1">msgpackc</span>)<span class="pl-k">.</span></pre></div>
-<p data-sourcepos="15:1-19:53" dir="auto">Pack messages via Definite-Clause Grammar <code>msgpack//1</code> using compound terms.
-Prolog grammars operate by "unifying" terms with codes, in this case only byte
-codes rather than Unicodes. Unification works in both directions and even with
-partial knowns. The grammar back-tracks through all possible solutions
-non-deterministically until it finds one, else fails.</p>
-<p data-sourcepos="21:1-23:51" dir="auto">The implementation supports all the MessagePack formats including timestamps and
-any other extensions. The multi-file predicate hook <code>msgpack:type_ext_hook/3</code>
-unifies arbitrary types and bytes with their terms.</p>
-<h6 data-sourcepos="25:1-25:17" dir="auto">
-<a id="user-content-brief-examples" class="anchor" aria-hidden="true" href="#brief-examples"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Brief examples</h6>
-<p data-sourcepos="27:1-27:26" dir="auto">All the following succeed.</p>
-<div class="highlight highlight-source-prolog position-relative overflow-auto" data-snippet-clipboard-copy-content='?- [library(msgpackc)].
-true.
-
-?- phrase(msgpack(float(1e9)), Bytes).
-Bytes = [202, 78, 110, 107, 40].
-
-?- phrase(msgpack(float(1e18)), Bytes).
-Bytes = [203, 67, 171, 193, 109, 103, 78, 200, 0].
-
-?- phrase(msgpack(float(Float)), [203, 67, 171, 193, 109, 103, 78, 200, 0]).
-Float = 1.0e+18.
-
-?- phrase(msgpack(array([str("hello"), str("world")])), Bytes), phrase(msgpack(Term), Bytes).
-Bytes = [146, 165, 104, 101, 108, 108, 111, 165, 119|...],
-Term = array([str("hello"), str("world")]).'><pre>?- [library(msgpackc)].
-<span class="pl-en">true</span><span class="pl-k">.</span>
-
-?- phrase(msgpack(float(1e9)), Bytes).
-<span class="pl-en">Bytes</span> = [<span class="pl-c1">202</span>, <span class="pl-c1">78</span>, <span class="pl-c1">110</span>, <span class="pl-c1">107</span>, <span class="pl-c1">40</span>]<span class="pl-k">.</span>
-
-?- phrase(msgpack(float(1e18)), Bytes).
-<span class="pl-en">Bytes</span> = [<span class="pl-c1">203</span>, <span class="pl-c1">67</span>, <span class="pl-c1">171</span>, <span class="pl-c1">193</span>, <span class="pl-c1">109</span>, <span class="pl-c1">103</span>, <span class="pl-c1">78</span>, <span class="pl-c1">200</span>, <span class="pl-c1">0</span>]<span class="pl-k">.</span>
-
-?- phrase(msgpack(float(Float)), [203, 67, 171, 193, 109, 103, 78, 200, 0]).
-<span class="pl-en">Float</span> = <span class="pl-c1">1</span>.<span class="pl-c1">0</span>e+<span class="pl-c1">18</span><span class="pl-k">.</span>
-
-?- phrase(msgpack(array([str("hello"), str("world")])), Bytes), phrase(msgpack(Term), Bytes).
-<span class="pl-en">Bytes</span> = [<span class="pl-c1">146</span>, <span class="pl-c1">165</span>, <span class="pl-c1">104</span>, <span class="pl-c1">101</span>, <span class="pl-c1">108</span>, <span class="pl-c1">108</span>, <span class="pl-c1">111</span>, <span class="pl-c1">165</span>, <span class="pl-c1">119</span>|<span class="pl-k">.</span>..],
-<span class="pl-en">Term</span> = array([str(<span class="pl-s">"hello"</span>), str(<span class="pl-s">"world"</span>)])<span class="pl-k">.</span></pre></div>
-<h6 data-sourcepos="47:1-47:16" dir="auto">
-<a id="user-content-project-goals" class="anchor" aria-hidden="true" href="#project-goals"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Project goals</h6>
-<p data-sourcepos="49:1-52:45" dir="auto">Primarily implemented in Prolog but with core highly-optimised C support
-functions for handling endian transformations via machine-code byte swapping,
-re-interpreting between ordered bytes (octets) and IEEE-754 floating-point
-numbers and integers of different bit-widths.</p>
-<p data-sourcepos="54:1-58:34" dir="auto">The goal of this delicate balance between Prolog and C, between
-definite-clause grammar and low-level bit manipulation, aims to retain
-the flexibility and elegance of forward and backward unification between
-Message Pack and byte streams while gleaning the performance benefits of
-a C-based foreign support library.</p>
-<p data-sourcepos="60:1-63:12" dir="auto">Much of the pure C Message Pack implementation concerns storage and memory
-management. To a large extent, any Prolog implementation can ignore memory.
-Prolog was not designed for deeply-embedded hardware targets with extreme memory
-limitations.</p>
-<h6 data-sourcepos="65:1-65:40" dir="auto">
-<a id="user-content-functors-fundamentals-and-primitives" class="anchor" aria-hidden="true" href="#functors-fundamentals-and-primitives"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Functors, fundamentals and primitives</h6>
-<p data-sourcepos="67:1-67:47" dir="auto">The package presents a three-layered interface.</p>
-<ol data-sourcepos="69:3-72:0" dir="auto">
-<li data-sourcepos="69:3-69:88">Top layer via <code>msgpack//1</code> grammar, usage as <code>phrase(msgpack(nil), A)</code> for example.</li>
-<li data-sourcepos="70:3-70:98">Fundamental using <code>msgpack_object//1</code>, usage as <code>phrase(msgpack_object(nil), A)</code> for example.</li>
-<li data-sourcepos="71:3-72:0">Primitive predicates, e.g. <code>msgpack_nil</code>.</li>
-</ol>
-<p data-sourcepos="73:1-74:16" dir="auto">C functions implement some of the key integer and float predicates at the
-primitive level.</p>
-<p data-sourcepos="76:1-78:41" dir="auto">The top-level grammar is <code>msgpack//1</code>. The definition is simple. It maps terms
-to primitives. Unification succeeds both forwards and backwards, meaning the
-grammar magically parses <em>and</em> generates.</p>
-<div class="highlight highlight-source-prolog position-relative overflow-auto" data-snippet-clipboard-copy-content="msgpack(nil) --&gt; msgpack_nil, !.
-msgpack(bool(false)) --&gt; msgpack_false, !.
-msgpack(bool(true)) --&gt; msgpack_true, !.
-msgpack(int(Int)) --&gt; msgpack_int(Int), !.
-msgpack(float(Float)) --&gt; msgpack_float(Float), !.
-msgpack(str(Str)) --&gt; msgpack_str(Str), !.
-msgpack(bin(Bin)) --&gt; msgpack_bin(Bin), !.
-msgpack(array(Array)) --&gt; msgpack_array(msgpack, Array), !.
-msgpack(map(Map)) --&gt; msgpack_map(msgpack_pair(msgpack, msgpack), Map), !.
-msgpack(Term) --&gt; msgpack_ext(Term)."><pre><span class="pl-en">msgpack</span>(<span class="pl-c1">nil</span>) <span class="pl-k">--&gt;</span> <span class="pl-c1">msgpack_nil</span>, <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(bool(<span class="pl-c1">false</span>)) <span class="pl-k">--&gt;</span> <span class="pl-c1">msgpack_false</span>, <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(bool(<span class="pl-c1">true</span>)) <span class="pl-k">--&gt;</span> <span class="pl-c1">msgpack_true</span>, <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(int(<span class="pl-v">Int</span>)) <span class="pl-k">--&gt;</span> msgpack_int(<span class="pl-v">Int</span>), <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(float(<span class="pl-v">Float</span>)) <span class="pl-k">--&gt;</span> msgpack_float(<span class="pl-v">Float</span>), <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(str(<span class="pl-v">Str</span>)) <span class="pl-k">--&gt;</span> msgpack_str(<span class="pl-v">Str</span>), <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(bin(<span class="pl-v">Bin</span>)) <span class="pl-k">--&gt;</span> msgpack_bin(<span class="pl-v">Bin</span>), <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(array(<span class="pl-v">Array</span>)) <span class="pl-k">--&gt;</span> msgpack_array(<span class="pl-c1">msgpack</span>, <span class="pl-v">Array</span>), <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(map(<span class="pl-v">Map</span>)) <span class="pl-k">--&gt;</span> msgpack_map(msgpack_pair(<span class="pl-c1">msgpack</span>, <span class="pl-c1">msgpack</span>), <span class="pl-v">Map</span>), <span class="pl-k">!</span><span class="pl-k">.</span>
-<span class="pl-en">msgpack</span>(<span class="pl-v">Term</span>) <span class="pl-k">--&gt;</span> msgpack_ext(<span class="pl-v">Term</span>)<span class="pl-k">.</span></pre></div>
-<p data-sourcepos="93:1-96:6" dir="auto">Note that this does <em>not</em> include a sequence of back-to-back messages.
-High-order grammar predicates will unify with message sequences, e.g.
-<code>sequence(msgpack, Terms)</code> where Terms is a lists of <code>msgpack//1</code> argument
-terms.</p>
-<p data-sourcepos="98:1-99:18" dir="auto">The fundamental layer via <code>msgpack_object//1</code> attempts to match messages to
-fundamental types.</p>
-<h6 data-sourcepos="101:1-101:16" dir="auto">
-<a id="user-content-integer-space" class="anchor" aria-hidden="true" href="#integer-space"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Integer space</h6>
-<p data-sourcepos="103:1-104:51" dir="auto">The <code>msgpack//1</code> implementation does the correct thing when attempting to render
-integers at integer boundaries; it correctly fails.</p>
-<div class="highlight highlight-source-prolog position-relative overflow-auto" data-snippet-clipboard-copy-content="A is 1 &lt;&lt; 64, phrase(sequence(msgpack, [int(A)]), B)"><pre><span class="pl-en">A</span> <span class="pl-c1">is</span> <span class="pl-c1">1</span> &lt;&lt; <span class="pl-c1">64</span>, phrase(sequence(<span class="pl-c1">msgpack</span>, [int(<span class="pl-v">A</span>)]), <span class="pl-v">B</span>)</pre></div>
-<p data-sourcepos="110:1-116:27" dir="auto">Prolog utilises the GNU Multiple Precision Arithmetic library when values fall
-outside the bit-width limits of the host machine. Term <code>A</code> exceeds 64 bits in
-the example above; Prolog happily computes the correct value within integer
-space but it requires 65 bits at least in order to store the value in an
-ordinary flat machine word. Hence fails the phrase when attempting to find a
-solution to <code>int(A)</code> since no available representation of a Message Pack integer
-accomodates a 65-bit value.</p>
-<p data-sourcepos="118:1-121:37" dir="auto">The same phrase for <code>float(A)</code> <em>will</em> succeed however by rendering a Message
-Pack 32-bit float. A float term accepts integers. They convert to equivalent
-floating-point values; in that case matching IEEE-754 big-endian sequence <code>[95, 0, 0, 0]</code> as a Prolog byte-code list.</p>
-<h6 data-sourcepos="123:1-123:15" dir="auto">
-<a id="user-content-useful-links" class="anchor" aria-hidden="true" href="#useful-links"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Useful links</h6>
-<ul data-sourcepos="125:1-125:85" dir="auto">
-<li data-sourcepos="125:1-125:85"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a></li>
-</ul>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-msgpack-msgpack-python" class="qs"><h4><a href="https://msgpack.org/" target="_blank">msgpack/msgpack-python <span class="qs-url">https://msgpack.org/</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:24" dir="auto">
@@ -19458,32 +18806,32 @@ $ msgpack-cli rpc localhost 8000 echo '["abc", "def", "ghi", {"A": 65, "B": 66, 
         
         <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-3:0" dir="auto">
 <a id="user-content-msgpack-smalltalk" class="anchor" aria-hidden="true" href="#msgpack-smalltalk"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-smalltalk</h5>
-<p dir="auto">MessagePack serialization library for various Smalltalk dialects.</p>
-<ul dir="auto">
-<li>Squeak</li>
-<li>Pharo</li>
-<li>VisualWorks</li>
-<li>VA Smalltalk</li>
-<li>Dolphin Smalltalk</li>
-<li>GNU Smalltalk (Beta)</li>
-<li><a href="https://github.com/mumez/Cuis-Smalltalk-MessagePack">Cuis</a></li>
+<p data-sourcepos="4:1-4:65" dir="auto">MessagePack serialization library for various Smalltalk dialects.</p>
+<ul data-sourcepos="6:1-13:0" dir="auto">
+<li data-sourcepos="6:1-6:8">Squeak</li>
+<li data-sourcepos="7:1-7:7">Pharo</li>
+<li data-sourcepos="8:1-8:13">VisualWorks</li>
+<li data-sourcepos="9:1-9:14">VA Smalltalk</li>
+<li data-sourcepos="10:1-10:19">Dolphin Smalltalk</li>
+<li data-sourcepos="11:1-11:22">GNU Smalltalk (Beta)</li>
+<li data-sourcepos="12:1-13:0"><a href="https://github.com/mumez/Cuis-Smalltalk-MessagePack">Cuis</a></li>
 </ul>
-<p dir="auto">Sources are put as <a href="https://github.com/CampSmalltalk/Cypress/blob/master/README.md">Cypress</a> for the neutral accesses from various Smalltalk dialects.</p>
-<h6 dir="auto">
+<p data-sourcepos="14:1-14:150" dir="auto">Sources are put as <a href="https://github.com/CampSmalltalk/Cypress/blob/master/README.md">Cypress</a> for the neutral accesses from various Smalltalk dialects.</p>
+<h6 data-sourcepos="16:1-16:13" dir="auto">
 <a id="user-content-how-to-use" class="anchor" aria-hidden="true" href="#how-to-use"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to use</h6>
-<h7 dir="auto">
+<h7 data-sourcepos="18:1-18:17" dir="auto">
 <a id="user-content-serialization" class="anchor" aria-hidden="true" href="#serialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialization</h7>
 <div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack pack: &lt;your object&gt;"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">pack:</span> <span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span></pre></div>
-<p dir="auto">or:</p>
+<p data-sourcepos="22:1-22:3" dir="auto">or:</p>
 <div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;your object&gt; messagePacked"><pre><span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span> messagePacked</pre></div>
-<h7 dir="auto">
+<h7 data-sourcepos="27:1-27:19" dir="auto">
 <a id="user-content-deserialization" class="anchor" aria-hidden="true" href="#deserialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserialization</h7>
 <div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack unpack: msgpackBytes"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">unpack:</span> msgpackBytes</pre></div>
-<p dir="auto">or:</p>
+<p data-sourcepos="31:1-31:3" dir="auto">or:</p>
 <div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="Object fromMessagePack: msgBytes"><pre><span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> msgBytes</pre></div>
-<h7 dir="auto">
+<h7 data-sourcepos="36:1-36:11" dir="auto">
 <a id="user-content-samples" class="anchor" aria-hidden="true" href="#samples"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Samples</h7>
 <div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="map := Dictionary new.
 map at: 'someArray' asByteArray put: #(1 2.2 #[3 4 5]).
@@ -19519,12 +18867,12 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
 [decoder atEnd] <span class="pl-k">whileFalse:</span> [
         <span class="pl-c1">Transcript</span> cr; <span class="pl-c1">show:</span> decoder next printString
 ]</pre></div>
-<h7 dir="auto">
+<h7 data-sourcepos="61:1-61:18" dir="auto">
 <a id="user-content-how-to-install" class="anchor" aria-hidden="true" href="#how-to-install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to install</h7>
-<p dir="auto">Please read <a href="https://github.com/msgpack/msgpack-smalltalk/blob/master/doc/HowToInstall.md">HowToInstall.md</a>.</p>
-<h7 dir="auto">
+<p data-sourcepos="62:1-62:110" dir="auto">Please read <a href="https://github.com/msgpack/msgpack-smalltalk/blob/master/doc/HowToInstall.md">HowToInstall.md</a>.</p>
+<h7 data-sourcepos="64:1-64:42" dir="auto">
 <a id="user-content-loading-the-latest-development-version" class="anchor" aria-hidden="true" href="#loading-the-latest-development-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Loading the latest development version</h7>
-<h8 dir="auto">
+<h8 data-sourcepos="66:1-66:11" dir="auto">
 <a id="user-content-squeak" class="anchor" aria-hidden="true" href="#squeak"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Squeak</h8>
 <div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="Installer squeaksource
     project: 'MessagePack';
@@ -19533,7 +18881,7 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
     <span class="pl-c1">project:</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>;
     <span class="pl-c1">install:</span> <span class="pl-s"><span class="pl-pds">'</span>ConfigurationOfMessagePack<span class="pl-pds">'</span></span>. 
 (<span class="pl-k">Smalltalk</span> <span class="pl-c1">at:</span> <span class="pl-c1">#ConfigurationOfMessagePack</span>) project development load</pre></div>
-<h8 dir="auto">
+<h8 data-sourcepos="74:1-74:10" dir="auto">
 <a id="user-content-pharo" class="anchor" aria-hidden="true" href="#pharo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Pharo</h8>
 <div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="Metacello new
   repository: 'github://msgpack/msgpack-smalltalk/repository';
@@ -19542,7 +18890,7 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
   <span class="pl-c1">repository:</span> <span class="pl-s"><span class="pl-pds">'</span>github://msgpack/msgpack-smalltalk/repository<span class="pl-pds">'</span></span>;
   <span class="pl-c1">baseline:</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>;
   load.</pre></div>
-<p dir="auto">You might need <code>MpTypeMapper initializeAll </code> on new encoder/decoder-related updates.</p>
+<p data-sourcepos="82:1-82:88" dir="auto">You might need <code>MpTypeMapper initializeAll </code> on new encoder/decoder-related updates.</p>
 </article>
   </div>
         </div>
@@ -20593,23 +19941,6 @@ The data corresponds to <code>{"compact":true,"schema":0}</code> in JSON.</p>
 <h6 data-sourcepos="81:1-81:15" dir="auto">
 <a id="user-content-contributing" class="anchor" aria-hidden="true" href="#contributing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributing</h6>
 <p data-sourcepos="83:1-83:102" dir="auto">Bug reports and pull requests are welcome on GitHub at [<a href="https://github.com/tagomoris/msgpack-inspect">https://github.com/tagomoris/msgpack-inspect</a>].</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-msgpack4z-msgpack4z-argonaut" class="qs"><h4><a href="https://msgpack4z.github.io/graph.svg" target="_blank">msgpack4z/msgpack4z-argonaut <span class="qs-url">https://msgpack4z.github.io/graph.svg</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 data-sourcepos="1:1-1:20" dir="auto">
-<a id="user-content-msgpack4z-argonaut" class="anchor" aria-hidden="true" href="#msgpack4z-argonaut"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack4z-argonaut</h5>
-<p data-sourcepos="3:1-4:182" dir="auto"><a href="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-argonaut_2.12" rel="nofollow"><img src="https://camo.githubusercontent.com/43f391f831e6dbcbe6c9a11f9cbbf7e2e72e58a53f7ee0b17e42fcabc66255a1/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d6172676f6e6175745f322e31322f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-argonaut_2.12/badge.svg" style="max-width: 100%;"></a>
-<a href="https://javadoc.io/doc/com.github.xuwei-k/msgpack4z-argonaut_3/latest/api/msgpack4z.html" rel="nofollow"><img src="https://camo.githubusercontent.com/42e56ac36d1af5c89de6182fd951fe504b0c91c974fda7394cfe0412a1cfdc32/68747470733a2f2f6a617661646f632e696f2f6261646765322f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d6172676f6e6175745f332f6a617661646f632e737667" alt="scaladoc" data-canonical-src="https://javadoc.io/badge2/com.github.xuwei-k/msgpack4z-argonaut_3/javadoc.svg" style="max-width: 100%;"></a></p>
-<ul data-sourcepos="6:1-8:0" dir="auto">
-<li data-sourcepos="6:1-6:24"><a href="https://msgpack.org/" rel="nofollow">https://msgpack.org/</a></li>
-<li data-sourcepos="7:1-8:0"><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a></li>
-</ul>
-<h7 data-sourcepos="9:1-9:25" dir="auto">
-<a id="user-content-latest-stable-version" class="anchor" aria-hidden="true" href="#latest-stable-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>latest stable version</h7>
-<div class="highlight highlight-source-scala position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "com.github.xuwei-k" %% "msgpack4z-argonaut" % "0.8.0"'><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-argonaut<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.8.0<span class="pl-pds">"</span></span></pre></div>
 </article>
   </div>
         </div>
