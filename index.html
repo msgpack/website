@@ -368,8 +368,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-samclaus-msgpack-ts',this)">TypeScript/JavaScript <span class="qs-sub">samclaus</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-esensar-kotlinx-serialization-msgpack',this)">kotlinx.serialization <span class="qs-sub">esensar</span></a></li>
@@ -448,7 +446,7 @@ var bytes:ByteArray = msgpack.write([1, 2, 3, 4, 5]);</p>
 bytes.position = 0;</p>
 <p dir="auto">// print the decoded object
 trace(msgpack.read(bytes));</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
 ### Flags
 &lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
 * &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
@@ -459,7 +457,7 @@ trace(msgpack.read(bytes));</p>
 var msg:MsgPack;
 
 // use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);"><pre class="notranslate"><code class="notranslate">
+msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);"><pre class="notranslate"><code>
 ### Flags
 &lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
 * &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
@@ -482,7 +480,7 @@ msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCE
 var msgpack:MsgPack = new MsgPack();
 <p dir="auto">// Assign the new worker to the factory.
 msgpack.factory.assign(new CustomWorker());</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
 &lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
 
 ### Priorities
@@ -500,7 +498,7 @@ var workerA:StringWorker = new StringWorker();
 var workerB:DifferentStringWorker = new DifferentStringWorker();
 
 msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);"><pre class="notranslate"><code class="notranslate">
+msgpack.factory.assign(workerB);"><pre class="notranslate"><code>
 &lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
 
 ### Priorities
@@ -527,13 +525,13 @@ var msgpack:MsgPack = new MsgPack();
 var workerB:DifferentStringWorker = new DifferentStringWorker(null, 1);</p>
 <p dir="auto">msgpack.factory.assign(workerA);
 msgpack.factory.assign(workerB);</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
 ## Credits
 This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
 
 Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
 Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  "><pre class="notranslate"><code class="notranslate">
+License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  "><pre class="notranslate"><code>
 ## Credits
 This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
 
@@ -565,7 +563,7 @@ License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0
 <a id="user-content-typical-usage" class="anchor" aria-hidden="true" href="#typical-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Typical Usage</h6>
 <p dir="auto">This library is only for serialize / deserialize.
 To send / receive serialized data with <code>Stream</code> class, please use <a href="https://github.com/hideakitai/MsgPacketizer">MsgPacketizer</a>.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='#include &lt;MsgPack.h&gt;
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='#include &lt;MsgPack.h&gt;
 
 // input to msgpack
 int i = 123;
@@ -649,7 +647,7 @@ MsgPack::<span class="pl-c1">map_t</span>&lt;String, <span class="pl-k">float</s
 <p dir="auto">In msgpack, there are two collection types: <code>Array</code> and <code>Map</code>.
 C++ containers will be converted to one of them but you can do that from individual parameters.
 To <code>pack</code> / <code>unpack</code> values as such collections in a simple way, please use these functions.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='packer.to_array(i, f, s); // becoms array format [i, f, s];
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='packer.to_array(i, f, s); // becoms array format [i, f, s];
 unpacker.from_array(ii, ff, ss); // unpack from array format to ii, ff, ss
 
 packer.to_map("i", i, "f", f); // becoms {"i":i, "f":f}
@@ -659,7 +657,7 @@ unpacker.from_array(ii, ff, ss); <span class="pl-c"><span class="pl-c">//</span>
 packer.to_map(<span class="pl-s"><span class="pl-pds">"</span>i<span class="pl-pds">"</span></span>, i, <span class="pl-s"><span class="pl-pds">"</span>f<span class="pl-pds">"</span></span>, f); <span class="pl-c"><span class="pl-c">//</span> becoms {"i":i, "f":f}</span>
 unpacker.from_map(ki, ii, kf, ff); <span class="pl-c"><span class="pl-c">//</span> unpack from map to ii, ff, ss</span></pre></div>
 <p dir="auto">The same conversion can be achieved using <code>serialize</code> and <code>deserialize</code>.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='packer.serialize(MsgPack::arr_size_t(3), i, f, s); // [i, f, s]
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='packer.serialize(MsgPack::arr_size_t(3), i, f, s); // [i, f, s]
 unpacker.deserialize(MsgPack::arr_size_t(3), ii, ff, ss);
 
 packer.serialize(MsgPack::map_size_t(2), "i", i, "f", f); // {"i":i, "f":f}
@@ -670,7 +668,7 @@ packer.serialize(MsgPack::<span class="pl-c1">map_size_t</span>(<span class="pl-
 unpacker.deserialize(MsgPack::<span class="pl-c1">map_size_t</span>(<span class="pl-c1">2</span>), ki, ii, kf, ff);</pre></div>
 <p dir="auto">Here, <code>MsgPack::arr_size_t</code> and <code>MsgPack::map_size_t</code> are used to identify the size of <code>Array</code> and <code>Map</code> format in <code>serialize</code> or <code>deserialize</code>.
 This way is expandable to <code>pack</code> and <code>unpack</code> complex data structure because it can be nested.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='// {"i":i, "arr":[ii, iii]}
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='// {"i":i, "arr":[ii, iii]}
 packer.serialize(MsgPack::map_size_t(2), "i", i, "arr", MsgPack::arr_size_t(2), ii, iii);
 unpacker.deserialize(MsgPack::map_size_t(2), ki, i, karr, MsgPack::arr_size_t(2), ii, iii);'><pre><span class="pl-c"><span class="pl-c">//</span> {"i":i, "arr":[ii, iii]}</span>
 packer.serialize(MsgPack::<span class="pl-c1">map_size_t</span>(<span class="pl-c1">2</span>), <span class="pl-s"><span class="pl-pds">"</span>i<span class="pl-pds">"</span></span>, i, <span class="pl-s"><span class="pl-pds">"</span>arr<span class="pl-pds">"</span></span>, MsgPack::<span class="pl-c1">arr_size_t</span>(<span class="pl-c1">2</span>), ii, iii);
@@ -678,7 +676,7 @@ unpacker.deserialize(MsgPack::<span class="pl-c1">map_size_t</span>(<span class=
 <h6 dir="auto">
 <a id="user-content-custom-class-adaptation" class="anchor" aria-hidden="true" href="#custom-class-adaptation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Custom Class Adaptation</h6>
 <p dir="auto">To serialize / deserialize custom type you defined, please use <code>MSGPACK_DEFINE()</code> macro inside of your class. This macro enables you to convert your custom class to <code>Array</code> format.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="struct CustomClass {
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="struct CustomClass {
     int i;
     float f;
     MsgPack::str_t s;
@@ -690,7 +688,7 @@ unpacker.deserialize(MsgPack::<span class="pl-c1">map_size_t</span>(<span class=
     <span class="pl-en">MSGPACK_DEFINE</span>(i, f, s); <span class="pl-c"><span class="pl-c">//</span> -&gt; [i, f, s]</span>
 };</pre></div>
 <p dir="auto">After that, you can <code>serialize</code> your class completely same as other types.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="int i;
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="int i;
 float f;
 MsgPack::str_t s;
 CustomClass c;
@@ -725,7 +723,7 @@ unpacker.feed(packer.data(), packer.size());
 unpacker.deserialize(ii, ff, ss, cc);</pre></div>
 <p dir="auto">You can also wrap your custom class to <code>Map</code> format by using <code>MSGPACK_DEFINE_MAP</code> macro.
 Please note that you need "key" string for <code>Map</code> format.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='struct CustomClass {
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='struct CustomClass {
     MsgPack::str_t key_i {"i"}; int i;
     MsgPack::str_t key_f {"f"}; float f;
     MSGPACK_DEFINE_MAP(key_i, i, key_f, f); // -&gt; {"i":i, "f":f}
@@ -757,7 +755,7 @@ unpacker.deserialize(cc);</pre></div>
 <h7 dir="auto">
 <a id="user-content-custom-class-with-inheritance" class="anchor" aria-hidden="true" href="#custom-class-with-inheritance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Custom Class with Inheritance</h7>
 <p dir="auto">Also you can use <code>MSGPACK_BASE()</code> macro to pack values of base class.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="struct Base {
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="struct Base {
     int i;
     float f;
     MSGPACK_DEFINE(i, f);
@@ -779,7 +777,7 @@ struct Derived : public Base {
     <span class="pl-c"><span class="pl-c">//</span> -&gt; packer.serialize(arr_size_t(2), s, arr_size_t(2), Base::i, Base::f)</span>
 };</pre></div>
 <p dir="auto">If you wamt to use <code>Map</code> format in derived class, add "key" for your <code>MSGPACK_BASE</code>.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="struct Derived : public Base {
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="struct Derived : public Base {
     MsgPack::str_t key_s; MsgPack::str_t s;
     MsgPack::str_t key_b; // key for base class
     MSGPACK_DEFINE_MAP(key_s, s, key_b, MSGPACK_BASE(Base));
@@ -793,7 +791,7 @@ struct Derived : public Base {
 <h7 dir="auto">
 <a id="user-content-nested-custom-class" class="anchor" aria-hidden="true" href="#nested-custom-class"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Nested Custom Class</h7>
 <p dir="auto">You can nest custom classes to express complex data structure.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='// serialize and deserialize nested structure
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='// serialize and deserialize nested structure
 // {"i":i, "f":f, "a":["str", {"first":1, "second":"two"}]}
 
 // {"first":1, "second":"two"}
@@ -843,7 +841,7 @@ struct MyNestedClass {
     <span class="pl-en">MSGPACK_DEFINE_MAP</span>(key_i, i, key_f, f, key_a, arr);
 };</pre></div>
 <p dir="auto">And you can <code>serialize</code> / <code>deserialize</code> as same as other types.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="MyNestedClass c;
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="MyNestedClass c;
 MsgPack::Packer packer;
 packer.serialize(c);
 
@@ -864,7 +862,7 @@ unpacker.deserialize(cc);</pre></div>
 But some libraries can NOT convert msgpack in "plain" style.
 They always wrap them into collections like <code>Array</code> or <code>Map</code> by default.
 For example, you can't convert "plain" format in other languages.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='packer.serialize(i, f, s);                // "plain" format is NOT unpackable
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='packer.serialize(i, f, s);                // "plain" format is NOT unpackable
 packer.serialize(arr_size_t(3), i, f, s); // unpackable if you wrap that into Array'><pre>packer.serialize(i, f, s);                <span class="pl-c"><span class="pl-c">//</span> "plain" format is NOT unpackable</span>
 packer.serialize(<span class="pl-c1">arr_size_t</span>(<span class="pl-c1">3</span>), i, f, s); <span class="pl-c"><span class="pl-c">//</span> unpackable if you wrap that into Array</span></pre></div>
 <p dir="auto">It is because the msgpack is used as based on JSON (I think).
@@ -883,7 +881,7 @@ To achieve that, there are several ways.</p>
 <ul dir="auto">
 <li>you can [serialize / deserialize] <code>StaticJsonDocument&lt;N&gt;</code> and <code>DynamicJsonDocument</code> directly</li>
 </ul>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="#include &lt;ArduinoJson.h&gt;  // include before MsgPack.h
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="#include &lt;ArduinoJson.h&gt;  // include before MsgPack.h
 #include &lt;MsgPack.h&gt;
 
 void setup() {
@@ -913,7 +911,7 @@ void setup() {
 <h7 dir="auto">
 <a id="user-content-saveload-tofrom-json-file-directly-fromto-msgpack" class="anchor" aria-hidden="true" href="#saveload-tofrom-json-file-directly-fromto-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Save/Load to/from JSON file directly from/to MsgPack</h7>
 <p dir="auto">You can directly save/load to/from JSON file with this library. <code>SD</code>, <code>SdFat</code>, <code>SD_MMC</code>, <code>SPIFFS</code>, etc. are available for the target file system. Please see <code>save_load_as_json_file</code> example for more details.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content='#include &lt;SD.h&gt;
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='#include &lt;SD.h&gt;
 #include &lt;MsgPack.h&gt;
 
 struct MyConfig {
@@ -959,7 +957,7 @@ MyConfig config;
 <h7 dir="auto">
 <a id="user-content-saveload-tofrom-eeprom-with-msgpack" class="anchor" aria-hidden="true" href="#saveload-tofrom-eeprom-with-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Save/Load to/from EEPROM with MsgPack</h7>
 <p dir="auto">In Arduino, you can use the MsgPack utility to save/load to/from EEPROM. Following code shows how to use them. Please see <code>save_load_eeprom</code> example for more details.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="struct MyConfig {
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="struct MyConfig {
     Meta meta;
     Data data;
     MSGPACK_DEFINE(meta, data);
@@ -1145,7 +1143,7 @@ This object is just a dummy and do nothing.</p>
 <h8 dir="auto">
 <a id="user-content-msgpackobejectext" class="anchor" aria-hidden="true" href="#msgpackobejectext"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack::obeject::ext</h8>
 <p dir="auto"><code>MsgPack::object::ext</code> holds binary data of Ext type.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="// create ext type with args: int8_t, const uint8_t*, uint32_t
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// create ext type with args: int8_t, const uint8_t*, uint32_t
 MsgPack::object::ext e(type, bin_ptr, size);
 MsgPack::Packer packer;
 packer.serialize(e); // serialize ext type
@@ -1165,7 +1163,7 @@ unpacker.deserialize(r); <span class="pl-c"><span class="pl-c">//</span> deseria
 <h8 dir="auto">
 <a id="user-content-msgpackobejecttimespec" class="anchor" aria-hidden="true" href="#msgpackobejecttimespec"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack::obeject::timespec</h8>
 <p dir="auto"><code>MsgPack::object::timespec</code> is used to <code>pack</code> and <code>unpack</code> Timestamp type.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="MsgPack::object::timespec t = {
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="MsgPack::object::timespec t = {
     .tv_sec  = 123456789, /* int64_t  */
     .tv_usec = 123456789  /* uint32_t */
 };
@@ -1191,9 +1189,9 @@ unpacker.deserialize(r); <span class="pl-c"><span class="pl-c">//</span> deseria
 <h7 dir="auto">
 <a id="user-content-enable-error-info" class="anchor" aria-hidden="true" href="#enable-error-info"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Enable Error Info</h7>
 <p dir="auto">Error information report is disabled by default. You can enable it by defining this macro.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="#define MSGPACK_DEBUGLOG_ENABLE"><pre>#<span class="pl-k">define</span> <span class="pl-en">MSGPACK_DEBUGLOG_ENABLE</span></pre></div>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="#define MSGPACK_DEBUGLOG_ENABLE"><pre>#<span class="pl-k">define</span> <span class="pl-en">MSGPACK_DEBUGLOG_ENABLE</span></pre></div>
 <p dir="auto">Also you can change debug info stream by calling this macro (default: <code>Serial</code>).</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="DEBUG_LOG_ATTACH_STREAM(Serial1);"><pre><span class="pl-en">DEBUG_LOG_ATTACH_STREAM</span>(Serial1);</pre></div>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="DEBUG_LOG_ATTACH_STREAM(Serial1);"><pre><span class="pl-en">DEBUG_LOG_ATTACH_STREAM</span>(Serial1);</pre></div>
 <p dir="auto">See <a href="https://github.com/hideakitai/DebugLog">DebugLog</a> for details.</p>
 <h7 dir="auto">
 <a id="user-content-packet-data-storage-class-inside" class="anchor" aria-hidden="true" href="#packet-data-storage-class-inside"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Packet Data Storage Class Inside</h7>
@@ -1209,7 +1207,7 @@ The storage size of such boards for max packet binary size and number of msgpack
 <p dir="auto">As mentioned above, for such boards like Arduino Uno, the storage sizes are limited.
 And of course you can manage them by defining following macros.
 But these default values are optimized for such boards, please be careful not to excess your boards storage/memory.</p>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="// msgpack serialized binary size
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// msgpack serialized binary size
 #define MSGPACK_MAX_PACKET_BYTE_SIZE  128
 // max size of MsgPack::arr_t
 #define MSGPACK_MAX_ARRAY_SIZE          8
@@ -1264,7 +1262,7 @@ I reccomend to use low cost but much better performance chip like ESP series.</p
 <a id="user-content-apis" class="anchor" aria-hidden="true" href="#apis"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>APIs</h6>
 <h7 dir="auto">
 <a id="user-content-msgpackpacker" class="anchor" aria-hidden="true" href="#msgpackpacker"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack::Packer</h7>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="// reserve internal buffer
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// reserve internal buffer
 void reserve_buffer(const size_t size);
 
 // variable sized serializer for any type
@@ -1511,7 +1509,7 @@ void packTimestamp96(const int64_t unix_time_sec, const uint32_t unix_time_nsec)
 <span class="pl-k">void</span> <span class="pl-en">packTimestamp96</span>(<span class="pl-k">const</span> <span class="pl-c1">int64_t</span> unix_time_sec, <span class="pl-k">const</span> <span class="pl-c1">uint32_t</span> unix_time_nsec);</pre></div>
 <h7 dir="auto">
 <a id="user-content-msgpackunpacker" class="anchor" aria-hidden="true" href="#msgpackunpacker"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack::Unpacker</h7>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="// reserve internal buffer for indices
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// reserve internal buffer for indices
 void reserve_indices(const size_t size);
 
 // feed data to deserialize
@@ -1886,7 +1884,7 @@ object::<span class="pl-c1">timespec</span> <span class="pl-en">unpackTimestampU
 MsgPack::Type <span class="pl-en">getType</span>() <span class="pl-k">const</span></pre></div>
 <h7 dir="auto">
 <a id="user-content-msgpack-utilities" class="anchor" aria-hidden="true" href="#msgpack-utilities"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack Utilities</h7>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="template &lt;typename T&gt;
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="template &lt;typename T&gt;
 inline size_t estimate_size(const T&amp; msg);
 
 namespace file {
@@ -1943,7 +1941,7 @@ namespace eeprom {
 }</pre></div>
 <h7 dir="auto">
 <a id="user-content-msgpacktype" class="anchor" aria-hidden="true" href="#msgpacktype"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack::Type</h7>
-<div class="highlight highlight-source-c++ position-relative overflow-auto" data-snippet-clipboard-copy-content="enum class Type : uint8_t {
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="enum class Type : uint8_t {
     NA          = 0xC1, // never used
     NIL         = 0xC0,
     BOOL        = 0xC2,
@@ -6114,11 +6112,11 @@ The API of msgpack11 is designed to be similar with json11.</p>
 <ul dir="auto">
 <li>
 <p dir="auto">Using CMake</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  git clone git@github.com:ar90n/msgpack11.git
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="  git clone git@github.com:ar90n/msgpack11.git
   mkdir build
   cd build
   cmake ../msgpack11
-  make &amp;&amp; make install"><pre class="notranslate"><code>  git clone git@github.com:ar90n/msgpack11.git
+  make &amp;&amp; make install"><pre class="notranslate"><code class="notranslate">  git clone git@github.com:ar90n/msgpack11.git
   mkdir build
   cd build
   cmake ../msgpack11
@@ -6127,9 +6125,9 @@ The API of msgpack11 is designed to be similar with json11.</p>
 </li>
 <li>
 <p dir="auto">Using Buck</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  git clone git@github.com:ar90n/msgpack11.git
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="  git clone git@github.com:ar90n/msgpack11.git
   cd msgpack11
-  buck build :msgpack11"><pre class="notranslate"><code>  git clone git@github.com:ar90n/msgpack11.git
+  buck build :msgpack11"><pre class="notranslate"><code class="notranslate">  git clone git@github.com:ar90n/msgpack11.git
   cd msgpack11
   buck build :msgpack11
 </code></pre></div>
@@ -6137,7 +6135,7 @@ The API of msgpack11 is designed to be similar with json11.</p>
 </ul>
 <h5 dir="auto">
 <a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example</h5>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='MsgPack my_msgpack = MsgPack::object {
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='MsgPack my_msgpack = MsgPack::object {
     { "key1", "value1" },
     { "key2", false },
     { "key3", MsgPack::array { 1, 2, 3 } },
@@ -6151,7 +6149,7 @@ std::string msgpack_bytes = my_msgpack.dump();
 
 //deserialize
 std::string err;
-MsgPack des_msgpack = MsgPack::parse(msgpack_bytes, err);'><pre class="notranslate"><code>MsgPack my_msgpack = MsgPack::object {
+MsgPack des_msgpack = MsgPack::parse(msgpack_bytes, err);'><pre class="notranslate"><code class="notranslate">MsgPack my_msgpack = MsgPack::object {
     { "key1", "value1" },
     { "key2", false },
     { "key3", MsgPack::array { 1, 2, 3 } },
@@ -6384,7 +6382,7 @@ dependencies.</p>
 <li>
 <code>unpack</code> Deserialize bytes as a Clojure object.</li>
 </ul>
-<div class="highlight highlight-source-clojure notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(require '[msgpack.core :as msg])
+<div class="highlight highlight-source-clojure position-relative overflow-auto" data-snippet-clipboard-copy-content="(require '[msgpack.core :as msg])
 (require 'msgpack.clojure-extensions)
 
 (msg/pack {:compact true :schema 0})
@@ -6414,7 +6412,7 @@ as an additional argument.</p>
 <a href="http://docs.oracle.com/javase/7/docs/api/java/io/DataInput.html" rel="nofollow">java.io.DataInput</a>
 or
 <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html" rel="nofollow">java.io.InputStream</a>.</p>
-<div class="highlight highlight-source-clojure notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(use 'clojure.java.io)
+<div class="highlight highlight-source-clojure position-relative overflow-auto" data-snippet-clipboard-copy-content="(use 'clojure.java.io)
 
 (with-open [s (output-stream &quot;test.dat&quot;)]
   (msg/pack-stream {:compact true :schema 0} s))
@@ -6536,13 +6534,13 @@ types, load the <code>clojure-extensions</code> library.</p>
 </tbody>
 </table>
 <p dir="auto">With <code>msgpack.clojure-extensions</code>:</p>
-<div class="highlight highlight-source-clojure notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(require 'msgpack.clojure-extensions)
+<div class="highlight highlight-source-clojure position-relative overflow-auto" data-snippet-clipboard-copy-content="(require 'msgpack.clojure-extensions)
 (msg/pack :hello)
 ; =&gt; #&lt;byte[] [B@a8c55bf&gt;"><pre>(<span class="pl-k">require</span> 'msgpack.clojure-extensions)
 (<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
 <span class="pl-c"><span class="pl-c">;</span> =&gt; #&lt;byte[] [B@a8c55bf&gt;</span></pre></div>
 <p dir="auto">Without <code>msgpack.clojure-extensions</code>:</p>
-<div class="highlight highlight-source-clojure notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(msg/pack :hello)
+<div class="highlight highlight-source-clojure position-relative overflow-auto" data-snippet-clipboard-copy-content="(msg/pack :hello)
 ; =&gt; IllegalArgumentException No implementation of method: :pack-stream of
 ; protocol: #'msgpack.core/Packable found for class: clojure.lang.Keyword
 ; clojure.core/-cache-protocol-fn (core _deftype.clj:544)"><pre>(<span class="pl-en">msg/pack</span> <span class="pl-c1">:hello</span>)
@@ -6553,7 +6551,7 @@ types, load the <code>clojure-extensions</code> library.</p>
 <a id="user-content-application-types" class="anchor" aria-hidden="true" href="#application-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a name="user-content-application-types">Application types</a>
 </h7>
 <p dir="auto">You can also define your own Extended types with <code>extend-msgpack</code>.</p>
-<div class="highlight highlight-source-clojure notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(require '[msgpack.macros :refer [extend-msgpack]])
+<div class="highlight highlight-source-clojure position-relative overflow-auto" data-snippet-clipboard-copy-content="(require '[msgpack.macros :refer [extend-msgpack]])
 
 (defrecord Person [name])
 
@@ -6589,7 +6587,7 @@ but defined under the new spec. We always deserialize something if we can
 regardless of <code>compatibility-mode</code>.</p>
 </li>
 </ul>
-<div class="highlight highlight-source-clojure notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(msg/pack (byte-array (byte 9)) {:compatibility-mode true})"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
+<div class="highlight highlight-source-clojure position-relative overflow-auto" data-snippet-clipboard-copy-content="(msg/pack (byte-array (byte 9)) {:compatibility-mode true})"><pre>(<span class="pl-en">msg/pack</span> (<span class="pl-en">byte-array</span> (<span class="pl-en">byte</span> <span class="pl-c1">9</span>)) {<span class="pl-c1">:compatibility-mode</span> <span class="pl-c1">true</span>})</pre></div>
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto">clojure-msgpack is MIT licensed. See the included LICENSE file for more details.</p>
@@ -7416,14 +7414,14 @@ begin
 <h6 dir="auto">
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
 <p dir="auto">Add <code>:message_pack</code> as a dependency in your <code>mix.exs</code> file.</p>
-<div class="highlight highlight-source-elixir notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='defp deps do
+<div class="highlight highlight-source-elixir position-relative overflow-auto" data-snippet-clipboard-copy-content='defp deps do
   [{:message_pack, "~&gt; 0.2.0"}]
 end'><pre><span class="pl-k">defp</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
   <span class="pl-kos">[</span><span class="pl-kos">{</span><span class="pl-pds">:message_pack</span><span class="pl-kos">,</span> <span class="pl-s">"~&gt; 0.2.0"</span><span class="pl-kos">}</span><span class="pl-kos">]</span>
 <span class="pl-k">end</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-elixir notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# pack
+<div class="highlight highlight-source-elixir position-relative overflow-auto" data-snippet-clipboard-copy-content="# pack
 MessagePack.pack([1,2,3]) #=&gt; { :ok, &lt;&lt;147,1,2,3&gt;&gt; }
 MessagePack.pack!([1,2,3]) #=&gt; &lt;&lt;147,1,2,3&gt;&gt;
 
@@ -7450,7 +7448,7 @@ MessagePack.unpack_once!(&lt;&lt;147,1,2,3,4&gt;&gt;) #=&gt; {[1, 2, 3], &lt;&lt
 <li><code>enable_string</code></li>
 </ul>
 <p dir="auto">Support string type. This options is <code>false</code> by default.</p>
-<div class="highlight highlight-source-elixir notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="iex(1)&gt; { :ok, bin } = MessagePack.pack(&lt;&lt;255&gt;&gt;)
+<div class="highlight highlight-source-elixir position-relative overflow-auto" data-snippet-clipboard-copy-content="iex(1)&gt; { :ok, bin } = MessagePack.pack(&lt;&lt;255&gt;&gt;)
 {:ok, &lt;&lt;161, 255&gt;&gt;}
 iex(3)&gt; MessagePack.unpack(&lt;&lt;161, 255&gt;&gt;)
 {:ok, &lt;&lt;255&gt;&gt;}
@@ -7495,7 +7493,7 @@ iex(4)&gt; MessagePack.unpack(&lt;&lt;161, 255&gt;&gt;, enable_string: true)
 <h6 dir="auto">
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
 <p dir="auto">Add <code>:msgpax</code> as a dependency in your <code>mix.exs</code> file:</p>
-<div class="highlight highlight-source-elixir notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='def deps do
+<div class="highlight highlight-source-elixir position-relative overflow-auto" data-snippet-clipboard-copy-content='def deps do
   [{:msgpax, "~&gt; 2.0"}]
 end'><pre><span class="pl-k">def</span> <span class="pl-en">deps</span> <span class="pl-k">do</span>
   <span class="pl-kos">[</span><span class="pl-kos">{</span><span class="pl-pds">:msgpax</span><span class="pl-kos">,</span> <span class="pl-s">"~&gt; 2.0"</span><span class="pl-kos">}</span><span class="pl-kos">]</span>
@@ -7738,7 +7736,7 @@ OTP 17.0.</p>
 <a name="user-content-usage"></a>
 <h6 dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-fsharp position-relative overflow-auto" data-snippet-clipboard-copy-content="open MsgPack
+<div class="highlight highlight-source-fsharp notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="open MsgPack
 
 [| 1uy; 2uy; 3uy |]
 |&gt; Array.map (Value.UInt8)
@@ -7778,7 +7776,7 @@ Unpacker.unpack <span class="pl-k">[|</span><span class="pl-c1">147</span>uy<spa
 <p dir="auto">MessagePack.FSharpExtensions is a <a href="https://github.com/neuecc/MessagePack-CSharp">MessagePack-CSharp</a> extension library for F#.</p>
 <h6 dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-fsharp position-relative overflow-auto" data-snippet-clipboard-copy-content="open System
+<div class="highlight highlight-source-fsharp notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="open System
 open System.Buffers
 open MessagePack
 open MessagePack.Resolvers
@@ -7989,12 +7987,12 @@ replacement for any tag.</li>
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
 <p dir="auto">msgpack supports 2 last Go versions and requires support for
 <a href="https://github.com/golang/go/wiki/Modules">Go modules</a>. So make sure to initialize a Go module:</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="go mod init github.com/my/repo"><pre>go mod init github.com/my/repo</pre></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go mod init github.com/my/repo"><pre>go mod init github.com/my/repo</pre></div>
 <p dir="auto">And then install msgpack/v5 (note <em>v5</em> in the import; omitting it is a popular mistake):</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/vmihailenco/msgpack/v5"><pre>go get github.com/vmihailenco/msgpack/v5</pre></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/vmihailenco/msgpack/v5"><pre>go get github.com/vmihailenco/msgpack/v5</pre></div>
 <h6 dir="auto">
 <a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quickstart</h6>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content='import "github.com/vmihailenco/msgpack/v5"
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import "github.com/vmihailenco/msgpack/v5"
 
 func ExampleMarshal() {
     type Item struct {
@@ -8057,12 +8055,12 @@ func ExampleMarshal() {
     <article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><strong>MessagePack and <a href="http://github.com/ugorji/binc">Binc</a> Codec for <a href="http://golang.org" rel="nofollow">Go</a> Language.</strong></p>
 <p dir="auto"><em>A High Performance, Feature-Rich, Idiomatic encode/decode and rpc library</em>.</p>
 <p dir="auto">To install:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/ugorji/go/codec"><pre class="notranslate"><code>go get github.com/ugorji/go/codec
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/ugorji/go/codec"><pre class="notranslate"><code class="notranslate">go get github.com/ugorji/go/codec
 </code></pre></div>
 <p dir="auto">Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
 Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec" rel="nofollow">http://godoc.org/github.com/ugorji/go/codec</a>]</p>
 <p dir="auto">Typical usage:</p>
-<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='    // create and use decoder/encoder
+<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content='    // create and use decoder/encoder
     var (
         v interface{} // value to decode/encode into
         r io.Reader
@@ -8459,20 +8457,20 @@ func main() {
 <h6 dir="auto">
 <a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quickstart</h6>
 <p dir="auto">Create go.mod file, if you still have not created.</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="# example
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# example
 go mod init github.com/user/awesome"><pre><span class="pl-c"><span class="pl-c">#</span> example</span>
 go mod init github.com/user/awesome</pre></div>
 <p dir="auto">In a source file(ex. main.go), include the following directive:</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="//go:generate msgpackgen
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="//go:generate msgpackgen
 or
 //go:generate go run github.com/shamaton/msgpackgen"><pre><span class="pl-c">//go:generate msgpackgen</span>
 <span class="pl-s1">or</span>
 <span class="pl-c">//go:generate go run github.com/shamaton/msgpackgen</span></pre></div>
 <p dir="auto">And run the following command in your shell:</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="go generate"><pre>go generate</pre></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go generate"><pre>go generate</pre></div>
 <p dir="auto">It will generate one <code>.go</code> file for serialization, default is <code>resolver.msgpackgen.go</code>.
 You can call one method to use generated code.</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="func main() {
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="func main() {
 	// this method is defined in resolver.msgpackgen.go
 	RegisterGeneratedResolver()
 	
@@ -8484,7 +8482,7 @@ You can call one method to use generated code.</p>
 	<span class="pl-c">// ... your code ...</span>
 }</pre></div>
 <p dir="auto"><code>Marshal</code> and <code>Unmarshal</code> look like this:</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="    // import github.com/shamaton/msgpackgen/msgpack
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="    // import github.com/shamaton/msgpackgen/msgpack
     v := ResolvedStruct{}
     b, err := msgpack.Marshal(v)
     if err != nil {
@@ -8554,7 +8552,7 @@ but some directories and files are ignored.</p>
 <p dir="auto">If you use <code>-input-file</code> option, it will work without considering the above conditions.</p>
 <hr>
 <p dir="auto">Compatible with various import rules.</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content='import ("
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import ("
 	"example.com/user/a/b"
 	d "example.com/user/a/c"
 	. "example.com/user/a/e"
@@ -8566,7 +8564,7 @@ but some directories and files are ignored.</p>
 <h7 dir="auto">
 <a id="user-content-not-generated-case" class="anchor" aria-hidden="true" href="#not-generated-case"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Not Generated Case</h7>
 <p dir="auto">Not generated in the following cases:</p>
-<div class="highlight highlight-source-go position-relative overflow-auto" data-snippet-clipboard-copy-content="// ex. a/example.go
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// ex. a/example.go
 type Example struct {
 	// unsupported types
 	Interface interface{}
@@ -8628,7 +8626,7 @@ type Example struct {
 In other words,  <a href="https://github.com/shamaton/msgpack">shamaton/msgpack</a> is not used.</p>
 <hr>
 <p dir="auto">See also <code>msgpackgen -h</code></p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content='Usage of msgpackgen:
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='Usage of msgpackgen:
   -dry-run
         dry run mode
   -input-dir string
@@ -8691,7 +8689,7 @@ unpack a msgpack.</li>
 </ul>
 <h5 dir="auto">
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h5>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ git clone https://github.com/reeze/msgpack-hhvm --depth=1
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="$ git clone https://github.com/reeze/msgpack-hhvm --depth=1
 $ cd msgpack-hhvm
 $ hphpize &amp;&amp; cmake . &amp;&amp; make
 $ cp msgpack.so /path/to/your/hhvm/ext/dir"><pre>$ git clone https://github.com/reeze/msgpack-hhvm --depth=1
@@ -8699,7 +8697,7 @@ $ <span class="pl-c1">cd</span> msgpack-hhvm
 $ hphpize <span class="pl-k">&amp;&amp;</span> cmake <span class="pl-c1">.</span> <span class="pl-k">&amp;&amp;</span> make
 $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 <p dir="auto">If you don't have <code>hphpize</code> program, please intall package <code>hhvm-dev</code></p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ sudo apt-get install hhvm-dev"><pre>$ sudo apt-get install hhvm-dev</pre></div>
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="$ sudo apt-get install hhvm-dev"><pre>$ sudo apt-get install hhvm-dev</pre></div>
 <h5 dir="auto">
 <a id="user-content-contribution-and--issues" class="anchor" aria-hidden="true" href="#contribution-and--issues"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contribution and  Issues</h5>
 <p dir="auto">Feel free to send Pull Requests for bug report at: <a href="http://github.com/reeze/msgpack-hhvm/issues">http://github.com/reeze/msgpack-hhvm/issues</a></p>
@@ -8727,9 +8725,9 @@ $ cp msgpack.so /path/to/your/hhvm/ext/dir</pre></div>
 <h5 dir="auto">
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h5>
 <p dir="auto">Execute following instructions:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ cabal update
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ cabal update
 $ cabal install msgpack
-$ cabal install msgpack-rpc"><pre lang="{.bash}" class="notranslate"><code>$ cabal update
+$ cabal install msgpack-rpc"><pre lang="{.bash}" class="notranslate"><code class="notranslate">$ cabal update
 $ cabal install msgpack
 $ cabal install msgpack-rpc
 </code></pre></div>
@@ -8752,7 +8750,7 @@ $ cabal install msgpack-rpc
 <a id="user-content-messagepack-for-haskell" class="anchor" aria-hidden="true" href="#messagepack-for-haskell"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Haskell</h5>
 <p dir="auto">This implementation defines an messagepack <code>Object</code> type, which is an instance of
 <code>Serialize</code> (from <a href="http://hackage.haskell.org/package/cereal" rel="nofollow">cereal</a> ):</p>
-<div class="highlight highlight-source-haskell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="data Object = ObjectNil
+<div class="highlight highlight-source-haskell position-relative overflow-auto" data-snippet-clipboard-copy-content="data Object = ObjectNil
             | ObjectUInt   Word64
             | ObjectInt    Int64
             | ObjectBool   Bool
@@ -11588,22 +11586,22 @@ addExtension({
 <li>
 <code>ArrayBuffers</code> : encoded as Buffers, decoded as Buffers</li>
 </ul>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const decoded = decode(encoded);
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const decoded = decode(encoded);
 const your_arraybuffer = decoded.buffer;"><pre><span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-k">const</span> <span class="pl-s1">your_arraybuffer</span> <span class="pl-c1">=</span> <span class="pl-s1">decoded</span><span class="pl-kos">.</span><span class="pl-c1">buffer</span><span class="pl-kos">;</span></pre></div>
 <ul dir="auto">
 <li>
 <code>TypedArrays</code> : encoded as Buffers, decoded as Buffers</li>
 </ul>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const decoded = decode(encoded);
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const decoded = decode(encoded);
 const your_typedarray = new Uint8Array(decoded.buffer);"><pre><span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-k">const</span> <span class="pl-s1">your_typedarray</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Uint8Array</span><span class="pl-kos">(</span><span class="pl-s1">decoded</span><span class="pl-kos">.</span><span class="pl-c1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 </li>
 </ul>
 <h6 dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>usage</h6>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="yarn add what-the-pack"><pre>yarn add what-the-pack</pre></div>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const MessagePack = require('what-the-pack');
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="yarn add what-the-pack"><pre>yarn add what-the-pack</pre></div>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const MessagePack = require('what-the-pack');
 const { encode, decode } = MessagePack.initialize(2**22); // 4MB
 
 const data = {
@@ -11634,12 +11632,12 @@ console.log({
 <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-result" class="anchor" aria-hidden="true" href="#result"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>result</h6>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="{ encoded: &lt;Buffer 82 a4 6e 61 6d 65 a5 4c 75 6e 6f 78 a3 61 67 65 14&gt;,
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="{ encoded: &lt;Buffer 82 a4 6e 61 6d 65 a5 4c 75 6e 6f 78 a3 61 67 65 14&gt;,
   decoded: { name: 'Lunox', age: 20 } }"><pre><span class="pl-kos">{</span> <span class="pl-s1">encoded</span>: <span class="pl-c1">&lt;</span><span class="pl-ent">Buffer</span> <span class="pl-c1">82</span> <span class="pl-c1">a4</span> <span class="pl-c1">6</span><span class="pl-c1">e</span> <span class="pl-c1">61</span> <span class="pl-c1">6</span><span class="pl-c1">d</span> <span class="pl-c1">65</span> <span class="pl-c1">a5</span> <span class="pl-c1">4</span><span class="pl-c1">c</span> <span class="pl-c1">75</span> <span class="pl-c1">6</span><span class="pl-c1">e</span> <span class="pl-c1">6</span><span class="pl-c1">f</span> <span class="pl-c1">78</span> <span class="pl-c1">a3</span> <span class="pl-c1">61</span> <span class="pl-c1">67</span> <span class="pl-c1">65</span> <span class="pl-c1">14</span><span class="pl-c1">&gt;</span>,
   decoded: <span class="pl-kos">{</span> <span class="pl-s1">name</span>: <span class="pl-s">'Lunox'</span><span class="pl-kos">,</span> <span class="pl-s1">age</span>: <span class="pl-c1">20</span> <span class="pl-kos">}</span> <span class="pl-kos">}</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-pre-allocating-a-larger-buffer" class="anchor" aria-hidden="true" href="#pre-allocating-a-larger-buffer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>pre-allocating a larger buffer</h6>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const MessagePack = require('what-the-pack');
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const MessagePack = require('what-the-pack');
 const { encode, decode } = MessagePack.initialize(2**30); // 1GB
 const data = {
   // large data goes here
@@ -11648,7 +11646,7 @@ const data = {
 <span class="pl-k">const</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
   <span class="pl-c">// large data goes here</span>
 <span class="pl-kos">}</span><span class="pl-kos">;</span></pre></div>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="2^7 = 128 B
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="2^7 = 128 B
 2^8 = 256 B
 2^9 = 512 B
 2^10 = 1.02 kB
@@ -11671,7 +11669,7 @@ const data = {
 2^27 = 134 MB
 2^28 = 268 MB
 2^29 = 537 MB
-2^30 = 1.07 GB"><pre class="notranslate"><code class="notranslate">2^7 = 128 B
+2^30 = 1.07 GB"><pre class="notranslate"><code>2^7 = 128 B
 2^8 = 256 B
 2^9 = 512 B
 2^10 = 1.02 kB
@@ -11705,7 +11703,7 @@ const data = {
 <li>the trade-off in using dictionaries is an insignificantly slower encoding and decoding time in exchange of a significantly smaller buffer output, which results into a lower network bandwidth and storage consumption in the long run</li>
 <li>the best part: the byte placeholders starts from -32 then increments upwards, values -32 to 127 are encoded in single byte, which means your first (32 + 128) = 160 keys will be encoded as a single byte instead of encoding the whole string</li>
 </ul>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const MessagePack = require('what-the-pack');
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const MessagePack = require('what-the-pack');
 const { encode, decode, register } = MessagePack.initialize(2**22); // 4MB
 let encoded, decoded, data;
 data = { name: 'Lunox', age: 20 };
@@ -11748,7 +11746,7 @@ console.log({ encoded, decoded });
 <span class="pl-c"> **/</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-minified-build-for-browsers" class="anchor" aria-hidden="true" href="#minified-build-for-browsers"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>minified build for browsers</h6>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;!-- latest umd build --&gt;
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;!-- latest umd build --&gt;
 &lt;script src=&quot;https://unpkg.com/what-the-pack/dist/MessagePack.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- exposed as 'MessagePack' --&gt;
@@ -11779,7 +11777,7 @@ console.log({ encoded, decoded });
 <a id="user-content-using-with-browser-websockets" class="anchor" aria-hidden="true" href="#using-with-browser-websockets"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>using with browser websockets</h6>
 <h8 dir="auto">
 <a id="user-content-server" class="anchor" aria-hidden="true" href="#server"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>server</h8>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const WebSocket = require('ws');
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const WebSocket = require('ws');
 const MessagePack = require('what-the-pack');
 const { encode, decode } = MessagePack.initialize(2**22); // 4MB
 
@@ -11817,7 +11815,7 @@ wss.on('connection', (client, req) =&gt; {
 </li>
 <li>On browsers, call <code>MessagePack.Buffer.from(x)</code> on received ArrayBuffers</li>
 </ul>
-<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="// Create WebSocket connection.
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// Create WebSocket connection.
 const socket = new WebSocket('ws://localhost:8080');
 const { encode, decode, Buffer } = MessagePack.initialize(2**22); // 4MB
 
@@ -11854,8 +11852,8 @@ socket.addEventListener('message', (event) =&gt; {
 <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>benchmarks</h6>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="yarn run benchmark"><pre>yarn run benchmark</pre></div>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="$ yarn run benchmark
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="yarn run benchmark"><pre>yarn run benchmark</pre></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ yarn run benchmark
 JSON stringify tiny x 1,477,866 ops/sec ±0.58% (93 runs sampled)
 JSON stringify small x 232,645 ops/sec ±0.25% (91 runs sampled)
 JSON stringify medium x 117,357 ops/sec ±0.31% (93 runs sampled)
@@ -11906,8 +11904,8 @@ notepack decode medium x 137,385 ops/sec ±2.45% (86 runs sampled)
 notepack decode large x 210 ops/sec ±0.85% (86 runs sampled)</pre></div>
 <h6 dir="auto">
 <a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>tests</h6>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="yarn run test"><pre>yarn run <span class="pl-c1">test</span></pre></div>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="$ yarn run test
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="yarn run test"><pre>yarn run <span class="pl-c1">test</span></pre></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ yarn run test
  PASS  ./test.js
   √ fixstr (6ms)
   √ str 8 (2ms)
@@ -13987,7 +13985,7 @@ simplify the code. Every improvement that keeps the same API is welcome.</p>
 <h6 dir="auto">
 <a id="user-content-getting-started" class="anchor" aria-hidden="true" href="#getting-started"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Getting Started</h6>
 <p dir="auto">With auto-detection and transformation enabled, the middleware detects automatically the HTTP header <code>Accept: application/x-msgpack</code> and piggybacks the <code>Response.json()</code> method of the ExpressJS API, to encode the JSON response as Message Pack. This method is useful when you have existing applications that need to use the middleware, without changing the codebase very much.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const msgpackResponse = require('msgpack-response');
+<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const msgpackResponse = require('msgpack-response');
 
 app.use(msgpackResponse({auto_detect: true}));
 
@@ -14004,7 +14002,7 @@ app.get('/test_json', (req, res) =&gt; {
 <p dir="auto">Note: Remember to add the header <code>Accept: application/x-msgpack</code> in the request.</p>
 </blockquote>
 <p dir="auto">Also, it can have auto-detection and transformation disabled. The middleware extends the <code>Response</code> object of the ExpressJS framework, by adding the <code>msgPack()</code> method to it. Then to return an encoded response, you just use the <code>Response.msgPack()</code> method that accepts the Javascript object as a parameter. For example,</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const msgpackResponse = require('msgpack-response');
+<div class="highlight highlight-source-js position-relative overflow-auto" data-snippet-clipboard-copy-content="const msgpackResponse = require('msgpack-response');
 
 app.use(msgpackResponse({auto_detect: false}));
 //or
@@ -14030,7 +14028,7 @@ app.get('/test_msgpack', (req, res) =&gt; {
 <h6 dir="auto">
 <a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
 <p dir="auto">With <a href="https://www.npmjs.com/" rel="nofollow">npm</a> do:</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="npm install msgpack-response -save"><pre>npm install msgpack-response -save</pre></div>
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="npm install msgpack-response -save"><pre>npm install msgpack-response -save</pre></div>
 <h6 dir="auto">
 <a id="user-content-about" class="anchor" aria-hidden="true" href="#about"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>About</h6>
 <p dir="auto">I <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">❤️</g-emoji> open source software!</p>
@@ -16188,7 +16186,7 @@ $unpacker.tap( -&gt; $value {
 <p dir="auto">Execute <code>src/encode.sql</code> or/and <code>src/decode.sql</code> on your database server.</p>
 <h6 dir="auto">
 <a id="user-content-quick-example" class="anchor" aria-hidden="true" href="#quick-example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quick Example</h6>
-<div class="highlight highlight-source-sql position-relative overflow-auto" data-snippet-clipboard-copy-content="select msgpack_encode('{&quot;hello&quot;: &quot;world&quot;}'::jsonb);
+<div class="highlight highlight-source-sql notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="select msgpack_encode('{&quot;hello&quot;: &quot;world&quot;}'::jsonb);
 -- returns 0x81a568656c6c6fa5776f726c64
 
 select msgpack_decode(decode('81a568656c6c6fa5776f726c64', 'hex'));
@@ -19149,14 +19147,14 @@ end
 <a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
 <h7 dir="auto">
 <a id="user-content-gradle" class="anchor" aria-hidden="true" href="#gradle"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Gradle</h7>
-<div class="highlight highlight-source-groovy position-relative overflow-auto" data-snippet-clipboard-copy-content="dependencies {
+<div class="highlight highlight-source-groovy notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="dependencies {
     implementation 'org.komamitsu:retrofit-converter-msgpack:x.x.x'
 }"><pre>dependencies {
     implementation <span class="pl-s"><span class="pl-pds">'</span>org.komamitsu:retrofit-converter-msgpack:x.x.x<span class="pl-pds">'</span></span>
 }</pre></div>
 <h7 dir="auto">
 <a id="user-content-maven" class="anchor" aria-hidden="true" href="#maven"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Maven</h7>
-<div class="highlight highlight-text-xml position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;dependency&gt;
+<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;dependency&gt;
     &lt;groupId&gt;org.komamitsu&lt;/groupId&gt;
     &lt;artifactId&gt;retrofit-converter-msgpack&lt;/artifactId&gt;
     &lt;version&gt;x.x.x&lt;/version&gt;
@@ -19168,10 +19166,10 @@ end
 <h6 dir="auto">
 <a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
 <p dir="auto">To use, supply an instance of this converter when building your Retrofit instance.</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='Retrofit retrofit = new Retrofit.Builder()
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='Retrofit retrofit = new Retrofit.Builder()
     .baseUrl("https://api.example.com")
     .addConverterFactory(MessagePackConverterFactory.create())
-    .build();'><pre class="notranslate"><code class="notranslate">Retrofit retrofit = new Retrofit.Builder()
+    .build();'><pre class="notranslate"><code>Retrofit retrofit = new Retrofit.Builder()
     .baseUrl("https://api.example.com")
     .addConverterFactory(MessagePackConverterFactory.create())
     .build();
@@ -19432,7 +19430,7 @@ data == msgPack                    // true'><pre><span class="pl-k">import</span
 </ul>
 <h7 dir="auto">
 <a id="user-content-latest-stable-version" class="anchor" aria-hidden="true" href="#latest-stable-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>latest stable version</h7>
-<div class="highlight highlight-source-scala position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "com.github.xuwei-k" %% "msgpack4z-core" % "0.6.0"'><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.6.0<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-scala notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "com.github.xuwei-k" %% "msgpack4z-core" % "0.6.0"'><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.6.0<span class="pl-pds">"</span></span></pre></div>
 <h7 dir="auto">
 <a id="user-content-dependency-graph" class="anchor" aria-hidden="true" href="#dependency-graph"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>dependency graph</h7>
 <p dir="auto"><a href="https://msgpack4z.github.io/graph.svg" rel="nofollow"><img src="https://camo.githubusercontent.com/3a9f3e0f79cc25788dc05b6f549ed4ef28afbe124c85d654251849b798bbcee7/68747470733a2f2f6d73677061636b347a2e6769746875622e696f2f67726170682e737667" alt="graph" data-canonical-src="https://msgpack4z.github.io/graph.svg" style="max-width: 100%;"></a></p>
@@ -19704,24 +19702,24 @@ $ msgpack-cli rpc localhost 8000 echo '["abc", "def", "ghi", {"A": 65, "B": 66, 
 <a id="user-content-how-to-use" class="anchor" aria-hidden="true" href="#how-to-use"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to use</h6>
 <h7 dir="auto">
 <a id="user-content-serialization" class="anchor" aria-hidden="true" href="#serialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialization</h7>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack pack: &lt;your object&gt;"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">pack:</span> <span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span></pre></div>
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack pack: &lt;your object&gt;"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">pack:</span> <span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span></pre></div>
 <p dir="auto">or:</p>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;your object&gt; messagePacked"><pre><span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span> messagePacked</pre></div>
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;your object&gt; messagePacked"><pre><span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span> messagePacked</pre></div>
 <h7 dir="auto">
 <a id="user-content-deserialization" class="anchor" aria-hidden="true" href="#deserialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserialization</h7>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack unpack: msgpackBytes"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">unpack:</span> msgpackBytes</pre></div>
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack unpack: msgpackBytes"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">unpack:</span> msgpackBytes</pre></div>
 <p dir="auto">or:</p>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="Object fromMessagePack: msgBytes"><pre><span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> msgBytes</pre></div>
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="Object fromMessagePack: msgBytes"><pre><span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> msgBytes</pre></div>
 <h7 dir="auto">
 <a id="user-content-samples" class="anchor" aria-hidden="true" href="#samples"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Samples</h7>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="map := Dictionary new.
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="map := Dictionary new.
 map at: 'someArray' asByteArray put: #(1 2.2 #[3 4 5]).
 packed := map messagePacked.
 (Object fromMessagePack: packed) inspect."><pre>map <span class="pl-k">:=</span> <span class="pl-c1">Dictionary</span> <span class="pl-k">new</span>.
 map <span class="pl-c1">at:</span> <span class="pl-s"><span class="pl-pds">'</span>someArray<span class="pl-pds">'</span></span> asByteArray <span class="pl-c1">put:</span> <span class="pl-c1">#(1 2.2 #[3 4 5])</span>.
 packed <span class="pl-k">:=</span> map messagePacked.
 (<span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> packed) inspect.</pre></div>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="writeStream := WriteStream on: ByteArray new.
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="writeStream := WriteStream on: ByteArray new.
 encoder := MpEncoder on: writeStream.
 encoder nextPut: 1.
 encoder nextPut: #(2 3).
@@ -19755,7 +19753,7 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
 <a id="user-content-loading-the-latest-development-version" class="anchor" aria-hidden="true" href="#loading-the-latest-development-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Loading the latest development version</h7>
 <h8 dir="auto">
 <a id="user-content-squeak" class="anchor" aria-hidden="true" href="#squeak"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Squeak</h8>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="Installer squeaksource
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="Installer squeaksource
     project: 'MessagePack';
     install: 'ConfigurationOfMessagePack'. 
 (Smalltalk at: #ConfigurationOfMessagePack) project development load"><pre><span class="pl-c1">Installer</span> squeaksource
@@ -19764,7 +19762,7 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
 (<span class="pl-k">Smalltalk</span> <span class="pl-c1">at:</span> <span class="pl-c1">#ConfigurationOfMessagePack</span>) project development load</pre></div>
 <h8 dir="auto">
 <a id="user-content-pharo" class="anchor" aria-hidden="true" href="#pharo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Pharo</h8>
-<div class="highlight highlight-source-smalltalk position-relative overflow-auto" data-snippet-clipboard-copy-content="Metacello new
+<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="Metacello new
   repository: 'github://msgpack/msgpack-smalltalk/repository';
   baseline: 'MessagePack';
   load."><pre><span class="pl-c1">Metacello</span> <span class="pl-k">new</span>
@@ -19808,16 +19806,16 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
 <h7 dir="auto">
 <a id="user-content-cocoapods" class="anchor" aria-hidden="true" href="#cocoapods"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>CocoaPods</h7>
 <p dir="auto">To use CocoaPods, add the following to your Podfile:</p>
-<div class="highlight highlight-source-ruby notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pod 'MessagePack.swift', '~&gt; 4.0'"><pre><span class="pl-en">pod</span> <span class="pl-s">'MessagePack.swift'</span><span class="pl-kos">,</span> <span class="pl-s">'~&gt; 4.0'</span></pre></div>
+<div class="highlight highlight-source-ruby position-relative overflow-auto" data-snippet-clipboard-copy-content="pod 'MessagePack.swift', '~&gt; 4.0'"><pre><span class="pl-en">pod</span> <span class="pl-s">'MessagePack.swift'</span><span class="pl-kos">,</span> <span class="pl-s">'~&gt; 4.0'</span></pre></div>
 <h7 dir="auto">
 <a id="user-content-carthage" class="anchor" aria-hidden="true" href="#carthage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Carthage</h7>
 <p dir="auto">To use Carthage, add the following to your Cartfile:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='github "a2/MessagePack.swift" ~&gt; 4.0'><pre lang="ogdl" class="notranslate"><code>github "a2/MessagePack.swift" ~&gt; 4.0
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='github "a2/MessagePack.swift" ~&gt; 4.0'><pre lang="ogdl" class="notranslate"><code class="notranslate">github "a2/MessagePack.swift" ~&gt; 4.0
 </code></pre></div>
 <h7 dir="auto">
 <a id="user-content-spm-swift-package-manager" class="anchor" aria-hidden="true" href="#spm-swift-package-manager"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SPM (Swift Package Manager)</h7>
 <p dir="auto">You can easily integrate MessagePack.swift in your app with SPM. Just add MessagePack.swift as a dependency:</p>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import PackageDescription
+<div class="highlight highlight-source-swift position-relative overflow-auto" data-snippet-clipboard-copy-content='import PackageDescription
 
 let package = Package(
     name: "MyAwesomeApp",
@@ -20319,310 +20317,6 @@ print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k"
 <span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">UInt8</span>.<span class="pl-k">self</span>)
 <span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">Double</span>.<span class="pl-k">self</span>)
 <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">"</span>decoded manually: <span class="pl-pse">\(</span><span class="pl-s1">string</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">int</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">double</span><span class="pl-pse"><span class="pl-s1">)</span></span><span class="pl-pds">"</span></span>)</pre></div>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-samclaus-msgpack-ts" class="qs"><h4><a href="https://msgpack.org/" target="_blank">samclaus/msgpack-ts <span class="qs-url">https://msgpack.org/</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack-ts" class="anchor" aria-hidden="true" href="#msgpack-ts"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-ts</h5>
-<p dir="auto">Fast MessagePack implementation in TypeScript. Designed as a faster, smaller
-alternative to <code>msgpack-lite</code>. Both the <code>Encoder</code> and <code>Decoder</code> are quite
-configurable, but performance was prioritized with as little branching as
-possible.</p>
-<p dir="auto"><strong>TODO</strong></p>
-<ul dir="auto">
-<li>Add Closure-compiled browser distribution</li>
-<li>Add thorough tests</li>
-<li>Add benchmarks</li>
-</ul>
-<p dir="auto"><strong>You can optimize further</strong></p>
-<p dir="auto">If your MessagePack traffic contains many or large binary buffers, you may
-want to fork this repo and alter the <code>takeBinary(length)</code> method of the
-<code>Decoder</code> to use <code>this.buffer.subarray</code> in place of <code>this.buffer.slice</code>,
-because <code>Uint8Array.slice()</code> creates a copy of the bytes. This library
-assumes that your messages will not consist primarily of binary objects
-and thus it is undesirable to return subviews of the same buffer being
-decoded because they will hold references to the entire buffer that was
-decoded, likely keeping it in memory when it is not needed.</p>
-<h6 dir="auto">
-<a id="user-content-quick-start" class="anchor" aria-hidden="true" href="#quick-start"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quick Start</h6>
-<p dir="auto">For more information, read the <a href="#documentation">docs</a>.</p>
-<p dir="auto">Install the library via NPM: <code>npm i --save-dev msgpack-ts</code>.</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode, decode, Decoder } from "msgpack-ts";
-
-/**
- * Both x and y will be in range [0, 255].
- */
-class Coordinate
-{
-    static encode(coord: Coordinate): Uint8Array
-    {
-        return new Uint8Array([coord.x, coord.y]);
-    }
-
-    static decode(data: Uint8Array): Coordinate
-    {
-        return new Coordinate(data[0], data[1]);
-    }
-
-    static backwardsDecode(data: Uint8Array): Coordinate
-    {
-        return new Coordinate(data[1], data[0]);
-    }
-
-    constructor(
-        readonly x: number,
-        readonly y: number
-    ) {}
-}
-
-function main()
-{
-    const message: SomeInterface = {
-        type: "add-user",
-        data: {
-            firstName: "Jane",
-            lastName: "Doe",
-            age: 27,
-            female: true,
-            location: new Coordinate(10, 192),
-            username: "janedoe92",
-            passwordHash: new Uint8Array(32)
-        }
-    };
-
-    encode.encoder.registerExt(Coordinate, 0, Coordinate.encode);
-    decode.decoder.registerExt(0, Coordinate.decode);
-
-    // encode() uses the encode.encoder instance
-    const encoded = encode(message);
-
-    // decode() uses the decode.decoder instance
-    const decoded = decode&lt;SomeInterface&gt;(encoded);
-
-    // Create separate instances if you need multiple configurations
-    const myDecoder = new Decoder();
-    myDecoder.nilValue = undefined;
-    myDecoder.allowInvalidUTF8 = true;
-    myDecoder.allowUnknownExts = true;
-    myDecoder.registerExt(0, Coordinate.backwardsDecode);
-
-    // Both Encoder and Decoder support cloning instances
-    const slightlyDifferent = myDecoder.clone();
-    slighlyDifferent.nilValue = null;
-}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">Decoder</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"msgpack-ts"</span><span class="pl-kos">;</span>
-
-<span class="pl-c">/**</span>
-<span class="pl-c"> * Both x and y will be in range [0, 255].</span>
-<span class="pl-c"> */</span>
-<span class="pl-k">class</span> <span class="pl-smi">Coordinate</span>
-<span class="pl-kos">{</span>
-    <span class="pl-k">static</span> <span class="pl-c1">encode</span><span class="pl-kos">(</span><span class="pl-s1">coord</span>: <span class="pl-smi">Coordinate</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos"></span>
-    <span class="pl-kos">{</span>
-        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Uint8Array</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-s1">coord</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">coord</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
-
-    <span class="pl-en">static</span> <span class="pl-s1">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span>: <span class="pl-smi">Coordinate</span>
-    <span class="pl-kos">{</span>
-        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
-
-    <span class="pl-s1">static</span><span class="pl-kos"></span> <span class="pl-en">backwardsDecode</span><span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span>: <span class="pl-smi">Coordinate</span>
-    <span class="pl-kos">{</span>
-        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
-
-    <span class="pl-en">constructor</span><span class="pl-kos">(</span>
-        <span class="pl-s1">readonly</span> <span class="pl-s1">x</span>: number<span class="pl-kos">,</span>
-        <span class="pl-s1">readonly</span> <span class="pl-s1">y</span>: number
-    <span class="pl-kos">)</span><span class="pl-kos"></span> <span class="pl-kos">{</span><span class="pl-kos">}</span>
-<span class="pl-kos">}</span>
-
-<span class="pl-k">function</span> <span class="pl-en">main</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
-<span class="pl-kos">{</span>
-    <span class="pl-k">const</span> <span class="pl-s1">message</span>: <span class="pl-smi">SomeInterface</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
-        <span class="pl-c1">type</span>: <span class="pl-s">"add-user"</span><span class="pl-kos">,</span>
-        <span class="pl-c1">data</span>: <span class="pl-kos">{</span>
-            <span class="pl-c1">firstName</span>: <span class="pl-s">"Jane"</span><span class="pl-kos">,</span>
-            <span class="pl-c1">lastName</span>: <span class="pl-s">"Doe"</span><span class="pl-kos">,</span>
-            <span class="pl-c1">age</span>: <span class="pl-c1">27</span><span class="pl-kos">,</span>
-            <span class="pl-c1">female</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span>
-            <span class="pl-c1">location</span>: <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">192</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-c1">username</span>: <span class="pl-s">"janedoe92"</span><span class="pl-kos">,</span>
-            <span class="pl-c1">passwordHash</span>: <span class="pl-k">new</span> <span class="pl-smi">Uint8Array</span><span class="pl-kos">(</span><span class="pl-c1">32</span><span class="pl-kos">)</span>
-        <span class="pl-kos">}</span>
-    <span class="pl-kos">}</span><span class="pl-kos">;</span>
-
-    <span class="pl-s1">encode</span><span class="pl-kos">.</span><span class="pl-c1">encoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-smi">Coordinate</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">encode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-s1">decode</span><span class="pl-kos">.</span><span class="pl-c1">decoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">decode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-    <span class="pl-c">// encode() uses the encode.encoder instance</span>
-    <span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">message</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-    <span class="pl-c">// decode() uses the decode.decoder instance</span>
-    <span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">&lt;</span><span class="pl-smi">SomeInterface</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-    <span class="pl-c">// Create separate instances if you need multiple configurations</span>
-    <span class="pl-k">const</span> <span class="pl-s1">myDecoder</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">Decoder</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">nilValue</span> <span class="pl-c1">=</span> <span class="pl-c1">undefined</span><span class="pl-kos">;</span>
-    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">allowInvalidUTF8</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span>
-    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">allowUnknownExts</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span>
-    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">backwardsDecode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-    <span class="pl-c">// Both Encoder and Decoder support cloning instances</span>
-    <span class="pl-k">const</span> <span class="pl-s1">slightlyDifferent</span> <span class="pl-c1">=</span> <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-en">clone</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-s1">slighlyDifferent</span><span class="pl-kos">.</span><span class="pl-c1">nilValue</span> <span class="pl-c1">=</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span></pre></div>
-<h6 dir="auto">
-<a id="user-content-documentation" class="anchor" aria-hidden="true" href="#documentation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Documentation</h6>
-<h7 dir="auto">
-<a id="user-content-class-encoder" class="anchor" aria-hidden="true" href="#class-encoder"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>class Encoder</code>
-</h7>
-<p dir="auto"><strong>static</strong></p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>Encoder.global: Encoder</code></p>
-<p dir="auto">A global <code>Encoder</code> instance, purely for convenience.</p>
-</li>
-<li>
-<p dir="auto"><code>Encoder.encode(data: any, initBuffSize?: number): Uint8Array</code></p>
-<p dir="auto">Convenience function to call <code>Encoder.global.encode()</code>.</p>
-</li>
-</ul>
-<p dir="auto"><strong>constructor</strong></p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>new Encoder(reserve = 128)</code></p>
-<p dir="auto">Create a new <code>Encoder</code> instance. You may pass the number of bytes to
-allocate immediately as an encoding buffer, or it will default to <code>128</code>.</p>
-</li>
-</ul>
-<p dir="auto"><strong>instance</strong></p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>Encoder.encode(data: any, reserve?: number): Uint8Array</code></p>
-<p dir="auto">Encode a JavaScript object or primitive to MessagePack format. You may provide a second argument
-to ensure that a certain number of bytes is allocated for the encoding buffer before encoding
-begins.</p>
-</li>
-<li>
-<p dir="auto"><code>Encoder.registerExt&lt;T&gt;(ctor: new (...args: any[]) =&gt; T, type: number, encoderFn: (data: T) =&gt; Uint8Array)</code></p>
-<p dir="auto">Register an encoder for an object class. <code>type</code> MUST be in the range <code>[-128, 127]</code> or a <code>RangeError</code>
-will be thrown. Negative types are reserved by the MessagePack spec and SHOULD not be used, unless
-this library does not provide an extension added to the spec or the implementation is found to be
-inadequate.</p>
-<p dir="auto"><strong>Standard Extensions Registered By Default</strong></p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>-1 (Timestamp)</code></p>
-<p dir="auto">JavaScript <code>Date</code> objects will be encoded using the standard <code>Timestamp</code> extension type, unless
-overriden.</p>
-</li>
-</ul>
-</li>
-<li>
-<p dir="auto"><code>Encoder.resize(newSize: number)</code></p>
-<p dir="auto">Release the current encoding buffer and allocate a new one of <code>newSize</code> bytes.</p>
-</li>
-<li>
-<p dir="auto"><code>Encoder.clone(): Encoder</code></p>
-<p dir="auto">Creates an independent clone of the <code>Encoder</code> with the same
-configuration values and registered extensions.</p>
-</li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-class-decoder" class="anchor" aria-hidden="true" href="#class-decoder"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>class Decoder</code>
-</h7>
-<p dir="auto"><strong>static</strong></p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>Decoder.global: Decoder</code></p>
-<p dir="auto">A global <code>Decoder</code> instance, purely for convenience.</p>
-</li>
-<li>
-<p dir="auto"><code>Decoder.decode&lt;T = any&gt;(data: ArrayBuffer | Uint8Array): T</code></p>
-<p dir="auto">Convenience function to call <code>Decoder.global.decode()</code>.</p>
-</li>
-</ul>
-<p dir="auto"><strong>constructor</strong></p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>new Decoder()</code></p>
-<p dir="auto">Creates a new <code>Decoder</code> instance.</p>
-</li>
-</ul>
-<p dir="auto"><strong>instance</strong></p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>Decoder.nilValue: null | undefined = null</code></p>
-<p dir="auto">Value the MessagePack <code>nil</code> constant should be interpreted as.</p>
-</li>
-<li>
-<p dir="auto"><code>Decoder.allowInvalidUTF8 = false</code></p>
-<p dir="auto">If false, an error will be thrown if a MessagePack <code>str</code> type is
-encountered and the data is not valid UTF-8. If true, the <code>str</code>
-data will be passed through opaquely as a <code>Uint8Array</code>.</p>
-</li>
-<li>
-<p dir="auto"><code>Decoder.allowUnknownExts = false</code></p>
-<p dir="auto">If false, a <code>RangeError</code> will be thrown whenever an unrecognized extension type is encountered. If
-true, the extension data will be passed through opaquely as a
-<a href="#interface-decoderunknownextseq"><code>Decoder.UnknownExt</code></a>.</p>
-</li>
-<li>
-<p dir="auto"><code>Decoder.mapBehavior = Decoder.MapBehavior.PreferJSON</code></p>
-<p dir="auto">Determines how MessagePack <code>map</code> values are decoded. See
-<a href="#enum-decodermapbehavior"><code>Decoder.MapBehavior</code></a> for options.</p>
-</li>
-<li>
-<p dir="auto"><code>Decoder.decode&lt;T = any&gt;(data: ArrayBuffer | Uint8Array): T</code></p>
-<p dir="auto">Decode MessagePack data into a JS object or primitive.</p>
-</li>
-<li>
-<p dir="auto"><code>Decoder.clone(): Decoder</code></p>
-<p dir="auto">Creates an independent clone of the <code>Decoder</code> with the same
-configuration values and registered extensions.</p>
-</li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-interface-decoderunknownextseq" class="anchor" aria-hidden="true" href="#interface-decoderunknownextseq"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>interface Decoder.UnknownExtSeq</code>
-</h7>
-<p dir="auto">Opaque tuple of an extension type identifier and the raw data associated with it.</p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>type: number</code></p>
-<p dir="auto">The extension type which did not have a registered decoder.</p>
-</li>
-<li>
-<p dir="auto"><code>data: Uint8Array</code></p>
-<p dir="auto">The opaque data.</p>
-</li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-enum-decodermapbehavior" class="anchor" aria-hidden="true" href="#enum-decodermapbehavior"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>enum Decoder.MapBehavior</code>
-</h7>
-<p dir="auto">Determines <code>Decoder</code> behavior when a MessagePack <code>map</code> is encountered.</p>
-<ul dir="auto">
-<li>
-<p dir="auto"><code>PreferJSON = 0</code></p>
-<p dir="auto">Maps will be decoded as native JS objects, unless a key is decoded
-whose JS type evaluates to <code>object</code>, in which case all decoded keys
-will be abandoned and the map will be decoded from scratch into an
-ES6 Map which supports arbitrary key types.</p>
-</li>
-<li>
-<p dir="auto"><code>AlwaysJSON = 1</code></p>
-<p dir="auto">Maps will be always be decoded as native JS objects. This means all
-decoded keys will be coerced to strings, which is almost certainly
-undesirable if decoding maps with objects or arrays as keys.</p>
-</li>
-<li>
-<p dir="auto"><code>AlwaysES6Map = 2</code></p>
-<p dir="auto">Maps will always be decoded as ES6 Map objects.</p>
-</li>
-</ul>
 </article>
   </div>
         </div>
