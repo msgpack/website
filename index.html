@@ -178,8 +178,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-st3v0-msgpack-as3',this)">ActionScript3 <span class="qs-sub">st3v0</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-hideakitai-MsgPack',this)">Arduino <span class="qs-sub">hideakitai</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-HEADS-project-arduino_msgpack',this)">Arduino C <span class="qs-sub">HEADS-project</span></a></li>
@@ -362,6 +360,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-hirotakan-MessagePacker',this)">Swift <span class="qs-sub">hirotakan</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-esensar-kotlinx-serialization-msgpack',this)">kotlinx.serialization <span class="qs-sub">esensar</span></a></li>
@@ -413,126 +413,6 @@ trace(msgpack.read(bytes));"><pre><span class="pl-c">// create messagepack objec
 <span class="pl-c">// print the decoded object</span>
 <span class="pl-c1">trace</span>(msgpack<span class="pl-k">.</span>read(<span class="pl-c1">bytes</span>))<span class="pl-k">;</span></pre></div>
 <p dir="auto">For downloads, source code and further information, check the project repository: <a href="https://github.com/loteixeira/as3-msgpack">https://github.com/loteixeira/as3-msgpack</a>.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-st3v0-msgpack-as3" class="qs"><h4><a href="https://github.com/st3v0/msgpack-as3" target="_blank">st3v0/msgpack-as3 <span class="qs-url">https://github.com/st3v0/msgpack-as3</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-messagepack-for-actionscript3" class="anchor" aria-hidden="true" href="#messagepack-for-actionscript3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for ActionScript3</h5>
-<p dir="auto">msgpack-as3 is an implementation of the latest MessagePack specification for ActionScript3 language (Flash, Flex and AIR).</p>
-<ul dir="auto">
-<li>Message Pack specification (Dec 22, 2015): <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a>
-</li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-basic-usage" class="anchor" aria-hidden="true" href="#basic-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic Usage</h6>
-<h7 dir="auto">
-<a id="user-content-serialize-and-deserialize" class="anchor" aria-hidden="true" href="#serialize-and-deserialize"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize and Deserialize</h7>
-<p dir="auto">The usage of MsgPack class is very simple. You need create an object and call read and write methods.</p>
-```actionscript
-// message pack object created
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">// encode an array
-var bytes:ByteArray = msgpack.write([1, 2, 3, 4, 5]);</p>
-<p dir="auto">// rewind the buffer
-bytes.position = 0;</p>
-<p dir="auto">// print the decoded object
-trace(msgpack.read(bytes));</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-### Flags
-&lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
-* &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
-* &lt;code&gt;MsgPackFlags.ACCEPT_LITTLE_ENDIAN&lt;/code&gt;: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).
-* &lt;code&gt;MsgPackFlags.SPEC2013_COMPATIBILITY&lt;/code&gt;: MsgPack will run in backwards compatibility mode.
-
-```actionscript
-var msg:MsgPack;
-
-// use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);"><pre class="notranslate"><code>
-### Flags
-&lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
-* &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
-* &lt;code&gt;MsgPackFlags.ACCEPT_LITTLE_ENDIAN&lt;/code&gt;: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).
-* &lt;code&gt;MsgPackFlags.SPEC2013_COMPATIBILITY&lt;/code&gt;: MsgPack will run in backwards compatibility mode.
-
-```actionscript
-var msg:MsgPack;
-
-// use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);
-</code></pre></div>
-<h6 dir="auto">
-<a id="user-content-advanced-usage" class="anchor" aria-hidden="true" href="#advanced-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Advanced Usage</h6>
-<h7 dir="auto">
-<a id="user-content-extensions" class="anchor" aria-hidden="true" href="#extensions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extensions</h7>
-<p dir="auto">You can create your own Extension Workers by extending the <code>ExtensionWorker</code> Class and then assigning it to the MsgPack Factory.</p>
-<p dir="auto">The following example assigns a custom worker which extends the <code>ExtensionWorker</code> Class.</p>
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">// Assign the new worker to the factory.
-msgpack.factory.assign(new CustomWorker());</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-&lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
-
-### Priorities
-&lt;p&gt;Worker priority behaves similar to how the Adobe Event Dispatcher priorities work. In MessagePack, deciding which worker will be use for serializing/deserializing depends on two(2) factors.&lt;/p&gt;
-1. The order in which the worker was assigned to the factory.
-2. The priority of the worker. Higher values take precedence.
-
-All workers have a default priority of 0.
-
-&lt;p&gt;In the following example &lt;code&gt;workerB&lt;/code&gt; will never be used because it's assign after &lt;code&gt;workerA&lt;/code&gt;&lt;/p&gt;
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-
-var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker();
-
-msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);"><pre class="notranslate"><code>
-&lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
-
-### Priorities
-&lt;p&gt;Worker priority behaves similar to how the Adobe Event Dispatcher priorities work. In MessagePack, deciding which worker will be use for serializing/deserializing depends on two(2) factors.&lt;/p&gt;
-1. The order in which the worker was assigned to the factory.
-2. The priority of the worker. Higher values take precedence.
-
-All workers have a default priority of 0.
-
-&lt;p&gt;In the following example &lt;code&gt;workerB&lt;/code&gt; will never be used because it's assign after &lt;code&gt;workerA&lt;/code&gt;&lt;/p&gt;
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-
-var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker();
-
-msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);
-</code></pre></div>
-<p dir="auto">However if we adjust the priority of <code>workerB</code>, then <code>workerA</code> will never be used.</p>
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker(null, 1);</p>
-<p dir="auto">msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-## Credits
-This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
-
-Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
-Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  "><pre class="notranslate"><code>
-## Credits
-This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
-
-Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
-Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  
-</code></pre></div>
 </article>
   </div>
         </div>
@@ -19972,6 +19852,109 @@ let package = Package(
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto">MessagePacker is released under the MIT license. See <a href="https://github.com/hirotakan/MessagePacker/blob/master/LICENSE">LICENSE</a> for details.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-swiftstack-messagepack" class="qs"><h4><a href="https://github.com/swiftstack/messagepack" target="_blank">swiftstack/messagepack <span class="qs-url">https://github.com/swiftstack/messagepack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack" class="anchor" aria-hidden="true" href="#messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack</h5>
+<p dir="auto"><strong>MessagePack</strong> is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. But it's faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
+<h6 dir="auto">
+<a id="user-content-packageswift" class="anchor" aria-hidden="true" href="#packageswift"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Package.swift</h6>
+<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='.package(url: "https://github.com/swiftstack/messagepack.git", .branch("dev"))'><pre>.<span class="pl-c1">package</span>(<span class="pl-c1">url</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/swiftstack/messagepack.git<span class="pl-pds">"</span></span>, .<span class="pl-c1">branch</span>(<span class="pl-s"><span class="pl-pds">"</span>dev<span class="pl-pds">"</span></span>))</pre></div>
+<h6 dir="auto">
+<a id="user-content-memo" class="anchor" aria-hidden="true" href="#memo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Memo</h6>
+<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="public enum MessagePack {
+    case `nil`
+    case int(Int)
+    case uint(UInt)
+    case bool(Bool)
+    case float(Float)
+    case double(Double)
+    case string(String)
+    case binary([UInt8])
+    case array([MessagePack])
+    case map([MessagePack : MessagePack])
+    case extended(Extended)
+
+    public struct Extended {
+        public let type: Int8
+        public let data: [UInt8]
+        public init(type: Int8, data: [UInt8]) {
+            self.type = type
+            self.data = data
+        }
+    }
+}"><pre><span class="pl-k">public</span> <span class="pl-k">enum</span> <span class="pl-en">MessagePack</span> {
+    <span class="pl-k">case</span> <span class="pl-c1">`nil`</span>
+    <span class="pl-k">case</span> <span class="pl-c1">int</span>(<span class="pl-c1">Int</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">uint</span>(<span class="pl-c1">UInt</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">bool</span>(<span class="pl-c1">Bool</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">float</span>(<span class="pl-c1">Float</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">double</span>(<span class="pl-c1">Double</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">string</span>(<span class="pl-c1">String</span>)
+    <span class="pl-k">case</span> <span class="pl-c1">binary</span>([<span class="pl-c1">UInt8</span>])
+    <span class="pl-k">case</span> <span class="pl-c1">array</span>([MessagePack])
+    <span class="pl-k">case</span> <span class="pl-c1">map</span>([MessagePack : MessagePack])
+    <span class="pl-k">case</span> <span class="pl-c1">extended</span>(Extended)
+
+    <span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Extended</span> {
+        <span class="pl-k">public</span> <span class="pl-k">let</span> type: <span class="pl-c1">Int8</span>
+        <span class="pl-k">public</span> <span class="pl-k">let</span> data: [<span class="pl-c1">UInt8</span>]
+        <span class="pl-k">public</span> <span class="pl-k">init</span>(<span class="pl-smi"><span class="pl-en">type</span></span>: <span class="pl-c1">Int8</span>, <span class="pl-smi"><span class="pl-en">data</span></span>: [<span class="pl-c1">UInt8</span>]) {
+            <span class="pl-c1">self</span>.<span class="pl-smi">type</span> <span class="pl-k">=</span> type
+            <span class="pl-c1">self</span>.<span class="pl-smi">data</span> <span class="pl-k">=</span> data
+        }
+    }
+}</pre></div>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<p dir="auto">You can find this code and more in <a href="https://github.com/swiftstack/examples">examples</a>.</p>
+<h7 dir="auto">
+<a id="user-content-basic-api" class="anchor" aria-hidden="true" href="#basic-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic API</h7>
+<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='let hey = MessagePack("hey there!")
+let bytes = try MessagePack.encode(hey)
+let original = String(try MessagePack.decode(bytes: bytes))'><pre><span class="pl-k">let</span> hey <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>(<span class="pl-s"><span class="pl-pds">"</span>hey there!<span class="pl-pds">"</span></span>)
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> <span class="pl-k">try</span> MessagePack.<span class="pl-c1">encode</span>(hey)
+<span class="pl-k">let</span> original <span class="pl-k">=</span> <span class="pl-c1">String</span>(<span class="pl-k">try</span> MessagePack.<span class="pl-c1">decode</span>(<span class="pl-c1">bytes</span>: bytes))</pre></div>
+<h7 dir="auto">
+<a id="user-content-stream-api" class="anchor" aria-hidden="true" href="#stream-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Stream API</h7>
+<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='let hey = MessagePack("hey there!")
+let stream = BufferedStream(stream: NetworkStream(socket: client))
+try MessagePack.encode(hey, to: stream)
+try stream.flush()
+let original = String(try MessagePack.decode(from: stream))'><pre><span class="pl-k">let</span> hey <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>(<span class="pl-s"><span class="pl-pds">"</span>hey there!<span class="pl-pds">"</span></span>)
+<span class="pl-k">let</span> stream <span class="pl-k">=</span> <span class="pl-c1">BufferedStream</span>(<span class="pl-c1">stream</span>: <span class="pl-c1">NetworkStream</span>(<span class="pl-c1">socket</span>: client))
+<span class="pl-k">try</span> MessagePack.<span class="pl-c1">encode</span>(hey, <span class="pl-c1">to</span>: stream)
+<span class="pl-k">try</span> stream.<span class="pl-c1">flush</span>()
+<span class="pl-k">let</span> original <span class="pl-k">=</span> <span class="pl-c1">String</span>(<span class="pl-k">try</span> MessagePack.<span class="pl-c1">decode</span>(<span class="pl-c1">from</span>: stream))</pre></div>
+<h7 dir="auto">
+<a id="user-content-performance-optimized" class="anchor" aria-hidden="true" href="#performance-optimized"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Performance optimized</h7>
+<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='let output = OutputByteStream()
+var encoder = MessagePackWriter(output)
+try encoder.encode("one")
+try encoder.encode(2)
+try encoder.encode(3.0)
+let encoded = output.bytes
+
+var decoder = MessagePackReader(InputByteStream(encoded))
+let string = try decoder.decode(String.self)
+let int = try decoder.decode(UInt8.self)
+let double = try decoder.decode(Double.self)
+print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k">let</span> output <span class="pl-k">=</span> <span class="pl-c1">OutputByteStream</span>()
+<span class="pl-k">var</span> encoder <span class="pl-k">=</span> <span class="pl-c1">MessagePackWriter</span>(output)
+<span class="pl-k">try</span> encoder.<span class="pl-c1">encode</span>(<span class="pl-s"><span class="pl-pds">"</span>one<span class="pl-pds">"</span></span>)
+<span class="pl-k">try</span> encoder.<span class="pl-c1">encode</span>(<span class="pl-c1">2</span>)
+<span class="pl-k">try</span> encoder.<span class="pl-c1">encode</span>(<span class="pl-c1">3.0</span>)
+<span class="pl-k">let</span> encoded <span class="pl-k">=</span> output.<span class="pl-smi">bytes</span>
+
+<span class="pl-k">var</span> decoder <span class="pl-k">=</span> <span class="pl-c1">MessagePackReader</span>(<span class="pl-c1">InputByteStream</span>(encoded))
+<span class="pl-k">let</span> string <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">String</span>.<span class="pl-k">self</span>)
+<span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">UInt8</span>.<span class="pl-k">self</span>)
+<span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">Double</span>.<span class="pl-k">self</span>)
+<span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">"</span>decoded manually: <span class="pl-pse">\(</span><span class="pl-s1">string</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">int</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">double</span><span class="pl-pse"><span class="pl-s1">)</span></span><span class="pl-pds">"</span></span>)</pre></div>
 </article>
   </div>
         </div>
