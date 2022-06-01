@@ -181,8 +181,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-st3v0-msgpack-as3',this)">ActionScript3 <span class="qs-sub">st3v0</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-hideakitai-MsgPack',this)">Arduino <span class="qs-sub">hideakitai</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-HEADS-project-arduino_msgpack',this)">Arduino C <span class="qs-sub">HEADS-project</span></a></li>
@@ -373,13 +371,9 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-cherrywoods-swift-msgpack-serialization',this)">Swift, java compatibel <span class="qs-sub">cherrywoods</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-samclaus-msgpack-ts',this)">TypeScript/JavaScript <span class="qs-sub">samclaus</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-tihannalouise-https-github-com-msgpack-msgpack-java',this)">expert-carnival <span class="qs-sub">tihannalouise</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-esensar-kotlinx-serialization-msgpack',this)">kotlinx.serialization <span class="qs-sub">esensar</span></a></li>
           
@@ -430,126 +424,6 @@ trace(msgpack.read(bytes));"><pre><span class="pl-c">// create messagepack objec
 <span class="pl-c">// print the decoded object</span>
 <span class="pl-c1">trace</span>(msgpack<span class="pl-k">.</span>read(<span class="pl-c1">bytes</span>))<span class="pl-k">;</span></pre></div>
 <p dir="auto">For downloads, source code and further information, check the project repository: <a href="https://github.com/loteixeira/as3-msgpack">https://github.com/loteixeira/as3-msgpack</a>.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-st3v0-msgpack-as3" class="qs"><h4><a href="https://github.com/st3v0/msgpack-as3" target="_blank">st3v0/msgpack-as3 <span class="qs-url">https://github.com/st3v0/msgpack-as3</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-messagepack-for-actionscript3" class="anchor" aria-hidden="true" href="#messagepack-for-actionscript3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for ActionScript3</h5>
-<p dir="auto">msgpack-as3 is an implementation of the latest MessagePack specification for ActionScript3 language (Flash, Flex and AIR).</p>
-<ul dir="auto">
-<li>Message Pack specification (Dec 22, 2015): <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a>
-</li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-basic-usage" class="anchor" aria-hidden="true" href="#basic-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic Usage</h6>
-<h7 dir="auto">
-<a id="user-content-serialize-and-deserialize" class="anchor" aria-hidden="true" href="#serialize-and-deserialize"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize and Deserialize</h7>
-<p dir="auto">The usage of MsgPack class is very simple. You need create an object and call read and write methods.</p>
-```actionscript
-// message pack object created
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">// encode an array
-var bytes:ByteArray = msgpack.write([1, 2, 3, 4, 5]);</p>
-<p dir="auto">// rewind the buffer
-bytes.position = 0;</p>
-<p dir="auto">// print the decoded object
-trace(msgpack.read(bytes));</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-### Flags
-&lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
-* &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
-* &lt;code&gt;MsgPackFlags.ACCEPT_LITTLE_ENDIAN&lt;/code&gt;: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).
-* &lt;code&gt;MsgPackFlags.SPEC2013_COMPATIBILITY&lt;/code&gt;: MsgPack will run in backwards compatibility mode.
-
-```actionscript
-var msg:MsgPack;
-
-// use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);"><pre class="notranslate"><code>
-### Flags
-&lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
-* &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
-* &lt;code&gt;MsgPackFlags.ACCEPT_LITTLE_ENDIAN&lt;/code&gt;: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).
-* &lt;code&gt;MsgPackFlags.SPEC2013_COMPATIBILITY&lt;/code&gt;: MsgPack will run in backwards compatibility mode.
-
-```actionscript
-var msg:MsgPack;
-
-// use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);
-</code></pre></div>
-<h6 dir="auto">
-<a id="user-content-advanced-usage" class="anchor" aria-hidden="true" href="#advanced-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Advanced Usage</h6>
-<h7 dir="auto">
-<a id="user-content-extensions" class="anchor" aria-hidden="true" href="#extensions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extensions</h7>
-<p dir="auto">You can create your own Extension Workers by extending the <code>ExtensionWorker</code> Class and then assigning it to the MsgPack Factory.</p>
-<p dir="auto">The following example assigns a custom worker which extends the <code>ExtensionWorker</code> Class.</p>
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">// Assign the new worker to the factory.
-msgpack.factory.assign(new CustomWorker());</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-&lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
-
-### Priorities
-&lt;p&gt;Worker priority behaves similar to how the Adobe Event Dispatcher priorities work. In MessagePack, deciding which worker will be use for serializing/deserializing depends on two(2) factors.&lt;/p&gt;
-1. The order in which the worker was assigned to the factory.
-2. The priority of the worker. Higher values take precedence.
-
-All workers have a default priority of 0.
-
-&lt;p&gt;In the following example &lt;code&gt;workerB&lt;/code&gt; will never be used because it's assign after &lt;code&gt;workerA&lt;/code&gt;&lt;/p&gt;
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-
-var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker();
-
-msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);"><pre class="notranslate"><code>
-&lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
-
-### Priorities
-&lt;p&gt;Worker priority behaves similar to how the Adobe Event Dispatcher priorities work. In MessagePack, deciding which worker will be use for serializing/deserializing depends on two(2) factors.&lt;/p&gt;
-1. The order in which the worker was assigned to the factory.
-2. The priority of the worker. Higher values take precedence.
-
-All workers have a default priority of 0.
-
-&lt;p&gt;In the following example &lt;code&gt;workerB&lt;/code&gt; will never be used because it's assign after &lt;code&gt;workerA&lt;/code&gt;&lt;/p&gt;
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-
-var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker();
-
-msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);
-</code></pre></div>
-<p dir="auto">However if we adjust the priority of <code>workerB</code>, then <code>workerA</code> will never be used.</p>
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker(null, 1);</p>
-<p dir="auto">msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-## Credits
-This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
-
-Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
-Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  "><pre class="notranslate"><code>
-## Credits
-This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
-
-Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
-Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  
-</code></pre></div>
 </article>
   </div>
         </div>
@@ -20375,27 +20249,6 @@ print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k"
   </div>
         </div>
         
-        <div id="qs-cherrywoods-swift-msgpack-serialization" class="qs"><h4><a href="https://github.com/cherrywoods/swift-msgpack-serialization" target="_blank">cherrywoods/swift-msgpack-serialization <span class="qs-url">https://github.com/cherrywoods/swift-msgpack-serialization</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-swift-msgpack-serialization" class="anchor" aria-hidden="true" href="#swift-msgpack-serialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>swift-msgpack-serialization</h5>
-<p dir="auto"><a href="https://github.com/Carthage/Carthage"><img src="https://camo.githubusercontent.com/c8961b92aa4c1cece705532f044860ab81846426578305a5e8d83c0f357de8c2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f43617274686167652d636f6d70617469626c652d3442433531442e7376673f7374796c653d666c6174" alt="Carthage compatible" data-canonical-src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" style="max-width: 100%;"></a></p>
-<p dir="auto">Another swift serialization library for msgpack with support for the Codable environement.</p>
-<p dir="auto">This framework is designed to be (optionaly) compatibel to the msgpack-java library.
-See <a href="https://github.com/cherrywoods/swift-msgpack-serialization/blob/master/Compatibility.md">Compatibility.md</a> for more detailed information about this.</p>
-<p dir="auto">Please make sure, that the swift model classes and java model classes you use are compatibel to each other, e.g. enums are named equaly (including case).</p>
-<p dir="auto">This framework also supplies the possibiliy to encode keys of other types than String (generalContainer function of MsgpackEncoder).</p>
-<p dir="auto">swift-msgpack-serialization works with <a href="https://github.com/a2/MessagePack.swift">MessagePack.swift</a>. This means, that you can encode your classes, structs and enums, that conform to Codable to MessagePackValue from MessagePack.swift, do something with this MessagePackValue and then encode it to msgpack using MessagePack.swift. You may of course also decode to MessagePackValue first and then decode a particular MessagePackValue to your own type.</p>
-<h6 dir="auto">
-<a id="user-content-instalation" class="anchor" aria-hidden="true" href="#instalation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Instalation</h6>
-<p dir="auto">Currently, only carthage is supported.</p>
-<h6 dir="auto">
-<a id="user-content-compatibilty-restrictions" class="anchor" aria-hidden="true" href="#compatibilty-restrictions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibilty restrictions</h6>
-<p dir="auto">Make sure you never call .encode(to:) directly! Instead use the encode method on a keyed, unkeyed or singleValue container or cast the encoder passed to you to MsgpackEncoder and call encodeIntermediate(_) on this encoder. If you do not use this, this framework won't be able to do it's work properly.</p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-samclaus-msgpack-ts" class="qs"><h4><a href="https://msgpack.org/" target="_blank">samclaus/msgpack-ts <span class="qs-url">https://msgpack.org/</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -20803,15 +20656,6 @@ undesirable if decoding maps with objects or arrays as keys.</p>
 </li>
 </ul>
 <p dir="auto">By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-tihannalouise-https-github-com-msgpack-msgpack-java" class="qs"><h4><a href="https://github.com/tihannalouise/https-github.com-msgpack-msgpack-java" target="_blank">tihannalouise/https-github.com-msgpack-msgpack-java <span class="qs-url">https://github.com/tihannalouise/https-github.com-msgpack-msgpack-java</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-https-githubcom-msgpack-msgpack-java" class="anchor" aria-hidden="true" href="#https-githubcom-msgpack-msgpack-java"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>https-github.com-msgpack-msgpack-java</h5>
-<p dir="auto">msgpack.org[expert-carnival]</p>
 </article>
   </div>
         </div>
