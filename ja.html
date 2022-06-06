@@ -267,17 +267,19 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-java',this)">Java <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-javascript',this)">JavaScript <span class="qs-sub">msgpack</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-kawanet-msgpack-lite',this)">JavaScript <span class="qs-sub">kawanet</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ygoe-msgpack-js',this)">JavaScript <span class="qs-sub">ygoe</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-textbook-express-msgpack',this)">JavaScript <span class="qs-sub">textbook</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kriszyp-msgpackr',this)">JavaScript/NodeJS <span class="qs-sub">kriszyp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davalapar-what-the-pack',this)">Javascript/NodeJS <span class="qs-sub">davalapar</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-kropp-kotlinx-serialization-msgpack',this)">Kotlin Serialization <span class="qs-sub">kropp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mradziwo-MsgPack_LabVIEW',this)">LabVIEW <span class="qs-sub">mradziwo</span></a></li>
           
@@ -294,6 +296,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-sschizas-msgpack-response',this)">Node <span class="qs-sub">sschizas</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
@@ -357,13 +361,15 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-a2-MessagePack-swift',this)">Swift <span class="qs-sub">a2</span></a></li>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-michael-yuji-YSMessagePack',this)">Swift <span class="qs-sub">michael-yuji</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-hirotakan-MessagePacker',this)">Swift <span class="qs-sub">hirotakan</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-samclaus-msgpack-ts',this)">TypeScript/JavaScript <span class="qs-sub">samclaus</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
@@ -9074,968 +9080,6 @@ msgpack-jackson              # Contains jackson-dataformat-java implementation
   </div>
         </div>
         
-        <div id="qs-msgpack-msgpack-javascript" class="qs"><h4><a href="https://msgpack.org/" target="_blank">msgpack/msgpack-javascript <span class="qs-url">https://msgpack.org/</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-messagepack-for-javascriptecma-262--" class="anchor" aria-hidden="true" href="#messagepack-for-javascriptecma-262--"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for JavaScript/ECMA-262  </h5>
-<p dir="auto"><a href="https://www.npmjs.com/package/@msgpack/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/66cb71ffd0fac1adb6bbaf2ece2a895086a6678b30549c1ce9b5f682813b57d7/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f406d73677061636b2f6d73677061636b2e737667" alt="npm version" data-canonical-src="https://img.shields.io/npm/v/@msgpack/msgpack.svg" style="max-width: 100%;"></a> <a target="_blank" rel="noopener noreferrer" href="https://github.com/msgpack/msgpack-javascript/workflows/CI/badge.svg"><img src="https://github.com/msgpack/msgpack-javascript/workflows/CI/badge.svg" alt="CI" style="max-width: 100%;"></a> <a href="https://codecov.io/gh/msgpack/msgpack-javascript" rel="nofollow"><img src="https://camo.githubusercontent.com/89598e8133168947124cc95fd32c042f9e579487b56d4056192205d25e4c3cd3/68747470733a2f2f636f6465636f762e696f2f67682f6d73677061636b2f6d73677061636b2d6a6176617363726970742f6272616e63682f6d61737465722f6772617068732f62616467652e737667" alt="codecov" data-canonical-src="https://codecov.io/gh/msgpack/msgpack-javascript/branch/master/graphs/badge.svg" style="max-width: 100%;"></a> <a href="https://bundlephobia.com/result?p=@msgpack/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/303cc840988faab6ddb63ab8e4af105ae6458f59df675c6c4114bc2c9a81583c/68747470733a2f2f62616467656e2e6e65742f62756e646c6570686f6269612f6d696e7a69702f406d73677061636b2f6d73677061636b" alt="minzip" data-canonical-src="https://badgen.net/bundlephobia/minzip/@msgpack/msgpack" style="max-width: 100%;"></a> <a href="https://bundlephobia.com/result?p=@msgpack/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/9e761c8202917adef2f2b6203625ebcf6d141e6f348ccbfc88c66835ce9100b3/68747470733a2f2f62616467656e2e6e65742f62756e646c6570686f6269612f747265652d7368616b696e672f406d73677061636b2f6d73677061636b" alt="tree-shaking" data-canonical-src="https://badgen.net/bundlephobia/tree-shaking/@msgpack/msgpack" style="max-width: 100%;"></a></p>
-<p dir="auto">This is a JavaScript/ECMA-262 implementation of <strong>MessagePack</strong>, an efficient binary serilization format:</p>
-<p dir="auto"><a href="https://msgpack.org/" rel="nofollow">https://msgpack.org/</a></p>
-<p dir="auto">This library is a universal JavaScript, meaning it is compatible with all the major browsers and NodeJS. In addition, because it is implemented in <a href="https://www.typescriptlang.org/" rel="nofollow">TypeScript</a>, type definition files (<code>d.ts</code>) are always up-to-date and bundled in the distribution.</p>
-<p dir="auto"><em>Note that this is the second version of MessagePack for JavaScript. The first version, which was implemented in ES5 and was never released to npmjs.com, is tagged as <a href="https://github.com/msgpack/msgpack-javascript/tree/classic">classic</a>.</em></p>
-<h6 dir="auto">
-<a id="user-content-synopsis" class="anchor" aria-hidden="true" href="#synopsis"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Synopsis</h6>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
-import { encode, decode } from "@msgpack/msgpack";
-
-const object = {
-  nil: null,
-  integer: 1,
-  float: Math.PI,
-  string: "Hello, world!",
-  binary: Uint8Array.from([1, 2, 3]),
-  array: [10, 20, 30],
-  map: { foo: "bar" },
-  timestampExt: new Date(),
-};
-
-const encoded: Uint8Array = encode(object);
-
-deepStrictEqual(decode(encoded), object);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
-  <span class="pl-c1">nil</span>: <span class="pl-c1">null</span><span class="pl-kos">,</span>
-  <span class="pl-c1">integer</span>: <span class="pl-c1">1</span><span class="pl-kos">,</span>
-  <span class="pl-c1">float</span>: <span class="pl-smi">Math</span><span class="pl-kos">.</span><span class="pl-c1">PI</span><span class="pl-kos">,</span>
-  <span class="pl-c1">string</span>: <span class="pl-s">"Hello, world!"</span><span class="pl-kos">,</span>
-  <span class="pl-c1">binary</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">.</span><span class="pl-en">from</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-  <span class="pl-c1">array</span>: <span class="pl-kos">[</span><span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">20</span><span class="pl-kos">,</span> <span class="pl-c1">30</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
-  <span class="pl-c1">map</span>: <span class="pl-kos">{</span> <span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span> <span class="pl-kos">}</span><span class="pl-kos">,</span>
-  <span class="pl-c1">timestampExt</span>: <span class="pl-k">new</span> <span class="pl-smi">Date</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-<span class="pl-kos">}</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h6 dir="auto">
-<a id="user-content-table-of-contents" class="anchor" aria-hidden="true" href="#table-of-contents"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Table of Contents</h6>
-<ul dir="auto">
-<li><a href="#synopsis">Synopsis</a></li>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#install">Install</a></li>
-<li>
-<a href="#api">API</a>
-<ul dir="auto">
-<li>
-<a href="#encodedata-unknown-options-encodeoptions-uint8array"><code>encode(data: unknown, options?: EncodeOptions): Uint8Array</code></a>
-<ul dir="auto">
-<li><a href="#encodeoptions"><code>EncodeOptions</code></a></li>
-</ul>
-</li>
-<li>
-<a href="#decodebuffer-arraylikenumber--buffersource-options-decodeoptions-unknown"><code>decode(buffer: ArrayLike&lt;number&gt; | BufferSource, options?: DecodeOptions): unknown</code></a>
-<ul dir="auto">
-<li><a href="#decodeoptions"><code>DecodeOptions</code></a></li>
-</ul>
-</li>
-<li><a href="#decodemultibuffer-arraylikenumber--buffersource-options-decodeoptions-generatorunknown-void-unknown"><code>decodeMulti(buffer: ArrayLike&lt;number&gt; | BufferSource, options?: DecodeOptions): Generator&lt;unknown, void, unknown&gt;</code></a></li>
-<li><a href="#decodeasyncstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-promiseunknown"><code>decodeAsync(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): Promise&lt;unknown&gt;</code></a></li>
-<li><a href="#decodearraystreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown"><code>decodeArrayStream(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): AsyncIterable&lt;unknown&gt;</code></a></li>
-<li><a href="#decodemultistreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown"><code>decodeMultiStream(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): AsyncIterable&lt;unknown&gt;</code></a></li>
-<li><a href="#reusing-encoder-and-decoder-instances">Reusing Encoder and Decoder instances</a></li>
-</ul>
-</li>
-<li>
-<a href="#extension-types">Extension Types</a>
-<ul dir="auto">
-<li><a href="#extensioncodec-context">ExtensionCodec context</a></li>
-<li><a href="#handling-bigint-with-extensioncodec">Handling BigInt with ExtensionCodec</a></li>
-<li><a href="#the-temporal-module-as-timestamp-extensions">The temporal module as timestamp extensions</a></li>
-</ul>
-</li>
-<li><a href="#decoding-a-blob">Decoding a Blob</a></li>
-<li>
-<a href="#messagepack-specification">MessagePack Specification</a>
-<ul dir="auto">
-<li><a href="#messagepack-mapping-table">MessagePack Mapping Table</a></li>
-</ul>
-</li>
-<li>
-<a href="#prerequisites">Prerequisites</a>
-<ul dir="auto">
-<li><a href="#ecma-262">ECMA-262</a></li>
-<li><a href="#nodejs">NodeJS</a></li>
-<li><a href="#typescript-compiler--type-definitions">TypeScript Compiler / Type Definitions</a></li>
-</ul>
-</li>
-<li><a href="#benchmark">Benchmark</a></li>
-<li>
-<a href="#distribution">Distribution</a>
-<ul dir="auto">
-<li><a href="#npm--npmjscom">NPM / npmjs.com</a></li>
-<li><a href="#cdn--unpkgcom">CDN / unpkg.com</a></li>
-</ul>
-</li>
-<li><a href="#deno-support">Deno Support</a></li>
-<li>
-<a href="#maintenance">Maintenance</a>
-<ul dir="auto">
-<li><a href="#testing">Testing</a></li>
-<li><a href="#continuous-integration">Continuous Integration</a></li>
-<li><a href="#release-engineering">Release Engineering</a></li>
-<li><a href="#updating-dependencies">Updating Dependencies</a></li>
-</ul>
-</li>
-<li><a href="#license">License</a></li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
-<p dir="auto">This library is published to <code>npmjs.com</code> as <a href="https://www.npmjs.com/package/@msgpack/msgpack" rel="nofollow">@msgpack/msgpack</a>.</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="npm install @msgpack/msgpack"><pre>npm install @msgpack/msgpack</pre></div>
-<h6 dir="auto">
-<a id="user-content-api" class="anchor" aria-hidden="true" href="#api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API</h6>
-<h7 dir="auto">
-<a id="user-content-encodedata-unknown-options-encodeoptions-uint8array" class="anchor" aria-hidden="true" href="#encodedata-unknown-options-encodeoptions-uint8array"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>encode(data: unknown, options?: EncodeOptions): Uint8Array</code>
-</h7>
-<p dir="auto">It encodes <code>data</code> into a single MessagePack-encoded object, and returns a byte array as <code>Uint8Array</code>. It throws errors if <code>data</code> is, or includes, a non-serializable object such as a <code>function</code> or a <code>symbol</code>.</p>
-<p dir="auto">for example:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode } from "@msgpack/msgpack";
-
-const encoded: Uint8Array = encode({ foo: "bar" });
-console.log(encoded);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto">If you'd like to convert an <code>uint8array</code> to a NodeJS <code>Buffer</code>, use <code>Buffer.from(arrayBuffer, offset, length)</code> in order not to copy the underlying <code>ArrayBuffer</code>, while <code>Buffer.from(uint8array)</code> copies it:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode } from "@msgpack/msgpack";
-
-const encoded: Uint8Array = encode({ foo: "bar" });
-
-// `buffer` refers the same ArrayBuffer as `encoded`.
-const buffer: Buffer = Buffer.from(encoded.buffer, encoded.byteOffset, encoded.byteLength);
-console.log(buffer);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// `buffer` refers the same ArrayBuffer as `encoded`.</span>
-<span class="pl-k">const</span> <span class="pl-s1">buffer</span>: <span class="pl-smi">Buffer</span> <span class="pl-c1">=</span> <span class="pl-smi">Buffer</span><span class="pl-kos">.</span><span class="pl-en">from</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">.</span><span class="pl-c1">buffer</span><span class="pl-kos">,</span> <span class="pl-s1">encoded</span><span class="pl-kos">.</span><span class="pl-c1">byteOffset</span><span class="pl-kos">,</span> <span class="pl-s1">encoded</span><span class="pl-kos">.</span><span class="pl-c1">byteLength</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h8 dir="auto">
-<a id="user-content-encodeoptions" class="anchor" aria-hidden="true" href="#encodeoptions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>EncodeOptions</code>
-</h8>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>extensionCodec</td>
-<td>ExtensionCodec</td>
-<td><code>ExtensionCodec.defaultCodec</code></td>
-</tr>
-<tr>
-<td>maxDepth</td>
-<td>number</td>
-<td><code>100</code></td>
-</tr>
-<tr>
-<td>initialBufferSize</td>
-<td>number</td>
-<td><code>2048</code></td>
-</tr>
-<tr>
-<td>sortKeys</td>
-<td>boolean</td>
-<td>false</td>
-</tr>
-<tr>
-<td>forceFloat32</td>
-<td>boolean</td>
-<td>false</td>
-</tr>
-<tr>
-<td>forceIntegerToFloat</td>
-<td>boolean</td>
-<td>false</td>
-</tr>
-<tr>
-<td>ignoreUndefined</td>
-<td>boolean</td>
-<td>false</td>
-</tr>
-<tr>
-<td>context</td>
-<td>user-defined</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h7 dir="auto">
-<a id="user-content-decodebuffer-arraylikenumber--buffersource-options-decodeoptions-unknown" class="anchor" aria-hidden="true" href="#decodebuffer-arraylikenumber--buffersource-options-decodeoptions-unknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decode(buffer: ArrayLike&lt;number&gt; | BufferSource, options?: DecodeOptions): unknown</code>
-</h7>
-<p dir="auto">It decodes <code>buffer</code> that includes a MessagePack-encoded object, and returns the decoded object typed <code>unknown</code>.</p>
-<p dir="auto"><code>buffer</code> must be an array of bytes, which is typically <code>Uint8Array</code> or <code>ArrayBuffer</code>. <code>BufferSource</code> is defined as <code>ArrayBuffer | ArrayBufferView</code>.</p>
-<p dir="auto">The <code>buffer</code> must include a single encoded object. If the <code>buffer</code> includes extra bytes after an object or the <code>buffer</code> is empty, it throws <code>RangeError</code>. To decode <code>buffer</code> that includes multiple encoded objects, use <code>decodeMulti()</code> or <code>decodeMultiStream()</code> (recommended) instead.</p>
-<p dir="auto">for example:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decode } from "@msgpack/msgpack";
-
-const encoded: Uint8Array;
-const object = decode(encoded);
-console.log(object);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto">NodeJS <code>Buffer</code> is also acceptable because it is a subclass of <code>Uint8Array</code>.</p>
-<h8 dir="auto">
-<a id="user-content-decodeoptions" class="anchor" aria-hidden="true" href="#decodeoptions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>DecodeOptions</code>
-</h8>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>extensionCodec</td>
-<td>ExtensionCodec</td>
-<td><code>ExtensionCodec.defaultCodec</code></td>
-</tr>
-<tr>
-<td>maxStrLength</td>
-<td>number</td>
-<td>
-<code>4_294_967_295</code> (UINT32_MAX)</td>
-</tr>
-<tr>
-<td>maxBinLength</td>
-<td>number</td>
-<td>
-<code>4_294_967_295</code> (UINT32_MAX)</td>
-</tr>
-<tr>
-<td>maxArrayLength</td>
-<td>number</td>
-<td>
-<code>4_294_967_295</code> (UINT32_MAX)</td>
-</tr>
-<tr>
-<td>maxMapLength</td>
-<td>number</td>
-<td>
-<code>4_294_967_295</code> (UINT32_MAX)</td>
-</tr>
-<tr>
-<td>maxExtLength</td>
-<td>number</td>
-<td>
-<code>4_294_967_295</code> (UINT32_MAX)</td>
-</tr>
-<tr>
-<td>context</td>
-<td>user-defined</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">You can use <code>max${Type}Length</code> to limit the length of each type decoded.</p>
-<h7 dir="auto">
-<a id="user-content-decodemultibuffer-arraylikenumber--buffersource-options-decodeoptions-generatorunknown-void-unknown" class="anchor" aria-hidden="true" href="#decodemultibuffer-arraylikenumber--buffersource-options-decodeoptions-generatorunknown-void-unknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decodeMulti(buffer: ArrayLike&lt;number&gt; | BufferSource, options?: DecodeOptions): Generator&lt;unknown, void, unknown&gt;</code>
-</h7>
-<p dir="auto">It decodes <code>buffer</code> that includes multiple MessagePack-encoded objects, and returns decoded objects as a generator. See also <code>decodeMultiStream()</code>, which is an asynchronous variant of this function.</p>
-<p dir="auto">This function is not recommended to decode a MessagePack binary via I/O stream including sockets because it's synchronous. Instead, <code>decodeMultiStream()</code> decodes a binary stream asynchronously, typically spending less CPU and memory.</p>
-<p dir="auto">for example:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decode } from "@msgpack/msgpack";
-
-const encoded: Uint8Array;
-
-for (const object of decodeMulti(encoded)) {
-  console.log(object);
-}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">;</span>
-
-<span class="pl-k">for</span> <span class="pl-kos">(</span><span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-k">of</span> <span class="pl-en">decodeMulti</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-decodeasyncstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-promiseunknown" class="anchor" aria-hidden="true" href="#decodeasyncstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-promiseunknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decodeAsync(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): Promise&lt;unknown&gt;</code>
-</h7>
-<p dir="auto">It decodes <code>stream</code>, where <code>ReadableStreamLike&lt;T&gt;</code> is defined as <code>ReadableStream&lt;T&gt; | AsyncIterable&lt;T&gt;</code>, in an async iterable of byte arrays, and returns decoded object as <code>unknown</code> type, wrapped in <code>Promise</code>.</p>
-<p dir="auto">This function works asynchronously, and might CPU resources more efficiently compared with synchronous <code>decode()</code>, because it doesn't wait for the completion of downloading.</p>
-<p dir="auto"><code>DecodeAsyncOptions</code> is the same as <code>DecodeOptions</code> for <code>decode()</code>.</p>
-<p dir="auto">This function is designed to work with whatwg <code>fetch()</code> like this:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decodeAsync } from "@msgpack/msgpack";
-
-const MSGPACK_TYPE = "application/x-msgpack";
-
-const response = await fetch(url);
-const contentType = response.headers.get("Content-Type");
-if (contentType &amp;&amp; contentType.startsWith(MSGPACK_TYPE) &amp;&amp; response.body != null) {
-  const object = await decodeAsync(response.body);
-  // do something with object
-} else { /* handle errors */ }'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decodeAsync</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-smi">MSGPACK_TYPE</span> <span class="pl-c1">=</span> <span class="pl-s">"application/x-msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">contentType</span> <span class="pl-c1">=</span> <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">headers</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"Content-Type"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">contentType</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">contentType</span><span class="pl-kos">.</span><span class="pl-en">startsWith</span><span class="pl-kos">(</span><span class="pl-smi">MSGPACK_TYPE</span><span class="pl-kos">)</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">body</span> <span class="pl-c1">!=</span> <span class="pl-c1">null</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">decodeAsync</span><span class="pl-kos">(</span><span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-c">// do something with object</span>
-<span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span> <span class="pl-c">/* handle errors */</span> <span class="pl-kos">}</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-decodearraystreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown" class="anchor" aria-hidden="true" href="#decodearraystreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decodeArrayStream(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): AsyncIterable&lt;unknown&gt;</code>
-</h7>
-<p dir="auto">It is alike to <code>decodeAsync()</code>, but only accepts a <code>stream</code> that includes an array of items, and emits a decoded item one by one.</p>
-<p dir="auto">for example:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decodeArrayStream } from "@msgpack/msgpack";
-
-const stream: AsyncIterator&lt;Uint8Array&gt;;
-
-// in an async function:
-for await (const item of decodeArrayStream(stream)) {
-  console.log(item);
-}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decodeArrayStream</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">stream</span>: <span class="pl-smi">AsyncIterator</span><span class="pl-kos">&lt;</span><span class="pl-smi">Uint8Array</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// in an async function:</span>
-<span class="pl-k">for</span> <span class="pl-k">await</span> <span class="pl-kos">(</span><span class="pl-k">const</span> <span class="pl-s1">item</span> <span class="pl-k">of</span> <span class="pl-en">decodeArrayStream</span><span class="pl-kos">(</span><span class="pl-s1">stream</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">item</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-decodemultistreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown" class="anchor" aria-hidden="true" href="#decodemultistreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decodeMultiStream(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): AsyncIterable&lt;unknown&gt;</code>
-</h7>
-<p dir="auto">It is alike to <code>decodeAsync()</code> and <code>decodeArrayStream()</code>, but the input <code>stream</code> must consist of multiple MessagePack-encoded items. This is an asynchronous variant for <code>decodeMulti()</code>.</p>
-<p dir="auto">In other words, it could decode an unlimited stream and emits a decoded item one by one.</p>
-<p dir="auto">for example:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decodeMultiStream } from "@msgpack/msgpack";
-
-const stream: AsyncIterator&lt;Uint8Array&gt;;
-
-// in an async function:
-for await (const item of decodeMultiStream(stream)) {
-  console.log(item);
-}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decodeMultiStream</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">stream</span>: <span class="pl-smi">AsyncIterator</span><span class="pl-kos">&lt;</span><span class="pl-smi">Uint8Array</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// in an async function:</span>
-<span class="pl-k">for</span> <span class="pl-k">await</span> <span class="pl-kos">(</span><span class="pl-k">const</span> <span class="pl-s1">item</span> <span class="pl-k">of</span> <span class="pl-en">decodeMultiStream</span><span class="pl-kos">(</span><span class="pl-s1">stream</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">item</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span></pre></div>
-<p dir="auto">This function is available since v2.4.0; previously it was called as <code>decodeStream()</code>.</p>
-<h7 dir="auto">
-<a id="user-content-reusing-encoder-and-decoder-instances" class="anchor" aria-hidden="true" href="#reusing-encoder-and-decoder-instances"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Reusing Encoder and Decoder instances</h7>
-<p dir="auto"><code>Encoder</code> and <code>Decoder</code> classes is provided to have better performance by reusing instances:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
-import { Encoder, Decoder } from "@msgpack/msgpack";
-
-const encoder = new Encoder();
-const decoder = new Decoder();
-
-const encoded: Uint8Array = encoder.encode(object);
-deepStrictEqual(decoder.decode(encoded), object);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-smi">Encoder</span><span class="pl-kos">,</span> <span class="pl-smi">Decoder</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoder</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">Encoder</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">decoder</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">Decoder</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-s1">encoder</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-s1">decoder</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto">According to our benchmark, reusing <code>Encoder</code> instance is about 20% faster
-than <code>encode()</code> function, and reusing <code>Decoder</code> instance is about 2% faster
-than <code>decode()</code> function. Note that the result should vary in environments
-and data structure.</p>
-<h6 dir="auto">
-<a id="user-content-extension-types" class="anchor" aria-hidden="true" href="#extension-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extension Types</h6>
-<p dir="auto">To handle <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#extension-types">MessagePack Extension Types</a>, this library provides <code>ExtensionCodec</code> class.</p>
-<p dir="auto">This is an example to setup custom extension types that handles <code>Map</code> and <code>Set</code> classes in TypeScript:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
-
-const extensionCodec = new ExtensionCodec();
-
-// Set&lt;T&gt;
-const SET_EXT_TYPE = 0 // Any in 0-127
-extensionCodec.register({
-  type: SET_EXT_TYPE,
-  encode: (object: unknown): Uint8Array | null =&gt; {
-    if (object instanceof Set) {
-      return encode([...object]);
-    } else {
-      return null;
-    }
-  },
-  decode: (data: Uint8Array) =&gt; {
-    const array = decode(data) as Array&lt;unknown&gt;;
-    return new Set(array);
-  },
-});
-
-// Map&lt;T&gt;
-const MAP_EXT_TYPE = 1; // Any in 0-127
-extensionCodec.register({
-  type: MAP_EXT_TYPE,
-  encode: (object: unknown): Uint8Array =&gt; {
-    if (object instanceof Map) {
-      return encode([...object]);
-    } else {
-      return null;
-    }
-  },
-  decode: (data: Uint8Array) =&gt; {
-    const array = decode(data) as Array&lt;[unknown, unknown]&gt;;
-    return new Map(array);
-  },
-});
-
-const encoded = encode([new Set&lt;any&gt;(), new Map&lt;any, any&gt;()], { extensionCodec });
-const decoded = decode(encoded, { extensionCodec });'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">ExtensionCodec</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// Set&lt;T&gt;</span>
-<span class="pl-k">const</span> <span class="pl-smi">SET_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span> <span class="pl-c">// Any in 0-127</span>
-<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-  <span class="pl-c1">type</span>: <span class="pl-smi">SET_EXT_TYPE</span><span class="pl-kos">,</span>
-  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">|</span> <span class="pl-smi">null</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">object</span> <span class="pl-k">instanceof</span> <span class="pl-smi">Set</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-      <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">[</span>...<span class="pl-s1">object</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">const</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span> <span class="pl-k">as</span> <span class="pl-smi">Array</span><span class="pl-kos">&lt;</span><span class="pl-smi">unknown</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
-    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Set</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// Map&lt;T&gt;</span>
-<span class="pl-k">const</span> <span class="pl-smi">MAP_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span><span class="pl-kos">;</span> <span class="pl-c">// Any in 0-127</span>
-<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-  <span class="pl-c1">type</span>: <span class="pl-smi">MAP_EXT_TYPE</span><span class="pl-kos">,</span>
-  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">object</span> <span class="pl-k">instanceof</span> <span class="pl-smi">Map</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-      <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">[</span>...<span class="pl-s1">object</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">const</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span> <span class="pl-k">as</span> <span class="pl-smi">Array</span><span class="pl-kos">&lt;</span><span class="pl-kos">[</span><span class="pl-smi">unknown</span><span class="pl-kos">,</span> <span class="pl-smi">unknown</span><span class="pl-kos">]</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
-    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Map</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-k">new</span> <span class="pl-smi">Set</span><span class="pl-kos">&lt;</span><span class="pl-smi">any</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-k">new</span> <span class="pl-smi">Map</span><span class="pl-kos">&lt;</span><span class="pl-smi">any</span><span class="pl-kos">,</span> <span class="pl-smi">any</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto">Not that extension types for custom objects must be <code>[0, 127]</code>, while <code>[-1, -128]</code> is reserved for MessagePack itself.</p>
-<h8 dir="auto">
-<a id="user-content-extensioncodec-context" class="anchor" aria-hidden="true" href="#extensioncodec-context"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ExtensionCodec context</h8>
-<p dir="auto">When you use an extension codec, it might be necessary to have encoding/decoding state to keep track of which objects got encoded/re-created. To do this, pass a <code>context</code> to the <code>EncodeOptions</code> and <code>DecodeOptions</code>:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
-
-class MyContext {
-  track(object: any) { /*...*/ }
-}
-
-class MyType { /* ... */ }
-
-const extensionCodec = new ExtensionCodec&lt;MyContext&gt;();
-
-// MyType
-const MYTYPE_EXT_TYPE = 0 // Any in 0-127
-extensionCodec.register({
-  type: MYTYPE_EXT_TYPE,
-  encode: (object, context) =&gt; {
-    if (object instanceof MyType) {
-      context.track(object); // &lt;-- like this
-      return encode(object.toJSON(), { extensionCodec, context });
-    } else {
-      return null;
-    }
-  },
-  decode: (data, extType, context) =&gt; {
-    const decoded = decode(data, { extensionCodec, context });
-    const my = new MyType(decoded);
-    context.track(my); // &lt;-- and like this
-    return my;
-  },
-});
-
-// and later
-import { encode, decode } from "@msgpack/msgpack";
-
-const context = new MyContext();
-
-const encoded = = encode({myType: new MyType&lt;any&gt;()}, { extensionCodec, context });
-const decoded = decode(encoded, { extensionCodec, context });'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">ExtensionCodec</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">class</span> <span class="pl-smi">MyContext</span> <span class="pl-kos">{</span>
-  <span class="pl-en">track</span><span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">any</span><span class="pl-kos">)</span> <span class="pl-kos">{</span> <span class="pl-c">/*...*/</span> <span class="pl-kos">}</span>
-<span class="pl-kos">}</span>
-
-<span class="pl-k">class</span> <span class="pl-smi">MyType</span> <span class="pl-kos">{</span> <span class="pl-c">/* ... */</span> <span class="pl-kos">}</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">&lt;</span><span class="pl-smi">MyContext</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// MyType</span>
-<span class="pl-k">const</span> <span class="pl-smi">MYTYPE_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span> <span class="pl-c">// Any in 0-127</span>
-<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-  <span class="pl-c1">type</span>: <span class="pl-smi">MYTYPE_EXT_TYPE</span><span class="pl-kos">,</span>
-  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">,</span> <span class="pl-s1">context</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">object</span> <span class="pl-k">instanceof</span> <span class="pl-smi">MyType</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-      <span class="pl-s1">context</span><span class="pl-kos">.</span><span class="pl-en">track</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// &lt;-- like this</span>
-      <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">.</span><span class="pl-en">toJSON</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-s1">extType</span><span class="pl-kos">,</span> <span class="pl-s1">context</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-k">const</span> <span class="pl-s1">my</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyType</span><span class="pl-kos">(</span><span class="pl-s1">decoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-s1">context</span><span class="pl-kos">.</span><span class="pl-en">track</span><span class="pl-kos">(</span><span class="pl-s1">my</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// &lt;-- and like this</span>
-    <span class="pl-k">return</span> <span class="pl-s1">my</span><span class="pl-kos">;</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// and later</span>
-<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">context</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyContext</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">myType</span>: <span class="pl-k">new</span> <span class="pl-smi">MyType</span><span class="pl-kos">&lt;</span><span class="pl-smi">any</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h8 dir="auto">
-<a id="user-content-handling-bigint-with-extensioncodec" class="anchor" aria-hidden="true" href="#handling-bigint-with-extensioncodec"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Handling BigInt with ExtensionCodec</h8>
-<p dir="auto">This library does not handle BigInt by default, but you can handle it with <code>ExtensionCodec</code> like this:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
-import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
-
-const BIGINT_EXT_TYPE = 0; // Any in 0-127
-const extensionCodec = new ExtensionCodec();
-extensionCodec.register({
-    type: BIGINT_EXT_TYPE,
-    encode: (input: unknown) =&gt; {
-        if (typeof input === "bigint") {
-            if (input &lt;= Number.MAX_SAFE_INTEGER &amp;&amp; input &gt;= Number.MIN_SAFE_INTEGER) {
-                return encode(parseInt(input.toString(), 10));
-            } else {
-                return encode(input.toString());
-            }
-        } else {
-            return null;
-        }
-    },
-    decode: (data: Uint8Array) =&gt; {
-        return BigInt(decode(data));
-    },
-});
-
-const value = BigInt(Number.MAX_SAFE_INTEGER) + BigInt(1);
-const encoded: = encode(value, { extensionCodec });
-deepStrictEqual(decode(encoded, { extensionCodec }), value);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">ExtensionCodec</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-smi">BIGINT_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">;</span> <span class="pl-c">// Any in 0-127</span>
-<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-    <span class="pl-c1">type</span>: <span class="pl-smi">BIGINT_EXT_TYPE</span><span class="pl-kos">,</span>
-    <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">input</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-k">typeof</span> <span class="pl-s1">input</span> <span class="pl-c1">===</span> <span class="pl-s">"bigint"</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-            <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">input</span> <span class="pl-c1">&lt;=</span> <span class="pl-smi">Number</span><span class="pl-kos">.</span><span class="pl-c1">MAX_SAFE_INTEGER</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">input</span> <span class="pl-c1">&gt;=</span> <span class="pl-smi">Number</span><span class="pl-kos">.</span><span class="pl-c1">MIN_SAFE_INTEGER</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-                <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-en">parseInt</span><span class="pl-kos">(</span><span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-en">toString</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-c1">10</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-            <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-                <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-en">toString</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-            <span class="pl-kos">}</span>
-        <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-            <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
-        <span class="pl-kos">}</span>
-    <span class="pl-kos">}</span><span class="pl-kos">,</span>
-    <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-        <span class="pl-k">return</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span><span class="pl-kos">,</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-smi">Number</span><span class="pl-kos">.</span><span class="pl-c1">MAX_SAFE_INTEGER</span><span class="pl-kos">)</span> <span class="pl-c1">+</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-c1">1</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">value</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h8 dir="auto">
-<a id="user-content-the-temporal-module-as-timestamp-extensions" class="anchor" aria-hidden="true" href="#the-temporal-module-as-timestamp-extensions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>The temporal module as timestamp extensions</h8>
-<p dir="auto">There is a proposal for a new date/time representations in JavaScript:</p>
-<ul dir="auto">
-<li><a href="https://github.com/tc39/proposal-temporal">https://github.com/tc39/proposal-temporal</a></li>
-</ul>
-<p dir="auto">This library maps <code>Date</code> to the MessagePack timestamp extension by default, but you can re-map the temporal module (or <a href="https://github.com/tc39/proposal-temporal/tree/main/polyfill">Temporal Polyfill</a>) to the timestamp extension like this:</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { Instant } from "@std-proposal/temporal";
-import { deepStrictEqual } from "assert";
-import {
-  encode,
-  decode,
-  ExtensionCodec,
-  EXT_TIMESTAMP,
-  encodeTimeSpecToTimestamp,
-  decodeTimestampToTimeSpec,
-} from "@msgpack/msgpack";
-
-const extensionCodec = new ExtensionCodec();
-extensionCodec.register({
-  type: EXT_TIMESTAMP, // override the default behavior!
-  encode: (input: any) =&gt; {
-    if (input instanceof Instant) {
-      const sec = input.seconds;
-      const nsec = Number(input.nanoseconds - BigInt(sec) * BigInt(1e9));
-      return encodeTimeSpecToTimestamp({ sec, nsec });
-    } else {
-      return null;
-    }
-  },
-  decode: (data: Uint8Array) =&gt; {
-    const timeSpec = decodeTimestampToTimeSpec(data);
-    const sec = BigInt(timeSpec.sec);
-    const nsec = BigInt(timeSpec.nsec);
-    return Instant.fromEpochNanoseconds(sec * BigInt(1e9) + nsec);
-  },
-});
-
-const instant = Instant.fromEpochMilliseconds(Date.now());
-const encoded = encode(instant, { extensionCodec });
-const decoded = decode(encoded, { extensionCodec });
-deepStrictEqual(decoded, instant);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-smi">Instant</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@std-proposal/temporal"</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
-<span class="pl-k">import</span> <span class="pl-kos">{</span>
-  <span class="pl-s1">encode</span><span class="pl-kos">,</span>
-  <span class="pl-s1">decode</span><span class="pl-kos">,</span>
-  <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">,</span>
-  <span class="pl-smi">EXT_TIMESTAMP</span><span class="pl-kos">,</span>
-  <span class="pl-s1">encodeTimeSpecToTimestamp</span><span class="pl-kos">,</span>
-  <span class="pl-s1">decodeTimestampToTimeSpec</span><span class="pl-kos">,</span>
-<span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-  <span class="pl-c1">type</span>: <span class="pl-smi">EXT_TIMESTAMP</span><span class="pl-kos">,</span> <span class="pl-c">// override the default behavior!</span>
-  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">input</span>: <span class="pl-smi">any</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">input</span> <span class="pl-k">instanceof</span> <span class="pl-smi">Instant</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-      <span class="pl-k">const</span> <span class="pl-s1">sec</span> <span class="pl-c1">=</span> <span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-c1">seconds</span><span class="pl-kos">;</span>
-      <span class="pl-k">const</span> <span class="pl-s1">nsec</span> <span class="pl-c1">=</span> <span class="pl-smi">Number</span><span class="pl-kos">(</span><span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-c1">nanoseconds</span> <span class="pl-c1">-</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-s1">sec</span><span class="pl-kos">)</span> <span class="pl-c1">*</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-c1">1e9</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-      <span class="pl-k">return</span> <span class="pl-en">encodeTimeSpecToTimestamp</span><span class="pl-kos">(</span><span class="pl-kos">{</span> sec<span class="pl-kos">,</span> nsec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
-    <span class="pl-kos">}</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">const</span> <span class="pl-s1">timeSpec</span> <span class="pl-c1">=</span> <span class="pl-en">decodeTimestampToTimeSpec</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-k">const</span> <span class="pl-s1">sec</span> <span class="pl-c1">=</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-s1">timeSpec</span><span class="pl-kos">.</span><span class="pl-c1">sec</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-k">const</span> <span class="pl-s1">nsec</span> <span class="pl-c1">=</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-s1">timeSpec</span><span class="pl-kos">.</span><span class="pl-c1">nsec</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-    <span class="pl-k">return</span> <span class="pl-smi">Instant</span><span class="pl-kos">.</span><span class="pl-en">fromEpochNanoseconds</span><span class="pl-kos">(</span><span class="pl-s1">sec</span> <span class="pl-c1">*</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-c1">1e9</span><span class="pl-kos">)</span> <span class="pl-c1">+</span> <span class="pl-s1">nsec</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-kos">}</span><span class="pl-kos">,</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">const</span> <span class="pl-s1">instant</span> <span class="pl-c1">=</span> <span class="pl-smi">Instant</span><span class="pl-kos">.</span><span class="pl-en">fromEpochMilliseconds</span><span class="pl-kos">(</span><span class="pl-smi">Date</span><span class="pl-kos">.</span><span class="pl-en">now</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">instant</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-s1">decoded</span><span class="pl-kos">,</span> <span class="pl-s1">instant</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto">This will become default in this library with major-version increment, if the temporal module is standardized.</p>
-<h6 dir="auto">
-<a id="user-content-decoding-a-blob" class="anchor" aria-hidden="true" href="#decoding-a-blob"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Decoding a Blob</h6>
-<p dir="auto"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob" rel="nofollow"><code>Blob</code></a> is a binary data container provided by browsers. To read its contents, you can use <code>Blob#arrayBuffer()</code> or <code>Blob#stream()</code>. <code>Blob#stream()</code>
-is recommended if your target platform support it. This is because streaming
-decode should be faster for large objects. In both ways, you need to use
-asynchronous API.</p>
-<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="async function decodeFromBlob(blob: Blob): unknown {
-  if (blob.stream) {
-    // Blob#stream(): ReadableStream&lt;Uint8Array&gt; (recommended)
-    return await decodeAsync(blob.stream());
-  } else {
-    // Blob#arrayBuffer(): Promise&lt;ArrayBuffer&gt; (if stream() is not available)
-    return decode(await blob.arrayBuffer());
-  }
-}"><pre><span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">decodeFromBlob</span><span class="pl-kos">(</span><span class="pl-s1">blob</span>: <span class="pl-smi">Blob</span><span class="pl-kos">)</span>: <span class="pl-smi">unknown</span> <span class="pl-kos">{</span>
-  <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">blob</span><span class="pl-kos">.</span><span class="pl-c1">stream</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-    <span class="pl-c">// Blob#stream(): ReadableStream&lt;Uint8Array&gt; (recommended)</span>
-    <span class="pl-k">return</span> <span class="pl-k">await</span> <span class="pl-en">decodeAsync</span><span class="pl-kos">(</span><span class="pl-s1">blob</span><span class="pl-kos">.</span><span class="pl-en">stream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
-    <span class="pl-c">// Blob#arrayBuffer(): Promise&lt;ArrayBuffer&gt; (if stream() is not available)</span>
-    <span class="pl-k">return</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-k">await</span> <span class="pl-s1">blob</span><span class="pl-kos">.</span><span class="pl-en">arrayBuffer</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-kos">}</span>
-<span class="pl-kos">}</span></pre></div>
-<h6 dir="auto">
-<a id="user-content-messagepack-specification" class="anchor" aria-hidden="true" href="#messagepack-specification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack Specification</h6>
-<p dir="auto">This library is compatible with the "August 2017" revision of MessagePack specification at the point where timestamp ext was added:</p>
-<ul class="contains-task-list">
-<li class="task-list-item">
-<input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> str/bin separation, added at August 2013</li>
-<li class="task-list-item">
-<input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> extension types, added at August 2013</li>
-<li class="task-list-item">
-<input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> timestamp ext type, added at August 2017</li>
-</ul>
-<p dir="auto">The living specification is here:</p>
-<p dir="auto"><a href="https://github.com/msgpack/msgpack">https://github.com/msgpack/msgpack</a></p>
-<p dir="auto">Note that as of June 2019 there're no official "version" on the MessagePack specification. See <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="67553770" data-permission-text="Title is private" data-url="https://github.com/msgpack/msgpack/issues/195" data-hovercard-type="issue" data-hovercard-url="/msgpack/msgpack/issues/195/hovercard" href="https://github.com/msgpack/msgpack/issues/195">msgpack/msgpack#195</a> for the discussions.</p>
-<h7 dir="auto">
-<a id="user-content-messagepack-mapping-table" class="anchor" aria-hidden="true" href="#messagepack-mapping-table"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack Mapping Table</h7>
-<p dir="auto">The following table shows how JavaScript values are mapped to <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack formats</a> and vice versa.</p>
-<table>
-<thead>
-<tr>
-<th>Source Value</th>
-<th>MessagePack Format</th>
-<th>Value Decoded</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>null, undefined</td>
-<td>nil</td>
-<td>null (*1)</td>
-</tr>
-<tr>
-<td>boolean (true, false)</td>
-<td>bool family</td>
-<td>boolean (true, false)</td>
-</tr>
-<tr>
-<td>number (53-bit int)</td>
-<td>int family</td>
-<td>number (53-bit int)</td>
-</tr>
-<tr>
-<td>number (64-bit float)</td>
-<td>float family</td>
-<td>number (64-bit float)</td>
-</tr>
-<tr>
-<td>string</td>
-<td>str family</td>
-<td>string</td>
-</tr>
-<tr>
-<td>ArrayBufferView</td>
-<td>bin family</td>
-<td>Uint8Array (*2)</td>
-</tr>
-<tr>
-<td>Array</td>
-<td>array family</td>
-<td>Array</td>
-</tr>
-<tr>
-<td>Object</td>
-<td>map family</td>
-<td>Object (*3)</td>
-</tr>
-<tr>
-<td>Date</td>
-<td>timestamp ext family</td>
-<td>Date (*4)</td>
-</tr>
-</tbody>
-</table>
-<ul dir="auto">
-<li>*1 Both <code>null</code> and <code>undefined</code> are mapped to <code>nil</code> (<code>0xC0</code>) type, and are decoded into <code>null</code>
-</li>
-<li>*2 Any <code>ArrayBufferView</code>s including NodeJS's <code>Buffer</code> are mapped to <code>bin</code> family, and are decoded into <code>Uint8Array</code>
-</li>
-<li>*3 In handling <code>Object</code>, it is regarded as <code>Record&lt;string, unknown&gt;</code> in terms of TypeScript</li>
-<li>*4 MessagePack timestamps may have nanoseconds, which will lost when it is decoded into JavaScript <code>Date</code>. This behavior can be overridden by registering <code>-1</code> for the extension codec.</li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-prerequisites" class="anchor" aria-hidden="true" href="#prerequisites"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Prerequisites</h6>
-<p dir="auto">This is a universal JavaScript library that supports major browsers and NodeJS.</p>
-<h7 dir="auto">
-<a id="user-content-ecma-262" class="anchor" aria-hidden="true" href="#ecma-262"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ECMA-262</h7>
-<ul dir="auto">
-<li>ES5 language features</li>
-<li>ES2018 standard library, including:
-<ul dir="auto">
-<li>Typed arrays (ES2015)</li>
-<li>Async iterations (ES2018)</li>
-<li>Features added in ES2015-ES2018</li>
-</ul>
-</li>
-</ul>
-<p dir="auto">ES2018 standard library used in this library can be polyfilled with <a href="https://github.com/zloirock/core-js">core-js</a>.</p>
-<p dir="auto">If you support IE11, import <code>core-js</code> in your application entrypoints, as this library does in testing for browsers.</p>
-<h7 dir="auto">
-<a id="user-content-nodejs" class="anchor" aria-hidden="true" href="#nodejs"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>NodeJS</h7>
-<p dir="auto">NodeJS v10 is required, but NodeJS v12 or later is recommended because it includes the V8 feature of <a href="https://v8.dev/blog/dataview" rel="nofollow">Improving DataView performance in V8</a>.</p>
-<p dir="auto">NodeJS before v10 will work by importing <code>@msgpack/msgpack/dist.es5+umd/msgpack</code>.</p>
-<h7 dir="auto">
-<a id="user-content-typescript-compiler--type-definitions" class="anchor" aria-hidden="true" href="#typescript-compiler--type-definitions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>TypeScript Compiler / Type Definitions</h7>
-<p dir="auto">This module requires type definitions of <code>AsyncIterator</code>, <code>SourceBuffer</code>, whatwg streams, and so on. They are provided by <code>"lib": ["ES2021", "DOM"]</code> in <code>tsconfig.json</code>.</p>
-<p dir="auto">Regarding the TypeScript compiler version, only the latest TypeScript is tested in development.</p>
-<h6 dir="auto">
-<a id="user-content-benchmark" class="anchor" aria-hidden="true" href="#benchmark"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Benchmark</h6>
-<p dir="auto">Run-time performance is not the only reason to use MessagePack, but it's important to choose MessagePack libraries, so a benchmark suite is provided to monitor the performance of this library.</p>
-<p dir="auto">V8's built-in JSON has been improved for years, esp. <code>JSON.parse()</code> is <a href="https://v8.dev/blog/v8-release-76" rel="nofollow">significantly improved in V8/7.6</a>, it is the fastest deserializer as of 2019, as the benchmark result bellow suggests.</p>
-<p dir="auto">However, MessagePack can handles binary data effectively, actual performance depends on situations. You'd better take benchmark on your own use-case if performance matters.</p>
-<p dir="auto">Benchmark on NodeJS/v18.1.0 (V8/10.1)</p>
-<table>
-<thead>
-<tr>
-<th>operation</th>
-<th align="right">op</th>
-<th align="right">ms</th>
-<th align="right">op/s</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>buf = Buffer.from(JSON.stringify(obj));</td>
-<td align="right">902100</td>
-<td align="right">5000</td>
-<td align="right">180420</td>
-</tr>
-<tr>
-<td>obj = JSON.parse(buf.toString("utf-8"));</td>
-<td align="right">898700</td>
-<td align="right">5000</td>
-<td align="right">179740</td>
-</tr>
-<tr>
-<td>buf = require("msgpack-lite").encode(obj);</td>
-<td align="right">411000</td>
-<td align="right">5000</td>
-<td align="right">82200</td>
-</tr>
-<tr>
-<td>obj = require("msgpack-lite").decode(buf);</td>
-<td align="right">246200</td>
-<td align="right">5001</td>
-<td align="right">49230</td>
-</tr>
-<tr>
-<td>buf = require("@msgpack/msgpack").encode(obj);</td>
-<td align="right">843300</td>
-<td align="right">5000</td>
-<td align="right">168660</td>
-</tr>
-<tr>
-<td>obj = require("@msgpack/msgpack").decode(buf);</td>
-<td align="right">489300</td>
-<td align="right">5000</td>
-<td align="right">97860</td>
-</tr>
-<tr>
-<td>buf = /* @msgpack/msgpack */ encoder.encode(obj);</td>
-<td align="right">1154200</td>
-<td align="right">5000</td>
-<td align="right">230840</td>
-</tr>
-<tr>
-<td>obj = /* @msgpack/msgpack */ decoder.decode(buf);</td>
-<td align="right">448900</td>
-<td align="right">5000</td>
-<td align="right">89780</td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">Note that <code>JSON</code> cases use <code>Buffer</code> to emulate I/O where a JavaScript string must be converted into a byte array encoded in UTF-8, whereas MessagePack modules deal with byte arrays.</p>
-<h6 dir="auto">
-<a id="user-content-distribution" class="anchor" aria-hidden="true" href="#distribution"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Distribution</h6>
-<h7 dir="auto">
-<a id="user-content-npm--npmjscom" class="anchor" aria-hidden="true" href="#npm--npmjscom"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>NPM / npmjs.com</h7>
-<p dir="auto">The NPM package distributed in npmjs.com includes both ES2015+ and ES5 files:</p>
-<ul dir="auto">
-<li>
-<code>dist/</code> is compiled into ES2019 with CommomJS, provided for NodeJS v10</li>
-<li>
-<code>dist.es5+umd/</code> is compiled into ES5 with UMD
-<ul dir="auto">
-<li>
-<code>dist.es5+umd/msgpack.min.js</code> - the minified file</li>
-<li>
-<code>dist.es5+umd/msgpack.js</code> - the non-minified file</li>
-</ul>
-</li>
-<li>
-<code>dist.es5+esm/</code> is compiled into ES5 with ES modules, provided for webpack-like bundlers and NodeJS's ESM-mode</li>
-</ul>
-<p dir="auto">If you use NodeJS and/or webpack, their module resolvers use the suitable one automatically.</p>
-<h7 dir="auto">
-<a id="user-content-cdn--unpkgcom" class="anchor" aria-hidden="true" href="#cdn--unpkgcom"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>CDN / unpkg.com</h7>
-<p dir="auto">This library is available via CDN:</p>
-<div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;script crossorigin src="https://unpkg.com/@msgpack/msgpack"&gt;&lt;/script&gt;'><pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">crossorigin</span> <span class="pl-c1">src</span>="<span class="pl-s">https://unpkg.com/@msgpack/msgpack</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
-<p dir="auto">It loads <code>MessagePack</code> module to the global object.</p>
-<h6 dir="auto">
-<a id="user-content-deno-support" class="anchor" aria-hidden="true" href="#deno-support"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deno Support</h6>
-<p dir="auto">You can use this module on Deno.</p>
-<p dir="auto">See <code>example/deno-*.ts</code> for examples.</p>
-<p dir="auto"><code>deno.land/x</code> is not supported yet.</p>
-<h6 dir="auto">
-<a id="user-content-maintenance" class="anchor" aria-hidden="true" href="#maintenance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Maintenance</h6>
-<h7 dir="auto">
-<a id="user-content-testing" class="anchor" aria-hidden="true" href="#testing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Testing</h7>
-<p dir="auto">For simple testing:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="npm run test"><pre class="notranslate"><code>npm run test
-</code></pre></div>
-<h7 dir="auto">
-<a id="user-content-continuous-integration" class="anchor" aria-hidden="true" href="#continuous-integration"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Continuous Integration</h7>
-<p dir="auto">This library uses Travis CI.</p>
-<p dir="auto">test matrix:</p>
-<ul dir="auto">
-<li>TypeScript targets
-<ul dir="auto">
-<li>
-<code>target=es2019</code> / <code>target=es5</code>
-</li>
-</ul>
-</li>
-<li>JavaScript engines
-<ul dir="auto">
-<li>NodeJS, browsers (Chrome, Firefox, Safari, IE11, and so on)</li>
-</ul>
-</li>
-</ul>
-<p dir="auto">See <a href="/msgpack/msgpack-javascript/blob/main/package.json">test:* in package.json</a> and <a href="/msgpack/msgpack-javascript/blob/main/.travis.yml">.travis.yml</a> for details.</p>
-<h7 dir="auto">
-<a id="user-content-release-engineering" class="anchor" aria-hidden="true" href="#release-engineering"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Release Engineering</h7>
-<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# run tests on NodeJS, Chrome, and Firefox
-make test-all
-
-# edit the changelog
-code CHANGELOG.md
-
-# bump version
-npm version patch|minor|major
-
-# run the publishing task
-make publish"><pre># <span class="pl-s1">run tests on NodeJS, Chrome, and Firefox</span>
-<span class="pl-c1">make test-all</span>
-
-# <span class="pl-s1">edit the changelog</span>
-<span class="pl-c1">code CHANGELOG.md</span>
-
-# <span class="pl-s1">bump version</span>
-<span class="pl-c1">npm version patch|minor|major</span>
-
-# <span class="pl-s1">run the publishing task</span>
-<span class="pl-c1">make publish</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-updating-dependencies" class="anchor" aria-hidden="true" href="#updating-dependencies"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Updating Dependencies</h7>
-<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="npm run update-dependencies"><pre><span class="pl-c1">npm run update-dependencies</span></pre></div>
-<h6 dir="auto">
-<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
-<p dir="auto">Copyright 2019 The MessagePack community.</p>
-<p dir="auto">This software uses the ISC license:</p>
-<p dir="auto"><a href="https://opensource.org/licenses/ISC" rel="nofollow">https://opensource.org/licenses/ISC</a></p>
-<p dir="auto">See <a href="/msgpack/msgpack-javascript/blob/main/LICENSE">LICENSE</a> for details.</p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-kawanet-msgpack-lite" class="qs"><h4><a href="https://www.npmjs.com/package/msgpack-lite" target="_blank">kawanet/msgpack-lite <span class="qs-url">https://www.npmjs.com/package/msgpack-lite</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -10895,6 +9939,114 @@ var deserializedData = msgpack.deserialize(bytes);'><pre><span class="pl-c">// D
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto"><a href="https://github.com/ygoe/msgpack.js/blob/master/LICENSE">MIT license</a></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-textbook-express-msgpack" class="qs"><h4><a href="https://www.npmjs.com/package/express-msgpack" target="_blank">textbook/express-msgpack <span class="qs-url">https://www.npmjs.com/package/express-msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-express-msgpack" class="anchor" aria-hidden="true" href="#express-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Express Msgpack</h5>
+<p dir="auto"><a href="https://github.com/textbook/express-msgpack/blob/main/LICENSE"><img src="https://camo.githubusercontent.com/28a52d97d003af7a519d58854679b1abacfa8f71a7da509c0b2e7c708c637cbe/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f74657874626f6f6b2f657870726573732d6d73677061636b2e737667" alt="License" data-canonical-src="https://img.shields.io/github/license/textbook/express-msgpack.svg" style="max-width: 100%;"></a>
+<a href="https://github.com/textbook/express-msgpack/actions"><img src="https://github.com/textbook/express-msgpack/workflows/Node.js%20CI/badge.svg?branch=main" alt="Build Status" style="max-width: 100%;"></a>
+<a href="https://codeclimate.com/github/textbook/express-msgpack/test_coverage" rel="nofollow"><img src="https://camo.githubusercontent.com/d9a4eda6e027e26699f57da9904835df16aa59505a4b9b31ef033458cec987fa/68747470733a2f2f6170692e636f6465636c696d6174652e636f6d2f76312f6261646765732f65396138323065613737613031633162613862622f746573745f636f766572616765" alt="Test Coverage" data-canonical-src="https://api.codeclimate.com/v1/badges/e9a820ea77a01c1ba8bb/test_coverage" style="max-width: 100%;"></a>
+<a href="https://codeclimate.com/github/textbook/express-msgpack/maintainability" rel="nofollow"><img src="https://camo.githubusercontent.com/74bdd14659f68722fa77fa4ab069c7ef0203ef1cc160ef1fc93400ff20ffdb71/68747470733a2f2f6170692e636f6465636c696d6174652e636f6d2f76312f6261646765732f65396138323065613737613031633162613862622f6d61696e7461696e6162696c697479" alt="Maintainability" data-canonical-src="https://api.codeclimate.com/v1/badges/e9a820ea77a01c1ba8bb/maintainability" style="max-width: 100%;"></a>
+<a href="https://www.npmjs.com/package/express-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/acaa9bfeeb2183b6e2c0cdd66911caf939b5aa9421f27a7bda8cb4bd7ae64a54/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f657870726573732d6d73677061636b2e737667" alt="NPM Version" data-canonical-src="https://img.shields.io/npm/v/express-msgpack.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://expressjs.com/" rel="nofollow">Express</a> and <a href="https://msgpack.org/" rel="nofollow">MessagePack</a>, together at last. Uses <a href="https://www.npmjs.com/package/@msgpack/msgpack" rel="nofollow"><code>@msgpack/msgpack</code></a> by default.</p>
+<h6 dir="auto">
+<a id="user-content-functionality" class="anchor" aria-hidden="true" href="#functionality"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Functionality</h6>
+<p dir="auto">Provides transparent middleware that can be used to support clients requesting
+<code>Accept: application/msgpack</code> from endpoints using <code>res.json</code> or sending
+<code>Content-Type: application/msgpack</code> to any endpoint. You can continue to use
+<code>req.body</code> and <code>res.json</code> and <code>expressMsgpack</code> will handle the conversion in
+the background using <code>@msgpack/msgpack</code> (or any compatible library of your
+choice).</p>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ npm install --save express-msgpack
+// or
+$ yarn add express-msgpack"><pre>$ npm install --save express-msgpack
+// or
+$ yarn add express-msgpack</pre></div>
+<p dir="auto">If you intend to use an alternative to <code>@msgpack/msgpack</code> (see Configuration)
+you can add the <code>--no-optional</code> flag; it's an optional dependency.</p>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import msgpack from "express-msgpack";
+
+// ...
+app.use(msgpack());'><pre><span class="pl-k">import</span> <span class="pl-s1">msgpack</span> <span class="pl-k">from</span> <span class="pl-s">"express-msgpack"</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// ...</span>
+<span class="pl-s1">app</span><span class="pl-kos">.</span><span class="pl-en">use</span><span class="pl-kos">(</span><span class="pl-en">msgpack</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-configuration" class="anchor" aria-hidden="true" href="#configuration"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Configuration</h6>
+<p dir="auto">To configure, pass options when you configure the middleware. Currently supported options are:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>decoder</code></td>
+<td>a function converting from MessagePack to JavaScript</td>
+<td><code>@msgpack/msgpack#decode</code></td>
+</tr>
+<tr>
+<td><code>encoder</code></td>
+<td>a function converting from JavaScript to MessagePack</td>
+<td>
+<code>@msgpack/msgpack#encode</code> (with a wrapper to convert the result to a Buffer)</td>
+</tr>
+<tr>
+<td><code>mimeType</code></td>
+<td>the MIME type to detect and set for MessagePack payloads</td>
+<td><code>"application/msgpack"</code></td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">For example, to switch to the node-gyp C++ based <a href="https://www.npmjs.com/package/msgpack" rel="nofollow">msgpack</a> library:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import msgpack from "express-msgpack";
+import { pack, unpack } from "msgpack";
+
+// ...
+app.use(msgpack({ decoder: unpack, encoder: pack }));'><pre><span class="pl-k">import</span> <span class="pl-s1">msgpack</span> <span class="pl-k">from</span> <span class="pl-s">"express-msgpack"</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">pack</span><span class="pl-kos">,</span> <span class="pl-s1">unpack</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"msgpack"</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// ...</span>
+<span class="pl-s1">app</span><span class="pl-kos">.</span><span class="pl-en">use</span><span class="pl-kos">(</span><span class="pl-en">msgpack</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">decoder</span>: <span class="pl-s1">unpack</span><span class="pl-kos">,</span> <span class="pl-c1">encoder</span>: <span class="pl-s1">pack</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-development" class="anchor" aria-hidden="true" href="#development"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Development</h6>
+<p dir="auto">The project has code linting and testing, using the following commands:</p>
+<ul dir="auto">
+<li>
+<code>npm run e2e</code>: run the smoke/E2E tests</li>
+<li>
+<code>npm run lint</code>: run the ESLint checks</li>
+<li>
+<code>npm run ship</code>: lint and run unit, integration and E2E tests</li>
+<li>
+<code>npm test</code>: run the Jest unit and integration tests</li>
+<li>
+<code>npm test:watch</code>: run the tests in watch mode</li>
+</ul>
+<p dir="auto">The tests are in the <code>__tests__/</code> directory and are run using <a href="https://jestjs.io/" rel="nofollow">Jest</a>. They're
+split into two files:</p>
+<ul dir="auto">
+<li>
+<code>unit.test.ts</code> - mockist unit tests, to check specific internal details</li>
+<li>
+<code>integration.test.ts</code> - integration tests using <a href="https://github.com/visionmedia/supertest">SuperTest</a> with a simple
+Express app using the middleware</li>
+</ul>
+<p dir="auto">There is also a <code>smoke/</code> directory containing E2E/smoke tests for a deployed
+version of the package, used by <code>bin/smoke.sh</code>. If the <code>--local</code> argument is
+supplied to the script the local version is packaged and tested , otherwise
+the specified <code>$TAG</code> version is installed from the registry and tested.</p>
 </article>
   </div>
         </div>
@@ -12375,6 +11527,53 @@ If you are using ProGuard you might need to add the following options:</p>
 <a id="user-content-retrofit" class="anchor" aria-hidden="true" href="#retrofit"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Retrofit</h6>
 <p dir="auto">An example of using the retorfit adapter can be found here:
 <a href="https://github.com/davethomas11/MoshiPack_AndroidAppExample">https://github.com/davethomas11/MoshiPack_AndroidAppExample</a></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-kropp-kotlinx-serialization-msgpack" class="qs"><h4><a href="https://github.com/kropp/kotlinx.serialization.msgpack" target="_blank">kropp/kotlinx.serialization.msgpack <span class="qs-url">https://github.com/kropp/kotlinx.serialization.msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-kotlin-serialization-messagepack-library" class="anchor" aria-hidden="true" href="#kotlin-serialization-messagepack-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Kotlin Serialization MessagePack library</h5>
+<p dir="auto">This library extends <a href="https://github.com/Kotlin/kotlinx.serialization/">kotlinx.serialization</a> framework to support
+<a href="https://msgpack.org/" rel="nofollow">MessagePack</a> format.</p>
+<h6 dir="auto">
+<a id="user-content-implementation-details" class="anchor" aria-hidden="true" href="#implementation-details"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementation details</h6>
+<p dir="auto">When multiple equivalent encodings exist, the shortest (in terms of number of bytes) is used.
+Decoders decode any format and convert it to a required type (possibly loosing precision or significant higher digits)</p>
+<p dir="auto">Thus, not for any input decoding and encoding back will produce the exact same byte array. However, for any <code>@Serializable</code> class
+encoding and decoding should result in the equivalent instance.</p>
+<h6 dir="auto">
+<a id="user-content-current-limitations" class="anchor" aria-hidden="true" href="#current-limitations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Current Limitations</h6>
+<ul dir="auto">
+<li>Only JVM is supported as of now</li>
+<li>Unsigned integers can't be encoded because kotlinx.serialization framework <a href="https://github.com/Kotlin/kotlinx.serialization/issues/259" data-hovercard-type="issue" data-hovercard-url="/Kotlin/kotlinx.serialization/issues/259/hovercard">doesn't support <code>inline</code> classes</a> (yet)</li>
+<li>MessagePack extensions are not supported</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-verification" class="anchor" aria-hidden="true" href="#verification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Verification</h6>
+<p dir="auto">The implementation is tested against <a href="https://github.com/kawanet/msgpack-test-suite/">https://github.com/kawanet/msgpack-test-suite/</a></p>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import com.github.kropp.messagepack.MessagePack
+
+@Serializable
+data class Demo(val compact: Boolean, val schema: Int)
+
+val bytes = byteArrayOf(0x82.toByte(), 0xA7.toByte(), 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3.toByte(), 0xA6.toByte(), 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00)
+val demo = MessagePack.decode(Demo.serializer(), bytes)
+
+assertEquals(demo.compact, true)
+assertEquals(demo.schema, 0)"><pre><span class="pl-k">import</span> <span class="pl-smi">com.github.kropp.messagepack.MessagePack</span>
+
+@Serializable
+<span class="pl-k">data class</span> <span class="pl-en">Demo</span>(<span class="pl-k">val</span> <span class="pl-smi">compact</span><span class="pl-k">:</span> <span class="pl-c1">Boolean</span>, <span class="pl-k">val</span> <span class="pl-smi">schema</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>)
+
+<span class="pl-k">val</span> bytes <span class="pl-k">=</span> byteArrayOf(<span class="pl-c1">0x82</span>.toByte(), <span class="pl-c1">0xA7</span>.toByte(), <span class="pl-c1">0x63</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x70</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0xC3</span>.toByte(), <span class="pl-c1">0xA6</span>.toByte(), <span class="pl-c1">0x73</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x00</span>)
+<span class="pl-k">val</span> demo <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.decode(<span class="pl-en">Demo</span>.serializer(), bytes)
+
+assertEquals(demo.compact, <span class="pl-c1">true</span>)
+assertEquals(demo.schema, <span class="pl-c1">0</span>)</pre></div>
 </article>
   </div>
         </div>
@@ -13894,6 +13093,87 @@ app.get('/test_msgpack', (req, res) =&gt; {
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto">msgpack-response is available under the MIT license. See the <a href="/sschizas/msgpack-response/blob/master/LICENSE.md">LICENSE</a> file for more info.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack-for-ocaml" class="anchor" aria-hidden="true" href="#msgpack-for-ocaml"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack for OCaml</h5>
+<h6 dir="auto">
+<a id="user-content-bulid" class="anchor" aria-hidden="true" href="#bulid"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>BULID</h6>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ make
+$ sudo make install"><pre>$ make
+$ sudo make install</pre></div>
+<h6 dir="auto">
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>EXAMPLE</h6>
+<h7 dir="auto">
+<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" aria-hidden="true" href="#serializedeserialize-for-msgpack-object"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize/Deserialize for Msgpack Object</h7>
+<div class="highlight highlight-source-ocaml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(* serialize *)
+let bytes = 
+  Msgpack.Serialize.serialize_string (`FixArray [`PFixnum 1; `PFixnum 2; `PFixnum 3])
+
+(* deserialize *)
+let obj =
+  Msgpack.Serialize.deserialize_string bytes"><pre><span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
+
+<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
+<h7 dir="auto">
+<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" aria-hidden="true" href="#serializedeserialize-for-ocaml-types-with-meta_conv"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
+<div class="highlight highlight-source-ocaml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='open Msgpack_conv
+
+type t = {
+  int : int;
+  str : string;
+} with conv(msgpack)
+
+(* serialize *)
+let bytes = 
+  Msgpack.Serialize.serialize_string (msgpack_of_t { int = 42; str = "ans" })
+
+(* deserialize *)
+let obj =
+  t_of_msgpack (Msgpack.Serialize.deserialize_string bytes)'><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
+
+<span class="pl-k">type</span> <span class="pl-k">t </span>= {
+  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
+  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
+} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
+
+<span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
+
+<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
+<p dir="auto">See also, <code>examlpe/</code></p>
+<h6 dir="auto">
+<a id="user-content-development" class="anchor" aria-hidden="true" href="#development"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>DEVELOPMENT</h6>
+<p dir="auto">Setup development enviroment with docker:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ docker-compose build
+$ docker-compose run app"><pre>$ docker-compose build
+$ docker-compose run app</pre></div>
+<h6 dir="auto">
+<a id="user-content-test" class="anchor" aria-hidden="true" href="#test"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>TEST</h6>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ ocaml setup.ml -configure --enable-tests
+$ make test"><pre>$ ocaml setup.ml -configure --enable-tests
+$ make <span class="pl-c1">test</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-proof" class="anchor" aria-hidden="true" href="#proof"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>PROOF</h6>
+<p dir="auto">If you want to use msgpack at OCaml, you need not do this section.
+This section for user intrested in formal verification.</p>
+<p dir="auto">You need Coq 8.4 and omake.</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ cd proof
+$ make
+$ cp *.ml* ../lib/core"><pre>$ <span class="pl-c1">cd</span> proof
+$ make
+$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
 </article>
   </div>
         </div>
@@ -19509,57 +18789,21 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
   </div>
         </div>
         
-        <div id="qs-a2-MessagePack-swift" class="qs"><h4><a href="https://github.com/a2/MessagePack.swift" target="_blank">a2/MessagePack.swift <span class="qs-url">https://github.com/a2/MessagePack.swift</span></a></h4>
+        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-messagepackswift" class="anchor" aria-hidden="true" href="#messagepackswift"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack.swift</h5>
-<p dir="auto"><a href="http://cocoapods.org/pods/MessagePack.swift" rel="nofollow"><img src="https://camo.githubusercontent.com/518ad14a87e94fdd7011ed95ab3d8a6f84deb05c094f36b36175c9ec415e80f0/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f762f4d6573736167655061636b2e73776966742e7376673f7374796c653d666c6174" alt="Version" data-canonical-src="https://img.shields.io/cocoapods/v/MessagePack.swift.svg?style=flat" style="max-width: 100%;"></a>
-<a href="http://cocoapods.org/pods/MessagePack.swift" rel="nofollow"><img src="https://camo.githubusercontent.com/1f08238ceaeb6ad6b379da2c3840eec1f5a06f932115ff67e69604feec292b2f/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f6c2f4d6573736167655061636b2e73776966742e7376673f7374796c653d666c6174" alt="License" data-canonical-src="https://img.shields.io/cocoapods/l/MessagePack.swift.svg?style=flat" style="max-width: 100%;"></a>
-<a href="http://cocoapods.org/pods/MessagePack.swift" rel="nofollow"><img src="https://camo.githubusercontent.com/094fa6bb9d8eea7480a9e8a37b832a81ffbe842c4126c138fb23ded1c425ad8f/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f702f4d6573736167655061636b2e73776966742e7376673f7374796c653d666c6174" alt="Platform" data-canonical-src="https://img.shields.io/cocoapods/p/MessagePack.swift.svg?style=flat" style="max-width: 100%;"></a></p>
-<p dir="auto">A fast, zero-dependency MessagePack implementation written in Swift 4. Supports Apple platforms and Linux.</p>
-<h6 dir="auto">
-<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
-<h7 dir="auto">
-<a id="user-content-cocoapods" class="anchor" aria-hidden="true" href="#cocoapods"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>CocoaPods</h7>
-<p dir="auto">To use CocoaPods, add the following to your Podfile:</p>
-<div class="highlight highlight-source-ruby notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pod 'MessagePack.swift', '~&gt; 4.0'"><pre><span class="pl-en">pod</span> <span class="pl-s">'MessagePack.swift'</span><span class="pl-kos">,</span> <span class="pl-s">'~&gt; 4.0'</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-carthage" class="anchor" aria-hidden="true" href="#carthage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Carthage</h7>
-<p dir="auto">To use Carthage, add the following to your Cartfile:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='github "a2/MessagePack.swift" ~&gt; 4.0'><pre lang="ogdl" class="notranslate"><code>github "a2/MessagePack.swift" ~&gt; 4.0
-</code></pre></div>
-<h7 dir="auto">
-<a id="user-content-spm-swift-package-manager" class="anchor" aria-hidden="true" href="#spm-swift-package-manager"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SPM (Swift Package Manager)</h7>
-<p dir="auto">You can easily integrate MessagePack.swift in your app with SPM. Just add MessagePack.swift as a dependency:</p>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import PackageDescription
-
-let package = Package(
-    name: "MyAwesomeApp",
-    dependencies: [
-        .Package(url: "https://github.com/a2/MessagePack.swift.git", majorVersion: 4),
-    ]
-)'><pre><span class="pl-k">import</span> <span class="pl-en">PackageDescription</span>
-
-<span class="pl-k">let</span> package <span class="pl-k">=</span> <span class="pl-c1">Package</span>(
-    <span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>MyAwesomeApp<span class="pl-pds">"</span></span>,
-    <span class="pl-c1">dependencies</span>: [
-        .<span class="pl-c1">Package</span>(<span class="pl-c1">url</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/a2/MessagePack.swift.git<span class="pl-pds">"</span></span>, <span class="pl-c1">majorVersion</span>: <span class="pl-c1">4</span>),
-    ]
-)</pre></div>
-<h6 dir="auto">
-<a id="user-content-version" class="anchor" aria-hidden="true" href="#version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Version</h6>
+<a id="user-content-swiftpack" class="anchor" aria-hidden="true" href="#swiftpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SwiftPack</h5>
+<p dir="auto">SwiftPack is MessagePack packer and unpacker written almost entirely in Swift.</p>
+<h5 dir="auto">
+<a id="user-content-issues" class="anchor" aria-hidden="true" href="#issues"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Issues</h5>
 <ul dir="auto">
-<li>Versions 4.x support Swift 5.2.</li>
-<li>Versions 3.x support Swift 4.</li>
-<li>Support for Swift 3 was dropped after <a href="https://github.com/a2/MessagePack.swift/releases/tag/2.1.1">2.1.1</a>.</li>
-<li>Support for Swift 2 was dropped after <a href="https://github.com/a2/MessagePack.swift/releases/tag/1.2.0">1.2.0</a>.</li>
+<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures.</li>
+<li>Maps currently only support String types for keys.</li>
 </ul>
-<h6 dir="auto">
-<a id="user-content-authors" class="anchor" aria-hidden="true" href="#authors"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Authors</h6>
-<p dir="auto">Alexsander Akers, <a href="mailto:me@a2.io">me@a2.io</a></p>
-<h6 dir="auto">
-<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
-<p dir="auto">MessagePack.swift is available under the MIT license. See the LICENSE file for more info.</p>
+<h5 dir="auto">
+<a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Copyright and License</h5>
+<p dir="auto">Copyright (c) 2014 Brian Williams</p>
+<p dir="auto">This software is licensed under the terms of the MIT license.</p>
 </article>
   </div>
         </div>
@@ -20033,6 +19277,310 @@ print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k"
 <span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">UInt8</span>.<span class="pl-k">self</span>)
 <span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">Double</span>.<span class="pl-k">self</span>)
 <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">"</span>decoded manually: <span class="pl-pse">\(</span><span class="pl-s1">string</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">int</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">double</span><span class="pl-pse"><span class="pl-s1">)</span></span><span class="pl-pds">"</span></span>)</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-samclaus-msgpack-ts" class="qs"><h4><a href="https://msgpack.org/" target="_blank">samclaus/msgpack-ts <span class="qs-url">https://msgpack.org/</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack-ts" class="anchor" aria-hidden="true" href="#msgpack-ts"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-ts</h5>
+<p dir="auto">Fast MessagePack implementation in TypeScript. Designed as a faster, smaller
+alternative to <code>msgpack-lite</code>. Both the <code>Encoder</code> and <code>Decoder</code> are quite
+configurable, but performance was prioritized with as little branching as
+possible.</p>
+<p dir="auto"><strong>TODO</strong></p>
+<ul dir="auto">
+<li>Add Closure-compiled browser distribution</li>
+<li>Add thorough tests</li>
+<li>Add benchmarks</li>
+</ul>
+<p dir="auto"><strong>You can optimize further</strong></p>
+<p dir="auto">If your MessagePack traffic contains many or large binary buffers, you may
+want to fork this repo and alter the <code>takeBinary(length)</code> method of the
+<code>Decoder</code> to use <code>this.buffer.subarray</code> in place of <code>this.buffer.slice</code>,
+because <code>Uint8Array.slice()</code> creates a copy of the bytes. This library
+assumes that your messages will not consist primarily of binary objects
+and thus it is undesirable to return subviews of the same buffer being
+decoded because they will hold references to the entire buffer that was
+decoded, likely keeping it in memory when it is not needed.</p>
+<h6 dir="auto">
+<a id="user-content-quick-start" class="anchor" aria-hidden="true" href="#quick-start"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quick Start</h6>
+<p dir="auto">For more information, read the <a href="#documentation">docs</a>.</p>
+<p dir="auto">Install the library via NPM: <code>npm i --save-dev msgpack-ts</code>.</p>
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode, decode, Decoder } from "msgpack-ts";
+
+/**
+ * Both x and y will be in range [0, 255].
+ */
+class Coordinate
+{
+    static encode(coord: Coordinate): Uint8Array
+    {
+        return new Uint8Array([coord.x, coord.y]);
+    }
+
+    static decode(data: Uint8Array): Coordinate
+    {
+        return new Coordinate(data[0], data[1]);
+    }
+
+    static backwardsDecode(data: Uint8Array): Coordinate
+    {
+        return new Coordinate(data[1], data[0]);
+    }
+
+    constructor(
+        readonly x: number,
+        readonly y: number
+    ) {}
+}
+
+function main()
+{
+    const message: SomeInterface = {
+        type: "add-user",
+        data: {
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 27,
+            female: true,
+            location: new Coordinate(10, 192),
+            username: "janedoe92",
+            passwordHash: new Uint8Array(32)
+        }
+    };
+
+    encode.encoder.registerExt(Coordinate, 0, Coordinate.encode);
+    decode.decoder.registerExt(0, Coordinate.decode);
+
+    // encode() uses the encode.encoder instance
+    const encoded = encode(message);
+
+    // decode() uses the decode.decoder instance
+    const decoded = decode&lt;SomeInterface&gt;(encoded);
+
+    // Create separate instances if you need multiple configurations
+    const myDecoder = new Decoder();
+    myDecoder.nilValue = undefined;
+    myDecoder.allowInvalidUTF8 = true;
+    myDecoder.allowUnknownExts = true;
+    myDecoder.registerExt(0, Coordinate.backwardsDecode);
+
+    // Both Encoder and Decoder support cloning instances
+    const slightlyDifferent = myDecoder.clone();
+    slighlyDifferent.nilValue = null;
+}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">Decoder</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"msgpack-ts"</span><span class="pl-kos">;</span>
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Both x and y will be in range [0, 255].</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">class</span> <span class="pl-smi">Coordinate</span>
+<span class="pl-kos">{</span>
+    <span class="pl-k">static</span> <span class="pl-c1">encode</span><span class="pl-kos">(</span><span class="pl-s1">coord</span>: <span class="pl-smi">Coordinate</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos"></span>
+    <span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Uint8Array</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-s1">coord</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">coord</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-en">static</span> <span class="pl-s1">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span>: <span class="pl-smi">Coordinate</span>
+    <span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-s1">static</span><span class="pl-kos"></span> <span class="pl-en">backwardsDecode</span><span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span>: <span class="pl-smi">Coordinate</span>
+    <span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-en">constructor</span><span class="pl-kos">(</span>
+        <span class="pl-s1">readonly</span> <span class="pl-s1">x</span>: number<span class="pl-kos">,</span>
+        <span class="pl-s1">readonly</span> <span class="pl-s1">y</span>: number
+    <span class="pl-kos">)</span><span class="pl-kos"></span> <span class="pl-kos">{</span><span class="pl-kos">}</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-k">function</span> <span class="pl-en">main</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
+<span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">message</span>: <span class="pl-smi">SomeInterface</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+        <span class="pl-c1">type</span>: <span class="pl-s">"add-user"</span><span class="pl-kos">,</span>
+        <span class="pl-c1">data</span>: <span class="pl-kos">{</span>
+            <span class="pl-c1">firstName</span>: <span class="pl-s">"Jane"</span><span class="pl-kos">,</span>
+            <span class="pl-c1">lastName</span>: <span class="pl-s">"Doe"</span><span class="pl-kos">,</span>
+            <span class="pl-c1">age</span>: <span class="pl-c1">27</span><span class="pl-kos">,</span>
+            <span class="pl-c1">female</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span>
+            <span class="pl-c1">location</span>: <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">192</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+            <span class="pl-c1">username</span>: <span class="pl-s">"janedoe92"</span><span class="pl-kos">,</span>
+            <span class="pl-c1">passwordHash</span>: <span class="pl-k">new</span> <span class="pl-smi">Uint8Array</span><span class="pl-kos">(</span><span class="pl-c1">32</span><span class="pl-kos">)</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span><span class="pl-kos">;</span>
+
+    <span class="pl-s1">encode</span><span class="pl-kos">.</span><span class="pl-c1">encoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-smi">Coordinate</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">encode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">decode</span><span class="pl-kos">.</span><span class="pl-c1">decoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">decode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// encode() uses the encode.encoder instance</span>
+    <span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">message</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// decode() uses the decode.decoder instance</span>
+    <span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">&lt;</span><span class="pl-smi">SomeInterface</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// Create separate instances if you need multiple configurations</span>
+    <span class="pl-k">const</span> <span class="pl-s1">myDecoder</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">Decoder</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">nilValue</span> <span class="pl-c1">=</span> <span class="pl-c1">undefined</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">allowInvalidUTF8</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">allowUnknownExts</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">backwardsDecode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// Both Encoder and Decoder support cloning instances</span>
+    <span class="pl-k">const</span> <span class="pl-s1">slightlyDifferent</span> <span class="pl-c1">=</span> <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-en">clone</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">slighlyDifferent</span><span class="pl-kos">.</span><span class="pl-c1">nilValue</span> <span class="pl-c1">=</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-documentation" class="anchor" aria-hidden="true" href="#documentation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Documentation</h6>
+<h7 dir="auto">
+<a id="user-content-class-encoder" class="anchor" aria-hidden="true" href="#class-encoder"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>class Encoder</code>
+</h7>
+<p dir="auto"><strong>static</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Encoder.global: Encoder</code></p>
+<p dir="auto">A global <code>Encoder</code> instance, purely for convenience.</p>
+</li>
+<li>
+<p dir="auto"><code>Encoder.encode(data: any, initBuffSize?: number): Uint8Array</code></p>
+<p dir="auto">Convenience function to call <code>Encoder.global.encode()</code>.</p>
+</li>
+</ul>
+<p dir="auto"><strong>constructor</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>new Encoder(reserve = 128)</code></p>
+<p dir="auto">Create a new <code>Encoder</code> instance. You may pass the number of bytes to
+allocate immediately as an encoding buffer, or it will default to <code>128</code>.</p>
+</li>
+</ul>
+<p dir="auto"><strong>instance</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Encoder.encode(data: any, reserve?: number): Uint8Array</code></p>
+<p dir="auto">Encode a JavaScript object or primitive to MessagePack format. You may provide a second argument
+to ensure that a certain number of bytes is allocated for the encoding buffer before encoding
+begins.</p>
+</li>
+<li>
+<p dir="auto"><code>Encoder.registerExt&lt;T&gt;(ctor: new (...args: any[]) =&gt; T, type: number, encoderFn: (data: T) =&gt; Uint8Array)</code></p>
+<p dir="auto">Register an encoder for an object class. <code>type</code> MUST be in the range <code>[-128, 127]</code> or a <code>RangeError</code>
+will be thrown. Negative types are reserved by the MessagePack spec and SHOULD not be used, unless
+this library does not provide an extension added to the spec or the implementation is found to be
+inadequate.</p>
+<p dir="auto"><strong>Standard Extensions Registered By Default</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>-1 (Timestamp)</code></p>
+<p dir="auto">JavaScript <code>Date</code> objects will be encoded using the standard <code>Timestamp</code> extension type, unless
+overriden.</p>
+</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><code>Encoder.resize(newSize: number)</code></p>
+<p dir="auto">Release the current encoding buffer and allocate a new one of <code>newSize</code> bytes.</p>
+</li>
+<li>
+<p dir="auto"><code>Encoder.clone(): Encoder</code></p>
+<p dir="auto">Creates an independent clone of the <code>Encoder</code> with the same
+configuration values and registered extensions.</p>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-class-decoder" class="anchor" aria-hidden="true" href="#class-decoder"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>class Decoder</code>
+</h7>
+<p dir="auto"><strong>static</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Decoder.global: Decoder</code></p>
+<p dir="auto">A global <code>Decoder</code> instance, purely for convenience.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.decode&lt;T = any&gt;(data: ArrayBuffer | Uint8Array): T</code></p>
+<p dir="auto">Convenience function to call <code>Decoder.global.decode()</code>.</p>
+</li>
+</ul>
+<p dir="auto"><strong>constructor</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>new Decoder()</code></p>
+<p dir="auto">Creates a new <code>Decoder</code> instance.</p>
+</li>
+</ul>
+<p dir="auto"><strong>instance</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Decoder.nilValue: null | undefined = null</code></p>
+<p dir="auto">Value the MessagePack <code>nil</code> constant should be interpreted as.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.allowInvalidUTF8 = false</code></p>
+<p dir="auto">If false, an error will be thrown if a MessagePack <code>str</code> type is
+encountered and the data is not valid UTF-8. If true, the <code>str</code>
+data will be passed through opaquely as a <code>Uint8Array</code>.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.allowUnknownExts = false</code></p>
+<p dir="auto">If false, a <code>RangeError</code> will be thrown whenever an unrecognized extension type is encountered. If
+true, the extension data will be passed through opaquely as a
+<a href="#interface-decoderunknownextseq"><code>Decoder.UnknownExt</code></a>.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.mapBehavior = Decoder.MapBehavior.PreferJSON</code></p>
+<p dir="auto">Determines how MessagePack <code>map</code> values are decoded. See
+<a href="#enum-decodermapbehavior"><code>Decoder.MapBehavior</code></a> for options.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.decode&lt;T = any&gt;(data: ArrayBuffer | Uint8Array): T</code></p>
+<p dir="auto">Decode MessagePack data into a JS object or primitive.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.clone(): Decoder</code></p>
+<p dir="auto">Creates an independent clone of the <code>Decoder</code> with the same
+configuration values and registered extensions.</p>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-interface-decoderunknownextseq" class="anchor" aria-hidden="true" href="#interface-decoderunknownextseq"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>interface Decoder.UnknownExtSeq</code>
+</h7>
+<p dir="auto">Opaque tuple of an extension type identifier and the raw data associated with it.</p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>type: number</code></p>
+<p dir="auto">The extension type which did not have a registered decoder.</p>
+</li>
+<li>
+<p dir="auto"><code>data: Uint8Array</code></p>
+<p dir="auto">The opaque data.</p>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-enum-decodermapbehavior" class="anchor" aria-hidden="true" href="#enum-decodermapbehavior"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>enum Decoder.MapBehavior</code>
+</h7>
+<p dir="auto">Determines <code>Decoder</code> behavior when a MessagePack <code>map</code> is encountered.</p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>PreferJSON = 0</code></p>
+<p dir="auto">Maps will be decoded as native JS objects, unless a key is decoded
+whose JS type evaluates to <code>object</code>, in which case all decoded keys
+will be abandoned and the map will be decoded from scratch into an
+ES6 Map which supports arbitrary key types.</p>
+</li>
+<li>
+<p dir="auto"><code>AlwaysJSON = 1</code></p>
+<p dir="auto">Maps will be always be decoded as native JS objects. This means all
+decoded keys will be coerced to strings, which is almost certainly
+undesirable if decoding maps with objects or arrays as keys.</p>
+</li>
+<li>
+<p dir="auto"><code>AlwaysES6Map = 2</code></p>
+<p dir="auto">Maps will always be decoded as ES6 Map objects.</p>
+</li>
+</ul>
 </article>
   </div>
         </div>
