@@ -286,8 +286,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kropp-kotlinx-serialization-msgpack',this)">Kotlin Serialization <span class="qs-sub">kropp</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-mradziwo-MsgPack_LabVIEW',this)">LabVIEW <span class="qs-sub">mradziwo</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-markstinson-lua-MessagePack',this)">Lua <span class="qs-sub">markstinson</span></a></li>
@@ -343,6 +341,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-eddelbuettel-rcppmsgpack',this)">R <span class="qs-sub">eddelbuettel</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-crowding-msgpack-r',this)">R <span class="qs-sub">crowding</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-msgpack-racket',this)">Racket <span class="qs-sub">HiPhish</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-owenthereal-msgpack_rails',this)">Rails <span class="qs-sub">owenthereal</span></a></li>
           
@@ -12969,53 +12969,6 @@ If you are using ProGuard you might need to add the following options:</p>
   </div>
         </div>
         
-        <div id="qs-kropp-kotlinx-serialization-msgpack" class="qs"><h4><a href="https://github.com/kropp/kotlinx.serialization.msgpack" target="_blank">kropp/kotlinx.serialization.msgpack <span class="qs-url">https://github.com/kropp/kotlinx.serialization.msgpack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-kotlin-serialization-messagepack-library" class="anchor" aria-hidden="true" href="#kotlin-serialization-messagepack-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Kotlin Serialization MessagePack library</h5>
-<p dir="auto">This library extends <a href="https://github.com/Kotlin/kotlinx.serialization/">kotlinx.serialization</a> framework to support
-<a href="https://msgpack.org/" rel="nofollow">MessagePack</a> format.</p>
-<h6 dir="auto">
-<a id="user-content-implementation-details" class="anchor" aria-hidden="true" href="#implementation-details"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementation details</h6>
-<p dir="auto">When multiple equivalent encodings exist, the shortest (in terms of number of bytes) is used.
-Decoders decode any format and convert it to a required type (possibly loosing precision or significant higher digits)</p>
-<p dir="auto">Thus, not for any input decoding and encoding back will produce the exact same byte array. However, for any <code>@Serializable</code> class
-encoding and decoding should result in the equivalent instance.</p>
-<h6 dir="auto">
-<a id="user-content-current-limitations" class="anchor" aria-hidden="true" href="#current-limitations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Current Limitations</h6>
-<ul dir="auto">
-<li>Only JVM is supported as of now</li>
-<li>Unsigned integers can't be encoded because kotlinx.serialization framework <a href="https://github.com/Kotlin/kotlinx.serialization/issues/259" data-hovercard-type="issue" data-hovercard-url="/Kotlin/kotlinx.serialization/issues/259/hovercard">doesn't support <code>inline</code> classes</a> (yet)</li>
-<li>MessagePack extensions are not supported</li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-verification" class="anchor" aria-hidden="true" href="#verification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Verification</h6>
-<p dir="auto">The implementation is tested against <a href="https://github.com/kawanet/msgpack-test-suite/">https://github.com/kawanet/msgpack-test-suite/</a></p>
-<h6 dir="auto">
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import com.github.kropp.messagepack.MessagePack
-
-@Serializable
-data class Demo(val compact: Boolean, val schema: Int)
-
-val bytes = byteArrayOf(0x82.toByte(), 0xA7.toByte(), 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3.toByte(), 0xA6.toByte(), 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00)
-val demo = MessagePack.decode(Demo.serializer(), bytes)
-
-assertEquals(demo.compact, true)
-assertEquals(demo.schema, 0)"><pre><span class="pl-k">import</span> <span class="pl-smi">com.github.kropp.messagepack.MessagePack</span>
-
-@Serializable
-<span class="pl-k">data class</span> <span class="pl-en">Demo</span>(<span class="pl-k">val</span> <span class="pl-smi">compact</span><span class="pl-k">:</span> <span class="pl-c1">Boolean</span>, <span class="pl-k">val</span> <span class="pl-smi">schema</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>)
-
-<span class="pl-k">val</span> bytes <span class="pl-k">=</span> byteArrayOf(<span class="pl-c1">0x82</span>.toByte(), <span class="pl-c1">0xA7</span>.toByte(), <span class="pl-c1">0x63</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x70</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0xC3</span>.toByte(), <span class="pl-c1">0xA6</span>.toByte(), <span class="pl-c1">0x73</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x00</span>)
-<span class="pl-k">val</span> demo <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.decode(<span class="pl-en">Demo</span>.serializer(), bytes)
-
-assertEquals(demo.compact, <span class="pl-c1">true</span>)
-assertEquals(demo.schema, <span class="pl-c1">0</span>)</pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-mradziwo-MsgPack_LabVIEW" class="qs"><h4><a href="https://github.com/mradziwo/MsgPack_LabVIEW" target="_blank">mradziwo/MsgPack_LabVIEW <span class="qs-url">https://github.com/mradziwo/MsgPack_LabVIEW</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -19487,6 +19440,90 @@ dput(readMsgs(<span class="pl-smi">conIn</span>))
 vignette</a>.</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/crowding/msgpack-r/blob/master/gh/space.svg"><img src="/crowding/msgpack-r/raw/master/gh/space.svg" alt="Plot of time taken to transmit dataset, vs size of dataset, for each encoder under four conditions." style="max-width: 100%;"></a></p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/crowding/msgpack-r/blob/master/gh/time.svg"><img src="/crowding/msgpack-r/raw/master/gh/time.svg" alt="Comparison of space used by each encoder to encode a test dataset." style="max-width: 100%;"></a></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-HiPhish-msgpack-racket" class="qs"><h4><a href="https://gitlab.com/HiPhish/MsgPack.rkt" target="_blank">HiPhish/msgpack-racket <span class="qs-url">https://gitlab.com/HiPhish/MsgPack.rkt</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-in-racket" class="anchor" aria-hidden="true" href="#messagepack-in-racket"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack in Racket</h5>
+<p dir="auto">This is a <a href="http://racket-lang.org/" rel="nofollow">Racket</a> implementation of <a href="http://msgpack.org/" rel="nofollow">MessagePack</a>, a binary data serialisation
+format. It allows you to serialise (pack) and de-serialise (unpack) Racket
+object to and from binary data.</p>
+<a name="user-content-installation"></a>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">The easiest way to install this library is from the <a href="https://pkgs.racket-lang.org/" rel="nofollow">Racket Package Catalog</a>.
+Run the following code from your shell:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="raco pkg install msgpack"><pre>raco pkg install msgpack</pre></div>
+<p dir="auto">If you wish to install the package from this repository use the included
+makefile:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="make install   # Install the package
+make remove    # Uninstall the package"><pre>make install   <span class="pl-c"><span class="pl-c">#</span> Install the package</span>
+make remove    <span class="pl-c"><span class="pl-c">#</span> Uninstall the package</span></pre></div>
+<a name="user-content-using-messagepack"></a>
+<h6 dir="auto">
+<a id="user-content-using-messagepack" class="anchor" aria-hidden="true" href="#using-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using MessagePack</h6>
+<div class="highlight highlight-source-racket notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content=";;; Import the library first
+(require msgpack)
+
+;;; Some object to pack
+(define hodgepodge (vector 1 2 (void) '#(3 #t) &quot;foo&quot;))
+
+;;; Packing data
+(define packed (call-with-output-bytes (λ (out) (pack hodgepodge out))))
+;;; &gt; #&quot;\225\1\2\300\222\3\303\243foo&quot;
+
+;;; Unpacking data
+(define unpacked (call-with-input-bytes packed (λ (in) (unpack in))))
+;;; &gt; '#(1 2 #&lt;void&gt; #(3 #t) &quot;foo&quot;)"><pre><span class="pl-c">;;; Import the library first</span>
+(<span class="pl-en">require</span> msgpack)
+
+<span class="pl-c">;;; Some object to pack</span>
+(<span class="pl-en">define</span> hodgepodge (vector <span class="pl-c1">1</span> <span class="pl-c1">2</span> (void) '#(<span class="pl-c1">3</span> <span class="pl-c1">#t</span>) <span class="pl-c1">"<span class="pl-c1">foo</span>"</span>))
+
+<span class="pl-c">;;; Packing data</span>
+(<span class="pl-en">define</span> packed (call-with-output-bytes (<span class="pl-en">λ</span> (out) (pack hodgepodge out))))
+<span class="pl-c">;;; &gt; #"\225\1\2\300\222\3\303\243foo"</span>
+
+<span class="pl-c">;;; Unpacking data</span>
+(<span class="pl-en">define</span> unpacked (call-with-input-bytes packed (<span class="pl-en">λ</span> (in) (unpack in))))
+<span class="pl-c">;;; &gt; '#(1 2 #&lt;void&gt; #(3 #t) "foo")</span></pre></div>
+<p dir="auto">The <code>pack</code> function takes a Racket object and a binary output port as arguments
+and writes the serialised data to the port.  The <code>unpack</code> function takes a
+binary input port and returns one de-serialised object, consuming the necessary
+amount of bytes from the port in the process. For more details please refer to
+the <a href="https://docs.racket-lang.org/msgpack/index.html" rel="nofollow">documentation</a>.</p>
+<p dir="auto">In the above example code we set the output and input ports to be byte strings
+so we could work with the packed and unpacked data directly inside the Racket
+instance.</p>
+<a name="user-content-status"></a>
+<h6 dir="auto">
+<a id="user-content-status" class="anchor" aria-hidden="true" href="#status"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Status</h6>
+<p dir="auto">The library is fully functional, covered by test cases, and the API should be
+reasonably mature, but I am not yet willing to completely rule out changes. See
+also below for parts of the library that could not be tested at the moment due
+to technical reasons.</p>
+<a name="user-content-caveats"></a>
+<h6 dir="auto">
+<a id="user-content-caveats" class="anchor" aria-hidden="true" href="#caveats"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Caveats</h6>
+<p dir="auto">The following cases cannot be tested for the time being:</p>
+<ul dir="auto">
+<li>The <code>bin32</code> type, storing a byte string that is <tt>2^32</tt> bytes long
+requires 4GiB, my machine simply runs out of memory.</li>
+<li>The same goes for the <code>str32</code> type</li>
+<li>The same goes for the <code>array32</code> type</li>
+<li>The same goes for the <code>map32</code> type</li>
+<li>The same goes for the <code>ext32</code> type</li>
+<li>Strings are only tested using ASCII characters, if anyone can generate
+UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
+</ul>
+<a name="user-content-license"></a>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">Released under the GPLv3+ license, see the <a href="/HiPhish/msgpack-racket/blob/master/COPYING.txt">COPYING</a> file for details.</p>
+
 </article>
   </div>
         </div>
