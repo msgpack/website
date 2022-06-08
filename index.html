@@ -7397,7 +7397,7 @@ const decoded = decode(encoded, { extensionCodec });'><pre><span class="pl-k">im
 <span class="pl-k">const</span> <span class="pl-smi">SET_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span> <span class="pl-c">// Any in 0-127</span>
 <span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
   <span class="pl-c1">type</span>: <span class="pl-smi">SET_EXT_TYPE</span><span class="pl-kos">,</span>
-  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">|</span> <span class="pl-c1">null</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">|</span> <span class="pl-smi">null</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
     <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">object</span> <span class="pl-k">instanceof</span> <span class="pl-smi">Set</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
       <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">[</span>...<span class="pl-s1">object</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
     <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
