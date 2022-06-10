@@ -7894,16 +7894,16 @@ func _myfunc():
     print(res.result) # A PoolByteArray of the data encoded MessagePack
 
     var res2 = Msgpack.decode(res.result)
-    print(res2.result) # Get back the original data'><pre><span class="pl-k">var</span> <span class="pl-en">Msgpack</span> <span class="pl-k">=</span> <span class="pl-k">preload</span>(<span class="pl-s">"res://msgpack.gd"</span>)
+    print(res2.result) # Get back the original data'><pre><span class="pl-k">var</span> <span class="pl-c1">Msgpack</span> <span class="pl-k">=</span> <span class="pl-k">preload</span>(<span class="pl-s">"res://msgpack.gd"</span>)
 
-<span class="pl-k">func</span> <span class="pl-c1">_myfunc</span>():
+<span class="pl-k">func</span> <span class="pl-en">_myfunc</span>():
     <span class="pl-k">var</span> data <span class="pl-k">=</span> {<span class="pl-s">"type"</span>: <span class="pl-s">"wizard"</span>, <span class="pl-s">"attack"</span>: <span class="pl-c1">10</span>, <span class="pl-s">"weapon"</span>: [<span class="pl-s">"dagger"</span>, <span class="pl-s">"staff"</span>]}
 
-    <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">Msgpack</span>.<span class="pl-c1">encode</span>(data)
-    <span class="pl-c1">print</span>(res.<span class="pl-smi">result</span>) <span class="pl-c"><span class="pl-c">#</span> A PoolByteArray of the data encoded MessagePack</span>
+    <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-c1">Msgpack</span>.<span class="pl-c1">encode</span>(data)
+    <span class="pl-c1">print</span>(res.result) <span class="pl-c"><span class="pl-c">#</span> A PoolByteArray of the data encoded MessagePack</span>
 
-    <span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">Msgpack</span>.<span class="pl-c1">decode</span>(res.<span class="pl-smi">result</span>)
-    <span class="pl-c1">print</span>(res2.<span class="pl-smi">result</span>) <span class="pl-c"><span class="pl-c">#</span> Get back the original data</span></pre></div>
+    <span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-c1">Msgpack</span>.<span class="pl-c1">decode</span>(res.result)
+    <span class="pl-c1">print</span>(res2.result) <span class="pl-c"><span class="pl-c">#</span> Get back the original data</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-class-msgpack" class="anchor" aria-hidden="true" href="#class-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>class <code>Msgpack</code>
 </h6>
