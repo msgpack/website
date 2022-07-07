@@ -217,11 +217,11 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-crystal-community-msgpack-crystal',this)">Crystal <span class="qs-sub">crystal-community</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-steakknife-msgpack-cr',this)">Crystal <span class="qs-sub">steakknife</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-d',this)">D <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jpf91-msgpack-ll',this)">D <span class="qs-sub">jpf91</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-knopp-msgpack_dart',this)">Dart <span class="qs-sub">knopp</span></a></li>
           
@@ -274,8 +274,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-davalapar-what-the-pack',this)">Javascript/NodeJS <span class="qs-sub">davalapar</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kropp-kotlinx-serialization-msgpack',this)">Kotlin Serialization <span class="qs-sub">kropp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mradziwo-MsgPack_LabVIEW',this)">LabVIEW <span class="qs-sub">mradziwo</span></a></li>
           
@@ -6664,6 +6662,83 @@ house <span class="pl-k">=</span> <span class="pl-c1">House</span>.from_msgpack(
   </div>
         </div>
         
+        <div id="qs-steakknife-msgpack-cr" class="qs"><h4><a href="https://github.com/steakknife/msgpack.cr" target="_blank">steakknife/msgpack.cr <span class="qs-url">https://github.com/steakknife/msgpack.cr</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpackcr" class="anchor" aria-hidden="true" href="#msgpackcr"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.cr</h5>
+<p dir="auto">A low-level <a href="http://msgpack.org" rel="nofollow">msgpack</a> codec for <a href="https://crystal-lang.org" rel="nofollow">Crystal</a></p>
+<h6 dir="auto">
+<a id="user-content-todo" class="anchor" aria-hidden="true" href="#todo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>TODO</h6>
+<ul dir="auto">
+<li>More specs</li>
+<li>Mapping</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">Add this to your application's <code>shard.yml</code>:</p>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="dependencies:
+  msgpack:
+    github: steakknife/msgpack.cr"><pre><span class="pl-ent">dependencies</span>:
+  <span class="pl-ent">msgpack</span>:
+    <span class="pl-ent">github</span>: <span class="pl-s">steakknife/msgpack.cr</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-crystal notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='require "msgpack"
+
+1.to_msgpack # =&gt; Slice[210, 0, 0, 0, 1]
+
+# write 2_i32 to file foo.msgpack
+File.open("foo.msgpack", "w") { |f| f.write(2.to_msgpack) }
+'><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack<span class="pl-pds">"</span></span>
+
+<span class="pl-c1">1</span>.to_msgpack <span class="pl-c"><span class="pl-c">#</span> =&gt; Slice[210, 0, 0, 0, 1]</span>
+
+<span class="pl-c"><span class="pl-c">#</span> write 2_i32 to file foo.msgpack</span>
+<span class="pl-c1">File</span>.open(<span class="pl-s"><span class="pl-pds">"</span>foo.msgpack<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>w<span class="pl-pds">"</span></span>) { |<span class="pl-smi">f</span>| f.write(<span class="pl-c1">2</span>.to_msgpack) }
+</pre></div>
+<h6 dir="auto">
+<a id="user-content-extending" class="anchor" aria-hidden="true" href="#extending"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extending</h6>
+<h7 dir="auto">
+<a id="user-content-encoding" class="anchor" aria-hidden="true" href="#encoding"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Encoding</h7>
+<p dir="auto">Any type can become encodable by including <code>Msgpack::Encodable</code> and defining <code>to_msgpack(io : IO)</code></p>
+<h7 dir="auto">
+<a id="user-content-decoding" class="anchor" aria-hidden="true" href="#decoding"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Decoding</h7>
+<p dir="auto">Any type can become decodable by following the <a href="/steakknife/msgpack.cr/blob/master/spec/foo_spec.cr">example</a></p>
+<h6 dir="auto">
+<a id="user-content-development" class="anchor" aria-hidden="true" href="#development"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Development</h6>
+<h7 dir="auto">
+<a id="user-content-run-tests" class="anchor" aria-hidden="true" href="#run-tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Run tests</h7>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="crystal spec"><pre>crystal spec</pre></div>
+<h6 dir="auto">
+<a id="user-content-alternate-implementations" class="anchor" aria-hidden="true" href="#alternate-implementations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Alternate Implementations</h6>
+<ul dir="auto">
+<li><a href="https://github.com/benoist/msgpack-crystal">github: benoist/msgpack-crystal</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-contributing" class="anchor" aria-hidden="true" href="#contributing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributing</h6>
+<ol dir="auto">
+<li>Fork it ( <a href="https://github.com/steakknife/msgpack.cr/fork">https://github.com/steakknife/msgpack.cr/fork</a> )</li>
+<li>Create your feature branch (git checkout -b my-new-feature)</li>
+<li>Commit your changes (git commit -am 'Add some feature')</li>
+<li>Push to the branch (git push origin my-new-feature)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<h6 dir="auto">
+<a id="user-content-contributors" class="anchor" aria-hidden="true" href="#contributors"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributors</h6>
+<ul dir="auto">
+<li>
+<a href="https://github.com/steakknife">[steakknife]</a> Barry Allard - creator, maintainer</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto"><a href="/steakknife/msgpack.cr/blob/master/LICENSE">MIT</a></p>
+<h6 dir="auto">
+<a id="user-content-copyright" class="anchor" aria-hidden="true" href="#copyright"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Copyright</h6>
+<p dir="auto">2016 (c) Copyright Barry Allard</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-msgpack-msgpack-d" class="qs"><h4><a href="https://github.com/msgpack/msgpack-d" target="_blank">msgpack/msgpack-d <span class="qs-url">https://github.com/msgpack/msgpack-d</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a href="https://travis-ci.org/msgpack/msgpack-d" rel="nofollow"><img src="https://camo.githubusercontent.com/bb42a4cb1694bafb4c7a3eefe07c5746379a835d9a25fad31aa1ed0295eccc37/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d642e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-d.png" style="max-width: 100%;"></a></p>
@@ -7170,34 +7245,6 @@ much better here.</p>
 <span class="pl-en">        </span><span class="pl-k">ret</span>
 <span class="pl-en">.L60:</span>
 <span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-danellis-dart-msgpack" class="qs"><h4><a href="https://github.com/danellis/dart-msgpack" target="_blank">danellis/dart-msgpack <span class="qs-url">https://github.com/danellis/dart-msgpack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-dart-msgpack" class="anchor" aria-hidden="true" href="#dart-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>dart-msgpack</h5>
-<p dir="auto">This is a very early release of my MessagePack library for Dart. Currently, message classes must be written by hand. For example:</p>
-<div class="highlight highlight-source-dart notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="class NotificationFrame extends Message {
-    String kind;
-    Map&lt;String, Object&gt; data;
-
-    NotificationFrame(this.kind, this.data);
-
-    static NotificationFrame fromList(List f) =&gt; new NotificationFrame(f[0], f[1]);
-    List toList() =&gt; [kind, data];
-}"><pre><span class="pl-k">class</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-k">extends</span> <span class="pl-c1">Message</span> {
-    <span class="pl-c1">String</span> kind;
-    <span class="pl-c1">Map&lt;<span class="pl-c1">String</span>, <span class="pl-c1">Object</span>&gt;</span> data;
-
-    <span class="pl-c1">NotificationFrame</span>(<span class="pl-c1">this</span>.kind, <span class="pl-c1">this</span>.data);
-
-    <span class="pl-k">static</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-en">fromList</span>(<span class="pl-c1">List</span> f) <span class="pl-k">=&gt;</span> <span class="pl-k">new</span> <span class="pl-c1">NotificationFrame</span>(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
-    <span class="pl-c1">List</span> <span class="pl-en">toList</span>() <span class="pl-k">=&gt;</span> [kind, data];
-}</pre></div>
-<p dir="auto">For each class you need to define the <code>fromList</code> and <code>toList</code> methods, which convert from and to a list of fields respectively.</p>
-<p dir="auto">For example usage, see the unit tests.</p>
 </article>
   </div>
         </div>
@@ -12254,53 +12301,6 @@ If you are using ProGuard you might need to add the following options:</p>
 <a id="user-content-retrofit" class="anchor" aria-hidden="true" href="#retrofit"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Retrofit</h6>
 <p dir="auto">An example of using the retorfit adapter can be found here:
 <a href="https://github.com/davethomas11/MoshiPack_AndroidAppExample">https://github.com/davethomas11/MoshiPack_AndroidAppExample</a></p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-kropp-kotlinx-serialization-msgpack" class="qs"><h4><a href="https://github.com/kropp/kotlinx.serialization.msgpack" target="_blank">kropp/kotlinx.serialization.msgpack <span class="qs-url">https://github.com/kropp/kotlinx.serialization.msgpack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-kotlin-serialization-messagepack-library" class="anchor" aria-hidden="true" href="#kotlin-serialization-messagepack-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Kotlin Serialization MessagePack library</h5>
-<p dir="auto">This library extends <a href="https://github.com/Kotlin/kotlinx.serialization/">kotlinx.serialization</a> framework to support
-<a href="https://msgpack.org/" rel="nofollow">MessagePack</a> format.</p>
-<h6 dir="auto">
-<a id="user-content-implementation-details" class="anchor" aria-hidden="true" href="#implementation-details"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementation details</h6>
-<p dir="auto">When multiple equivalent encodings exist, the shortest (in terms of number of bytes) is used.
-Decoders decode any format and convert it to a required type (possibly loosing precision or significant higher digits)</p>
-<p dir="auto">Thus, not for any input decoding and encoding back will produce the exact same byte array. However, for any <code>@Serializable</code> class
-encoding and decoding should result in the equivalent instance.</p>
-<h6 dir="auto">
-<a id="user-content-current-limitations" class="anchor" aria-hidden="true" href="#current-limitations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Current Limitations</h6>
-<ul dir="auto">
-<li>Only JVM is supported as of now</li>
-<li>Unsigned integers can't be encoded because kotlinx.serialization framework <a href="https://github.com/Kotlin/kotlinx.serialization/issues/259" data-hovercard-type="issue" data-hovercard-url="/Kotlin/kotlinx.serialization/issues/259/hovercard">doesn't support <code>inline</code> classes</a> (yet)</li>
-<li>MessagePack extensions are not supported</li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-verification" class="anchor" aria-hidden="true" href="#verification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Verification</h6>
-<p dir="auto">The implementation is tested against <a href="https://github.com/kawanet/msgpack-test-suite/">https://github.com/kawanet/msgpack-test-suite/</a></p>
-<h6 dir="auto">
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import com.github.kropp.messagepack.MessagePack
-
-@Serializable
-data class Demo(val compact: Boolean, val schema: Int)
-
-val bytes = byteArrayOf(0x82.toByte(), 0xA7.toByte(), 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3.toByte(), 0xA6.toByte(), 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00)
-val demo = MessagePack.decode(Demo.serializer(), bytes)
-
-assertEquals(demo.compact, true)
-assertEquals(demo.schema, 0)"><pre><span class="pl-k">import</span> <span class="pl-smi">com.github.kropp.messagepack.MessagePack</span>
-
-@Serializable
-<span class="pl-k">data class</span> <span class="pl-en">Demo</span>(<span class="pl-k">val</span> <span class="pl-smi">compact</span><span class="pl-k">:</span> <span class="pl-c1">Boolean</span>, <span class="pl-k">val</span> <span class="pl-smi">schema</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>)
-
-<span class="pl-k">val</span> bytes <span class="pl-k">=</span> byteArrayOf(<span class="pl-c1">0x82</span>.toByte(), <span class="pl-c1">0xA7</span>.toByte(), <span class="pl-c1">0x63</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x70</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0xC3</span>.toByte(), <span class="pl-c1">0xA6</span>.toByte(), <span class="pl-c1">0x73</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x00</span>)
-<span class="pl-k">val</span> demo <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.decode(<span class="pl-en">Demo</span>.serializer(), bytes)
-
-assertEquals(demo.compact, <span class="pl-c1">true</span>)
-assertEquals(demo.schema, <span class="pl-c1">0</span>)</pre></div>
 </article>
   </div>
         </div>
