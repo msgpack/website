@@ -203,8 +203,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-neuecc-MessagePack-CSharp',this)">C# <span class="qs-sub">neuecc</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-highras-msgpack-csharp',this)">C# <span class="qs-sub">highras</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jonathonl-goodform',this)">C++11 <span class="qs-sub">jonathonl</span></a></li>
@@ -5967,79 +5965,6 @@ He is known as the creator of <a href="https://github.com/neuecc/UniRx/">UniRx</
 <li>Blog: <a href="http://neue.cc/" rel="nofollow">http://neue.cc/</a> (Japanese)</li>
 <li>Twitter: <a href="https://twitter.com/neuecc" rel="nofollow">https://twitter.com/neuecc</a> (Japanese)</li>
 </ul>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-highras-msgpack-csharp" class="qs"><h4><a href="https://github.com/highras/msgpack-csharp" target="_blank">highras/msgpack-csharp <span class="qs-url">https://github.com/highras/msgpack-csharp</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h6 dir="auto">
-<a id="user-content-fpnn-msgpack-implement" class="anchor" aria-hidden="true" href="#fpnn-msgpack-implement"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>FPNN MsgPack Implement</h6>
-<ul dir="auto">
-<li><strong><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">msgpack SPEC</a></strong></li>
-<li><strong><a href="https://github.com/highras/msgpack-csharp">Project Home</a></strong></li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-compatibility-version" class="anchor" aria-hidden="true" href="#compatibility-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibility Version:</h7>
-<p dir="auto">C# .Net Standard 2.0</p>
-<h7 dir="auto">
-<a id="user-content-for-packer" class="anchor" aria-hidden="true" href="#for-packer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For Packer:</h7>
-<ul dir="auto">
-<li>
-<p dir="auto">input kinds:</p>
-<p dir="auto">null, bool, sbyte, byte, short, ushort, Int32, UInt32, Int64, Uint64, float, double, string</p>
-<p dir="auto">Decimal, Tuple</p>
-<p dir="auto">byte[], DateTime, IEnumerable (such as List, Dictionary, List&lt;object&gt;, Dictionary&lt;object, object&gt;, ...)</p>
-</li>
-<li>
-<p dir="auto">usage:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  using com.fpnn.msgpack;
-  void MsgPacker.Pack(Stream stream, Object obj);"><pre class="notranslate"><code>  using com.fpnn.msgpack;
-  void MsgPacker.Pack(Stream stream, Object obj);
-</code></pre></div>
-</li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-for-unpacker" class="anchor" aria-hidden="true" href="#for-unpacker"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For Unpacker:</h7>
-<ul dir="auto">
-<li>
-<p dir="auto">output kinds:</p>
-<p dir="auto">Object, which maybe the following kinds:</p>
-<p dir="auto">null, bool, sbyte, byte, short, ushort, Int32, UInt32, Int64, Uint64, float, double, string</p>
-<p dir="auto">byte[], DateTime, List&lt;object&gt;, Dictionary&lt;object, object&gt;</p>
-</li>
-<li>
-<p dir="auto">usage:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  using com.fpnn.msgpack;
-  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary);
-
-  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary, int offset, int length = 0);
-
-  //-- unpack one object.
-  Object MsgUnpacker.Unpack(byte[] binary, int offset, out int endOffset);"><pre class="notranslate"><code>  using com.fpnn.msgpack;
-  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary);
-
-  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary, int offset, int length = 0);
-
-  //-- unpack one object.
-  Object MsgUnpacker.Unpack(byte[] binary, int offset, out int endOffset);
-</code></pre></div>
-</li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-exception" class="anchor" aria-hidden="true" href="#exception"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Exception:</h7>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="    using com.fpnn.msgpack;
-    public class MsgPackException: Exception;
-    public class UnsupportedTypeException : MsgPackException;
-    public class UnrecognizedDataException : MsgPackException;
-    public class InsufficientException : MsgPackException;
-    public class InvalidDataException : MsgPackException;"><pre class="notranslate"><code>    using com.fpnn.msgpack;
-    public class MsgPackException: Exception;
-    public class UnsupportedTypeException : MsgPackException;
-    public class UnrecognizedDataException : MsgPackException;
-    public class InsufficientException : MsgPackException;
-    public class InvalidDataException : MsgPackException;
-</code></pre></div>
 </article>
   </div>
         </div>
