@@ -221,6 +221,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-d',this)">D <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-jpf91-msgpack-ll',this)">D <span class="qs-sub">jpf91</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-knopp-msgpack_dart',this)">Dart <span class="qs-sub">knopp</span></a></li>
@@ -249,6 +251,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-shamaton-msgpack',this)">Go <span class="qs-sub">shamaton</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-shamaton-msgpackgen',this)">Go <span class="qs-sub">shamaton</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-reeze-msgpack-hhvm',this)">HHVM <span class="qs-sub">reeze</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-haskell',this)">Haskell <span class="qs-sub">msgpack</span></a></li>
@@ -272,6 +276,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-davalapar-what-the-pack',this)">Javascript/NodeJS <span class="qs-sub">davalapar</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-kropp-kotlinx-serialization-msgpack',this)">Kotlin Serialization <span class="qs-sub">kropp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mradziwo-MsgPack_LabVIEW',this)">LabVIEW <span class="qs-sub">mradziwo</span></a></li>
           
@@ -7017,6 +7023,236 @@ void main()
   </div>
         </div>
         
+        <div id="qs-jpf91-msgpack-ll" class="qs"><h4><a href="https://github.com/jpf91/msgpack-ll" target="_blank">jpf91/msgpack-ll <span class="qs-url">https://github.com/jpf91/msgpack-ll</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack-ll" class="anchor" aria-hidden="true" href="#msgpack-ll"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-ll</h5>
+<p dir="auto"><a href="https://coveralls.io/github/jpf91/msgpack-ll?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/895f06e5f92c1da6808be4ae881010eca89c3371c9eea3ebdc550fb1ccad0193/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f6a706639312f6d73677061636b2d6c6c2f62616467652e7376673f6272616e63683d6d6173746572" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/jpf91/msgpack-ll/badge.svg?branch=master" style="max-width: 100%;"></a>
+<a href="https://travis-ci.org/jpf91/msgpack-ll" rel="nofollow"><img src="https://camo.githubusercontent.com/fbcf7bc6f3cd1031febc094f195e550270b6317c2d6df6c0a5043efbedbfa4cc/68747470733a2f2f7472617669732d63692e6f72672f6a706639312f6d73677061636b2d6c6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/jpf91/msgpack-ll.svg?branch=master" style="max-width: 100%;"></a></p>
+<p dir="auto">This is a low-level <code>@nogc</code>, <code>nothrow</code>, <code>@safe</code>, <code>pure</code> and <code>betterC</code> compatible
+<a href="http://msgpack.org/" rel="nofollow">MessagePack</a> serializer and deserializer. The
+library was designed to avoid any external dependencies and handle the low-level protocol
+details only. As a result the library doesn't have to do any error handling or
+buffer management. This library does never dynamically allocate memory.</p>
+<p dir="auto">The API documentation is available <a href="https://jpf91.github.io/msgpack-ll/msgpack_ll.html" rel="nofollow">here</a>.</p>
+<h6 dir="auto">
+<a id="user-content-a-simple-example-showing-the-complete-api" class="anchor" aria-hidden="true" href="#a-simple-example-showing-the-complete-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>A simple example showing the complete API</h6>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import msgpack_ll;
+
+// Buffer allocation is not handled by the library
+ubyte[128] buffer;
+
+
+// The MsgpackType enum contains all low-level MessagePack types
+enum type = MsgpackType.uint8;
+
+// The DataSize!(MsgpackType) function returns the size of serialized data
+// for a certain type.
+
+// The formatter and parser use ref ubyte[DataSize!type] types. This
+// forces the compiler to do array length checks at compile time and avoid
+// any runtime bounds checking.
+
+// Format the number 42 as a uint8 type. This will require
+// DataSize!(MsgpackType.uint8) == 2 bytes storage.
+formatType!(type)(42, buffer[0..DataSize!type]);
+
+// To deserialize we have to somehow get the data type at runtime
+// Then verify the type is as expected.
+assert(getType(buffer[0]) == type);
+
+// Now deserialize. Here we have to specify the MsgpackType
+// as a compile time value.
+const result = parseType!type(buffer[0..DataSize!type]);
+assert(result == 42);"><pre><span class="pl-k">import</span> msgpack_ll;
+
+<span class="pl-c"><span class="pl-c">//</span> Buffer allocation is not handled by the library</span>
+<span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer;
+
+
+<span class="pl-c"><span class="pl-c">//</span> The MsgpackType enum contains all low-level MessagePack types</span>
+<span class="pl-k">enum</span> type = MsgpackType.uint8;
+
+<span class="pl-c"><span class="pl-c">//</span> The DataSize!(MsgpackType) function returns the size of serialized data</span>
+<span class="pl-c"><span class="pl-c">//</span> for a certain type.</span>
+
+<span class="pl-c"><span class="pl-c">//</span> The formatter and parser use ref ubyte[DataSize!type] types. This</span>
+<span class="pl-c"><span class="pl-c">//</span> forces the compiler to do array length checks at compile time and avoid</span>
+<span class="pl-c"><span class="pl-c">//</span> any runtime bounds checking.</span>
+
+<span class="pl-c"><span class="pl-c">//</span> Format the number 42 as a uint8 type. This will require</span>
+<span class="pl-c"><span class="pl-c">//</span> DataSize!(MsgpackType.uint8) == 2 bytes storage.</span>
+formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+
+<span class="pl-c"><span class="pl-c">//</span> To deserialize we have to somehow get the data type at runtime</span>
+<span class="pl-c"><span class="pl-c">//</span> Then verify the type is as expected.</span>
+<span class="pl-k">assert</span>(getType(buffer[<span class="pl-c1">0</span>]) <span class="pl-k">==</span> type);
+
+<span class="pl-c"><span class="pl-c">//</span> Now deserialize. Here we have to specify the MsgpackType</span>
+<span class="pl-c"><span class="pl-c">//</span> as a compile time value.</span>
+<span class="pl-k">const</span> result = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+<span class="pl-k">assert</span>(result <span class="pl-k">==</span> <span class="pl-c1">42</span>);</pre></div>
+<h6 dir="auto">
+<a id="user-content-a-quick-view-at-the-generated-code-for-this-library" class="anchor" aria-hidden="true" href="#a-quick-view-at-the-generated-code-for-this-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>A quick view at the generated code for this library</h6>
+<h7 dir="auto">
+<a id="user-content-serializing-an-8-bit-integer" class="anchor" aria-hidden="true" href="#serializing-an-8-bit-integer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializing an 8 bit integer</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="void format(ref ubyte[128] buffer)
+{
+    enum type = MsgpackType.uint8;
+    formatType!(type)(42, buffer[0..DataSize!type]);
+}"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.uint8;
+    formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+}</pre></div>
+<p dir="auto">Because of clever typing there's no runtime bounds checking but all bounds
+checks are performed at compile time by type checking.</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe void msgpack_ll.format(ref ubyte[128]):
+        mov     BYTE PTR [rdi], -52
+        mov     BYTE PTR [rdi+1], 42
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">52</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-c1">42</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-serializing-a-small-negative-integer-into-one-byte" class="anchor" aria-hidden="true" href="#serializing-a-small-negative-integer-into-one-byte"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializing a small negative integer into one byte</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="void format(ref ubyte[128] buffer)
+{
+    enum type = MsgpackType.negFixInt;
+    formatType!(type)(-11, buffer[0..DataSize!type]);
+}"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
+    formatType<span class="pl-k">!</span>(type)(<span class="pl-k">-</span><span class="pl-c1">11</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+}</pre></div>
+<p dir="auto">The MessagePack format is cleverly designed, so encoding the type is actually free
+in this case.</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe void msgpack_ll.format(ref ubyte[128]):
+        mov     BYTE PTR [rdi], -11
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">11</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-deserializing-an-expected-type" class="anchor" aria-hidden="true" href="#deserializing-an-expected-type"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserializing an expected type</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="bool parse(ref ubyte[128] buffer, ref byte value)
+{
+    enum type = MsgpackType.negFixInt;
+    auto rtType = getType(buffer[0]);
+    if(rtType != type)
+        return false;
+
+    value = parseType!type(buffer[0..DataSize!type]);
+    return true;
+}"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
+    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
+    <span class="pl-k">if</span>(rtType <span class="pl-k">!=</span> type)
+        <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+
+    value = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+    <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+}</pre></div>
+<p dir="auto">The compiler will inline functions and can see through the switch block in
+<code>getType</code>. If you explicitly ask for one type, the compiler will reduce the
+code to a simple explicit <code>if</code> check for this type!</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte[128], ref byte):
+        movzx   edx, BYTE PTR [rdi]
+        cmp     edx, 223
+        jle     .L58
+        mov     BYTE PTR [rsi], dl
+        mov     eax, 1
+        ret
+.L58:
+        xor     eax, eax
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
+<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L58</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">dl</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span>
+<span class="pl-en">.L58:</span>
+<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-deserializing-one-of-multiple-types" class="anchor" aria-hidden="true" href="#deserializing-one-of-multiple-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserializing one of multiple types</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="bool parse(ref ubyte[128] buffer, ref byte value)
+{
+    auto rtType = getType(buffer[0]);
+    switch(rtType)
+    {
+        case MsgpackType.negFixInt:
+            value = parseType!(MsgpackType.negFixInt)(buffer[0..DataSize!(MsgpackType.negFixInt)]);
+            return true;
+        case MsgpackType.int8:
+            value = parseType!(MsgpackType.int8)(buffer[0..DataSize!(MsgpackType.int8)]);
+            return true;
+        default:
+            return false;
+    }
+}"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
+{
+    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
+    <span class="pl-k">switch</span>(rtType)
+    {
+        <span class="pl-k">case</span> MsgpackType.negFixInt:
+            value = parseType<span class="pl-k">!</span>(MsgpackType.negFixInt)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.negFixInt)]);
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        <span class="pl-k">case</span> MsgpackType.int8:
+            value = parseType<span class="pl-k">!</span>(MsgpackType.int8)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.int8)]);
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        <span class="pl-k">default</span>:
+            <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+    }
+}</pre></div>
+<p dir="auto">The generated code is obviously slighly more complex. The interesting part here
+is that type checking is directly done using the raw type value and not the
+enum values returned by <code>getType</code>. Even manually written ASM probably can't do
+much better here.</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte[128], ref byte):
+        movzx   ecx, BYTE PTR [rdi]
+        xor     eax, eax
+        cmp     ecx, 191
+        jle     .L55
+        cmp     ecx, 223
+        jg      .L56
+        cmp     ecx, 208
+        jne     .L60
+        movzx   eax, BYTE PTR [rdi+1]
+        mov     BYTE PTR [rsi], al
+        mov     eax, 1
+.L55:
+        rep; ret
+.L56:
+        mov     BYTE PTR [rsi], cl
+        mov     eax, 1
+        ret
+.L60:
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">191</span>
+<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L55</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
+<span class="pl-en">        </span><span class="pl-k">jg</span><span class="pl-en">      .L56</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">208</span>
+<span class="pl-en">        </span><span class="pl-k">jne</span><span class="pl-en">     .L60</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">al</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">.L55:</span>
+<span class="pl-en">        </span><span class="pl-k">rep</span><span class="pl-c">; ret</span>
+<span class="pl-en">.L56:</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">cl</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span>
+<span class="pl-en">.L60:</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-danellis-dart-msgpack" class="qs"><h4><a href="https://github.com/danellis/dart-msgpack" target="_blank">danellis/dart-msgpack <span class="qs-url">https://github.com/danellis/dart-msgpack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -8145,6 +8381,243 @@ func main() {
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto">This library is under the MIT License.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-shamaton-msgpackgen" class="qs"><h4><a href="https://github.com/shamaton/msgpackgen" target="_blank">shamaton/msgpackgen <span class="qs-url">https://github.com/shamaton/msgpackgen</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-code-generator-for-go" class="anchor" aria-hidden="true" href="#messagepack-code-generator-for-go"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack Code Generator for Go</h5>
+<p dir="auto"><a href="https://pkg.go.dev/github.com/shamaton/msgpackgen" rel="nofollow"><img src="https://camo.githubusercontent.com/10921201495956d2ae13555a57828121308eeafa6d3b3c9e4e90e95ee2cc28f4/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f7368616d61746f6e2f6d73677061636b67656e2e737667" alt="Go Reference" data-canonical-src="https://pkg.go.dev/badge/github.com/shamaton/msgpackgen.svg" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/shamaton/msgpackgen/workflows/test/badge.svg"><img src="https://github.com/shamaton/msgpackgen/workflows/test/badge.svg" alt="test" style="max-width: 100%;"></a>
+<a href="https://goreportcard.com/report/github.com/shamaton/msgpackgen" rel="nofollow"><img src="https://camo.githubusercontent.com/a693d15dcdd5e6c22911cb0107e9b064be2bf195b88fccf760f3e6708f8589a5/68747470733a2f2f676f7265706f7274636172642e636f6d2f62616467652f6769746875622e636f6d2f7368616d61746f6e2f6d73677061636b67656e" alt="Go Report Card" data-canonical-src="https://goreportcard.com/badge/github.com/shamaton/msgpackgen" style="max-width: 100%;"></a>
+<a href="https://codecov.io/gh/shamaton/msgpackgen" rel="nofollow"><img src="https://camo.githubusercontent.com/d9f93a215473ec655021a1e543ed31ce3018eaba58c4d69a75139a4a74bcfa34/68747470733a2f2f636f6465636f762e696f2f67682f7368616d61746f6e2f6d73677061636b67656e2f6272616e63682f6d61696e2f67726170682f62616467652e7376673f746f6b656e3d4b374d33373738583743" alt="codecov" data-canonical-src="https://codecov.io/gh/shamaton/msgpackgen/branch/main/graph/badge.svg?token=K7M3778X7C" style="max-width: 100%;"></a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fshamaton%2Fmsgpackgen?ref=badge_shield" rel="nofollow"><img src="https://camo.githubusercontent.com/366c7a05179e0bfd43d6aaef746666996b9087200f84479887af5f92de13e2c6/68747470733a2f2f6170702e666f7373612e636f6d2f6170692f70726f6a656374732f6769742532426769746875622e636f6d2532467368616d61746f6e2532466d73677061636b67656e2e7376673f747970653d736869656c64" alt="FOSSA Status" data-canonical-src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fshamaton%2Fmsgpackgen.svg?type=shield" style="max-width: 100%;"></a></p>
+<p dir="auto"><strong>msgpackgen</strong> provides a code generation tool and serialization library for <a href="http://msgpack.org/" rel="nofollow">MessagePack</a>.</p>
+<ul dir="auto">
+<li>
+<g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji> Extremely Fast</li>
+<li>
+<g-emoji class="g-emoji" alias="recycle" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/267b.png">♻️</g-emoji> Easy Maintenance</li>
+<li>
+<g-emoji class="g-emoji" alias="100" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4af.png">💯</g-emoji> Compliant with <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">specifications</a>
+</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quickstart</h6>
+<p dir="auto">Create go.mod file, if you still have not created.</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# example
+go mod init github.com/user/awesome"><pre><span class="pl-c"><span class="pl-c">#</span> example</span>
+go mod init github.com/user/awesome</pre></div>
+<p dir="auto">In a source file(ex. main.go), include the following directive:</p>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="//go:generate msgpackgen
+or
+//go:generate go run github.com/shamaton/msgpackgen"><pre><span class="pl-c">//go:generate msgpackgen</span>
+<span class="pl-s1">or</span>
+<span class="pl-c">//go:generate go run github.com/shamaton/msgpackgen</span></pre></div>
+<p dir="auto">And run the following command in your shell:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go generate"><pre>go generate</pre></div>
+<p dir="auto">It will generate one <code>.go</code> file for serialization, default is <code>resolver.msgpackgen.go</code>.
+You can call one method to use generated code.</p>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="func main() {
+	// this method is defined in resolver.msgpackgen.go
+	RegisterGeneratedResolver()
+	
+	// ... your code ...
+}"><pre><span class="pl-k">func</span> <span class="pl-en">main</span>() {
+	<span class="pl-c">// this method is defined in resolver.msgpackgen.go</span>
+	<span class="pl-en">RegisterGeneratedResolver</span>()
+	
+	<span class="pl-c">// ... your code ...</span>
+}</pre></div>
+<p dir="auto"><code>Marshal</code> and <code>Unmarshal</code> look like this:</p>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="    // import github.com/shamaton/msgpackgen/msgpack
+    v := ResolvedStruct{}
+    b, err := msgpack.Marshal(v)
+    if err != nil {
+        panic(err)
+    }
+    
+    var vv ResolvedStruct
+    err = msgpack.Unmarshal(b, &amp;vv)
+    if err != nil {
+        panic(err)
+    }"><pre>    <span class="pl-c">// import github.com/shamaton/msgpackgen/msgpack</span>
+    <span class="pl-s1">v</span> <span class="pl-c1">:=</span> <span class="pl-smi">ResolvedStruct</span>{}
+    <span class="pl-s1">b</span>, <span class="pl-s1">err</span> <span class="pl-c1">:=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Marshal</span>(<span class="pl-s1">v</span>)
+    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
+        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
+    }
+    
+    <span class="pl-k">var</span> <span class="pl-s1">vv</span> <span class="pl-smi">ResolvedStruct</span>
+    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Unmarshal</span>(<span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">vv</span>)
+    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
+        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
+    }</pre></div>
+<h6 dir="auto">
+<a id="user-content-serializer" class="anchor" aria-hidden="true" href="#serializer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializer</h6>
+<h7 dir="auto">
+<a id="user-content-supported-types" class="anchor" aria-hidden="true" href="#supported-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Supported Types</h7>
+<p dir="auto">primitive types:<br>
+<code>int</code>, <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code>,
+<code>uint</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code>,
+<code>float32</code>, <code>float64</code>, <code>string</code>, <code>bool</code>, <code>byte</code>, <code>rune</code>,
+<code>complex64</code>, <code>complex128</code></p>
+<p dir="auto">slice, array: <code>[]</code>, <code>[cap]</code></p>
+<p dir="auto">map: <code>map[key]value</code></p>
+<p dir="auto">struct: <code>time.Time</code> and structures you defined</p>
+<h7 dir="auto">
+<a id="user-content-tags" class="anchor" aria-hidden="true" href="#tags"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Tags</h7>
+<p dir="auto">Renaming or omitting are available.</p>
+<ul dir="auto">
+<li>Renaming fields via <code>msgpack:"field_name"</code>
+</li>
+<li>Omitting fields via <code>msgpack:"-"</code>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-switch-default-behaviour" class="anchor" aria-hidden="true" href="#switch-default-behaviour"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Switch Default Behaviour</h7>
+<p dir="auto">Default serialization behaviour is map type. But the performance of array type is better.
+If you want to switch array type as default, use <code>SetStructAsArray</code>.</p>
+<p dir="auto">Also, you can use <code>MarshalAsArray</code>, <code>UnmarshalAsArray</code>.</p>
+<h6 dir="auto">
+<a id="user-content-code-generator" class="anchor" aria-hidden="true" href="#code-generator"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Code Generator</h6>
+<h7 dir="auto">
+<a id="user-content-easy-maintenance" class="anchor" aria-hidden="true" href="#easy-maintenance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Easy maintenance</h7>
+<p dir="auto">This tool generates only one <code>.go</code> file.
+All you have to delete is one generated <code>.go</code> file.</p>
+<h7 dir="auto">
+<a id="user-content-analyzing" class="anchor" aria-hidden="true" href="#analyzing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Analyzing</h7>
+<p dir="auto"><code>-input-dir</code> needs to be in $GOPATH.</p>
+<p dir="auto">Resolver is generated by recursively searching directories,
+but some directories and files are ignored.</p>
+<ul dir="auto">
+<li>Prefix <code>_</code> and <code>.</code> directory.</li>
+<li>
+<code>testdata</code> and <code>vendor</code> directory</li>
+<li>
+<code>_test.go</code> file</li>
+</ul>
+<p dir="auto">If you use <code>-input-file</code> option, it will work without considering the above conditions.</p>
+<hr>
+<p dir="auto">Compatible with various import rules.</p>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import ("
+	"example.com/user/a/b"
+	d "example.com/user/a/c"
+	. "example.com/user/a/e"
+)'><pre><span class="pl-k">import</span> (<span class="pl-s">"</span>
+<span class="pl-s">	"</span><span class="pl-s1">example</span>.<span class="pl-s1">com</span><span class="pl-c1">/</span><span class="pl-s1">user</span><span class="pl-c1">/</span><span class="pl-s1">a</span><span class="pl-c1">/</span><span class="pl-s1">b</span>"
+	d <span class="pl-s">"example.com/user/a/c"</span>
+	. <span class="pl-s">"example.com/user/a/e"</span>
+)</pre></div>
+<h7 dir="auto">
+<a id="user-content-not-generated-case" class="anchor" aria-hidden="true" href="#not-generated-case"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Not Generated Case</h7>
+<p dir="auto">Not generated in the following cases:</p>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// ex. a/example.go
+type Example struct {
+	// unsupported types
+	Interface interface{}
+	Uintptr uintptr
+	Error error
+	Chan chan
+	Func func()
+	
+	// nested struct is also unsupported
+	NestedStruct struct {}
+	
+	// because b.Example is not generated
+	B b.Example
+	
+	// because bytes.Butffer is in outside package
+	Buf bytes.Buffer
+}
+
+func (e Example) F() {
+	// unsupported  struct defined in func
+	type InFunction struct {}
+}
+
+// ex a/b/example.go
+type Example struct {
+	Interface interface{}
+}"><pre><span class="pl-c">// ex. a/example.go</span>
+<span class="pl-k">type</span> <span class="pl-smi">Example</span> <span class="pl-k">struct</span> {
+	<span class="pl-c">// unsupported types</span>
+	<span class="pl-c1">Interface</span> <span class="pl-k">interface</span>{}
+	<span class="pl-c1">Uintptr</span> <span class="pl-smi">uintptr</span>
+	<span class="pl-c1">Error</span> <span class="pl-smi">error</span>
+	<span class="pl-c1">Chan</span> <span class="pl-k">chan</span>
+	<span class="pl-s1">Func</span> <span class="pl-k">func</span>()
+	
+	<span class="pl-c">// nested struct is also unsupported</span>
+	<span class="pl-c1">NestedStruct</span> <span class="pl-k">struct</span> {}
+	
+	<span class="pl-c">// because b.Example is not generated</span>
+	<span class="pl-c1">B</span> b.<span class="pl-smi">Example</span>
+	
+	<span class="pl-c">// because bytes.Butffer is in outside package</span>
+	<span class="pl-c1">Buf</span> bytes.<span class="pl-smi">Buffer</span>
+}
+
+<span class="pl-k">func</span> (<span class="pl-s1">e</span> <span class="pl-smi">Example</span>) <span class="pl-en">F</span>() {
+	<span class="pl-c">// unsupported  struct defined in func</span>
+	<span class="pl-k">type</span> <span class="pl-smi">InFunction</span> <span class="pl-k">struct</span> {}
+}
+
+<span class="pl-c">// ex a/b/example.go</span>
+<span class="pl-k">type</span> <span class="pl-smi">Example</span> <span class="pl-k">struct</span> {
+	<span class="pl-c1">Interface</span> <span class="pl-k">interface</span>{}
+}</pre></div>
+<p dir="auto">If you serialize a struct that wasn't code generated, it will be processed by <a href="https://github.com/shamaton/msgpack">shamaton/msgpack</a>.</p>
+<h7 dir="auto">
+<a id="user-content-strict-mode" class="anchor" aria-hidden="true" href="#strict-mode"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Strict Mode</h7>
+<p dir="auto">If you use strict mode(option <code>-strict</code>), you will get an error if an unrecognized structure is passed.
+In other words,  <a href="https://github.com/shamaton/msgpack">shamaton/msgpack</a> is not used.</p>
+<hr>
+<p dir="auto">See also <code>msgpackgen -h</code></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='Usage of msgpackgen:
+  -dry-run
+        dry run mode
+  -input-dir string
+        input directory. input-file cannot be used at the same time (default ".")
+  -input-file string
+        input a specific file. input-dir cannot be used at the same time
+  -output-dir string
+        output directory (default ".")
+  -output-file string
+        name of generated file (default "resolver.msgpackgen.go")
+  -pointer int
+        pointer level to consider (default 1)
+  -strict
+        strict mode
+  -use-gopath
+        use GOPATH instead of go.mod
+  -v    verbose diagnostics'><pre>Usage of msgpackgen:
+  -dry-run
+        dry run mode
+  -input-dir string
+        input directory. input-file cannot be used at the same <span class="pl-k">time</span> (default <span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>)
+  -input-file string
+        input a specific file. input-dir cannot be used at the same <span class="pl-k">time</span>
+  -output-dir string
+        output directory (default <span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>)
+  -output-file string
+        name of generated file (default <span class="pl-s"><span class="pl-pds">"</span>resolver.msgpackgen.go<span class="pl-pds">"</span></span>)
+  -pointer int
+        pointer level to consider (default 1)
+  -strict
+        strict mode
+  -use-gopath
+        use GOPATH instead of go.mod
+  -v    verbose diagnostics</pre></div>
+<h6 dir="auto">
+<a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Benchmarks</h6>
+<p dir="auto">These results are recorded by <a href="https://github.com/shamaton/msgpack_bench">msgpack_bench</a> at 2021/08.<br>
+The result of this package is that the suffix has <code>ShamatonGen</code>.
+<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/4637556/128298988-0e3c96fd-6014-42a0-9050-36e2b58316b1.png"><img src="https://user-images.githubusercontent.com/4637556/128298988-0e3c96fd-6014-42a0-9050-36e2b58316b1.png" alt="msgpack_bench" style="max-width: 100%;"></a>
+The result of <a href="https://github.com/alecthomas/go_serialization_benchmarks">go_serialization_benchmarks</a> is here.
+<a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/4637556/128299037-06b3a645-2726-4205-848a-cccebb9a3d7f.png"><img src="https://user-images.githubusercontent.com/4637556/128299037-06b3a645-2726-4205-848a-cccebb9a3d7f.png" alt="go_serialization_benchmarks" style="max-width: 100%;"></a></p>
 </article>
   </div>
         </div>
@@ -11860,6 +12333,53 @@ If you are using ProGuard you might need to add the following options:</p>
 <a id="user-content-retrofit" class="anchor" aria-hidden="true" href="#retrofit"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Retrofit</h6>
 <p dir="auto">An example of using the retorfit adapter can be found here:
 <a href="https://github.com/davethomas11/MoshiPack_AndroidAppExample">https://github.com/davethomas11/MoshiPack_AndroidAppExample</a></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-kropp-kotlinx-serialization-msgpack" class="qs"><h4><a href="https://github.com/kropp/kotlinx.serialization.msgpack" target="_blank">kropp/kotlinx.serialization.msgpack <span class="qs-url">https://github.com/kropp/kotlinx.serialization.msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-kotlin-serialization-messagepack-library" class="anchor" aria-hidden="true" href="#kotlin-serialization-messagepack-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Kotlin Serialization MessagePack library</h5>
+<p dir="auto">This library extends <a href="https://github.com/Kotlin/kotlinx.serialization/">kotlinx.serialization</a> framework to support
+<a href="https://msgpack.org/" rel="nofollow">MessagePack</a> format.</p>
+<h6 dir="auto">
+<a id="user-content-implementation-details" class="anchor" aria-hidden="true" href="#implementation-details"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementation details</h6>
+<p dir="auto">When multiple equivalent encodings exist, the shortest (in terms of number of bytes) is used.
+Decoders decode any format and convert it to a required type (possibly loosing precision or significant higher digits)</p>
+<p dir="auto">Thus, not for any input decoding and encoding back will produce the exact same byte array. However, for any <code>@Serializable</code> class
+encoding and decoding should result in the equivalent instance.</p>
+<h6 dir="auto">
+<a id="user-content-current-limitations" class="anchor" aria-hidden="true" href="#current-limitations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Current Limitations</h6>
+<ul dir="auto">
+<li>Only JVM is supported as of now</li>
+<li>Unsigned integers can't be encoded because kotlinx.serialization framework <a href="https://github.com/Kotlin/kotlinx.serialization/issues/259" data-hovercard-type="issue" data-hovercard-url="/Kotlin/kotlinx.serialization/issues/259/hovercard">doesn't support <code>inline</code> classes</a> (yet)</li>
+<li>MessagePack extensions are not supported</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-verification" class="anchor" aria-hidden="true" href="#verification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Verification</h6>
+<p dir="auto">The implementation is tested against <a href="https://github.com/kawanet/msgpack-test-suite/">https://github.com/kawanet/msgpack-test-suite/</a></p>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import com.github.kropp.messagepack.MessagePack
+
+@Serializable
+data class Demo(val compact: Boolean, val schema: Int)
+
+val bytes = byteArrayOf(0x82.toByte(), 0xA7.toByte(), 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3.toByte(), 0xA6.toByte(), 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00)
+val demo = MessagePack.decode(Demo.serializer(), bytes)
+
+assertEquals(demo.compact, true)
+assertEquals(demo.schema, 0)"><pre><span class="pl-k">import</span> <span class="pl-smi">com.github.kropp.messagepack.MessagePack</span>
+
+@Serializable
+<span class="pl-k">data class</span> <span class="pl-en">Demo</span>(<span class="pl-k">val</span> <span class="pl-smi">compact</span><span class="pl-k">:</span> <span class="pl-c1">Boolean</span>, <span class="pl-k">val</span> <span class="pl-smi">schema</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>)
+
+<span class="pl-k">val</span> bytes <span class="pl-k">=</span> byteArrayOf(<span class="pl-c1">0x82</span>.toByte(), <span class="pl-c1">0xA7</span>.toByte(), <span class="pl-c1">0x63</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x70</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0xC3</span>.toByte(), <span class="pl-c1">0xA6</span>.toByte(), <span class="pl-c1">0x73</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x00</span>)
+<span class="pl-k">val</span> demo <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.decode(<span class="pl-en">Demo</span>.serializer(), bytes)
+
+assertEquals(demo.compact, <span class="pl-c1">true</span>)
+assertEquals(demo.schema, <span class="pl-c1">0</span>)</pre></div>
 </article>
   </div>
         </div>
