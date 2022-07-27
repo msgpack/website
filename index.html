@@ -228,6 +228,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-erlang',this)">Erlang <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-Gab-km-msgpack-fsharp',this)">F# <span class="qs-sub">Gab-km</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-pocketberserker-MessagePack-FSharpExtensions',this)">F# <span class="qs-sub">pocketberserker</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-xtpor-godot-msgpack',this)">GDScript <span class="qs-sub">xtpor</span></a></li>
@@ -266,11 +268,9 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-mradziwo-MsgPack_LabVIEW',this)">LabVIEW <span class="qs-sub">mradziwo</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-markstinson-lua-MessagePack',this)">Lua <span class="qs-sub">markstinson</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-bastibe-matlab-msgpack',this)">Matlab <span class="qs-sub">bastibe</span></a></li>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-kieselsteini-msgpack',this)">Lua <span class="qs-sub">kieselsteini</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-bastibe-matlab-msgpack',this)">Matlab <span class="qs-sub">bastibe</span></a></li>
           
@@ -338,11 +338,9 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
+          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-a2-MessagePack-swift',this)">Swift <span class="qs-sub">a2</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-michael-yuji-YSMessagePack',this)">Swift <span class="qs-sub">michael-yuji</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-michael-yuji-YSMessagePack',this)">Swift <span class="qs-sub">michael-yuji</span></a></li>
           
@@ -5922,6 +5920,51 @@ OTP 17.0.</p>
   </div>
         </div>
         
+        <div id="qs-Gab-km-msgpack-fsharp" class="qs"><h4><a href="https://github.com/Gab-km/msgpack-fsharp" target="_blank">Gab-km/msgpack-fsharp <span class="qs-url">https://github.com/Gab-km/msgpack-fsharp</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-f" class="anchor" aria-hidden="true" href="#messagepack-for-f"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for F#</h5>
+<a href="https://ci.appveyor.com/project/Gabkm/msgpack-fsharp" rel="nofollow"><img alt="Build status" src="https://camo.githubusercontent.com/1f7cffc51ca63b15172beee90f4313cd0f9302210bf8ee32896e06f8bb039396/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f71676871726c376e777139366176616c" data-canonical-src="https://ci.appveyor.com/api/projects/status/qghqrl7nwq96aval" style="max-width: 100%;"></a>
+<a name="user-content-what-is-this"></a>
+<h6 dir="auto">
+<a id="user-content-what-is-this" class="anchor" aria-hidden="true" href="#what-is-this"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>What is this?</h6>
+<p dir="auto">MessagePack is a fast and compact binary serialization library.</p>
+<p dir="auto">MessagePack for F# is a MessagePack implementation of F#, by F#, for F#.</p>
+<a name="user-content-usage"></a>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-fsharp notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="open MsgPack
+
+[| 1uy; 2uy; 3uy |]
+|&gt; Array.map (Value.UInt8)
+|&gt; Value.Array
+|&gt; Packer.packOne
+//=&gt; val it : byte [] = [|147uy; 1uy; 2uy; 3uy|]
+
+Unpacker.unpack [|147uy; 1uy; 2uy; 3uy|]
+//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]"><pre><span class="pl-k">open</span> <span class="pl-en">MsgPack</span>
+
+<span class="pl-k">[|</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy <span class="pl-k">|]</span>
+<span class="pl-k">|&gt;</span> Array.map <span class="pl-k">(</span>Value.UInt8<span class="pl-k">)</span>
+<span class="pl-k">|&gt;</span> Value.Array
+<span class="pl-k">|&gt;</span> Packer.packOne
+<span class="pl-c">//=&gt; val it : byte [] = [|147uy; 1uy; 2uy; 3uy|]</span>
+
+Unpacker.unpack <span class="pl-k">[|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|]</span>
+<span class="pl-c">//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]</span></pre></div>
+<a name="user-content-copyright"></a>
+<h6 dir="auto">
+<a id="user-content-copyright" class="anchor" aria-hidden="true" href="#copyright"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Copyright</h6>
+<p dir="auto"><code>Copyright (c) 2014- Kazuhiro Matsushima</code></p>
+<a name="user-content-license"></a>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">Distributed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow">Apache License, Version 2.0</a> .</p>
+
+</article>
+  </div>
+        </div>
+        
         <div id="qs-pocketberserker-MessagePack-FSharpExtensions" class="qs"><h4><a href="https://github.com/pocketberserker/MessagePack.FSharpExtensions" target="_blank">pocketberserker/MessagePack.FSharpExtensions <span class="qs-url">https://github.com/pocketberserker/MessagePack.FSharpExtensions</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -10304,16 +10347,6 @@ If you are using ProGuard you might need to add the following options:</p>
   </div>
         </div>
         
-        <div id="qs-mradziwo-MsgPack_LabVIEW" class="qs"><h4><a href="https://github.com/mradziwo/MsgPack_LabVIEW" target="_blank">mradziwo/MsgPack_LabVIEW <span class="qs-url">https://github.com/mradziwo/MsgPack_LabVIEW</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack_lab-view" class="anchor" aria-hidden="true" href="#msgpack_lab-view"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack_Lab-VIEW</h5>
-<p dir="auto">MsgPack_Lab-VIEW is a lightweight MessagePack serializer and deserializer library written in native LabVIEW 2016.</p>
-<p dir="auto">One can decode a MsgPack message to LabVIEW variant containing correct type, or - when type is known at compile time - one can use dedicated decode functions for each supported type.</p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-markstinson-lua-MessagePack" class="qs"><h4><a href="http://fperrad.github.io/lua-MessagePack/" target="_blank">markstinson/lua-MessagePack <span class="qs-url">http://fperrad.github.io/lua-MessagePack/</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -10337,174 +10370,122 @@ and the sources are hosted at <a href="http://github.com/fperrad/lua-MessagePack
   </div>
         </div>
         
-        <div id="qs-bastibe-matlab-msgpack" class="qs"><h4><a href="https://github.com/bastibe/matlab-msgpack" target="_blank">bastibe/matlab-msgpack <span class="qs-url">https://github.com/bastibe/matlab-msgpack</span></a></h4>
+        <div id="qs-kieselsteini-msgpack" class="qs"><h4><a href="https://github.com/kieselsteini/msgpack" target="_blank">kieselsteini/msgpack <span class="qs-url">https://github.com/kieselsteini/msgpack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-a-messagepack-implementation-for-matlab-and-octave" class="anchor" aria-hidden="true" href="#a-messagepack-implementation-for-matlab-and-octave"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>A MessagePack implementation for Matlab and Octave</h5>
-<p dir="auto">The code is written in pure Matlab, and has no dependencies beyond Matlab itself. And it works in recent versions of Octave, too.</p>
-<p dir="auto">The files in this repository are taken from <a href="https://github.com/bastibe/transplant">Transplant</a>.</p>
+<a id="user-content-messagepack-for-lua-53--54" class="anchor" aria-hidden="true" href="#messagepack-for-lua-53--54"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Lua 5.3 / 5.4</h5>
 <h6 dir="auto">
-<a id="user-content-basic-usage" class="anchor" aria-hidden="true" href="#basic-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic Usage:</h6>
-<div class="highlight highlight-source-matlab notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="data = {'life, the universe, and everything', struct('the_answer', 42)};
-bytes = dumpmsgpack(data)
-data = parsemsgpack(bytes)
-% returns: {'life, the universe, and everything', containers.Map('the_answer', 42)}"><pre>data <span class="pl-k">=</span> {<span class="pl-s"><span class="pl-pds">'</span>life, the universe, and everything<span class="pl-pds">'</span></span>, <span class="pl-en">struct</span>(<span class="pl-s"><span class="pl-pds">'</span>the_answer<span class="pl-pds">'</span></span>, <span class="pl-c1">42</span>)};
-bytes <span class="pl-k">=</span> <span class="pl-en">dumpmsgpack</span>(<span class="pl-smi">data</span>)
-data <span class="pl-k">=</span> <span class="pl-en">parsemsgpack</span>(<span class="pl-smi">bytes</span>)
-<span class="pl-c"><span class="pl-c">%</span> returns: {'life, the universe, and everything', containers.Map('the_answer', 42)}</span></pre></div>
+<a id="user-content-overview" class="anchor" aria-hidden="true" href="#overview"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Overview</h6>
+<p dir="auto">This is a pure Lua implementation for encoding/decoding MessagePack (<a href="https://msgpack.org" rel="nofollow">https://msgpack.org</a>).</p>
+<p dir="auto">Please report any bugs you encounter!</p>
+<p dir="auto">Features:</p>
+<ul dir="auto">
+<li>written in pure Lua 5.3 / 5.4 (using <code>string.pack()</code> / <code>string.unpack()</code>)</li>
+<li>can distinguish between integer / float / double numbers</li>
+<li>can distinguish between UTF-8 strings and binary data</li>
+<li>public domain license (<a href="http://unlicense.org" rel="nofollow">http://unlicense.org</a>)</li>
+<li>pretty fast decoding</li>
+</ul>
+<p dir="auto">What's missing:</p>
+<ul dir="auto">
+<li>extendend types <code>fixent</code>
+</li>
+</ul>
+<p dir="auto">Example code:</p>
+<div class="highlight highlight-source-lua notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="local msgpack = require('msgpack')
+
+local value = msgpack.decode(binary_msgpack_data) -- decode to Lua value
+
+local binary_data = msgpack.encode(lua_value) -- encode Lua value to MessagePack"><pre><span class="pl-k">local</span> msgpack <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>msgpack<span class="pl-pds">'</span></span>)
+
+<span class="pl-k">local</span> value <span class="pl-k">=</span> msgpack.<span class="pl-c1">decode</span>(binary_msgpack_data) <span class="pl-c"><span class="pl-c">--</span> decode to Lua value</span>
+
+<span class="pl-k">local</span> binary_data <span class="pl-k">=</span> msgpack.<span class="pl-c1">encode</span>(lua_value) <span class="pl-c"><span class="pl-c">--</span> encode Lua value to MessagePack</span></pre></div>
 <h6 dir="auto">
-<a id="user-content-converting-matlab-to-msgpack" class="anchor" aria-hidden="true" href="#converting-matlab-to-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Converting Matlab to MsgPack:</h6>
-<table>
-<thead>
-<tr>
-<th>Matlab</th>
-<th>MsgPack</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>string</td>
-<td>string</td>
-</tr>
-<tr>
-<td>scalar</td>
-<td>number</td>
-</tr>
-<tr>
-<td>logical</td>
-<td>
-<code>true</code>/<code>false</code>
-</td>
-</tr>
-<tr>
-<td>vector</td>
-<td>array of numbers</td>
-</tr>
-<tr>
-<td>uint8 vector</td>
-<td>bin</td>
-</tr>
-<tr>
-<td>matrix</td>
-<td>array of array of numbers</td>
-</tr>
-<tr>
-<td>empty matrix</td>
-<td>nil</td>
-</tr>
-<tr>
-<td>cell array</td>
-<td>array</td>
-</tr>
-<tr>
-<td>cell matrix</td>
-<td>array of arrays</td>
-</tr>
-<tr>
-<td>struct</td>
-<td>map</td>
-</tr>
-<tr>
-<td>containers.Map</td>
-<td>map</td>
-</tr>
-<tr>
-<td>struct array</td>
-<td>array of maps</td>
-</tr>
-<tr>
-<td>handles</td>
-<td>raise error</td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">There is no way of encoding exts</p>
-<h6 dir="auto">
-<a id="user-content-converting-msgpack-to-matlab" class="anchor" aria-hidden="true" href="#converting-msgpack-to-matlab"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Converting MsgPack to Matlab</h6>
-<table>
-<thead>
-<tr>
-<th>MsgPack</th>
-<th>Matlab</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>string</td>
-<td>string</td>
-</tr>
-<tr>
-<td>number</td>
-<td>scalar</td>
-</tr>
-<tr>
-<td>
-<code>true</code>/<code>false</code>
-</td>
-<td>logical</td>
-</tr>
-<tr>
-<td>nil</td>
-<td>empty matrix</td>
-</tr>
-<tr>
-<td>array</td>
-<td>cell array</td>
-</tr>
-<tr>
-<td>map</td>
-<td>containers.Map</td>
-</tr>
-<tr>
-<td>bin</td>
-<td>uint8</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>uint8</td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">Note that since <code>structs</code> don't support arbitrary field names, they can't be used for representing <code>maps</code>. We use <code>containers.Map</code> instead.</p>
-<h6 dir="auto">
-<a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Tests</h6>
-<div class="highlight highlight-source-matlab notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="runtests()"><pre><span class="pl-en">runtests</span>()</pre></div>
+<a id="user-content-api" class="anchor" aria-hidden="true" href="#api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API</h6>
+<h7 dir="auto">
+<a id="user-content-msgpackencode_onevalue" class="anchor" aria-hidden="true" href="#msgpackencode_onevalue"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.encode_one(value)</h7>
+<p dir="auto">Encodes the given Lua value to a binary MessagePack representation. It will return the binary string on succes or <code>nil</code> plus an error message if it fails.</p>
+<p dir="auto">The encoder will encode Lua strings as MessagePack strings when they are properly UTF-8 encoded otherwise they will become MessagePack binary objects.</p>
+<p dir="auto">There is also a check if a Lua number can be lossless encoded as a 32-bit float.</p>
+<blockquote>
+<p dir="auto"><strong>NOTE:</strong> Empty Lua tables will be encoded as empty arrays!</p>
+</blockquote>
+<h7 dir="auto">
+<a id="user-content-msgpackencode" class="anchor" aria-hidden="true" href="#msgpackencode"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.encode(...)</h7>
+<p dir="auto">Encodes all given values to a binary MessagePack representation. It will return the binary string or <code>nil</code> plus an error message if it fails.</p>
+<div class="highlight highlight-source-lua notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="local binary = msgpack.encode('Hello', 1024, true, { 2, 3, 4 })"><pre><span class="pl-k">local</span> binary <span class="pl-k">=</span> msgpack.<span class="pl-c1">encode</span>(<span class="pl-s"><span class="pl-pds">'</span>Hello<span class="pl-pds">'</span></span>, <span class="pl-c1">1024</span>, <span class="pl-c1">true</span>, { <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span> })</pre></div>
+<h7 dir="auto">
+<a id="user-content-msgpackdecode_onebinary_data-position" class="anchor" aria-hidden="true" href="#msgpackdecode_onebinary_data-position"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.decode_one(binary_data[, position])</h7>
+<p dir="auto">Decode the given MessagePack binary string to a corresponding Lua value. It will return the decoded Lua value and the position for next byte in stream
+or <code>nil</code> plus an error message if decoding went wrong. You can use the returned position to decode multiple MessagePack values in a stream.</p>
+<p dir="auto">The optional position argument is used to start the decoding at a specific position inside the the binary_data string.</p>
+<blockquote>
+<p dir="auto"><strong>NOTE:</strong> Extended types are not supported. Decoding will fail!</p>
+</blockquote>
+<blockquote>
+<p dir="auto"><strong>NOTE:</strong> Binary data will be decoded as Lua strings</p>
+</blockquote>
+<blockquote>
+<p dir="auto"><strong>NOTE:</strong> Arrays will be decoded as Lua tables starting with index 1 (like Lua uses tables as arrays)</p>
+</blockquote>
+<blockquote>
+<p dir="auto"><strong>NOTE:</strong> Values which are <code>nil</code> will cause the key, value pair to disappear in a Lua table (that's how it works in Lua)</p>
+</blockquote>
+<h7 dir="auto">
+<a id="user-content-msgpackdecodebinary_data-position" class="anchor" aria-hidden="true" href="#msgpackdecodebinary_data-position"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack.decode(binary_data[, position])</h7>
+<p dir="auto">Decode the given MessagePack binary string to one or more Lua values. It will return all decoded Lua values or <code>nil</code> plus an error message if decoding failed.</p>
+<div class="highlight highlight-source-lua notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="local a, b, c = msgpack.decode(binary)"><pre><span class="pl-k">local</span> a, b, c <span class="pl-k">=</span> msgpack.<span class="pl-c1">decode</span>(binary)</pre></div>
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
-<p dir="auto">MATLAB (R) is copyright of the Mathworks</p>
-<p dir="auto">Copyright (c) 2014 Bastian Bechtold
-All rights reserved.</p>
-<p dir="auto">Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are
-met:</p>
-<ol dir="auto">
-<li>
-<p dir="auto">Redistributions of source code must retain the above copyright
-notice, this list of conditions and the following disclaimer.</p>
-</li>
-<li>
-<p dir="auto">Redistributions in binary form must reproduce the above copyright
-notice, this list of conditions and the following disclaimer in the
-documentation and/or other materials provided with the
-distribution.</p>
-</li>
-<li>
-<p dir="auto">Neither the name of the copyright holder nor the names of its
-contributors may be used to endorse or promote products derived
-from this software without specific prior written permission.</p>
-</li>
-</ol>
-<p dir="auto">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to &lt;http://unlicense.org/&gt;'><pre class="notranslate"><code>This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to &lt;http://unlicense.org/&gt;
+</code></pre></div>
 </article>
   </div>
         </div>
@@ -17388,93 +17369,21 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
   </div>
         </div>
         
-        <div id="qs-msgpack-msgpack-smalltalk" class="qs"><h4><a href="https://github.com/msgpack/msgpack-smalltalk" target="_blank">msgpack/msgpack-smalltalk <span class="qs-url">https://github.com/msgpack/msgpack-smalltalk</span></a></h4>
+        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack-smalltalk" class="anchor" aria-hidden="true" href="#msgpack-smalltalk"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-smalltalk</h5>
-<p dir="auto">MessagePack serialization library for various Smalltalk dialects.</p>
+<a id="user-content-swiftpack" class="anchor" aria-hidden="true" href="#swiftpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SwiftPack</h5>
+<p dir="auto">SwiftPack is MessagePack packer and unpacker written almost entirely in Swift.</p>
+<h5 dir="auto">
+<a id="user-content-issues" class="anchor" aria-hidden="true" href="#issues"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Issues</h5>
 <ul dir="auto">
-<li>Squeak</li>
-<li>Pharo</li>
-<li>VisualWorks</li>
-<li>VA Smalltalk</li>
-<li>Dolphin Smalltalk</li>
-<li>GNU Smalltalk (Beta)</li>
-<li><a href="https://github.com/mumez/Cuis-Smalltalk-MessagePack">Cuis</a></li>
+<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures.</li>
+<li>Maps currently only support String types for keys.</li>
 </ul>
-<p dir="auto">Sources are put as <a href="https://github.com/CampSmalltalk/Cypress/blob/master/README.md">Cypress</a> for the neutral accesses from various Smalltalk dialects.</p>
-<h6 dir="auto">
-<a id="user-content-how-to-use" class="anchor" aria-hidden="true" href="#how-to-use"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to use</h6>
-<h7 dir="auto">
-<a id="user-content-serialization" class="anchor" aria-hidden="true" href="#serialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialization</h7>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack pack: &lt;your object&gt;"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">pack:</span> <span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span></pre></div>
-<p dir="auto">or:</p>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;your object&gt; messagePacked"><pre><span class="pl-k">&lt;</span>your object<span class="pl-k">&gt;</span> messagePacked</pre></div>
-<h7 dir="auto">
-<a id="user-content-deserialization" class="anchor" aria-hidden="true" href="#deserialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserialization</h7>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="MpMessagePack unpack: msgpackBytes"><pre><span class="pl-c1">MpMessagePack</span> <span class="pl-c1">unpack:</span> msgpackBytes</pre></div>
-<p dir="auto">or:</p>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="Object fromMessagePack: msgBytes"><pre><span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> msgBytes</pre></div>
-<h7 dir="auto">
-<a id="user-content-samples" class="anchor" aria-hidden="true" href="#samples"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Samples</h7>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="map := Dictionary new.
-map at: 'someArray' asByteArray put: #(1 2.2 #[3 4 5]).
-packed := map messagePacked.
-(Object fromMessagePack: packed) inspect."><pre>map <span class="pl-k">:=</span> <span class="pl-c1">Dictionary</span> <span class="pl-k">new</span>.
-map <span class="pl-c1">at:</span> <span class="pl-s"><span class="pl-pds">'</span>someArray<span class="pl-pds">'</span></span> asByteArray <span class="pl-c1">put:</span> <span class="pl-c1">#(1 2.2 #[3 4 5])</span>.
-packed <span class="pl-k">:=</span> map messagePacked.
-(<span class="pl-c1">Object</span> <span class="pl-c1">fromMessagePack:</span> packed) inspect.</pre></div>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="writeStream := WriteStream on: ByteArray new.
-encoder := MpEncoder on: writeStream.
-encoder nextPut: 1.
-encoder nextPut: #(2 3).
-dic := Dictionary new.
-dic at: 4 put: 5.
-encoder nextPut: dic.
-encoder nextPut: 'four' asByteArray.
-bytes := encoder contents.
-readStream := ReadStream on: bytes.
-decoder := MpDecoder on: readStream.
-[decoder atEnd] whileFalse: [
-        Transcript cr; show: decoder next printString
-]"><pre>writeStream <span class="pl-k">:=</span> <span class="pl-c1">WriteStream</span> <span class="pl-c1">on:</span> <span class="pl-c1">ByteArray</span> <span class="pl-k">new</span>.
-encoder <span class="pl-k">:=</span> <span class="pl-c1">MpEncoder</span> <span class="pl-c1">on:</span> writeStream.
-encoder <span class="pl-c1">nextPut:</span> <span class="pl-c1">1</span>.
-encoder <span class="pl-c1">nextPut:</span> <span class="pl-c1">#(2 3)</span>.
-dic <span class="pl-k">:=</span> <span class="pl-c1">Dictionary</span> <span class="pl-k">new</span>.
-dic <span class="pl-c1">at:</span> <span class="pl-c1">4</span> <span class="pl-c1">put:</span> <span class="pl-c1">5</span>.
-encoder <span class="pl-c1">nextPut:</span> dic.
-encoder <span class="pl-c1">nextPut:</span> <span class="pl-s"><span class="pl-pds">'</span>four<span class="pl-pds">'</span></span> asByteArray.
-bytes <span class="pl-k">:=</span> encoder contents.
-readStream <span class="pl-k">:=</span> <span class="pl-c1">ReadStream</span> <span class="pl-c1">on:</span> bytes.
-decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span class="pl-c1">on:</span> readStream.
-[decoder atEnd] <span class="pl-k">whileFalse:</span> [
-        <span class="pl-c1">Transcript</span> cr; <span class="pl-c1">show:</span> decoder next printString
-]</pre></div>
-<h7 dir="auto">
-<a id="user-content-how-to-install" class="anchor" aria-hidden="true" href="#how-to-install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to install</h7>
-<p dir="auto">Please read <a href="https://github.com/msgpack/msgpack-smalltalk/blob/master/doc/HowToInstall.md">HowToInstall.md</a>.</p>
-<h7 dir="auto">
-<a id="user-content-loading-the-latest-development-version" class="anchor" aria-hidden="true" href="#loading-the-latest-development-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Loading the latest development version</h7>
-<h8 dir="auto">
-<a id="user-content-squeak" class="anchor" aria-hidden="true" href="#squeak"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Squeak</h8>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="Installer squeaksource
-    project: 'MessagePack';
-    install: 'ConfigurationOfMessagePack'. 
-(Smalltalk at: #ConfigurationOfMessagePack) project development load"><pre><span class="pl-c1">Installer</span> squeaksource
-    <span class="pl-c1">project:</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>;
-    <span class="pl-c1">install:</span> <span class="pl-s"><span class="pl-pds">'</span>ConfigurationOfMessagePack<span class="pl-pds">'</span></span>. 
-(<span class="pl-k">Smalltalk</span> <span class="pl-c1">at:</span> <span class="pl-c1">#ConfigurationOfMessagePack</span>) project development load</pre></div>
-<h8 dir="auto">
-<a id="user-content-pharo" class="anchor" aria-hidden="true" href="#pharo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Pharo</h8>
-<div class="highlight highlight-source-smalltalk notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="Metacello new
-  repository: 'github://msgpack/msgpack-smalltalk/repository';
-  baseline: 'MessagePack';
-  load."><pre><span class="pl-c1">Metacello</span> <span class="pl-k">new</span>
-  <span class="pl-c1">repository:</span> <span class="pl-s"><span class="pl-pds">'</span>github://msgpack/msgpack-smalltalk/repository<span class="pl-pds">'</span></span>;
-  <span class="pl-c1">baseline:</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>;
-  load.</pre></div>
-<p dir="auto">You might need <code>MpTypeMapper initializeAll </code> on new encoder/decoder-related updates.</p>
+<h5 dir="auto">
+<a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Copyright and License</h5>
+<p dir="auto">Copyright (c) 2014 Brian Williams</p>
+<p dir="auto">This software is licensed under the terms of the MIT license.</p>
 </article>
   </div>
         </div>
@@ -17530,221 +17439,6 @@ let package = Package(
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto">MessagePack.swift is available under the MIT license. See the LICENSE file for more info.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-michael-yuji-YSMessagePack" class="qs"><h4><a href="https://github.com/michael-yuji/YSMessagePack" target="_blank">michael-yuji/YSMessagePack <span class="qs-url">https://github.com/michael-yuji/YSMessagePack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container js-search-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-ysmessagepack--for-swift-3" class="anchor" aria-hidden="true" href="#ysmessagepack--for-swift-3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>YSMessagePack- for swift 3</h5>
-<p dir="auto">YSMessagePack is a messagePack packer/unpacker written in swift (swift 3 ready). It is designed to be easy to use. YSMessagePack include following features:</p>
-<ul dir="auto">
-<li>Pack custom structs and classes / unpack objects by groups and apply handler to each group (easier to re-construct your struct$)</li>
-<li>Asynchronous unpacking</li>
-<li>Pack and unpack multiple message-packed data regardless of types with only one line of code</li>
-<li>Specify how many items to unpack</li>
-<li>Get remaining bytes that were not message-packed ; start packing from some index -- so you can mix messagepack with other protocol!!!</li>
-<li>Helper methods to cast NSData to desired types</li>
-<li>Operator +^ and +^= to join NSData</li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-version" class="anchor" aria-hidden="true" href="#version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Version</h6>
-<p dir="auto">1.6.2 (Dropped swift 2 support, swift 3 support only from now on)</p>
-<h6 dir="auto">
-<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
-<ul dir="auto">
-<li>Simply add files under <code>YSMessagePack/Classes</code> to your project,</li>
-<li>use cocoapod, add "pod <code>'YSMessagePack', '~&gt; 1.6.2'</code> to your podfile</li>
-</ul>
-<h5 dir="auto">
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h5>
-<h7 dir="auto">
-<a id="user-content-pack" class="anchor" aria-hidden="true" href="#pack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Pack:</h7>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='
-let exampleInt: Int = 1
-let exampleStr: String = "Hello World"
-let exampleArray: [Int] = [1, 2, 3, 4, 5, 6]
-let bool: Bool = true
-
-// To pack items, just put all of them in a single array
-// and call the `pack(items:)` function
-
-//this will be the packed data
-let msgPackedBytes: NSData = pack(items: [true, foo, exampleInt, exampleStr, exampleArray]) 
-
-// Now your payload is ready to send!!!
-'><pre><span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
-<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
-<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
-<span class="pl-k">let</span> bool: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
-
-<span class="pl-c"><span class="pl-c">//</span> To pack items, just put all of them in a single array</span>
-<span class="pl-c"><span class="pl-c">//</span> and call the `pack(items:)` function</span>
-<span class="pl-c"></span>
-<span class="pl-c"><span class="pl-c">//</span>this will be the packed data</span>
-<span class="pl-c"></span><span class="pl-k">let</span> msgPackedBytes: NSData <span class="pl-k">=</span> <span class="pl-c1">pack</span>(<span class="pl-c1">items</span>: [<span class="pl-c1">true</span>, foo, exampleInt, exampleStr, exampleArray]) 
-
-<span class="pl-c"><span class="pl-c">//</span> Now your payload is ready to send!!!</span>
-<span class="pl-c"></span></pre></div>
-<p dir="auto">But what if we have some custom data structure to send?</p>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='
-//To make your struct / class packable
-struct MyStruct: Packable {  //Confirm to this protocol
-    var name: String
-    var index: Int
-    func packFormat() -&gt; [Packable] { //protocol function
-        return [name, index] //pack order
-    }
-    
-    func msgtype() -&gt; MsgPackTypes {
-        return .Custom
-    }
-}
-
-let exampleInt: Int = 1
-let exampleStr: String = "Hello World"
-let exampleArray: [Int] = [1, 2, 3, 4, 5]
-let bool: Bool = true
-
-let foo = MyStruct(name: "foo", index: 626)
-
-let msgPackedBytes = pack(items: [bool, foo, exampleInt, exampleStr, exampleArray])
-'><pre><span class="pl-c"><span class="pl-c">//</span>To make your struct / class packable</span>
-<span class="pl-c"></span><span class="pl-k">struct</span> <span class="pl-en">MyStruct</span>: <span class="pl-e">Packable </span>{  <span class="pl-c"><span class="pl-c">//</span>Confirm to this protocol</span>
-<span class="pl-c"></span>    <span class="pl-k">var</span> name: <span class="pl-c1">String</span>
-    <span class="pl-k">var</span> index: <span class="pl-c1">Int</span>
-    <span class="pl-k">func</span> <span class="pl-en">packFormat</span>() <span class="pl-k">-&gt;</span> [Packable] { <span class="pl-c"><span class="pl-c">//</span>protocol function</span>
-<span class="pl-c"></span>        <span class="pl-k">return</span> [name, index] <span class="pl-c"><span class="pl-c">//</span>pack order</span>
-<span class="pl-c"></span>    }
-    
-    <span class="pl-k">func</span> <span class="pl-en">msgtype</span>() <span class="pl-k">-&gt;</span> MsgPackTypes {
-        <span class="pl-k">return</span> .<span class="pl-smi">Custom</span>
-    }
-}
-
-<span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
-<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
-<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>]
-<span class="pl-k">let</span> bool: <span class="pl-c1">Bool</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>
-
-<span class="pl-k">let</span> foo <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">626</span>)
-
-<span class="pl-k">let</span> msgPackedBytes <span class="pl-k">=</span> <span class="pl-c1">pack</span>(<span class="pl-c1">items</span>: [bool, foo, exampleInt, exampleStr, exampleArray])
-</pre></div>
-<p dir="auto"><strong>Or you can pack them individually and add them to a byte array manually (Which is also less expensive)</strong></p>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="let exampleInt: Int = 1
-let exampleStr: String = &quot;Hello World&quot;
-let exampleArray: [Int] = [1, 2, 3, 4, 5, 6]
-
-//Now pack them individually
-let packedInt = exampleInt.packed()
-
-//if you didn't specific encoding, the default encoding will be ASCII
-#if swift(&gt;=3)
-let packedStr = exampleStr.packed(withEncoding: NSASCIIStringEncoding) 
-#else
-let packedStr = exampleStr.packed(withEncoding: .ascii)
-#endif
-let packedArray = exampleArray.packed()
-//You can use this operator +^ the join the data on rhs to the end of data on lhs
-let msgPackedBytes: NSData = packedInt +^ packedStr +^ packedArray"><pre><span class="pl-k">let</span> exampleInt: <span class="pl-c1">Int</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>
-<span class="pl-k">let</span> exampleStr: <span class="pl-c1">String</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello World<span class="pl-pds">"</span></span>
-<span class="pl-k">let</span> exampleArray: [<span class="pl-c1">Int</span>] <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>]
-
-<span class="pl-c"><span class="pl-c">//</span>Now pack them individually</span>
-<span class="pl-c"></span><span class="pl-k">let</span> packedInt <span class="pl-k">=</span> exampleInt.<span class="pl-c1">packed</span>()
-
-<span class="pl-c"><span class="pl-c">//</span>if you didn't specific encoding, the default encoding will be ASCII</span>
-<span class="pl-c"></span>#<span class="pl-k">if</span> <span class="pl-k">swift</span>(<span class="pl-k">&gt;=</span><span class="pl-c1">3</span>)
-<span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr.<span class="pl-c1">packed</span>(<span class="pl-c1">withEncoding</span>: NSASCIIStringEncoding) 
-#<span class="pl-k">else</span>
-<span class="pl-k">let</span> packedStr <span class="pl-k">=</span> exampleStr.<span class="pl-c1">packed</span>(<span class="pl-c1">withEncoding</span>: .<span class="pl-smi">ascii</span>)
-#<span class="pl-k">endif</span>
-<span class="pl-k">let</span> packedArray <span class="pl-k">=</span> exampleArray.<span class="pl-c1">packed</span>()
-<span class="pl-c"><span class="pl-c">//</span>You can use this operator +^ the join the data on rhs to the end of data on lhs</span>
-<span class="pl-c"></span><span class="pl-k">let</span> msgPackedBytes: NSData <span class="pl-k">=</span> packedInt <span class="pl-k">+^</span> packedStr <span class="pl-k">+^</span> packedArray</pre></div>
-<h6 dir="auto">
-<a id="user-content-unpack" class="anchor" aria-hidden="true" href="#unpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Unpack</h6>
-<p dir="auto">YSMessagePack offer a number of different ways and options to unpack include unpack asynchronously, see the example project for detail.</p>
-<p dir="auto">To unpack a messagepacked bytearray is pretty easy:</p>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='do {
-    //The unpack method will return an array of NSData which each element is an unpacked object
-    let unpackedItems = try msgPackedBytes.itemsUnpacked()
-    //instead of casting the NSData to the type you want, you can call these `.castTo..` methods to do the job for you
-    let int: Int = unpackedItems[2].castToInt()
-
-    //Same as packing, you can also specify the encoding you want to use, default is ASCII
-    let str: String = unpackedItem[3].castToString() 
-    let array: NSArray = unpackedItems[4].castToArray() 
-} catch let error as NSError{
-    NSLog("Error occurs during unpacking: %@", error)
-}
-
-//Remember how to pack your struct? Here is a better way to unpack a stream of bytes formatted in specific format
- let testObj1 = MyStruct(name: "TestObject1", index: 1)
- let testObj2 = MyStruct(name: "TestObject2", index: 2)
- let testObj3 = MyStruct(name: "TestObject3", index: 3)
- 
- let packed = packCustomObjects(testObj1, testObj2, testObj3) //This is an other method that can pack your own struct easier
- 
- let nobjsInOneGroup = 2
- 
- try! packed.unpackByGroupsWith(nobjsInOneGroup) {
-     (unpackedData, isLast) -&gt; Bool
-     
-     //you can also involve additional args like number of groups to unpack
-     guard let name = unpackedData[0].castToString() else {return false} //abort unpacking hen something wrong
-     let index = unpackedData[1]
-     let testObj = MyStruct(name: name, index: index) // assembly      
-     return true //proceed unpacking, or return false to abort
- } 
-'><pre><span class="pl-k">do</span> {
-    <span class="pl-c"><span class="pl-c">//</span>The unpack method will return an array of NSData which each element is an unpacked object</span>
-<span class="pl-c"></span>    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes.<span class="pl-c1">itemsUnpacked</span>()
-    <span class="pl-c"><span class="pl-c">//</span>instead of casting the NSData to the type you want, you can call these `.castTo..` methods to do the job for you</span>
-<span class="pl-c"></span>    <span class="pl-k">let</span> int: <span class="pl-c1">Int</span> <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">2</span>].<span class="pl-c1">castToInt</span>()
-
-    <span class="pl-c"><span class="pl-c">//</span>Same as packing, you can also specify the encoding you want to use, default is ASCII</span>
-<span class="pl-c"></span>    <span class="pl-k">let</span> str: <span class="pl-c1">String</span> <span class="pl-k">=</span> unpackedItem[<span class="pl-c1">3</span>].<span class="pl-c1">castToString</span>() 
-    <span class="pl-k">let</span> array: NSArray <span class="pl-k">=</span> unpackedItems[<span class="pl-c1">4</span>].<span class="pl-c1">castToArray</span>() 
-} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
-    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
-}
-
-<span class="pl-c"><span class="pl-c">//</span>Remember how to pack your struct? Here is a better way to unpack a stream of bytes formatted in specific format</span>
-<span class="pl-c"></span> <span class="pl-k">let</span> testObj1 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject1<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">1</span>)
- <span class="pl-k">let</span> testObj2 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject2<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">2</span>)
- <span class="pl-k">let</span> testObj3 <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">"</span>TestObject3<span class="pl-pds">"</span></span>, <span class="pl-c1">index</span>: <span class="pl-c1">3</span>)
- 
- <span class="pl-k">let</span> packed <span class="pl-k">=</span> <span class="pl-c1">packCustomObjects</span>(testObj1, testObj2, testObj3) <span class="pl-c"><span class="pl-c">//</span>This is an other method that can pack your own struct easier</span>
-<span class="pl-c"></span> 
- <span class="pl-k">let</span> nobjsInOneGroup <span class="pl-k">=</span> <span class="pl-c1">2</span>
- 
- <span class="pl-k">try</span><span class="pl-k">!</span> packed.<span class="pl-c1">unpackByGroupsWith</span>(nobjsInOneGroup) {
-     (unpackedData, isLast) <span class="pl-k">-&gt;</span> <span class="pl-c1">Bool</span>
-     
-     <span class="pl-c"><span class="pl-c">//</span>you can also involve additional args like number of groups to unpack</span>
-<span class="pl-c"></span>     <span class="pl-k">guard</span> <span class="pl-k">let</span> name <span class="pl-k">=</span> unpackedData[<span class="pl-c1">0</span>].<span class="pl-c1">castToString</span>() <span class="pl-k">else</span> {<span class="pl-k">return</span> <span class="pl-c1">false</span>} <span class="pl-c"><span class="pl-c">//</span>abort unpacking hen something wrong</span>
-<span class="pl-c"></span>     <span class="pl-k">let</span> index <span class="pl-k">=</span> unpackedData[<span class="pl-c1">1</span>]
-     <span class="pl-k">let</span> testObj <span class="pl-k">=</span> <span class="pl-c1">MyStruct</span>(<span class="pl-c1">name</span>: name, <span class="pl-c1">index</span>: index) <span class="pl-c"><span class="pl-c">//</span> assembly      </span>
-<span class="pl-c"></span>     <span class="pl-k">return</span> <span class="pl-c1">true</span> <span class="pl-c"><span class="pl-c">//</span>proceed unpacking, or return false to abort</span>
-<span class="pl-c"></span> } 
-</pre></div>
-<p dir="auto"><strong>If you don't want to unpack every single thing included in the message-pack byte array, you can also specify an amount to unpack, if you want to keep the remaining bytes, you can put <code>true</code> in the <code>returnRemainingBytes</code> argument, the remaining bytes will stored in the end of the <code>NSData</code> array.</strong></p>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='do {
-    //Unpack only 2 objects, and we are not interested in remaining bytes
-    let unpackedItems = try msgPackedBytes.itemsUnpacked(specific_amount: 2, returnRemainingBytes: false)
-    print(unpackedItems.count) //will print 2
-} catch let error as NSError{
-    NSLog("Error occurs during unpacking: %@", error)
-}'><pre><span class="pl-k">do</span> {
-    <span class="pl-c"><span class="pl-c">//</span>Unpack only 2 objects, and we are not interested in remaining bytes</span>
-<span class="pl-c"></span>    <span class="pl-k">let</span> unpackedItems <span class="pl-k">=</span> <span class="pl-k">try</span> msgPackedBytes.<span class="pl-c1">itemsUnpacked</span>(<span class="pl-c1">specific_amount</span>: <span class="pl-c1">2</span>, <span class="pl-c1">returnRemainingBytes</span>: <span class="pl-c1">false</span>)
-    <span class="pl-c1">print</span>(unpackedItems.<span class="pl-c1">count</span>) <span class="pl-c"><span class="pl-c">//</span>will print 2</span>
-<span class="pl-c"></span>} <span class="pl-k">catch</span> <span class="pl-k">let</span> error <span class="pl-k">as</span> NSError{
-    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Error occurs during unpacking: %@<span class="pl-pds">"</span></span>, error)
-}</pre></div>
 </article>
   </div>
         </div>
