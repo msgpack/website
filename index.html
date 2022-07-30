@@ -176,6 +176,10 @@
 
         <ul class="qslist">
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ugorji-go',this)">Go <span class="qs-sub">ugorji</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ruby',this)">Ruby <span class="qs-sub">msgpack</span></a></li>
+          
         </ul>
       </div>
 
@@ -185,6 +189,140 @@
         <div id="quickstart" class="qsholder"></div>
         <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md#how-to-list-up-your-project-on-msgpackorg">List your implementation here!</a></p>
 
+        
+        <div id="qs-ugorji-go" class="qs"><h4><a href="https://github.com/ugorji/go" target="_blank">ugorji/go <span class="qs-url">https://github.com/ugorji/go</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><strong>MessagePack and <a href="http://github.com/ugorji/binc">Binc</a> Codec for <a href="http://golang.org" rel="nofollow">Go</a> Language.</strong></p>
+<p dir="auto"><em>A High Performance, Feature-Rich, Idiomatic encode/decode and rpc library</em>.</p>
+<p dir="auto">To install:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/ugorji/go/codec"><pre class="notranslate"><code>go get github.com/ugorji/go/codec
+</code></pre></div>
+<p dir="auto">Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
+Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec" rel="nofollow">http://godoc.org/github.com/ugorji/go/codec</a>]</p>
+<p dir="auto">Typical usage:</p>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='    // create and use decoder/encoder
+    var (
+        v interface{} // value to decode/encode into
+        r io.Reader
+        w io.Writer
+        b []byte
+        mh codec.MsgpackHandle
+    )
+    
+    dec = codec.NewDecoder(r, &amp;mh)
+    dec = codec.NewDecoderBytes(b, &amp;mh)
+    err = dec.Decode(&amp;v) 
+    
+    enc = codec.NewEncoder(w, &amp;mh)
+    enc = codec.NewEncoderBytes(&amp;b, &amp;mh)
+    err = enc.Encode(v)
+    
+    //RPC Server
+    go func() {
+        for {
+            conn, err := listener.Accept()
+            rpcCodec := codec.GoRpc.ServerCodec(conn, h)
+            //OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)
+            rpc.ServeCodec(rpcCodec)
+        }
+    }()
+    
+    //RPC Communication (client side)
+    conn, err = net.Dial("tcp", "localhost:5555")
+    rpcCodec := codec.GoRpc.ClientCodec(conn, h)
+    //OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)
+    client := rpc.NewClientWithCodec(rpcCodec)'><pre>    <span class="pl-c">// create and use decoder/encoder</span>
+    <span class="pl-k">var</span> (
+        <span class="pl-s1">v</span> <span class="pl-k">interface</span>{} <span class="pl-c">// value to decode/encode into</span>
+        <span class="pl-s1">r</span> io.<span class="pl-smi">Reader</span>
+        <span class="pl-s1">w</span> io.<span class="pl-smi">Writer</span>
+        <span class="pl-s1">b</span> []<span class="pl-smi">byte</span>
+        <span class="pl-s1">mh</span> codec.<span class="pl-smi">MsgpackHandle</span>
+    )
+    
+    <span class="pl-s1">dec</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewDecoder</span>(<span class="pl-s1">r</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">dec</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewDecoderBytes</span>(<span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">dec</span>.<span class="pl-en">Decode</span>(<span class="pl-c1">&amp;</span><span class="pl-s1">v</span>) 
+    
+    <span class="pl-s1">enc</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewEncoder</span>(<span class="pl-s1">w</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">enc</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewEncoderBytes</span>(<span class="pl-c1">&amp;</span><span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">enc</span>.<span class="pl-en">Encode</span>(<span class="pl-s1">v</span>)
+    
+    <span class="pl-c">//RPC Server</span>
+    <span class="pl-k">go</span> <span class="pl-k">func</span>() {
+        <span class="pl-k">for</span> {
+            <span class="pl-s1">conn</span>, <span class="pl-s1">err</span> <span class="pl-c1">:=</span> <span class="pl-s1">listener</span>.<span class="pl-en">Accept</span>()
+            <span class="pl-s1">rpcCodec</span> <span class="pl-c1">:=</span> <span class="pl-s1">codec</span>.<span class="pl-c1">GoRpc</span>.<span class="pl-en">ServerCodec</span>(<span class="pl-s1">conn</span>, <span class="pl-s1">h</span>)
+            <span class="pl-c">//OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)</span>
+            <span class="pl-s1">rpc</span>.<span class="pl-en">ServeCodec</span>(<span class="pl-s1">rpcCodec</span>)
+        }
+    }()
+    
+    <span class="pl-c">//RPC Communication (client side)</span>
+    <span class="pl-s1">conn</span>, <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">net</span>.<span class="pl-en">Dial</span>(<span class="pl-s">"tcp"</span>, <span class="pl-s">"localhost:5555"</span>)
+    <span class="pl-s1">rpcCodec</span> <span class="pl-c1">:=</span> <span class="pl-s1">codec</span>.<span class="pl-c1">GoRpc</span>.<span class="pl-en">ClientCodec</span>(<span class="pl-s1">conn</span>, <span class="pl-s1">h</span>)
+    <span class="pl-c">//OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span>
+    <span class="pl-s1">client</span> <span class="pl-c1">:=</span> <span class="pl-s1">rpc</span>.<span class="pl-en">NewClientWithCodec</span>(<span class="pl-s1">rpcCodec</span>)</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-ruby" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ruby" target="_blank">msgpack/msgpack-ruby <span class="qs-url">https://github.com/msgpack/msgpack-ruby</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-ruby" class="anchor" aria-hidden="true" href="#messagepack-for-ruby"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Ruby</h5>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="require 'msgpack'
+msg = [1,2,3].to_msgpack  #=&gt; &quot;\x93\x01\x02\x03&quot;
+MessagePack.unpack(msg)   #=&gt; [1,2,3]"><pre class="notranslate"><code>require 'msgpack'
+msg = [1,2,3].to_msgpack  #=&gt; "\x93\x01\x02\x03"
+MessagePack.unpack(msg)   #=&gt; [1,2,3]
+</code></pre></div>
+<h6 dir="auto">
+<a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="gem install msgpack"><pre class="notranslate"><code>gem install msgpack
+</code></pre></div>
+<h6 dir="auto">
+<a id="user-content-use-cases" class="anchor" aria-hidden="true" href="#use-cases"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Use cases</h6>
+<ul dir="auto">
+<li>Create REST API returing MessagePack using Rails + <a href="https://github.com/nesquena/rabl">RABL</a>
+</li>
+<li>Store objects efficiently in memcached or Redis</li>
+<li>Upload data in efficient format from mobile devices. See also MessagePack for <a href="https://github.com/msgpack/msgpack-objectivec">Objective-C</a> and <a href="https://github.com/msgpack/msgpack-java">Java</a>
+</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-links" class="anchor" aria-hidden="true" href="#links"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Links</h6>
+<ul dir="auto">
+<li><a href="https://github.com/msgpack/msgpack-ruby">Github</a></li>
+<li><a href="http://ruby.msgpack.org/" rel="nofollow">API document</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-streaming-api" class="anchor" aria-hidden="true" href="#streaming-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Streaming API</h6>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# serialize a 2-element array [e1, e2]
+pk = MessagePack::Packer.new(io)
+pk.write_array_header(2).write(e1).write(e2).flush"><pre class="notranslate"><code># serialize a 2-element array [e1, e2]
+pk = MessagePack::Packer.new(io)
+pk.write_array_header(2).write(e1).write(e2).flush
+</code></pre></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# deserialize objects from an IO
+u = MessagePack::Unpacker.new(io)
+u.each { |obj| ... }"><pre class="notranslate"><code># deserialize objects from an IO
+u = MessagePack::Unpacker.new(io)
+u.each { |obj| ... }
+</code></pre></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# event-driven deserialization
+def on_read(data)
+  @u ||= MessagePack::Unpacker.new
+  @u.feed_each(data) { |obj| ... }
+end"><pre class="notranslate"><code># event-driven deserialization
+def on_read(data)
+  @u ||= MessagePack::Unpacker.new
+  @u.feed_each(data) { |obj| ... }
+end
+</code></pre></div>
+</article>
+  </div>
+        </div>
         
       </div>
     </section>
