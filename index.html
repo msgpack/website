@@ -176,6 +176,14 @@
 
         <ul class="qslist">
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-vmihailenco-msgpack',this)">Go <span class="qs-sub">vmihailenco</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-ugorji-go',this)">Go <span class="qs-sub">ugorji</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-python',this)">Python <span class="qs-sub">msgpack</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ruby',this)">Ruby <span class="qs-sub">msgpack</span></a></li>
+          
         </ul>
       </div>
 
@@ -185,6 +193,531 @@
         <div id="quickstart" class="qsholder"></div>
         <p id="quickstart-guide"><a href="https://github.com/msgpack/website/blob/master/README.md#how-to-list-up-your-project-on-msgpackorg">List your implementation here!</a></p>
 
+        
+        <div id="qs-vmihailenco-msgpack" class="qs"><h4><a href="https://msgpack.uptrace.dev/" target="_blank">vmihailenco/msgpack <span class="qs-url">https://msgpack.uptrace.dev/</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-encoding-for-golang" class="anchor" aria-hidden="true" href="#messagepack-encoding-for-golang"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack encoding for Golang</h5>
+<p dir="auto"><a href="https://travis-ci.org/vmihailenco/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/61bdb4c546130de8b74eddff7de0d6cf11a309c5c022937fd7735c36ac6547e1/68747470733a2f2f7472617669732d63692e6f72672f766d696861696c656e636f2f6d73677061636b2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/vmihailenco/msgpack.svg" style="max-width: 100%;"></a>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5" rel="nofollow"><img src="https://camo.githubusercontent.com/cffc384b58a566df38d9a72cd4c2bcf31a0f7f6c25e8b8b69ebfc5064314bebe/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f766d696861696c656e636f2f6d73677061636b2f7635" alt="PkgGoDev" data-canonical-src="https://pkg.go.dev/badge/github.com/vmihailenco/msgpack/v5" style="max-width: 100%;"></a>
+<a href="https://msgpack.uptrace.dev/" rel="nofollow"><img src="https://camo.githubusercontent.com/69e8fd1ebf3fdaf0158bdb0d1b6cb30212c1e950e117a0b9d19684ead491d421/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6d73677061636b2d646f63756d656e746174696f6e2d696e666f726d6174696f6e616c" alt="Documentation" data-canonical-src="https://img.shields.io/badge/msgpack-documentation-informational" style="max-width: 100%;"></a>
+<a href="https://discord.gg/rWtp5Aj" rel="nofollow"><img src="https://camo.githubusercontent.com/a19403897efd43047f062aba945f6fde175ed63a420b0a94e8d12809ba56f74f/68747470733a2f2f646973636f72646170702e636f6d2f6170692f6775696c64732f3735323037303130353834373935353531382f7769646765742e706e67" alt="Chat" data-canonical-src="https://discordapp.com/api/guilds/752070105847955518/widget.png" style="max-width: 100%;"></a></p>
+<blockquote>
+<p dir="auto">msgpack is brought to you by <g-emoji class="g-emoji" alias="star" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png">⭐</g-emoji> <a href="https://github.com/uptrace/uptrace"><strong>uptrace/uptrace</strong></a>.
+Uptrace is an open source and blazingly fast
+<a href="https://get.uptrace.dev/compare/distributed-tracing-tools.html" rel="nofollow">distributed tracing tool</a> powered
+by OpenTelemetry and ClickHouse. Give it a star as well!</p>
+</blockquote>
+<h6 dir="auto">
+<a id="user-content-resources" class="anchor" aria-hidden="true" href="#resources"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Resources</h6>
+<ul dir="auto">
+<li><a href="https://msgpack.uptrace.dev" rel="nofollow">Documentation</a></li>
+<li><a href="https://discord.gg/rWtp5Aj" rel="nofollow">Chat</a></li>
+<li><a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5" rel="nofollow">Reference</a></li>
+<li><a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#pkg-examples" rel="nofollow">Examples</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-features" class="anchor" aria-hidden="true" href="#features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Features</h6>
+<ul dir="auto">
+<li>Primitives, arrays, maps, structs, time.Time and interface{}.</li>
+<li>Appengine *datastore.Key and datastore.Cursor.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#CustomEncoder" rel="nofollow">CustomEncoder</a>/<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#CustomDecoder" rel="nofollow">CustomDecoder</a> interfaces for custom encoding.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-RegisterExt" rel="nofollow">Extensions</a> to encode
+type information.</li>
+<li>Renaming fields via <code>msgpack:"my_field_name"</code> and alias via <code>msgpack:"alias:another_name"</code>.</li>
+<li>Omitting individual empty fields via <code>msgpack:",omitempty"</code> tag or all
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-Marshal-OmitEmpty" rel="nofollow">empty fields in a struct</a>.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Encoder.SetSortMapKeys" rel="nofollow">Map keys sorting</a>.</li>
+<li>Encoding/decoding all
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Encoder.UseArrayEncodedStructs" rel="nofollow">structs as arrays</a>
+or
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-Marshal-AsArray" rel="nofollow">individual structs</a>.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Encoder.SetCustomStructTag" rel="nofollow">Encoder.SetCustomStructTag</a> with <a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Decoder.SetCustomStructTag" rel="nofollow">Decoder.SetCustomStructTag</a> can turn msgpack into drop-in
+replacement for any tag.</li>
+<li>Simple but very fast and efficient
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-Decoder.Query" rel="nofollow">queries</a>.</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">msgpack supports 2 last Go versions and requires support for
+<a href="https://github.com/golang/go/wiki/Modules">Go modules</a>. So make sure to initialize a Go module:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go mod init github.com/my/repo"><pre>go mod init github.com/my/repo</pre></div>
+<p dir="auto">And then install msgpack/v5 (note <em>v5</em> in the import; omitting it is a popular mistake):</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/vmihailenco/msgpack/v5"><pre>go get github.com/vmihailenco/msgpack/v5</pre></div>
+<h6 dir="auto">
+<a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quickstart</h6>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import "github.com/vmihailenco/msgpack/v5"
+
+func ExampleMarshal() {
+    type Item struct {
+        Foo string
+    }
+
+    b, err := msgpack.Marshal(&amp;Item{Foo: "bar"})
+    if err != nil {
+        panic(err)
+    }
+
+    var item Item
+    err = msgpack.Unmarshal(b, &amp;item)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(item.Foo)
+    // Output: bar
+}'><pre><span class="pl-k">import</span> <span class="pl-s">"github.com/vmihailenco/msgpack/v5"</span>
+
+<span class="pl-k">func</span> <span class="pl-en">ExampleMarshal</span>() {
+    <span class="pl-k">type</span> <span class="pl-smi">Item</span> <span class="pl-k">struct</span> {
+        <span class="pl-c1">Foo</span> <span class="pl-smi">string</span>
+    }
+
+    <span class="pl-s1">b</span>, <span class="pl-s1">err</span> <span class="pl-c1">:=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Marshal</span>(<span class="pl-c1">&amp;</span><span class="pl-smi">Item</span>{<span class="pl-c1">Foo</span>: <span class="pl-s">"bar"</span>})
+    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
+        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
+    }
+
+    <span class="pl-k">var</span> <span class="pl-s1">item</span> <span class="pl-smi">Item</span>
+    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Unmarshal</span>(<span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">item</span>)
+    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
+        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
+    }
+    <span class="pl-s1">fmt</span>.<span class="pl-en">Println</span>(<span class="pl-s1">item</span>.<span class="pl-c1">Foo</span>)
+    <span class="pl-c">// Output: bar</span>
+}</pre></div>
+<h6 dir="auto">
+<a id="user-content-see-also" class="anchor" aria-hidden="true" href="#see-also"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>See also</h6>
+<ul dir="auto">
+<li>
+<a href="https://github.com/uptrace/bun">Golang ORM</a> for PostgreSQL, MySQL, MSSQL, and SQLite</li>
+<li><a href="https://bun.uptrace.dev/postgres/" rel="nofollow">Golang PostgreSQL</a></li>
+<li><a href="https://github.com/uptrace/bunrouter">Golang HTTP router</a></li>
+<li><a href="https://github.com/uptrace/go-clickhouse">Golang ClickHouse ORM</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-contributors" class="anchor" aria-hidden="true" href="#contributors"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributors</h6>
+<p dir="auto">Thanks to all the people who already contributed!</p>
+<a href="https://github.com/vmihailenco/msgpack/graphs/contributors">
+  <img src="https://camo.githubusercontent.com/c307cf95af749d5f9336185081261f0a8b1d74a68831a1eb7b0652bf4485542a/68747470733a2f2f636f6e7472696275746f72732d696d672e7765622e6170702f696d6167653f7265706f3d766d696861696c656e636f2f6d73677061636b" data-canonical-src="https://contributors-img.web.app/image?repo=vmihailenco/msgpack" style="max-width: 100%;">
+</a>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-ugorji-go" class="qs"><h4><a href="https://github.com/ugorji/go" target="_blank">ugorji/go <span class="qs-url">https://github.com/ugorji/go</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><strong>MessagePack and <a href="http://github.com/ugorji/binc">Binc</a> Codec for <a href="http://golang.org" rel="nofollow">Go</a> Language.</strong></p>
+<p dir="auto"><em>A High Performance, Feature-Rich, Idiomatic encode/decode and rpc library</em>.</p>
+<p dir="auto">To install:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="go get github.com/ugorji/go/codec"><pre class="notranslate"><code>go get github.com/ugorji/go/codec
+</code></pre></div>
+<p dir="auto">Source: [<a href="http://github.com/ugorji/go">http://github.com/ugorji/go</a>]<br>
+Online documentation: [<a href="http://godoc.org/github.com/ugorji/go/codec" rel="nofollow">http://godoc.org/github.com/ugorji/go/codec</a>]</p>
+<p dir="auto">Typical usage:</p>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='    // create and use decoder/encoder
+    var (
+        v interface{} // value to decode/encode into
+        r io.Reader
+        w io.Writer
+        b []byte
+        mh codec.MsgpackHandle
+    )
+    
+    dec = codec.NewDecoder(r, &amp;mh)
+    dec = codec.NewDecoderBytes(b, &amp;mh)
+    err = dec.Decode(&amp;v) 
+    
+    enc = codec.NewEncoder(w, &amp;mh)
+    enc = codec.NewEncoderBytes(&amp;b, &amp;mh)
+    err = enc.Encode(v)
+    
+    //RPC Server
+    go func() {
+        for {
+            conn, err := listener.Accept()
+            rpcCodec := codec.GoRpc.ServerCodec(conn, h)
+            //OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)
+            rpc.ServeCodec(rpcCodec)
+        }
+    }()
+    
+    //RPC Communication (client side)
+    conn, err = net.Dial("tcp", "localhost:5555")
+    rpcCodec := codec.GoRpc.ClientCodec(conn, h)
+    //OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)
+    client := rpc.NewClientWithCodec(rpcCodec)'><pre>    <span class="pl-c">// create and use decoder/encoder</span>
+    <span class="pl-k">var</span> (
+        <span class="pl-s1">v</span> <span class="pl-k">interface</span>{} <span class="pl-c">// value to decode/encode into</span>
+        <span class="pl-s1">r</span> io.<span class="pl-smi">Reader</span>
+        <span class="pl-s1">w</span> io.<span class="pl-smi">Writer</span>
+        <span class="pl-s1">b</span> []<span class="pl-smi">byte</span>
+        <span class="pl-s1">mh</span> codec.<span class="pl-smi">MsgpackHandle</span>
+    )
+    
+    <span class="pl-s1">dec</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewDecoder</span>(<span class="pl-s1">r</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">dec</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewDecoderBytes</span>(<span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">dec</span>.<span class="pl-en">Decode</span>(<span class="pl-c1">&amp;</span><span class="pl-s1">v</span>) 
+    
+    <span class="pl-s1">enc</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewEncoder</span>(<span class="pl-s1">w</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">enc</span> <span class="pl-c1">=</span> <span class="pl-s1">codec</span>.<span class="pl-en">NewEncoderBytes</span>(<span class="pl-c1">&amp;</span><span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">mh</span>)
+    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">enc</span>.<span class="pl-en">Encode</span>(<span class="pl-s1">v</span>)
+    
+    <span class="pl-c">//RPC Server</span>
+    <span class="pl-k">go</span> <span class="pl-k">func</span>() {
+        <span class="pl-k">for</span> {
+            <span class="pl-s1">conn</span>, <span class="pl-s1">err</span> <span class="pl-c1">:=</span> <span class="pl-s1">listener</span>.<span class="pl-en">Accept</span>()
+            <span class="pl-s1">rpcCodec</span> <span class="pl-c1">:=</span> <span class="pl-s1">codec</span>.<span class="pl-c1">GoRpc</span>.<span class="pl-en">ServerCodec</span>(<span class="pl-s1">conn</span>, <span class="pl-s1">h</span>)
+            <span class="pl-c">//OR rpcCodec := codec.MsgpackSpecRpc.ServerCodec(conn, h)</span>
+            <span class="pl-s1">rpc</span>.<span class="pl-en">ServeCodec</span>(<span class="pl-s1">rpcCodec</span>)
+        }
+    }()
+    
+    <span class="pl-c">//RPC Communication (client side)</span>
+    <span class="pl-s1">conn</span>, <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">net</span>.<span class="pl-en">Dial</span>(<span class="pl-s">"tcp"</span>, <span class="pl-s">"localhost:5555"</span>)
+    <span class="pl-s1">rpcCodec</span> <span class="pl-c1">:=</span> <span class="pl-s1">codec</span>.<span class="pl-c1">GoRpc</span>.<span class="pl-en">ClientCodec</span>(<span class="pl-s1">conn</span>, <span class="pl-s1">h</span>)
+    <span class="pl-c">//OR rpcCodec := codec.MsgpackSpecRpc.ClientCodec(conn, h)</span>
+    <span class="pl-s1">client</span> <span class="pl-c1">:=</span> <span class="pl-s1">rpc</span>.<span class="pl-en">NewClientWithCodec</span>(<span class="pl-s1">rpcCodec</span>)</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-python" class="qs"><h4><a href="https://msgpack.org/" target="_blank">msgpack/msgpack-python <span class="qs-url">https://msgpack.org/</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-python" class="anchor" aria-hidden="true" href="#messagepack-for-python"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Python</h5>
+<p dir="auto"><a href="https://travis-ci.org/msgpack/msgpack-python" rel="nofollow"><img src="https://camo.githubusercontent.com/687b53f713fe541ff56eec0cce566807e79032d1913433591cc85ae2f4703ad7/68747470733a2f2f7472617669732d63692e6f72672f6d73677061636b2f6d73677061636b2d707974686f6e2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/msgpack/msgpack-python.svg?branch=master" style="max-width: 100%;"></a>
+<a href="https://msgpack-python.readthedocs.io/en/latest/?badge=latest" rel="nofollow"><img src="https://camo.githubusercontent.com/2dc56636ae724471c101f86044d7c3c84bf82de7e46c40919fe90c87c7abbf20/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f6d73677061636b2d707974686f6e2f62616467652f3f76657273696f6e3d6c6174657374" alt="Documentation Status" data-canonical-src="https://readthedocs.org/projects/msgpack-python/badge/?version=latest" style="max-width: 100%;"></a></p>
+<h6 dir="auto">
+<a id="user-content-whats-this" class="anchor" aria-hidden="true" href="#whats-this"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>What's this</h6>
+<p dir="auto"><a href="https://msgpack.org/" rel="nofollow">MessagePack</a> is an efficient binary serialization format.
+It lets you exchange data among multiple languages like JSON.
+But it's faster and smaller.
+This package provides CPython bindings for reading and writing MessagePack data.</p>
+<h6 dir="auto">
+<a id="user-content-very-important-notes-for-existing-users" class="anchor" aria-hidden="true" href="#very-important-notes-for-existing-users"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Very important notes for existing users</h6>
+<h7 dir="auto">
+<a id="user-content-pypi-package-name" class="anchor" aria-hidden="true" href="#pypi-package-name"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>PyPI package name</h7>
+<p dir="auto">Package name on PyPI was changed from <code>msgpack-python</code> to <code>msgpack</code> from 0.5.</p>
+<p dir="auto">When upgrading from msgpack-0.4 or earlier, do <code>pip uninstall msgpack-python</code> before
+<code>pip install -U msgpack</code>.</p>
+<h7 dir="auto">
+<a id="user-content-compatibility-with-the-old-format" class="anchor" aria-hidden="true" href="#compatibility-with-the-old-format"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibility with the old format</h7>
+<p dir="auto">You can use <code>use_bin_type=False</code> option to pack <code>bytes</code>
+object into raw type in the old msgpack spec, instead of bin type in new msgpack spec.</p>
+<p dir="auto">You can unpack old msgpack format using <code>raw=True</code> option.
+It unpacks str (raw) type in msgpack into Python bytes.</p>
+<p dir="auto">See note below for detail.</p>
+<h7 dir="auto">
+<a id="user-content-major-breaking-changes-in-msgpack-10" class="anchor" aria-hidden="true" href="#major-breaking-changes-in-msgpack-10"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Major breaking changes in msgpack 1.0</h7>
+<ul dir="auto">
+<li>
+<p dir="auto">Python 2</p>
+<ul dir="auto">
+<li>The extension module does not support Python 2 anymore.
+The pure Python implementation (<code>msgpack.fallback</code>) is used for Python 2.</li>
+</ul>
+</li>
+<li>
+<p dir="auto">Packer</p>
+<ul dir="auto">
+<li>
+<code>use_bin_type=True</code> by default.  bytes are encoded in bin type in msgpack.
+<strong>If you are still using Python 2, you must use unicode for all string types.</strong>
+You can use <code>use_bin_type=False</code> to encode into old msgpack format.</li>
+<li>
+<code>encoding</code> option is removed.  UTF-8 is used always.</li>
+</ul>
+</li>
+<li>
+<p dir="auto">Unpacker</p>
+<ul dir="auto">
+<li>
+<code>raw=False</code> by default.  It assumes str types are valid UTF-8 string
+and decode them to Python str (unicode) object.</li>
+<li>
+<code>encoding</code> option is removed.  You can use <code>raw=True</code> to support old format.</li>
+<li>Default value of <code>max_buffer_size</code> is changed from 0 to 100 MiB.</li>
+<li>Default value of <code>strict_map_key</code> is changed to True to avoid hashdos.
+You need to pass <code>strict_map_key=False</code> if you have data which contain map keys
+which type is not bytes or str.</li>
+</ul>
+</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ pip install msgpack"><pre class="notranslate"><code>$ pip install msgpack
+</code></pre></div>
+<h7 dir="auto">
+<a id="user-content-pure-python-implementation" class="anchor" aria-hidden="true" href="#pure-python-implementation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Pure Python implementation</h7>
+<p dir="auto">The extension module in msgpack (<code>msgpack._cmsgpack</code>) does not support
+Python 2 and PyPy.</p>
+<p dir="auto">But msgpack provides a pure Python implementation (<code>msgpack.fallback</code>)
+for PyPy and Python 2.</p>
+<h7 dir="auto">
+<a id="user-content-windows" class="anchor" aria-hidden="true" href="#windows"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Windows</h7>
+<p dir="auto">When you can't use a binary distribution, you need to install Visual Studio
+or Windows SDK on Windows.
+Without extension, using pure Python implementation on CPython runs slowly.</p>
+<h6 dir="auto">
+<a id="user-content-how-to-use" class="anchor" aria-hidden="true" href="#how-to-use"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to use</h6>
+<p dir="auto">NOTE: In examples below, I use <code>raw=False</code> and <code>use_bin_type=True</code> for users
+using msgpack &lt; 1.0. These options are default from msgpack 1.0 so you can omit them.</p>
+<h7 dir="auto">
+<a id="user-content-one-shot-pack--unpack" class="anchor" aria-hidden="true" href="#one-shot-pack--unpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>One-shot pack &amp; unpack</h7>
+<p dir="auto">Use <code>packb</code> for packing and <code>unpackb</code> for unpacking.
+msgpack provides <code>dumps</code> and <code>loads</code> as an alias for compatibility with
+<code>json</code> and <code>pickle</code>.</p>
+<p dir="auto"><code>pack</code> and <code>dump</code> packs to a file-like object.
+<code>unpack</code> and <code>load</code> unpacks from a file-like object.</p>
+<div class="highlight highlight-text-python-console notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import msgpack
+&gt;&gt;&gt; msgpack.packb([1, 2, 3], use_bin_type=True)
+'\x93\x01\x02\x03'
+&gt;&gt;&gt; msgpack.unpackb(_, raw=False)
+[1, 2, 3]"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; msgpack.packb([<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+'\x93\x01\x02\x03'
+&gt;&gt;&gt; msgpack.unpackb(_, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+[1, 2, 3]</pre></div>
+<p dir="auto"><code>unpack</code> unpacks msgpack's array to Python's list, but can also unpack to tuple:</p>
+<div class="highlight highlight-text-python-console notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; msgpack.unpackb(b'\x93\x01\x02\x03', use_list=False, raw=False)
+(1, 2, 3)"><pre>&gt;&gt;&gt; msgpack.unpackb(<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span><span class="pl-cce">\x93\x01\x02\x03</span><span class="pl-pds">'</span></span>, <span class="pl-v">use_list</span><span class="pl-k">=</span><span class="pl-c1">False</span>, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+(1, 2, 3)</pre></div>
+<p dir="auto">You should always specify the <code>use_list</code> keyword argument for backward compatibility.
+See performance issues relating to <code>use_list option</code>_ below.</p>
+<p dir="auto">Read the docstring for other options.</p>
+<h7 dir="auto">
+<a id="user-content-streaming-unpacking" class="anchor" aria-hidden="true" href="#streaming-unpacking"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Streaming unpacking</h7>
+<p dir="auto"><code>Unpacker</code> is a "streaming unpacker". It unpacks multiple objects from one
+stream (or from bytes provided through its <code>feed</code> method).</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import msgpack
+from io import BytesIO
+
+buf = BytesIO()
+for i in range(100):
+   buf.write(msgpack.packb(i, use_bin_type=True))
+
+buf.seek(0)
+
+unpacker = msgpack.Unpacker(buf, raw=False)
+for unpacked in unpacker:
+    print(unpacked)"><pre><span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+<span class="pl-k">from</span> <span class="pl-s1">io</span> <span class="pl-k">import</span> <span class="pl-v">BytesIO</span>
+
+<span class="pl-s1">buf</span> <span class="pl-c1">=</span> <span class="pl-v">BytesIO</span>()
+<span class="pl-k">for</span> <span class="pl-s1">i</span> <span class="pl-c1">in</span> <span class="pl-en">range</span>(<span class="pl-c1">100</span>):
+   <span class="pl-s1">buf</span>.<span class="pl-en">write</span>(<span class="pl-s1">msgpack</span>.<span class="pl-en">packb</span>(<span class="pl-s1">i</span>, <span class="pl-s1">use_bin_type</span><span class="pl-c1">=</span><span class="pl-c1">True</span>))
+
+<span class="pl-s1">buf</span>.<span class="pl-en">seek</span>(<span class="pl-c1">0</span>)
+
+<span class="pl-s1">unpacker</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-v">Unpacker</span>(<span class="pl-s1">buf</span>, <span class="pl-s1">raw</span><span class="pl-c1">=</span><span class="pl-c1">False</span>)
+<span class="pl-k">for</span> <span class="pl-s1">unpacked</span> <span class="pl-c1">in</span> <span class="pl-s1">unpacker</span>:
+    <span class="pl-en">print</span>(<span class="pl-s1">unpacked</span>)</pre></div>
+<h7 dir="auto">
+<a id="user-content-packingunpacking-of-custom-data-type" class="anchor" aria-hidden="true" href="#packingunpacking-of-custom-data-type"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Packing/unpacking of custom data type</h7>
+<p dir="auto">It is also possible to pack/unpack custom data types. Here is an example for
+<code>datetime.datetime</code>.</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import datetime
+import msgpack
+
+useful_dict = {
+    &quot;id&quot;: 1,
+    &quot;created&quot;: datetime.datetime.now(),
+}
+
+def decode_datetime(obj):
+    if '__datetime__' in obj:
+        obj = datetime.datetime.strptime(obj[&quot;as_str&quot;], &quot;%Y%m%dT%H:%M:%S.%f&quot;)
+    return obj
+
+def encode_datetime(obj):
+    if isinstance(obj, datetime.datetime):
+        return {'__datetime__': True, 'as_str': obj.strftime(&quot;%Y%m%dT%H:%M:%S.%f&quot;)}
+    return obj
+
+
+packed_dict = msgpack.packb(useful_dict, default=encode_datetime, use_bin_type=True)
+this_dict_again = msgpack.unpackb(packed_dict, object_hook=decode_datetime, raw=False)"><pre><span class="pl-k">import</span> <span class="pl-s1">datetime</span>
+<span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+
+<span class="pl-s1">useful_dict</span> <span class="pl-c1">=</span> {
+    <span class="pl-s">"id"</span>: <span class="pl-c1">1</span>,
+    <span class="pl-s">"created"</span>: <span class="pl-s1">datetime</span>.<span class="pl-s1">datetime</span>.<span class="pl-en">now</span>(),
+}
+
+<span class="pl-k">def</span> <span class="pl-en">decode_datetime</span>(<span class="pl-s1">obj</span>):
+    <span class="pl-k">if</span> <span class="pl-s">'__datetime__'</span> <span class="pl-c1">in</span> <span class="pl-s1">obj</span>:
+        <span class="pl-s1">obj</span> <span class="pl-c1">=</span> <span class="pl-s1">datetime</span>.<span class="pl-s1">datetime</span>.<span class="pl-en">strptime</span>(<span class="pl-s1">obj</span>[<span class="pl-s">"as_str"</span>], <span class="pl-s">"%Y%m%dT%H:%M:%S.%f"</span>)
+    <span class="pl-k">return</span> <span class="pl-s1">obj</span>
+
+<span class="pl-k">def</span> <span class="pl-en">encode_datetime</span>(<span class="pl-s1">obj</span>):
+    <span class="pl-k">if</span> <span class="pl-en">isinstance</span>(<span class="pl-s1">obj</span>, <span class="pl-s1">datetime</span>.<span class="pl-s1">datetime</span>):
+        <span class="pl-k">return</span> {<span class="pl-s">'__datetime__'</span>: <span class="pl-c1">True</span>, <span class="pl-s">'as_str'</span>: <span class="pl-s1">obj</span>.<span class="pl-en">strftime</span>(<span class="pl-s">"%Y%m%dT%H:%M:%S.%f"</span>)}
+    <span class="pl-k">return</span> <span class="pl-s1">obj</span>
+
+
+<span class="pl-s1">packed_dict</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">packb</span>(<span class="pl-s1">useful_dict</span>, <span class="pl-s1">default</span><span class="pl-c1">=</span><span class="pl-s1">encode_datetime</span>, <span class="pl-s1">use_bin_type</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)
+<span class="pl-s1">this_dict_again</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">unpackb</span>(<span class="pl-s1">packed_dict</span>, <span class="pl-s1">object_hook</span><span class="pl-c1">=</span><span class="pl-s1">decode_datetime</span>, <span class="pl-s1">raw</span><span class="pl-c1">=</span><span class="pl-c1">False</span>)</pre></div>
+<p dir="auto"><code>Unpacker</code>'s <code>object_hook</code> callback receives a dict; the
+<code>object_pairs_hook</code> callback may instead be used to receive a list of
+key-value pairs.</p>
+<h7 dir="auto">
+<a id="user-content-extended-types" class="anchor" aria-hidden="true" href="#extended-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extended types</h7>
+<p dir="auto">It is also possible to pack/unpack custom data types using the <strong>ext</strong> type.</p>
+<div class="highlight highlight-text-python-console notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import msgpack
+&gt;&gt;&gt; import array
+&gt;&gt;&gt; def default(obj):
+...     if isinstance(obj, array.array) and obj.typecode == 'd':
+...         return msgpack.ExtType(42, obj.tostring())
+...     raise TypeError(&quot;Unknown type: %r&quot; % (obj,))
+...
+&gt;&gt;&gt; def ext_hook(code, data):
+...     if code == 42:
+...         a = array.array('d')
+...         a.fromstring(data)
+...         return a
+...     return ExtType(code, data)
+...
+&gt;&gt;&gt; data = array.array('d', [1.2, 3.4])
+&gt;&gt;&gt; packed = msgpack.packb(data, default=default, use_bin_type=True)
+&gt;&gt;&gt; unpacked = msgpack.unpackb(packed, ext_hook=ext_hook, raw=False)
+&gt;&gt;&gt; data == unpacked
+True"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; <span class="pl-k">import</span> array
+&gt;&gt;&gt; <span class="pl-k">def</span> <span class="pl-en">default</span>(<span class="pl-smi">obj</span>):
+...     <span class="pl-k">if</span> <span class="pl-c1">isinstance</span>(obj, array.array) <span class="pl-k">and</span> obj.typecode <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>:
+...         <span class="pl-k">return</span> msgpack.ExtType(<span class="pl-c1">42</span>, obj.tostring())
+...     <span class="pl-k">raise</span> <span class="pl-c1">TypeError</span>(<span class="pl-s"><span class="pl-pds">"</span>Unknown type: <span class="pl-c1">%r</span><span class="pl-pds">"</span></span> <span class="pl-k">%</span> (obj,))
+...
+&gt;&gt;&gt; <span class="pl-k">def</span> <span class="pl-en">ext_hook</span>(<span class="pl-smi">code</span>, <span class="pl-smi">data</span>):
+...     <span class="pl-k">if</span> code <span class="pl-k">==</span> <span class="pl-c1">42</span>:
+...         a <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>)
+...         a.fromstring(data)
+...         <span class="pl-k">return</span> a
+...     <span class="pl-k">return</span> ExtType(code, data)
+...
+&gt;&gt;&gt; data <span class="pl-k">=</span> array.array(<span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>, [<span class="pl-c1">1.2</span>, <span class="pl-c1">3.4</span>])
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(data, <span class="pl-v">default</span><span class="pl-k">=</span>default, <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+&gt;&gt;&gt; unpacked <span class="pl-k">=</span> msgpack.unpackb(packed, <span class="pl-v">ext_hook</span><span class="pl-k">=</span>ext_hook, <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+&gt;&gt;&gt; data <span class="pl-k">==</span> unpacked
+True</pre></div>
+<h7 dir="auto">
+<a id="user-content-advanced-unpacking-control" class="anchor" aria-hidden="true" href="#advanced-unpacking-control"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Advanced unpacking control</h7>
+<p dir="auto">As an alternative to iteration, <code>Unpacker</code> objects provide <code>unpack</code>,
+<code>skip</code>, <code>read_array_header</code> and <code>read_map_header</code> methods. The former two
+read an entire message from the stream, respectively de-serialising and returning
+the result, or ignoring it. The latter two methods return the number of elements
+in the upcoming container, so that each element in an array, or key-value pair
+in a map, can be unpacked or skipped individually.</p>
+<h6 dir="auto">
+<a id="user-content-notes" class="anchor" aria-hidden="true" href="#notes"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Notes</h6>
+<h7 dir="auto">
+<a id="user-content-string-and-binary-type" class="anchor" aria-hidden="true" href="#string-and-binary-type"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>string and binary type</h7>
+<p dir="auto">Early versions of msgpack didn't distinguish string and binary types.
+The type for representing both string and binary types was named <strong>raw</strong>.</p>
+<p dir="auto">You can pack into and unpack from this old spec using <code>use_bin_type=False</code>
+and <code>raw=True</code> options.</p>
+<div class="highlight highlight-text-python-console notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import msgpack
+&gt;&gt;&gt; msgpack.unpackb(msgpack.packb([b'spam', u'eggs'], use_bin_type=False), raw=True)
+[b'spam', b'eggs']
+&gt;&gt;&gt; msgpack.unpackb(msgpack.packb([b'spam', u'eggs'], use_bin_type=True), raw=False)
+[b'spam', 'eggs']"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; msgpack.unpackb(msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>eggs<span class="pl-pds">'</span></span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">False</span>), <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">True</span>)
+[b'spam', b'eggs']
+&gt;&gt;&gt; msgpack.unpackb(msgpack.packb([<span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>spam<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>eggs<span class="pl-pds">'</span></span>], <span class="pl-v">use_bin_type</span><span class="pl-k">=</span><span class="pl-c1">True</span>), <span class="pl-v">raw</span><span class="pl-k">=</span><span class="pl-c1">False</span>)
+[b'spam', 'eggs']</pre></div>
+<h7 dir="auto">
+<a id="user-content-ext-type" class="anchor" aria-hidden="true" href="#ext-type"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ext type</h7>
+<p dir="auto">To use the <strong>ext</strong> type, pass <code>msgpack.ExtType</code> object to packer.</p>
+<div class="highlight highlight-text-python-console notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import msgpack
+&gt;&gt;&gt; packed = msgpack.packb(msgpack.ExtType(42, b'xyzzy'))
+&gt;&gt;&gt; msgpack.unpackb(packed)
+ExtType(code=42, data='xyzzy')"><pre>&gt;&gt;&gt; <span class="pl-k">import</span> msgpack
+&gt;&gt;&gt; packed <span class="pl-k">=</span> msgpack.packb(msgpack.ExtType(<span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-k">b</span><span class="pl-pds">'</span>xyzzy<span class="pl-pds">'</span></span>))
+&gt;&gt;&gt; msgpack.unpackb(packed)
+ExtType(code=42, data='xyzzy')</pre></div>
+<p dir="auto">You can use it with <code>default</code> and <code>ext_hook</code>. See below.</p>
+<h7 dir="auto">
+<a id="user-content-security" class="anchor" aria-hidden="true" href="#security"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Security</h7>
+<p dir="auto">To unpacking data received from unreliable source, msgpack provides
+two security options.</p>
+<p dir="auto"><code>max_buffer_size</code> (default: <code>100*1024*1024</code>) limits the internal buffer size.
+It is used to limit the preallocated list size too.</p>
+<p dir="auto"><code>strict_map_key</code> (default: <code>True</code>) limits the type of map keys to bytes and str.
+While msgpack spec doesn't limit the types of the map keys,
+there is a risk of the hashdos.
+If you need to support other types for map keys, use <code>strict_map_key=False</code>.</p>
+<h7 dir="auto">
+<a id="user-content-performance-tips" class="anchor" aria-hidden="true" href="#performance-tips"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Performance tips</h7>
+<p dir="auto">CPython's GC starts when growing allocated object.
+This means unpacking may cause useless GC.
+You can use <code>gc.disable()</code> when unpacking large message.</p>
+<p dir="auto">List is the default sequence type of Python.
+But tuple is lighter than list.
+You can use <code>use_list=False</code> while unpacking when performance is important.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-ruby" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ruby" target="_blank">msgpack/msgpack-ruby <span class="qs-url">https://github.com/msgpack/msgpack-ruby</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-ruby" class="anchor" aria-hidden="true" href="#messagepack-for-ruby"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Ruby</h5>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="require 'msgpack'
+msg = [1,2,3].to_msgpack  #=&gt; &quot;\x93\x01\x02\x03&quot;
+MessagePack.unpack(msg)   #=&gt; [1,2,3]"><pre class="notranslate"><code>require 'msgpack'
+msg = [1,2,3].to_msgpack  #=&gt; "\x93\x01\x02\x03"
+MessagePack.unpack(msg)   #=&gt; [1,2,3]
+</code></pre></div>
+<h6 dir="auto">
+<a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="gem install msgpack"><pre class="notranslate"><code>gem install msgpack
+</code></pre></div>
+<h6 dir="auto">
+<a id="user-content-use-cases" class="anchor" aria-hidden="true" href="#use-cases"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Use cases</h6>
+<ul dir="auto">
+<li>Create REST API returing MessagePack using Rails + <a href="https://github.com/nesquena/rabl">RABL</a>
+</li>
+<li>Store objects efficiently in memcached or Redis</li>
+<li>Upload data in efficient format from mobile devices. See also MessagePack for <a href="https://github.com/msgpack/msgpack-objectivec">Objective-C</a> and <a href="https://github.com/msgpack/msgpack-java">Java</a>
+</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-links" class="anchor" aria-hidden="true" href="#links"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Links</h6>
+<ul dir="auto">
+<li><a href="https://github.com/msgpack/msgpack-ruby">Github</a></li>
+<li><a href="http://ruby.msgpack.org/" rel="nofollow">API document</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-streaming-api" class="anchor" aria-hidden="true" href="#streaming-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Streaming API</h6>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# serialize a 2-element array [e1, e2]
+pk = MessagePack::Packer.new(io)
+pk.write_array_header(2).write(e1).write(e2).flush"><pre class="notranslate"><code># serialize a 2-element array [e1, e2]
+pk = MessagePack::Packer.new(io)
+pk.write_array_header(2).write(e1).write(e2).flush
+</code></pre></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# deserialize objects from an IO
+u = MessagePack::Unpacker.new(io)
+u.each { |obj| ... }"><pre class="notranslate"><code># deserialize objects from an IO
+u = MessagePack::Unpacker.new(io)
+u.each { |obj| ... }
+</code></pre></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# event-driven deserialization
+def on_read(data)
+  @u ||= MessagePack::Unpacker.new
+  @u.feed_each(data) { |obj| ... }
+end"><pre class="notranslate"><code># event-driven deserialization
+def on_read(data)
+  @u ||= MessagePack::Unpacker.new
+  @u.feed_each(data) { |obj| ... }
+end
+</code></pre></div>
+</article>
+  </div>
+        </div>
         
       </div>
     </section>
