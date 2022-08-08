@@ -270,6 +270,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-textbook-express-msgpack',this)">JavaScript <span class="qs-sub">textbook</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-kriszyp-msgpackr',this)">JavaScript/NodeJS <span class="qs-sub">kriszyp</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-javascript',this)">JavaScript/TypeScript/ECMA-262 <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davalapar-what-the-pack',this)">Javascript/NodeJS <span class="qs-sub">davalapar</span></a></li>
@@ -363,6 +365,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-hirotakan-MessagePacker',this)">Swift <span class="qs-sub">hirotakan</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-samclaus-msgpack-ts',this)">TypeScript/JavaScript <span class="qs-sub">samclaus</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
           
@@ -10122,6 +10126,545 @@ the specified <code>$TAG</code> version is installed from the registry and teste
   </div>
         </div>
         
+        <div id="qs-kriszyp-msgpackr" class="qs"><h4><a href="https://github.com/kriszyp/msgpackr" target="_blank">kriszyp/msgpackr <span class="qs-url">https://github.com/kriszyp/msgpackr</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpackr" class="anchor" href="#msgpackr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpackr</h5>
+<p dir="auto"><a href="https://www.npmjs.org/package/msgpackr" rel="nofollow"><img src="https://camo.githubusercontent.com/fd984c8336bc7f56d518da36e8fc1f4358ac7afdfa6f9d1003355151841b7551/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f6d73677061636b722e7376673f7374796c653d666c61742d737175617265" alt="npm version" data-canonical-src="https://img.shields.io/npm/v/msgpackr.svg?style=flat-square" style="max-width: 100%;"></a>
+<a href="https://www.npmjs.org/package/msgpackr" rel="nofollow"><img src="https://camo.githubusercontent.com/79582e68668b52b40c7db2c601b9a66b584733c151f0f45563a81371fcd46aa5/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f64772f6d73677061636b72" alt="npm version" data-canonical-src="https://img.shields.io/npm/dw/msgpackr" style="max-width: 100%;"></a>
+<a href="/kriszyp/msgpackr/blob/master/benchmark.md"><img src="https://camo.githubusercontent.com/e0de3ef8b01c08637aaca4aac0f4b69391ab417789eaec1d5d9281ba5d8b300d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f656e636f64652d312e354742253246732d79656c6c6f77" alt="encode" data-canonical-src="https://img.shields.io/badge/encode-1.5GB%2Fs-yellow" style="max-width: 100%;"></a>
+<a href="/kriszyp/msgpackr/blob/master/benchmark.md"><img src="https://camo.githubusercontent.com/d90a21e82ab5133d08381dd897b97844b9954465ca2bee29b468223c74e9d083/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6465636f64652d324742253246732d79656c6c6f77" alt="decode" data-canonical-src="https://img.shields.io/badge/decode-2GB%2Fs-yellow" style="max-width: 100%;"></a>
+<a href="/kriszyp/msgpackr/blob/master/README.md"><img src="https://camo.githubusercontent.com/782b77c531900e9c30ad3a64c017967ceb7f3ed2e74ba69a4325c23ec94dd192/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f74797065732f6d73677061636b72" alt="types" data-canonical-src="https://img.shields.io/npm/types/msgpackr" style="max-width: 100%;"></a>
+<a href="/kriszyp/msgpackr/blob/master/README.md"><img src="https://camo.githubusercontent.com/2e72fa5883c10be3b634b31bddd2f340edfd81b0e601797036a39433a96b07a8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6d6f64756c652d45534d253246434a532d626c7565" alt="module" data-canonical-src="https://img.shields.io/badge/module-ESM%2FCJS-blue" style="max-width: 100%;"></a>
+<a href="/kriszyp/msgpackr/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/8bb1977f745ee8c8107f711ecfa901421a9b929f308fd431f7211508f8ddbd87/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d627269676874677265656e" alt="license" data-canonical-src="https://img.shields.io/badge/license-MIT-brightgreen" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="/kriszyp/msgpackr/blob/master/assets/performance.png"><img align="right" src="/kriszyp/msgpackr/raw/master/assets/performance.png" width="380" style="max-width: 100%;"></a></p>
+<p dir="auto">The msgpackr package is an extremely fast MessagePack NodeJS/JavaScript implementation. Currently, it is significantly faster than any other known implementations, faster than Avro (for JS), and generally faster than native V8 JSON.stringify/parse, on NodeJS. It also includes an optional record extension (the <code>r</code> in msgpackr), for defining record structures that makes MessagePack even faster and more compact, often over twice as fast as even native JSON functions, several times faster than other JS implementations, and 15-50% more compact. See the performance section for more details. Structured cloning (with support for cyclical references) is also supported through optional extensions.</p>
+<h6 dir="auto">
+<a id="user-content-basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic Usage</h6>
+<p dir="auto">Install with:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="npm i msgpackr"><pre class="notranslate"><code>npm i msgpackr
+</code></pre></div>
+<p dir="auto">And <code>import</code> or <code>require</code> it for basic standard serialization/encoding (<code>pack</code>) and deserialization/decoding (<code>unpack</code>) functions:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { unpack, pack } from 'msgpackr';
+let serializedAsBuffer = pack(value);
+let data = unpack(serializedAsBuffer);"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">unpack</span><span class="pl-kos">,</span> <span class="pl-s1">pack</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">serializedAsBuffer</span> <span class="pl-c1">=</span> <span class="pl-en">pack</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-en">unpack</span><span class="pl-kos">(</span><span class="pl-s1">serializedAsBuffer</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">This <code>pack</code> function will generate standard MessagePack without any extensions that should be compatible with any standard MessagePack parser/decoder. It will serialize JavaScript objects as MessagePack <code>map</code>s by default. The <code>unpack</code> function will deserialize MessagePack <code>map</code>s as an <code>Object</code> with the properties from the map.</p>
+<h6 dir="auto">
+<a id="user-content-node-usage" class="anchor" href="#node-usage" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Node Usage</h6>
+<p dir="auto">The msgpackr package runs on any modern JS platform, but is optimized for NodeJS usage (and will use a node addon for performance boost as an optional dependency).</p>
+<h7 dir="auto">
+<a id="user-content-streams" class="anchor" href="#streams" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Streams</h7>
+<p dir="auto">We can use the including streaming functionality (which further improves performance). The <code>PackrStream</code> is a NodeJS transform stream that can be used to serialize objects to a binary stream (writing to network/socket, IPC, etc.), and the <code>UnpackrStream</code> can be used to deserialize objects from a binary sream (reading from network/socket, etc.):</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { PackrStream } from 'msgpackr';
+let stream = new PackrStream();
+stream.write(myData);
+"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">PackrStream</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">stream</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">PackrStream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">stream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s1">myData</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">Or for a full example of sending and receiving data on a stream:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { PackrStream, UnpackrStream } from 'msgpackr';
+let sendingStream = new PackrStream();
+let receivingStream = new UnpackrStream();
+// we are just piping to our own stream, but normally you would send and
+// receive over some type of inter-process or network connection.
+sendingStream.pipe(receivingStream);
+sendingStream.write(myData);
+receivingStream.on('data', (data) =&gt; {
+	// received data
+});"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">PackrStream</span><span class="pl-kos">,</span> <span class="pl-v">UnpackrStream</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">sendingStream</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">PackrStream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">receivingStream</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">UnpackrStream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// we are just piping to our own stream, but normally you would send and</span>
+<span class="pl-c">// receive over some type of inter-process or network connection.</span>
+<span class="pl-s1">sendingStream</span><span class="pl-kos">.</span><span class="pl-en">pipe</span><span class="pl-kos">(</span><span class="pl-s1">receivingStream</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">sendingStream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s1">myData</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">receivingStream</span><span class="pl-kos">.</span><span class="pl-en">on</span><span class="pl-kos">(</span><span class="pl-s">'data'</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+	<span class="pl-c">// received data</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">The <code>PackrStream</code> and <code>UnpackrStream</code> instances  will have also the record structure extension enabled by default (see below).</p>
+<h6 dir="auto">
+<a id="user-content-deno-usage" class="anchor" href="#deno-usage" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deno Usage</h6>
+<p dir="auto">Msgpackr modules are standard ESM modules and can be loaded directly from the <a href="https://deno.land/x/msgpackr" rel="nofollow">deno.land registry for msgpackr</a> for use in Deno. The standard pack/encode and unpack/decode functionality is available on Deno, like other platforms.</p>
+<h6 dir="auto">
+<a id="user-content-browser-usage" class="anchor" href="#browser-usage" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Browser Usage</h6>
+<p dir="auto">Msgpackr works as standalone JavaScript as well, and runs on modern browsers. It includes a bundled script, at <code>dist/index.js</code> for ease of direct loading:</p>
+<div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;script src="node_modules/msgpackr/dist/index.js"&gt;&lt;/script&gt;'><pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">node_modules/msgpackr/dist/index.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
+<p dir="auto">This is UMD based, and will register as a module if possible, or create a <code>msgpackr</code> global with all the exported functions.</p>
+<p dir="auto">For module-based development, it is recommended that you directly import the module of interest, to minimize dependencies that get pulled into your application:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { unpack } from 'msgpackr/unpack' // if you only need to unpack"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">unpack</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr/unpack'</span> <span class="pl-c">// if you only need to unpack</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-structured-cloning" class="anchor" href="#structured-cloning" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Structured Cloning</h6>
+<p dir="auto">You can also use msgpackr for <a href="https://html.spec.whatwg.org/multipage/structured-data.html" rel="nofollow">structured cloning</a>. By enabling the <code>structuredClone</code> option, you can include references to other objects or cyclic references, and object identity will be preserved. Structured cloning also enables preserving certain typed objects like <code>Error</code>, <code>Set</code>, <code>RegExp</code> and TypedArray instances. For example:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="let obj = {
+	set: new Set(['a', 'b']),
+	regular: /a\spattern/
+};
+obj.self = obj;
+let packr = new Packr({ structuredClone: true });
+let serialized = packr.pack(obj);
+let copy = packr.unpack(serialized);
+copy.self === copy // true
+copy.set.has('a') // true
+"><pre><span class="pl-k">let</span> <span class="pl-s1">obj</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+	<span class="pl-c1">set</span>: <span class="pl-k">new</span> <span class="pl-v">Set</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-s">'a'</span><span class="pl-kos">,</span> <span class="pl-s">'b'</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+	<span class="pl-c1">regular</span>: <span class="pl-pds"><span class="pl-c1">/</span>a<span class="pl-cce">\s</span>pattern<span class="pl-c1">/</span></span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span>
+<span class="pl-s1">obj</span><span class="pl-kos">.</span><span class="pl-c1">self</span> <span class="pl-c1">=</span> <span class="pl-s1">obj</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">packr</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Packr</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">structuredClone</span>: <span class="pl-c1">true</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">serialized</span> <span class="pl-c1">=</span> <span class="pl-s1">packr</span><span class="pl-kos">.</span><span class="pl-en">pack</span><span class="pl-kos">(</span><span class="pl-s1">obj</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">copy</span> <span class="pl-c1">=</span> <span class="pl-s1">packr</span><span class="pl-kos">.</span><span class="pl-en">unpack</span><span class="pl-kos">(</span><span class="pl-s1">serialized</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">copy</span><span class="pl-kos">.</span><span class="pl-c1">self</span> <span class="pl-c1">===</span> <span class="pl-s1">copy</span> <span class="pl-c">// true</span>
+<span class="pl-s1">copy</span><span class="pl-kos">.</span><span class="pl-c1">set</span><span class="pl-kos">.</span><span class="pl-en">has</span><span class="pl-kos">(</span><span class="pl-s">'a'</span><span class="pl-kos">)</span> <span class="pl-c">// true</span></pre></div>
+<p dir="auto">This option is disabled by default because it uses extensions and reference checking degrades performance (by about 25-30%). (Note this implementation doesn't serialize every class/type specified in the HTML specification since not all of them make sense for storing across platforms.)</p>
+<h7 dir="auto">
+<a id="user-content-alternate-terminology" class="anchor" href="#alternate-terminology" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Alternate Terminology</h7>
+<p dir="auto">If you prefer to use encoder/decode terminology, msgpackr exports aliases, so <code>decode</code> is equivalent to <code>unpack</code>, <code>encode</code> is <code>pack</code>, <code>Encoder</code> is <code>Packr</code>, <code>Decoder</code> is <code>Unpackr</code>, and <code>EncoderStream</code> and <code>DecoderStream</code> can be used as well.</p>
+<h6 dir="auto">
+<a id="user-content-record--object-structures" class="anchor" href="#record--object-structures" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Record / Object Structures</h6>
+<p dir="auto">There is a critical difference between maps (or dictionaries) that hold an arbitrary set of keys and values (JavaScript <code>Map</code> is designed for these), and records or object structures that have a well-defined set of fields. Typical JS objects/records may have many instances re(use) the same structure. By using the record extension, this distinction is preserved in MessagePack and the encoding can reuse structures and not only provides better type preservation, but yield much more compact encodings and increase decoding performance by 2-3x. Msgpackr automatically generates record definitions that are reused and referenced by objects with the same structure. There are a number of ways to use this to our advantage. For large object structures with repeating nested objects with similar structures, simply serializing with the record extension can yield significant benefits. To use the record structures extension, we create a new <code>Packr</code> instance. By default a new <code>Packr</code> instance will have the record extension enabled:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { Packr } from 'msgpackr';
+let packr = new Packr();
+packr.pack(bigDataWithLotsOfObjects);
+"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">Packr</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">packr</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Packr</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">packr</span><span class="pl-kos">.</span><span class="pl-en">pack</span><span class="pl-kos">(</span><span class="pl-s1">bigDataWithLotsOfObjects</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">Another way to further leverage the benefits of the msgpackr record structures is to use streams that naturally allow for data to reuse based on previous record structures. The stream classes have the record structure extension enabled by default and provide excellent out-of-the-box performance.</p>
+<p dir="auto">When creating a new <code>Packr</code>, <code>Unpackr</code>, <code>PackrStream</code>, or <code>UnpackrStream</code> instance, we can enable or disable the record structure extension with the <code>useRecords</code> property. When this is <code>false</code>, the record structure extension will be disabled (standard/compatibility mode), and all objects will revert to being serialized using MessageMap <code>map</code>s, and all <code>map</code>s will be deserialized to JS <code>Object</code>s as properties (like the standalone <code>pack</code> and <code>unpack</code> functions).</p>
+<p dir="auto">Streaming with record structures works by encoding a structure the first time it is seen in a stream and referencing the structure in later messages that are sent across that stream. When an encoder can expect a decoder to understand previous structure references, this can be configured using the <code>sequential: true</code> flag, which is auto-enabled by streams, but can also be used with Packr instances.</p>
+<h7 dir="auto">
+<a id="user-content-shared-record-structures" class="anchor" href="#shared-record-structures" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Shared Record Structures</h7>
+<p dir="auto">Another useful way of using msgpackr, and the record extension, is for storing data in a databases, files, or other storage systems. If a number of objects with common data structures are being stored, a shared structure can be used to greatly improve data storage and deserialization efficiency. In the simplest form, provide a <code>structures</code> array, which is updated if any new object structure is encountered:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { Packr } from 'msgpackr';
+let packr = new Packr({
+	structures: [... structures that were last generated ...]
+});"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">Packr</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">packr</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Packr</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+	<span class="pl-c1">structures</span>: <span class="pl-kos">[</span>... <span class="pl-s1">structures</span> <span class="pl-s1">that</span> <span class="pl-s1">were</span> <span class="pl-s1">last</span> <span class="pl-s1">generated</span> <span class="pl-kos">.</span><span class="pl-kos">.</span><span class="pl-kos">.</span><span class="pl-kos">]</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">If you are working with persisted data, you will need to persist the <code>structures</code> data when it is updated. Msgpackr provides an API for loading and saving the <code>structures</code> on demand (which is robust and can be used in multiple-process situations where other processes may be updating this same <code>structures</code> array), we just need to provide a way to store the generated shared structure so it is available to deserialize stored data in the future:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { Packr } from 'msgpackr';
+let packr = new Packr({
+	getStructures() {
+		// storing our data in file (but we could also store in a db or key-value store)
+		return unpack(readFileSync('my-shared-structures.mp')) || [];
+	},
+	saveStructures(structures) {
+		writeFileSync('my-shared-structures.mp', pack(structures));
+	}
+});"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-v">Packr</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">packr</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Packr</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+	<span class="pl-en">getStructures</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+		<span class="pl-c">// storing our data in file (but we could also store in a db or key-value store)</span>
+		<span class="pl-k">return</span> <span class="pl-en">unpack</span><span class="pl-kos">(</span><span class="pl-en">readFileSync</span><span class="pl-kos">(</span><span class="pl-s">'my-shared-structures.mp'</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-c1">||</span> <span class="pl-kos">[</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+	<span class="pl-kos">}</span><span class="pl-kos">,</span>
+	<span class="pl-en">saveStructures</span><span class="pl-kos">(</span><span class="pl-s1">structures</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+		<span class="pl-en">writeFileSync</span><span class="pl-kos">(</span><span class="pl-s">'my-shared-structures.mp'</span><span class="pl-kos">,</span> <span class="pl-en">pack</span><span class="pl-kos">(</span><span class="pl-s1">structures</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+	<span class="pl-kos">}</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">Msgpackr will automatically add and saves structures as it encounters any new object structures (up to a limit of 32, by default). It will always add structures in an incremental/compatible way: Any object encoded with an earlier structure can be decoded with a later version (as long as it is persisted).</p>
+<h8 dir="auto">
+<a id="user-content-shared-structures-options" class="anchor" href="#shared-structures-options" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Shared Structures Options</h8>
+<p dir="auto">By default there is a limit of 32 shared structures. This default is designed to record common shared structures, but also be resilient against sharing too many structures if there are many objects with dynamic properties that are likely to be repeated. This also allows for slightly more efficient one byte encoding. However, if your application has more structures that are commonly repeated, you can increase this limit by setting <code>maxSharedStructures</code> to a higher value. The maximum supported shared structures is 8160.</p>
+<p dir="auto">You can also provide a <code>shouldShareStructure</code> function in the options if you want to specifically indicate which structures should be shared. This is called during the encoding process with the array of keys for a structure that is being considered for addition to the shared structure. For example, you might want:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="	maxSharedStructures: 100,
+	shouldShareStructure(keys) {
+		return !(keys[0] &gt; 1) // don't share structures that consist of numbers as keys
+	}"><pre class="notranslate"><code>	maxSharedStructures: 100,
+	shouldShareStructure(keys) {
+		return !(keys[0] &gt; 1) // don't share structures that consist of numbers as keys
+	}
+</code></pre></div>
+<h7 dir="auto">
+<a id="user-content-reading-multiple-values" class="anchor" href="#reading-multiple-values" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Reading Multiple Values</h7>
+<p dir="auto">If you have a buffer with multiple values sequentially encoded, you can choose to parse and read multiple values. This can be done using the <code>unpackMultiple</code> function/method, which can return an array of all the values it can sequentially parse within the provided buffer. For example:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="let data = new Uint8Array([1, 2, 3]) // encodings of values 1, 2, and 3
+let values = unpackMultiple(data) // [1, 2, 3]"><pre><span class="pl-k">let</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Uint8Array</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">]</span><span class="pl-kos">)</span> <span class="pl-c">// encodings of values 1, 2, and 3</span>
+<span class="pl-k">let</span> <span class="pl-s1">values</span> <span class="pl-c1">=</span> <span class="pl-en">unpackMultiple</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span> <span class="pl-c">// [1, 2, 3]</span></pre></div>
+<p dir="auto">Alternately, you can provide a callback function that is called as the parsing occurs with each value, and can optionally terminate the parsing by returning <code>false</code>:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="let data = new Uint8Array([1, 2, 3]) // encodings of values 1, 2, and 3
+unpackMultiple(data, (value) =&gt; {
+	// called for each value
+	// return false if you wish to end the parsing
+})"><pre><span class="pl-k">let</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Uint8Array</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">]</span><span class="pl-kos">)</span> <span class="pl-c">// encodings of values 1, 2, and 3</span>
+<span class="pl-en">unpackMultiple</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+	<span class="pl-c">// called for each value</span>
+	<span class="pl-c">// return false if you wish to end the parsing</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Options</h6>
+<p dir="auto">The following options properties can be provided to the Packr or Unpackr constructor:</p>
+<ul dir="auto">
+<li>
+<code>useRecords</code> - Setting this to <code>false</code> disables the record extension and stores JavaScript objects as MessagePack maps, and unpacks maps as JavaScript <code>Object</code>s, which ensures compatibilty with other decoders.</li>
+<li>
+<code>structures</code> - Provides the array of structures that is to be used for record extension, if you want the structures saved and used again. This array will be modified in place with new record structures that are serialized (if less than 32 structures are in the array).</li>
+<li>
+<code>moreTypes</code> - Enable serialization of additional built-in types/classes including typed arrays, <code>Set</code>s, <code>Map</code>s, and <code>Error</code>s.</li>
+<li>
+<code>structuredClone</code> - This enables the structured cloning extensions that will encode object/cyclic references. <code>moreTypes</code> is enabled by default when this is enabled.</li>
+<li>
+<code>mapsAsObjects</code> - If <code>true</code>, this will decode MessagePack maps and JS <code>Object</code>s with the map entries decoded to object properties. If <code>false</code>, maps are decoded as JavaScript <code>Map</code>s. This is disabled by default if <code>useRecords</code> is enabled (which allows <code>Map</code>s to be preserved), and is enabled by default if <code>useRecords</code> is disabled.</li>
+<li>
+<code>useFloat32</code> - This will enable msgpackr to encode non-integer numbers as <code>float32</code>. See next section for possible values.</li>
+<li>
+<code>variableMapSize</code> - This will use varying map size definition (fixmap, map16, map32) based on the number of keys when encoding objects, which yields slightly more compact encodings (for small objects), but is typically 5-10% slower during encoding. This is necessary if you need to use objects with more than 65535 keys. This is only relevant when record extension is disabled.</li>
+<li>
+<code>bundleStrings</code> - If <code>true</code> this uses a custom extension that bundles strings together, so that they can be decoded more quickly on browsers and Deno that do not have access to the NodeJS addon. This a custom extension, so both encoder and decoder need to support this. This can yield significant decoding performance increases on browsers (30%-50%).</li>
+<li>
+<code>copyBuffers</code> - When decoding a MessagePack with binary data (Buffers are encoded as binary data), copy the buffer rather than providing a slice/view of the buffer. If you want your input data to be collected or modified while the decoded embedded buffer continues to live on, you can use this option (there is extra overhead to copying).</li>
+<li>
+<code>useTimestamp32</code> - Encode JS <code>Date</code>s in 32-bit format when possible by dropping the milliseconds. This is a more efficient encoding of dates. You can also cause dates to use 32-bit format by manually setting the milliseconds to zero (<code>date.setMilliseconds(0)</code>).</li>
+<li>
+<code>sequential</code> - Encode structures in serialized data, and reference previously encoded structures with expectation that decoder will read the encoded structures in the same order as encoded, with <code>unpackMultiple</code>.</li>
+<li>
+<code>largeBigIntToFloat</code> - If a bigint needs to be encoded that is larger than will fit in 64-bit integers, it will be encoded as a float-64 (otherwise will throw a RangeError).</li>
+<li>
+<code>encodeUndefinedAsNil</code> - Encodes a value of <code>undefined</code> as a MessagePack <code>nil</code>, the same as a <code>null</code>.</li>
+<li>
+<code>int64AsNumber</code> - This will decode uint64 and int64 numbers as standard JS numbers rather than as bigint numbers.</li>
+<li>
+<code>onInvalidDate</code> - This can be provided as function that will be called when an invalid date is provided. The function can throw an error, or return a value that will be encoded in place of the invalid date. If not provided, an invalid date will be encoded as an invalid timestamp (which decodes with msgpackr back to an invalid date).</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-32-bit-float-options" class="anchor" href="#32-bit-float-options" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>32-bit Float Options</h7>
+<p dir="auto">By default all non-integer numbers are serialized as 64-bit float (double). This is fast, and ensures maximum precision. However, often real-world data doesn't not need 64-bits of precision, and using 32-bit encoding can be much more space efficient. There are several options that provide more efficient encodings. Using the decimal rounding options for encoding and decoding provides lossless storage of common decimal representations like 7.99, in more efficient 32-bit format (rather than 64-bit). The <code>useFloat32</code> property has several possible options, available from the module as constants:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { FLOAT32_OPTIONS } from 'msgpackr';
+const { ALWAYS, DECIMAL_ROUND, DECIMAL_FIT } = FLOAT32_OPTIONS;"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-c1">FLOAT32_OPTIONS</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-kos">{</span> <span class="pl-c1">ALWAYS</span><span class="pl-kos">,</span> <span class="pl-c1">DECIMAL_ROUND</span><span class="pl-kos">,</span> <span class="pl-c1">DECIMAL_FIT</span> <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-c1">FLOAT32_OPTIONS</span><span class="pl-kos">;</span></pre></div>
+<ul dir="auto">
+<li>
+<code>ALWAYS</code> (1) - Always will encode non-integers (absolute less than 2147483648) as 32-bit float.</li>
+<li>
+<code>DECIMAL_ROUND</code> (3) - Always will encode non-integers as 32-bit float, and when decoding 32-bit float, round to the significant decimal digits (usually 7, but 6 or 8 digits for some ranges).</li>
+<li>
+<code>DECIMAL_FIT</code> (4) - Only encode non-integers as 32-bit float if all significant digits (usually up to 7) can be unambiguously encoded as a 32-bit float, and decode/unpack with decimal rounding (same as above). This will ensure round-trip encoding/decoding without loss in precision and uses 32-bit when possible.</li>
+</ul>
+<p dir="auto">Note, that the performance is decreased with decimal rounding by about 20-25%, although if only 5% of your values are floating point, that will only have about a 1% impact overall.</p>
+<p dir="auto">In addition, msgpackr exports a <code>roundFloat32(number)</code> function that can be used to round floating point numbers to the maximum significant decimal digits that can be stored in 32-bit float, just as DECIMAL_ROUND does when decoding. This can be useful for determining how a number will be decoded prior to encoding it.</p>
+<h6 dir="auto">
+<a id="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Performance</h6>
+<h7 dir="auto">
+<a id="user-content-native-acceleration" class="anchor" href="#native-acceleration" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Native Acceleration</h7>
+<p dir="auto">Msgpackr employs an optional native node-addon to accelerate the parsing of strings. This should be automatically installed and utilized on NodeJS. However, you can verify this by checking the <code>isNativeAccelerationEnabled</code> property that is exported from msgpackr. If this is <code>false</code>, the <code>msgpackr-extract</code> package may not have been properly installed, and you may want to verify that it is installed correctly:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { isNativeAccelerationEnabled } from 'msgpackr'
+if (!isNativeAccelerationEnabled)
+	console.warn('Native acceleration not enabled, verify that install finished properly')"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">isNativeAccelerationEnabled</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span>
+<span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-c1">!</span><span class="pl-s1">isNativeAccelerationEnabled</span><span class="pl-kos">)</span>
+	<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">warn</span><span class="pl-kos">(</span><span class="pl-s">'Native acceleration not enabled, verify that install finished properly'</span><span class="pl-kos">)</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-benchmarks" class="anchor" href="#benchmarks" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Benchmarks</h7>
+<p dir="auto">Msgpackr is fast. Really fast. Here is comparison with the next fastest JS projects using the benchmark tool from <code>msgpack-lite</code> (and the sample data is from some clinical research data we use that has a good mix of different value types and structures). It also includes comparison to V8 native JSON functionality, and JavaScript Avro (<code>avsc</code>, a very optimized Avro implementation):</p>
+<table>
+<thead>
+<tr>
+<th>operation</th>
+<th align="right">op</th>
+<th align="right">ms</th>
+<th align="right">op/s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>buf = Buffer(JSON.stringify(obj));</td>
+<td align="right">81600</td>
+<td align="right">5002</td>
+<td align="right">16313</td>
+</tr>
+<tr>
+<td>obj = JSON.parse(buf);</td>
+<td align="right">90700</td>
+<td align="right">5004</td>
+<td align="right">18125</td>
+</tr>
+<tr>
+<td>require("msgpackr").pack(obj);</td>
+<td align="right">169700</td>
+<td align="right">5000</td>
+<td align="right">33940</td>
+</tr>
+<tr>
+<td>require("msgpackr").unpack(buf);</td>
+<td align="right">109700</td>
+<td align="right">5003</td>
+<td align="right">21926</td>
+</tr>
+<tr>
+<td>msgpackr w/ shared structures: packr.pack(obj);</td>
+<td align="right">190400</td>
+<td align="right">5001</td>
+<td align="right">38072</td>
+</tr>
+<tr>
+<td>msgpackr w/ shared structures: packr.unpack(buf);</td>
+<td align="right">422900</td>
+<td align="right">5000</td>
+<td align="right">84580</td>
+</tr>
+<tr>
+<td>buf = require("msgpack-lite").encode(obj);</td>
+<td align="right">31300</td>
+<td align="right">5005</td>
+<td align="right">6253</td>
+</tr>
+<tr>
+<td>obj = require("msgpack-lite").decode(buf);</td>
+<td align="right">15700</td>
+<td align="right">5007</td>
+<td align="right">3135</td>
+</tr>
+<tr>
+<td>buf = require("@msgpack/msgpack").encode(obj);</td>
+<td align="right">103100</td>
+<td align="right">5003</td>
+<td align="right">20607</td>
+</tr>
+<tr>
+<td>obj = require("@msgpack/msgpack").decode(buf);</td>
+<td align="right">59100</td>
+<td align="right">5004</td>
+<td align="right">11810</td>
+</tr>
+<tr>
+<td>buf = require("notepack").encode(obj);</td>
+<td align="right">65500</td>
+<td align="right">5007</td>
+<td align="right">13081</td>
+</tr>
+<tr>
+<td>obj = require("notepack").decode(buf);</td>
+<td align="right">33400</td>
+<td align="right">5009</td>
+<td align="right">6667</td>
+</tr>
+<tr>
+<td>obj = require("msgpack-unpack").decode(buf);</td>
+<td align="right">6900</td>
+<td align="right">5036</td>
+<td align="right">1370</td>
+</tr>
+<tr>
+<td>require("avsc")...make schema/type...type.toBuffer(obj);</td>
+<td align="right">89300</td>
+<td align="right">5005</td>
+<td align="right">17842</td>
+</tr>
+<tr>
+<td>require("avsc")...make schema/type...type.fromBuffer(obj);</td>
+<td align="right">108400</td>
+<td align="right">5001</td>
+<td align="right">21675</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">All benchmarks were performed on Node 15 / V8 8.6 (Windows i7-4770 3.4Ghz).
+(<code>avsc</code> is schema-based and more comparable in style to msgpackr with shared structures).</p>
+<p dir="auto">Here is a benchmark of streaming data (again borrowed from <code>msgpack-lite</code>'s benchmarking), where msgpackr is able to take advantage of the structured record extension and really demonstrate its performance capabilities:</p>
+<table>
+<thead>
+<tr>
+<th>operation (1000000 x 2)</th>
+<th align="right">op</th>
+<th align="right">ms</th>
+<th align="right">op/s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new PackrStream().write(obj);</td>
+<td align="right">1000000</td>
+<td align="right">372</td>
+<td align="right">2688172</td>
+</tr>
+<tr>
+<td>new UnpackrStream().write(buf);</td>
+<td align="right">1000000</td>
+<td align="right">247</td>
+<td align="right">4048582</td>
+</tr>
+<tr>
+<td>stream.write(msgpack.encode(obj));</td>
+<td align="right">1000000</td>
+<td align="right">2898</td>
+<td align="right">345065</td>
+</tr>
+<tr>
+<td>stream.write(msgpack.decode(buf));</td>
+<td align="right">1000000</td>
+<td align="right">1969</td>
+<td align="right">507872</td>
+</tr>
+<tr>
+<td>stream.write(notepack.encode(obj));</td>
+<td align="right">1000000</td>
+<td align="right">901</td>
+<td align="right">1109877</td>
+</tr>
+<tr>
+<td>stream.write(notepack.decode(buf));</td>
+<td align="right">1000000</td>
+<td align="right">1012</td>
+<td align="right">988142</td>
+</tr>
+<tr>
+<td>msgpack.Encoder().on("data",ondata).encode(obj);</td>
+<td align="right">1000000</td>
+<td align="right">1763</td>
+<td align="right">567214</td>
+</tr>
+<tr>
+<td>msgpack.createDecodeStream().write(buf);</td>
+<td align="right">1000000</td>
+<td align="right">2222</td>
+<td align="right">450045</td>
+</tr>
+<tr>
+<td>msgpack.createEncodeStream().write(obj);</td>
+<td align="right">1000000</td>
+<td align="right">1577</td>
+<td align="right">634115</td>
+</tr>
+<tr>
+<td>msgpack.Decoder().on("data",ondata).decode(buf);</td>
+<td align="right">1000000</td>
+<td align="right">2246</td>
+<td align="right">445235</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">See the <a href="/kriszyp/msgpackr/blob/master/benchmark.md">benchmark.md</a> for more benchmarks and information about benchmarking.</p>
+<h6 dir="auto">
+<a id="user-content-custom-extensions" class="anchor" href="#custom-extensions" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Custom Extensions</h6>
+<p dir="auto">You can add your own custom extensions, which can be used to encode specific types/classes in certain ways. This is done by using the <code>addExtension</code> function, and specifying the class, extension <code>type</code> code (should be a number from 1-100, reserving negatives for MessagePack, 101-127 for msgpackr), and your <code>pack</code> and <code>unpack</code> functions (or just the one you need).</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { addExtension, Packr } from 'msgpackr';
+
+class MyCustomClass {...}
+
+let extPackr = new Packr();
+addExtension({
+	Class: MyCustomClass,
+	type: 11, // register your own extension code (a type code from 1-100)
+	pack(instance) {
+		// define how your custom class should be encoded
+		return Buffer.from([instance.myData]); // return a buffer
+	}
+	unpack(buffer) {
+		// define how your custom class should be decoded
+		let instance = new MyCustomClass();
+		instance.myData = buffer[0];
+		return instance; // decoded value from buffer
+	}
+});"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">addExtension</span><span class="pl-kos">,</span> <span class="pl-v">Packr</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+
+<span class="pl-k">class</span> <span class="pl-v">MyCustomClass</span> <span class="pl-kos">{</span>...<span class="pl-kos">}</span>
+
+<span class="pl-k">let</span> <span class="pl-s1">extPackr</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Packr</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-en">addExtension</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+	<span class="pl-c1">Class</span>: <span class="pl-v">MyCustomClass</span><span class="pl-kos">,</span>
+	<span class="pl-c1">type</span>: <span class="pl-c1">11</span><span class="pl-kos">,</span> <span class="pl-c">// register your own extension code (a type code from 1-100)</span>
+	<span class="pl-en">pack</span><span class="pl-kos">(</span><span class="pl-s1">instance</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+		<span class="pl-c">// define how your custom class should be encoded</span>
+		<span class="pl-k">return</span> <span class="pl-v">Buffer</span><span class="pl-kos">.</span><span class="pl-en">from</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-s1">instance</span><span class="pl-kos">.</span><span class="pl-c1">myData</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// return a buffer</span>
+	<span class="pl-kos">}</span>
+	<span class="pl-en">unpack</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+		<span class="pl-c">// define how your custom class should be decoded</span>
+		<span class="pl-k">let</span> <span class="pl-s1">instance</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">MyCustomClass</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+		<span class="pl-s1">instance</span><span class="pl-kos">.</span><span class="pl-c1">myData</span> <span class="pl-c1">=</span> <span class="pl-s1">buffer</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+		<span class="pl-k">return</span> <span class="pl-s1">instance</span><span class="pl-kos">;</span> <span class="pl-c">// decoded value from buffer</span>
+	<span class="pl-kos">}</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">If you want to use msgpackr to encode and decode the data within your extensions, you can use the <code>read</code> and <code>write</code> functions and read and write data/objects that will be encoded and decoded by msgpackr, which can be easier and faster than creating and receiving separate buffers (note that you can't just return the instance from <code>write</code> or msgpackr will recursively try to use extension infinitely):</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import { addExtension, Packr } from 'msgpackr';
+
+class MyCustomClass {...}
+
+let extPackr = new Packr();
+addExtension({
+	Class: MyCustomClass,
+	type: 11, // register your own extension code (a type code from 1-100)
+	write(instance) {
+		// define how your custom class should be encoded
+		return instance.myData; // return some data to be encoded
+	}
+	read(data) {
+		// define how your custom class should be decoded,
+		// data will already be unpacked/decoded
+		let instance = new MyCustomClass();
+		instance.myData = data;
+		return instance; // return decoded value
+	}
+});"><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">addExtension</span><span class="pl-kos">,</span> <span class="pl-v">Packr</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'msgpackr'</span><span class="pl-kos">;</span>
+
+<span class="pl-k">class</span> <span class="pl-v">MyCustomClass</span> <span class="pl-kos">{</span>...<span class="pl-kos">}</span>
+
+<span class="pl-k">let</span> <span class="pl-s1">extPackr</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Packr</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-en">addExtension</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+	<span class="pl-c1">Class</span>: <span class="pl-v">MyCustomClass</span><span class="pl-kos">,</span>
+	<span class="pl-c1">type</span>: <span class="pl-c1">11</span><span class="pl-kos">,</span> <span class="pl-c">// register your own extension code (a type code from 1-100)</span>
+	<span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-s1">instance</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+		<span class="pl-c">// define how your custom class should be encoded</span>
+		<span class="pl-k">return</span> <span class="pl-s1">instance</span><span class="pl-kos">.</span><span class="pl-c1">myData</span><span class="pl-kos">;</span> <span class="pl-c">// return some data to be encoded</span>
+	<span class="pl-kos">}</span>
+	<span class="pl-en">read</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+		<span class="pl-c">// define how your custom class should be decoded,</span>
+		<span class="pl-c">// data will already be unpacked/decoded</span>
+		<span class="pl-k">let</span> <span class="pl-s1">instance</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">MyCustomClass</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+		<span class="pl-s1">instance</span><span class="pl-kos">.</span><span class="pl-c1">myData</span> <span class="pl-c1">=</span> <span class="pl-s1">data</span><span class="pl-kos">;</span>
+		<span class="pl-k">return</span> <span class="pl-s1">instance</span><span class="pl-kos">;</span> <span class="pl-c">// return decoded value</span>
+	<span class="pl-kos">}</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p dir="auto">You can also create an extension with <code>Class</code> and <code>write</code> methods, but no <code>type</code> (or <code>read</code>), if you just want to customize how a class is serialized without using MessagePack extension encoding.</p>
+<h7 dir="auto">
+<a id="user-content-additional-performance-optimizations" class="anchor" href="#additional-performance-optimizations" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Additional Performance Optimizations</h7>
+<p dir="auto">Msgpackr is already fast, but here are some tips for making it faster:</p>
+<h8 dir="auto">
+<a id="user-content-buffer-reuse" class="anchor" href="#buffer-reuse" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Buffer Reuse</h8>
+<p dir="auto">Msgpackr is designed to work well with reusable buffers. Allocating new buffers can be relatively expensive, so if you have Node addons, it can be much faster to reuse buffers and use memcpy to copy data into existing buffers. Then msgpackr <code>unpack</code> can be executed on the same buffer, with new data, and optionally take a second paramter indicating the effective size of the available data in the buffer.</p>
+<h8 dir="auto">
+<a id="user-content-arena-allocation-usebuffer" class="anchor" href="#arena-allocation-usebuffer" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Arena Allocation (<code>useBuffer()</code>)</h8>
+<p dir="auto">During the serialization process, data is written to buffers. Again, allocating new buffers is a relatively expensive process, and the <code>useBuffer</code> method can help allow reuse of buffers that will further improve performance. With <code>useBuffer</code> method, you can provide a buffer, serialize data into it, and when it is known that you are done using that buffer, you can call <code>useBuffer</code> again to reuse it. The use of <code>useBuffer</code> is never required, buffers will still be handled and cleaned up through GC if not used, it just provides a small performance boost.</p>
+<h6 dir="auto">
+<a id="user-content-record-structure-extension-definition" class="anchor" href="#record-structure-extension-definition" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Record Structure Extension Definition</h6>
+<p dir="auto">The record struction extension uses extension id 0x72 ("r") to declare the use of this functionality. The extension "data" byte (or bytes) identifies the byte or bytes used to identify the start of a record in the subsequent MessagePack block or stream. The identifier byte (or the first byte in a sequence) must be from 0x40 - 0x7f (and therefore replaces one byte representations of positive integers 64 - 127, which can alternately be represented with int or uint types). The extension declaration must be immediately follow by an MessagePack array that defines the field names of the record structure.</p>
+<p dir="auto">Once a record identifier and record field names have been defined, the parser/decoder should proceed to read the next value. Any subsequent use of the record identifier as a value in the block or stream should parsed as a record instance, and the next n values, where is n is the number of fields (as defined in the array of field names), should be read as the values of the fields. For example, here we have defined a structure with fields "foo" and "bar", with the record identifier 0x40, and then read a record instance that defines the field values of 4 and 2, respectively:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='+--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+
+|  0xd4  |  0x72  |  0x40  | array: [ "foo", "bar" ] |  0x40  |  0x04  |  0x02  |
++--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+'><pre class="notranslate"><code>+--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+
+|  0xd4  |  0x72  |  0x40  | array: [ "foo", "bar" ] |  0x40  |  0x04  |  0x02  |
++--------+--------+--------+~~~~~~~~~~~~~~~~~~~~~~~~~+--------+--------+--------+
+</code></pre></div>
+<p dir="auto">Which should generate an object that would correspond to JSON:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='{ "foo": 4, "bar": 2}'><pre><span class="pl-kos">{</span> <span class="pl-s">"foo"</span>: <span class="pl-c1">4</span><span class="pl-kos">,</span> <span class="pl-s">"bar"</span>: <span class="pl-c1">2</span><span class="pl-kos">}</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-additional-value-types" class="anchor" href="#additional-value-types" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Additional value types</h6>
+<p dir="auto">msgpackr supports <code>undefined</code> (using fixext1 + type: 0 + data: 0 to match other JS implementations), <code>NaN</code>, <code>Infinity</code>, and <code>-Infinity</code> (using standard IEEE 754 representations with doubles/floats).</p>
+<h7 dir="auto">
+<a id="user-content-dates" class="anchor" href="#dates" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Dates</h7>
+<p dir="auto">msgpackr saves all JavaScript <code>Date</code>s using the standard MessagePack date extension (type -1), using the smallest of 32-bit, 64-bit or 96-bit format needed to store the date without data loss (or using 32-bit if useTimestamp32 options is specified).</p>
+<h7 dir="auto">
+<a id="user-content-structured-cloning-1" class="anchor" href="#structured-cloning-1" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Structured Cloning</h7>
+<p dir="auto">With structured cloning enabled, msgpackr will also use extensions to store Set, Map, Error, RegExp, ArrayBufferView objects and preserve their types.</p>
+<h6 dir="auto">
+<a id="user-content-alternate-encodingpackage" class="anchor" href="#alternate-encodingpackage" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Alternate Encoding/Package</h6>
+<p dir="auto">The high-performance serialization and deserialization algorithms in the msgpackr package are also available in the <a href="https://github.com/kriszyp/cbor-x">cbor-x</a> for the CBOR format, with the same API and design. A quick summary of the pros and cons of using MessagePack vs CBOR are:</p>
+<ul dir="auto">
+<li>MessagePack has wider adoption, and, at least with this implementation is slightly more efficient (by roughly 1%).</li>
+<li>CBOR has an <a href="https://tools.ietf.org/html/rfc7049" rel="nofollow">official IETF standardization track</a>, and the record extensions is conceptually/philosophically a better fit for CBOR tags.</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">MIT</p>
+<h7 dir="auto">
+<a id="user-content-browser-consideration" class="anchor" href="#browser-consideration" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Browser Consideration</h7>
+<p dir="auto">MessagePack can be a great choice for high-performance data delivery to browsers, as reasonable data size is possible without compression. And msgpackr works very well in modern browsers. However, it is worth noting that if you want highly compact data, brotli or gzip are most effective in compressing, and MessagePack's character frequency tends to defeat Huffman encoding used by these standard compression algorithms, resulting in less compact data than compressed JSON.</p>
+<h7 dir="auto">
+<a id="user-content-credits" class="anchor" href="#credits" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Credits</h7>
+<p dir="auto">Various projects have been inspirations for this, and code has been borrowed from <a href="https://github.com/msgpack/msgpack-javascript">https://github.com/msgpack/msgpack-javascript</a> and <a href="https://github.com/mtth/avsc">https://github.com/mtth/avsc</a>.</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-msgpack-msgpack-javascript" class="qs"><h4><a href="https://msgpack.org/" target="_blank">msgpack/msgpack-javascript <span class="qs-url">https://msgpack.org/</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -19726,6 +20269,310 @@ print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k"
 <span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">UInt8</span>.<span class="pl-k">self</span>)
 <span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">Double</span>.<span class="pl-k">self</span>)
 <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">"</span>decoded manually: <span class="pl-pse">\(</span><span class="pl-s1">string</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">int</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">double</span><span class="pl-pse"><span class="pl-s1">)</span></span><span class="pl-pds">"</span></span>)</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-samclaus-msgpack-ts" class="qs"><h4><a href="https://msgpack.org/" target="_blank">samclaus/msgpack-ts <span class="qs-url">https://msgpack.org/</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack-ts" class="anchor" href="#msgpack-ts" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-ts</h5>
+<p dir="auto">Fast MessagePack implementation in TypeScript. Designed as a faster, smaller
+alternative to <code>msgpack-lite</code>. Both the <code>Encoder</code> and <code>Decoder</code> are quite
+configurable, but performance was prioritized with as little branching as
+possible.</p>
+<p dir="auto"><strong>TODO</strong></p>
+<ul dir="auto">
+<li>Add Closure-compiled browser distribution</li>
+<li>Add thorough tests</li>
+<li>Add benchmarks</li>
+</ul>
+<p dir="auto"><strong>You can optimize further</strong></p>
+<p dir="auto">If your MessagePack traffic contains many or large binary buffers, you may
+want to fork this repo and alter the <code>takeBinary(length)</code> method of the
+<code>Decoder</code> to use <code>this.buffer.subarray</code> in place of <code>this.buffer.slice</code>,
+because <code>Uint8Array.slice()</code> creates a copy of the bytes. This library
+assumes that your messages will not consist primarily of binary objects
+and thus it is undesirable to return subviews of the same buffer being
+decoded because they will hold references to the entire buffer that was
+decoded, likely keeping it in memory when it is not needed.</p>
+<h6 dir="auto">
+<a id="user-content-quick-start" class="anchor" href="#quick-start" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quick Start</h6>
+<p dir="auto">For more information, read the <a href="#documentation">docs</a>.</p>
+<p dir="auto">Install the library via NPM: <code>npm i --save-dev msgpack-ts</code>.</p>
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode, decode, Decoder } from "msgpack-ts";
+
+/**
+ * Both x and y will be in range [0, 255].
+ */
+class Coordinate
+{
+    static encode(coord: Coordinate): Uint8Array
+    {
+        return new Uint8Array([coord.x, coord.y]);
+    }
+
+    static decode(data: Uint8Array): Coordinate
+    {
+        return new Coordinate(data[0], data[1]);
+    }
+
+    static backwardsDecode(data: Uint8Array): Coordinate
+    {
+        return new Coordinate(data[1], data[0]);
+    }
+
+    constructor(
+        readonly x: number,
+        readonly y: number
+    ) {}
+}
+
+function main()
+{
+    const message: SomeInterface = {
+        type: "add-user",
+        data: {
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 27,
+            female: true,
+            location: new Coordinate(10, 192),
+            username: "janedoe92",
+            passwordHash: new Uint8Array(32)
+        }
+    };
+
+    encode.encoder.registerExt(Coordinate, 0, Coordinate.encode);
+    decode.decoder.registerExt(0, Coordinate.decode);
+
+    // encode() uses the encode.encoder instance
+    const encoded = encode(message);
+
+    // decode() uses the decode.decoder instance
+    const decoded = decode&lt;SomeInterface&gt;(encoded);
+
+    // Create separate instances if you need multiple configurations
+    const myDecoder = new Decoder();
+    myDecoder.nilValue = undefined;
+    myDecoder.allowInvalidUTF8 = true;
+    myDecoder.allowUnknownExts = true;
+    myDecoder.registerExt(0, Coordinate.backwardsDecode);
+
+    // Both Encoder and Decoder support cloning instances
+    const slightlyDifferent = myDecoder.clone();
+    slighlyDifferent.nilValue = null;
+}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">Decoder</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"msgpack-ts"</span><span class="pl-kos">;</span>
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Both x and y will be in range [0, 255].</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">class</span> <span class="pl-smi">Coordinate</span>
+<span class="pl-kos">{</span>
+    <span class="pl-k">static</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">coord</span>: <span class="pl-smi">Coordinate</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span>
+    <span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Uint8Array</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-s1">coord</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">coord</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-k">static</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span>: <span class="pl-smi">Coordinate</span>
+    <span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-k">static</span> <span class="pl-en">backwardsDecode</span><span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span>: <span class="pl-smi">Coordinate</span>
+    <span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">data</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+
+    <span class="pl-en">constructor</span><span class="pl-kos">(</span>
+        <span class="pl-k">readonly</span> <span class="pl-s1">x</span>: <span class="pl-smi">number</span><span class="pl-kos">,</span>
+        <span class="pl-k">readonly</span> <span class="pl-s1">y</span>: <span class="pl-smi">number</span>
+    <span class="pl-kos">)</span> <span class="pl-kos">{</span><span class="pl-kos">}</span>
+<span class="pl-kos">}</span>
+
+<span class="pl-k">function</span> <span class="pl-en">main</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
+<span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">message</span>: <span class="pl-smi">SomeInterface</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+        <span class="pl-c1">type</span>: <span class="pl-s">"add-user"</span><span class="pl-kos">,</span>
+        <span class="pl-c1">data</span>: <span class="pl-kos">{</span>
+            <span class="pl-c1">firstName</span>: <span class="pl-s">"Jane"</span><span class="pl-kos">,</span>
+            <span class="pl-c1">lastName</span>: <span class="pl-s">"Doe"</span><span class="pl-kos">,</span>
+            <span class="pl-c1">age</span>: <span class="pl-c1">27</span><span class="pl-kos">,</span>
+            <span class="pl-c1">female</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span>
+            <span class="pl-c1">location</span>: <span class="pl-k">new</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">(</span><span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">192</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+            <span class="pl-c1">username</span>: <span class="pl-s">"janedoe92"</span><span class="pl-kos">,</span>
+            <span class="pl-c1">passwordHash</span>: <span class="pl-k">new</span> <span class="pl-smi">Uint8Array</span><span class="pl-kos">(</span><span class="pl-c1">32</span><span class="pl-kos">)</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span><span class="pl-kos">;</span>
+
+    <span class="pl-s1">encode</span><span class="pl-kos">.</span><span class="pl-c1">encoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-smi">Coordinate</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">encode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">decode</span><span class="pl-kos">.</span><span class="pl-c1">decoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">decode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// encode() uses the encode.encoder instance</span>
+    <span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">message</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// decode() uses the decode.decoder instance</span>
+    <span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">&lt;</span><span class="pl-smi">SomeInterface</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// Create separate instances if you need multiple configurations</span>
+    <span class="pl-k">const</span> <span class="pl-s1">myDecoder</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">Decoder</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">nilValue</span> <span class="pl-c1">=</span> <span class="pl-c1">undefined</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">allowInvalidUTF8</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-c1">allowUnknownExts</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span>
+    <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-en">registerExt</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-smi">Coordinate</span><span class="pl-kos">.</span><span class="pl-c1">backwardsDecode</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-c">// Both Encoder and Decoder support cloning instances</span>
+    <span class="pl-k">const</span> <span class="pl-s1">slightlyDifferent</span> <span class="pl-c1">=</span> <span class="pl-s1">myDecoder</span><span class="pl-kos">.</span><span class="pl-en">clone</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">slighlyDifferent</span><span class="pl-kos">.</span><span class="pl-c1">nilValue</span> <span class="pl-c1">=</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Documentation</h6>
+<h7 dir="auto">
+<a id="user-content-class-encoder" class="anchor" href="#class-encoder" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>class Encoder</code>
+</h7>
+<p dir="auto"><strong>static</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Encoder.global: Encoder</code></p>
+<p dir="auto">A global <code>Encoder</code> instance, purely for convenience.</p>
+</li>
+<li>
+<p dir="auto"><code>Encoder.encode(data: any, initBuffSize?: number): Uint8Array</code></p>
+<p dir="auto">Convenience function to call <code>Encoder.global.encode()</code>.</p>
+</li>
+</ul>
+<p dir="auto"><strong>constructor</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>new Encoder(reserve = 128)</code></p>
+<p dir="auto">Create a new <code>Encoder</code> instance. You may pass the number of bytes to
+allocate immediately as an encoding buffer, or it will default to <code>128</code>.</p>
+</li>
+</ul>
+<p dir="auto"><strong>instance</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Encoder.encode(data: any, reserve?: number): Uint8Array</code></p>
+<p dir="auto">Encode a JavaScript object or primitive to MessagePack format. You may provide a second argument
+to ensure that a certain number of bytes is allocated for the encoding buffer before encoding
+begins.</p>
+</li>
+<li>
+<p dir="auto"><code>Encoder.registerExt&lt;T&gt;(ctor: new (...args: any[]) =&gt; T, type: number, encoderFn: (data: T) =&gt; Uint8Array)</code></p>
+<p dir="auto">Register an encoder for an object class. <code>type</code> MUST be in the range <code>[-128, 127]</code> or a <code>RangeError</code>
+will be thrown. Negative types are reserved by the MessagePack spec and SHOULD not be used, unless
+this library does not provide an extension added to the spec or the implementation is found to be
+inadequate.</p>
+<p dir="auto"><strong>Standard Extensions Registered By Default</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>-1 (Timestamp)</code></p>
+<p dir="auto">JavaScript <code>Date</code> objects will be encoded using the standard <code>Timestamp</code> extension type, unless
+overriden.</p>
+</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><code>Encoder.resize(newSize: number)</code></p>
+<p dir="auto">Release the current encoding buffer and allocate a new one of <code>newSize</code> bytes.</p>
+</li>
+<li>
+<p dir="auto"><code>Encoder.clone(): Encoder</code></p>
+<p dir="auto">Creates an independent clone of the <code>Encoder</code> with the same
+configuration values and registered extensions.</p>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-class-decoder" class="anchor" href="#class-decoder" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>class Decoder</code>
+</h7>
+<p dir="auto"><strong>static</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Decoder.global: Decoder</code></p>
+<p dir="auto">A global <code>Decoder</code> instance, purely for convenience.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.decode&lt;T = any&gt;(data: ArrayBuffer | Uint8Array): T</code></p>
+<p dir="auto">Convenience function to call <code>Decoder.global.decode()</code>.</p>
+</li>
+</ul>
+<p dir="auto"><strong>constructor</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>new Decoder()</code></p>
+<p dir="auto">Creates a new <code>Decoder</code> instance.</p>
+</li>
+</ul>
+<p dir="auto"><strong>instance</strong></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>Decoder.nilValue: null | undefined = null</code></p>
+<p dir="auto">Value the MessagePack <code>nil</code> constant should be interpreted as.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.allowInvalidUTF8 = false</code></p>
+<p dir="auto">If false, an error will be thrown if a MessagePack <code>str</code> type is
+encountered and the data is not valid UTF-8. If true, the <code>str</code>
+data will be passed through opaquely as a <code>Uint8Array</code>.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.allowUnknownExts = false</code></p>
+<p dir="auto">If false, a <code>RangeError</code> will be thrown whenever an unrecognized extension type is encountered. If
+true, the extension data will be passed through opaquely as a
+<a href="#interface-decoderunknownextseq"><code>Decoder.UnknownExt</code></a>.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.mapBehavior = Decoder.MapBehavior.PreferJSON</code></p>
+<p dir="auto">Determines how MessagePack <code>map</code> values are decoded. See
+<a href="#enum-decodermapbehavior"><code>Decoder.MapBehavior</code></a> for options.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.decode&lt;T = any&gt;(data: ArrayBuffer | Uint8Array): T</code></p>
+<p dir="auto">Decode MessagePack data into a JS object or primitive.</p>
+</li>
+<li>
+<p dir="auto"><code>Decoder.clone(): Decoder</code></p>
+<p dir="auto">Creates an independent clone of the <code>Decoder</code> with the same
+configuration values and registered extensions.</p>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-interface-decoderunknownextseq" class="anchor" href="#interface-decoderunknownextseq" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>interface Decoder.UnknownExtSeq</code>
+</h7>
+<p dir="auto">Opaque tuple of an extension type identifier and the raw data associated with it.</p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>type: number</code></p>
+<p dir="auto">The extension type which did not have a registered decoder.</p>
+</li>
+<li>
+<p dir="auto"><code>data: Uint8Array</code></p>
+<p dir="auto">The opaque data.</p>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-enum-decodermapbehavior" class="anchor" href="#enum-decodermapbehavior" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>enum Decoder.MapBehavior</code>
+</h7>
+<p dir="auto">Determines <code>Decoder</code> behavior when a MessagePack <code>map</code> is encountered.</p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>PreferJSON = 0</code></p>
+<p dir="auto">Maps will be decoded as native JS objects, unless a key is decoded
+whose JS type evaluates to <code>object</code>, in which case all decoded keys
+will be abandoned and the map will be decoded from scratch into an
+ES6 Map which supports arbitrary key types.</p>
+</li>
+<li>
+<p dir="auto"><code>AlwaysJSON = 1</code></p>
+<p dir="auto">Maps will be always be decoded as native JS objects. This means all
+decoded keys will be coerced to strings, which is almost certainly
+undesirable if decoding maps with objects or arrays as keys.</p>
+</li>
+<li>
+<p dir="auto"><code>AlwaysES6Map = 2</code></p>
+<p dir="auto">Maps will always be decoded as ES6 Map objects.</p>
+</li>
+</ul>
 </article>
   </div>
         </div>
