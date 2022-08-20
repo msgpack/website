@@ -178,8 +178,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-loteixeira-as3-msgpack',this)">ActionScript3 <span class="qs-sub">loteixeira</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-st3v0-msgpack-as3',this)">ActionScript3 <span class="qs-sub">st3v0</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-hideakitai-MsgPack',this)">Arduino <span class="qs-sub">hideakitai</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-HEADS-project-arduino_msgpack',this)">Arduino C <span class="qs-sub">HEADS-project</span></a></li>
@@ -346,6 +344,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-scala',this)">Scala <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-core',this)">Scala <span class="qs-sub">msgpack4z</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-circe',this)">Scala.js <span class="qs-sub">msgpack4z</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-msgpack-cli',this)">Shell <span class="qs-sub">jakm</span></a></li>
@@ -413,126 +413,6 @@ trace(msgpack.read(bytes));"><pre><span class="pl-c">// create messagepack objec
 <span class="pl-c">// print the decoded object</span>
 <span class="pl-c1">trace</span>(msgpack<span class="pl-k">.</span>read(<span class="pl-c1">bytes</span>))<span class="pl-k">;</span></pre></div>
 <p dir="auto">For downloads, source code and further information, check the project repository: <a href="https://github.com/loteixeira/as3-msgpack">https://github.com/loteixeira/as3-msgpack</a>.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-st3v0-msgpack-as3" class="qs"><h4><a href="https://github.com/st3v0/msgpack-as3" target="_blank">st3v0/msgpack-as3 <span class="qs-url">https://github.com/st3v0/msgpack-as3</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-messagepack-for-actionscript3" class="anchor" aria-hidden="true" href="#messagepack-for-actionscript3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for ActionScript3</h5>
-<p dir="auto">msgpack-as3 is an implementation of the latest MessagePack specification for ActionScript3 language (Flash, Flex and AIR).</p>
-<ul dir="auto">
-<li>Message Pack specification (Dec 22, 2015): <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a>
-</li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-basic-usage" class="anchor" aria-hidden="true" href="#basic-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basic Usage</h6>
-<h7 dir="auto">
-<a id="user-content-serialize-and-deserialize" class="anchor" aria-hidden="true" href="#serialize-and-deserialize"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize and Deserialize</h7>
-<p dir="auto">The usage of MsgPack class is very simple. You need create an object and call read and write methods.</p>
-```actionscript
-// message pack object created
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">// encode an array
-var bytes:ByteArray = msgpack.write([1, 2, 3, 4, 5]);</p>
-<p dir="auto">// rewind the buffer
-bytes.position = 0;</p>
-<p dir="auto">// print the decoded object
-trace(msgpack.read(bytes));</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-### Flags
-&lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
-* &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
-* &lt;code&gt;MsgPackFlags.ACCEPT_LITTLE_ENDIAN&lt;/code&gt;: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).
-* &lt;code&gt;MsgPackFlags.SPEC2013_COMPATIBILITY&lt;/code&gt;: MsgPack will run in backwards compatibility mode.
-
-```actionscript
-var msg:MsgPack;
-
-// use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);"><pre class="notranslate"><code>
-### Flags
-&lt;p&gt;Currently there are three flags which you may use to initialize a MsgPack object:&lt;/p&gt;
-* &lt;code&gt;MsgPackFlags.READ_STRING_AS_BYTE_ARRAY&lt;/code&gt;: message pack string data is read as byte array instead of string;
-* &lt;code&gt;MsgPackFlags.ACCEPT_LITTLE_ENDIAN&lt;/code&gt;: MsgPack objects will work with little endian buffers (message pack specification defines big endian as default).
-* &lt;code&gt;MsgPackFlags.SPEC2013_COMPATIBILITY&lt;/code&gt;: MsgPack will run in backwards compatibility mode.
-
-```actionscript
-var msg:MsgPack;
-
-// use logical operator OR to set the flags.
-msgpack = new MsgPack(MsgPackFlags.READ_STRING_AS_BYTE_ARRAY | MsgPackFlags.ACCEPT_LITTLE_ENDIAN);
-</code></pre></div>
-<h6 dir="auto">
-<a id="user-content-advanced-usage" class="anchor" aria-hidden="true" href="#advanced-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Advanced Usage</h6>
-<h7 dir="auto">
-<a id="user-content-extensions" class="anchor" aria-hidden="true" href="#extensions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extensions</h7>
-<p dir="auto">You can create your own Extension Workers by extending the <code>ExtensionWorker</code> Class and then assigning it to the MsgPack Factory.</p>
-<p dir="auto">The following example assigns a custom worker which extends the <code>ExtensionWorker</code> Class.</p>
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">// Assign the new worker to the factory.
-msgpack.factory.assign(new CustomWorker());</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-&lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
-
-### Priorities
-&lt;p&gt;Worker priority behaves similar to how the Adobe Event Dispatcher priorities work. In MessagePack, deciding which worker will be use for serializing/deserializing depends on two(2) factors.&lt;/p&gt;
-1. The order in which the worker was assigned to the factory.
-2. The priority of the worker. Higher values take precedence.
-
-All workers have a default priority of 0.
-
-&lt;p&gt;In the following example &lt;code&gt;workerB&lt;/code&gt; will never be used because it's assign after &lt;code&gt;workerA&lt;/code&gt;&lt;/p&gt;
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-
-var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker();
-
-msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);"><pre class="notranslate"><code>
-&lt;p&gt;For more information regarding Extensions refer to the MessagePack specification.&lt;/p&gt;
-
-### Priorities
-&lt;p&gt;Worker priority behaves similar to how the Adobe Event Dispatcher priorities work. In MessagePack, deciding which worker will be use for serializing/deserializing depends on two(2) factors.&lt;/p&gt;
-1. The order in which the worker was assigned to the factory.
-2. The priority of the worker. Higher values take precedence.
-
-All workers have a default priority of 0.
-
-&lt;p&gt;In the following example &lt;code&gt;workerB&lt;/code&gt; will never be used because it's assign after &lt;code&gt;workerA&lt;/code&gt;&lt;/p&gt;
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-
-var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker();
-
-msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);
-</code></pre></div>
-<p dir="auto">However if we adjust the priority of <code>workerB</code>, then <code>workerA</code> will never be used.</p>
-```actionscript
-var msgpack:MsgPack = new MsgPack();
-<p dir="auto">var workerA:StringWorker = new StringWorker();
-var workerB:DifferentStringWorker = new DifferentStringWorker(null, 1);</p>
-<p dir="auto">msgpack.factory.assign(workerA);
-msgpack.factory.assign(workerB);</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="
-## Credits
-This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
-
-Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
-Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  "><pre class="notranslate"><code>
-## Credits
-This application uses Open Source components. You can find the source code of their open source projects along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
-
-Project: as3-msgpack https://github.com/loteixeira/as3-msgpack  
-Copyright (C) 2013 Lucas Teixeira  
-License (Apache V2.0) http://www.apache.org/licenses/LICENSE-2.0  
-</code></pre></div>
 </article>
   </div>
         </div>
@@ -19245,6 +19125,33 @@ data == msgPack                    // true'><pre><span class="pl-k">import</span
         "(Sonatype user name)",
         "(Sonatype password)")
 </code></pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack4z-msgpack4z-core" class="qs"><h4><a href="https://github.com/msgpack4z/msgpack4z-core" target="_blank">msgpack4z/msgpack4z-core <span class="qs-url">https://github.com/msgpack4z/msgpack4z-core</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack4z-core" class="anchor" aria-hidden="true" href="#msgpack4z-core"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack4z-core</h5>
+<p dir="auto"><a href="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-core_2.11" rel="nofollow"><img src="https://camo.githubusercontent.com/caf17422a9e0840ef59b500c04d7e5428d82e4019c1af0b0702955dc047150ad/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d636f72655f322e31312f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-core_2.11/badge.svg" style="max-width: 100%;"></a>
+<a href="https://javadoc.io/doc/com.github.xuwei-k/msgpack4z-core_3/latest/api/msgpack4z.html" rel="nofollow"><img src="https://camo.githubusercontent.com/c28b6c9aa21bd0c7bf45598f35d198aee2a70c58282b1799f759f4581a94cde0/68747470733a2f2f6a617661646f632e696f2f6261646765322f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d636f72655f332f6a617661646f632e737667" alt="scaladoc" data-canonical-src="https://javadoc.io/badge2/com.github.xuwei-k/msgpack4z-core_3/javadoc.svg" style="max-width: 100%;"></a>
+<a href="https://www.scala-js.org" rel="nofollow"><img src="https://camo.githubusercontent.com/9a76965287cd1e4666077890d1fec48f96cad65fecde6e3bc29a3a84ccf867fc/68747470733a2f2f7777772e7363616c612d6a732e6f72672f6173736574732f6261646765732f7363616c616a732d312e302e302e737667" alt="Scala.js" data-canonical-src="https://www.scala-js.org/assets/badges/scalajs-1.0.0.svg" style="max-width: 100%;"></a></p>
+<ul dir="auto">
+<li><a href="https://msgpack.org/" rel="nofollow">https://msgpack.org/</a></li>
+<li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a></li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>example</h7>
+<ul dir="auto">
+<li><a href="https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala">https://github.com/msgpack4z/msgpack4z-core/blob/master/src/test/scala/msgpack4z/CaseClassExample.scala</a></li>
+<li><a href="https://github.com/xuwei-k/msgpack-json/blob/640878e88171/src/main/scala/App.scala">https://github.com/xuwei-k/msgpack-json/blob/640878e88171/src/main/scala/App.scala</a></li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-latest-stable-version" class="anchor" aria-hidden="true" href="#latest-stable-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>latest stable version</h7>
+<div class="highlight highlight-source-scala notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='libraryDependencies += "com.github.xuwei-k" %% "msgpack4z-core" % "0.6.0"'><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-core<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.6.0<span class="pl-pds">"</span></span></pre></div>
+<h7 dir="auto">
+<a id="user-content-dependency-graph" class="anchor" aria-hidden="true" href="#dependency-graph"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>dependency graph</h7>
+<p dir="auto"><a href="https://msgpack4z.github.io/graph.svg" rel="nofollow"><img src="https://camo.githubusercontent.com/3a9f3e0f79cc25788dc05b6f549ed4ef28afbe124c85d654251849b798bbcee7/68747470733a2f2f6d73677061636b347a2e6769746875622e696f2f67726170682e737667" alt="graph" data-canonical-src="https://msgpack4z.github.io/graph.svg" style="max-width: 100%;"></a></p>
 </article>
   </div>
         </div>
