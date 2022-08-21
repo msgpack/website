@@ -373,9 +373,13 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-cherrywoods-swift-msgpack-serialization',this)">Swift, java compatibel <span class="qs-sub">cherrywoods</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-samclaus-msgpack-ts',this)">TypeScript/JavaScript <span class="qs-sub">samclaus</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-tihannalouise-https-github-com-msgpack-msgpack-java',this)">expert-carnival <span class="qs-sub">tihannalouise</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-esensar-kotlinx-serialization-msgpack',this)">kotlinx.serialization <span class="qs-sub">esensar</span></a></li>
           
@@ -20451,6 +20455,27 @@ print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k"
   </div>
         </div>
         
+        <div id="qs-cherrywoods-swift-msgpack-serialization" class="qs"><h4><a href="https://github.com/cherrywoods/swift-msgpack-serialization" target="_blank">cherrywoods/swift-msgpack-serialization <span class="qs-url">https://github.com/cherrywoods/swift-msgpack-serialization</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-swift-msgpack-serialization" class="anchor" aria-hidden="true" href="#swift-msgpack-serialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>swift-msgpack-serialization</h5>
+<p dir="auto"><a href="https://github.com/Carthage/Carthage"><img src="https://camo.githubusercontent.com/c8961b92aa4c1cece705532f044860ab81846426578305a5e8d83c0f357de8c2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f43617274686167652d636f6d70617469626c652d3442433531442e7376673f7374796c653d666c6174" alt="Carthage compatible" data-canonical-src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" style="max-width: 100%;"></a></p>
+<p dir="auto">Another swift serialization library for msgpack with support for the Codable environement.</p>
+<p dir="auto">This framework is designed to be (optionaly) compatibel to the msgpack-java library.
+See <a href="https://github.com/cherrywoods/swift-msgpack-serialization/blob/master/Compatibility.md">Compatibility.md</a> for more detailed information about this.</p>
+<p dir="auto">Please make sure, that the swift model classes and java model classes you use are compatibel to each other, e.g. enums are named equaly (including case).</p>
+<p dir="auto">This framework also supplies the possibiliy to encode keys of other types than String (generalContainer function of MsgpackEncoder).</p>
+<p dir="auto">swift-msgpack-serialization works with <a href="https://github.com/a2/MessagePack.swift">MessagePack.swift</a>. This means, that you can encode your classes, structs and enums, that conform to Codable to MessagePackValue from MessagePack.swift, do something with this MessagePackValue and then encode it to msgpack using MessagePack.swift. You may of course also decode to MessagePackValue first and then decode a particular MessagePackValue to your own type.</p>
+<h6 dir="auto">
+<a id="user-content-instalation" class="anchor" aria-hidden="true" href="#instalation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Instalation</h6>
+<p dir="auto">Currently, only carthage is supported.</p>
+<h6 dir="auto">
+<a id="user-content-compatibilty-restrictions" class="anchor" aria-hidden="true" href="#compatibilty-restrictions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibilty restrictions</h6>
+<p dir="auto">Make sure you never call .encode(to:) directly! Instead use the encode method on a keyed, unkeyed or singleValue container or cast the encoder passed to you to MsgpackEncoder and call encodeIntermediate(_) on this encoder. If you do not use this, this framework won't be able to do it's work properly.</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-samclaus-msgpack-ts" class="qs"><h4><a href="https://msgpack.org/" target="_blank">samclaus/msgpack-ts <span class="qs-url">https://msgpack.org/</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -20858,6 +20883,15 @@ undesirable if decoding maps with objects or arrays as keys.</p>
 </li>
 </ul>
 <p dir="auto">By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-tihannalouise-https-github-com-msgpack-msgpack-java" class="qs"><h4><a href="https://github.com/tihannalouise/https-github.com-msgpack-msgpack-java" target="_blank">tihannalouise/https-github.com-msgpack-msgpack-java <span class="qs-url">https://github.com/tihannalouise/https-github.com-msgpack-msgpack-java</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-https-githubcom-msgpack-msgpack-java" class="anchor" aria-hidden="true" href="#https-githubcom-msgpack-msgpack-java"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>https-github.com-msgpack-msgpack-java</h5>
+<p dir="auto">msgpack.org[expert-carnival]</p>
 </article>
   </div>
         </div>
