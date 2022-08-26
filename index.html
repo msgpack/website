@@ -218,6 +218,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-d',this)">D <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-jpf91-msgpack-ll',this)">D <span class="qs-sub">jpf91</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-knopp-msgpack_dart',this)">Dart <span class="qs-sub">knopp</span></a></li>
@@ -271,6 +273,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-davalapar-what-the-pack',this)">Javascript/NodeJS <span class="qs-sub">davalapar</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-davethomas11-MoshiPack',this)">Kotlin <span class="qs-sub">davethomas11</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-kropp-kotlinx-serialization-msgpack',this)">Kotlin Serialization <span class="qs-sub">kropp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-mradziwo-MsgPack_LabVIEW',this)">LabVIEW <span class="qs-sub">mradziwo</span></a></li>
           
@@ -359,6 +363,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-esensar-kotlinx-serialization-msgpack',this)">kotlinx.serialization <span class="qs-sub">esensar</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-suzukaze-mruby-msgpack',this)">mruby <span class="qs-sub">suzukaze</span></a></li>
           
@@ -7014,6 +7020,236 @@ void main()
   </div>
         </div>
         
+        <div id="qs-jpf91-msgpack-ll" class="qs"><h4><a href="https://github.com/jpf91/msgpack-ll" target="_blank">jpf91/msgpack-ll <span class="qs-url">https://github.com/jpf91/msgpack-ll</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack-ll" class="anchor" aria-hidden="true" href="#msgpack-ll"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-ll</h5>
+<p dir="auto"><a href="https://coveralls.io/github/jpf91/msgpack-ll?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/895f06e5f92c1da6808be4ae881010eca89c3371c9eea3ebdc550fb1ccad0193/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f6a706639312f6d73677061636b2d6c6c2f62616467652e7376673f6272616e63683d6d6173746572" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/jpf91/msgpack-ll/badge.svg?branch=master" style="max-width: 100%;"></a>
+<a href="https://travis-ci.org/jpf91/msgpack-ll" rel="nofollow"><img src="https://camo.githubusercontent.com/fbcf7bc6f3cd1031febc094f195e550270b6317c2d6df6c0a5043efbedbfa4cc/68747470733a2f2f7472617669732d63692e6f72672f6a706639312f6d73677061636b2d6c6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/jpf91/msgpack-ll.svg?branch=master" style="max-width: 100%;"></a></p>
+<p dir="auto">This is a low-level <code>@nogc</code>, <code>nothrow</code>, <code>@safe</code>, <code>pure</code> and <code>betterC</code> compatible
+<a href="http://msgpack.org/" rel="nofollow">MessagePack</a> serializer and deserializer. The
+library was designed to avoid any external dependencies and handle the low-level protocol
+details only. As a result the library doesn't have to do any error handling or
+buffer management. This library does never dynamically allocate memory.</p>
+<p dir="auto">The API documentation is available <a href="https://jpf91.github.io/msgpack-ll/msgpack_ll.html" rel="nofollow">here</a>.</p>
+<h6 dir="auto">
+<a id="user-content-a-simple-example-showing-the-complete-api" class="anchor" aria-hidden="true" href="#a-simple-example-showing-the-complete-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>A simple example showing the complete API</h6>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import msgpack_ll;
+
+// Buffer allocation is not handled by the library
+ubyte[128] buffer;
+
+
+// The MsgpackType enum contains all low-level MessagePack types
+enum type = MsgpackType.uint8;
+
+// The DataSize!(MsgpackType) function returns the size of serialized data
+// for a certain type.
+
+// The formatter and parser use ref ubyte[DataSize!type] types. This
+// forces the compiler to do array length checks at compile time and avoid
+// any runtime bounds checking.
+
+// Format the number 42 as a uint8 type. This will require
+// DataSize!(MsgpackType.uint8) == 2 bytes storage.
+formatType!(type)(42, buffer[0..DataSize!type]);
+
+// To deserialize we have to somehow get the data type at runtime
+// Then verify the type is as expected.
+assert(getType(buffer[0]) == type);
+
+// Now deserialize. Here we have to specify the MsgpackType
+// as a compile time value.
+const result = parseType!type(buffer[0..DataSize!type]);
+assert(result == 42);"><pre><span class="pl-k">import</span> msgpack_ll;
+
+<span class="pl-c"><span class="pl-c">//</span> Buffer allocation is not handled by the library</span>
+<span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer;
+
+
+<span class="pl-c"><span class="pl-c">//</span> The MsgpackType enum contains all low-level MessagePack types</span>
+<span class="pl-k">enum</span> type = MsgpackType.uint8;
+
+<span class="pl-c"><span class="pl-c">//</span> The DataSize!(MsgpackType) function returns the size of serialized data</span>
+<span class="pl-c"><span class="pl-c">//</span> for a certain type.</span>
+
+<span class="pl-c"><span class="pl-c">//</span> The formatter and parser use ref ubyte[DataSize!type] types. This</span>
+<span class="pl-c"><span class="pl-c">//</span> forces the compiler to do array length checks at compile time and avoid</span>
+<span class="pl-c"><span class="pl-c">//</span> any runtime bounds checking.</span>
+
+<span class="pl-c"><span class="pl-c">//</span> Format the number 42 as a uint8 type. This will require</span>
+<span class="pl-c"><span class="pl-c">//</span> DataSize!(MsgpackType.uint8) == 2 bytes storage.</span>
+formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+
+<span class="pl-c"><span class="pl-c">//</span> To deserialize we have to somehow get the data type at runtime</span>
+<span class="pl-c"><span class="pl-c">//</span> Then verify the type is as expected.</span>
+<span class="pl-k">assert</span>(getType(buffer[<span class="pl-c1">0</span>]) <span class="pl-k">==</span> type);
+
+<span class="pl-c"><span class="pl-c">//</span> Now deserialize. Here we have to specify the MsgpackType</span>
+<span class="pl-c"><span class="pl-c">//</span> as a compile time value.</span>
+<span class="pl-k">const</span> result = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+<span class="pl-k">assert</span>(result <span class="pl-k">==</span> <span class="pl-c1">42</span>);</pre></div>
+<h6 dir="auto">
+<a id="user-content-a-quick-view-at-the-generated-code-for-this-library" class="anchor" aria-hidden="true" href="#a-quick-view-at-the-generated-code-for-this-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>A quick view at the generated code for this library</h6>
+<h7 dir="auto">
+<a id="user-content-serializing-an-8-bit-integer" class="anchor" aria-hidden="true" href="#serializing-an-8-bit-integer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializing an 8 bit integer</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="void format(ref ubyte[128] buffer)
+{
+    enum type = MsgpackType.uint8;
+    formatType!(type)(42, buffer[0..DataSize!type]);
+}"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.uint8;
+    formatType<span class="pl-k">!</span>(type)(<span class="pl-c1">42</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+}</pre></div>
+<p dir="auto">Because of clever typing there's no runtime bounds checking but all bounds
+checks are performed at compile time by type checking.</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe void msgpack_ll.format(ref ubyte[128]):
+        mov     BYTE PTR [rdi], -52
+        mov     BYTE PTR [rdi+1], 42
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">52</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-c1">42</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-serializing-a-small-negative-integer-into-one-byte" class="anchor" aria-hidden="true" href="#serializing-a-small-negative-integer-into-one-byte"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serializing a small negative integer into one byte</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="void format(ref ubyte[128] buffer)
+{
+    enum type = MsgpackType.negFixInt;
+    formatType!(type)(-11, buffer[0..DataSize!type]);
+}"><pre><span class="pl-k">void</span> <span class="pl-en">format</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
+    formatType<span class="pl-k">!</span>(type)(<span class="pl-k">-</span><span class="pl-c1">11</span>, buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+}</pre></div>
+<p dir="auto">The MessagePack format is cleverly designed, so encoding the type is actually free
+in this case.</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe void msgpack_ll.format(ref ubyte[128]):
+        mov     BYTE PTR [rdi], -11
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe void msgpack_ll.form</span><span class="pl-c1">at</span><span class="pl-en">(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">]</span><span class="pl-en">):</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-s1">-</span><span class="pl-c1">11</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-deserializing-an-expected-type" class="anchor" aria-hidden="true" href="#deserializing-an-expected-type"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserializing an expected type</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="bool parse(ref ubyte[128] buffer, ref byte value)
+{
+    enum type = MsgpackType.negFixInt;
+    auto rtType = getType(buffer[0]);
+    if(rtType != type)
+        return false;
+
+    value = parseType!type(buffer[0..DataSize!type]);
+    return true;
+}"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
+{
+    <span class="pl-k">enum</span> type = MsgpackType.negFixInt;
+    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
+    <span class="pl-k">if</span>(rtType <span class="pl-k">!=</span> type)
+        <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+
+    value = parseType<span class="pl-k">!</span>type(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>type]);
+    <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+}</pre></div>
+<p dir="auto">The compiler will inline functions and can see through the switch block in
+<code>getType</code>. If you explicitly ask for one type, the compiler will reduce the
+code to a simple explicit <code>if</code> check for this type!</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte[128], ref byte):
+        movzx   edx, BYTE PTR [rdi]
+        cmp     edx, 223
+        jle     .L58
+        mov     BYTE PTR [rsi], dl
+        mov     eax, 1
+        ret
+.L58:
+        xor     eax, eax
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">edx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
+<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L58</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">dl</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span>
+<span class="pl-en">.L58:</span>
+<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+<h7 dir="auto">
+<a id="user-content-deserializing-one-of-multiple-types" class="anchor" aria-hidden="true" href="#deserializing-one-of-multiple-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deserializing one of multiple types</h7>
+<div class="highlight highlight-source-d notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="bool parse(ref ubyte[128] buffer, ref byte value)
+{
+    auto rtType = getType(buffer[0]);
+    switch(rtType)
+    {
+        case MsgpackType.negFixInt:
+            value = parseType!(MsgpackType.negFixInt)(buffer[0..DataSize!(MsgpackType.negFixInt)]);
+            return true;
+        case MsgpackType.int8:
+            value = parseType!(MsgpackType.int8)(buffer[0..DataSize!(MsgpackType.int8)]);
+            return true;
+        default:
+            return false;
+    }
+}"><pre><span class="pl-k">bool</span> <span class="pl-en">parse</span>(<span class="pl-k">ref</span> <span class="pl-k">ubyte</span>[<span class="pl-c1">128</span>] buffer, <span class="pl-k">ref</span> <span class="pl-k">byte</span> value)
+{
+    <span class="pl-k">auto</span> rtType = getType(buffer[<span class="pl-c1">0</span>]);
+    <span class="pl-k">switch</span>(rtType)
+    {
+        <span class="pl-k">case</span> MsgpackType.negFixInt:
+            value = parseType<span class="pl-k">!</span>(MsgpackType.negFixInt)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.negFixInt)]);
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        <span class="pl-k">case</span> MsgpackType.int8:
+            value = parseType<span class="pl-k">!</span>(MsgpackType.int8)(buffer[<span class="pl-c1">0</span><span class="pl-k">..</span>DataSize<span class="pl-k">!</span>(MsgpackType.int8)]);
+            <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        <span class="pl-k">default</span>:
+            <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+    }
+}</pre></div>
+<p dir="auto">The generated code is obviously slighly more complex. The interesting part here
+is that type checking is directly done using the raw type value and not the
+enum values returned by <code>getType</code>. Even manually written ASM probably can't do
+much better here.</p>
+<div class="highlight highlight-source-assembly notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte[128], ref byte):
+        movzx   ecx, BYTE PTR [rdi]
+        xor     eax, eax
+        cmp     ecx, 191
+        jle     .L55
+        cmp     ecx, 223
+        jg      .L56
+        cmp     ecx, 208
+        jne     .L60
+        movzx   eax, BYTE PTR [rdi+1]
+        mov     BYTE PTR [rsi], al
+        mov     eax, 1
+.L55:
+        rep; ret
+.L56:
+        mov     BYTE PTR [rsi], cl
+        mov     eax, 1
+        ret
+.L60:
+        ret"><pre><span class="pl-en">pure nothrow @nogc @safe bool msgpack_ll.parse(ref ubyte</span><span class="pl-s1">[</span><span class="pl-c1">128</span><span class="pl-s1">],</span><span class="pl-en"> ref byte):</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">xor</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-v">eax</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">191</span>
+<span class="pl-en">        </span><span class="pl-k">jle</span><span class="pl-en">     .L55</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">223</span>
+<span class="pl-en">        </span><span class="pl-k">jg</span><span class="pl-en">      .L56</span>
+<span class="pl-en">        </span><span class="pl-k">cmp</span><span class="pl-en">     </span><span class="pl-v">ecx</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">208</span>
+<span class="pl-en">        </span><span class="pl-k">jne</span><span class="pl-en">     .L60</span>
+<span class="pl-en">        </span><span class="pl-k">movzx</span><span class="pl-en">   </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rdi</span><span class="pl-s1">+</span><span class="pl-c1">1</span><span class="pl-s1">]</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">al</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">.L55:</span>
+<span class="pl-en">        </span><span class="pl-k">rep</span><span class="pl-c">; ret</span>
+<span class="pl-en">.L56:</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     BYTE PTR </span><span class="pl-s1">[</span><span class="pl-v">rsi</span><span class="pl-s1">],</span><span class="pl-en"> </span><span class="pl-v">cl</span>
+<span class="pl-en">        </span><span class="pl-k">mov</span><span class="pl-en">     </span><span class="pl-v">eax</span><span class="pl-s1">,</span><span class="pl-en"> </span><span class="pl-c1">1</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span>
+<span class="pl-en">.L60:</span>
+<span class="pl-en">        </span><span class="pl-k">ret</span></pre></div>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-danellis-dart-msgpack" class="qs"><h4><a href="https://github.com/danellis/dart-msgpack" target="_blank">danellis/dart-msgpack <span class="qs-url">https://github.com/danellis/dart-msgpack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -12094,6 +12330,53 @@ If you are using ProGuard you might need to add the following options:</p>
 <a id="user-content-retrofit" class="anchor" aria-hidden="true" href="#retrofit"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Retrofit</h6>
 <p dir="auto">An example of using the retorfit adapter can be found here:
 <a href="https://github.com/davethomas11/MoshiPack_AndroidAppExample">https://github.com/davethomas11/MoshiPack_AndroidAppExample</a></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-kropp-kotlinx-serialization-msgpack" class="qs"><h4><a href="https://github.com/kropp/kotlinx.serialization.msgpack" target="_blank">kropp/kotlinx.serialization.msgpack <span class="qs-url">https://github.com/kropp/kotlinx.serialization.msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-kotlin-serialization-messagepack-library" class="anchor" aria-hidden="true" href="#kotlin-serialization-messagepack-library"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Kotlin Serialization MessagePack library</h5>
+<p dir="auto">This library extends <a href="https://github.com/Kotlin/kotlinx.serialization/">kotlinx.serialization</a> framework to support
+<a href="https://msgpack.org/" rel="nofollow">MessagePack</a> format.</p>
+<h6 dir="auto">
+<a id="user-content-implementation-details" class="anchor" aria-hidden="true" href="#implementation-details"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementation details</h6>
+<p dir="auto">When multiple equivalent encodings exist, the shortest (in terms of number of bytes) is used.
+Decoders decode any format and convert it to a required type (possibly loosing precision or significant higher digits)</p>
+<p dir="auto">Thus, not for any input decoding and encoding back will produce the exact same byte array. However, for any <code>@Serializable</code> class
+encoding and decoding should result in the equivalent instance.</p>
+<h6 dir="auto">
+<a id="user-content-current-limitations" class="anchor" aria-hidden="true" href="#current-limitations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Current Limitations</h6>
+<ul dir="auto">
+<li>Only JVM is supported as of now</li>
+<li>Unsigned integers can't be encoded because kotlinx.serialization framework <a href="https://github.com/Kotlin/kotlinx.serialization/issues/259" data-hovercard-type="issue" data-hovercard-url="/Kotlin/kotlinx.serialization/issues/259/hovercard">doesn't support <code>inline</code> classes</a> (yet)</li>
+<li>MessagePack extensions are not supported</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-verification" class="anchor" aria-hidden="true" href="#verification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Verification</h6>
+<p dir="auto">The implementation is tested against <a href="https://github.com/kawanet/msgpack-test-suite/">https://github.com/kawanet/msgpack-test-suite/</a></p>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import com.github.kropp.messagepack.MessagePack
+
+@Serializable
+data class Demo(val compact: Boolean, val schema: Int)
+
+val bytes = byteArrayOf(0x82.toByte(), 0xA7.toByte(), 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3.toByte(), 0xA6.toByte(), 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00)
+val demo = MessagePack.decode(Demo.serializer(), bytes)
+
+assertEquals(demo.compact, true)
+assertEquals(demo.schema, 0)"><pre><span class="pl-k">import</span> <span class="pl-smi">com.github.kropp.messagepack.MessagePack</span>
+
+@Serializable
+<span class="pl-k">data class</span> <span class="pl-en">Demo</span>(<span class="pl-k">val</span> <span class="pl-smi">compact</span><span class="pl-k">:</span> <span class="pl-c1">Boolean</span>, <span class="pl-k">val</span> <span class="pl-smi">schema</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>)
+
+<span class="pl-k">val</span> bytes <span class="pl-k">=</span> byteArrayOf(<span class="pl-c1">0x82</span>.toByte(), <span class="pl-c1">0xA7</span>.toByte(), <span class="pl-c1">0x63</span>, <span class="pl-c1">0x6F</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x70</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x74</span>, <span class="pl-c1">0xC3</span>.toByte(), <span class="pl-c1">0xA6</span>.toByte(), <span class="pl-c1">0x73</span>, <span class="pl-c1">0x63</span>, <span class="pl-c1">0x68</span>, <span class="pl-c1">0x65</span>, <span class="pl-c1">0x6D</span>, <span class="pl-c1">0x61</span>, <span class="pl-c1">0x00</span>)
+<span class="pl-k">val</span> demo <span class="pl-k">=</span> <span class="pl-en">MessagePack</span>.decode(<span class="pl-en">Demo</span>.serializer(), bytes)
+
+assertEquals(demo.compact, <span class="pl-c1">true</span>)
+assertEquals(demo.schema, <span class="pl-c1">0</span>)</pre></div>
 </article>
   </div>
         </div>
@@ -19859,6 +20142,114 @@ print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k"
 </li>
 </ul>
 <p dir="auto">By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-esensar-kotlinx-serialization-msgpack" class="qs"><h4><a href="https://www.ensarsarajcic.com/kotlinx-serialization-msgpack/" target="_blank">esensar/kotlinx-serialization-msgpack <span class="qs-url">https://www.ensarsarajcic.com/kotlinx-serialization-msgpack/</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-kotlinx-serialization-msgpack" class="anchor" aria-hidden="true" href="#kotlinx-serialization-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>kotlinx-serialization-msgpack</h5>
+<p dir="auto"><a href="https://github.com/esensar/kotlinx-serialization-msgpack/actions"><img src="https://github.com/esensar/kotlinx-serialization-msgpack/workflows/Tests/badge.svg" alt="Tests" style="max-width: 100%;"></a>
+<a href="https://javadoc.io/doc/com.ensarsarajcic.kotlinx/serialization-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/1fb73d7cd3771630aa416447fe82fb16b9593f5580750be438dabb0bf873a277/68747470733a2f2f6a617661646f632e696f2f6261646765322f636f6d2e656e736172736172616a6369632e6b6f746c696e782f73657269616c697a6174696f6e2d6d73677061636b2f6a617661646f632e737667" alt="javadoc" data-canonical-src="https://javadoc.io/badge2/com.ensarsarajcic.kotlinx/serialization-msgpack/javadoc.svg" style="max-width: 100%;"></a>
+<a href="https://maven-badges.herokuapp.com/maven-central/com.ensarsarajcic.kotlinx/serialization-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/b7a2b8776b919115064551d6d02af8a005151d362d3f292f3b27e2062b99e95a/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e656e736172736172616a6369632e6b6f746c696e782f73657269616c697a6174696f6e2d6d73677061636b2f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.ensarsarajcic.kotlinx/serialization-msgpack/badge.svg" style="max-width: 100%;"></a>
+<a href="https://s01.oss.sonatype.org/content/repositories/snapshots/com/ensarsarajcic/kotlinx/serialization-msgpack/" rel="nofollow"><img src="https://camo.githubusercontent.com/5a55adb3a40c524b61ea0e3ac276f12dab793da8479f4851276bb15a982a14c9/68747470733a2f2f696d672e736869656c64732e696f2f6e657875732f732f636f6d2e656e736172736172616a6369632e6b6f746c696e782f73657269616c697a6174696f6e2d6d73677061636b3f7365727665723d68747470732533412532462532467330312e6f73732e736f6e61747970652e6f7267" alt="Sonatype Nexus (Snapshots)" data-canonical-src="https://img.shields.io/nexus/s/com.ensarsarajcic.kotlinx/serialization-msgpack?server=https%3A%2F%2Fs01.oss.sonatype.org" style="max-width: 100%;"></a></p>
+<p dir="auto"><strong>Project is under active development! Important features may be missing and bugs are present!</strong></p>
+<p dir="auto">Check out <a href="https://github.com/esensar/kotlinx-serialization-msgpack/milestones">milestones</a> for progress.</p>
+<h6 dir="auto">
+<a id="user-content-about" class="anchor" aria-hidden="true" href="#about"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>About</h6>
+<p dir="auto">This library provides <a href="https://github.com/Kotlin/kotlinx.serialization">MsgPack</a> support for <a href="https://github.com/Kotlin/kotlinx.serialization">kotlinx.serialization</a>. It supports all of kotlin targets (JVM, JS, Native).</p>
+<h6 dir="auto">
+<a id="user-content-integration" class="anchor" aria-hidden="true" href="#integration"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Integration</h6>
+<h7 dir="auto">
+<a id="user-content-maven-central" class="anchor" aria-hidden="true" href="#maven-central"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Maven central</h7>
+<p dir="auto"><strong>Gradle:</strong></p>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='implementation("com.ensarsarajcic.kotlinx:serialization-msgpack:${kotlinxSerializationMsgPackVersion}")'><pre>implementation(<span class="pl-s"><span class="pl-pds">"</span>com.ensarsarajcic.kotlinx:serialization-msgpack:<span class="pl-e">${kotlinxSerializationMsgPackVersion}</span><span class="pl-pds">"</span></span>)</pre></div>
+<p dir="auto">To also use timestamp support with <a href="https://github.com/Kotlin/kotlinx-datetime">kotlinx-datetime</a>, use <code>serialization-msgpack-timestamp-extension</code>:</p>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='implementation("com.ensarsarajcic.kotlinx:serialization-msgpack-timestamp-extension:${kotlinxSerializationMsgPackVersion}")'><pre>implementation(<span class="pl-s"><span class="pl-pds">"</span>com.ensarsarajcic.kotlinx:serialization-msgpack-timestamp-extension:<span class="pl-e">${kotlinxSerializationMsgPackVersion}</span><span class="pl-pds">"</span></span>)</pre></div>
+<p dir="auto"><strong>NOTE</strong>:
+Timestamp support is available in core library as well, the additional library just adds a specific serializer that can be used with <a href="https://github.com/Kotlin/kotlinx-datetime">kotlinx-datetime</a> types. These are <code>MsgPackTimestamp32DatetimeSerializer</code>, <code>MsgPackTimestamp64DatetimeSerializer</code> and <code>MsgPackTimestamp96DatetimeSerializer</code>.</p>
+<p dir="auto">For experimental kotlin unsigned types support, use <code>serialization-msgpack-unsigned-support</code>:</p>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='implementation("com.ensarsarajcic.kotlinx:serialization-msgpack-unsigned-support:${kotlinxSerializationMsgPackVersion}")'><pre>implementation(<span class="pl-s"><span class="pl-pds">"</span>com.ensarsarajcic.kotlinx:serialization-msgpack-unsigned-support:<span class="pl-e">${kotlinxSerializationMsgPackVersion}</span><span class="pl-pds">"</span></span>)</pre></div>
+<h7 dir="auto">
+<a id="user-content-snapshot-builds" class="anchor" aria-hidden="true" href="#snapshot-builds"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Snapshot builds</h7>
+<p dir="auto"><strong>Gradle:</strong></p>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='repositories {
+    maven {
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+    }
+}
+implementation("com.ensarsarajcic.kotlinx:serialization-msgpack:${kotlinxSerializationMsgPackSnapshotVersion}")'><pre>repositories {
+    maven {
+        url <span class="pl-k">=</span> uri(<span class="pl-s"><span class="pl-pds">"</span>https://oss.sonatype.org/content/repositories/snapshots<span class="pl-pds">"</span></span>)
+    }
+}
+implementation(<span class="pl-s"><span class="pl-pds">"</span>com.ensarsarajcic.kotlinx:serialization-msgpack:<span class="pl-e">${kotlinxSerializationMsgPackSnapshotVersion}</span><span class="pl-pds">"</span></span>)</pre></div>
+<p dir="auto">To also use timestamp support with <a href="https://github.com/Kotlin/kotlinx-datetime">kotlinx-datetime</a>, use <code>serialization-msgpack-timestamp-extension</code>:</p>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='implementation("com.ensarsarajcic.kotlinx:serialization-msgpack-timestamp-extension:${kotlinxSerializationMsgPackSnapshotVersion}")'><pre>implementation(<span class="pl-s"><span class="pl-pds">"</span>com.ensarsarajcic.kotlinx:serialization-msgpack-timestamp-extension:<span class="pl-e">${kotlinxSerializationMsgPackSnapshotVersion}</span><span class="pl-pds">"</span></span>)</pre></div>
+<p dir="auto">For experimental kotlin unsigned types support, use <code>serialization-msgpack-unsigned-support</code>:</p>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='implementation("com.ensarsarajcic.kotlinx:serialization-msgpack-unsigned-support:${kotlinxSerializationMsgPackSnapshotVersion}")'><pre>implementation(<span class="pl-s"><span class="pl-pds">"</span>com.ensarsarajcic.kotlinx:serialization-msgpack-unsigned-support:<span class="pl-e">${kotlinxSerializationMsgPackSnapshotVersion}</span><span class="pl-pds">"</span></span>)</pre></div>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<p dir="auto">Library should be used in same way as any other kotlinx.serialization library. Created models are annotated with <code>@Serializable</code> annotation and their <code>serializer()</code> can be passed to <code>MsgPack</code>.</p>
+<p dir="auto"><strong>Example:</strong></p>
+<div class="highlight highlight-source-kotlin notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="@Serializable
+data class SampleClass(
+    val testString: String,
+    val testInt: Int,
+    val testBoolean: Boolean
+)
+
+fun encode() {
+    println(
+        MsgPack.encodeToByteArray(
+            SampleClass.serializer(),
+            SampleClass(&quot;def&quot;, 123, true)
+        ).joinToString(separator = &quot;&quot;) { it.toInt().and(0xff).toString(16).padStart(2, '0') }
+    ) // Outputs: 83aa74657374537472696e67a3646566a774657374496e747bab74657374426f6f6c65616ec3
+}
+
+fun decode() {
+    println(
+        MsgPack.decodeFromByteArray(
+            SampleClass.serializer(),
+            &quot;83aa74657374537472696e67a3646566a774657374496e747bab74657374426f6f6c65616ec3&quot;.let { bytesString -&gt;
+                ByteArray(bytesString.length / 2) { bytesString.substring(it * 2, it * 2 + 2).toInt(16).toByte() }
+            }
+        )
+    ) // Outputs: SampleClass(testString=def, testInt=123, testBoolean=true)
+}"><pre>@Serializable
+<span class="pl-k">data class</span> <span class="pl-en">SampleClass</span>(
+    <span class="pl-k">val</span> <span class="pl-smi">testString</span><span class="pl-k">:</span> <span class="pl-c1">String</span>,
+    <span class="pl-k">val</span> <span class="pl-smi">testInt</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>,
+    <span class="pl-k">val</span> <span class="pl-smi">testBoolean</span><span class="pl-k">:</span> <span class="pl-c1">Boolean</span>
+)
+
+<span class="pl-k">fun</span> <span class="pl-en">encode</span>() {
+    <span class="pl-c1">println</span>(
+        <span class="pl-en">MsgPack</span>.encodeToByteArray(
+            <span class="pl-en">SampleClass</span>.serializer(),
+            <span class="pl-en">SampleClass</span>(<span class="pl-s"><span class="pl-pds">"</span>def<span class="pl-pds">"</span></span>, <span class="pl-c1">123</span>, <span class="pl-c1">true</span>)
+        ).joinToString(separator <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>) { it.toInt().<span class="pl-k">and</span>(<span class="pl-c1">0xff</span>).toString(<span class="pl-c1">16</span>).padStart(<span class="pl-c1">2</span>, <span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>) }
+    ) <span class="pl-c"><span class="pl-c">//</span> Outputs: 83aa74657374537472696e67a3646566a774657374496e747bab74657374426f6f6c65616ec3</span>
+}
+
+<span class="pl-k">fun</span> <span class="pl-en">decode</span>() {
+    <span class="pl-c1">println</span>(
+        <span class="pl-en">MsgPack</span>.decodeFromByteArray(
+            <span class="pl-en">SampleClass</span>.serializer(),
+            <span class="pl-s"><span class="pl-pds">"</span>83aa74657374537472696e67a3646566a774657374496e747bab74657374426f6f6c65616ec3<span class="pl-pds">"</span></span>.<span class="pl-c1">let</span> { bytesString <span class="pl-k">-&gt;</span>
+                <span class="pl-c1">ByteArray</span>(bytesString.length <span class="pl-k">/</span> <span class="pl-c1">2</span>) { bytesString.substring(it <span class="pl-k">*</span> <span class="pl-c1">2</span>, it <span class="pl-k">*</span> <span class="pl-c1">2</span> <span class="pl-k">+</span> <span class="pl-c1">2</span>).toInt(<span class="pl-c1">16</span>).toByte() }
+            }
+        )
+    ) <span class="pl-c"><span class="pl-c">//</span> Outputs: SampleClass(testString=def, testInt=123, testBoolean=true)</span>
+}</pre></div>
+<h6 dir="auto">
+<a id="user-content-contributing" class="anchor" aria-hidden="true" href="#contributing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributing</h6>
+<p dir="auto">Check out <a href="/esensar/kotlinx-serialization-msgpack/blob/main/CONTRIBUTING.md">contributing guidelines</a>.</p>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto"><a href="/esensar/kotlinx-serialization-msgpack/blob/main/LICENSE">MIT</a></p>
 </article>
   </div>
         </div>
