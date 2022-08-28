@@ -184,6 +184,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-HEADS-project-arduino_msgpack',this)">Arduino C <span class="qs-sub">HEADS-project</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-bblanchon-ArduinoJson-msgpack-org',this)">Arduino/C++ <span class="qs-sub">bblanchon</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-camgunz-cmp',this)">C <span class="qs-sub">camgunz</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-mpack',this)">C <span class="qs-sub">ludocode</span></a></li>
@@ -199,6 +201,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mlsomers-LsMsgPack',this)">C# <span class="qs-sub">mlsomers</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-neuecc-MessagePack-CSharp',this)">C# <span class="qs-sub">neuecc</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-highras-msgpack-csharp',this)">C# <span class="qs-sub">highras</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-Lichtso-netLink',this)">C++11 <span class="qs-sub">Lichtso</span></a></li>
           
@@ -254,6 +258,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-shamaton-msgpackgen',this)">Go <span class="qs-sub">shamaton</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-nnabeyang-go-msgpack',this)">Go <span class="qs-sub">nnabeyang</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-reeze-msgpack-hhvm',this)">HHVM <span class="qs-sub">reeze</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-haskell',this)">Haskell <span class="qs-sub">msgpack</span></a></li>
@@ -273,6 +279,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-ygoe-msgpack-js',this)">JavaScript <span class="qs-sub">ygoe</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-textbook-express-msgpack',this)">JavaScript <span class="qs-sub">textbook</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-CodeSmith32-msgpack-js-micro',this)">JavaScript <span class="qs-sub">CodeSmith32</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kriszyp-msgpackr',this)">JavaScript/NodeJS <span class="qs-sub">kriszyp</span></a></li>
           
@@ -337,6 +345,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-eddelbuettel-rcppmsgpack',this)">R <span class="qs-sub">eddelbuettel</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-crowding-msgpack-r',this)">R <span class="qs-sub">crowding</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-HiPhish-msgpack-racket',this)">Racket <span class="qs-sub">HiPhish</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-owenthereal-msgpack_rails',this)">Rails <span class="qs-sub">owenthereal</span></a></li>
           
@@ -2092,6 +2102,47 @@ namespace eeprom {
 <li>2^32 byte long (or longer) bins</li>
 <li>extention types.</li>
 </ul>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-bblanchon-ArduinoJson-msgpack-org" class="qs"><h4><a href="https://github.com/bblanchon/ArduinoJson-msgpack.org" target="_blank">bblanchon/ArduinoJson-msgpack.org <span class="qs-url">https://github.com/bblanchon/ArduinoJson-msgpack.org</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-arduino" class="anchor" aria-hidden="true" href="#messagepack-for-arduino"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for Arduino</h5>
+<p dir="auto"><a href="https://www.ardu-badge.com/ArduinoJson/" rel="nofollow"><img src="https://camo.githubusercontent.com/159d2838350543f552faab977e643e2ead1de286901f7abc3b915a558e4bfa52/68747470733a2f2f7777772e617264752d62616467652e636f6d2f62616467652f41726475696e6f4a736f6e2e737667" alt="arduino-library-badge" data-canonical-src="https://www.ardu-badge.com/badge/ArduinoJson.svg" style="max-width: 100%;"></a>
+<a href="https://ci.appveyor.com/project/bblanchon/arduinojson/branch/6.x" rel="nofollow"><img src="https://camo.githubusercontent.com/55330679784bfc31ab8cc6c8f01085dd5a1ebb98e4cbe7db3f9c7b0e90fb3a09/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f6d37733533776176316c3061627373672f6272616e63682f362e783f7376673d74727565" alt="Build Status" data-canonical-src="https://ci.appveyor.com/api/projects/status/m7s53wav1l0abssg/branch/6.x?svg=true" style="max-width: 100%;"></a>
+<a href="https://travis-ci.org/bblanchon/ArduinoJson" rel="nofollow"><img src="https://camo.githubusercontent.com/9a38d98b139c04667e1b846f429760082f0fc52134283709f76537495f167079/68747470733a2f2f7472617669732d63692e6f72672f62626c616e63686f6e2f41726475696e6f4a736f6e2e7376673f6272616e63683d362e78" alt="Build Status" data-canonical-src="https://travis-ci.org/bblanchon/ArduinoJson.svg?branch=6.x" style="max-width: 100%;"></a>
+<a href="https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&amp;can=1&amp;q=proj:arduinojson" rel="nofollow"><img src="https://camo.githubusercontent.com/2ce68a33e91208e36172b55ea3a18f4e2e0a049b4ae8c5ce4aabe060d8c324f9/68747470733a2f2f6f73732d66757a7a2d6275696c642d6c6f67732e73746f726167652e676f6f676c65617069732e636f6d2f6261646765732f61726475696e6f6a736f6e2e737667" alt="Fuzzing Status" data-canonical-src="https://oss-fuzz-build-logs.storage.googleapis.com/badges/arduinojson.svg" style="max-width: 100%;"></a>
+<a href="https://coveralls.io/github/bblanchon/ArduinoJson?branch=6.x" rel="nofollow"><img src="https://camo.githubusercontent.com/c987201a2a10202a088ccd0c4ad0bd6d522b0b315cc58d7438f0fc8d89aa74d4/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f62626c616e63686f6e2f41726475696e6f4a736f6e2f62616467652e7376673f6272616e63683d362e78" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/github/bblanchon/ArduinoJson/badge.svg?branch=6.x" style="max-width: 100%;"></a>
+<a href="https://github.com/bblanchon/ArduinoJson/stargazers"><img src="https://camo.githubusercontent.com/67bb9891257952bcb0c32031707099ea0c2497f92058483e55f9034ade6afb23/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f62626c616e63686f6e2f41726475696e6f4a736f6e3f7374796c653d666c6174" alt="GitHub stars" data-canonical-src="https://img.shields.io/github/stars/bblanchon/ArduinoJson?style=flat" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://arduinojson.org" rel="nofollow">ArduinoJson</a> supports <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> serialization and deserialization.</p>
+<p dir="auto">It supports all <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> features except <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#bin-format-family">bin format</a> and <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#timestamp-extension-type">timestamp</a>.</p>
+<h6 dir="auto">
+<a id="user-content-how-to-install" class="anchor" aria-hidden="true" href="#how-to-install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to install?</h6>
+<p dir="auto">To install <a href="https://arduinojson.org" rel="nofollow">ArduinoJson</a>, you can either:</p>
+<ul dir="auto">
+<li>install the library from the <a href="https://www.ardu-badge.com/ArduinoJson/" rel="nofollow">Arduino Library Manager</a>,</li>
+<li>install the library from the <a href="https://build.particle.io/libs/ArduinoJson/" rel="nofollow">Particle Web IDE</a>, or</li>
+<li>download the single header from <a href="https://github.com/bblanchon/ArduinoJson/releases/latest/">the release page</a>.</li>
+</ul>
+<p dir="auto">See also: <a href="https://arduinojson.org/v6/doc/installation/" rel="nofollow">How to install ArduinoJson</a> on <a href="https://arduinojson.org" rel="nofollow">arduinojson.org</a>.</p>
+<h6 dir="auto">
+<a id="user-content-how-to-serialize-to-msgpack" class="anchor" aria-hidden="true" href="#how-to-serialize-to-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to serialize to MsgPack?</h6>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='StaticJsonDocument&lt;200&gt; doc;
+doc["hello"] = "world";
+serializeMsgPack(doc, Serial);'><pre>StaticJsonDocument&lt;<span class="pl-c1">200</span>&gt; doc;
+doc[<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>] = <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>;
+<span class="pl-en">serializeMsgPack</span>(doc, Serial);</pre></div>
+<p dir="auto">See also: <a href="https://arduinojson.org/v6/api/msgpack/serializemsgpack/" rel="nofollow">serializeMsgPack()</a> on <a href="https://arduinojson.org" rel="nofollow">arduinojson.org</a>.</p>
+<h6 dir="auto">
+<a id="user-content-how-to-deserialize-from-msgpack" class="anchor" aria-hidden="true" href="#how-to-deserialize-from-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to deserialize from MsgPack?</h6>
+<div class="highlight highlight-source-c++ notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='StaticJsonDocument&lt;200&gt; doc;
+deserializeMsgPack(doc, input);
+const char* hello = doc["hello"];'><pre>StaticJsonDocument&lt;<span class="pl-c1">200</span>&gt; doc;
+<span class="pl-en">deserializeMsgPack</span>(doc, input);
+<span class="pl-k">const</span> <span class="pl-k">char</span>* hello = doc[<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>];</pre></div>
+<p dir="auto">See also: <a href="https://arduinojson.org/v6/api/msgpack/deserializemsgpack/" rel="nofollow">deserializeMsgPack()</a> and <a href="https://arduinojson.org/v6/example/msgpack-parser/" rel="nofollow">MsgPackParser.ino</a> on <a href="https://arduinojson.org" rel="nofollow">arduinojson.org</a>.</p>
 </article>
   </div>
         </div>
@@ -5960,6 +6011,79 @@ He is known as the creator of <a href="https://github.com/neuecc/UniRx/">UniRx</
   </div>
         </div>
         
+        <div id="qs-highras-msgpack-csharp" class="qs"><h4><a href="https://github.com/highras/msgpack-csharp" target="_blank">highras/msgpack-csharp <span class="qs-url">https://github.com/highras/msgpack-csharp</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h6 dir="auto">
+<a id="user-content-fpnn-msgpack-implement" class="anchor" aria-hidden="true" href="#fpnn-msgpack-implement"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>FPNN MsgPack Implement</h6>
+<ul dir="auto">
+<li><strong><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">msgpack SPEC</a></strong></li>
+<li><strong><a href="https://github.com/highras/msgpack-csharp">Project Home</a></strong></li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-compatibility-version" class="anchor" aria-hidden="true" href="#compatibility-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibility Version:</h7>
+<p dir="auto">C# .Net Standard 2.0</p>
+<h7 dir="auto">
+<a id="user-content-for-packer" class="anchor" aria-hidden="true" href="#for-packer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For Packer:</h7>
+<ul dir="auto">
+<li>
+<p dir="auto">input kinds:</p>
+<p dir="auto">null, bool, sbyte, byte, short, ushort, Int32, UInt32, Int64, Uint64, float, double, string</p>
+<p dir="auto">Decimal, Tuple</p>
+<p dir="auto">byte[], DateTime, IEnumerable (such as List, Dictionary, List&lt;object&gt;, Dictionary&lt;object, object&gt;, ...)</p>
+</li>
+<li>
+<p dir="auto">usage:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  using com.fpnn.msgpack;
+  void MsgPacker.Pack(Stream stream, Object obj);"><pre class="notranslate"><code>  using com.fpnn.msgpack;
+  void MsgPacker.Pack(Stream stream, Object obj);
+</code></pre></div>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-for-unpacker" class="anchor" aria-hidden="true" href="#for-unpacker"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For Unpacker:</h7>
+<ul dir="auto">
+<li>
+<p dir="auto">output kinds:</p>
+<p dir="auto">Object, which maybe the following kinds:</p>
+<p dir="auto">null, bool, sbyte, byte, short, ushort, Int32, UInt32, Int64, Uint64, float, double, string</p>
+<p dir="auto">byte[], DateTime, List&lt;object&gt;, Dictionary&lt;object, object&gt;</p>
+</li>
+<li>
+<p dir="auto">usage:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  using com.fpnn.msgpack;
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary);
+
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary, int offset, int length = 0);
+
+  //-- unpack one object.
+  Object MsgUnpacker.Unpack(byte[] binary, int offset, out int endOffset);"><pre class="notranslate"><code>  using com.fpnn.msgpack;
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary);
+
+  Dictionary&lt;Object, Object&gt; MsgUnpacker.Unpack(byte[] binary, int offset, int length = 0);
+
+  //-- unpack one object.
+  Object MsgUnpacker.Unpack(byte[] binary, int offset, out int endOffset);
+</code></pre></div>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-exception" class="anchor" aria-hidden="true" href="#exception"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Exception:</h7>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="    using com.fpnn.msgpack;
+    public class MsgPackException: Exception;
+    public class UnsupportedTypeException : MsgPackException;
+    public class UnrecognizedDataException : MsgPackException;
+    public class InsufficientException : MsgPackException;
+    public class InvalidDataException : MsgPackException;"><pre class="notranslate"><code>    using com.fpnn.msgpack;
+    public class MsgPackException: Exception;
+    public class UnsupportedTypeException : MsgPackException;
+    public class UnrecognizedDataException : MsgPackException;
+    public class InsufficientException : MsgPackException;
+    public class InvalidDataException : MsgPackException;
+</code></pre></div>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-Lichtso-netLink" class="qs"><h4><a href="https://github.com/Lichtso/netLink" target="_blank">Lichtso/netLink <span class="qs-url">https://github.com/Lichtso/netLink</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -8831,6 +8955,67 @@ The result of <a href="https://github.com/alecthomas/go_serialization_benchmarks
   </div>
         </div>
         
+        <div id="qs-nnabeyang-go-msgpack" class="qs"><h4><a href="https://github.com/nnabeyang/go-msgpack" target="_blank">nnabeyang/go-msgpack <span class="qs-url">https://github.com/nnabeyang/go-msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-go-msgpack" class="anchor" aria-hidden="true" href="#go-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>go-msgpack</h5>
+<p dir="auto">go-msgpack is a package of MessagePack encoding for Go.</p>
+<h6 dir="auto">
+<a id="user-content-quick-start" class="anchor" aria-hidden="true" href="#quick-start"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quick Start</h6>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='package main
+
+import (
+	gomsgpack "github.com/nnabeyang/go-msgpack"
+)
+
+type Pair struct {
+	X int
+	Y int
+}
+
+func main() {
+	v := Pair{X: 1, Y: 2}
+	data, err := gomsgpack.Marshal(v, false)
+	if err != nil {
+		panic(err)
+	}
+	var r Pair
+	if err := gomsgpack.Unmarshal(data, &amp;r); err != nil {
+		panic(err)
+	}
+}'><pre class="notranslate"><code>package main
+
+import (
+	gomsgpack "github.com/nnabeyang/go-msgpack"
+)
+
+type Pair struct {
+	X int
+	Y int
+}
+
+func main() {
+	v := Pair{X: 1, Y: 2}
+	data, err := gomsgpack.Marshal(v, false)
+	if err != nil {
+		panic(err)
+	}
+	var r Pair
+	if err := gomsgpack.Unmarshal(data, &amp;r); err != nil {
+		panic(err)
+	}
+}
+</code></pre></div>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">go-msgpack is published under the MIT License, see LICENSE.</p>
+<h6 dir="auto">
+<a id="user-content-author" class="anchor" aria-hidden="true" href="#author"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Author</h6>
+<p dir="auto"><a href="https://twitter.com/nnabeyang" rel="nofollow">Noriaki Watanabe@nnabeyang</a></p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-reeze-msgpack-hhvm" class="qs"><h4><a href="https://github.com/reeze/msgpack-hhvm" target="_blank">reeze/msgpack-hhvm <span class="qs-url">https://github.com/reeze/msgpack-hhvm</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -10306,6 +10491,222 @@ Express app using the middleware</li>
 version of the package, used by <code>bin/smoke.sh</code>. If the <code>--local</code> argument is
 supplied to the script the local version is packaged and tested , otherwise
 the specified <code>$TAG</code> version is installed from the registry and tested.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-CodeSmith32-msgpack-js-micro" class="qs"><h4><a href="https://github.com/CodeSmith32/msgpack-js-micro" target="_blank">CodeSmith32/msgpack-js-micro <span class="qs-url">https://github.com/CodeSmith32/msgpack-js-micro</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack-js-micro" class="anchor" aria-hidden="true" href="#msgpack-js-micro"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-js-micro</h5>
+<p dir="auto">msgpack - A fast, lightweight, and extremely compatible JS implementation of the <a href="https://msgpack.org/" rel="nofollow">msgpack</a> data encoding format.</p>
+<p dir="auto">This is a simple, small, and very portable Javascript implementation of msgpack. Runs on browsers (back as far as IE5) as well as Node.js.</p>
+<p dir="auto"><strong>Browser:</strong></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;script type=&quot;text/javascript&quot; src=&quot;msgpack.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var obj = {
+  &quot;hello&quot;: &quot;world&quot;,
+  utf8: &quot;\udead\ubeef&quot;, // strings are utf8-encoded by default
+  37: 79.995,
+  ar: [1, 2, 3],
+  buffer: Uint8Array([1,2,3]), // uses msgpack's binary format
+  date: new Date(2019,1,1), // Date instances use msgpack's Timestamp extension format
+  bigint: 31415926535897932384n, // large enough BigInts will be encoded as 64bit ints
+};
+
+// use msgpack directly:
+
+var encoded = msgpack.encode(obj);
+
+var decoded = msgpack.decode(encoded);
+
+console.log(decoded);
+
+// or create msgpack instances:
+
+var myMsgPack = new msgpack(
+  {returnType: &quot;arraybuffer&quot;},
+  {binaryType: &quot;arraybuffer&quot;}
+);
+
+encoded = myMsgPack.encode(obj);
+
+decoded = myMsgPack.decode(obj);
+
+console.log(decoded);
+
+&lt;/script&gt;"><pre class="notranslate"><code>&lt;script type="text/javascript" src="msgpack.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+var obj = {
+  "hello": "world",
+  utf8: "\udead\ubeef", // strings are utf8-encoded by default
+  37: 79.995,
+  ar: [1, 2, 3],
+  buffer: Uint8Array([1,2,3]), // uses msgpack's binary format
+  date: new Date(2019,1,1), // Date instances use msgpack's Timestamp extension format
+  bigint: 31415926535897932384n, // large enough BigInts will be encoded as 64bit ints
+};
+
+// use msgpack directly:
+
+var encoded = msgpack.encode(obj);
+
+var decoded = msgpack.decode(encoded);
+
+console.log(decoded);
+
+// or create msgpack instances:
+
+var myMsgPack = new msgpack(
+  {returnType: "arraybuffer"},
+  {binaryType: "arraybuffer"}
+);
+
+encoded = myMsgPack.encode(obj);
+
+decoded = myMsgPack.decode(obj);
+
+console.log(decoded);
+
+&lt;/script&gt;
+</code></pre></div>
+<p dir="auto"><strong>Node.js:</strong></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="const msgpack = require(&quot;./msgpack.min.js&quot;);
+
+var obj = {
+  &quot;hello&quot;: &quot;world&quot;,
+  utf8: &quot;\udead\ubeef&quot;, // strings are utf8-encoded by default
+  37: 79.995,
+  ar: [1, 2, 3],
+  buffer: Uint8Array([1,2,3]), // uses msgpack's binary format
+  date: new Date(2019,1,1), // Date instances use msgpack's Timestamp extension format
+  bigint: 31415926535897932384n, // large enough BigInts will be encoded as 64bit ints
+};
+
+// use msgpack directly:
+
+var encoded = msgpack.encode(obj);
+
+var decoded = msgpack.decode(encoded);
+
+console.log(decoded);
+
+// or create msgpack instances:
+
+var myMsgPack = new msgpack(
+  {returnType: &quot;arraybuffer&quot;},
+  {binaryType: &quot;arraybuffer&quot;}
+);
+
+encoded = myMsgPack.encode(obj);
+
+decoded = myMsgPack.decode(obj);
+
+console.log(decoded);"><pre class="notranslate"><code>const msgpack = require("./msgpack.min.js");
+
+var obj = {
+  "hello": "world",
+  utf8: "\udead\ubeef", // strings are utf8-encoded by default
+  37: 79.995,
+  ar: [1, 2, 3],
+  buffer: Uint8Array([1,2,3]), // uses msgpack's binary format
+  date: new Date(2019,1,1), // Date instances use msgpack's Timestamp extension format
+  bigint: 31415926535897932384n, // large enough BigInts will be encoded as 64bit ints
+};
+
+// use msgpack directly:
+
+var encoded = msgpack.encode(obj);
+
+var decoded = msgpack.decode(encoded);
+
+console.log(decoded);
+
+// or create msgpack instances:
+
+var myMsgPack = new msgpack(
+  {returnType: "arraybuffer"},
+  {binaryType: "arraybuffer"}
+);
+
+encoded = myMsgPack.encode(obj);
+
+decoded = myMsgPack.decode(obj);
+
+console.log(decoded);
+</code></pre></div>
+<p dir="auto">Fully supports custom type extensions:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// Sample &quot;BigInt&quot; type extension
+
+msgpack.extend({
+  type: 1, // msgpack code
+
+  varType: &quot;bigint&quot;, // watch value-type
+
+  encode(n) { // encoder (return `false` to skip; see reference for details)
+    var final = n &lt; 0n ? -1n : 0n,
+      c = 0n, str = &quot;&quot;;
+
+    while(n !== final) {
+      c = n &amp; 255n;
+      str += String.fromCharCode(Number(c));
+      n &gt;&gt;= 8n;
+    }
+    // add another digit if the high bit doesn't indicate the sign:
+    if((c &amp; 0x80n) !== (final &amp; 0x80n))
+      str += String.fromCharCode(Number(final &amp; 255n));
+
+    return str;
+  },
+
+  decode(s) { // decoder
+    var n = 0n, c = 0n;
+
+    for(var i=0n; i&lt;s.length;i++) {
+      c = BigInt(s.charCodeAt(Number(i)));
+      n |= c &lt;&lt; i*8n;
+    }
+    if(c &amp; 0x80n) n |= -1n &lt;&lt; BigInt(s.length)*8n;
+
+    return n;
+  }
+});"><pre class="notranslate"><code>// Sample "BigInt" type extension
+
+msgpack.extend({
+  type: 1, // msgpack code
+
+  varType: "bigint", // watch value-type
+
+  encode(n) { // encoder (return `false` to skip; see reference for details)
+    var final = n &lt; 0n ? -1n : 0n,
+      c = 0n, str = "";
+
+    while(n !== final) {
+      c = n &amp; 255n;
+      str += String.fromCharCode(Number(c));
+      n &gt;&gt;= 8n;
+    }
+    // add another digit if the high bit doesn't indicate the sign:
+    if((c &amp; 0x80n) !== (final &amp; 0x80n))
+      str += String.fromCharCode(Number(final &amp; 255n));
+
+    return str;
+  },
+
+  decode(s) { // decoder
+    var n = 0n, c = 0n;
+
+    for(var i=0n; i&lt;s.length;i++) {
+      c = BigInt(s.charCodeAt(Number(i)));
+      n |= c &lt;&lt; i*8n;
+    }
+    if(c &amp; 0x80n) n |= -1n &lt;&lt; BigInt(s.length)*8n;
+
+    return n;
+  }
+});
+</code></pre></div>
+<p dir="auto">Visit <a href="https://github.com/CodeSmith32/msgpack-js-micro">github.com/CodeSmith32/msgpack-js-micro</a> for the usage reference.</p>
 </article>
   </div>
         </div>
@@ -19166,6 +19567,90 @@ dput(readMsgs(<span class="pl-smi">conIn</span>))
 vignette</a>.</p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/crowding/msgpack-r/blob/master/gh/space.svg"><img src="/crowding/msgpack-r/raw/master/gh/space.svg" alt="Plot of time taken to transmit dataset, vs size of dataset, for each encoder under four conditions." style="max-width: 100%;"></a></p>
 <p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/crowding/msgpack-r/blob/master/gh/time.svg"><img src="/crowding/msgpack-r/raw/master/gh/time.svg" alt="Comparison of space used by each encoder to encode a test dataset." style="max-width: 100%;"></a></p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-HiPhish-msgpack-racket" class="qs"><h4><a href="https://gitlab.com/HiPhish/MsgPack.rkt" target="_blank">HiPhish/msgpack-racket <span class="qs-url">https://gitlab.com/HiPhish/MsgPack.rkt</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-in-racket" class="anchor" aria-hidden="true" href="#messagepack-in-racket"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack in Racket</h5>
+<p dir="auto">This is a <a href="http://racket-lang.org/" rel="nofollow">Racket</a> implementation of <a href="http://msgpack.org/" rel="nofollow">MessagePack</a>, a binary data serialisation
+format. It allows you to serialise (pack) and de-serialise (unpack) Racket
+object to and from binary data.</p>
+<a name="user-content-installation"></a>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">The easiest way to install this library is from the <a href="https://pkgs.racket-lang.org/" rel="nofollow">Racket Package Catalog</a>.
+Run the following code from your shell:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="raco pkg install msgpack"><pre>raco pkg install msgpack</pre></div>
+<p dir="auto">If you wish to install the package from this repository use the included
+makefile:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="make install   # Install the package
+make remove    # Uninstall the package"><pre>make install   <span class="pl-c"><span class="pl-c">#</span> Install the package</span>
+make remove    <span class="pl-c"><span class="pl-c">#</span> Uninstall the package</span></pre></div>
+<a name="user-content-using-messagepack"></a>
+<h6 dir="auto">
+<a id="user-content-using-messagepack" class="anchor" aria-hidden="true" href="#using-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Using MessagePack</h6>
+<div class="highlight highlight-source-racket notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content=";;; Import the library first
+(require msgpack)
+
+;;; Some object to pack
+(define hodgepodge (vector 1 2 (void) '#(3 #t) &quot;foo&quot;))
+
+;;; Packing data
+(define packed (call-with-output-bytes (λ (out) (pack hodgepodge out))))
+;;; &gt; #&quot;\225\1\2\300\222\3\303\243foo&quot;
+
+;;; Unpacking data
+(define unpacked (call-with-input-bytes packed (λ (in) (unpack in))))
+;;; &gt; '#(1 2 #&lt;void&gt; #(3 #t) &quot;foo&quot;)"><pre><span class="pl-c">;;; Import the library first</span>
+(<span class="pl-en">require</span> msgpack)
+
+<span class="pl-c">;;; Some object to pack</span>
+(<span class="pl-en">define</span> hodgepodge (vector <span class="pl-c1">1</span> <span class="pl-c1">2</span> (void) '#(<span class="pl-c1">3</span> <span class="pl-c1">#t</span>) <span class="pl-c1">"<span class="pl-c1">foo</span>"</span>))
+
+<span class="pl-c">;;; Packing data</span>
+(<span class="pl-en">define</span> packed (call-with-output-bytes (<span class="pl-en">λ</span> (out) (pack hodgepodge out))))
+<span class="pl-c">;;; &gt; #"\225\1\2\300\222\3\303\243foo"</span>
+
+<span class="pl-c">;;; Unpacking data</span>
+(<span class="pl-en">define</span> unpacked (call-with-input-bytes packed (<span class="pl-en">λ</span> (in) (unpack in))))
+<span class="pl-c">;;; &gt; '#(1 2 #&lt;void&gt; #(3 #t) "foo")</span></pre></div>
+<p dir="auto">The <code>pack</code> function takes a Racket object and a binary output port as arguments
+and writes the serialised data to the port.  The <code>unpack</code> function takes a
+binary input port and returns one de-serialised object, consuming the necessary
+amount of bytes from the port in the process. For more details please refer to
+the <a href="https://docs.racket-lang.org/msgpack/index.html" rel="nofollow">documentation</a>.</p>
+<p dir="auto">In the above example code we set the output and input ports to be byte strings
+so we could work with the packed and unpacked data directly inside the Racket
+instance.</p>
+<a name="user-content-status"></a>
+<h6 dir="auto">
+<a id="user-content-status" class="anchor" aria-hidden="true" href="#status"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Status</h6>
+<p dir="auto">The library is fully functional, covered by test cases, and the API should be
+reasonably mature, but I am not yet willing to completely rule out changes. See
+also below for parts of the library that could not be tested at the moment due
+to technical reasons.</p>
+<a name="user-content-caveats"></a>
+<h6 dir="auto">
+<a id="user-content-caveats" class="anchor" aria-hidden="true" href="#caveats"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Caveats</h6>
+<p dir="auto">The following cases cannot be tested for the time being:</p>
+<ul dir="auto">
+<li>The <code>bin32</code> type, storing a byte string that is <tt>2^32</tt> bytes long
+requires 4GiB, my machine simply runs out of memory.</li>
+<li>The same goes for the <code>str32</code> type</li>
+<li>The same goes for the <code>array32</code> type</li>
+<li>The same goes for the <code>map32</code> type</li>
+<li>The same goes for the <code>ext32</code> type</li>
+<li>Strings are only tested using ASCII characters, if anyone can generate
+UTF-8 strings with a given length in <em>bytes</em> please help out.</li>
+</ul>
+<a name="user-content-license"></a>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">Released under the GPLv3+ license, see the <a href="/HiPhish/msgpack-racket/blob/master/COPYING.txt">COPYING</a> file for details.</p>
+
 </article>
   </div>
         </div>
