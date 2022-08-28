@@ -269,8 +269,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-java',this)">Java <span class="qs-sub">msgpack</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-kawanet-msgpack-lite',this)">JavaScript <span class="qs-sub">kawanet</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ygoe-msgpack-js',this)">JavaScript <span class="qs-sub">ygoe</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-textbook-express-msgpack',this)">JavaScript <span class="qs-sub">textbook</span></a></li>
@@ -300,6 +298,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-sschizas-msgpack-response',this)">Node <span class="qs-sub">sschizas</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
@@ -369,8 +369,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-michael-yuji-YSMessagePack',this)">Swift <span class="qs-sub">michael-yuji</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-couchdeveloper-messagepack',this)">Swift <span class="qs-sub">couchdeveloper</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-hirotakan-MessagePacker',this)">Swift <span class="qs-sub">hirotakan</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
@@ -380,8 +378,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-samclaus-msgpack-ts',this)">TypeScript/JavaScript <span class="qs-sub">samclaus</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-tihannalouise-https-github-com-msgpack-msgpack-java',this)">expert-carnival <span class="qs-sub">tihannalouise</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-esensar-kotlinx-serialization-msgpack',this)">kotlinx.serialization <span class="qs-sub">esensar</span></a></li>
           
@@ -9242,725 +9238,6 @@ msgpack-jackson              # Contains jackson-dataformat-java implementation
   </div>
         </div>
         
-        <div id="qs-kawanet-msgpack-lite" class="qs"><h4><a href="https://www.npmjs.com/package/msgpack-lite" target="_blank">kawanet/msgpack-lite <span class="qs-url">https://www.npmjs.com/package/msgpack-lite</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack-lite--" class="anchor" aria-hidden="true" href="#msgpack-lite--"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-lite <a href="http://badge.fury.io/js/msgpack-lite" rel="nofollow"><img src="https://camo.githubusercontent.com/8756d61e7043e0623a0c68372f184b034c4b4bc915d18bd235e40a7f23deb32a/68747470733a2f2f62616467652e667572792e696f2f6a732f6d73677061636b2d6c6974652e737667" alt="npm version" data-canonical-src="https://badge.fury.io/js/msgpack-lite.svg" style="max-width: 100%;"></a> <a href="https://travis-ci.org/kawanet/msgpack-lite" rel="nofollow"><img src="https://camo.githubusercontent.com/2754f4262334cb17fff08940d008073393dc3ef20a171060b6704576b45e721c/68747470733a2f2f7472617669732d63692e6f72672f6b6177616e65742f6d73677061636b2d6c6974652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/kawanet/msgpack-lite.svg?branch=master" style="max-width: 100%;"></a>
-</h5>
-<p dir="auto">Fast Pure JavaScript MessagePack Encoder and Decoder</p>
-<p dir="auto"><a href="https://saucelabs.com/u/msgpack-lite" rel="nofollow"><img src="https://camo.githubusercontent.com/1154a6b8c4a92e36b5a3ac2d2922274ae4b5a8ed7e2e36ace7f9dfeba74fa74e/68747470733a2f2f73617563656c6162732e636f6d2f62726f777365722d6d61747269782f6d73677061636b2d6c6974652e737667" alt="Sauce Test Status" data-canonical-src="https://saucelabs.com/browser-matrix/msgpack-lite.svg" style="max-width: 100%;"></a></p>
-<p dir="auto">Online demo: <a href="http://kawanet.github.io/msgpack-lite/" rel="nofollow">http://kawanet.github.io/msgpack-lite/</a></p>
-<h7 dir="auto">
-<a id="user-content-features" class="anchor" aria-hidden="true" href="#features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Features</h7>
-<ul dir="auto">
-<li>Pure JavaScript only (No node-gyp nor gcc required)</li>
-<li>Faster than any other pure JavaScript libraries on node.js v4</li>
-<li>Even faster than node-gyp C++ based <a href="https://www.npmjs.com/package/msgpack" rel="nofollow">msgpack</a> library (<strong>90% faster</strong> on encoding)</li>
-<li>Streaming encoding and decoding interface is also available. It's more faster.</li>
-<li>Ready for <a href="https://saucelabs.com/u/msgpack-lite" rel="nofollow">Web browsers</a> including Chrome, Firefox, Safari and even IE8</li>
-<li>
-<a href="https://travis-ci.org/kawanet/msgpack-lite" rel="nofollow">Tested</a> on Node.js v0.10, v0.12, v4, v5 and v6 as well as Web browsers</li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-encoding-and-decoding-messagepack" class="anchor" aria-hidden="true" href="#encoding-and-decoding-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Encoding and Decoding MessagePack</h7>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='var msgpack = require("msgpack-lite");
-
-// encode from JS Object to MessagePack (Buffer)
-var buffer = msgpack.encode({"foo": "bar"});
-
-// decode from MessagePack (Buffer) to JS Object
-var data = msgpack.decode(buffer); // =&gt; {"foo": "bar"}
-
-// if encode/decode receives an invalid argument an error is thrown'><pre><span class="pl-k">var</span> <span class="pl-s1">msgpack</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"msgpack-lite"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// encode from JS Object to MessagePack (Buffer)</span>
-<span class="pl-k">var</span> <span class="pl-s1">buffer</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-s">"foo"</span>: <span class="pl-s">"bar"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// decode from MessagePack (Buffer) to JS Object</span>
-<span class="pl-k">var</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; {"foo": "bar"}</span>
-
-<span class="pl-c">// if encode/decode receives an invalid argument an error is thrown</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-writing-to-messagepack-stream" class="anchor" aria-hidden="true" href="#writing-to-messagepack-stream"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Writing to MessagePack Stream</h7>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var fs = require(&quot;fs&quot;);
-var msgpack = require(&quot;msgpack-lite&quot;);
-
-var writeStream = fs.createWriteStream(&quot;test.msp&quot;);
-var encodeStream = msgpack.createEncodeStream();
-encodeStream.pipe(writeStream);
-
-// send multiple objects to stream
-encodeStream.write({foo: &quot;bar&quot;});
-encodeStream.write({baz: &quot;qux&quot;});
-
-// call this once you're done writing to the stream.
-encodeStream.end();"><pre><span class="pl-k">var</span> <span class="pl-s1">fs</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"fs"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">msgpack</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"msgpack-lite"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">var</span> <span class="pl-s1">writeStream</span> <span class="pl-c1">=</span> <span class="pl-s1">fs</span><span class="pl-kos">.</span><span class="pl-en">createWriteStream</span><span class="pl-kos">(</span><span class="pl-s">"test.msp"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">encodeStream</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createEncodeStream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">encodeStream</span><span class="pl-kos">.</span><span class="pl-en">pipe</span><span class="pl-kos">(</span><span class="pl-s1">writeStream</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// send multiple objects to stream</span>
-<span class="pl-s1">encodeStream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">encodeStream</span><span class="pl-kos">.</span><span class="pl-en">write</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">baz</span>: <span class="pl-s">"qux"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// call this once you're done writing to the stream.</span>
-<span class="pl-s1">encodeStream</span><span class="pl-kos">.</span><span class="pl-en">end</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-reading-from-messagepack-stream" class="anchor" aria-hidden="true" href="#reading-from-messagepack-stream"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Reading from MessagePack Stream</h7>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='var fs = require("fs");
-var msgpack = require("msgpack-lite");
-
-var readStream = fs.createReadStream("test.msp");
-var decodeStream = msgpack.createDecodeStream();
-
-// show multiple objects decoded from stream
-readStream.pipe(decodeStream).on("data", console.warn);'><pre><span class="pl-k">var</span> <span class="pl-s1">fs</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"fs"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">msgpack</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"msgpack-lite"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">var</span> <span class="pl-s1">readStream</span> <span class="pl-c1">=</span> <span class="pl-s1">fs</span><span class="pl-kos">.</span><span class="pl-en">createReadStream</span><span class="pl-kos">(</span><span class="pl-s">"test.msp"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">decodeStream</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createDecodeStream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// show multiple objects decoded from stream</span>
-<span class="pl-s1">readStream</span><span class="pl-kos">.</span><span class="pl-en">pipe</span><span class="pl-kos">(</span><span class="pl-s1">decodeStream</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">on</span><span class="pl-kos">(</span><span class="pl-s">"data"</span><span class="pl-kos">,</span> <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-c1">warn</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-decoding-messagepack-bytes-array" class="anchor" aria-hidden="true" href="#decoding-messagepack-bytes-array"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Decoding MessagePack Bytes Array</h7>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='var msgpack = require("msgpack-lite");
-
-// decode() accepts Buffer instance per default
-msgpack.decode(Buffer([0x81, 0xA3, 0x66, 0x6F, 0x6F, 0xA3, 0x62, 0x61, 0x72]));
-
-// decode() also accepts Array instance
-msgpack.decode([0x81, 0xA3, 0x66, 0x6F, 0x6F, 0xA3, 0x62, 0x61, 0x72]);
-
-// decode() accepts raw Uint8Array instance as well
-msgpack.decode(new Uint8Array([0x81, 0xA3, 0x66, 0x6F, 0x6F, 0xA3, 0x62, 0x61, 0x72]));'><pre><span class="pl-k">var</span> <span class="pl-s1">msgpack</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"msgpack-lite"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// decode() accepts Buffer instance per default</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-v">Buffer</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0x81</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x66</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x62</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">,</span> <span class="pl-c1">0x72</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// decode() also accepts Array instance</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0x81</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x66</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x62</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">,</span> <span class="pl-c1">0x72</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// decode() accepts raw Uint8Array instance as well</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Uint8Array</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0x81</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x66</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x62</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">,</span> <span class="pl-c1">0x72</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-command-line-interface" class="anchor" aria-hidden="true" href="#command-line-interface"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Command Line Interface</h7>
-<p dir="auto">A CLI tool bin/msgpack converts data stream from JSON to MessagePack and vice versa.</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ echo '{&quot;foo&quot;: &quot;bar&quot;}' | ./bin/msgpack -Jm | od -tx1
-0000000    81  a3  66  6f  6f  a3  62  61  72
-
-$ echo '{&quot;foo&quot;: &quot;bar&quot;}' | ./bin/msgpack -Jm | ./bin/msgpack -Mj
-{&quot;foo&quot;:&quot;bar&quot;}"><pre>$ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>{"foo": "bar"}<span class="pl-pds">'</span></span> <span class="pl-k">|</span> ./bin/msgpack -Jm <span class="pl-k">|</span> od -tx1
-0000000    81  a3  66  6f  6f  a3  62  61  72
-
-$ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>{"foo": "bar"}<span class="pl-pds">'</span></span> <span class="pl-k">|</span> ./bin/msgpack -Jm <span class="pl-k">|</span> ./bin/msgpack -Mj
-{<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>}</pre></div>
-<h7 dir="auto">
-<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h7>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ npm install --save msgpack-lite"><pre>$ npm install --save msgpack-lite</pre></div>
-<h7 dir="auto">
-<a id="user-content-tests" class="anchor" aria-hidden="true" href="#tests"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Tests</h7>
-<p dir="auto">Run tests on node.js:</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ make test"><pre>$ make <span class="pl-c1">test</span></pre></div>
-<p dir="auto">Run tests on browsers:</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ make test-browser-local
-open the following url in a browser:
-http://localhost:4000/__zuul"><pre>$ make test-browser-local
-open the following url <span class="pl-k">in</span> a browser:
-http://localhost:4000/__zuul</pre></div>
-<h7 dir="auto">
-<a id="user-content-browser-build" class="anchor" aria-hidden="true" href="#browser-build"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Browser Build</h7>
-<p dir="auto">Browser version <a href="https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js" rel="nofollow">msgpack.min.js</a> is also available. 50KB minified, 14KB gziped.</p>
-<div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;!--[if lte IE 9]&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.10/es5-shim.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"&gt;&lt;/script&gt;
-&lt;![endif]--&gt;
-&lt;script src="https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-// encode from JS Object to MessagePack (Uint8Array)
-var buffer = msgpack.encode({foo: "bar"});
-
-// decode from MessagePack (Uint8Array) to JS Object
-var array = new Uint8Array([0x81, 0xA3, 0x66, 0x6F, 0x6F, 0xA3, 0x62, 0x61, 0x72]);
-var data = msgpack.decode(array);
-&lt;/script&gt;'><pre><span class="pl-c">&lt;!--[if lte IE 9]&gt;</span>
-<span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.10/es5-shim.min.js"&gt;&lt;/script&gt;</span>
-<span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"&gt;&lt;/script&gt;</span>
-<span class="pl-c">&lt;![endif]--&gt;</span>
-<span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
-<span class="pl-kos">&lt;</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
-<span class="pl-c">// encode from JS Object to MessagePack (Uint8Array)</span>
-<span class="pl-k">var</span> <span class="pl-s1">buffer</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-c">// decode from MessagePack (Uint8Array) to JS Object</span>
-<span class="pl-k">var</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Uint8Array</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0x81</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x66</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0x6F</span><span class="pl-kos">,</span> <span class="pl-c1">0xA3</span><span class="pl-kos">,</span> <span class="pl-c1">0x62</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">,</span> <span class="pl-c1">0x72</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-messagepack-with-browserify" class="anchor" aria-hidden="true" href="#messagepack-with-browserify"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack With Browserify</h7>
-<p dir="auto">Step #1: write some code at first.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='var msgpack = require("msgpack-lite");
-var buffer = msgpack.encode({"foo": "bar"});
-var data = msgpack.decode(buffer);
-console.warn(data); // =&gt; {"foo": "bar"}'><pre><span class="pl-k">var</span> <span class="pl-s1">msgpack</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"msgpack-lite"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">buffer</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-s">"foo"</span>: <span class="pl-s">"bar"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">warn</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; {"foo": "bar"}</span></pre></div>
-<p dir="auto">Proceed to the next steps if you prefer faster browserify compilation time.</p>
-<p dir="auto">Step #2: add <code>browser</code> property on <code>package.json</code> in your project. This refers the global <code>msgpack</code> object instead of including whole of <code>msgpack-lite</code> source code.</p>
-<div class="highlight highlight-source-json notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='{
-  "dependencies": {
-    "msgpack-lite": "*"
-  },
-  "browser": {
-    "msgpack-lite": "msgpack-lite/global"
-  }
-}'><pre>{
-  <span class="pl-ent">"dependencies"</span>: {
-    <span class="pl-ent">"msgpack-lite"</span>: <span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>
-  },
-  <span class="pl-ent">"browser"</span>: {
-    <span class="pl-ent">"msgpack-lite"</span>: <span class="pl-s"><span class="pl-pds">"</span>msgpack-lite/global<span class="pl-pds">"</span></span>
-  }
-}</pre></div>
-<p dir="auto">Step #3: compile it with <a href="https://www.npmjs.com/package/browserify" rel="nofollow">browserify</a> and <a href="https://www.npmjs.com/package/uglify-js" rel="nofollow">uglifyjs</a>.</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="browserify src/main.js -o tmp/main.browserify.js -s main
-uglifyjs tmp/main.browserify.js -m -c -o js/main.min.js
-cp node_modules/msgpack-lite/dist/msgpack.min.js js/msgpack.min.js"><pre>browserify src/main.js -o tmp/main.browserify.js -s main
-uglifyjs tmp/main.browserify.js -m -c -o js/main.min.js
-cp node_modules/msgpack-lite/dist/msgpack.min.js js/msgpack.min.js</pre></div>
-<p dir="auto">Step #4: load <a href="https://rawgit.com/kawanet/msgpack-lite/master/dist/msgpack.min.js" rel="nofollow">msgpack.min.js</a> before your code.</p>
-<div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;script src="js/msgpack.min.js"&gt;&lt;/script&gt;
-&lt;script src="js/main.min.js"&gt;&lt;/script&gt;'><pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">js/msgpack.min.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
-<span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">js/main.min.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-interoperability" class="anchor" aria-hidden="true" href="#interoperability"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Interoperability</h7>
-<p dir="auto">It is tested to have basic compatibility with other Node.js MessagePack modules below:</p>
-<ul dir="auto">
-<li>
-<a href="https://www.npmjs.com/package/msgpack" rel="nofollow">https://www.npmjs.com/package/msgpack</a> (1.0.2)</li>
-<li>
-<a href="https://www.npmjs.com/package/msgpack-js" rel="nofollow">https://www.npmjs.com/package/msgpack-js</a> (0.3.0)</li>
-<li>
-<a href="https://www.npmjs.com/package/msgpack-js-v5" rel="nofollow">https://www.npmjs.com/package/msgpack-js-v5</a> (0.3.0-v5)</li>
-<li>
-<a href="https://www.npmjs.com/package/msgpack-unpack" rel="nofollow">https://www.npmjs.com/package/msgpack-unpack</a> (2.1.1)</li>
-<li>
-<a href="https://github.com/msgpack/msgpack-javascript">https://github.com/msgpack/msgpack-javascript</a> (msgpack.codec)</li>
-<li>
-<a href="https://www.npmjs.com/package/msgpack5" rel="nofollow">https://www.npmjs.com/package/msgpack5</a> (3.3.0)</li>
-<li>
-<a href="https://www.npmjs.com/package/notepack" rel="nofollow">https://www.npmjs.com/package/notepack</a> (0.0.2)</li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-benchmarks" class="anchor" aria-hidden="true" href="#benchmarks"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Benchmarks</h7>
-<p dir="auto">A benchmark tool <code>lib/benchmark.js</code> is available to compare encoding/decoding speed
-(operation per second) with other MessagePack modules.
-It counts operations of <a href="https://github.com/kawanet/msgpack-lite/blob/master/test/example.json">1KB JSON document</a> in 10 seconds.</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ npm install msgpack msgpack-js msgpack-js-v5 msgpack-unpack msgpack5 notepack
-$ npm run benchmark 10"><pre>$ npm install msgpack msgpack-js msgpack-js-v5 msgpack-unpack msgpack5 notepack
-$ npm run benchmark 10</pre></div>
-<table>
-<thead>
-<tr>
-<th>operation</th>
-<th align="right">op</th>
-<th align="right">ms</th>
-<th align="right">op/s</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>buf = Buffer(JSON.stringify(obj));</td>
-<td align="right">1055200</td>
-<td align="right">10000</td>
-<td align="right">105520</td>
-</tr>
-<tr>
-<td>obj = JSON.parse(buf);</td>
-<td align="right">863800</td>
-<td align="right">10000</td>
-<td align="right">86380</td>
-</tr>
-<tr>
-<td>buf = require("msgpack-lite").encode(obj);</td>
-<td align="right">969100</td>
-<td align="right">10000</td>
-<td align="right">96910</td>
-</tr>
-<tr>
-<td>obj = require("msgpack-lite").decode(buf);</td>
-<td align="right">600300</td>
-<td align="right">10000</td>
-<td align="right">60030</td>
-</tr>
-<tr>
-<td>buf = require("msgpack").pack(obj);</td>
-<td align="right">503500</td>
-<td align="right">10001</td>
-<td align="right">50344</td>
-</tr>
-<tr>
-<td>obj = require("msgpack").unpack(buf);</td>
-<td align="right">560200</td>
-<td align="right">10001</td>
-<td align="right">56014</td>
-</tr>
-<tr>
-<td>buf = Buffer(require("msgpack.codec").msgpack.pack(obj));</td>
-<td align="right">653500</td>
-<td align="right">10000</td>
-<td align="right">65349</td>
-</tr>
-<tr>
-<td>obj = require("msgpack.codec").msgpack.unpack(buf);</td>
-<td align="right">367500</td>
-<td align="right">10001</td>
-<td align="right">36746</td>
-</tr>
-<tr>
-<td>buf = require("msgpack-js-v5").encode(obj);</td>
-<td align="right">189500</td>
-<td align="right">10002</td>
-<td align="right">18946</td>
-</tr>
-<tr>
-<td>obj = require("msgpack-js-v5").decode(buf);</td>
-<td align="right">408900</td>
-<td align="right">10000</td>
-<td align="right">40890</td>
-</tr>
-<tr>
-<td>buf = require("msgpack-js").encode(obj);</td>
-<td align="right">189200</td>
-<td align="right">10000</td>
-<td align="right">18920</td>
-</tr>
-<tr>
-<td>obj = require("msgpack-js").decode(buf);</td>
-<td align="right">375600</td>
-<td align="right">10002</td>
-<td align="right">37552</td>
-</tr>
-<tr>
-<td>buf = require("msgpack5")().encode(obj);</td>
-<td align="right">110500</td>
-<td align="right">10009</td>
-<td align="right">11040</td>
-</tr>
-<tr>
-<td>obj = require("msgpack5")().decode(buf);</td>
-<td align="right">165500</td>
-<td align="right">10000</td>
-<td align="right">16550</td>
-</tr>
-<tr>
-<td>buf = require("notepack")().encode(obj);</td>
-<td align="right">847800</td>
-<td align="right">10000</td>
-<td align="right">84780</td>
-</tr>
-<tr>
-<td>obj = require("notepack")().decode(buf);</td>
-<td align="right">599800</td>
-<td align="right">10000</td>
-<td align="right">59980</td>
-</tr>
-<tr>
-<td>obj = require("msgpack-unpack").decode(buf);</td>
-<td align="right">48100</td>
-<td align="right">10002</td>
-<td align="right">4809</td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">Streaming benchmark tool <code>lib/benchmark-stream.js</code> is also available.
-It counts milliseconds for 1,000,000 operations of 30 bytes fluentd msgpack fragment.
-This shows streaming encoding and decoding are super faster.</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ npm run benchmark-stream 2"><pre>$ npm run benchmark-stream 2</pre></div>
-<table>
-<thead>
-<tr>
-<th>operation (1000000 x 2)</th>
-<th align="right">op</th>
-<th align="right">ms</th>
-<th align="right">op/s</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stream.write(msgpack.encode(obj));</td>
-<td align="right">1000000</td>
-<td align="right">3027</td>
-<td align="right">330360</td>
-</tr>
-<tr>
-<td>stream.write(notepack.encode(obj));</td>
-<td align="right">1000000</td>
-<td align="right">2012</td>
-<td align="right">497017</td>
-</tr>
-<tr>
-<td>msgpack.Encoder().on("data",ondata).encode(obj);</td>
-<td align="right">1000000</td>
-<td align="right">2956</td>
-<td align="right">338294</td>
-</tr>
-<tr>
-<td>msgpack.createEncodeStream().write(obj);</td>
-<td align="right">1000000</td>
-<td align="right">1888</td>
-<td align="right">529661</td>
-</tr>
-<tr>
-<td>stream.write(msgpack.decode(buf));</td>
-<td align="right">1000000</td>
-<td align="right">2020</td>
-<td align="right">495049</td>
-</tr>
-<tr>
-<td>stream.write(notepack.decode(buf));</td>
-<td align="right">1000000</td>
-<td align="right">1794</td>
-<td align="right">557413</td>
-</tr>
-<tr>
-<td>msgpack.Decoder().on("data",ondata).decode(buf);</td>
-<td align="right">1000000</td>
-<td align="right">2744</td>
-<td align="right">364431</td>
-</tr>
-<tr>
-<td>msgpack.createDecodeStream().write(buf);</td>
-<td align="right">1000000</td>
-<td align="right">1341</td>
-<td align="right">745712</td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">Test environment: msgpack-lite 0.1.14, Node v4.2.3, Intel(R) Xeon(R) CPU E5-2666 v3 @ 2.90GHz</p>
-<h7 dir="auto">
-<a id="user-content-messagepack-mapping-table" class="anchor" aria-hidden="true" href="#messagepack-mapping-table"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack Mapping Table</h7>
-<p dir="auto">The following table shows how JavaScript objects (value) will be mapped to
-<a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack formats</a>
-and vice versa.</p>
-<table>
-<thead>
-<tr>
-<th>Source Value</th>
-<th>MessagePack Format</th>
-<th>Value Decoded</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>null, undefined</td>
-<td>nil format family</td>
-<td>null</td>
-</tr>
-<tr>
-<td>Boolean (true, false)</td>
-<td>bool format family</td>
-<td>Boolean (true, false)</td>
-</tr>
-<tr>
-<td>Number (32bit int)</td>
-<td>int format family</td>
-<td>Number (int or double)</td>
-</tr>
-<tr>
-<td>Number (64bit double)</td>
-<td>float format family</td>
-<td>Number (double)</td>
-</tr>
-<tr>
-<td>String</td>
-<td>str format family</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>bin format family</td>
-<td>Buffer</td>
-</tr>
-<tr>
-<td>Array</td>
-<td>array format family</td>
-<td>Array</td>
-</tr>
-<tr>
-<td>Map</td>
-<td>map format family</td>
-<td>Map (if <code>usemap=true</code>)</td>
-</tr>
-<tr>
-<td>Object (plain object)</td>
-<td>map format family</td>
-<td>Object (or Map if <code>usemap=true</code>)</td>
-</tr>
-<tr>
-<td>Object (see below)</td>
-<td>ext format family</td>
-<td>Object (see below)</td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">Note that both <code>null</code> and <code>undefined</code> are mapped to nil <code>0xC1</code> type.
-This means <code>undefined</code> value will be <em>upgraded</em> to <code>null</code> in other words.</p>
-<h7 dir="auto">
-<a id="user-content-extension-types" class="anchor" aria-hidden="true" href="#extension-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extension Types</h7>
-<p dir="auto">The MessagePack specification allows 128 application-specific extension types.
-The library uses the following types to make round-trip conversion possible
-for JavaScript native objects.</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Object</th>
-<th>Type</th>
-<th>Object</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0x00</td>
-<td></td>
-<td>0x10</td>
-<td></td>
-</tr>
-<tr>
-<td>0x01</td>
-<td>EvalError</td>
-<td>0x11</td>
-<td>Int8Array</td>
-</tr>
-<tr>
-<td>0x02</td>
-<td>RangeError</td>
-<td>0x12</td>
-<td>Uint8Array</td>
-</tr>
-<tr>
-<td>0x03</td>
-<td>ReferenceError</td>
-<td>0x13</td>
-<td>Int16Array</td>
-</tr>
-<tr>
-<td>0x04</td>
-<td>SyntaxError</td>
-<td>0x14</td>
-<td>Uint16Array</td>
-</tr>
-<tr>
-<td>0x05</td>
-<td>TypeError</td>
-<td>0x15</td>
-<td>Int32Array</td>
-</tr>
-<tr>
-<td>0x06</td>
-<td>URIError</td>
-<td>0x16</td>
-<td>Uint32Array</td>
-</tr>
-<tr>
-<td>0x07</td>
-<td></td>
-<td>0x17</td>
-<td>Float32Array</td>
-</tr>
-<tr>
-<td>0x08</td>
-<td></td>
-<td>0x18</td>
-<td>Float64Array</td>
-</tr>
-<tr>
-<td>0x09</td>
-<td></td>
-<td>0x19</td>
-<td>Uint8ClampedArray</td>
-</tr>
-<tr>
-<td>0x0A</td>
-<td>RegExp</td>
-<td>0x1A</td>
-<td>ArrayBuffer</td>
-</tr>
-<tr>
-<td>0x0B</td>
-<td>Boolean</td>
-<td>0x1B</td>
-<td>Buffer</td>
-</tr>
-<tr>
-<td>0x0C</td>
-<td>String</td>
-<td>0x1C</td>
-<td></td>
-</tr>
-<tr>
-<td>0x0D</td>
-<td>Date</td>
-<td>0x1D</td>
-<td>DataView</td>
-</tr>
-<tr>
-<td>0x0E</td>
-<td>Error</td>
-<td>0x1E</td>
-<td></td>
-</tr>
-<tr>
-<td>0x0F</td>
-<td>Number</td>
-<td>0x1F</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p dir="auto">Other extension types are mapped to built-in ExtBuffer object.</p>
-<h7 dir="auto">
-<a id="user-content-custom-extension-types-codecs" class="anchor" aria-hidden="true" href="#custom-extension-types-codecs"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Custom Extension Types (Codecs)</h7>
-<p dir="auto">Register a custom extension type number to serialize/deserialize your own class instances.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='var msgpack = require("msgpack-lite");
-
-var codec = msgpack.createCodec();
-codec.addExtPacker(0x3F, MyVector, myVectorPacker);
-codec.addExtUnpacker(0x3F, myVectorUnpacker);
-
-var data = new MyVector(1, 2);
-var encoded = msgpack.encode(data, {codec: codec});
-var decoded = msgpack.decode(encoded, {codec: codec});
-
-function MyVector(x, y) {
-  this.x = x;
-  this.y = y;
-}
-
-function myVectorPacker(vector) {
-  var array = [vector.x, vector.y];
-  return msgpack.encode(array); // return Buffer serialized
-}
-
-function myVectorUnpacker(buffer) {
-  var array = msgpack.decode(buffer);
-  return new MyVector(array[0], array[1]); // return Object deserialized
-}'><pre><span class="pl-k">var</span> <span class="pl-s1">msgpack</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"msgpack-lite"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">codec</span><span class="pl-kos">.</span><span class="pl-en">addExtPacker</span><span class="pl-kos">(</span><span class="pl-c1">0x3F</span><span class="pl-kos">,</span> <span class="pl-v">MyVector</span><span class="pl-kos">,</span> <span class="pl-s1">myVectorPacker</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-s1">codec</span><span class="pl-kos">.</span><span class="pl-en">addExtUnpacker</span><span class="pl-kos">(</span><span class="pl-c1">0x3F</span><span class="pl-kos">,</span> <span class="pl-s1">myVectorUnpacker</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">var</span> <span class="pl-s1">data</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">MyVector</span><span class="pl-kos">(</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-kos">{</span><span class="pl-c1">codec</span>: <span class="pl-s1">codec</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-<span class="pl-k">var</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span><span class="pl-c1">codec</span>: <span class="pl-s1">codec</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-
-<span class="pl-k">function</span> <span class="pl-v">MyVector</span><span class="pl-kos">(</span><span class="pl-s1">x</span><span class="pl-kos">,</span> <span class="pl-s1">y</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-smi">this</span><span class="pl-kos">.</span><span class="pl-c1">x</span> <span class="pl-c1">=</span> <span class="pl-s1">x</span><span class="pl-kos">;</span>
-  <span class="pl-smi">this</span><span class="pl-kos">.</span><span class="pl-c1">y</span> <span class="pl-c1">=</span> <span class="pl-s1">y</span><span class="pl-kos">;</span>
-<span class="pl-kos">}</span>
-
-<span class="pl-k">function</span> <span class="pl-en">myVectorPacker</span><span class="pl-kos">(</span><span class="pl-s1">vector</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-k">var</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-s1">vector</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">vector</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
-  <span class="pl-k">return</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// return Buffer serialized</span>
-<span class="pl-kos">}</span>
-
-<span class="pl-k">function</span> <span class="pl-en">myVectorUnpacker</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-  <span class="pl-k">var</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-v">MyVector</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">[</span><span class="pl-c1">0</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">array</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// return Object deserialized</span>
-<span class="pl-kos">}</span></pre></div>
-<p dir="auto">The first argument of <code>addExtPacker</code> and <code>addExtUnpacker</code> should be an integer within the range of 0 and 127 (0x0 and 0x7F). <code>myClassPacker</code> is a function that accepts an instance of <code>MyClass</code>, and should return a buffer representing that instance. <code>myClassUnpacker</code> is the opposite: it accepts a buffer and should return an instance of <code>MyClass</code>.</p>
-<p dir="auto">If you pass an array of functions to <code>addExtPacker</code> or <code>addExtUnpacker</code>, the value to be encoded/decoded will pass through each one in order. This allows you to do things like this:</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="codec.addExtPacker(0x00, Date, [Number, msgpack.encode]);"><pre><span class="pl-s1">codec</span><span class="pl-kos">.</span><span class="pl-en">addExtPacker</span><span class="pl-kos">(</span><span class="pl-c1">0x00</span><span class="pl-kos">,</span> <span class="pl-v">Date</span><span class="pl-kos">,</span> <span class="pl-kos">[</span><span class="pl-v">Number</span><span class="pl-kos">,</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-c1">encode</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto">You can also pass the <code>codec</code> option to <code>msgpack.Decoder(options)</code>, <code>msgpack.Encoder(options)</code>, <code>msgpack.createEncodeStream(options)</code>, and <code>msgpack.createDecodeStream(options)</code>.</p>
-<p dir="auto">If you wish to modify the default built-in codec, you can access it at <code>msgpack.codec.preset</code>.</p>
-<h7 dir="auto">
-<a id="user-content-custom-codec-options" class="anchor" aria-hidden="true" href="#custom-codec-options"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Custom Codec Options</h7>
-<p dir="auto"><code>msgpack.createCodec()</code> function accepts some options.</p>
-<p dir="auto">It does NOT have the preset extension types defined when no options given.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec();"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto"><code>preset</code>: It has the preset extension types described above.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec({preset: true});"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">preset</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto"><code>safe</code>: It runs a validation of the value before writing it into buffer. This is the default behavior for some old browsers which do not support <code>ArrayBuffer</code> object.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec({safe: true});"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">safe</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto"><code>useraw</code>: It uses <code>raw</code> formats instead of <code>bin</code> and <code>str</code>.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec({useraw: true});"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">useraw</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto"><code>int64</code>: It decodes msgpack's <code>int64</code>/<code>uint64</code> formats with <a href="https://github.com/kawanet/int64-buffer">int64-buffer</a> object.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec({int64: true});"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">int64</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto"><code>binarraybuffer</code>: It ties msgpack's <code>bin</code> format with <code>ArrayBuffer</code> object, instead of <code>Buffer</code> object.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec({binarraybuffer: true, preset: true});"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">binarraybuffer</span>: <span class="pl-c1">true</span><span class="pl-kos">,</span> <span class="pl-c1">preset</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto"><code>uint8array</code>: It returns Uint8Array object when encoding, instead of <code>Buffer</code> object.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec({uint8array: true});"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">uint8array</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<p dir="auto"><code>usemap</code>: Uses the global JavaScript Map type, if available, to unpack
-MessagePack map elements.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="var codec = msgpack.createCodec({usemap: true});"><pre><span class="pl-k">var</span> <span class="pl-s1">codec</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">usemap</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-compatibility-mode" class="anchor" aria-hidden="true" href="#compatibility-mode"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibility Mode</h7>
-<p dir="auto">The <a href="https://github.com/kawanet/msgpack-lite/issues/22" data-hovercard-type="issue" data-hovercard-url="/kawanet/msgpack-lite/issues/22/hovercard">compatibility mode</a> respects for <a href="https://github.com/msgpack/msgpack/blob/master/spec-old.md">msgpack's old spec</a>. Set <code>true</code> to <code>useraw</code>.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// default mode handles both str and bin formats individually
-msgpack.encode(&quot;Aa&quot;); // =&gt; &lt;Buffer a2 41 61&gt; (str format)
-msgpack.encode(new Buffer([0x41, 0x61])); // =&gt; &lt;Buffer c4 02 41 61&gt; (bin format)
-
-msgpack.decode(new Buffer([0xa2, 0x41, 0x61])); // =&gt; 'Aa' (String)
-msgpack.decode(new Buffer([0xc4, 0x02, 0x41, 0x61])); // =&gt; &lt;Buffer 41 61&gt; (Buffer)
-
-// compatibility mode handles only raw format both for String and Buffer
-var options = {codec: msgpack.createCodec({useraw: true})};
-msgpack.encode(&quot;Aa&quot;, options); // =&gt; &lt;Buffer a2 41 61&gt; (raw format)
-msgpack.encode(new Buffer([0x41, 0x61]), options); // =&gt; &lt;Buffer a2 41 61&gt; (raw format)
-
-msgpack.decode(new Buffer([0xa2, 0x41, 0x61]), options); // =&gt; &lt;Buffer 41 61&gt; (Buffer)
-msgpack.decode(new Buffer([0xa2, 0x41, 0x61]), options).toString(); // =&gt; 'Aa' (String)"><pre><span class="pl-c">// default mode handles both str and bin formats individually</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s">"Aa"</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (str format)</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Buffer</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0x41</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; &lt;Buffer c4 02 41 61&gt; (bin format)</span>
-
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Buffer</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0xa2</span><span class="pl-kos">,</span> <span class="pl-c1">0x41</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; 'Aa' (String)</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Buffer</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0xc4</span><span class="pl-kos">,</span> <span class="pl-c1">0x02</span><span class="pl-kos">,</span> <span class="pl-c1">0x41</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
-
-<span class="pl-c">// compatibility mode handles only raw format both for String and Buffer</span>
-<span class="pl-k">var</span> <span class="pl-s1">options</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-c1">codec</span>: <span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">createCodec</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">useraw</span>: <span class="pl-c1">true</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-kos">;</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s">"Aa"</span><span class="pl-kos">,</span> <span class="pl-s1">options</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Buffer</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0x41</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">options</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; &lt;Buffer a2 41 61&gt; (raw format)</span>
-
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Buffer</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0xa2</span><span class="pl-kos">,</span> <span class="pl-c1">0x41</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">options</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; &lt;Buffer 41 61&gt; (Buffer)</span>
-<span class="pl-s1">msgpack</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Buffer</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">0xa2</span><span class="pl-kos">,</span> <span class="pl-c1">0x41</span><span class="pl-kos">,</span> <span class="pl-c1">0x61</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">options</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">toString</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// =&gt; 'Aa' (String)</span></pre></div>
-<h7 dir="auto">
-<a id="user-content-repository" class="anchor" aria-hidden="true" href="#repository"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Repository</h7>
-<ul dir="auto">
-<li><a href="https://github.com/kawanet/msgpack-lite">https://github.com/kawanet/msgpack-lite</a></li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-see-also" class="anchor" aria-hidden="true" href="#see-also"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>See Also</h7>
-<ul dir="auto">
-<li><a href="http://msgpack.org/" rel="nofollow">http://msgpack.org/</a></li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h7>
-<p dir="auto">The MIT License (MIT)</p>
-<p dir="auto">Copyright (c) 2015-2016 Yusuke Kawasaki</p>
-<p dir="auto">Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
-<p dir="auto">The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
-<p dir="auto">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</p>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-ygoe-msgpack-js" class="qs"><h4><a href="https://github.com/ygoe/msgpack.js" target="_blank">ygoe/msgpack.js <span class="qs-url">https://github.com/ygoe/msgpack.js</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -14217,6 +13494,87 @@ app.get('/test_msgpack', (req, res) =&gt; {
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto">msgpack-response is available under the MIT license. See the <a href="/sschizas/msgpack-response/blob/master/LICENSE.md">LICENSE</a> file for more info.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-msgpack-for-ocaml" class="anchor" aria-hidden="true" href="#msgpack-for-ocaml"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack for OCaml</h5>
+<h6 dir="auto">
+<a id="user-content-bulid" class="anchor" aria-hidden="true" href="#bulid"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>BULID</h6>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ make
+$ sudo make install"><pre>$ make
+$ sudo make install</pre></div>
+<h6 dir="auto">
+<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>EXAMPLE</h6>
+<h7 dir="auto">
+<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" aria-hidden="true" href="#serializedeserialize-for-msgpack-object"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize/Deserialize for Msgpack Object</h7>
+<div class="highlight highlight-source-ocaml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="(* serialize *)
+let bytes = 
+  Msgpack.Serialize.serialize_string (`FixArray [`PFixnum 1; `PFixnum 2; `PFixnum 3])
+
+(* deserialize *)
+let obj =
+  Msgpack.Serialize.deserialize_string bytes"><pre><span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
+
+<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
+<h7 dir="auto">
+<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" aria-hidden="true" href="#serializedeserialize-for-ocaml-types-with-meta_conv"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
+<div class="highlight highlight-source-ocaml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='open Msgpack_conv
+
+type t = {
+  int : int;
+  str : string;
+} with conv(msgpack)
+
+(* serialize *)
+let bytes = 
+  Msgpack.Serialize.serialize_string (msgpack_of_t { int = 42; str = "ans" })
+
+(* deserialize *)
+let obj =
+  t_of_msgpack (Msgpack.Serialize.deserialize_string bytes)'><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
+
+<span class="pl-k">type</span> <span class="pl-k">t </span>= {
+  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
+  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
+} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
+
+<span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
+  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
+
+<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
+<span class="pl-k">let</span> obj <span class="pl-k">=</span>
+  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
+<p dir="auto">See also, <code>examlpe/</code></p>
+<h6 dir="auto">
+<a id="user-content-development" class="anchor" aria-hidden="true" href="#development"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>DEVELOPMENT</h6>
+<p dir="auto">Setup development enviroment with docker:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ docker-compose build
+$ docker-compose run app"><pre>$ docker-compose build
+$ docker-compose run app</pre></div>
+<h6 dir="auto">
+<a id="user-content-test" class="anchor" aria-hidden="true" href="#test"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>TEST</h6>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ ocaml setup.ml -configure --enable-tests
+$ make test"><pre>$ ocaml setup.ml -configure --enable-tests
+$ make <span class="pl-c1">test</span></pre></div>
+<h6 dir="auto">
+<a id="user-content-proof" class="anchor" aria-hidden="true" href="#proof"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>PROOF</h6>
+<p dir="auto">If you want to use msgpack at OCaml, you need not do this section.
+This section for user intrested in formal verification.</p>
+<p dir="auto">You need Coq 8.4 and omake.</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ cd proof
+$ make
+$ cp *.ml* ../lib/core"><pre>$ <span class="pl-c1">cd</span> proof
+$ make
+$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
 </article>
   </div>
         </div>
@@ -20199,110 +19557,6 @@ let msgPackedBytes: NSData = packedInt +^ packedStr +^ packedArray"><pre><span c
   </div>
         </div>
         
-        <div id="qs-couchdeveloper-messagepack" class="qs"><h4><a href="https://github.com/couchdeveloper/messagepack" target="_blank">couchdeveloper/messagepack <span class="qs-url">https://github.com/couchdeveloper/messagepack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-messagepack" class="anchor" aria-hidden="true" href="#messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack</h5>
-<p dir="auto"><strong>MessagePack</strong> is an efficient binary serialization format. It lets you exchange data among multiple languages like JSON. But it's faster and smaller. Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.</p>
-<h6 dir="auto">
-<a id="user-content-packageswift" class="anchor" aria-hidden="true" href="#packageswift"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Package.swift</h6>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='.Package(url: "https://github.com/tris-foundation/messagepack.git", majorVersion: 0)'><pre>.<span class="pl-c1">Package</span>(<span class="pl-c1">url</span>: <span class="pl-s"><span class="pl-pds">"</span>https://github.com/tris-foundation/messagepack.git<span class="pl-pds">"</span></span>, <span class="pl-c1">majorVersion</span>: <span class="pl-c1">0</span>)</pre></div>
-<h6 dir="auto">
-<a id="user-content-memo" class="anchor" aria-hidden="true" href="#memo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Memo</h6>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="public enum MessagePack {
-    case `nil`
-    case int(Int)
-    case uint(UInt)
-    case bool(Bool)
-    case float(Float)
-    case double(Double)
-    case string(String)
-    case binary([UInt8])
-    case array([MessagePack])
-    case map([MessagePack : MessagePack])
-    case extended(Extended)
-
-    public struct Extended {
-        public let type: Int8
-        public let data: [UInt8]
-        public init(type: Int8, data: [UInt8]) {
-            self.type = type
-            self.data = data
-        }
-    }
-}"><pre><span class="pl-k">public</span> <span class="pl-k">enum</span> <span class="pl-en">MessagePack</span> {
-    <span class="pl-k">case</span> <span class="pl-c1">`nil`</span>
-    <span class="pl-k">case</span> <span class="pl-c1">int</span>(<span class="pl-c1">Int</span>)
-    <span class="pl-k">case</span> <span class="pl-c1">uint</span>(<span class="pl-c1">UInt</span>)
-    <span class="pl-k">case</span> <span class="pl-c1">bool</span>(<span class="pl-c1">Bool</span>)
-    <span class="pl-k">case</span> <span class="pl-c1">float</span>(<span class="pl-c1">Float</span>)
-    <span class="pl-k">case</span> <span class="pl-c1">double</span>(<span class="pl-c1">Double</span>)
-    <span class="pl-k">case</span> <span class="pl-c1">string</span>(<span class="pl-c1">String</span>)
-    <span class="pl-k">case</span> <span class="pl-c1">binary</span>([<span class="pl-c1">UInt8</span>])
-    <span class="pl-k">case</span> <span class="pl-c1">array</span>([MessagePack])
-    <span class="pl-k">case</span> <span class="pl-c1">map</span>([MessagePack : MessagePack])
-    <span class="pl-k">case</span> <span class="pl-c1">extended</span>(Extended)
-
-    <span class="pl-k">public</span> <span class="pl-k">struct</span> <span class="pl-en">Extended</span> {
-        <span class="pl-k">public</span> <span class="pl-k">let</span> type: <span class="pl-c1">Int8</span>
-        <span class="pl-k">public</span> <span class="pl-k">let</span> data: [<span class="pl-c1">UInt8</span>]
-        <span class="pl-k">public</span> <span class="pl-k">init</span>(<span class="pl-smi"><span class="pl-en">type</span></span>: <span class="pl-c1">Int8</span>, <span class="pl-smi"><span class="pl-en">data</span></span>: [<span class="pl-c1">UInt8</span>]) {
-            <span class="pl-c1">self</span>.<span class="pl-smi">type</span> <span class="pl-k">=</span> type
-            <span class="pl-c1">self</span>.<span class="pl-smi">data</span> <span class="pl-k">=</span> data
-        }
-    }
-}</pre></div>
-<h6 dir="auto">
-<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
-<p dir="auto">You can find this code and more in <a href="https://github.com/tris-foundation/examples">examples</a>.</p>
-<h7 dir="auto">
-<a id="user-content-convenience-api" class="anchor" aria-hidden="true" href="#convenience-api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Convenience API</h7>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='let hey = MessagePack("hey there!")
-let bytes = MessagePack.encode(hey)
-let original = String(try MessagePack.decode(bytes: bytes))'><pre><span class="pl-k">let</span> hey <span class="pl-k">=</span> <span class="pl-c1">MessagePack</span>(<span class="pl-s"><span class="pl-pds">"</span>hey there!<span class="pl-pds">"</span></span>)
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> MessagePack.<span class="pl-c1">encode</span>(hey)
-<span class="pl-k">let</span> original <span class="pl-k">=</span> <span class="pl-c1">String</span>(<span class="pl-k">try</span> MessagePack.<span class="pl-c1">decode</span>(<span class="pl-c1">bytes</span>: bytes))</pre></div>
-<h7 dir="auto">
-<a id="user-content-performance-optimized" class="anchor" aria-hidden="true" href="#performance-optimized"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Performance optimized</h7>
-<div class="highlight highlight-source-swift notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='var encoder = Encoder()
-encoder.encode(.string("one"))
-encoder.encode(.int(2))
-encoder.encode(.double(3.0))
-let encoded = encoder.bytes
-// be careful, we use raw pointer here
-var decoder = Decoder(bytes: encoded, count: encoded.count)
-// throws on invalid data
-let value = try decoder.decode()
-// reuse decoder
-decoder.rewind()
-// you can avoid extra MessagePack object 
-// if you sure about the structure
-// throws on wrong type
-let string = try decoder.decode(String.self)
-let int = try decoder.decode(UInt8.self)
-let double = try decoder.decode(Double.self)
-print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k">var</span> encoder <span class="pl-k">=</span> <span class="pl-c1">Encoder</span>()
-encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">string</span>(<span class="pl-s"><span class="pl-pds">"</span>one<span class="pl-pds">"</span></span>))
-encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">int</span>(<span class="pl-c1">2</span>))
-encoder.<span class="pl-c1">encode</span>(.<span class="pl-c1">double</span>(<span class="pl-c1">3.0</span>))
-<span class="pl-k">let</span> encoded <span class="pl-k">=</span> encoder.<span class="pl-smi">bytes</span>
-<span class="pl-c"><span class="pl-c">//</span> be careful, we use raw pointer here</span>
-<span class="pl-c"></span><span class="pl-k">var</span> decoder <span class="pl-k">=</span> <span class="pl-c1">Decoder</span>(<span class="pl-c1">bytes</span>: encoded, <span class="pl-c1">count</span>: encoded.<span class="pl-c1">count</span>)
-<span class="pl-c"><span class="pl-c">//</span> throws on invalid data</span>
-<span class="pl-c"></span><span class="pl-k">let</span> value <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>()
-<span class="pl-c"><span class="pl-c">//</span> reuse decoder</span>
-<span class="pl-c"></span>decoder.<span class="pl-c1">rewind</span>()
-<span class="pl-c"><span class="pl-c">//</span> you can avoid extra MessagePack object </span>
-<span class="pl-c"><span class="pl-c">//</span> if you sure about the structure</span>
-<span class="pl-c"><span class="pl-c">//</span> throws on wrong type</span>
-<span class="pl-c"></span><span class="pl-k">let</span> string <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">String</span>.<span class="pl-k">self</span>)
-<span class="pl-k">let</span> int <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">UInt8</span>.<span class="pl-k">self</span>)
-<span class="pl-k">let</span> double <span class="pl-k">=</span> <span class="pl-k">try</span> decoder.<span class="pl-c1">decode</span>(<span class="pl-c1">Double</span>.<span class="pl-k">self</span>)
-<span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">"</span>decoded manually: <span class="pl-pse">\(</span><span class="pl-s1">string</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">int</span><span class="pl-pse"><span class="pl-s1">)</span></span>, <span class="pl-pse">\(</span><span class="pl-s1">double</span><span class="pl-pse"><span class="pl-s1">)</span></span><span class="pl-pds">"</span></span>)</pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-hirotakan-MessagePacker" class="qs"><h4><a href="https://github.com/hirotakan/MessagePacker" target="_blank">hirotakan/MessagePacker <span class="qs-url">https://github.com/hirotakan/MessagePacker</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -20989,15 +20243,6 @@ undesirable if decoding maps with objects or arrays as keys.</p>
 </li>
 </ul>
 <p dir="auto">By default, <code>msgpack2json</code> and <code>json2msgpack</code> convert in strict mode. If an object in the source format is not representable in the destination format, the converter aborts with an error. A lax mode is available which performs a "lossy" conversion, and base64 conversion modes are available to support binary data in JSON.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-tihannalouise-https-github-com-msgpack-msgpack-java" class="qs"><h4><a href="https://github.com/tihannalouise/https-github.com-msgpack-msgpack-java" target="_blank">tihannalouise/https-github.com-msgpack-msgpack-java <span class="qs-url">https://github.com/tihannalouise/https-github.com-msgpack-msgpack-java</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-https-githubcom-msgpack-msgpack-java" class="anchor" aria-hidden="true" href="#https-githubcom-msgpack-msgpack-java"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>https-github.com-msgpack-msgpack-java</h5>
-<p dir="auto">msgpack.org[expert-carnival]</p>
 </article>
   </div>
         </div>
