@@ -214,6 +214,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-d',this)">D <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-danellis-dart-msgpack',this)">Dart <span class="qs-sub">danellis</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-knopp-msgpack_dart',this)">Dart <span class="qs-sub">knopp</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-chinawsb-qmsgpack-delphi',this)">Delphi <span class="qs-sub">chinawsb</span></a></li>
@@ -305,6 +307,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-eddelbuettel-rcppmsgpack',this)">R <span class="qs-sub">eddelbuettel</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-owenthereal-msgpack_rails',this)">Rails <span class="qs-sub">owenthereal</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-retrofit-converter-msgpack',this)">Retrofit converter (Java) <span class="qs-sub">komamitsu</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ruby',this)">Ruby <span class="qs-sub">msgpack</span></a></li>
           
@@ -5452,6 +5456,34 @@ void main()
 <h5 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h5>
 <p dir="auto">Distributed under the <a href="http://www.boost.org/users/license.html" rel="nofollow">Boost Software License, Version 1.0</a>.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-danellis-dart-msgpack" class="qs"><h4><a href="https://github.com/danellis/dart-msgpack" target="_blank">danellis/dart-msgpack <span class="qs-url">https://github.com/danellis/dart-msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-dart-msgpack" class="anchor" aria-hidden="true" href="#dart-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>dart-msgpack</h5>
+<p dir="auto">This is a very early release of my MessagePack library for Dart. Currently, message classes must be written by hand. For example:</p>
+<div class="highlight highlight-source-dart notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="class NotificationFrame extends Message {
+    String kind;
+    Map&lt;String, Object&gt; data;
+
+    NotificationFrame(this.kind, this.data);
+
+    static NotificationFrame fromList(List f) =&gt; new NotificationFrame(f[0], f[1]);
+    List toList() =&gt; [kind, data];
+}"><pre><span class="pl-k">class</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-k">extends</span> <span class="pl-c1">Message</span> {
+    <span class="pl-c1">String</span> kind;
+    <span class="pl-c1">Map&lt;<span class="pl-c1">String</span>, <span class="pl-c1">Object</span>&gt;</span> data;
+
+    <span class="pl-c1">NotificationFrame</span>(<span class="pl-c1">this</span>.kind, <span class="pl-c1">this</span>.data);
+
+    <span class="pl-k">static</span> <span class="pl-c1">NotificationFrame</span> <span class="pl-en">fromList</span>(<span class="pl-c1">List</span> f) <span class="pl-k">=&gt;</span> <span class="pl-k">new</span> <span class="pl-c1">NotificationFrame</span>(f[<span class="pl-c1">0</span>], f[<span class="pl-c1">1</span>]);
+    <span class="pl-c1">List</span> <span class="pl-en">toList</span>() <span class="pl-k">=&gt;</span> [kind, data];
+}</pre></div>
+<p dir="auto">For each class you need to define the <code>fromList</code> and <code>toList</code> methods, which convert from and to a list of fields respectively.</p>
+<p dir="auto">For example usage, see the unit tests.</p>
 </article>
   </div>
         </div>
@@ -16143,6 +16175,49 @@ end
 <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
 <li>Create new Pull Request</li>
 </ol>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-komamitsu-retrofit-converter-msgpack" class="qs"><h4><a href="https://github.com/komamitsu/retrofit-converter-msgpack" target="_blank">komamitsu/retrofit-converter-msgpack <span class="qs-url">https://github.com/komamitsu/retrofit-converter-msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-retrofit-converter-messagepack" class="anchor" aria-hidden="true" href="#retrofit-converter-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Retrofit-Converter-MessagePack</h5>
+<p dir="auto"><a href="https://travis-ci.org/komamitsu/retrofit-converter-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/269cc564f92abceef0fe3d67370202ff10268794e67da6c916d7b98470ab74bc/68747470733a2f2f7472617669732d63692e6f72672f6b6f6d616d697473752f726574726f6669742d636f6e7665727465722d6d73677061636b2e7376673f6272616e63683d6d6173746572" data-canonical-src="https://travis-ci.org/komamitsu/retrofit-converter-msgpack.svg?branch=master" style="max-width: 100%;"></a>
+<a href="https://maven-badges.herokuapp.com/maven-central/org.komamitsu/retrofit-converter-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/5a389969a3fac0010d99818ab4dc6a041e40845fc6ba39a2e236a3a576effa09/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f6f72672e6b6f6d616d697473752f726574726f6669742d636f6e7665727465722d6d73677061636b2f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/org.komamitsu/retrofit-converter-msgpack/badge.svg" style="max-width: 100%;"></a>
+<a href="https://coveralls.io/github/komamitsu/retrofit-converter-msgpack?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/05c9c701a4f3d23f7856795614a3ddb4468879714d8f8f59fe7bf023bfc43ed0/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6b6f6d616d697473752f726574726f6669742d636f6e7665727465722d6d73677061636b2f62616467652e7376673f6272616e63683d6d617374657226736572766963653d676974687562" alt="Coverage Status" data-canonical-src="https://coveralls.io/repos/komamitsu/retrofit-converter-msgpack/badge.svg?branch=master&amp;service=github" style="max-width: 100%;"></a></p>
+<p dir="auto">Retrofit Converter for MessagePack</p>
+<h6 dir="auto">
+<a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
+<h7 dir="auto">
+<a id="user-content-gradle" class="anchor" aria-hidden="true" href="#gradle"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Gradle</h7>
+<div class="highlight highlight-source-groovy notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="dependencies {
+    implementation 'org.komamitsu:retrofit-converter-msgpack:x.x.x'
+}"><pre>dependencies {
+    implementation <span class="pl-s"><span class="pl-pds">'</span>org.komamitsu:retrofit-converter-msgpack:x.x.x<span class="pl-pds">'</span></span>
+}</pre></div>
+<h7 dir="auto">
+<a id="user-content-maven" class="anchor" aria-hidden="true" href="#maven"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Maven</h7>
+<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;dependency&gt;
+    &lt;groupId&gt;org.komamitsu&lt;/groupId&gt;
+    &lt;artifactId&gt;retrofit-converter-msgpack&lt;/artifactId&gt;
+    &lt;version&gt;x.x.x&lt;/version&gt;
+&lt;/dependency&gt;"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;org.komamitsu&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;retrofit-converter-msgpack&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;x.x.x&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<p dir="auto">To use, supply an instance of this converter when building your Retrofit instance.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='Retrofit retrofit = new Retrofit.Builder()
+    .baseUrl("https://api.example.com")
+    .addConverterFactory(MessagePackConverterFactory.create())
+    .build();'><pre class="notranslate"><code>Retrofit retrofit = new Retrofit.Builder()
+    .baseUrl("https://api.example.com")
+    .addConverterFactory(MessagePackConverterFactory.create())
+    .build();
+</code></pre></div>
 </article>
   </div>
         </div>
