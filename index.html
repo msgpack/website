@@ -8953,7 +8953,7 @@ instance Serialize Object where
 </ul>
 <h6 dir="auto">
 <a id="user-content-example-code" class="anchor" aria-hidden="true" href="#example-code"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example code:</h6>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='package;
+<div class="highlight highlight-source-hx notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='package;
 import org.msgpack.MsgPack;
 
 class Example {
@@ -8966,21 +8966,20 @@ class Example {
         trace(m.toHex());
         trace(o);
     }
-}'><pre lang="haxe" class="notranslate"><code>package;
-import org.msgpack.MsgPack;
+}'><pre><span class="pl-k">package</span>;
+<span class="pl-k">import</span> <span class="pl-c1">org</span>.<span class="pl-c1">msgpack</span>.<span class="pl-en">MsgPack</span>;
 
-class Example {
-    public static function main() {
-        var i = { a: 1, b: 2, c: "Hello World!" };
-        var m = MsgPack.encode(i);
-        var o = MsgPack.decode(m);
+<span class="pl-k">class</span> <span class="pl-en">Example</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">function</span> <span class="pl-en">main</span>() {
+        <span class="pl-k">var</span> <span class="pl-smi">i</span> <span class="pl-k">=</span> { <span class="pl-smi">a</span>: <span class="pl-c1">1</span>, <span class="pl-smi">b</span>: <span class="pl-c1">2</span>, <span class="pl-smi">c</span>: <span class="pl-s"><span class="pl-pds">"</span>Hello World!<span class="pl-pds">"</span></span> };
+        <span class="pl-k">var</span> <span class="pl-smi">m</span> <span class="pl-k">=</span> <span class="pl-en">MsgPack</span>.<span class="pl-en">encode</span>(<span class="pl-smi">i</span>);
+        <span class="pl-k">var</span> <span class="pl-smi">o</span> <span class="pl-k">=</span> <span class="pl-en">MsgPack</span>.<span class="pl-en">decode</span>(<span class="pl-smi">m</span>);
 
-        trace(i);
-        trace(m.toHex());
-        trace(o);
+        <span class="pl-k">trace</span>(<span class="pl-smi">i</span>);
+        <span class="pl-k">trace</span>(<span class="pl-smi">m</span>.<span class="pl-en">toHex</span>());
+        <span class="pl-k">trace</span>(<span class="pl-smi">o</span>);
     }
-}
-</code></pre></div>
+}</pre></div>
 </article>
   </div>
         </div>
@@ -10641,7 +10640,7 @@ addExtension({
 <p dir="auto"><em>Note that this is the second version of MessagePack for JavaScript. The first version, which was implemented in ES5 and was never released to npmjs.com, is tagged as <a href="https://github.com/msgpack/msgpack-javascript/tree/classic">classic</a>.</em></p>
 <h6 dir="auto">
 <a id="user-content-synopsis" class="anchor" aria-hidden="true" href="#synopsis"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Synopsis</h6>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
 import { encode, decode } from "@msgpack/msgpack";
 
 const object = {
@@ -10657,24 +10656,23 @@ const object = {
 
 const encoded: Uint8Array = encode(object);
 
-deepStrictEqual(decode(encoded), object);'><pre lang="typescript" class="notranslate"><code>import { deepStrictEqual } from "assert";
-import { encode, decode } from "@msgpack/msgpack";
+deepStrictEqual(decode(encoded), object);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const object = {
-  nil: null,
-  integer: 1,
-  float: Math.PI,
-  string: "Hello, world!",
-  binary: Uint8Array.from([1, 2, 3]),
-  array: [10, 20, 30],
-  map: { foo: "bar" },
-  timestampExt: new Date(),
-};
+<span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+  <span class="pl-c1">nil</span>: <span class="pl-c1">null</span><span class="pl-kos">,</span>
+  <span class="pl-c1">integer</span>: <span class="pl-c1">1</span><span class="pl-kos">,</span>
+  <span class="pl-c1">float</span>: <span class="pl-smi">Math</span><span class="pl-kos">.</span><span class="pl-c1">PI</span><span class="pl-kos">,</span>
+  <span class="pl-c1">string</span>: <span class="pl-s">"Hello, world!"</span><span class="pl-kos">,</span>
+  <span class="pl-c1">binary</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">.</span><span class="pl-en">from</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">3</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+  <span class="pl-c1">array</span>: <span class="pl-kos">[</span><span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">20</span><span class="pl-kos">,</span> <span class="pl-c1">30</span><span class="pl-kos">]</span><span class="pl-kos">,</span>
+  <span class="pl-c1">map</span>: <span class="pl-kos">{</span> <span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span> <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-c1">timestampExt</span>: <span class="pl-k">new</span> <span class="pl-smi">Date</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span>
 
-const encoded: Uint8Array = encode(object);
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-deepStrictEqual(decode(encoded), object);
-</code></pre></div>
+<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-table-of-contents" class="anchor" aria-hidden="true" href="#table-of-contents"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Table of Contents</h6>
 <ul dir="auto">
@@ -10749,8 +10747,7 @@ deepStrictEqual(decode(encoded), object);
 <h6 dir="auto">
 <a id="user-content-install" class="anchor" aria-hidden="true" href="#install"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install</h6>
 <p dir="auto">This library is published to <code>npmjs.com</code> as <a href="https://www.npmjs.com/package/@msgpack/msgpack" rel="nofollow">@msgpack/msgpack</a>.</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="npm install @msgpack/msgpack"><pre lang="shell" class="notranslate"><code>npm install @msgpack/msgpack
-</code></pre></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="npm install @msgpack/msgpack"><pre>npm install @msgpack/msgpack</pre></div>
 <h6 dir="auto">
 <a id="user-content-api" class="anchor" aria-hidden="true" href="#api"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API</h6>
 <h7 dir="auto">
@@ -10758,29 +10755,27 @@ deepStrictEqual(decode(encoded), object);
 </h7>
 <p dir="auto">It encodes <code>data</code> into a single MessagePack-encoded object, and returns a byte array as <code>Uint8Array</code>. It throws errors if <code>data</code> is, or includes, a non-serializable object such as a <code>function</code> or a <code>symbol</code>.</p>
 <p dir="auto">for example:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { encode } from "@msgpack/msgpack";
 
 const encoded: Uint8Array = encode({ foo: "bar" });
-console.log(encoded);'><pre lang="typescript" class="notranslate"><code>import { encode } from "@msgpack/msgpack";
+console.log(encoded);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const encoded: Uint8Array = encode({ foo: "bar" });
-console.log(encoded);
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <p dir="auto">If you'd like to convert an <code>uint8array</code> to a NodeJS <code>Buffer</code>, use <code>Buffer.from(arrayBuffer, offset, length)</code> in order not to copy the underlying <code>ArrayBuffer</code>, while <code>Buffer.from(uint8array)</code> copies it:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { encode } from "@msgpack/msgpack";
 
 const encoded: Uint8Array = encode({ foo: "bar" });
 
 // `buffer` refers the same ArrayBuffer as `encoded`.
 const buffer: Buffer = Buffer.from(encoded.buffer, encoded.byteOffset, encoded.byteLength);
-console.log(buffer);'><pre lang="typescript" class="notranslate"><code>import { encode } from "@msgpack/msgpack";
+console.log(buffer);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const encoded: Uint8Array = encode({ foo: "bar" });
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">foo</span>: <span class="pl-s">"bar"</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-// `buffer` refers the same ArrayBuffer as `encoded`.
-const buffer: Buffer = Buffer.from(encoded.buffer, encoded.byteOffset, encoded.byteLength);
-console.log(buffer);
-</code></pre></div>
+<span class="pl-c">// `buffer` refers the same ArrayBuffer as `encoded`.</span>
+<span class="pl-k">const</span> <span class="pl-s1">buffer</span>: <span class="pl-smi">Buffer</span> <span class="pl-c1">=</span> <span class="pl-smi">Buffer</span><span class="pl-kos">.</span><span class="pl-en">from</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">.</span><span class="pl-c1">buffer</span><span class="pl-kos">,</span> <span class="pl-s1">encoded</span><span class="pl-kos">.</span><span class="pl-c1">byteOffset</span><span class="pl-kos">,</span> <span class="pl-s1">encoded</span><span class="pl-kos">.</span><span class="pl-c1">byteLength</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">buffer</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h8 dir="auto">
 <a id="user-content-encodeoptions" class="anchor" aria-hidden="true" href="#encodeoptions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>EncodeOptions</code>
 </h8>
@@ -10842,16 +10837,15 @@ console.log(buffer);
 <p dir="auto"><code>buffer</code> must be an array of bytes, which is typically <code>Uint8Array</code> or <code>ArrayBuffer</code>. <code>BufferSource</code> is defined as <code>ArrayBuffer | ArrayBufferView</code>.</p>
 <p dir="auto">The <code>buffer</code> must include a single encoded object. If the <code>buffer</code> includes extra bytes after an object or the <code>buffer</code> is empty, it throws <code>RangeError</code>. To decode <code>buffer</code> that includes multiple encoded objects, use <code>decodeMulti()</code> or <code>decodeMultiStream()</code> (recommended) instead.</p>
 <p dir="auto">for example:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decode } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { decode } from "@msgpack/msgpack";
 
 const encoded: Uint8Array;
 const object = decode(encoded);
-console.log(object);'><pre lang="typescript" class="notranslate"><code>import { decode } from "@msgpack/msgpack";
+console.log(object);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const encoded: Uint8Array;
-const object = decode(encoded);
-console.log(object);
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <p dir="auto">NodeJS <code>Buffer</code> is also acceptable because it is a subclass of <code>Uint8Array</code>.</p>
 <h8 dir="auto">
 <a id="user-content-decodeoptions" class="anchor" aria-hidden="true" href="#decodeoptions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>DecodeOptions</code>
@@ -10914,20 +10908,19 @@ console.log(object);
 <p dir="auto">It decodes <code>buffer</code> that includes multiple MessagePack-encoded objects, and returns decoded objects as a generator. See also <code>decodeMultiStream()</code>, which is an asynchronous variant of this function.</p>
 <p dir="auto">This function is not recommended to decode a MessagePack binary via I/O stream including sockets because it's synchronous. Instead, <code>decodeMultiStream()</code> decodes a binary stream asynchronously, typically spending less CPU and memory.</p>
 <p dir="auto">for example:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decode } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { decode } from "@msgpack/msgpack";
 
 const encoded: Uint8Array;
 
 for (const object of decodeMulti(encoded)) {
   console.log(object);
-}'><pre lang="typescript" class="notranslate"><code>import { decode } from "@msgpack/msgpack";
+}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const encoded: Uint8Array;
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">;</span>
 
-for (const object of decodeMulti(encoded)) {
-  console.log(object);
-}
-</code></pre></div>
+<span class="pl-k">for</span> <span class="pl-kos">(</span><span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-k">of</span> <span class="pl-en">decodeMulti</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div>
 <h7 dir="auto">
 <a id="user-content-decodeasyncstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-promiseunknown" class="anchor" aria-hidden="true" href="#decodeasyncstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-promiseunknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decodeAsync(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): Promise&lt;unknown&gt;</code>
 </h7>
@@ -10935,7 +10928,7 @@ for (const object of decodeMulti(encoded)) {
 <p dir="auto">This function works asynchronously, and might CPU resources more efficiently compared with synchronous <code>decode()</code>, because it doesn't wait for the completion of downloading.</p>
 <p dir="auto"><code>DecodeAsyncOptions</code> is the same as <code>DecodeOptions</code> for <code>decode()</code>.</p>
 <p dir="auto">This function is designed to work with whatwg <code>fetch()</code> like this:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decodeAsync } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { decodeAsync } from "@msgpack/msgpack";
 
 const MSGPACK_TYPE = "application/x-msgpack";
 
@@ -10944,80 +10937,76 @@ const contentType = response.headers.get("Content-Type");
 if (contentType &amp;&amp; contentType.startsWith(MSGPACK_TYPE) &amp;&amp; response.body != null) {
   const object = await decodeAsync(response.body);
   // do something with object
-} else { /* handle errors */ }'><pre lang="typescript" class="notranslate"><code>import { decodeAsync } from "@msgpack/msgpack";
+} else { /* handle errors */ }'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decodeAsync</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const MSGPACK_TYPE = "application/x-msgpack";
+<span class="pl-k">const</span> <span class="pl-smi">MSGPACK_TYPE</span> <span class="pl-c1">=</span> <span class="pl-s">"application/x-msgpack"</span><span class="pl-kos">;</span>
 
-const response = await fetch(url);
-const contentType = response.headers.get("Content-Type");
-if (contentType &amp;&amp; contentType.startsWith(MSGPACK_TYPE) &amp;&amp; response.body != null) {
-  const object = await decodeAsync(response.body);
-  // do something with object
-} else { /* handle errors */ }
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">response</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">fetch</span><span class="pl-kos">(</span><span class="pl-s1">url</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">contentType</span> <span class="pl-c1">=</span> <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">headers</span><span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-s">"Content-Type"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">contentType</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">contentType</span><span class="pl-kos">.</span><span class="pl-en">startsWith</span><span class="pl-kos">(</span><span class="pl-smi">MSGPACK_TYPE</span><span class="pl-kos">)</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">body</span> <span class="pl-c1">!=</span> <span class="pl-c1">null</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">const</span> <span class="pl-s1">object</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">decodeAsync</span><span class="pl-kos">(</span><span class="pl-s1">response</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-c">// do something with object</span>
+<span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span> <span class="pl-c">/* handle errors */</span> <span class="pl-kos">}</span></pre></div>
 <h7 dir="auto">
 <a id="user-content-decodearraystreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown" class="anchor" aria-hidden="true" href="#decodearraystreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decodeArrayStream(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): AsyncIterable&lt;unknown&gt;</code>
 </h7>
 <p dir="auto">It is alike to <code>decodeAsync()</code>, but only accepts a <code>stream</code> that includes an array of items, and emits a decoded item one by one.</p>
 <p dir="auto">for example:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decodeArrayStream } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { decodeArrayStream } from "@msgpack/msgpack";
 
 const stream: AsyncIterator&lt;Uint8Array&gt;;
 
 // in an async function:
 for await (const item of decodeArrayStream(stream)) {
   console.log(item);
-}'><pre lang="typescript" class="notranslate"><code>import { decodeArrayStream } from "@msgpack/msgpack";
+}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decodeArrayStream</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const stream: AsyncIterator&lt;Uint8Array&gt;;
+<span class="pl-k">const</span> <span class="pl-s1">stream</span>: <span class="pl-smi">AsyncIterator</span><span class="pl-kos">&lt;</span><span class="pl-smi">Uint8Array</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
 
-// in an async function:
-for await (const item of decodeArrayStream(stream)) {
-  console.log(item);
-}
-</code></pre></div>
+<span class="pl-c">// in an async function:</span>
+<span class="pl-k">for</span> <span class="pl-k">await</span> <span class="pl-kos">(</span><span class="pl-k">const</span> <span class="pl-s1">item</span> <span class="pl-k">of</span> <span class="pl-en">decodeArrayStream</span><span class="pl-kos">(</span><span class="pl-s1">stream</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">item</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div>
 <h7 dir="auto">
 <a id="user-content-decodemultistreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown" class="anchor" aria-hidden="true" href="#decodemultistreamstream-readablestreamlikearraylikenumber--buffersource-options-decodeasyncoptions-asynciterableunknown"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>decodeMultiStream(stream: ReadableStreamLike&lt;ArrayLike&lt;number&gt; | BufferSource&gt;, options?: DecodeAsyncOptions): AsyncIterable&lt;unknown&gt;</code>
 </h7>
 <p dir="auto">It is alike to <code>decodeAsync()</code> and <code>decodeArrayStream()</code>, but the input <code>stream</code> must consist of multiple MessagePack-encoded items. This is an asynchronous variant for <code>decodeMulti()</code>.</p>
 <p dir="auto">In other words, it could decode an unlimited stream and emits a decoded item one by one.</p>
 <p dir="auto">for example:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { decodeMultiStream } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { decodeMultiStream } from "@msgpack/msgpack";
 
 const stream: AsyncIterator&lt;Uint8Array&gt;;
 
 // in an async function:
 for await (const item of decodeMultiStream(stream)) {
   console.log(item);
-}'><pre lang="typescript" class="notranslate"><code>import { decodeMultiStream } from "@msgpack/msgpack";
+}'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">decodeMultiStream</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const stream: AsyncIterator&lt;Uint8Array&gt;;
+<span class="pl-k">const</span> <span class="pl-s1">stream</span>: <span class="pl-smi">AsyncIterator</span><span class="pl-kos">&lt;</span><span class="pl-smi">Uint8Array</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
 
-// in an async function:
-for await (const item of decodeMultiStream(stream)) {
-  console.log(item);
-}
-</code></pre></div>
+<span class="pl-c">// in an async function:</span>
+<span class="pl-k">for</span> <span class="pl-k">await</span> <span class="pl-kos">(</span><span class="pl-k">const</span> <span class="pl-s1">item</span> <span class="pl-k">of</span> <span class="pl-en">decodeMultiStream</span><span class="pl-kos">(</span><span class="pl-s1">stream</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">item</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre></div>
 <p dir="auto">This function is available since v2.4.0; previously it was called as <code>decodeStream()</code>.</p>
 <h7 dir="auto">
 <a id="user-content-reusing-encoder-and-decoder-instances" class="anchor" aria-hidden="true" href="#reusing-encoder-and-decoder-instances"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Reusing Encoder and Decoder instances</h7>
 <p dir="auto"><code>Encoder</code> and <code>Decoder</code> classes is provided to have better performance by reusing instances:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
 import { Encoder, Decoder } from "@msgpack/msgpack";
 
 const encoder = new Encoder();
 const decoder = new Decoder();
 
 const encoded: Uint8Array = encoder.encode(object);
-deepStrictEqual(decoder.decode(encoded), object);'><pre lang="typescript" class="notranslate"><code>import { deepStrictEqual } from "assert";
-import { Encoder, Decoder } from "@msgpack/msgpack";
+deepStrictEqual(decoder.decode(encoded), object);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-smi">Encoder</span><span class="pl-kos">,</span> <span class="pl-smi">Decoder</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const encoder = new Encoder();
-const decoder = new Decoder();
+<span class="pl-k">const</span> <span class="pl-s1">encoder</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">Encoder</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">decoder</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">Decoder</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-const encoded: Uint8Array = encoder.encode(object);
-deepStrictEqual(decoder.decode(encoded), object);
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=</span> <span class="pl-s1">encoder</span><span class="pl-kos">.</span><span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-s1">decoder</span><span class="pl-kos">.</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <p dir="auto">According to our benchmark, reusing <code>Encoder</code> instance is about 20% faster
 than <code>encode()</code> function, and reusing <code>Decoder</code> instance is about 2% faster
 than <code>decode()</code> function. Note that the result should vary in environments
@@ -11026,7 +11015,7 @@ and data structure.</p>
 <a id="user-content-extension-types" class="anchor" aria-hidden="true" href="#extension-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extension Types</h6>
 <p dir="auto">To handle <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#extension-types">MessagePack Extension Types</a>, this library provides <code>ExtensionCodec</code> class.</p>
 <p dir="auto">This is an example to setup custom extension types that handles <code>Map</code> and <code>Set</code> classes in TypeScript:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
 
 const extensionCodec = new ExtensionCodec();
 
@@ -11065,52 +11054,51 @@ extensionCodec.register({
 });
 
 const encoded = encode([new Set&lt;any&gt;(), new Map&lt;any, any&gt;()], { extensionCodec });
-const decoded = decode(encoded, { extensionCodec });'><pre lang="typescript" class="notranslate"><code>import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
+const decoded = decode(encoded, { extensionCodec });'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">ExtensionCodec</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const extensionCodec = new ExtensionCodec();
+<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-// Set&lt;T&gt;
-const SET_EXT_TYPE = 0 // Any in 0-127
-extensionCodec.register({
-  type: SET_EXT_TYPE,
-  encode: (object: unknown): Uint8Array | null =&gt; {
-    if (object instanceof Set) {
-      return encode([...object]);
-    } else {
-      return null;
-    }
-  },
-  decode: (data: Uint8Array) =&gt; {
-    const array = decode(data) as Array&lt;unknown&gt;;
-    return new Set(array);
-  },
-});
+<span class="pl-c">// Set&lt;T&gt;</span>
+<span class="pl-k">const</span> <span class="pl-smi">SET_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span> <span class="pl-c">// Any in 0-127</span>
+<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+  <span class="pl-c1">type</span>: <span class="pl-smi">SET_EXT_TYPE</span><span class="pl-kos">,</span>
+  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">|</span> <span class="pl-c1">null</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">object</span> <span class="pl-k">instanceof</span> <span class="pl-smi">Set</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+      <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">[</span>...<span class="pl-s1">object</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span> <span class="pl-k">as</span> <span class="pl-smi">Array</span><span class="pl-kos">&lt;</span><span class="pl-smi">unknown</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
+    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Set</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-// Map&lt;T&gt;
-const MAP_EXT_TYPE = 1; // Any in 0-127
-extensionCodec.register({
-  type: MAP_EXT_TYPE,
-  encode: (object: unknown): Uint8Array =&gt; {
-    if (object instanceof Map) {
-      return encode([...object]);
-    } else {
-      return null;
-    }
-  },
-  decode: (data: Uint8Array) =&gt; {
-    const array = decode(data) as Array&lt;[unknown, unknown]&gt;;
-    return new Map(array);
-  },
-});
+<span class="pl-c">// Map&lt;T&gt;</span>
+<span class="pl-k">const</span> <span class="pl-smi">MAP_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span><span class="pl-kos">;</span> <span class="pl-c">// Any in 0-127</span>
+<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+  <span class="pl-c1">type</span>: <span class="pl-smi">MAP_EXT_TYPE</span><span class="pl-kos">,</span>
+  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span>: <span class="pl-smi">Uint8Array</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">object</span> <span class="pl-k">instanceof</span> <span class="pl-smi">Map</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+      <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">[</span>...<span class="pl-s1">object</span><span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span> <span class="pl-k">as</span> <span class="pl-smi">Array</span><span class="pl-kos">&lt;</span><span class="pl-kos">[</span><span class="pl-smi">unknown</span><span class="pl-kos">,</span> <span class="pl-smi">unknown</span><span class="pl-kos">]</span><span class="pl-kos">&gt;</span><span class="pl-kos">;</span>
+    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Map</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-const encoded = encode([new Set&lt;any&gt;(), new Map&lt;any, any&gt;()], { extensionCodec });
-const decoded = decode(encoded, { extensionCodec });
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">[</span><span class="pl-k">new</span> <span class="pl-smi">Set</span><span class="pl-kos">&lt;</span><span class="pl-smi">any</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-k">new</span> <span class="pl-smi">Map</span><span class="pl-kos">&lt;</span><span class="pl-smi">any</span><span class="pl-kos">,</span> <span class="pl-smi">any</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <p dir="auto">Not that extension types for custom objects must be <code>[0, 127]</code>, while <code>[-1, -128]</code> is reserved for MessagePack itself.</p>
 <h8 dir="auto">
 <a id="user-content-extensioncodec-context" class="anchor" aria-hidden="true" href="#extensioncodec-context"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ExtensionCodec context</h8>
 <p dir="auto">When you use an extension codec, it might be necessary to have encoding/decoding state to keep track of which objects got encoded/re-created. To do this, pass a <code>context</code> to the <code>EncodeOptions</code> and <code>DecodeOptions</code>:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
 
 class MyContext {
   track(object: any) { /*...*/ }
@@ -11146,48 +11134,47 @@ import { encode, decode } from "@msgpack/msgpack";
 const context = new MyContext();
 
 const encoded = = encode({myType: new MyType&lt;any&gt;()}, { extensionCodec, context });
-const decoded = decode(encoded, { extensionCodec, context });'><pre lang="typescript" class="notranslate"><code>import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
+const decoded = decode(encoded, { extensionCodec, context });'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">ExtensionCodec</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-class MyContext {
-  track(object: any) { /*...*/ }
-}
+<span class="pl-k">class</span> <span class="pl-smi">MyContext</span> <span class="pl-kos">{</span>
+  <span class="pl-en">track</span><span class="pl-kos">(</span><span class="pl-s1">object</span>: <span class="pl-smi">any</span><span class="pl-kos">)</span> <span class="pl-kos">{</span> <span class="pl-c">/*...*/</span> <span class="pl-kos">}</span>
+<span class="pl-kos">}</span>
 
-class MyType { /* ... */ }
+<span class="pl-k">class</span> <span class="pl-smi">MyType</span> <span class="pl-kos">{</span> <span class="pl-c">/* ... */</span> <span class="pl-kos">}</span>
 
-const extensionCodec = new ExtensionCodec&lt;MyContext&gt;();
+<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">&lt;</span><span class="pl-smi">MyContext</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-// MyType
-const MYTYPE_EXT_TYPE = 0 // Any in 0-127
-extensionCodec.register({
-  type: MYTYPE_EXT_TYPE,
-  encode: (object, context) =&gt; {
-    if (object instanceof MyType) {
-      context.track(object); // &lt;-- like this
-      return encode(object.toJSON(), { extensionCodec, context });
-    } else {
-      return null;
-    }
-  },
-  decode: (data, extType, context) =&gt; {
-    const decoded = decode(data, { extensionCodec, context });
-    const my = new MyType(decoded);
-    context.track(my); // &lt;-- and like this
-    return my;
-  },
-});
+<span class="pl-c">// MyType</span>
+<span class="pl-k">const</span> <span class="pl-smi">MYTYPE_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span> <span class="pl-c">// Any in 0-127</span>
+<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+  <span class="pl-c1">type</span>: <span class="pl-smi">MYTYPE_EXT_TYPE</span><span class="pl-kos">,</span>
+  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">,</span> <span class="pl-s1">context</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">object</span> <span class="pl-k">instanceof</span> <span class="pl-smi">MyType</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+      <span class="pl-s1">context</span><span class="pl-kos">.</span><span class="pl-en">track</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// &lt;-- like this</span>
+      <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">object</span><span class="pl-kos">.</span><span class="pl-en">toJSON</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-s1">extType</span><span class="pl-kos">,</span> <span class="pl-s1">context</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">const</span> <span class="pl-s1">my</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyType</span><span class="pl-kos">(</span><span class="pl-s1">decoded</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">context</span><span class="pl-kos">.</span><span class="pl-en">track</span><span class="pl-kos">(</span><span class="pl-s1">my</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// &lt;-- and like this</span>
+    <span class="pl-k">return</span> <span class="pl-s1">my</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-// and later
-import { encode, decode } from "@msgpack/msgpack";
+<span class="pl-c">// and later</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const context = new MyContext();
+<span class="pl-k">const</span> <span class="pl-s1">context</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyContext</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-const encoded = = encode({myType: new MyType&lt;any&gt;()}, { extensionCodec, context });
-const decoded = decode(encoded, { extensionCodec, context });
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">myType</span>: <span class="pl-k">new</span> <span class="pl-smi">MyType</span><span class="pl-kos">&lt;</span><span class="pl-smi">any</span><span class="pl-kos">&gt;</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec<span class="pl-kos">,</span> context <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h8 dir="auto">
 <a id="user-content-handling-bigint-with-extensioncodec" class="anchor" aria-hidden="true" href="#handling-bigint-with-extensioncodec"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Handling BigInt with ExtensionCodec</h8>
 <p dir="auto">This library does not handle BigInt by default, but you can handle it with <code>ExtensionCodec</code> like this:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { deepStrictEqual } from "assert";
 import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
 
 const BIGINT_EXT_TYPE = 0; // Any in 0-127
@@ -11212,33 +11199,32 @@ extensionCodec.register({
 
 const value = BigInt(Number.MAX_SAFE_INTEGER) + BigInt(1);
 const encoded: = encode(value, { extensionCodec });
-deepStrictEqual(decode(encoded, { extensionCodec }), value);'><pre lang="typescript" class="notranslate"><code>import { deepStrictEqual } from "assert";
-import { encode, decode, ExtensionCodec } from "@msgpack/msgpack";
+deepStrictEqual(decode(encoded, { extensionCodec }), value);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">encode</span><span class="pl-kos">,</span> <span class="pl-s1">decode</span><span class="pl-kos">,</span> <span class="pl-smi">ExtensionCodec</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const BIGINT_EXT_TYPE = 0; // Any in 0-127
-const extensionCodec = new ExtensionCodec();
-extensionCodec.register({
-    type: BIGINT_EXT_TYPE,
-    encode: (input: unknown) =&gt; {
-        if (typeof input === "bigint") {
-            if (input &lt;= Number.MAX_SAFE_INTEGER &amp;&amp; input &gt;= Number.MIN_SAFE_INTEGER) {
-                return encode(parseInt(input.toString(), 10));
-            } else {
-                return encode(input.toString());
-            }
-        } else {
-            return null;
-        }
-    },
-    decode: (data: Uint8Array) =&gt; {
-        return BigInt(decode(data));
-    },
-});
+<span class="pl-k">const</span> <span class="pl-smi">BIGINT_EXT_TYPE</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">;</span> <span class="pl-c">// Any in 0-127</span>
+<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+    <span class="pl-c1">type</span>: <span class="pl-smi">BIGINT_EXT_TYPE</span><span class="pl-kos">,</span>
+    <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">input</span>: <span class="pl-smi">unknown</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+        <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-k">typeof</span> <span class="pl-s1">input</span> <span class="pl-c1">===</span> <span class="pl-s">"bigint"</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">input</span> <span class="pl-c1">&lt;=</span> <span class="pl-smi">Number</span><span class="pl-kos">.</span><span class="pl-c1">MAX_SAFE_INTEGER</span> <span class="pl-c1">&amp;&amp;</span> <span class="pl-s1">input</span> <span class="pl-c1">&gt;=</span> <span class="pl-smi">Number</span><span class="pl-kos">.</span><span class="pl-c1">MIN_SAFE_INTEGER</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+                <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-en">parseInt</span><span class="pl-kos">(</span><span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-en">toString</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-c1">10</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+            <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+                <span class="pl-k">return</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-en">toString</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+            <span class="pl-kos">}</span>
+        <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+            <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+    <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+        <span class="pl-k">return</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-const value = BigInt(Number.MAX_SAFE_INTEGER) + BigInt(1);
-const encoded: = encode(value, { extensionCodec });
-deepStrictEqual(decode(encoded, { extensionCodec }), value);
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-smi">Number</span><span class="pl-kos">.</span><span class="pl-c1">MAX_SAFE_INTEGER</span><span class="pl-kos">)</span> <span class="pl-c1">+</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-c1">1</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span>: <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">value</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <h8 dir="auto">
 <a id="user-content-the-temporal-module-as-timestamp-extensions" class="anchor" aria-hidden="true" href="#the-temporal-module-as-timestamp-extensions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>The temporal module as timestamp extensions</h8>
 <p dir="auto">There is a proposal for a new date/time representations in JavaScript:</p>
@@ -11246,7 +11232,7 @@ deepStrictEqual(decode(encoded, { extensionCodec }), value);
 <li><a href="https://github.com/tc39/proposal-temporal">https://github.com/tc39/proposal-temporal</a></li>
 </ul>
 <p dir="auto">This library maps <code>Date</code> to the MessagePack timestamp extension by default, but you can re-map the temporal module (or <a href="https://github.com/tc39/proposal-temporal/tree/main/polyfill">Temporal Polyfill</a>) to the timestamp extension like this:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='import { Instant } from "@std-proposal/temporal";
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import { Instant } from "@std-proposal/temporal";
 import { deepStrictEqual } from "assert";
 import {
   encode,
@@ -11280,42 +11266,41 @@ extensionCodec.register({
 const instant = Instant.fromEpochMilliseconds(Date.now());
 const encoded = encode(instant, { extensionCodec });
 const decoded = decode(encoded, { extensionCodec });
-deepStrictEqual(decoded, instant);'><pre lang="typescript" class="notranslate"><code>import { Instant } from "@std-proposal/temporal";
-import { deepStrictEqual } from "assert";
-import {
-  encode,
-  decode,
-  ExtensionCodec,
-  EXT_TIMESTAMP,
-  encodeTimeSpecToTimestamp,
-  decodeTimestampToTimeSpec,
-} from "@msgpack/msgpack";
+deepStrictEqual(decoded, instant);'><pre><span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-smi">Instant</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@std-proposal/temporal"</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">deepStrictEqual</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"assert"</span><span class="pl-kos">;</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span>
+  <span class="pl-s1">encode</span><span class="pl-kos">,</span>
+  <span class="pl-s1">decode</span><span class="pl-kos">,</span>
+  <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">,</span>
+  <span class="pl-smi">EXT_TIMESTAMP</span><span class="pl-kos">,</span>
+  <span class="pl-s1">encodeTimeSpecToTimestamp</span><span class="pl-kos">,</span>
+  <span class="pl-s1">decodeTimestampToTimeSpec</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">"@msgpack/msgpack"</span><span class="pl-kos">;</span>
 
-const extensionCodec = new ExtensionCodec();
-extensionCodec.register({
-  type: EXT_TIMESTAMP, // override the default behavior!
-  encode: (input: any) =&gt; {
-    if (input instanceof Instant) {
-      const sec = input.seconds;
-      const nsec = Number(input.nanoseconds - BigInt(sec) * BigInt(1e9));
-      return encodeTimeSpecToTimestamp({ sec, nsec });
-    } else {
-      return null;
-    }
-  },
-  decode: (data: Uint8Array) =&gt; {
-    const timeSpec = decodeTimestampToTimeSpec(data);
-    const sec = BigInt(timeSpec.sec);
-    const nsec = BigInt(timeSpec.nsec);
-    return Instant.fromEpochNanoseconds(sec * BigInt(1e9) + nsec);
-  },
-});
+<span class="pl-k">const</span> <span class="pl-s1">extensionCodec</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-smi">ExtensionCodec</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">extensionCodec</span><span class="pl-kos">.</span><span class="pl-en">register</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
+  <span class="pl-c1">type</span>: <span class="pl-smi">EXT_TIMESTAMP</span><span class="pl-kos">,</span> <span class="pl-c">// override the default behavior!</span>
+  <span class="pl-en">encode</span>: <span class="pl-kos">(</span><span class="pl-s1">input</span>: <span class="pl-smi">any</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">input</span> <span class="pl-k">instanceof</span> <span class="pl-smi">Instant</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+      <span class="pl-k">const</span> <span class="pl-s1">sec</span> <span class="pl-c1">=</span> <span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-c1">seconds</span><span class="pl-kos">;</span>
+      <span class="pl-k">const</span> <span class="pl-s1">nsec</span> <span class="pl-c1">=</span> <span class="pl-smi">Number</span><span class="pl-kos">(</span><span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-c1">nanoseconds</span> <span class="pl-c1">-</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-s1">sec</span><span class="pl-kos">)</span> <span class="pl-c1">*</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-c1">1e9</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+      <span class="pl-k">return</span> <span class="pl-en">encodeTimeSpecToTimestamp</span><span class="pl-kos">(</span><span class="pl-kos">{</span> sec<span class="pl-kos">,</span> nsec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+      <span class="pl-k">return</span> <span class="pl-c1">null</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+  <span class="pl-en">decode</span>: <span class="pl-kos">(</span><span class="pl-s1">data</span>: <span class="pl-smi">Uint8Array</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">timeSpec</span> <span class="pl-c1">=</span> <span class="pl-en">decodeTimestampToTimeSpec</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">const</span> <span class="pl-s1">sec</span> <span class="pl-c1">=</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-s1">timeSpec</span><span class="pl-kos">.</span><span class="pl-c1">sec</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">const</span> <span class="pl-s1">nsec</span> <span class="pl-c1">=</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-s1">timeSpec</span><span class="pl-kos">.</span><span class="pl-c1">nsec</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">return</span> <span class="pl-smi">Instant</span><span class="pl-kos">.</span><span class="pl-en">fromEpochNanoseconds</span><span class="pl-kos">(</span><span class="pl-s1">sec</span> <span class="pl-c1">*</span> <span class="pl-smi">BigInt</span><span class="pl-kos">(</span><span class="pl-c1">1e9</span><span class="pl-kos">)</span> <span class="pl-c1">+</span> <span class="pl-s1">nsec</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span><span class="pl-kos">,</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 
-const instant = Instant.fromEpochMilliseconds(Date.now());
-const encoded = encode(instant, { extensionCodec });
-const decoded = decode(encoded, { extensionCodec });
-deepStrictEqual(decoded, instant);
-</code></pre></div>
+<span class="pl-k">const</span> <span class="pl-s1">instant</span> <span class="pl-c1">=</span> <span class="pl-smi">Instant</span><span class="pl-kos">.</span><span class="pl-en">fromEpochMilliseconds</span><span class="pl-kos">(</span><span class="pl-smi">Date</span><span class="pl-kos">.</span><span class="pl-en">now</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">encoded</span> <span class="pl-c1">=</span> <span class="pl-en">encode</span><span class="pl-kos">(</span><span class="pl-s1">instant</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">decoded</span> <span class="pl-c1">=</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-s1">encoded</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> extensionCodec <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-en">deepStrictEqual</span><span class="pl-kos">(</span><span class="pl-s1">decoded</span><span class="pl-kos">,</span> <span class="pl-s1">instant</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <p dir="auto">This will become default in this library with major-version increment, if the temporal module is standardized.</p>
 <h6 dir="auto">
 <a id="user-content-decoding-a-blob" class="anchor" aria-hidden="true" href="#decoding-a-blob"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Decoding a Blob</h6>
@@ -11323,7 +11308,7 @@ deepStrictEqual(decoded, instant);
 is recommended if your target platform support it. This is because streaming
 decode should be faster for large objects. In both ways, you need to use
 asynchronous API.</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="async function decodeFromBlob(blob: Blob): unknown {
+<div class="highlight highlight-source-ts notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="async function decodeFromBlob(blob: Blob): unknown {
   if (blob.stream) {
     // Blob#stream(): ReadableStream&lt;Uint8Array&gt; (recommended)
     return await decodeAsync(blob.stream());
@@ -11331,16 +11316,15 @@ asynchronous API.</p>
     // Blob#arrayBuffer(): Promise&lt;ArrayBuffer&gt; (if stream() is not available)
     return decode(await blob.arrayBuffer());
   }
-}"><pre lang="typescript" class="notranslate"><code>async function decodeFromBlob(blob: Blob): unknown {
-  if (blob.stream) {
-    // Blob#stream(): ReadableStream&lt;Uint8Array&gt; (recommended)
-    return await decodeAsync(blob.stream());
-  } else {
-    // Blob#arrayBuffer(): Promise&lt;ArrayBuffer&gt; (if stream() is not available)
-    return decode(await blob.arrayBuffer());
-  }
-}
-</code></pre></div>
+}"><pre><span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">decodeFromBlob</span><span class="pl-kos">(</span><span class="pl-s1">blob</span>: <span class="pl-smi">Blob</span><span class="pl-kos">)</span>: <span class="pl-smi">unknown</span> <span class="pl-kos">{</span>
+  <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">blob</span><span class="pl-kos">.</span><span class="pl-c1">stream</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-c">// Blob#stream(): ReadableStream&lt;Uint8Array&gt; (recommended)</span>
+    <span class="pl-k">return</span> <span class="pl-k">await</span> <span class="pl-en">decodeAsync</span><span class="pl-kos">(</span><span class="pl-s1">blob</span><span class="pl-kos">.</span><span class="pl-en">stream</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+    <span class="pl-c">// Blob#arrayBuffer(): Promise&lt;ArrayBuffer&gt; (if stream() is not available)</span>
+    <span class="pl-k">return</span> <span class="pl-en">decode</span><span class="pl-kos">(</span><span class="pl-k">await</span> <span class="pl-s1">blob</span><span class="pl-kos">.</span><span class="pl-en">arrayBuffer</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">}</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-messagepack-specification" class="anchor" aria-hidden="true" href="#messagepack-specification"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack Specification</h6>
 <p dir="auto">This library is compatible with the "August 2017" revision of MessagePack specification at the point where timestamp ext was added:</p>
@@ -11538,8 +11522,7 @@ asynchronous API.</p>
 <h7 dir="auto">
 <a id="user-content-cdn--unpkgcom" class="anchor" aria-hidden="true" href="#cdn--unpkgcom"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>CDN / unpkg.com</h7>
 <p dir="auto">This library is available via CDN:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;script crossorigin src="https://unpkg.com/@msgpack/msgpack"&gt;&lt;/script&gt;'><pre lang="html" class="notranslate"><code>&lt;script crossorigin src="https://unpkg.com/@msgpack/msgpack"&gt;&lt;/script&gt;
-</code></pre></div>
+<div class="highlight highlight-text-html-basic notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='&lt;script crossorigin src="https://unpkg.com/@msgpack/msgpack"&gt;&lt;/script&gt;'><pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">crossorigin</span> <span class="pl-c1">src</span>="<span class="pl-s">https://unpkg.com/@msgpack/msgpack</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre></div>
 <p dir="auto">It loads <code>MessagePack</code> module to the global object.</p>
 <h6 dir="auto">
 <a id="user-content-deno-support" class="anchor" aria-hidden="true" href="#deno-support"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deno Support</h6>
@@ -11574,7 +11557,7 @@ asynchronous API.</p>
 <p dir="auto">See <a href="/msgpack/msgpack-javascript/blob/main/package.json">test:* in package.json</a> and <a href="/msgpack/msgpack-javascript/blob/main/.travis.yml">.travis.yml</a> for details.</p>
 <h7 dir="auto">
 <a id="user-content-release-engineering" class="anchor" aria-hidden="true" href="#release-engineering"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Release Engineering</h7>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# run tests on NodeJS, Chrome, and Firefox
+<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="# run tests on NodeJS, Chrome, and Firefox
 make test-all
 
 # edit the changelog
@@ -11584,22 +11567,20 @@ code CHANGELOG.md
 npm version patch|minor|major
 
 # run the publishing task
-make publish"><pre lang="console" class="notranslate"><code># run tests on NodeJS, Chrome, and Firefox
-make test-all
+make publish"><pre># <span class="pl-s1">run tests on NodeJS, Chrome, and Firefox</span>
+<span class="pl-c1">make test-all</span>
 
-# edit the changelog
-code CHANGELOG.md
+# <span class="pl-s1">edit the changelog</span>
+<span class="pl-c1">code CHANGELOG.md</span>
 
-# bump version
-npm version patch|minor|major
+# <span class="pl-s1">bump version</span>
+<span class="pl-c1">npm version patch|minor|major</span>
 
-# run the publishing task
-make publish
-</code></pre></div>
+# <span class="pl-s1">run the publishing task</span>
+<span class="pl-c1">make publish</span></pre></div>
 <h7 dir="auto">
 <a id="user-content-updating-dependencies" class="anchor" aria-hidden="true" href="#updating-dependencies"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Updating Dependencies</h7>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="npm run update-dependencies"><pre lang="console" class="notranslate"><code>npm run update-dependencies
-</code></pre></div>
+<div class="highlight highlight-text-shell-session notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="npm run update-dependencies"><pre><span class="pl-c1">npm run update-dependencies</span></pre></div>
 <h6 dir="auto">
 <a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
 <p dir="auto">Copyright 2019 The MessagePack community.</p>
@@ -16859,13 +16840,13 @@ with the appropriate signature. If the object has no such method then, an
 attempt will be made to store these pairs using <code>object[key] = value</code>.</li>
 </ul>
 <p dir="auto">A simple example:</p>
-<pre lang="python">&gt;&gt;&gt; from mood.msgpack import pack, unpack, register
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; from mood.msgpack import pack, unpack, register
 &gt;&gt;&gt; class Kiki(object):
 ...     def __init__(self, a, b):
 ...         self.a = a
 ...         self.b = b
 ...     def __repr__(self):
-...         return "&lt;Kiki object: a={0.a}, b={0.b}&gt;".format(self)
+...         return &quot;&lt;Kiki object: a={0.a}, b={0.b}&gt;&quot;.format(self)
 ...     def __reduce__(self):
 ...         return (Kiki, (self.a, self.b))
 ...
@@ -16877,13 +16858,35 @@ attempt will be made to store these pairs using <code>object[key] = value</code>
 bytearray(b'\xc7\x15\x7f\x92\xc7\x0e\x06\xa8__main__\xa4Kiki\x92\x01\x02')
 &gt;&gt;&gt; unpack(b)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 TypeError: cannot unpack &lt;class '__main__.Kiki'&gt;
 &gt;&gt;&gt; register(Kiki)
 &gt;&gt;&gt; unpack(b)
 &lt;Kiki object: a=1, b=2&gt;
-&gt;&gt;&gt;
-</pre>
+&gt;&gt;&gt;"><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">mood</span>.<span class="pl-s1">msgpack</span> <span class="pl-k">import</span> <span class="pl-s1">pack</span>, <span class="pl-s1">unpack</span>, <span class="pl-s1">register</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">class</span> <span class="pl-v">Kiki</span>(<span class="pl-s1">object</span>):
+...     <span class="pl-k">def</span> <span class="pl-en">__init__</span>(<span class="pl-s1">self</span>, <span class="pl-s1">a</span>, <span class="pl-s1">b</span>):
+...         <span class="pl-s1">self</span>.<span class="pl-s1">a</span> <span class="pl-c1">=</span> <span class="pl-s1">a</span>
+...         <span class="pl-s1">self</span>.<span class="pl-s1">b</span> <span class="pl-c1">=</span> <span class="pl-s1">b</span>
+...     <span class="pl-k">def</span> <span class="pl-en">__repr__</span>(<span class="pl-s1">self</span>):
+...         <span class="pl-k">return</span> <span class="pl-s">"&lt;Kiki object: a={0.a}, b={0.b}&gt;"</span>.<span class="pl-en">format</span>(<span class="pl-s1">self</span>)
+...     <span class="pl-k">def</span> <span class="pl-en">__reduce__</span>(<span class="pl-s1">self</span>):
+...         <span class="pl-k">return</span> (<span class="pl-v">Kiki</span>, (<span class="pl-s1">self</span>.<span class="pl-s1">a</span>, <span class="pl-s1">self</span>.<span class="pl-s1">b</span>))
+...
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">k</span> <span class="pl-c1">=</span> <span class="pl-v">Kiki</span>(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">k</span>
+<span class="pl-c1">&lt;</span><span class="pl-v">Kiki</span> <span class="pl-s1">object</span>: <span class="pl-s1">a</span><span class="pl-c1">=</span><span class="pl-c1">1</span>, <span class="pl-s1">b</span><span class="pl-c1">=</span><span class="pl-c1">2</span><span class="pl-c1">&gt;</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">b</span> <span class="pl-c1">=</span> <span class="pl-en">pack</span>(<span class="pl-s1">k</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">b</span>
+<span class="pl-en">bytearray</span>(<span class="pl-s">b'<span class="pl-cce">\xc7</span><span class="pl-cce">\x15</span><span class="pl-cce">\x7f</span><span class="pl-cce">\x92</span><span class="pl-cce">\xc7</span><span class="pl-cce">\x0e</span><span class="pl-cce">\x06</span><span class="pl-cce">\xa8</span>__main__<span class="pl-cce">\xa4</span>Kiki<span class="pl-cce">\x92</span><span class="pl-cce">\x01</span><span class="pl-cce">\x02</span>'</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-en">unpack</span>(<span class="pl-s1">b</span>)
+<span class="pl-v">Traceback</span> (<span class="pl-s1">most</span> <span class="pl-s1">recent</span> <span class="pl-s1">call</span> <span class="pl-s1">last</span>):
+  <span class="pl-v">File</span> <span class="pl-s">"&lt;stdin&gt;"</span>, <span class="pl-s1">line</span> <span class="pl-c1">1</span>, <span class="pl-s1">in</span> <span class="pl-c1">&lt;</span><span class="pl-s1">module</span><span class="pl-c1">&gt;</span>
+<span class="pl-v">TypeError</span>: <span class="pl-s1">cannot</span> <span class="pl-s1">unpack</span> <span class="pl-c1">&lt;</span><span class="pl-s1">class</span> <span class="pl-s">'__main__.Kiki'</span><span class="pl-c1">&gt;</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-en">register</span>(<span class="pl-v">Kiki</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-en">unpack</span>(<span class="pl-s1">b</span>)
+<span class="pl-c1">&lt;</span><span class="pl-v">Kiki</span> <span class="pl-s1">object</span>: <span class="pl-s1">a</span><span class="pl-c1">=</span><span class="pl-c1">1</span>, <span class="pl-s1">b</span><span class="pl-c1">=</span><span class="pl-c1">2</span><span class="pl-c1">&gt;</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span></pre></div>
 </dd>
 </dl>
 <a name="user-content-timestamp-datetime"></a>
@@ -16892,40 +16895,58 @@ TypeError: cannot unpack &lt;class '__main__.Kiki'&gt;
 <p dir="auto">Packing/unpacking objects from the <a href="https://docs.python.org/3.8/library/datetime.html#module-datetime" rel="nofollow">datetime</a> module is
 straightforward.</p>
 <p dir="auto">In the packing process:</p>
-<pre lang="python">&gt;&gt;&gt; import datetime
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import datetime
 &gt;&gt;&gt; from mood import msgpack
 &gt;&gt;&gt; d = datetime.datetime.now()
 &gt;&gt;&gt; d
 datetime.datetime(2020, 7, 31, 9, 41, 4, 139362)
 &gt;&gt;&gt; msgpack.pack(d)
 bytearray(b'\xc7#\x7f\x92\xc7\x12\x06\xa8datetime\xa8datetime\x91\xc4\n\x07\xe4\x07\x1f\t)\x04\x02 b')
-&gt;&gt;&gt;
-</pre>
+&gt;&gt;&gt;"><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">import</span> <span class="pl-s1">datetime</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">mood</span> <span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">d</span> <span class="pl-c1">=</span> <span class="pl-s1">datetime</span>.<span class="pl-s1">datetime</span>.<span class="pl-en">now</span>()
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">d</span>
+<span class="pl-s1">datetime</span>.<span class="pl-en">datetime</span>(<span class="pl-c1">2020</span>, <span class="pl-c1">7</span>, <span class="pl-c1">31</span>, <span class="pl-c1">9</span>, <span class="pl-c1">41</span>, <span class="pl-c1">4</span>, <span class="pl-c1">139362</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">pack</span>(<span class="pl-s1">d</span>)
+<span class="pl-en">bytearray</span>(<span class="pl-s">b'<span class="pl-cce">\xc7</span>#<span class="pl-cce">\x7f</span><span class="pl-cce">\x92</span><span class="pl-cce">\xc7</span><span class="pl-cce">\x12</span><span class="pl-cce">\x06</span><span class="pl-cce">\xa8</span>datetime<span class="pl-cce">\xa8</span>datetime<span class="pl-cce">\x91</span><span class="pl-cce">\xc4</span><span class="pl-cce">\n</span><span class="pl-cce">\x07</span><span class="pl-cce">\xe4</span><span class="pl-cce">\x07</span><span class="pl-cce">\x1f</span><span class="pl-cce">\t</span>)<span class="pl-cce">\x04</span><span class="pl-cce">\x02</span> b'</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span></pre></div>
 <p dir="auto">In the unpacking process:</p>
-<pre lang="python">&gt;&gt;&gt; import datetime
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import datetime
 &gt;&gt;&gt; from mood import msgpack
 &gt;&gt;&gt; msgpack.register(datetime.datetime)
 &gt;&gt;&gt; msgpack.unpack(bytearray(b'\xc7#\x7f\x92\xc7\x12\x06\xa8datetime\xa8datetime\x91\xc4\n\x07\xe4\x07\x1f\t)\x04\x02 b'))
 datetime.datetime(2020, 7, 31, 9, 41, 4, 139362)
-&gt;&gt;&gt;
-</pre>
+&gt;&gt;&gt;"><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">import</span> <span class="pl-s1">datetime</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">mood</span> <span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">register</span>(<span class="pl-s1">datetime</span>.<span class="pl-s1">datetime</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">unpack</span>(<span class="pl-en">bytearray</span>(<span class="pl-s">b'<span class="pl-cce">\xc7</span>#<span class="pl-cce">\x7f</span><span class="pl-cce">\x92</span><span class="pl-cce">\xc7</span><span class="pl-cce">\x12</span><span class="pl-cce">\x06</span><span class="pl-cce">\xa8</span>datetime<span class="pl-cce">\xa8</span>datetime<span class="pl-cce">\x91</span><span class="pl-cce">\xc4</span><span class="pl-cce">\n</span><span class="pl-cce">\x07</span><span class="pl-cce">\xe4</span><span class="pl-cce">\x07</span><span class="pl-cce">\x1f</span><span class="pl-cce">\t</span>)<span class="pl-cce">\x04</span><span class="pl-cce">\x02</span> b'</span>))
+<span class="pl-s1">datetime</span>.<span class="pl-en">datetime</span>(<span class="pl-c1">2020</span>, <span class="pl-c1">7</span>, <span class="pl-c1">31</span>, <span class="pl-c1">9</span>, <span class="pl-c1">41</span>, <span class="pl-c1">4</span>, <span class="pl-c1">139362</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span></pre></div>
 <p dir="auto">Packing/unpacking <a href="#timestamp">Timestamp</a> objects is also straightforward:</p>
-<pre lang="python">&gt;&gt;&gt; import time
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import time
 &gt;&gt;&gt; from mood import msgpack
 &gt;&gt;&gt; t = msgpack.Timestamp.fromtimestamp(time.time())
 &gt;&gt;&gt; t
 mood.msgpack.Timestamp(seconds=1596180901, nanoseconds=502492666)
 &gt;&gt;&gt; msgpack.pack(t)
 bytearray(b'\xd7\xffw\xcd\xb7\xe8_#\xc9\xa5')
-&gt;&gt;&gt;
-</pre>
-<pre lang="python">&gt;&gt;&gt; from mood import msgpack
+&gt;&gt;&gt;"><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">import</span> <span class="pl-s1">time</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">mood</span> <span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">t</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-v">Timestamp</span>.<span class="pl-en">fromtimestamp</span>(<span class="pl-s1">time</span>.<span class="pl-en">time</span>())
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">t</span>
+<span class="pl-s1">mood</span>.<span class="pl-s1">msgpack</span>.<span class="pl-v">Timestamp</span>(<span class="pl-s1">seconds</span><span class="pl-c1">=</span><span class="pl-c1">1596180901</span>, <span class="pl-s1">nanoseconds</span><span class="pl-c1">=</span><span class="pl-c1">502492666</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">pack</span>(<span class="pl-s1">t</span>)
+<span class="pl-en">bytearray</span>(<span class="pl-s">b'<span class="pl-cce">\xd7</span><span class="pl-cce">\xff</span>w<span class="pl-cce">\xcd</span><span class="pl-cce">\xb7</span><span class="pl-cce">\xe8</span>_#<span class="pl-cce">\xc9</span><span class="pl-cce">\xa5</span>'</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span></pre></div>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; from mood import msgpack
 &gt;&gt;&gt; msgpack.unpack(bytearray(b'\xd7\xffw\xcd\xb7\xe8_#\xc9\xa5'))
 mood.msgpack.Timestamp(seconds=1596180901, nanoseconds=502492666)
-&gt;&gt;&gt;
-</pre>
+&gt;&gt;&gt;"><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">mood</span> <span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">unpack</span>(<span class="pl-en">bytearray</span>(<span class="pl-s">b'<span class="pl-cce">\xd7</span><span class="pl-cce">\xff</span>w<span class="pl-cce">\xcd</span><span class="pl-cce">\xb7</span><span class="pl-cce">\xe8</span>_#<span class="pl-cce">\xc9</span><span class="pl-cce">\xa5</span>'</span>))
+<span class="pl-s1">mood</span>.<span class="pl-s1">msgpack</span>.<span class="pl-v">Timestamp</span>(<span class="pl-s1">seconds</span><span class="pl-c1">=</span><span class="pl-c1">1596180901</span>, <span class="pl-s1">nanoseconds</span><span class="pl-c1">=</span><span class="pl-c1">502492666</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span></pre></div>
 <p dir="auto">Converting between <a href="#timestamp">Timestamp</a> and <a href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" rel="nofollow">datetime.datetime</a> objects:</p>
-<pre lang="python">&gt;&gt;&gt; import datetime
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import datetime
 &gt;&gt;&gt; from mood import msgpack
 &gt;&gt;&gt; d1 = datetime.datetime.now()
 &gt;&gt;&gt; d1
@@ -16938,8 +16959,20 @@ mood.msgpack.Timestamp(seconds=1596180678, nanoseconds=040405989)
 datetime.datetime(2020, 7, 31, 9, 31, 18, 40406)
 &gt;&gt;&gt; d2 == d1
 True
-&gt;&gt;&gt;
-</pre>
+&gt;&gt;&gt;"><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">import</span> <span class="pl-s1">datetime</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">mood</span> <span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">d1</span> <span class="pl-c1">=</span> <span class="pl-s1">datetime</span>.<span class="pl-s1">datetime</span>.<span class="pl-en">now</span>()
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">d1</span>
+<span class="pl-s1">datetime</span>.<span class="pl-en">datetime</span>(<span class="pl-c1">2020</span>, <span class="pl-c1">7</span>, <span class="pl-c1">31</span>, <span class="pl-c1">9</span>, <span class="pl-c1">31</span>, <span class="pl-c1">18</span>, <span class="pl-c1">40406</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">t</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-v">Timestamp</span>.<span class="pl-en">fromtimestamp</span>(<span class="pl-s1">d1</span>.<span class="pl-en">timestamp</span>())
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">t</span>
+<span class="pl-s1">mood</span>.<span class="pl-s1">msgpack</span>.<span class="pl-v">Timestamp</span>(<span class="pl-s1">seconds</span><span class="pl-c1">=</span><span class="pl-c1">1596180678</span>, <span class="pl-s1">nanoseconds</span><span class="pl-c1">=</span><span class="pl-c1">040405989</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">d2</span> <span class="pl-c1">=</span> <span class="pl-s1">datetime</span>.<span class="pl-s1">datetime</span>.<span class="pl-en">fromtimestamp</span>(<span class="pl-s1">t</span>.<span class="pl-en">timestamp</span>())
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">d2</span>
+<span class="pl-s1">datetime</span>.<span class="pl-en">datetime</span>(<span class="pl-c1">2020</span>, <span class="pl-c1">7</span>, <span class="pl-c1">31</span>, <span class="pl-c1">9</span>, <span class="pl-c1">31</span>, <span class="pl-c1">18</span>, <span class="pl-c1">40406</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">d2</span> <span class="pl-c1">==</span> <span class="pl-s1">d1</span>
+<span class="pl-c1">True</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span></pre></div>
 <p dir="auto"><strong>Note:</strong> <a href="#timestamp">Timestamp</a> objects do not carry timezone information and naive
 <a href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" rel="nofollow">datetime.datetime</a>
 instances are assumed to represent local time.</p>
@@ -16967,11 +17000,13 @@ like -1.2 should be instantiated as Timestamp(-2, 800000000).</p>
 <dd>
 <p dir="auto">Return a new <a href="#timestamp">Timestamp</a> instance corresponding to the <em>timestamp</em>
 (int/float) argument. Example:</p>
-<pre lang="python">&gt;&gt;&gt; from mood import msgpack
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; from mood import msgpack
 &gt;&gt;&gt; msgpack.Timestamp.fromtimestamp(-1.2)
 mood.msgpack.Timestamp(seconds=-2, nanoseconds=800000000)
-&gt;&gt;&gt;
-</pre>
+&gt;&gt;&gt;"><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">mood</span> <span class="pl-k">import</span> <span class="pl-s1">msgpack</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">msgpack</span>.<span class="pl-v">Timestamp</span>.<span class="pl-en">fromtimestamp</span>(<span class="pl-c1">-</span><span class="pl-c1">1.2</span>)
+<span class="pl-s1">mood</span>.<span class="pl-s1">msgpack</span>.<span class="pl-v">Timestamp</span>(<span class="pl-s1">seconds</span><span class="pl-c1">=</span><span class="pl-c1">-</span><span class="pl-c1">2</span>, <span class="pl-s1">nanoseconds</span><span class="pl-c1">=</span><span class="pl-c1">800000000</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span></pre></div>
 </dd>
 <dt>timestamp()</dt>
 <dd>Return the floating point timestamp corresponding to this <a href="#timestamp">Timestamp</a>
