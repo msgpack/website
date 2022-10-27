@@ -239,6 +239,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-erlang',this)">Erlang <span class="qs-sub">msgpack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-Gab-km-msgpack-fsharp',this)">F# <span class="qs-sub">Gab-km</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-pocketberserker-MessagePack-FSharpExtensions',this)">F# <span class="qs-sub">pocketberserker</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-xtpor-godot-msgpack',this)">GDScript <span class="qs-sub">xtpor</span></a></li>
@@ -305,8 +307,6 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-forzafootball-msgpack-objc',this)">Objective-C <span class="qs-sub">forzafootball</span></a></li>
           
-          <li><a class="qs-a" onclick="changeQuickStart('qs-forzafootball-msgpack-objc',this)">Objective-C <span class="qs-sub">forzafootball</span></a></li>
-          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-php',this)">PHP <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-rybakit-msgpack-php',this)">PHP <span class="qs-sub">rybakit</span></a></li>
@@ -322,6 +322,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-patriksimek-msgpack-postgres',this)">PostgreSQL <span class="qs-sub">patriksimek</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-python',this)">Python <span class="qs-sub">msgpack</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-vsergeev-u-msgpack-python',this)">Python <span class="qs-sub">vsergeev</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-polyglotted-msgpack-python',this)">Python <span class="qs-sub">polyglotted</span></a></li>
           
@@ -349,6 +351,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-dankogai-swift-sion',this)">SION,Swift <span class="qs-sub">dankogai</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-tkob-mlmsgpack',this)">SML <span class="qs-sub">tkob</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-scala',this)">Scala <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-core',this)">Scala <span class="qs-sub">msgpack4z</span></a></li>
@@ -369,6 +373,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-swiftstack-messagepack',this)">Swift <span class="qs-sub">swiftstack</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-cherrywoods-swift-msgpack-serialization',this)">Swift, java compatibel <span class="qs-sub">cherrywoods</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-samclaus-msgpack-ts',this)">TypeScript/JavaScript <span class="qs-sub">samclaus</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ludocode-msgpack-tools',this)">UNIX Shell <span class="qs-sub">ludocode</span></a></li>
@@ -380,8 +386,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-Asmod4n-mruby-simplemsgpack',this)">mruby <span class="qs-sub">Asmod4n</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-tagomoris-msgpack-inspect',this)">msgpack-inspect <span class="qs-sub">tagomoris</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-argonaut',this)">scala-native <span class="qs-sub">msgpack4z</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack4z-msgpack4z-argonaut',this)">scala-native <span class="qs-sub">msgpack4z</span></a></li>
           
@@ -7875,6 +7879,51 @@ OTP 17.0.</p>
   </div>
         </div>
         
+        <div id="qs-Gab-km-msgpack-fsharp" class="qs"><h4><a href="https://github.com/Gab-km/msgpack-fsharp" target="_blank">Gab-km/msgpack-fsharp <span class="qs-url">https://github.com/Gab-km/msgpack-fsharp</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-f" class="anchor" aria-hidden="true" href="#messagepack-for-f"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for F#</h5>
+<a href="https://ci.appveyor.com/project/Gabkm/msgpack-fsharp" rel="nofollow"><img alt="Build status" src="https://camo.githubusercontent.com/1f7cffc51ca63b15172beee90f4313cd0f9302210bf8ee32896e06f8bb039396/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f71676871726c376e777139366176616c" data-canonical-src="https://ci.appveyor.com/api/projects/status/qghqrl7nwq96aval" style="max-width: 100%;"></a>
+<a name="user-content-what-is-this"></a>
+<h6 dir="auto">
+<a id="user-content-what-is-this" class="anchor" aria-hidden="true" href="#what-is-this"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>What is this?</h6>
+<p dir="auto">MessagePack is a fast and compact binary serialization library.</p>
+<p dir="auto">MessagePack for F# is a MessagePack implementation of F#, by F#, for F#.</p>
+<a name="user-content-usage"></a>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<div class="highlight highlight-source-fsharp notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="open MsgPack
+
+[| 1uy; 2uy; 3uy |]
+|&gt; Array.map (Value.UInt8)
+|&gt; Value.Array
+|&gt; Packer.packOne
+//=&gt; val it : byte [] = [|147uy; 1uy; 2uy; 3uy|]
+
+Unpacker.unpack [|147uy; 1uy; 2uy; 3uy|]
+//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]"><pre><span class="pl-k">open</span> <span class="pl-en">MsgPack</span>
+
+<span class="pl-k">[|</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy <span class="pl-k">|]</span>
+<span class="pl-k">|&gt;</span> Array.map <span class="pl-k">(</span>Value.UInt8<span class="pl-k">)</span>
+<span class="pl-k">|&gt;</span> Value.Array
+<span class="pl-k">|&gt;</span> Packer.packOne
+<span class="pl-c">//=&gt; val it : byte [] = [|147uy; 1uy; 2uy; 3uy|]</span>
+
+Unpacker.unpack <span class="pl-k">[|</span><span class="pl-c1">147</span>uy<span class="pl-k">;</span> <span class="pl-c1">1</span>uy<span class="pl-k">;</span> <span class="pl-c1">2</span>uy<span class="pl-k">;</span> <span class="pl-c1">3</span>uy<span class="pl-k">|]</span>
+<span class="pl-c">//=&gt; [|Value.Array [|Value.UInt8 1uy; Value.UInt8 2uy; Value.UInt8 3uy|]|]</span></pre></div>
+<a name="user-content-copyright"></a>
+<h6 dir="auto">
+<a id="user-content-copyright" class="anchor" aria-hidden="true" href="#copyright"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Copyright</h6>
+<p dir="auto"><code>Copyright (c) 2014- Kazuhiro Matsushima</code></p>
+<a name="user-content-license"></a>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">Distributed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow">Apache License, Version 2.0</a> .</p>
+
+</article>
+  </div>
+        </div>
+        
         <div id="qs-pocketberserker-MessagePack-FSharpExtensions" class="qs"><h4><a href="https://github.com/pocketberserker/MessagePack.FSharpExtensions" target="_blank">pocketberserker/MessagePack.FSharpExtensions <span class="qs-url">https://github.com/pocketberserker/MessagePack.FSharpExtensions</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -14347,51 +14396,6 @@ serialized as native MessagePack timestamps.</p>
   </div>
         </div>
         
-        <div id="qs-forzafootball-msgpack-objc" class="qs"><h4><a href="https://github.com/forzafootball/msgpack-objc" target="_blank">forzafootball/msgpack-objc <span class="qs-url">https://github.com/forzafootball/msgpack-objc</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack-objc" class="anchor" aria-hidden="true" href="#msgpack-objc"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack-objc</h5>
-<p dir="auto">An Objective-C wrapper for <a href="https://github.com/msgpack/msgpack-c">msgpack-c</a>. Focuses on ease of use and speed.
-If you need configurability, there are other, more advanced libraries, for example <a href="https://github.com/gabriel/MPMessagePack">MPMessagePack</a>.</p>
-<p dir="auto">This library will always try to use sane defaults. If any nil value is encountered in the MessagePack-data, the object will
-be omitted instead of returning an <code>[NSNull null]</code>. This means that there can be no nil objects in dictionaries, and object-less
-keys will be lost in translation.</p>
-<h7 dir="auto">
-<a id="user-content-example-usage" class="anchor" aria-hidden="true" href="#example-usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example usage:</h7>
-<div class="highlight highlight-source-objc notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='#import &lt;msgpack-objc/MessagePack.h&gt;
-
-NSDictionary *dictionary = @{@"name": @"msgpack-objc"};
-
-NSData *messagePackData = [MessagePack packObject:dictionary];
-NSDictionary *unpackedDictionary = [MessagePack unpackData:messagePackData];'><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>msgpack-objc/MessagePack.h<span class="pl-pds">&gt;</span></span>
-
-<span class="pl-c1">NSDictionary</span> *dictionary = @{<span class="pl-s"><span class="pl-pds">@"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>msgpack-objc<span class="pl-pds">"</span></span>};
-
-<span class="pl-c1">NSData</span> *messagePackData = [MessagePack <span class="pl-c1">packObject:</span>dictionary];
-<span class="pl-c1">NSDictionary</span> *unpackedDictionary = [MessagePack <span class="pl-c1">unpackData:</span>messagePackData];</pre></div>
-<h7 dir="auto">
-<a id="user-content-supported-native-types" class="anchor" aria-hidden="true" href="#supported-native-types"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Supported native types:</h7>
-<ul dir="auto">
-<li><code>NSArray</code></li>
-<li><code>NSData</code></li>
-<li>
-<code>NSDate</code> (using <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#timestamp-extension-type">MessagePack timestamps</a>)</li>
-<li><code>NSDictionary</code></li>
-<li>
-<code>NSNumber</code> (<code>boolean</code>, <code>u64</code>, <code>i64</code>, <code>float32/64</code>)</li>
-<li><code>NSString</code></li>
-</ul>
-<h6 dir="auto">
-<a id="user-content-extension-support" class="anchor" aria-hidden="true" href="#extension-support"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Extension support</h6>
-<p dir="auto">The library supports <a href="https://github.com/msgpack/msgpack/blob/master/spec.md#timestamp-extension-type">MessagePack timestamps</a>,
-and will return an <code>NSDate</code>-object whenever one is encountered. When serializing, any <code>NSDate</code>-objects will also be
-serialized as native MessagePack timestamps.</p>
-<p dir="auto">You can add native serialization for your own classes by conforming to protocol <code>MessagePackSerializable</code> and register it like this:</p>
-<div class="highlight highlight-source-c notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="[MessagePack registerClass:Person.class forExtensionType:14];"><pre>[MessagePack registerClass:Person.class forExtensionType:<span class="pl-c1">14</span>];</pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-msgpack-msgpack-php" class="qs"><h4><a href="https://github.com/msgpack/msgpack-php" target="_blank">msgpack/msgpack-php <span class="qs-url">https://github.com/msgpack/msgpack-php</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -16647,6 +16651,205 @@ You can use <code>gc.disable()</code> when unpacking large message.</p>
 <p dir="auto">List is the default sequence type of Python.
 But tuple is lighter than list.
 You can use <code>use_list=False</code> while unpacking when performance is important.</p>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-vsergeev-u-msgpack-python" class="qs"><h4><a href="https://github.com/vsergeev/u-msgpack-python" target="_blank">vsergeev/u-msgpack-python <span class="qs-url">https://github.com/vsergeev/u-msgpack-python</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-u-msgpack-python---" class="anchor" aria-hidden="true" href="#u-msgpack-python---"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>u-msgpack-python <a href="https://travis-ci.org/vsergeev/u-msgpack-python" rel="nofollow"><img src="https://camo.githubusercontent.com/834ea06f8f8557d4c016ea6185ee5503e992798b2eed481f0fca8e7fd3ff7ad6/68747470733a2f2f7472617669732d63692e6f72672f76736572676565762f752d6d73677061636b2d707974686f6e2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/vsergeev/u-msgpack-python.svg?branch=master" style="max-width: 100%;"></a> <a href="https://github.com/vsergeev/u-msgpack-python"><img src="https://camo.githubusercontent.com/6b1b8a71292b73f56ef5b0307100c84231d761349b36678b7271ba614ec51c41/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f76736572676565762f752d6d73677061636b2d707974686f6e2e7376673f6d61784167653d37323030" alt="GitHub release" data-canonical-src="https://img.shields.io/github/release/vsergeev/u-msgpack-python.svg?maxAge=7200" style="max-width: 100%;"></a> <a href="https://github.com/vsergeev/u-msgpack-python/blob/master/LICENSE"><img src="https://camo.githubusercontent.com/83d3746e5881c1867665223424263d8e604df233d0a11aae0813e0414d433943/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667" alt="License" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg" style="max-width: 100%;"></a>
+</h5>
+<p dir="auto">u-msgpack-python is a lightweight <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> serializer and deserializer module written in pure Python, compatible with both Python 2 and 3, as well CPython and PyPy implementations of Python. u-msgpack-python is fully compliant with the latest <a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack specification</a>.</p>
+<p dir="auto">u-msgpack-python is currently distributed on PyPI: <a href="https://pypi.python.org/pypi/u-msgpack-python" rel="nofollow">https://pypi.python.org/pypi/u-msgpack-python</a> and as a single file: <a href="https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py">umsgpack.py</a></p>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">With pip:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ pip install u-msgpack-python"><pre lang="text" class="notranslate"><code>$ pip install u-msgpack-python
+</code></pre></div>
+<p dir="auto">With easy_install:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ easy_install u-msgpack-python"><pre lang="text" class="notranslate"><code>$ easy_install u-msgpack-python
+</code></pre></div>
+<p dir="auto">or simply drop <a href="https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py">umsgpack.py</a> into your project!</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ wget https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py"><pre lang="text" class="notranslate"><code>$ wget https://raw.github.com/vsergeev/u-msgpack-python/master/umsgpack.py
+</code></pre></div>
+<h6 dir="auto">
+<a id="user-content-examples" class="anchor" aria-hidden="true" href="#examples"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Examples</h6>
+<p dir="auto">Basic Example:</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; import umsgpack
+&gt;&gt;&gt; umsgpack.packb({u&quot;compact&quot;: True, u&quot;schema&quot;: 0})
+b'\x82\xa7compact\xc3\xa6schema\x00'
+&gt;&gt;&gt; umsgpack.unpackb(_)
+{u'compact': True, u'schema': 0}
+&gt;&gt;&gt; "><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">import</span> <span class="pl-s1">umsgpack</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">packb</span>({<span class="pl-s">u"compact"</span>: <span class="pl-c1">True</span>, <span class="pl-s">u"schema"</span>: <span class="pl-c1">0</span>})
+<span class="pl-s">b'<span class="pl-cce">\x82</span><span class="pl-cce">\xa7</span>compact<span class="pl-cce">\xc3</span><span class="pl-cce">\xa6</span>schema<span class="pl-cce">\x00</span>'</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">unpackb</span>(<span class="pl-s1">_</span>)
+{<span class="pl-s">u'compact'</span>: <span class="pl-c1">True</span>, <span class="pl-s">u'schema'</span>: <span class="pl-c1">0</span>}
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> </pre></div>
+<p dir="auto">A more complicated example:</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; umsgpack.packb(
+...     [1, True, False, 0xffffffff, {u&quot;foo&quot;: b&quot;\x80\x01\x02&quot;,
+...      u&quot;bar&quot;: [1,2,3, {u&quot;a&quot;: [1,2,3,{}]}]}, -1, 2.12345] )
+b'\x97\x01\xc3\xc2\xce\xff\xff\xff\xff\x82\xa3foo\xc4\x03\x80\x01\
+\x02\xa3bar\x94\x01\x02\x03\x81\xa1a\x94\x01\x02\x03\x80\xff\xcb\
+@\x00\xfc\xd3Z\x85\x87\x94'
+&gt;&gt;&gt; umsgpack.unpackb(_)
+[1, True, False, 4294967295, {u'foo': b'\x80\x01\x02', \
+ u'bar': [1, 2, 3, {u'a': [1, 2, 3, {}]}]}, -1, 2.12345]
+&gt;&gt;&gt; "><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">packb</span>(
+...     [<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">0xffffffff</span>, {<span class="pl-s">u"foo"</span>: <span class="pl-s">b"<span class="pl-cce">\x80</span><span class="pl-cce">\x01</span><span class="pl-cce">\x02</span>"</span>,
+...      <span class="pl-s">u"bar"</span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>, {<span class="pl-s">u"a"</span>: [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,{}]}]}, <span class="pl-c1">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>] )
+<span class="pl-s">b'<span class="pl-cce">\x97</span><span class="pl-cce">\x01</span><span class="pl-cce">\xc3</span><span class="pl-cce">\xc2</span><span class="pl-cce">\xce</span><span class="pl-cce">\xff</span><span class="pl-cce">\xff</span><span class="pl-cce">\xff</span><span class="pl-cce">\xff</span><span class="pl-cce">\x82</span><span class="pl-cce">\xa3</span>foo<span class="pl-cce">\xc4</span><span class="pl-cce">\x03</span><span class="pl-cce">\x80</span><span class="pl-cce">\x01</span><span class="pl-cce">\</span></span>
+<span class="pl-s"><span class="pl-cce">\x02</span><span class="pl-cce">\xa3</span>bar<span class="pl-cce">\x94</span><span class="pl-cce">\x01</span><span class="pl-cce">\x02</span><span class="pl-cce">\x03</span><span class="pl-cce">\x81</span><span class="pl-cce">\xa1</span>a<span class="pl-cce">\x94</span><span class="pl-cce">\x01</span><span class="pl-cce">\x02</span><span class="pl-cce">\x03</span><span class="pl-cce">\x80</span><span class="pl-cce">\xff</span><span class="pl-cce">\xcb</span><span class="pl-cce">\</span></span>
+<span class="pl-s"><span class="pl-cce"></span>@<span class="pl-cce">\x00</span><span class="pl-cce">\xfc</span><span class="pl-cce">\xd3</span>Z<span class="pl-cce">\x85</span><span class="pl-cce">\x87</span><span class="pl-cce">\x94</span>'</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">unpackb</span>(<span class="pl-s1">_</span>)
+[<span class="pl-c1">1</span>, <span class="pl-c1">True</span>, <span class="pl-c1">False</span>, <span class="pl-c1">4294967295</span>, {<span class="pl-s">u'foo'</span>: <span class="pl-s">b'<span class="pl-cce">\x80</span><span class="pl-cce">\x01</span><span class="pl-cce">\x02</span>'</span>, \
+ <span class="pl-s">u'bar'</span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {<span class="pl-s">u'a'</span>: [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, {}]}]}, <span class="pl-c1">-</span><span class="pl-c1">1</span>, <span class="pl-c1">2.12345</span>]
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> </pre></div>
+<p dir="auto">Streaming serialization with file-like objects:</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; f = open('test.bin', 'wb')
+&gt;&gt;&gt; umsgpack.pack({u&quot;compact&quot;: True, u&quot;schema&quot;: 0}, f)
+&gt;&gt;&gt; umsgpack.pack([1,2,3], f)
+&gt;&gt;&gt; f.close()
+&gt;&gt;&gt; 
+&gt;&gt;&gt; f = open('test.bin', 'rb')
+&gt;&gt;&gt; umsgpack.unpack(f)
+{u'compact': True, u'schema': 0}
+&gt;&gt;&gt; umsgpack.unpack(f)
+[1, 2, 3]
+&gt;&gt;&gt; f.close()
+&gt;&gt;&gt; "><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">f</span> <span class="pl-c1">=</span> <span class="pl-en">open</span>(<span class="pl-s">'test.bin'</span>, <span class="pl-s">'wb'</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">pack</span>({<span class="pl-s">u"compact"</span>: <span class="pl-c1">True</span>, <span class="pl-s">u"schema"</span>: <span class="pl-c1">0</span>}, <span class="pl-s1">f</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">pack</span>([<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>], <span class="pl-s1">f</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">f</span>.<span class="pl-en">close</span>()
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> 
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">f</span> <span class="pl-c1">=</span> <span class="pl-en">open</span>(<span class="pl-s">'test.bin'</span>, <span class="pl-s">'rb'</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">unpack</span>(<span class="pl-s1">f</span>)
+{<span class="pl-s">u'compact'</span>: <span class="pl-c1">True</span>, <span class="pl-s">u'schema'</span>: <span class="pl-c1">0</span>}
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">unpack</span>(<span class="pl-s1">f</span>)
+[<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>]
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">f</span>.<span class="pl-en">close</span>()
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> </pre></div>
+<p dir="auto">Serializing and deserializing a raw Ext type:</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; # Create an Ext object with type 5 and data b&quot;\x01\x02\x03&quot;
+... foo = umsgpack.Ext(5, b&quot;\x01\x02\x03&quot;)
+&gt;&gt;&gt; umsgpack.packb({u&quot;stuff&quot;: foo, u&quot;awesome&quot;: True})
+b'\x82\xa5stuff\xc7\x03\x05\x01\x02\x03\xa7awesome\xc3'
+&gt;&gt;&gt; 
+&gt;&gt;&gt; bar = umsgpack.unpackb(_)
+&gt;&gt;&gt; print(bar['stuff'])
+Ext Object (Type: 5, Data: 0x01 0x02 0x03)
+&gt;&gt;&gt; bar['stuff'].type
+5
+&gt;&gt;&gt; bar['stuff'].data
+b'\x01\x02\x03'
+&gt;&gt;&gt; "><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-c"># Create an Ext object with type 5 and data b"\x01\x02\x03"</span>
+... <span class="pl-s1">foo</span> <span class="pl-c1">=</span> <span class="pl-s1">umsgpack</span>.<span class="pl-v">Ext</span>(<span class="pl-c1">5</span>, <span class="pl-s">b"<span class="pl-cce">\x01</span><span class="pl-cce">\x02</span><span class="pl-cce">\x03</span>"</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">packb</span>({<span class="pl-s">u"stuff"</span>: <span class="pl-s1">foo</span>, <span class="pl-s">u"awesome"</span>: <span class="pl-c1">True</span>})
+<span class="pl-s">b'<span class="pl-cce">\x82</span><span class="pl-cce">\xa5</span>stuff<span class="pl-cce">\xc7</span><span class="pl-cce">\x03</span><span class="pl-cce">\x05</span><span class="pl-cce">\x01</span><span class="pl-cce">\x02</span><span class="pl-cce">\x03</span><span class="pl-cce">\xa7</span>awesome<span class="pl-cce">\xc3</span>'</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> 
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">bar</span> <span class="pl-c1">=</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">unpackb</span>(<span class="pl-s1">_</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-en">print</span>(<span class="pl-s1">bar</span>[<span class="pl-s">'stuff'</span>])
+<span class="pl-v">Ext</span> <span class="pl-v">Object</span> (<span class="pl-v">Type</span>: <span class="pl-c1">5</span>, <span class="pl-v">Data</span>: <span class="pl-c1">0x01</span> <span class="pl-c1">0x02</span> <span class="pl-c1">0x03</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">bar</span>[<span class="pl-s">'stuff'</span>].<span class="pl-s1">type</span>
+<span class="pl-c1">5</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">bar</span>[<span class="pl-s">'stuff'</span>].<span class="pl-s1">data</span>
+<span class="pl-s">b'<span class="pl-cce">\x01</span><span class="pl-cce">\x02</span><span class="pl-cce">\x03</span>'</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> </pre></div>
+<p dir="auto">Serializing and deserializing application-defined types with <code>ext_serializable()</code>:</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; @umsgpack.ext_serializable(0x50)
+... class Point(collections.namedtuple('Point', ['x', 'y'])):
+...     def packb(self):
+...         return struct.pack(&quot;&gt;ii&quot;, self.x, self.y)
+...     @staticmethod
+...     def unpackb(data):
+...         return Point(*struct.unpack(&quot;&gt;ii&quot;, data))
+... 
+&gt;&gt;&gt; umsgpack.packb(Point(1, 2))
+b'\xd7P\x00\x00\x00\x01\x00\x00\x00\x02'
+&gt;&gt;&gt; umsgpack.unpackb(_)
+Point(x=1, y=2)
+&gt;&gt;&gt; "><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-en">@<span class="pl-s1">umsgpack</span>.<span class="pl-en">ext_serializable</span>(<span class="pl-c1">0x50</span>)</span>
+... <span class="pl-k">class</span> <span class="pl-v">Point</span>(<span class="pl-s1">collections</span>.<span class="pl-en">namedtuple</span>(<span class="pl-s">'Point'</span>, [<span class="pl-s">'x'</span>, <span class="pl-s">'y'</span>])):
+...     <span class="pl-k">def</span> <span class="pl-en">packb</span>(<span class="pl-s1">self</span>):
+...         <span class="pl-k">return</span> <span class="pl-s1">struct</span>.<span class="pl-en">pack</span>(<span class="pl-s">"&gt;ii"</span>, <span class="pl-s1">self</span>.<span class="pl-s1">x</span>, <span class="pl-s1">self</span>.<span class="pl-s1">y</span>)
+...     @<span class="pl-s1">staticmethod</span>
+...     <span class="pl-k">def</span> <span class="pl-en">unpackb</span>(<span class="pl-s1">data</span>):
+...         <span class="pl-k">return</span> <span class="pl-v">Point</span>(<span class="pl-c1">*</span><span class="pl-s1">struct</span>.<span class="pl-en">unpack</span>(<span class="pl-s">"&gt;ii"</span>, <span class="pl-s1">data</span>))
+... 
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">packb</span>(<span class="pl-v">Point</span>(<span class="pl-c1">1</span>, <span class="pl-c1">2</span>))
+<span class="pl-s">b'<span class="pl-cce">\xd7</span>P<span class="pl-cce">\x00</span><span class="pl-cce">\x00</span><span class="pl-cce">\x00</span><span class="pl-cce">\x01</span><span class="pl-cce">\x00</span><span class="pl-cce">\x00</span><span class="pl-cce">\x00</span><span class="pl-cce">\x02</span>'</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">unpackb</span>(<span class="pl-s1">_</span>)
+<span class="pl-v">Point</span>(<span class="pl-s1">x</span><span class="pl-c1">=</span><span class="pl-c1">1</span>, <span class="pl-s1">y</span><span class="pl-c1">=</span><span class="pl-c1">2</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> </pre></div>
+<p dir="auto">Serializing and deserializing application-defined types with Ext handlers:</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; umsgpack.packb([complex(1,2), decimal.Decimal(&quot;0.31&quot;)],
+...  ext_handlers = {
+...   complex: lambda obj:
+...     umsgpack.Ext(0x30, struct.pack(&quot;ff&quot;, obj.real, obj.imag)),
+...   decimal.Decimal: lambda obj:
+...     umsgpack.Ext(0x40, str(obj).encode()),
+... })
+b'\x92\xd70\x00\x00\x80?\x00\x00\x00@\xd6@0.31'
+&gt;&gt;&gt; umsgpack.unpackb(_,
+...  ext_handlers = {
+...   0x30: lambda ext:
+...     complex(*struct.unpack(&quot;ff&quot;, ext.data)),
+...   0x40: lambda ext:
+...     decimal.Decimal(ext.data.decode()),
+... })
+[(1+2j), Decimal('0.31')]
+&gt;&gt;&gt; "><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">packb</span>([<span class="pl-en">complex</span>(<span class="pl-c1">1</span>,<span class="pl-c1">2</span>), <span class="pl-s1">decimal</span>.<span class="pl-v">Decimal</span>(<span class="pl-s">"0.31"</span>)],
+...  <span class="pl-s1">ext_handlers</span> <span class="pl-c1">=</span> {
+...   <span class="pl-s1">complex</span>: <span class="pl-k">lambda</span> <span class="pl-s1">obj</span>:
+...     <span class="pl-s1">umsgpack</span>.<span class="pl-v">Ext</span>(<span class="pl-c1">0x30</span>, <span class="pl-s1">struct</span>.<span class="pl-en">pack</span>(<span class="pl-s">"ff"</span>, <span class="pl-s1">obj</span>.<span class="pl-s1">real</span>, <span class="pl-s1">obj</span>.<span class="pl-s1">imag</span>)),
+...   <span class="pl-s1">decimal</span>.<span class="pl-v">Decimal</span>: <span class="pl-k">lambda</span> <span class="pl-s1">obj</span>:
+...     <span class="pl-s1">umsgpack</span>.<span class="pl-v">Ext</span>(<span class="pl-c1">0x40</span>, <span class="pl-en">str</span>(<span class="pl-s1">obj</span>).<span class="pl-en">encode</span>()),
+... })
+<span class="pl-s">b'<span class="pl-cce">\x92</span><span class="pl-cce">\xd7</span>0<span class="pl-cce">\x00</span><span class="pl-cce">\x00</span><span class="pl-cce">\x80</span>?<span class="pl-cce">\x00</span><span class="pl-cce">\x00</span><span class="pl-cce">\x00</span>@<span class="pl-cce">\xd6</span>@0.31'</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">unpackb</span>(<span class="pl-s1">_</span>,
+...  <span class="pl-s1">ext_handlers</span> <span class="pl-c1">=</span> {
+...   <span class="pl-c1">0x30</span>: <span class="pl-k">lambda</span> <span class="pl-s1">ext</span>:
+...     <span class="pl-en">complex</span>(<span class="pl-c1">*</span><span class="pl-s1">struct</span>.<span class="pl-en">unpack</span>(<span class="pl-s">"ff"</span>, <span class="pl-s1">ext</span>.<span class="pl-s1">data</span>)),
+...   <span class="pl-c1">0x40</span>: <span class="pl-k">lambda</span> <span class="pl-s1">ext</span>:
+...     <span class="pl-s1">decimal</span>.<span class="pl-v">Decimal</span>(<span class="pl-s1">ext</span>.<span class="pl-s1">data</span>.<span class="pl-en">decode</span>()),
+... })
+[(<span class="pl-c1">1</span><span class="pl-c1">+</span><span class="pl-c1">2j</span>), <span class="pl-v">Decimal</span>(<span class="pl-s">'0.31'</span>)]
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> </pre></div>
+<p dir="auto">Python standard library style names <code>dump</code>, <code>dumps</code>, <code>load</code>, <code>loads</code> are also
+available:</p>
+<div class="highlight highlight-source-python notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="&gt;&gt;&gt; umsgpack.dumps({u&quot;compact&quot;: True, u&quot;schema&quot;: 0})
+b'\x82\xa7compact\xc3\xa6schema\x00'
+&gt;&gt;&gt; umsgpack.loads(_)
+{u'compact': True, u'schema': 0}
+&gt;&gt;&gt; 
+&gt;&gt;&gt; f = open('test.bin', 'wb')
+&gt;&gt;&gt; umsgpack.dump({u&quot;compact&quot;: True, u&quot;schema&quot;: 0}, f)
+&gt;&gt;&gt; f.close()
+&gt;&gt;&gt; 
+&gt;&gt;&gt; f = open('test.bin', 'rb')
+&gt;&gt;&gt; umsgpack.load(f)
+{u'compact': True, u'schema': 0}
+&gt;&gt;&gt; "><pre><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">dumps</span>({<span class="pl-s">u"compact"</span>: <span class="pl-c1">True</span>, <span class="pl-s">u"schema"</span>: <span class="pl-c1">0</span>})
+<span class="pl-s">b'<span class="pl-cce">\x82</span><span class="pl-cce">\xa7</span>compact<span class="pl-cce">\xc3</span><span class="pl-cce">\xa6</span>schema<span class="pl-cce">\x00</span>'</span>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">loads</span>(<span class="pl-s1">_</span>)
+{<span class="pl-s">u'compact'</span>: <span class="pl-c1">True</span>, <span class="pl-s">u'schema'</span>: <span class="pl-c1">0</span>}
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> 
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">f</span> <span class="pl-c1">=</span> <span class="pl-en">open</span>(<span class="pl-s">'test.bin'</span>, <span class="pl-s">'wb'</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">dump</span>({<span class="pl-s">u"compact"</span>: <span class="pl-c1">True</span>, <span class="pl-s">u"schema"</span>: <span class="pl-c1">0</span>}, <span class="pl-s1">f</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">f</span>.<span class="pl-en">close</span>()
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> 
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">f</span> <span class="pl-c1">=</span> <span class="pl-en">open</span>(<span class="pl-s">'test.bin'</span>, <span class="pl-s">'rb'</span>)
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">umsgpack</span>.<span class="pl-en">load</span>(<span class="pl-s1">f</span>)
+{<span class="pl-s">u'compact'</span>: <span class="pl-c1">True</span>, <span class="pl-s">u'schema'</span>: <span class="pl-c1">0</span>}
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> </pre></div>
+<h6 dir="auto">
+<a id="user-content-more-information" class="anchor" aria-hidden="true" href="#more-information"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>More Information</h6>
+<p dir="auto">See the <a href="https://github.com/vsergeev/u-msgpack-python">project page</a> for more information on options, exceptions, behavior, and testing.</p>
+<h6 dir="auto">
+<a id="user-content-license" class="anchor" aria-hidden="true" href="#license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>License</h6>
+<p dir="auto">u-msgpack-python is MIT licensed. See the included <code>LICENSE</code> file for more details.</p>
 </article>
   </div>
         </div>
@@ -19178,6 +19381,103 @@ data == msgPack                    // true'><pre><span class="pl-k">import</span
   </div>
         </div>
         
+        <div id="qs-tkob-mlmsgpack" class="qs"><h4><a href="https://github.com/tkob/mlmsgpack" target="_blank">tkob/mlmsgpack <span class="qs-url">https://github.com/tkob/mlmsgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-ml-messagepack" class="anchor" aria-hidden="true" href="#ml-messagepack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ML-MessagePack</h5>
+<p dir="auto">MessagePack implementation for Standard ML (SML)</p>
+<h6 dir="auto">
+<a id="user-content-features" class="anchor" aria-hidden="true" href="#features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Features</h6>
+<ul dir="auto">
+<li>Portable: Depends only on the required components of the SML Basis Library specification.</li>
+<li>Composable: Composable combinators for encoding and decoding.</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<h8 dir="auto">
+<a id="user-content-mlton-and-mlkit" class="anchor" aria-hidden="true" href="#mlton-and-mlkit"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MLton and MLKit</h8>
+<p dir="auto">Include mlmsgpack.mlb in your MLB file.</p>
+<h8 dir="auto">
+<a id="user-content-polyml" class="anchor" aria-hidden="true" href="#polyml"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Poly/ML</h8>
+<p dir="auto">From the interactive shell, use .sml files in the following order.</p>
+<ul dir="auto">
+<li>mlmsgpack-aux.sml</li>
+<li>realprinter-default.sml</li>
+<li>mlmsgpack.sml</li>
+</ul>
+<h8 dir="auto">
+<a id="user-content-smlnj" class="anchor" aria-hidden="true" href="#smlnj"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SML/NJ</h8>
+<p dir="auto">Use mlmsgpack.cm.</p>
+<h8 dir="auto">
+<a id="user-content-moscow-ml" class="anchor" aria-hidden="true" href="#moscow-ml"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Moscow ML</h8>
+<p dir="auto">From the interactive shell, use .sml files in the following order.</p>
+<ul dir="auto">
+<li>large.sml</li>
+<li>mlmsgpack-aux.sml</li>
+<li>realprinter-fail.sml</li>
+<li>mlmsgpack.sml</li>
+</ul>
+<p dir="auto">Makefile.mosml is also provided.</p>
+<h8 dir="auto">
+<a id="user-content-hamlet" class="anchor" aria-hidden="true" href="#hamlet"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>HaMLet</h8>
+<p dir="auto">From the interactive shell, use .sml files in the following order.</p>
+<ul dir="auto">
+<li>mlmsgpack-aux.sml</li>
+<li>realprinter-fail.sml</li>
+<li>mlmsgpack.sml</li>
+</ul>
+<h8 dir="auto">
+<a id="user-content-alice-ml" class="anchor" aria-hidden="true" href="#alice-ml"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Alice ML</h8>
+<p dir="auto">Makefile.alice is provided.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="make -f Makefile.alice
+alicerun mlmsgpack-test"><pre class="notranslate"><code>make -f Makefile.alice
+alicerun mlmsgpack-test
+</code></pre></div>
+<h8 dir="auto">
+<a id="user-content-sml" class="anchor" aria-hidden="true" href="#sml"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SML#</h8>
+<p dir="auto">For separate compilation, .smi files are provided. Require mlmsgpack.smi from your .smi file.</p>
+<p dir="auto">From the interactive shell, use .sml files in the following order.</p>
+<ul dir="auto">
+<li>mlmsgpack-aux.sml</li>
+<li>realprinter-default.sml</li>
+<li>mlmsgpack.sml</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-tutorial" class="anchor" aria-hidden="true" href="#tutorial"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Tutorial</h6>
+<p dir="auto">See TUTORIAL.md.</p>
+<h6 dir="auto">
+<a id="user-content-known-problems" class="anchor" aria-hidden="true" href="#known-problems"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Known Problems</h6>
+<p dir="auto">Our recommendation is MLton, MLKit, Poly/ML and SML#(&gt;=2.0.0) as all tests passed on them.
+SML/NJ and Moscow ML are fine if you don't use real values.</p>
+<h8 dir="auto">
+<a id="user-content-smlnj-1" class="anchor" aria-hidden="true" href="#smlnj-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SML/NJ</h8>
+<p dir="auto">Packing real values fail or produces imprecise results in some cases.</p>
+<h8 dir="auto">
+<a id="user-content-moscow-ml-1" class="anchor" aria-hidden="true" href="#moscow-ml-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Moscow ML</h8>
+<p dir="auto">Packing real values is not supported, since some components of the SML Basis Library are not provided.</p>
+<h8 dir="auto">
+<a id="user-content-hamlet-1" class="anchor" aria-hidden="true" href="#hamlet-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>HaMLet</h8>
+<p dir="auto">Packing real values is not supported, since some components of the SML Basis Library are not provided.
+Some functions are very slow, although they work properly. (We tested HaMLet compiled with MLton.)</p>
+<h8 dir="auto">
+<a id="user-content-alice-ml-1" class="anchor" aria-hidden="true" href="#alice-ml-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Alice ML</h8>
+<p dir="auto">Packing real values is not supported, since some components of the SML Basis Library are not provided.
+Also, some unit tests fail.</p>
+<h8 dir="auto">
+<a id="user-content-sml-1" class="anchor" aria-hidden="true" href="#sml-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SML#</h8>
+<p dir="auto">Most functions do not work properly because of bugs of SML# prior to version 2.0.0.</p>
+<h6 dir="auto">
+<a id="user-content-see-also" class="anchor" aria-hidden="true" href="#see-also"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>See Also</h6>
+<p dir="auto">There already exists another MessagePack implemenatation for SML,
+called MsgPack-SML, which is targeted for MLton.</p>
+<p dir="auto"><a href="https://msgpacksml.codeplex.com/" rel="nofollow">https://msgpacksml.codeplex.com/</a></p>
+<p dir="auto">ML-MessagePack is written from scratch and not a fork of MsgPack-SML.</p>
+<p dir="auto">For information on MessagePack, see:</p>
+<p dir="auto"><a href="http://msgpack.org/" rel="nofollow">http://msgpack.org/</a></p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-msgpack-msgpack-scala" class="qs"><h4><a href="https://github.com/msgpack/msgpack-scala" target="_blank">msgpack/msgpack-scala <span class="qs-url">https://github.com/msgpack/msgpack-scala</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -20153,6 +20453,27 @@ print("decoded manually: \(string), \(int), \(double)")'><pre><span class="pl-k"
   </div>
         </div>
         
+        <div id="qs-cherrywoods-swift-msgpack-serialization" class="qs"><h4><a href="https://github.com/cherrywoods/swift-msgpack-serialization" target="_blank">cherrywoods/swift-msgpack-serialization <span class="qs-url">https://github.com/cherrywoods/swift-msgpack-serialization</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-swift-msgpack-serialization" class="anchor" aria-hidden="true" href="#swift-msgpack-serialization"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>swift-msgpack-serialization</h5>
+<p dir="auto"><a href="https://github.com/Carthage/Carthage"><img src="https://camo.githubusercontent.com/c8961b92aa4c1cece705532f044860ab81846426578305a5e8d83c0f357de8c2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f43617274686167652d636f6d70617469626c652d3442433531442e7376673f7374796c653d666c6174" alt="Carthage compatible" data-canonical-src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" style="max-width: 100%;"></a></p>
+<p dir="auto">Another swift serialization library for msgpack with support for the Codable environement.</p>
+<p dir="auto">This framework is designed to be (optionaly) compatibel to the msgpack-java library.
+See <a href="https://github.com/cherrywoods/swift-msgpack-serialization/blob/master/Compatibility.md">Compatibility.md</a> for more detailed information about this.</p>
+<p dir="auto">Please make sure, that the swift model classes and java model classes you use are compatibel to each other, e.g. enums are named equaly (including case).</p>
+<p dir="auto">This framework also supplies the possibiliy to encode keys of other types than String (generalContainer function of MsgpackEncoder).</p>
+<p dir="auto">swift-msgpack-serialization works with <a href="https://github.com/a2/MessagePack.swift">MessagePack.swift</a>. This means, that you can encode your classes, structs and enums, that conform to Codable to MessagePackValue from MessagePack.swift, do something with this MessagePackValue and then encode it to msgpack using MessagePack.swift. You may of course also decode to MessagePackValue first and then decode a particular MessagePackValue to your own type.</p>
+<h6 dir="auto">
+<a id="user-content-instalation" class="anchor" aria-hidden="true" href="#instalation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Instalation</h6>
+<p dir="auto">Currently, only carthage is supported.</p>
+<h6 dir="auto">
+<a id="user-content-compatibilty-restrictions" class="anchor" aria-hidden="true" href="#compatibilty-restrictions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compatibilty restrictions</h6>
+<p dir="auto">Make sure you never call .encode(to:) directly! Instead use the encode method on a keyed, unkeyed or singleValue container or cast the encoder passed to you to MsgpackEncoder and call encodeIntermediate(_) on this encoder. If you do not use this, this framework won't be able to do it's work properly.</p>
+</article>
+  </div>
+        </div>
+        
         <div id="qs-samclaus-msgpack-ts" class="qs"><h4><a href="https://msgpack.org/" target="_blank">samclaus/msgpack-ts <span class="qs-url">https://msgpack.org/</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -20956,23 +21277,6 @@ The data corresponds to <code>{"compact":true,"schema":0}</code> in JSON.</p>
 <h6 dir="auto">
 <a id="user-content-contributing" class="anchor" aria-hidden="true" href="#contributing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributing</h6>
 <p dir="auto">Bug reports and pull requests are welcome on GitHub at [<a href="https://github.com/tagomoris/msgpack-inspect">https://github.com/tagomoris/msgpack-inspect</a>].</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-msgpack4z-msgpack4z-argonaut" class="qs"><h4><a href="https://msgpack4z.github.io/graph.svg" target="_blank">msgpack4z/msgpack4z-argonaut <span class="qs-url">https://msgpack4z.github.io/graph.svg</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack4z-argonaut" class="anchor" aria-hidden="true" href="#msgpack4z-argonaut"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>msgpack4z-argonaut</h5>
-<p dir="auto"><a href="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-argonaut_2.12" rel="nofollow"><img src="https://camo.githubusercontent.com/43f391f831e6dbcbe6c9a11f9cbbf7e2e72e58a53f7ee0b17e42fcabc66255a1/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d6172676f6e6175745f322e31322f62616467652e737667" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.github.xuwei-k/msgpack4z-argonaut_2.12/badge.svg" style="max-width: 100%;"></a>
-<a href="https://javadoc.io/doc/com.github.xuwei-k/msgpack4z-argonaut_3/latest/api/msgpack4z.html" rel="nofollow"><img src="https://camo.githubusercontent.com/42e56ac36d1af5c89de6182fd951fe504b0c91c974fda7394cfe0412a1cfdc32/68747470733a2f2f6a617661646f632e696f2f6261646765322f636f6d2e6769746875622e78757765692d6b2f6d73677061636b347a2d6172676f6e6175745f332f6a617661646f632e737667" alt="scaladoc" data-canonical-src="https://javadoc.io/badge2/com.github.xuwei-k/msgpack4z-argonaut_3/javadoc.svg" style="max-width: 100%;"></a></p>
-<ul dir="auto">
-<li><a href="https://msgpack.org/" rel="nofollow">https://msgpack.org/</a></li>
-<li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">https://github.com/msgpack/msgpack/blob/master/spec.md</a></li>
-</ul>
-<h7 dir="auto">
-<a id="user-content-latest-stable-version" class="anchor" aria-hidden="true" href="#latest-stable-version"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>latest stable version</h7>
-<div class="highlight highlight-source-scala notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='libraryDependencies += "com.github.xuwei-k" %% "msgpack4z-argonaut" % "0.8.0"'><pre>libraryDependencies <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>com.github.xuwei-k<span class="pl-pds">"</span></span> <span class="pl-k">%%</span> <span class="pl-s"><span class="pl-pds">"</span>msgpack4z-argonaut<span class="pl-pds">"</span></span> <span class="pl-k">%</span> <span class="pl-s"><span class="pl-pds">"</span>0.8.0<span class="pl-pds">"</span></span></pre></div>
 </article>
   </div>
         </div>
