@@ -191,6 +191,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-clwi-CWPack',this)">C / Objective-C / Swift <span class="qs-sub">clwi</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-cli',this)">C# <span class="qs-sub">msgpack</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-ymofen-SimpleMsgPack-Net',this)">C# <span class="qs-sub">ymofen</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-caesay-MPack',this)">C# <span class="qs-sub">caesay</span></a></li>
@@ -238,6 +240,8 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-pocketberserker-MessagePack-FSharpExtensions',this)">F# <span class="qs-sub">pocketberserker</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-xtpor-godot-msgpack',this)">GDScript <span class="qs-sub">xtpor</span></a></li>
+          
+          <li><a class="qs-a" onclick="changeQuickStart('qs-vmihailenco-msgpack',this)">Go <span class="qs-sub">vmihailenco</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-ugorji-go',this)">Go <span class="qs-sub">ugorji</span></a></li>
           
@@ -288,8 +292,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-mcollina-msgpack5',this)">Node <span class="qs-sub">mcollina</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-sschizas-msgpack-response',this)">Node <span class="qs-sub">sschizas</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-ocaml',this)">OCaml <span class="qs-sub">msgpack</span></a></li>
           
@@ -350,8 +352,6 @@
           <li><a class="qs-a" onclick="changeQuickStart('qs-jakm-msgpack-cli',this)">Shell <span class="qs-sub">jakm</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-smalltalk',this)">Smalltalk <span class="qs-sub">msgpack</span></a></li>
-          
-          <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-briandw-SwiftPack',this)">Swift <span class="qs-sub">briandw</span></a></li>
           
@@ -2584,6 +2584,250 @@ let data = packer.data
 
 	```
 </code></pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-msgpack-msgpack-cli" class="qs"><h4><a href="https://github.com/msgpack/msgpack-cli" target="_blank">msgpack/msgpack-cli <span class="qs-url">https://github.com/msgpack/msgpack-cli</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-for-cli" class="anchor" aria-hidden="true" href="#messagepack-for-cli"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack for CLI</h5>
+<h6 dir="auto">
+<a id="user-content-ci-status" class="anchor" aria-hidden="true" href="#ci-status"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>CI Status</h6>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Configuration</strong></th>
+<th align="left"><strong>Status</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Release</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-x2p85" rel="nofollow"><img src="https://camo.githubusercontent.com/c094c78f781d275e66e4bcf1b3a5b4461311e50af6ca64a5a5b50570f209238a/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f356c6e3775376566776a65706a366f383f7376673d74727565" alt="Build status release" data-canonical-src="https://ci.appveyor.com/api/projects/status/5ln7u7efwjepj6o8?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="left">Debug (.NET Core 2.0)</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli" rel="nofollow"><img src="https://camo.githubusercontent.com/ac845f5c56a1effcf270487b700d75bc995170666470ebc1c6060dd715fe5592/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f646c6330763472726f6c776a307432743f7376673d74727565" alt="Build status debug (.NET Core 2.0)" data-canonical-src="https://ci.appveyor.com/api/projects/status/dlc0v4rrolwj0t2t?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="left">Debug (.NET Core 2.0)</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-g3guk" rel="nofollow"><img src="https://camo.githubusercontent.com/b02194b48999915ae0ef1d033f90fa1c2a447d5579be2e869a3ceb7398c038e2/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f6176757266353139616c6c39327635753f7376673d74727565" alt="Build status debug (.NET Core 1.0)" data-canonical-src="https://ci.appveyor.com/api/projects/status/avurf519all92v5u?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="left">Debug (.NET Framework 4.x)</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-nuf62" rel="nofollow"><img src="https://camo.githubusercontent.com/d83df61fdffa740eccba9ee80fc9152a32ccc670583d94d36f4e45eeeb3eb0f0/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f6e703637323371327569716f667231613f7376673d74727565" alt="Build status debug (.NET Framework 4.x)" data-canonical-src="https://ci.appveyor.com/api/projects/status/np6723q2uiqofr1a?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="left">Debug (Code DOM)]</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-rhnh0" rel="nofollow"><img src="https://camo.githubusercontent.com/084355257ef0e748954540e86ee0eef5949d4f65aa8da2015ff4e9f04a7af999/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f316d773738776b787835306a766162313f7376673d74727565" alt="Build status debug (Code DOM)" data-canonical-src="https://ci.appveyor.com/api/projects/status/1mw78wkxx50jvab1?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="left">Debug (miscs)]</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-bo856" rel="nofollow"><img src="https://camo.githubusercontent.com/4124c4e43b458aba2260d3b6b6f07aff6b9d7c64e13e47de4ac4ee355f4eb705/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f61767566633531797532636d366964773f7376673d74727565" alt="Build status debug (miscs)" data-canonical-src="https://ci.appveyor.com/api/projects/status/avufc51yu2cm6idw?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="left">Debug (.NET Framework 3.5)</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-3jme9" rel="nofollow"><img src="https://camo.githubusercontent.com/6bb8bdcb4d9994172b1505cbb39f31dfc64a86f127ddaca42d20db13ba51a870/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f636a703870686c6e62776a37676b6a393f7376673d74727565" alt="Build status debug (.NET Framework 3.5)" data-canonical-src="https://ci.appveyor.com/api/projects/status/cjp8phlnbwj7gkj9?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+<tr>
+<td align="left">Debug (.NET Framework 3.5 Code DOM)</td>
+<td align="left"><a href="https://ci.appveyor.com/project/yfakariya/msgpack-cli-rhnh0" rel="nofollow"><img src="https://camo.githubusercontent.com/084355257ef0e748954540e86ee0eef5949d4f65aa8da2015ff4e9f04a7af999/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f316d773738776b787835306a766162313f7376673d74727565" alt="Build status debug (.NET Framework 3.5 Code DOM)" data-canonical-src="https://ci.appveyor.com/api/projects/status/1mw78wkxx50jvab1?svg=true" style="max-width: 100%;"></a></td>
+</tr>
+</tbody>
+</table>
+<h6 dir="auto">
+<a id="user-content-what-is-it" class="anchor" aria-hidden="true" href="#what-is-it"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>What is it?</h6>
+<p dir="auto">This is MessagePack serialization/deserialization for CLI (Common Language Infrastructure) implementations such as .NET Framework, Silverlight, Mono (including Moonlight.)
+This library can be used from ALL CLS compliant languages such as C#, F#, Visual Basic, Iron Python, Iron Ruby, PowerShell, C++/CLI or so.</p>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<p dir="auto">You can serialize/deserialize objects as following:</p>
+<ol dir="auto">
+<li>Create serializer via <code>MessagePackSerializer.Get</code> generic method. This method creates dependent types serializers as well.</li>
+<li>Invoke serializer as following:</li>
+</ol>
+<ul dir="auto">
+<li>
+<code>Pack</code> method with destination <code>Stream</code> and target object for serialization.</li>
+<li>
+<code>Unpack</code> method with source <code>Stream</code>.</li>
+</ul>
+<div class="highlight highlight-source-cs notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="// Creates serializer.
+var serializer = MessagePackSerializer.Get&lt;T&gt;();
+// Pack obj to stream.
+serializer.Pack(stream, obj);
+// Unpack from stream.
+var unpackedObject = serializer.Unpack(stream);"><pre><span class="pl-c"><span class="pl-c">//</span> Creates serializer.</span>
+<span class="pl-k">var</span> <span class="pl-en">serializer</span> <span class="pl-k">=</span> <span class="pl-smi">MessagePackSerializer</span>.<span class="pl-en">Get</span>&lt;<span class="pl-en">T</span>&gt;();
+<span class="pl-c"><span class="pl-c">//</span> Pack obj to stream.</span>
+<span class="pl-smi">serializer</span>.<span class="pl-en">Pack</span>(<span class="pl-smi">stream</span>, <span class="pl-smi">obj</span>);
+<span class="pl-c"><span class="pl-c">//</span> Unpack from stream.</span>
+<span class="pl-k">var</span> <span class="pl-en">unpackedObject</span> <span class="pl-k">=</span> <span class="pl-smi">serializer</span>.<span class="pl-en">Unpack</span>(<span class="pl-smi">stream</span>);</pre></div>
+<div class="highlight highlight-source-vbnet notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="' Creates serializer.
+Dim serializer = MessagePackSerializer.Get(Of T)()
+' Pack obj to stream.
+serializer.Pack(stream, obj)
+' Unpack from stream.
+Dim unpackedObject = serializer.Unpack(stream)"><pre><span class="pl-c">' Creates serializer.</span>
+<span class="pl-k">Dim</span> <span class="pl-smi">serializer</span> <span class="pl-smi">=</span> <span class="pl-smi">MessagePackSerializer.Get(</span><span class="pl-k">Of</span> <span class="pl-smi">T)()</span>
+<span class="pl-c">' Pack obj to stream.</span>
+<span class="pl-smi">serializer.Pack(stream,</span> <span class="pl-smi">obj)</span>
+<span class="pl-c">' Unpack from stream.</span>
+<span class="pl-k">Dim</span> <span class="pl-smi">unpackedObject</span> <span class="pl-smi">=</span> <span class="pl-smi">serializer.Unpack(stream)</span></pre></div>
+<p dir="auto"><strong>For production environment, you should instantiate own <code>SerializationContext</code> and manage its lifetime. It is good idea to treat it as singleton because <code>SerializationContext</code> is thread-safe.</strong></p>
+<h6 dir="auto">
+<a id="user-content-features" class="anchor" aria-hidden="true" href="#features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Features</h6>
+<ul dir="auto">
+<li>Fast and interoperable binary format serialization with simple API.</li>
+<li>Generating pre-compiled assembly for rapid start up.</li>
+<li>Flexible MessagePackObject which represents MessagePack type system naturally.</li>
+</ul>
+<p dir="auto"><strong>Note: AOT support is limited yet. Use <a href="https://github.com/msgpack/msgpack-cli/wiki/Xamarin-and-Unity">serializer pre-generation</a> with <code>mpu -s</code> utility or API.</strong><br>
+If you do not pre-generated serializers, MsgPack for CLI uses reflection in AOT environments, it is slower and it sometimes causes AOT related error (<code>ExecutionEngineException</code> for runtime JIT compilation). <strong>You also have to call <code>MessagePackSerializer.PrepareType&lt;T&gt;</code> and companions in advance to avoid AOT related error.</strong> See <a href="https://github.com/msgpack/msgpack-cli/wiki/Xamarin-and-Unity">wiki</a> for details.</p>
+<h6 dir="auto">
+<a id="user-content-documentation" class="anchor" aria-hidden="true" href="#documentation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Documentation</h6>
+<p dir="auto">See <a href="https://github.com/msgpack/msgpack-cli/wiki">wiki</a></p>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<ul dir="auto">
+<li>Binary files distributed via the NuGet package <a href="http://www.nuget.org/packages/MsgPack.Cli/" rel="nofollow">MsgPack.Cli</a>.</li>
+<li>You can extract binary (DLL) file as following:
+<ol dir="auto">
+<li>Download *.zip file from <a href="https://github.com/msgpack/msgpack-cli/releases/">GitHub Release page</a>.</li>
+<li>Extract it.</li>
+<li>Under the <code>bin</code> directory, binaries are there!</li>
+</ol>
+<ul dir="auto">
+<li>For mono, you can use <code>net461</code> or <code>net35</code> drops as you run with.</li>
+<li>For Unity, <code>unity3d</code> drop is suitable.</li>
+</ul>
+</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-how-to-build" class="anchor" aria-hidden="true" href="#how-to-build"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to build</h6>
+<h7 dir="auto">
+<a id="user-content-for-net-framework" class="anchor" aria-hidden="true" href="#for-net-framework"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For .NET Framework</h7>
+<ol dir="auto">
+<li>
+<p dir="auto">Install Visual Studio 2017 (Community edition is OK) and 2015 (for MsgPack.Windows.sln).</p>
+<ul dir="auto">
+<li>You must install .NET Framework 3.5, 4.x, .NET Core, and Xamarin dev tools to build all builds successfully.
+If you do not want to install options, edit <code>&lt;TargetFrameworks&gt;</code> element in <code>*.csproj</code> files to exclude platforms you want to exclude.</li>
+</ul>
+</li>
+<li>
+<p dir="auto">Install latest .NET Core SDK.</p>
+</li>
+<li>
+<p dir="auto">Run with Visual Studio Developer Command Prompt:</p>
+<p dir="auto">msbuild MsgPack.sln /t:Restore
+msbuild MsgPack.sln</p>
+</li>
+</ol>
+<p dir="auto">Or (for Unity 3D drops):</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="msbuild MsgPack.compats.sln /t:Restore
+msbuild MsgPack.compats.sln"><pre class="notranslate"><code>msbuild MsgPack.compats.sln /t:Restore
+msbuild MsgPack.compats.sln
+</code></pre></div>
+<p dir="auto">Or (for Windows Runtime/Phone drops and Silverlight 5 drops):</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="msbuild MsgPack.Windows.sln /t:Restore
+msbuild MsgPack.Windows.sln"><pre class="notranslate"><code>msbuild MsgPack.Windows.sln /t:Restore
+msbuild MsgPack.Windows.sln
+</code></pre></div>
+<p dir="auto">Or (for Xamarin unit testing, you must have Xamarin Business or upper license and Mac machine on the LAN to build on Windows):</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="msbuild MsgPack.Xamarin.sln /t:Restore
+msbuild MsgPack.Xamarin.sln"><pre class="notranslate"><code>msbuild MsgPack.Xamarin.sln /t:Restore
+msbuild MsgPack.Xamarin.sln
+</code></pre></div>
+<p dir="auto">Or open one of above solution files in your IDE and run build command in it.</p>
+<h7 dir="auto">
+<a id="user-content-for-mono" class="anchor" aria-hidden="true" href="#for-mono"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>For Mono</h7>
+<ol dir="auto">
+<li>Install latest Mono and .NET Core SDK.</li>
+<li>Now, you can build MsgPack.sln and MsgPack.Xamarin.sln with above instructions and <code>msbuild</code> in latest Mono. Note that <code>xbuild</code> does not work because it does not support latest csproj format.</li>
+</ol>
+<h7 dir="auto">
+<a id="user-content-own-unity-3d-build" class="anchor" aria-hidden="true" href="#own-unity-3d-build"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Own Unity 3D Build</h7>
+<p dir="auto">First of all, there are binary drops on github release page, you should use it to save your time.<br>
+Because we will not guarantee source code organization compatibilities, we might add/remove non-public types or members, which should break source code build.<br>
+If you want to import sources, you must include just only described on MsgPack.Unity3D.csproj.<br>
+If you want to use ".NET 2.0 Subset" settings, you must use just only described on MsgPack.Unity3D.CorLibOnly.csproj file, and define <code>CORLIB_ONLY</code> compiler constants.</p>
+<h7 dir="auto">
+<a id="user-content-xamarin-android-testing" class="anchor" aria-hidden="true" href="#xamarin-android-testing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Xamarin Android testing</h7>
+<p dir="auto">If you run on Windows, it is recommended to use HXM instead of Hyper-V based emulator.<br>
+You can disable Hyper-V from priviledged (administrator) powershell as follows:</p>
+<div class="highlight highlight-source-powershell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor"><pre><span class="pl-c1">Disable-WindowsOptionalFeature</span> <span class="pl-k">-</span>Online <span class="pl-k">-</span>FeatureName Microsoft<span class="pl-k">-</span>Hyper<span class="pl-k">-</span>V<span class="pl-k">-</span>Hypervisor</pre></div>
+<p dir="auto">If you want to use Hyper-V again (such as for Docker for Windows etc.), you can do it by following in priviledged (administrator) powershell:</p>
+<div class="highlight highlight-source-powershell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor"><pre><span class="pl-c1">Enable-WindowsOptionalFeature</span> <span class="pl-k">-</span>Online <span class="pl-k">-</span>FeatureName Microsoft<span class="pl-k">-</span>Hyper<span class="pl-k">-</span>V<span class="pl-k">-</span>Hypervisor</pre></div>
+<h8 dir="auto">
+<a id="user-content-xamarin-android-trouble-shooting-tips" class="anchor" aria-hidden="true" href="#xamarin-android-trouble-shooting-tips"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Xamarin Android Trouble shooting tips</h8>
+<ul dir="auto">
+<li>
+<strong>Q:</strong> Javac shows compilation error.
+<ul dir="auto">
+<li>
+<strong>A:</strong> Rebuild the test project and try it run again.</li>
+</ul>
+</li>
+</ul>
+<h7 dir="auto">
+<a id="user-content-xamarin-ios-testing" class="anchor" aria-hidden="true" href="#xamarin-ios-testing"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Xamarin iOS testing</h7>
+<p dir="auto">You must create provisoning profiles in your MacOS devices.<br>
+See <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/free-provisioning/" rel="nofollow">Xamarin documents about provisining</a> for details.</p>
+<p dir="auto">There are bundle IDs of current iOS tests:</p>
+<ul dir="auto">
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-packer</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-unpacker</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-unpacking</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-timestamp</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-arrayserialization</code></li>
+<li><code>org.msgpack.msgpack-cli-xamarin-ios-test-mapserialization</code></li>
+</ul>
+<p dir="auto"><em>Note that some reflection based serializer tests failed with AOT related limitation.</em></p>
+<h8 dir="auto">
+<a id="user-content-xamarin-ios-trouble-shooting-tips" class="anchor" aria-hidden="true" href="#xamarin-ios-trouble-shooting-tips"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Xamarin iOS Trouble shooting tips</h8>
+<p dir="auto">See <a href="https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/troubleshooting/" rel="nofollow">Xamarin's official trouble shooting docs first.</a></p>
+<ul dir="auto">
+<li>
+<strong>Q:</strong> An error occurred while running unit test project.
+<ul dir="auto">
+<li>
+<strong>A:</strong> Rebuild the project and rerun it. Or, login your Mac again, ant retry it.</li>
+</ul>
+</li>
+<li>
+<strong>Q:</strong> It is hard to read English.
+<ul dir="auto">
+<li>
+<strong>A:</strong> You can read localized Xamarin docs with putting <code>{region}-{lang}</code> as the first component of URL path such as <code>https://developer.xamarin.com/ja-jp/guides/...</code>.</li>
+</ul>
+</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-maintenance" class="anchor" aria-hidden="true" href="#maintenance"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Maintenance</h6>
+<h7 dir="auto">
+<a id="user-content-msgpackwindowssln" class="anchor" aria-hidden="true" href="#msgpackwindowssln"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack.Windows.sln</h7>
+<p dir="auto">This solution contains Silverlight5 and (old) UWP project for backward compability. They are required Visual Studio 2015 to build and test.<br>
+You can download Visual Studio 2015 community edition from <a href="https://visualstudio.microsoft.com/vs/older-downloads/" rel="nofollow">here</a>.</p>
+<p dir="auto"><strong>You do not have to install Visual Studio 2015 as long as you don't edit/test/build Silverlight and/or old UWP project.</strong></p>
+<h6 dir="auto">
+<a id="user-content-see-also" class="anchor" aria-hidden="true" href="#see-also"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>See also</h6>
+<ul dir="auto">
+<li>GitHub Page           : <a href="http://cli.msgpack.org/" rel="nofollow">http://cli.msgpack.org/</a>
+</li>
+<li>Wiki (documentation)  : <a href="https://github.com/msgpack/msgpack-cli/wiki">https://github.com/msgpack/msgpack-cli/wiki</a>
+</li>
+<li>API Reference         : <a href="http://cli.msgpack.org/doc/top.html" rel="nofollow">http://cli.msgpack.org/doc/top.html</a>
+</li>
+<li>Issue tracker         : <a href="https://github.com/msgpack/msgpack-cli/issues">https://github.com/msgpack/msgpack-cli/issues</a>
+</li>
+<li>MSBuild reference     : <a href="http://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx" rel="nofollow">http://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx</a>
+</li>
+<li>Mono xbuild reference : <a href="http://www.mono-project.com/Microsoft.Build" rel="nofollow">http://www.mono-project.com/Microsoft.Build</a>
+</li>
+</ul>
 </article>
   </div>
         </div>
@@ -7636,6 +7880,120 @@ dictionary. No support for other data type like Vector2 and Vector3</li>
 <a id="user-content-testcases" class="anchor" aria-hidden="true" href="#testcases"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Testcases</h5>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="godot -s run_test.gd"><pre class="notranslate"><code>godot -s run_test.gd
 </code></pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-vmihailenco-msgpack" class="qs"><h4><a href="https://msgpack.uptrace.dev/" target="_blank">vmihailenco/msgpack <span class="qs-url">https://msgpack.uptrace.dev/</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-messagepack-encoding-for-golang" class="anchor" aria-hidden="true" href="#messagepack-encoding-for-golang"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MessagePack encoding for Golang</h5>
+<p dir="auto"><a href="https://travis-ci.org/vmihailenco/msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/61bdb4c546130de8b74eddff7de0d6cf11a309c5c022937fd7735c36ac6547e1/68747470733a2f2f7472617669732d63692e6f72672f766d696861696c656e636f2f6d73677061636b2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/vmihailenco/msgpack.svg" style="max-width: 100%;"></a>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5" rel="nofollow"><img src="https://camo.githubusercontent.com/cffc384b58a566df38d9a72cd4c2bcf31a0f7f6c25e8b8b69ebfc5064314bebe/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f766d696861696c656e636f2f6d73677061636b2f7635" alt="PkgGoDev" data-canonical-src="https://pkg.go.dev/badge/github.com/vmihailenco/msgpack/v5" style="max-width: 100%;"></a>
+<a href="https://msgpack.uptrace.dev/" rel="nofollow"><img src="https://camo.githubusercontent.com/69e8fd1ebf3fdaf0158bdb0d1b6cb30212c1e950e117a0b9d19684ead491d421/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6d73677061636b2d646f63756d656e746174696f6e2d696e666f726d6174696f6e616c" alt="Documentation" data-canonical-src="https://img.shields.io/badge/msgpack-documentation-informational" style="max-width: 100%;"></a>
+<a href="https://discord.gg/rWtp5Aj" rel="nofollow"><img src="https://camo.githubusercontent.com/a19403897efd43047f062aba945f6fde175ed63a420b0a94e8d12809ba56f74f/68747470733a2f2f646973636f72646170702e636f6d2f6170692f6775696c64732f3735323037303130353834373935353531382f7769646765742e706e67" alt="Chat" data-canonical-src="https://discordapp.com/api/guilds/752070105847955518/widget.png" style="max-width: 100%;"></a></p>
+<blockquote>
+<p dir="auto">msgpack is brought to you by <g-emoji class="g-emoji" alias="star" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png">⭐</g-emoji> <a href="https://github.com/uptrace/uptrace"><strong>uptrace/uptrace</strong></a>.
+Uptrace is an open source and blazingly fast
+<a href="https://get.uptrace.dev/compare/distributed-tracing-tools.html" rel="nofollow">distributed tracing tool</a> powered
+by OpenTelemetry and ClickHouse. Give it a star as well!</p>
+</blockquote>
+<h6 dir="auto">
+<a id="user-content-resources" class="anchor" aria-hidden="true" href="#resources"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Resources</h6>
+<ul dir="auto">
+<li><a href="https://msgpack.uptrace.dev" rel="nofollow">Documentation</a></li>
+<li><a href="https://discord.gg/rWtp5Aj" rel="nofollow">Chat</a></li>
+<li><a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5" rel="nofollow">Reference</a></li>
+<li><a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#pkg-examples" rel="nofollow">Examples</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-features" class="anchor" aria-hidden="true" href="#features"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Features</h6>
+<ul dir="auto">
+<li>Primitives, arrays, maps, structs, time.Time and interface{}.</li>
+<li>Appengine *datastore.Key and datastore.Cursor.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#CustomEncoder" rel="nofollow">CustomEncoder</a>/<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#CustomDecoder" rel="nofollow">CustomDecoder</a> interfaces for custom encoding.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-RegisterExt" rel="nofollow">Extensions</a> to encode
+type information.</li>
+<li>Renaming fields via <code>msgpack:"my_field_name"</code> and alias via <code>msgpack:"alias:another_name"</code>.</li>
+<li>Omitting individual empty fields via <code>msgpack:",omitempty"</code> tag or all
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-Marshal-OmitEmpty" rel="nofollow">empty fields in a struct</a>.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Encoder.SetSortMapKeys" rel="nofollow">Map keys sorting</a>.</li>
+<li>Encoding/decoding all
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Encoder.UseArrayEncodedStructs" rel="nofollow">structs as arrays</a>
+or
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-Marshal-AsArray" rel="nofollow">individual structs</a>.</li>
+<li>
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Encoder.SetCustomStructTag" rel="nofollow">Encoder.SetCustomStructTag</a> with <a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#Decoder.SetCustomStructTag" rel="nofollow">Decoder.SetCustomStructTag</a> can turn msgpack into drop-in
+replacement for any tag.</li>
+<li>Simple but very fast and efficient
+<a href="https://pkg.go.dev/github.com/vmihailenco/msgpack/v5#example-Decoder.Query" rel="nofollow">queries</a>.</li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h6>
+<p dir="auto">msgpack supports 2 last Go versions and requires support for
+<a href="https://github.com/golang/go/wiki/Modules">Go modules</a>. So make sure to initialize a Go module:</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="go mod init github.com/my/repo"><pre>go mod init github.com/my/repo</pre></div>
+<p dir="auto">And then install msgpack/v5 (note <em>v5</em> in the import; omitting it is a popular mistake):</p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="go get github.com/vmihailenco/msgpack/v5"><pre>go get github.com/vmihailenco/msgpack/v5</pre></div>
+<h6 dir="auto">
+<a id="user-content-quickstart" class="anchor" aria-hidden="true" href="#quickstart"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Quickstart</h6>
+<div class="highlight highlight-source-go notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='import "github.com/vmihailenco/msgpack/v5"
+
+func ExampleMarshal() {
+    type Item struct {
+        Foo string
+    }
+
+    b, err := msgpack.Marshal(&amp;Item{Foo: "bar"})
+    if err != nil {
+        panic(err)
+    }
+
+    var item Item
+    err = msgpack.Unmarshal(b, &amp;item)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(item.Foo)
+    // Output: bar
+}'><pre><span class="pl-k">import</span> <span class="pl-s">"github.com/vmihailenco/msgpack/v5"</span>
+
+<span class="pl-k">func</span> <span class="pl-en">ExampleMarshal</span>() {
+    <span class="pl-k">type</span> <span class="pl-smi">Item</span> <span class="pl-k">struct</span> {
+        <span class="pl-c1">Foo</span> <span class="pl-smi">string</span>
+    }
+
+    <span class="pl-s1">b</span>, <span class="pl-s1">err</span> <span class="pl-c1">:=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Marshal</span>(<span class="pl-c1">&amp;</span><span class="pl-smi">Item</span>{<span class="pl-c1">Foo</span>: <span class="pl-s">"bar"</span>})
+    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
+        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
+    }
+
+    <span class="pl-k">var</span> <span class="pl-s1">item</span> <span class="pl-smi">Item</span>
+    <span class="pl-s1">err</span> <span class="pl-c1">=</span> <span class="pl-s1">msgpack</span>.<span class="pl-en">Unmarshal</span>(<span class="pl-s1">b</span>, <span class="pl-c1">&amp;</span><span class="pl-s1">item</span>)
+    <span class="pl-k">if</span> <span class="pl-s1">err</span> <span class="pl-c1">!=</span> <span class="pl-c1">nil</span> {
+        <span class="pl-en">panic</span>(<span class="pl-s1">err</span>)
+    }
+    <span class="pl-s1">fmt</span>.<span class="pl-en">Println</span>(<span class="pl-s1">item</span>.<span class="pl-c1">Foo</span>)
+    <span class="pl-c">// Output: bar</span>
+}</pre></div>
+<h6 dir="auto">
+<a id="user-content-see-also" class="anchor" aria-hidden="true" href="#see-also"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>See also</h6>
+<ul dir="auto">
+<li>
+<a href="https://github.com/uptrace/bun">Golang ORM</a> for PostgreSQL, MySQL, MSSQL, and SQLite</li>
+<li><a href="https://bun.uptrace.dev/postgres/" rel="nofollow">Golang PostgreSQL</a></li>
+<li><a href="https://github.com/uptrace/bunrouter">Golang HTTP router</a></li>
+<li><a href="https://github.com/uptrace/go-clickhouse">Golang ClickHouse ORM</a></li>
+</ul>
+<h6 dir="auto">
+<a id="user-content-contributors" class="anchor" aria-hidden="true" href="#contributors"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Contributors</h6>
+<p dir="auto">Thanks to all the people who already contributed!</p>
+<a href="https://github.com/vmihailenco/msgpack/graphs/contributors">
+  <img src="https://camo.githubusercontent.com/c307cf95af749d5f9336185081261f0a8b1d74a68831a1eb7b0652bf4485542a/68747470733a2f2f636f6e7472696275746f72732d696d672e7765622e6170702f696d6167653f7265706f3d766d696861696c656e636f2f6d73677061636b" data-canonical-src="https://contributors-img.web.app/image?repo=vmihailenco/msgpack" style="max-width: 100%;">
+</a>
 </article>
   </div>
         </div>
@@ -13577,87 +13935,6 @@ $ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre>
   </div>
         </div>
         
-        <div id="qs-msgpack-msgpack-ocaml" class="qs"><h4><a href="https://github.com/msgpack/msgpack-ocaml" target="_blank">msgpack/msgpack-ocaml <span class="qs-url">https://github.com/msgpack/msgpack-ocaml</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-msgpack-for-ocaml" class="anchor" aria-hidden="true" href="#msgpack-for-ocaml"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>MsgPack for OCaml</h5>
-<h6 dir="auto">
-<a id="user-content-bulid" class="anchor" aria-hidden="true" href="#bulid"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>BULID</h6>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="$ make
-$ sudo make install"><pre>$ make
-$ sudo make install</pre></div>
-<h6 dir="auto">
-<a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>EXAMPLE</h6>
-<h7 dir="auto">
-<a id="user-content-serializedeserialize-for-msgpack-object" class="anchor" aria-hidden="true" href="#serializedeserialize-for-msgpack-object"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize/Deserialize for Msgpack Object</h7>
-<div class="highlight highlight-source-ocaml notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="(* serialize *)
-let bytes = 
-  Msgpack.Serialize.serialize_string (`FixArray [`PFixnum 1; `PFixnum 2; `PFixnum 3])
-
-(* deserialize *)
-let obj =
-  Msgpack.Serialize.deserialize_string bytes"><pre><span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (<span class="pl-en">`FixArray</span> [<span class="pl-en">`PFixnum</span> <span class="pl-c1">1</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">2</span>; <span class="pl-en">`PFixnum</span> <span class="pl-c1">3</span>])
-
-<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  <span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes</pre></div>
-<h7 dir="auto">
-<a id="user-content-serializedeserialize-for-ocaml-types-with-meta_conv" class="anchor" aria-hidden="true" href="#serializedeserialize-for-ocaml-types-with-meta_conv"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Serialize/Deserialize for OCaml types (with meta_conv)</h7>
-<div class="highlight highlight-source-ocaml notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content='open Msgpack_conv
-
-type t = {
-  int : int;
-  str : string;
-} with conv(msgpack)
-
-(* serialize *)
-let bytes = 
-  Msgpack.Serialize.serialize_string (msgpack_of_t { int = 42; str = "ans" })
-
-(* deserialize *)
-let obj =
-  t_of_msgpack (Msgpack.Serialize.deserialize_string bytes)'><pre><span class="pl-k">open</span> <span class="pl-c1">Msgpack_conv</span>
-
-<span class="pl-k">type</span> <span class="pl-k">t </span>= {
-  <span class="pl-s1">int</span> : <span class="pl-k">int</span><span class="pl-k">;</span>
-  <span class="pl-s1">str</span> : <span class="pl-k">string</span><span class="pl-k">;</span>
-} <span class="pl-k">with</span> <span class="pl-k">conv</span>(<span class="pl-k">msgpack</span>)
-
-<span class="pl-c"><span class="pl-c">(*</span> serialize <span class="pl-c">*)</span></span>
-<span class="pl-k">let</span> bytes <span class="pl-k">=</span> 
-  <span class="pl-c1">Msgpack.Serialize.</span>serialize_string (msgpack_of_t { <span class="pl-k">int</span> <span class="pl-k">=</span> <span class="pl-c1">42</span>; str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ans<span class="pl-pds">"</span></span> })
-
-<span class="pl-c"><span class="pl-c">(*</span> deserialize <span class="pl-c">*)</span></span>
-<span class="pl-k">let</span> obj <span class="pl-k">=</span>
-  t_of_msgpack (<span class="pl-c1">Msgpack.Serialize.</span>deserialize_string bytes)</pre></div>
-<p dir="auto">See also, <code>examlpe/</code></p>
-<h6 dir="auto">
-<a id="user-content-development" class="anchor" aria-hidden="true" href="#development"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>DEVELOPMENT</h6>
-<p dir="auto">Setup development enviroment with docker:</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="$ docker-compose build
-$ docker-compose run app"><pre>$ docker-compose build
-$ docker-compose run app</pre></div>
-<h6 dir="auto">
-<a id="user-content-test" class="anchor" aria-hidden="true" href="#test"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>TEST</h6>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="$ ocaml setup.ml -configure --enable-tests
-$ make test"><pre>$ ocaml setup.ml -configure --enable-tests
-$ make <span class="pl-c1">test</span></pre></div>
-<h6 dir="auto">
-<a id="user-content-proof" class="anchor" aria-hidden="true" href="#proof"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>PROOF</h6>
-<p dir="auto">If you want to use msgpack at OCaml, you need not do this section.
-This section for user intrested in formal verification.</p>
-<p dir="auto">You need Coq 8.4 and omake.</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="$ cd proof
-$ make
-$ cp *.ml* ../lib/core"><pre>$ <span class="pl-c1">cd</span> proof
-$ make
-$ cp <span class="pl-k">*</span>.ml<span class="pl-k">*</span> ../lib/core</pre></div>
-</article>
-  </div>
-        </div>
-        
         <div id="qs-gabriel-MPMessagePack" class="qs"><h4><a href="https://github.com/gabriel/MPMessagePack" target="_blank">gabriel/MPMessagePack <span class="qs-url">https://github.com/gabriel/MPMessagePack</span></a></h4>
 <div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
     <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
@@ -19165,25 +19442,6 @@ decoder <span class="pl-k">:=</span> <span class="pl-c1">MpDecoder</span> <span 
   <span class="pl-c1">baseline:</span> <span class="pl-s"><span class="pl-pds">'</span>MessagePack<span class="pl-pds">'</span></span>;
   load.</pre></div>
 <p dir="auto">You might need <code>MpTypeMapper initializeAll </code> on new encoder/decoder-related updates.</p>
-</article>
-  </div>
-        </div>
-        
-        <div id="qs-briandw-SwiftPack" class="qs"><h4><a href="https://github.com/briandw/SwiftPack" target="_blank">briandw/SwiftPack <span class="qs-url">https://github.com/briandw/SwiftPack</span></a></h4>
-<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
-    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
-<a id="user-content-swiftpack" class="anchor" aria-hidden="true" href="#swiftpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>SwiftPack</h5>
-<p dir="auto">SwiftPack is MessagePack packer and unpacker written almost entirely in Swift.</p>
-<h5 dir="auto">
-<a id="user-content-issues" class="anchor" aria-hidden="true" href="#issues"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Issues</h5>
-<ul dir="auto">
-<li>There are few Objective-C dependencies, mostly NSData. I hope to remove these dependencies as Swift matures.</li>
-<li>Maps currently only support String types for keys.</li>
-</ul>
-<h5 dir="auto">
-<a id="user-content-copyright-and-license" class="anchor" aria-hidden="true" href="#copyright-and-license"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Copyright and License</h5>
-<p dir="auto">Copyright (c) 2014 Brian Williams</p>
-<p dir="auto">This software is licensed under the terms of the MIT license.</p>
 </article>
   </div>
         </div>
