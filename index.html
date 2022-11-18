@@ -244,6 +244,8 @@
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-aaulia-msgpack-haxe',this)">Haxe <span class="qs-sub">aaulia</span></a></li>
           
+          <li><a class="qs-a" onclick="changeQuickStart('qs-komamitsu-jackson-dataformat-msgpack',this)">Jackson-dataformat <span class="qs-sub">komamitsu</span></a></li>
+          
           <li><a class="qs-a" onclick="changeQuickStart('qs-msgpack-msgpack-java',this)">Java <span class="qs-sub">msgpack</span></a></li>
           
           <li><a class="qs-a" onclick="changeQuickStart('qs-kawanet-msgpack-lite',this)">JavaScript <span class="qs-sub">kawanet</span></a></li>
@@ -6523,6 +6525,99 @@ class Example {
         <span class="pl-k">trace</span>(<span class="pl-smi">o</span>);
     }
 }</pre></div>
+</article>
+  </div>
+        </div>
+        
+        <div id="qs-komamitsu-jackson-dataformat-msgpack" class="qs"><h4><a href="https://github.com/komamitsu/jackson-dataformat-msgpack" target="_blank">komamitsu/jackson-dataformat-msgpack <span class="qs-url">https://github.com/komamitsu/jackson-dataformat-msgpack</span></a></h4>
+<div id="readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6 gist-border-0">
+    <article class="markdown-body entry-content container-lg" itemprop="text"><h5 dir="auto">
+<a id="user-content-jackson-dataformat-msgpack" class="anchor" aria-hidden="true" href="#jackson-dataformat-msgpack"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>jackson-dataformat-msgpack</h5>
+<p dir="auto"><strong>This project is merged to msgpack-java!!</strong> Yay!</p>
+<p dir="auto"><strong>See <a href="https://github.com/msgpack/msgpack-java/blob/develop/msgpack-jackson/README.md">msgpack-java/msgpack-jackson</a> for the updated documents</strong></p>
+<h5 dir="auto">
+<a id="user-content-overview" class="anchor" aria-hidden="true" href="#overview"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Overview</h5>
+<p dir="auto"><a href="https://travis-ci.org/komamitsu/jackson-dataformat-msgpack" rel="nofollow"><img src="https://camo.githubusercontent.com/335163a8b8830e113358e195eba500085959cefd39677e0dcad8983a539703ab/68747470733a2f2f7472617669732d63692e6f72672f6b6f6d616d697473752f6a61636b736f6e2d64617461666f726d61742d6d73677061636b2e737667" alt="Build Status" data-canonical-src="https://travis-ci.org/komamitsu/jackson-dataformat-msgpack.svg" style="max-width: 100%;"></a></p>
+<p dir="auto">This Jackson extension library handles reading and writing of data encoded in <a href="http://msgpack.org/" rel="nofollow">MessagePack</a> data format.
+It extends standard Jackson streaming API (<code>JsonFactory</code>, <code>JsonParser</code>, <code>JsonGenerator</code>), and as such works seamlessly with all the higher level data abstractions (data binding, tree model, and pluggable extensions).</p>
+<h6 dir="auto">
+<a id="user-content-maven-dependency" class="anchor" aria-hidden="true" href="#maven-dependency"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Maven dependency</h6>
+<p dir="auto">To use this module on Maven-based projects, use following dependency:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;dependency&gt;
+  &lt;groupId&gt;org.komamitsu&lt;/groupId&gt;
+  &lt;artifactId&gt;jackson-dataformat-msgpack&lt;/artifactId&gt;
+  &lt;version&gt;0.0.3&lt;/version&gt;
+&lt;/dependency&gt;"><pre class="notranslate"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.komamitsu&lt;/groupId&gt;
+  &lt;artifactId&gt;jackson-dataformat-msgpack&lt;/artifactId&gt;
+  &lt;version&gt;0.0.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></div>
+<h6 dir="auto">
+<a id="user-content-usage" class="anchor" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h6>
+<p dir="auto">Only thing you need to do is to instantiate MessagePackFactory and pass it to the constructor of ObjectMapper.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='  ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
+  ExamplePojo orig = new ExamplePojo("komamitsu");
+  byte[] bytes = objectMapper.writeValueAsBytes(orig);
+  ExamplePojo value = objectMapper.readValue(bytes, ExamplePojo.class);
+  System.out.println(value.getName()); // =&gt; komamitsu'><pre class="notranslate"><code>  ObjectMapper objectMapper = new ObjectMapper(new MessagePackFactory());
+  ExamplePojo orig = new ExamplePojo("komamitsu");
+  byte[] bytes = objectMapper.writeValueAsBytes(orig);
+  ExamplePojo value = objectMapper.readValue(bytes, ExamplePojo.class);
+  System.out.println(value.getName()); // =&gt; komamitsu
+</code></pre></div>
+<p dir="auto">Also, you can exchange data among multiple languages.</p>
+<p dir="auto">Java</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='  // Serialize
+  Map&lt;String, Object&gt; obj = new HashMap&lt;String, Object&gt;();
+  obj.put("foo", "hello");
+  obj.put("bar", "world");
+  byte[] bs = objectMapper.writeValueAsBytes(obj);
+  // bs =&gt; [-126, -93, 102, 111, 111, -91, 104, 101, 108, 108, 111,
+  //        -93, 98, 97, 114, -91, 119, 111, 114, 108, 100]'><pre class="notranslate"><code>  // Serialize
+  Map&lt;String, Object&gt; obj = new HashMap&lt;String, Object&gt;();
+  obj.put("foo", "hello");
+  obj.put("bar", "world");
+  byte[] bs = objectMapper.writeValueAsBytes(obj);
+  // bs =&gt; [-126, -93, 102, 111, 111, -91, 104, 101, 108, 108, 111,
+  //        -93, 98, 97, 114, -91, 119, 111, 114, 108, 100]
+</code></pre></div>
+<p dir="auto">Ruby</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  require 'msgpack'
+
+  # Deserialize
+  xs = [-126, -93, 102, 111, 111, -91, 104, 101, 108, 108, 111,
+        -93, 98, 97, 114, -91, 119, 111, 114, 108, 100]
+  MessagePack.unpack(xs.pack(&quot;C*&quot;))
+  # =&gt; {&quot;foo&quot;=&gt;&quot;hello&quot;, &quot;bar&quot;=&gt;&quot;world&quot;}
+
+  # Serialize
+  [&quot;zero&quot;, 1, 2.0, nil].to_msgpack.unpack('C*')
+  # =&gt; [148, 164, 122, 101, 114, 111, 1, 203, 64, 0, 0, 0, 0, 0, 0, 0, 192]"><pre class="notranslate"><code>  require 'msgpack'
+
+  # Deserialize
+  xs = [-126, -93, 102, 111, 111, -91, 104, 101, 108, 108, 111,
+        -93, 98, 97, 114, -91, 119, 111, 114, 108, 100]
+  MessagePack.unpack(xs.pack("C*"))
+  # =&gt; {"foo"=&gt;"hello", "bar"=&gt;"world"}
+
+  # Serialize
+  ["zero", 1, 2.0, nil].to_msgpack.unpack('C*')
+  # =&gt; [148, 164, 122, 101, 114, 111, 1, 203, 64, 0, 0, 0, 0, 0, 0, 0, 192]
+</code></pre></div>
+<p dir="auto">Java</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="  // Deserialize
+  bs = new byte[] {(byte) 148, (byte) 164, 122, 101, 114, 111, 1,
+                   (byte) 203, 64, 0, 0, 0, 0, 0, 0, 0, (byte) 192};
+  TypeReference&lt;List&lt;Object&gt;&gt; typeReference = new TypeReference&lt;List&lt;Object&gt;&gt;(){};
+  List&lt;Object&gt; xs = objectMapper.readValue(bs, typeReference);
+  // xs =&gt; [zero, 1, 2.0, null]"><pre class="notranslate"><code>  // Deserialize
+  bs = new byte[] {(byte) 148, (byte) 164, 122, 101, 114, 111, 1,
+                   (byte) 203, 64, 0, 0, 0, 0, 0, 0, 0, (byte) 192};
+  TypeReference&lt;List&lt;Object&gt;&gt; typeReference = new TypeReference&lt;List&lt;Object&gt;&gt;(){};
+  List&lt;Object&gt; xs = objectMapper.readValue(bs, typeReference);
+  // xs =&gt; [zero, 1, 2.0, null]
+</code></pre></div>
 </article>
   </div>
         </div>
