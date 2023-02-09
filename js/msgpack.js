@@ -98,12 +98,12 @@ function encode(rv,      // @param ByteArray: result
                     // int
                     if (mix >= -32) { // negative fixnum
                         rv.push(0xe0 + mix + 32);
-                    } else if (mix > -0x80) {
+                    } else if (mix >= -0x80) {
                         rv.push(0xd0, mix + 0x100);
-                    } else if (mix > -0x8000) {
+                    } else if (mix >= -0x8000) {
                         mix += 0x10000;
                         rv.push(0xd1, mix >> 8, mix & 0xff);
-                    } else if (mix > -0x80000000) {
+                    } else if (mix >= -0x80000000) {
                         mix += 0x100000000;
                         rv.push(0xd2, mix >>> 24, (mix >> 16) & 0xff,
                                                   (mix >>  8) & 0xff, mix & 0xff);
